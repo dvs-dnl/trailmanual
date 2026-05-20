@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JK Wrangler Unlimited Engine Swap Decision Tool — 2007–2010</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0f12;
+    --bg-elev: #14171c;
+    --bg-elev-2: #1a1e25;
+    --line: #2a2f38;
+    --line-soft: #1f242c;
+    --ink: #e9ecef;
+    --ink-dim: #9aa3ad;
+    --ink-faint: #6a7079;
+    --rust: #c44b1f;
+    --amber: #f59f1c;
+    --signal: #5fb764;
+    --signal-dim: #2f5f33;
+    --warn: #f0b500;
+    --warn-dim: #5c4500;
+    --danger: #e23d3d;
+    --danger-dim: #5e2222;
+    --muted: #6a7079;
+    --display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --body: 'Inter Tight', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); }
+  body {
+    font-family: var(--body);
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 800px at 80% -10%, rgba(196,75,31,0.08), transparent 60%),
+      radial-gradient(900px 700px at -10% 110%, rgba(245,159,28,0.05), transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
+    line-height: 1.5;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* Noise texture overlay */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.035 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: .4;
+    z-index: 1;
+    mix-blend-mode: overlay;
+  }
+  .wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 28px clamp(16px, 3vw, 48px) 80px;
+  }
+  /* HEADER */
+  header.top {
+    border: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(20,23,28,0.9), rgba(13,15,18,0.9));
+    backdrop-filter: blur(8px);
+    padding: 18px 22px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+    font-family: var(--display);
+    letter-spacing: 0.05em;
+  }
+  .brand-mark {
+    width: 36px; height: 36px; flex: 0 0 36px;
+    background: var(--rust);
+    display: grid; place-items: center;
+    color: #fff; font-weight: 700;
+    font-family: var(--mono);
+    font-size: 14px;
+    border: 1px solid #e65d2b;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.6) inset;
+  }
+  .brand h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 28px);
+    letter-spacing: 0.06em;
+    line-height: 1;
+  }
+  .brand .sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .header-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-align: right;
+    letter-spacing: 0.04em;
+  }
+  .header-meta .row { display: flex; gap: 8px; justify-content: flex-end; align-items: center; margin-bottom: 4px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 2px 8px;
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--signal); box-shadow: 0 0 6px var(--signal); }
+  /* HERO */
+  .hero {
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    padding: clamp(20px, 3vw, 36px);
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; width: 4px;
+    background: var(--rust);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(20px, 3vw, 48px);
+  }
+  @media (max-width: 880px) { .hero-grid { grid-template-columns: 1fr; } }
+  .hero h2 {
+    font-family: var(--display);
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    font-weight: 400;
+    margin-bottom: 14px;
+  }
+  .hero h2 .accent { color: var(--rust); }
+  .hero p.lede {
+    font-size: 15px;
+    color: var(--ink-dim);
+    max-width: 60ch;
+    margin-bottom: 18px;
+  }
+  .hero-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+  .hero-spec {
+    border-top: 1px solid var(--line);
+    padding-top: 10px;
+  }
+  .hero-spec .label { color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .hero-spec .val { color: var(--ink); font-size: 14px; }
+  /* CONSTRAINTS PANEL */
+  .constraints {
+    border-left: 2px solid var(--amber);
+    padding: 6px 0 6px 18px;
+  }
+  .constraints h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    color: var(--amber);
+  }
+  .constraints ul { list-style: none; }
+  .constraints li {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-dim);
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line-soft);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .constraints li:last-child { border-bottom: 0; }
+  .constraints li::before {
+    content: attr(data-code);
+    color: var(--amber);
+    font-weight: 700;
+    font-size: 11px;
+  }
+  /* SECTION HEADERS */
+  .section-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: 16px;
+    margin: 36px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--rust);
+    letter-spacing: 0.1em;
+  }
+  .section-head h3 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(22px, 3vw, 32px);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .section-head .aside {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-align: right;
+  }
+  /* FILTER BAR */
+  .filters {
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    align-items: center;
+  }
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .filter-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .chip {
+    font-family: var(--mono);
+    font-size: 11px;
+    border: 1px solid var(--line);
+    background: var(--bg-elev-2);
+    color: var(--ink-dim);
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+    transition: all .15s ease;
+    letter-spacing: 0.04em;
+  }
+  .chip:hover { border-color: var(--rust); color: var(--ink); }
+  .chip.active {
+    background: var(--rust);
+    color: #fff;
+    border-color: var(--rust);
+  }
+  .chip.toggle.active { background: var(--signal); border-color: var(--signal); color: #0d0f12; }
+  /* CARD GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--bg-elev);
+    border: 1px solid var(--line);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .card:hover { border-color: #3a4047; }
+  .card.dimmed { opacity: 0.35; }
+  .card.dimmed:hover { border-color: var(--line); }
+  .card-head {
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .card-tier {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid currentColor;
+    margin-bottom: 8px;
+  }
+  .tier-baseline { color: var(--ink-dim); }
+  .tier-budget { color: var(--signal); }
+  .tier-mid { color: var(--amber); }
+  .tier-premium { color: var(--rust); }
+  .tier-turnkey { color: #b385ff; }
+  .card-name {
+    font-family: var(--display);
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+  .card-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+  }
+  .card-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .stat {
+    padding: 12px 18px;
+    border-right: 1px solid var(--line-soft);
+  }
+  .stat:nth-child(even) { border-right: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line-soft); }
+  .stat .label {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 3px;
+  }
+  .stat .val {
+    font-family: var(--display);
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .stat .val small {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0;
+    margin-left: 4px;
+  }
+  .card-body {
+    padding: 14px 18px;
+    flex: 1;
+  }
+  .status-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .status {
+    border: 1px solid var(--line);
+    padding: 8px 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .status .label {
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .status .verdict {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    font-size: 11px;
+  }
+  .status.good { border-left: 3px solid var(--signal); }
+  .status.good .verdict { color: var(--signal); }
+  .status.warn { border-left: 3px solid var(--warn); }
+  .status.warn .verdict { color: var(--warn); }
+  .status.bad  { border-left: 3px solid var(--danger); }
+  .status.bad  .verdict { color: var(--danger); }
+  .card-body h4 {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 12px 0 6px;
+  }
+  .card-body p, .card-body li {
+    font-size: 13px;
+    color: var(--ink-dim);
+  }
+  .card-body ul {
+    list-style: none;
+    margin-left: 0;
+  }
+  .card-body ul li {
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 4px;
+    line-height: 1.45;
+  }
+  .card-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px;
+    width: 6px; height: 1px;
+    background: var(--rust);
+  }
+  .card-body ul.cons li::before { background: var(--danger); }
+  .card-body ul.pros li::before { background: var(--signal); }
+  details {
+    border-top: 1px solid var(--line-soft);
+    margin-top: 14px;
+    padding-top: 10px;
+  }
+  details summary {
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    list-style: none;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: '+'; font-size: 16px; }
+  details[open] summary::after { content: '−'; }
+  details .detail-content {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+  details .detail-content strong { color: var(--ink); font-weight: 600; }
+  /* TABLE */
+  .table-wrap {
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    overflow-x: auto;
+    margin-bottom: 28px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 11px;
+    min-width: 1200px;
+  }
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  th {
+    background: var(--bg-elev-2);
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    font-size: 10px;
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  td.name { color: var(--ink); font-weight: 700; }
+  td.name small { display: block; color: var(--ink-faint); font-weight: 400; margin-top: 2px; }
+  td.cost { color: var(--amber); }
+  .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    border: 1px solid currentColor;
+  }
+  .tag.g { color: var(--signal); }
+  .tag.y { color: var(--warn); }
+  .tag.r { color: var(--danger); }
+  /* EMISSIONS & AC INFO BOXES */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  @media (max-width: 880px) { .info-grid { grid-template-columns: 1fr; } }
+  .info-box {
+    border: 1px solid var(--line);
+    background: var(--bg-elev);
+    padding: 22px;
+  }
+  .info-box h4 {
+    font-family: var(--display);
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .info-box h4 .num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--rust);
+  }
+  .info-box dl {
+    display: grid;
+    gap: 12px;
+  }
+  .info-box dt {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 3px;
+  }
+  .info-box dd {
+    font-size: 13px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  .info-box dd strong { color: var(--ink); }
+  .info-box .alert {
+    margin-top: 14px;
+    padding: 10px 12px;
+    border: 1px solid var(--warn-dim);
+    background: rgba(240,181,0,0.05);
+    font-size: 12px;
+    color: var(--ink);
+    font-family: var(--mono);
+    letter-spacing: 0.02em;
+  }
+  .info-box .alert.danger {
+    border-color: var(--danger-dim);
+    background: rgba(226,61,61,0.05);
+  }
+  .info-box .alert .label { color: var(--warn); font-weight: 700; margin-right: 6px; }
+  .info-box .alert.danger .label { color: var(--danger); }
+  /* DECISION HELPER */
+  .recommend {
+    border: 1px solid var(--rust);
+    background: linear-gradient(180deg, rgba(196,75,31,0.08), rgba(13,15,18,0.6));
+    padding: clamp(20px, 3vw, 32px);
+    margin-bottom: 28px;
+  }
+  .recommend h3 {
+    font-family: var(--display);
+    font-size: clamp(26px, 4vw, 38px);
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+  .rec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .rec-card {
+    background: var(--bg-elev-2);
+    border: 1px solid var(--line);
+    padding: 16px;
+  }
+  .rec-card .scenario {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+  .rec-card .pick {
+    font-family: var(--display);
+    font-size: 22px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .rec-card .reason {
+    font-size: 12px;
+    color: var(--ink-dim);
+    line-height: 1.5;
+  }
+  /* FOOTER */
+  footer {
+    margin-top: 48px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+  footer .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    margin-bottom: 14px;
+  }
+  footer h5 {
+    font-family: var(--display);
+    font-size: 14px;
+    color: var(--ink);
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  footer a { color: var(--amber); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .disclaimer {
+    border-top: 1px dashed var(--line);
+    padding-top: 12px;
+    color: var(--ink-faint);
+  }
+  /* Print */
+  @media print {
+    body { background: #fff; color: #000; }
+    body::before { display: none; }
+    .filters, details summary::after { display: none; }
+    details { display: block; }
+    details > summary { color: #555; }
+    .card { border-color: #ccc; page-break-inside: avoid; }
+    .info-box, .recommend, header.top, .hero, .table-wrap { border-color: #ccc; background: #fff; color: #000; }
+    .card-body p, .card-body li, .info-box dd { color: #333; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <!-- HEADER -->
+  <header class="top">
+    <div class="brand">
+      <div class="brand-mark">JK</div>
+      <div>
+        <h1>JK WRANGLER UNLIMITED · ENGINE SWAP DECISION TOOL</h1>
+        <div class="sub">2007–2010 · 3.8L V6 (EGH) Replacement Options</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <div class="row"><span class="pill"><span class="dot"></span>PHX EMISSIONS · AREA A</span></div>
+      <div class="row"><span class="pill" style="border-color:var(--amber); color:var(--amber)">AC REQUIRED</span></div>
+    </div>
+  </header>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h2>The Minivan Six<br>Needs To <span class="accent">Go.</span></h2>
+        <p class="lede">
+          The 3.8L EGH V6 (202 hp / 237 lb-ft) is the most-complained-about powerplant Jeep ever installed in a Wrangler. On 35s with a four-speed 42RLE auto, it feels asthmatic. This tool compares every realistic replacement path for a 2007–2010 JK Unlimited that must <strong>pass Maricopa County (Phoenix) emissions</strong> and retain <strong>working factory air conditioning</strong>. Costs are 2025–2026 market estimates; emissions outcomes reflect real owner experience with ADEQ tampering inspectors.
+        </p>
+        <div class="hero-specs">
+          <div class="hero-spec"><div class="label">Chassis</div><div class="val">JK Unlimited (4-door)</div></div>
+          <div class="hero-spec"><div class="label">Factory Engine</div><div class="val">3.8L V6 EGH · 202 hp</div></div>
+          <div class="hero-spec"><div class="label">Factory Trans</div><div class="val">42RLE 4-spd / NSG370 6-spd</div></div>
+          <div class="hero-spec"><div class="label">Curb Weight</div><div class="val">~4,340 lb stock</div></div>
+        </div>
+      </div>
+      <aside class="constraints">
+        <h3>HARD CONSTRAINTS</h3>
+        <ul>
+          <li data-code="01">Must pass Maricopa County OBD-II test + tampering visual inspection at ADEQ station.</li>
+          <li data-code="02">Donor engine must be <strong>same model year or newer</strong> than the 2007–2010 chassis (federal 1991 EPA Memo 1A + AZ practice).</li>
+          <li data-code="03">All factory emissions equipment intact and functional. EVAP, cats, O2 sensors, gas-cap test.</li>
+          <li data-code="04">Factory A/C must blow cold after the swap — non-negotiable for Phoenix summers.</li>
+          <li data-code="05">Check Engine Light must be OFF and readiness monitors set at test time.</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  <!-- FILTERS -->
+  <div class="section-head">
+    <div class="num">§ 01</div>
+    <h3>OPTION CARDS — ALL PATHS</h3>
+    <div class="aside">Filter / Compare</div>
+  </div>
+  <div class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Budget</span>
+      <button class="chip active" data-budget="all">All</button>
+      <button class="chip" data-budget="under-5k">Under $5K</button>
+      <button class="chip" data-budget="5-15k">$5K–$15K</button>
+      <button class="chip" data-budget="15-30k">$15K–$30K</button>
+      <button class="chip" data-budget="over-30k">$30K+</button>
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Filter</span>
+      <button class="chip toggle" data-toggle="emiss">Only PHX-Pass Likely</button>
+      <button class="chip toggle" data-toggle="ac">AC Retained Out-of-Box</button>
+    </div>
+  </div>
+  <div class="grid" id="cardGrid"></div>
+  <!-- COMPARISON TABLE -->
+  <div class="section-head">
+    <div class="num">§ 02</div>
+    <h3>HEAD-TO-HEAD COMPARISON</h3>
+    <div class="aside">Sortable by column · scroll →</div>
+  </div>
+  <div class="table-wrap">
+    <table id="compareTable">
+      <thead>
+        <tr>
+          <th>Option</th>
+          <th>Engine</th>
+          <th>HP / TQ</th>
+          <th>All-in Cost</th>
+          <th>Build Time</th>
+          <th>Skill</th>
+          <th>PHX Pass?</th>
+          <th>AC Status</th>
+          <th>Resale</th>
+          <th>Reversible?</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+  <!-- PHOENIX EMISSIONS & AC DEEP DIVE -->
+  <div class="section-head">
+    <div class="num">§ 03</div>
+    <h3>PHOENIX EMISSIONS · AIR CONDITIONING</h3>
+    <div class="aside">Critical detail</div>
+  </div>
+  <div class="info-grid">
+    <div class="info-box">
+      <h4><span class="num">A.</span>ADEQ EMISSIONS REALITY</h4>
+      <dl>
+        <div>
+          <dt>Test Type for 2007–2010 JK</dt>
+          <dd>OBD-II scan (no tailpipe) at ~$16. Vehicle must have all monitors set to Ready and zero stored DTCs. The check-engine light cannot be on. Gas-cap pressure test is also performed.</dd>
+        </div>
+        <div>
+          <dt>Tampering Visual Inspection</dt>
+          <dd>Required for all 1975+ vehicles per A.R.S. § 49-542(G). Inspector verifies that <strong>every factory emissions device that came on the chassis is present, original-or-equivalent, and functional</strong>. They do look under the hood.</dd>
+        </div>
+        <div>
+          <dt>The Engine-Switching Rule</dt>
+          <dd>Federal EPA Memo 1A (1991) governs swaps: replacement engine must be the <strong>same model year or newer</strong> than the chassis, all emissions hardware from the donor's certified configuration must be present, and the engine cannot be from a heavy-duty class going into a light-duty vehicle. AZ stations actively enforce this since 2017 — owners with V8 swaps have been failed and routed to the three waiver/referee stations in Phoenix and Tucson.</dd>
+        </div>
+        <div>
+          <dt>The Dual-OBD Trap</dt>
+          <dd>LS swaps using a GM E38/E92 ECM almost always require a <strong>second OBD-II port</strong> (one for the GM ECM, one for the Jeep TIPM). Inspectors have been trained to treat a second connector as <em>prima facie</em> evidence of tampering. Hide it, or skip the LS route. The MoTech and Bruiser kits flash a Jeep VIN into the GM ECM to mitigate this — but the second port still exists.</dd>
+        </div>
+        <div>
+          <dt>"Off-Road Use Only" Labels</dt>
+          <dd>Bruiser Conversions explicitly markets their kits as <strong>off-road use only</strong>. That is not a legal opinion — it is a manufacturer-stated disqualifier for road registration in an emissions county. If the inspector reads the label, you fail.</dd>
+        </div>
+        <div>
+          <dt>Geographic Workaround</dt>
+          <dd>Maricopa, parts of Pinal, and parts of Yavapai are Area A. Registering at an address in a non-emissions county (Casa Grande proper, Prescott Valley etc.) is a common but legally precarious workaround — the rule is where the vehicle is "regularly operated," not where it's titled. Two tampering citations on the same vehicle = $1,800 civil penalty.</dd>
+        </div>
+      </dl>
+      <div class="alert danger">
+        <span class="label">REAL CASE:</span>2017 Wayalife thread: 2007 JKU with a MoTech 6.0L LS swap. Passed Year 1 in AZ. Year 2, inspector flagged dual OBD-II ports as "tampering," issued waiver-station referral, was told the swap "would never get approved." Owner ultimately registered the Jeep in Pinal County to register it.
+      </div>
+    </div>
+    <div class="info-box">
+      <h4><span class="num">B.</span>AIR CONDITIONING ACROSS SWAPS</h4>
+      <dl>
+        <div>
+          <dt>Why It Matters in Phoenix</dt>
+          <dd>Summer cabin temps in Phoenix routinely exceed 130 °F. A non-functional A/C in a soft-top JK is not just uncomfortable; it makes the vehicle effectively unusable May–September. Any swap evaluation that ignores A/C is incomplete.</dd>
+        </div>
+        <div>
+          <dt>3.8L Replacement / 4.1L Stroker</dt>
+          <dd>A/C compressor stays on the same bracket and same lines. Recharge after R&R is the only intervention needed (~$150).</dd>
+        </div>
+        <div>
+          <dt>3.6L Pentastar Swap</dt>
+          <dd>Pentastar uses a different A/C compressor and a slightly different bracket. Most builders re-use the original Jeep A/C system but plumb new lines to the new compressor. RPM Extreme's 3.8→3.6 conversion harness controls A/C through the original Jeep TIPM, so the dash controls and clutch engagement work unchanged.</dd>
+        </div>
+        <div>
+          <dt>5.7 / 6.4 Hemi (AEV / Hotwire / RubiTrux)</dt>
+          <dd>AEV's kit includes <strong>CNC-bent 3-piece A/C line set</strong> specifically because the 5.7/6.4 compressor sits in a different location and the stock JK lines don't reach. Kit retains the factory JK condenser, evaporator, and dash controls. Compressor itself is the Hemi unit. Plan on a refrigerant evacuation/recharge by a licensed shop ($200–$300) since you'll have the system open. The JK condenser is adequate but the 6.4L makes more cooling load — many builders upgrade the radiator (Mishimoto, Ron Davis) which also helps the A/C condenser stay cool in 115 °F traffic.</dd>
+        </div>
+        <div>
+          <dt>LS Swap (Budget DIY)</dt>
+          <dd>Two paths: (1) keep the Jeep compressor and adapt it onto the LS accessory drive (MoTech sells brackets), or (2) use the LS donor's compressor and re-plumb. Either way the Jeep evaporator/dash stays. The danger with junkyard DIY is that the GM compressor expects a CAN signal that the Jeep TIPM doesn't send — you may need a manual switch or a CAN-bridge module.</dd>
+        </div>
+        <div>
+          <dt>Bruiser LX3 Kit</dt>
+          <dd>Bruiser explicitly states "all instruments, indicators, gauges, and powertrain control systems will work in the same manner as they did when the vehicle rolled off the assembly line" — that includes A/C. Their reluctor wheel + Chrysler ECM communication trick keeps the Jeep TIPM in charge of A/C and accessories.</dd>
+        </div>
+      </dl>
+      <div class="alert">
+        <span class="label">PHX SUMMER TIP:</span>Whichever swap you choose, upgrade to a Mishimoto or Ron Davis radiator and consider a dual-pass condenser. The factory JK setup is marginal in 115 °F traffic even with a healthy 3.8L.
+      </div>
+    </div>
+  </div>
+  <!-- TRANSMISSION FOOTNOTE -->
+  <div class="section-head">
+    <div class="num">§ 04</div>
+    <h3>TRANSMISSION TAX</h3>
+    <div class="aside">A swap is almost never just an engine</div>
+  </div>
+  <div class="info-grid">
+    <div class="info-box">
+      <h4><span class="num">A.</span>WHY THE 42RLE HAS TO GO</h4>
+      <dl>
+        <div>
+          <dt>The Auto Reality</dt>
+          <dd>The 2007–2010 JKU 4-speed 42RLE automatic is rated for the 3.8L's 237 lb-ft and absolutely nothing more. Bruiser, MoTech, and AEV all <strong>require</strong> swapping it out for any V8. Plan on a Chrysler 545RFE/65RFE/8HP70 or a GM 6L80E/10L80 depending on the engine family.</dd>
+        </div>
+        <div>
+          <dt>The Manual Reality</dt>
+          <dd>The factory NSG370 6-speed manual is somewhat hardier. AEV's older 5.7L kits worked behind the NSG370 with a Centerforce clutch upgrade. Most modern Hemi and LS kits push you to a stronger trans regardless. The shifter linkage and tunnel work is non-trivial if you change trans families.</dd>
+        </div>
+        <div>
+          <dt>Transfer Case Adapter</dt>
+          <dd>NV241 (Sport) or NV241OR (Rubicon) bolts to the Jeep trans. New trans = new adapter or new t-case input. Bruiser/MoTech kits include the adapter. Budget DIY: add $300–$600.</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="info-box">
+      <h4><span class="num">B.</span>OTHER CONSEQUENTIAL COSTS</h4>
+      <dl>
+        <div>
+          <dt>Driveshafts</dt>
+          <dd>New trans length = at least the front DS, often both, must be modified or rebuilt. $300–$800.</dd>
+        </div>
+        <div>
+          <dt>Axles &amp; Gearing</dt>
+          <dd>Stock Dana 30 front is marginal behind 400+ lb-ft. Anyone running 35"+ tires with a V8 should re-gear (4.56–4.88) and budget for at least a Dana 44 conversion or full ProRock/one-ton swap. Add $2,500–$10,000 separately from the engine swap.</dd>
+        </div>
+        <div>
+          <dt>Fuel System</dt>
+          <dd>3.8L returnless fuel system tops out around 58 psi. Hemi/LS need 58 psi continuous but at higher flow. The factory pump usually survives on a 5.7L but is borderline on a 6.4L. Many builders drop in a Walbro 450 or AEM upgrade. $250–$500.</dd>
+        </div>
+        <div>
+          <dt>Tune &amp; Calibration</dt>
+          <dd>An LS pulled from a 2008 Tahoe will not run cleanly in a Jeep without a tune that disables VATS, sets correct skip-shift behavior, and tells the ECM to expect a Jeep VSS signal. Add $300–$600 for a competent local tune even if your kit ships with a "starter" calibration.</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+  <!-- DECISION HELPER -->
+  <div class="recommend">
+    <h3>WHICH ONE SHOULD YOU ACTUALLY DO?</h3>
+    <div class="rec-grid">
+      <div class="rec-card">
+        <div class="scenario">SCENARIO A · Tightest Budget</div>
+        <div class="pick">Reman 3.8L</div>
+        <div class="reason">If you can't justify $15K+, drop in a $3K reman with updated oil pump and timing cover, address the 3.8's known cooling weakness, and ride it to 300K. Passes emissions on day one. Resale is a wash. Boring but rational.</div>
+      </div>
+      <div class="rec-card">
+        <div class="scenario">SCENARIO B · Best Emissions Outcome + More Power</div>
+        <div class="pick">3.6L Pentastar Swap</div>
+        <div class="reason">Mopar engine into Mopar chassis, 2012+ donor satisfies same-or-newer rule, no dual OBD-II, no "off-road only" sticker, and you get +85 hp. RPM Extreme conversion harness keeps factory A/C and gauges. Hardest path technically but cleanest legally in Phoenix.</div>
+      </div>
+      <div class="rec-card">
+        <div class="scenario">SCENARIO C · Sweet Spot Power-Per-Dollar</div>
+        <div class="pick">5.7L Hemi · Used Donor + Hotwire Harness</div>
+        <div class="reason">Pulled drivetrain from a 2009+ Grand Cherokee/Commander ($3,500–$4,500) plus Hotwire Auto harness ($1,200–$1,800) plus mounts and exhaust. Single OBD-II port keeps the inspector calmer. 360 hp / 390 lb-ft. Mopar-to-Mopar means the dual-port problem disappears.</div>
+      </div>
+      <div class="rec-card">
+        <div class="scenario">SCENARIO D · Money No Object, Want To Daily-Drive It</div>
+        <div class="pick">Bruiser LX3 500HP Kit</div>
+        <div class="reason">$34,500 buys an engineered, fully-integrated 500 hp package with 8-speed and factory functionality, all built around a Chrysler ECM. <strong>BUT</strong> — Bruiser stamps "off-road use only" on it. That label is your problem at the ADEQ station. Realistically a vehicle for trail/track use, registered out-of-area.</div>
+      </div>
+      <div class="rec-card">
+        <div class="scenario">SCENARIO E · Wanted A V8 But Live In Maricopa</div>
+        <div class="pick">AEV 5.7L Hemi Conversion (used kit, if found)</div>
+        <div class="reason">AEV's kit was the gold-standard road-legal Hemi swap because the Jeep dealer can scan it like any other Hemi-equipped Mopar. AEV reduced JK kit availability post-JL, so source carefully (Fortec, Exploration Outfitters, used). Single OBD-II port and Chrysler-on-Chrysler is the cleanest emissions story among V8 options.</div>
+      </div>
+      <div class="rec-card">
+        <div class="scenario">SCENARIO F · Honest Answer</div>
+        <div class="pick">Sell It, Buy A 2018 JL With The Pentastar Or A 2024 JL 392</div>
+        <div class="reason">A 2007–2010 JKU is worth $8K–$15K. A 6.4L swap costs $30K+. Math says buy the newer Jeep that came with the engine you want. Most owners who priced out a swap arrived at this conclusion. Listed for completeness because it is, objectively, often the right call.</div>
+      </div>
+    </div>
+  </div>
+  <!-- SOURCES -->
+  <footer>
+    <div class="grid">
+      <div>
+        <h5>PRIMARY SOURCES</h5>
+        Bruiser Conversions · MoTech (lswrangler.com) · AEV Conversions · Quadratec / Northridge4x4 (kit pricing) · Fraser Engines · Powertrain Products · RPM Extreme · Hotwire Auto · RubiTrux
+      </div>
+      <div>
+        <h5>REGULATORY</h5>
+        ADEQ · A.R.S. § 49-542 · myAZcar.com · EPA Memo 1A (1991) · ADEQ Tampering Inspection Protocol
+      </div>
+      <div>
+        <h5>OWNER REPORTS</h5>
+        Wayalife · JKOwners · JK-Forum · WranglerForum · S10Forum (AZ emissions threads) · Gold Hills Posse 4x4
+      </div>
+      <div>
+        <h5>METHODOLOGY</h5>
+        Costs are 2025–2026 market estimates assembled from current published kit MSRPs, used-engine listings (eBay, LKQ, Car-Part), and recent owner build threads. Labor figures assume shop rates of $120–$160/hr (Phoenix metro).
+      </div>
+    </div>
+    <div class="disclaimer">
+      Not legal, mechanical, or financial advice. Emissions outcomes depend on the specific inspector, donor configuration, and how clean the install is. Verify all part numbers and current pricing before purchase. The author has no commercial relationship with any vendor named.
+    </div>
+  </footer>
+</div>
+<script>
+/* ============================================================
+   DATA — swap options
+   ============================================================ */
+const options = [
+  {
+    id: 'reman-38',
+    name: 'Reman 3.8L V6',
+    tagline: 'OEM-spec replacement long block',
+    tier: 'baseline',
+    engine: '3.8L Chrysler EGH V6 (reman)',
+    hp: 202, tq: 237,
+    costLow: 3500, costHigh: 6500,
+    costRange: '$3,500 – $6,500',
+    time: '16 – 25 hrs',
+    skill: 'Moderate',
+    phxPass: 'good', phxText: 'PASSES',
+    ac: 'good', acText: 'UNTOUCHED',
+    resale: 'Neutral',
+    reversible: 'N/A (factory)',
+    pros: [
+      'Cheapest path to a running Jeep',
+      'Passes Maricopa emissions on day one with zero scrutiny',
+      'Factory A/C, gauges, and TIPM unchanged',
+      'Reman comes with updated oil pump + timing cover (the 3.8 weak points)',
+      '3-year / 100K mile warranty from quality remanufacturers'
+    ],
+    cons: [
+      'Same 202 hp / 237 lb-ft that made you hate the Jeep',
+      'Still tow-rated only ~2,000 lb',
+      'Doesn\'t fix the underlying 42RLE shift-busy behavior on 35s'
+    ],
+    detail: `<strong>Realistic build:</strong> Fraser, Accurate, Tri-Star, Powertrain Products, and S&J Engines all offer the 3.8L reman in the $2,800–$3,200 long-block range plus ~$520 refundable core and ~$300 freight. Add $200 in fluids and a new oil cooler ($120) and you are at ~$3,500 in parts. Shop labor adds $1,500–$2,500. <br><br><strong>Phoenix angle:</strong> The factory chassis-matched engine in a factory-spec configuration is the ideal emissions case. The Jeep stays exactly as Chrysler built it. Zero risk of tampering flag.<br><br><strong>Hidden risk:</strong> The 2007–2008 3.8L had a known oil-pump pickup tube issue. Make sure your reman provider has installed the updated pickup before you bolt it in.`
+  },
+  {
+    id: 'stroker-41',
+    name: '4.1L Stroker',
+    tagline: '3.8L bored & stroked',
+    tier: 'budget',
+    engine: '3.8L block, 4.1L stroker kit',
+    hp: 240, tq: 280,
+    costLow: 7000, costHigh: 12000,
+    costRange: '$7,000 – $12,000',
+    time: '30 – 50 hrs',
+    skill: 'Moderate-High',
+    phxPass: 'good', phxText: 'PASSES',
+    ac: 'good', acText: 'UNTOUCHED',
+    resale: 'Slight uplift',
+    reversible: 'Yes',
+    pros: [
+      'Stays under the factory emissions umbrella — same VIN, same engine family',
+      '20–25% more torque without adding any new systems',
+      'A/C, harness, ECM, exhaust all unchanged',
+      'No transmission upgrade required (still under 42RLE torque rating)'
+    ],
+    cons: [
+      'Smallest power gain per dollar of any option here',
+      'Quality of a 4.1 stroker depends entirely on machinist; not a kit-bolt-in',
+      'Still a 3.8L head-flow ceiling; will never make Hemi/LS power',
+      'Re-using the worn 3.8 ancillaries means you replace water pump, alternator etc. anyway'
+    ],
+    detail: `<strong>Realistic build:</strong> Avenger Performance, Profitable Performance, and a handful of others offer 4.1L stroker kits (rotating assembly $1,800–$2,800) or full long-blocks ($4,500–$7,500). Labor to machine, assemble, and install runs another $2,000–$4,500.<br><br><strong>Phoenix angle:</strong> No tampering exposure whatsoever — the engine is still a 3.8L from the inspector's perspective. Same OBD-II responses, same evap, same cats.<br><br><strong>Why most people don't:</strong> For $9K you can be 80% of the way into a junkyard LS swap with double the power. The 4.1 stroker is the dead-rational choice that almost nobody picks.`
+  },
+  {
+    id: 'pentastar-36',
+    name: '3.6L Pentastar',
+    tagline: 'Mopar V6 from 2012+ JK/Grand Cherokee',
+    tier: 'mid',
+    engine: '3.6L Pentastar VVT V6',
+    hp: 285, tq: 260,
+    costLow: 8000, costHigh: 16000,
+    costRange: '$8,000 – $16,000',
+    time: '60 – 120 hrs',
+    skill: 'High',
+    phxPass: 'good', phxText: 'CLEAN PASS',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Modest uplift',
+    reversible: 'Yes (donor harness)',
+    pros: [
+      '+85 hp / +25 lb-ft over the 3.8L — and uses regular gas',
+      'Mopar engine, Mopar chassis: no dual OBD-II, no foreign ECM',
+      'Conversion harnesses from RPM Extreme drive A/C, gauges, hill descent etc. through factory TIPM',
+      '"Phoenix" was Pentastar\'s internal code-name — fitting',
+      'Donor engine + trans + harness commonly under $4,000 from a wrecked 2012–2018 JK',
+      'Best emissions story of any high-power-gain swap'
+    ],
+    cons: [
+      'Complete TIPM / CANbus integration is technically the hardest swap on this list',
+      'Need ECM, TCM, accelerator pedal, and donor harness — not a "buy a long-block" job',
+      'WA580 5-speed trans must come along (3.8L 42RLE will not bolt to 3.6L)',
+      'Pre-2016 (non-PUG) vs 2016+ (PUG) compatibility issues; do not mix',
+      'Few off-the-shelf kits; you assemble from RPM Extreme + parts list'
+    ],
+    detail: `<strong>Realistic build:</strong> Source a complete 2014–2015 JK pullout (engine, WA580 trans, ECM, TCM, harness, shifter, accelerator pedal) — $3,000–$4,500. RPM Extreme 3.8→3.6 conversion harness is the linchpin — $1,500–$2,500 when in stock. Motor mounts, transmission crossmember, driveshaft mods, exhaust adapter, radiator hoses, A/C lines: $2,000–$3,000. Tune for VIN: $400. DIY total: $7,000–$11,000. Shop labor adds $4,000–$8,000.<br><br><strong>Phoenix angle:</strong> This is the only "power upgrade" swap that is genuinely defensible at an ADEQ tampering inspection. It is a Chrysler engine of the same vehicle family, newer model year. The inspector sees a Jeep harness, a Jeep ECM, a Jeep VIN, and an engine that is factory in JKs from 2012 on. If your install is clean, it passes — multiple builders have reported clean passes in CARB states, let alone Arizona.<br><br><strong>Why this is rare:</strong> The integration work is finicky. Most people who price it out realize they could do an LS for similar money and decide they want a V8 anyway. But for someone who actually wants to drive in Maricopa County legally and quietly, this is the answer.`
+  },
+  {
+    id: 'ls-53-budget',
+    name: 'Budget 5.3L LS',
+    tagline: 'Junkyard LM7 / LMG · DIY',
+    tier: 'budget',
+    engine: '5.3L GM LS V8 (Gen III or IV)',
+    hp: 295, tq: 335,
+    costLow: 6000, costHigh: 12000,
+    costRange: '$6,000 – $12,000',
+    time: '100 – 200 hrs',
+    skill: 'Very High',
+    phxPass: 'bad', phxText: 'HIGH RISK',
+    ac: 'warn', acText: 'NEEDS WORK',
+    resale: 'Mixed (buyer-dependent)',
+    reversible: 'Difficult',
+    pros: [
+      'Cheapest V8 path. LM7 5.3 from a 2007+ truck: $800–$2,500',
+      'Massive aftermarket; parts cheap and everywhere',
+      'Strong reliability if assembled cleanly',
+      'Light engine — under-hood weight balance acceptable'
+    ],
+    cons: [
+      'Same-or-newer-than-2007 rule limits donor pool — most cheap 5.3s are 1999–2006',
+      'Two OBD-II ports (GM + Jeep) is a tampering red flag at ADEQ',
+      'A/C compressor needs adapter brackets or re-plumbed lines',
+      'Fitment of GM accessories in JK frame is tight — clearances are real',
+      'Standalone harness ($600–$1,200) or pay MoTech/JSS prices anyway',
+      'Trans (4L60E/4L80E) + Atlas/NP adapter is its own project',
+      '"DIY $5,000 build" stories almost always omit half the line items'
+    ],
+    detail: `<strong>Realistic build:</strong> 5.3L LM7 with harness/ECM from a 2007+ truck: $1,200–$2,500. 4L60E or 4L80E: $1,200–$2,500. NP241→GM adapter: $300–$500. Standalone harness from PSI or BP Automotive: $700–$1,200. Motor mounts (Advance Adapters or Hooker): $250–$400. Headers/exhaust: $600–$1,200. Radiator: $400–$700. Fuel system: $400. Tuner: $400. Misc + 1,001 small things: $1,500. Realistic all-in: $7,500–$10,500 for a runner, $10,000–$13,000 if you don't cut corners. Time: don't underestimate. 100 hours is a fast clean garage build.<br><br><strong>Phoenix angle — the elephant in the room:</strong> The cheap 1999–2006 LM7 violates the same-or-newer rule for a 2007+ chassis. A 2007–2014 5.3L (LMG/LH8/LC9) costs more (~$2,500–$3,500) and is legal under the rule. Even then, the dual OBD-II ports are visible and inspectors have failed JK owners specifically for that. Some hide the secondary port under the carpet — this is technically "concealing tampering" and is itself a violation.<br><br><strong>Honest verdict:</strong> The DIY budget LS is a wonderful Jeep build for the trail and for non-emissions counties. It is the worst possible swap to attempt to register in Maricopa County.`
+  },
+  {
+    id: 'motech-lt',
+    name: 'MoTech LT DIY Kit',
+    tagline: 'Gen V LT direct-injection · "LSwrangler"',
+    tier: 'mid',
+    engine: '5.3L L83 / 6.2L LT1 (your choice)',
+    hp: 355, tq: 383,
+    costLow: 16000, costHigh: 26000,
+    costRange: '$16,000 – $26,000',
+    time: '80 – 140 hrs',
+    skill: 'High',
+    phxPass: 'warn', phxText: 'CASE-BY-CASE',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Strong (good name)',
+    reversible: 'Yes',
+    pros: [
+      'Engineered for JK specifically; published install guides',
+      'Reuses factory Jeep A/C compressor on adapter brackets — keeps the JK A/C system',
+      'VIN-flashed E38/E92 ECM minimizes tampering flag risk',
+      'Choice of engine: L83 5.3 ($2K used) up to LT1 6.2 ($8K crate)',
+      'Solid community + Robbie\'s shop support out of Las Vegas',
+      'Kit emissions kit (fuel-tank pressure sensor, EVAP, etc.) is included'
+    ],
+    cons: [
+      'Still a GM ECM in a Jeep chassis = dual OBD-II port',
+      'Kit alone is $8,499–$10,499 BEFORE engine, trans, t-case adapter',
+      '6L80E/10L80 transmission is its own $2,500–$5,000 line item',
+      'Phoenix emissions outcome depends entirely on inspector mood — see notes',
+      'Cooling demands are real; plan on better radiator'
+    ],
+    detail: `<strong>Realistic build:</strong> MoTech Gen V LT Premium Kit $9,999. LT1 add-on kit $10,499 total. Crate L83 5.3 ~$4,500 or LT1 6.2 ~$8,000. 10L80 10-speed used $3,000–$5,000. Atlas/NP adapter included. Radiator upgrade $700. Tune $400. Realistic all-in for an L83 build: $17,000–$20,000. For an LT1 / 10-speed: $24,000–$28,000.<br><br><strong>Phoenix angle:</strong> The dual OBD-II concern still applies. However, MoTech flashes the Jeep VIN into the GM ECM, includes a complete emissions hardware kit (fuel tank pressure sensor, evap canister, vent solenoid), and the install retains every Jeep factory readiness monitor. In states where the inspector goes by "is the CEL off and are monitors ready," this passes easily. In states where the inspector hunts for tampering, the visible second OBD-II port is the failure point. Reports out of AZ are mixed — some pass yearly, others fail and end up at the waiver station.<br><br><strong>Bottom line:</strong> Great kit, real engineering, but no kit can make the federal engine-switching rule disappear.`
+  },
+  {
+    id: 'motech-turnkey',
+    name: 'MoTech Turnkey LT1',
+    tagline: 'Shop-built · LT1 + 10-speed',
+    tier: 'turnkey',
+    engine: '6.2L LT1 (Camaro/Corvette-spec)',
+    hp: 455, tq: 455,
+    costLow: 38999, costHigh: 55000,
+    costRange: '$38,999 – $55,000+',
+    time: '6 – 12 wks shop time',
+    skill: 'N/A (shop)',
+    phxPass: 'warn', phxText: 'CASE-BY-CASE',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Premium',
+    reversible: 'Yes',
+    pros: [
+      'Turnkey: drop the Jeep off, pick it up with a 455 hp V8',
+      '10-speed automatic is genuinely transformational',
+      'Direct injection + cylinder deactivation = real-world MPG often beats stock 3.8',
+      'Will chirp 40" tires from a roll',
+      'Robbie at MoTech has done dozens of these'
+    ],
+    cons: [
+      'Pricing starts at $39K and climbs to $55K+ with options',
+      'Same dual-OBD/tampering exposure as the DIY MoTech kit',
+      'Shop wait list — 3–6 months not uncommon',
+      'Stock axles / steering / brakes really aren\'t up to 455 hp; add $10K+ for proper drivetrain'
+    ],
+    detail: `<strong>Realistic build:</strong> MoTech listed price is "starting at $38,999" for the LT1 / 10-speed turnkey. In practice, with options, axles, and miscellaneous, owners report $50K–$60K final cost.<br><br><strong>Phoenix angle:</strong> Identical to the DIY kit emissions-wise — dual OBD-II ports, VIN flashed ECM. The cleaner the install, the more likely the pass. MoTech installs are typically the cleanest installs in the LS-swap world, which helps.<br><br><strong>Honest comparison:</strong> For $50K all-in you could buy a used 2022 Wrangler Rubicon 392 (6.4L Hemi, factory) outright and skip every single emissions, A/C, and electrical headache.`
+  },
+  {
+    id: 'bruiser-lx3',
+    name: 'Bruiser LX3 500HP',
+    tagline: 'Complete 6.6L V8 + 8HP70 kit',
+    tier: 'turnkey',
+    engine: '6.6L LX3 (LT-based, port injection)',
+    hp: 500, tq: 510,
+    costLow: 34500, costHigh: 48000,
+    costRange: '$34,500 – $48,000',
+    time: 'DIY 80–120 hrs · Shop 4–8 wks',
+    skill: 'High (or pay CIF)',
+    phxPass: 'bad', phxText: 'OFF-ROAD ONLY',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Very strong',
+    reversible: 'Yes',
+    pros: [
+      'Most engineered V8 conversion kit on the market for the JK',
+      '500 hp, 510 lb-ft, complete with 8HP70 8-speed transmission',
+      'Uses Chrysler ECM via reluctor-wheel trick — keeps all Jeep factory functions including A/C',
+      'No dual OBD-II — Bruiser\'s system is dual-protocol on a single port',
+      'Engineered cooling, exhaust, fuel system included',
+      'Strong resale; Bruiser-converted JKs hold value notably better than DIY swaps'
+    ],
+    cons: [
+      'Bruiser explicitly labels this "off-road use only" — that label is product disqualification at any tampering inspection',
+      '$34,500 is the kit alone; pro install adds $8K–$13K',
+      'Realistically a trail/track build, not a Maricopa-County-registered daily',
+      'Heavy front-end weight; suspension/steering revisions recommended'
+    ],
+    detail: `<strong>Realistic build:</strong> Bruiser 2007–2011 JK LX3 kit list price is $34,499.99 (verified on Bruiser's site, Nov 2025). Certified Installation Facility (CIF) labor runs $8,000–$13,000. Many JK builders DIY install if they have a lift and the patience for 80–120 hours of work. Plus you'll want a stronger axle and gear setup for $5K–$10K more.<br><br><strong>Phoenix angle — important:</strong> Bruiser sells this kit with the explicit disclaimer "this conversion is intended for off-road use only." That is not Bruiser being cautious — it is them stating the kit was not certified for road emissions compliance. In Maricopa County, an inspector who reads that label or who recognizes the LX3's GM block in a Jeep chassis will fail it under the engine-switching rule. Owners do register Bruiser builds — typically using addresses in non-emissions counties.<br><br><strong>Best use case:</strong> Wealthy enthusiast with a second daily driver, who wants the most refined, fastest, most well-integrated JK V8 build money can buy, and is happy to register the Jeep at a Prescott or Casa Grande address.`
+  },
+  {
+    id: 'hemi-57-diy',
+    name: '5.7L Hemi · DIY',
+    tagline: 'Used Hemi drivetrain + Hotwire harness',
+    tier: 'mid',
+    engine: '5.7L Hemi (Eagle, 2009–2018)',
+    hp: 360, tq: 390,
+    costLow: 13000, costHigh: 20000,
+    costRange: '$13,000 – $20,000',
+    time: '80 – 150 hrs',
+    skill: 'High',
+    phxPass: 'good', phxText: 'BEST V8 SHOT',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Strong',
+    reversible: 'Yes',
+    pros: [
+      'Mopar engine in Mopar chassis — single OBD-II, no dual-port flag',
+      'Chrysler ECM, Chrysler accessories, Chrysler emissions hardware — the cleanest V8 emissions case',
+      'Dealer can scan it like any other Hemi-equipped vehicle',
+      'Used 5.7 + 545RFE/NAG1 drivetrain from a Grand Cherokee or Commander: $3,500–$5,000',
+      'Hotwire Auto plug-and-play harness: $1,200–$2,000',
+      'A 2009+ donor satisfies the same-or-newer rule for any 2007–2010 JK'
+    ],
+    cons: [
+      'AEV\'s 5.7L JK kit may be discontinued or hard to source — building from Hotwire + parts list takes more skill',
+      'Cooling system upgrade strongly recommended for Phoenix (Mishimoto/Ron Davis radiator)',
+      'Transmission decision: keep NSG370 manual with clutch upgrade, or swap to 545RFE/NAG1 auto',
+      'Cutting and welding required (frame brackets, exhaust)',
+      'Hemi tick is a real thing on 5.7s; pick your donor carefully'
+    ],
+    detail: `<strong>Realistic build:</strong> Donor 5.7L Hemi + 545RFE trans + ECU + harness from a 2009–2012 Grand Cherokee or 2009–2010 Commander: $3,500–$5,500. Hotwire Auto JK harness $1,500. AEV kit (if found used or NOS): $4,500–$6,500. Motor mounts, exhaust, radiator, fuel system: $2,500–$3,500. Misc: $1,500. DIY all-in: $13,500–$18,000. Shop labor on top: $5,000–$8,000.<br><br><strong>Phoenix angle:</strong> This is the V8 swap with the strongest emissions argument. Same OE manufacturer (Stellantis), same OBD-II protocol, factory-style harness. A 2009 Grand Cherokee 5.7L donor is by definition same-or-newer than a 2007–2010 JK chassis. The Jeep TIPM continues to control body functions; the Hemi PCM controls the engine over the same single OBD-II port. The inspector's visual check will look for the catalytic converters, EVAP system, gas cap function — all in place from the AEV/Hotwire kit. Owners report passing in CARB and AZ.<br><br><strong>Why this is our pragmatic V8 pick:</strong> If you want a V8 and you live in Maricopa County, this is the option you should price first.`
+  },
+  {
+    id: 'hemi-57-shop',
+    name: '5.7L Hemi · Shop Build',
+    tagline: 'AEV kit + pro install',
+    tier: 'premium',
+    engine: '5.7L Hemi (Eagle, 2009–2018)',
+    hp: 360, tq: 390,
+    costLow: 22000, costHigh: 35000,
+    costRange: '$22,000 – $35,000',
+    time: '4 – 8 wks shop time',
+    skill: 'N/A (shop)',
+    phxPass: 'good', phxText: 'BEST V8 SHOT',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Strong',
+    reversible: 'Yes',
+    pros: [
+      'Same emissions advantages as DIY 5.7L — Mopar-in-Mopar, single OBD-II',
+      'Professional install means cleaner outcome, fewer no-start nightmares',
+      'JK Land, RubiTrux, AMW, and other AEV-certified shops have hundreds of these built',
+      'Warranty coverage from installer (often 1 yr labor + 2 yr/24K powertrain)',
+      'Resale benefit because the build provenance is documentable'
+    ],
+    cons: [
+      'Roughly $10K more than DIY for the same drivetrain outcome',
+      'Wait lists at reputable shops are 2–6 months',
+      'AEV\'s production of new JK kits has slowed since the JL launched — verify availability'
+    ],
+    detail: `<strong>Realistic build:</strong> AEV 5.7 builder kit (when available) ~$5,800–$7,500. New Mopar 5.7 crate engine $5,400–$7,500 OR used drivetrain $3,500–$5,000. 545RFE/NAG1 trans new $3,500. Shop labor for a clean install: $7,000–$12,000. Out-the-door at a quality shop: $22,000–$32,000 with a used drivetrain, $28,000–$38,000 with new Mopar crate.<br><br><strong>Phoenix angle:</strong> Same emissions story as DIY — best of the V8 paths. AEV-certified shops in Arizona include several in the Phoenix area; their builds are known quantities to inspectors.<br><br><strong>Verdict:</strong> If you can write the check and want a V8 you can register and drive without paranoia, this is the actual right answer.`
+  },
+  {
+    id: 'hemi-64-diy',
+    name: '6.4L Hemi · DIY',
+    tagline: '470 hp · AEV-style build',
+    tier: 'premium',
+    engine: '6.4L Hemi 392 SRT',
+    hp: 470, tq: 470,
+    costLow: 22000, costHigh: 32000,
+    costRange: '$22,000 – $32,000',
+    time: '100 – 200 hrs',
+    skill: 'Very High',
+    phxPass: 'warn', phxText: 'POSSIBLE',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Very strong',
+    reversible: 'Yes',
+    pros: [
+      'Same Mopar-in-Mopar emissions logic as 5.7L Hemi',
+      '470 hp / 470 lb-ft — closest to a factory 392 Rubicon experience',
+      'Premium fuel required, but real-world MPG within 1–2 of the 5.7',
+      'Strong resale; 6.4 conversions are sought after'
+    ],
+    cons: [
+      'Engine + trans alone $13K–$20K (crate 6.4 is $9–12K, 8HP70 trans is $3.5–5K)',
+      'AEV 6.4 kit also $6K+ if you can find one for the early JK',
+      'Premium gas only — pumps don\'t care about your tampering inspector but your wallet will',
+      '6.4 is technically a "heavy-duty" class engine in some EPA tables — inspectors have cited this',
+      'Cooling system MUST be upgraded for Phoenix; expect $1,500+ for radiator and fan'
+    ],
+    detail: `<strong>Realistic build:</strong> 6.4L crate engine $9,000–$12,000 new, $6,000–$8,500 used / salvage. 8HP70 transmission new $3,500–$5,500 or used $1,500–$3,000. AEV kit (if found) $6,200. Radiator/cooling $1,500. Misc $2,500. Realistic DIY: $22,000–$28,000.<br><br><strong>Phoenix angle:</strong> The Mopar-in-Mopar logic still applies — single OBD-II, Chrysler ECM, Chrysler emissions hardware. However, the 2017 Wayalife AZ thread mentions the inspector specifically cited "heavy duty engine" language under EPA Memo 1A. The 6.4L is technically a CAFE-class HD engine in some applications. In practice the inspection outcome depends on the individual inspector. A clean install with the visible AEV decal package often slides through; a less polished install gets scrutinized.<br><br><strong>Power note:</strong> 470 hp into stock Dana 30/44 axles will snap things eventually. Budget for axle work.`
+  },
+  {
+    id: 'hemi-64-rubitrux',
+    name: '6.4L Hemi Turnkey · RubiTrux',
+    tagline: '505 hp shop build · brand-new crate',
+    tier: 'turnkey',
+    engine: '6.4L Hemi 392 (new Mopar crate)',
+    hp: 505, tq: 500,
+    costLow: 38000, costHigh: 55000,
+    costRange: '$38,000 – $55,000',
+    time: '8 – 16 wks shop time',
+    skill: 'N/A (shop)',
+    phxPass: 'warn', phxText: 'POSSIBLE',
+    ac: 'good', acText: 'RETAINED',
+    resale: 'Premium',
+    reversible: 'Yes',
+    pros: [
+      '850+ JK Hemi swaps built by RubiTrux specifically',
+      'Brand-new Mopar crate engines only; 2-year/24K mile crate warranty',
+      'Plus 1-year shop labor warranty',
+      'Dealer-scannable; passes pre-purchase inspections cleanly',
+      'Resale value of a documented RubiTrux 6.4 swap is excellent'
+    ],
+    cons: [
+      'Forty to fifty-five thousand dollars before suspension and axle work',
+      'Total project (engine + suspension + axles + tires) often pushes $80K+',
+      'Same 6.4L "heavy-duty engine" emissions argument applies',
+      'Long shop wait times — ship the Jeep to North Carolina or comparable'
+    ],
+    detail: `<strong>Realistic build:</strong> RubiTrux's published 6.4L turnkey conversion (engine + install + warranty) starts around $38K and climbs based on transmission choice and options. Plus shipping to and from their facility if you don't live nearby.<br><br><strong>Phoenix angle:</strong> Brand-new crate engine, fresh VIN-flash, factory-spec emissions hardware — the cleanest possible install of a 6.4L. The heavy-duty-class argument is the only remaining tampering concern. A well-built RubiTrux Jeep is among the more likely 6.4 swaps to pass.<br><br><strong>Honest comparison:</strong> Final all-in is in the same ballpark as buying a low-mileage 2021–2023 Wrangler Rubicon 392 from FCA (which factory-was 6.4L). The difference: a custom-built JK has a smaller footprint and the body styling some prefer; a factory 392 has factory warranty and no emissions doubt at all.`
+  }
+];
+/* ============================================================
+   BUILD CARDS
+   ============================================================ */
+const grid = document.getElementById('cardGrid');
+const tierLabels = {
+  baseline: 'BASELINE',
+  budget:   'BUDGET',
+  mid:      'MID-TIER',
+  premium:  'PREMIUM',
+  turnkey:  'TURNKEY'
+};
+function buildCards() {
+  grid.innerHTML = '';
+  options.forEach(o => {
+    const card = document.createElement('article');
+    card.className = 'card';
+    card.dataset.id = o.id;
+    card.dataset.costLow = o.costLow;
+    card.dataset.costHigh = o.costHigh;
+    card.dataset.phx = o.phxPass;
+    card.dataset.ac = o.ac;
+    const prosHTML = o.pros.map(p => `<li>${p}</li>`).join('');
+    const consHTML = o.cons.map(p => `<li>${p}</li>`).join('');
+    card.innerHTML = `
+      <div class="card-head">
+        <span class="card-tier tier-${o.tier}">${tierLabels[o.tier]}</span>
+        <div class="card-name">${o.name}</div>
+        <div class="card-sub">${o.tagline}</div>
+      </div>
+      <div class="card-stats">
+        <div class="stat">
+          <div class="label">Output</div>
+          <div class="val">${o.hp}<small>HP</small></div>
+        </div>
+        <div class="stat">
+          <div class="label">Torque</div>
+          <div class="val">${o.tq}<small>LB-FT</small></div>
+        </div>
+        <div class="stat">
+          <div class="label">Cost (all-in)</div>
+          <div class="val" style="font-size:14px;letter-spacing:0;font-family:var(--mono);color:var(--amber)">${o.costRange}</div>
+        </div>
+        <div class="stat">
+          <div class="label">Build Time</div>
+          <div class="val" style="font-size:14px;letter-spacing:0;font-family:var(--mono)">${o.time}</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="status-row">
+          <div class="status ${o.phxPass}">
+            <span class="label">Phoenix Emissions</span>
+            <span class="verdict">${o.phxText}</span>
+          </div>
+          <div class="status ${o.ac}">
+            <span class="label">Factory A/C</span>
+            <span class="verdict">${o.acText}</span>
+          </div>
+        </div>
+        <h4>PROS</h4>
+        <ul class="pros">${prosHTML}</ul>
+        <h4>CONS</h4>
+        <ul class="cons">${consHTML}</ul>
+        <details>
+          <summary>SHOP DETAIL · COST BREAKDOWN · PHX NOTES</summary>
+          <div class="detail-content">${o.detail}</div>
+        </details>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+buildCards();
+/* ============================================================
+   BUILD COMPARISON TABLE
+   ============================================================ */
+const tbody = document.getElementById('tableBody');
+function buildTable() {
+  tbody.innerHTML = '';
+  const sorted = [...options].sort((a,b) => a.costLow - b.costLow);
+  sorted.forEach(o => {
+    const tr = document.createElement('tr');
+    const phxClass = o.phxPass === 'good' ? 'g' : o.phxPass === 'warn' ? 'y' : 'r';
+    const acClass  = o.ac === 'good' ? 'g' : o.ac === 'warn' ? 'y' : 'r';
+    tr.innerHTML = `
+      <td class="name">${o.name}<small>${o.tagline}</small></td>
+      <td>${o.engine}</td>
+      <td>${o.hp} / ${o.tq}</td>
+      <td class="cost">${o.costRange}</td>
+      <td>${o.time}</td>
+      <td>${o.skill}</td>
+      <td><span class="tag ${phxClass}">${o.phxText}</span></td>
+      <td><span class="tag ${acClass}">${o.acText}</span></td>
+      <td>${o.resale}</td>
+      <td>${o.reversible}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+buildTable();
+/* ============================================================
+   FILTERS
+   ============================================================ */
+let activeBudget = 'all';
+let onlyPhx = false;
+let onlyAc = false;
+document.querySelectorAll('.chip[data-budget]').forEach(chip => {
+  chip.addEventListener('click', () => {
+    document.querySelectorAll('.chip[data-budget]').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    activeBudget = chip.dataset.budget;
+    applyFilters();
+  });
+});
+document.querySelectorAll('.chip.toggle').forEach(chip => {
+  chip.addEventListener('click', () => {
+    chip.classList.toggle('active');
+    if (chip.dataset.toggle === 'emiss') onlyPhx = chip.classList.contains('active');
+    if (chip.dataset.toggle === 'ac') onlyAc = chip.classList.contains('active');
+    applyFilters();
+  });
+});
+function applyFilters() {
+  document.querySelectorAll('.card').forEach(card => {
+    const low = +card.dataset.costLow;
+    const high = +card.dataset.costHigh;
+    const phx = card.dataset.phx;
+    const ac = card.dataset.ac;
+    let inBudget = true;
+    if (activeBudget === 'under-5k') inBudget = low < 5000;
+    else if (activeBudget === '5-15k') inBudget = low < 15000 && high >= 5000;
+    else if (activeBudget === '15-30k') inBudget = low < 30000 && high >= 15000;
+    else if (activeBudget === 'over-30k') inBudget = high >= 30000;
+    const phxOk = !onlyPhx || phx === 'good';
+    const acOk = !onlyAc || ac === 'good';
+    if (inBudget && phxOk && acOk) {
+      card.classList.remove('dimmed');
+    } else {
+      card.classList.add('dimmed');
+    }
+  });
+}
+</script>
+</body>
+</html>

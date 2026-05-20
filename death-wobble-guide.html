@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Death Wobble Survival Guide — Jeep Cherokee XJ</title>
+<style>
+  :root{
+    --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+    --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+    --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+    --accent:#c5a572;
+    --accent-2:#7a8c4f;
+    --accent-3:#b86e3a;
+    --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+    --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+    --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+    --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+    --radius:8px; --radius-lg:12px;
+    --shadow:0 4px 24px rgba(0,0,0,.35);
+    --max:980px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  button{font:inherit;cursor:pointer}
+
+  .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%, rgba(14,17,22,.94) 100%);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+  .topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+  .brand-mark{width:34px;height:34px;background:var(--danger);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:16px}
+  .brand-text{font-size:16px;letter-spacing:-.2px}
+  .brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+  .nav-tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+  .tab{padding:8px 12px;border-radius:6px;color:var(--text-dim);background:transparent;border:1px solid transparent;font-size:13px;font-weight:500;white-space:nowrap}
+  .tab:hover{color:var(--text);background:var(--bg-2)}
+  .tab.active{color:var(--accent);background:var(--bg-2);border-color:var(--border)}
+
+  main{max-width:var(--max);margin:0 auto;padding:24px 20px 80px}
+
+  /* Panels & sections */
+  h1{font-size:32px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.15}
+  h2{font-size:22px;letter-spacing:-.3px;margin:32px 0 14px}
+  h3{font-size:17px;margin:22px 0 10px;letter-spacing:-.1px}
+  h4{font-size:14px;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);margin:18px 0 10px;font-weight:700}
+  p{margin:0 0 14px}
+  .lede{font-size:17px;color:var(--text-dim);max-width:720px;line-height:1.65}
+
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin-bottom:18px}
+  .panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+  .panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+  .panel.good{background:var(--good-bg);border-color:var(--good-border)}
+  .panel.info{background:var(--info-bg);border-color:var(--info-border)}
+  .panel .panel-icon{font-size:24px;margin-bottom:6px}
+
+  .hero{padding:36px 28px;background:linear-gradient(135deg,#241317 0%, #181620 50%, #161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:24px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-30%;right:-10%;width:280px;height:280px;background:radial-gradient(circle,rgba(229,115,115,.18) 0%,transparent 70%)}
+  .hero h1{position:relative}
+  .hero p{position:relative;color:var(--text-dim);max-width:720px}
+  .hero-cta{display:flex;gap:10px;margin-top:18px;position:relative;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:8px;font-weight:600;font-size:14px;border:1px solid var(--border);background:var(--bg-2);color:var(--text)}
+  .btn:hover{border-color:var(--accent);text-decoration:none}
+  .btn.primary{background:var(--accent);color:#1a1f27;border-color:var(--accent)}
+  .btn.primary:hover{background:#d6b783}
+  .btn.danger{background:var(--danger);color:#1a1f27;border-color:var(--danger)}
+
+  /* Big steps */
+  .big-steps{display:grid;gap:14px;margin:18px 0}
+  .big-step{display:grid;grid-template-columns:54px 1fr;gap:18px;align-items:flex-start;padding:18px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);position:relative}
+  .big-step .n{width:42px;height:42px;background:var(--danger);color:#1a1f27;font-weight:900;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
+  .big-step h3{margin:0 0 6px;font-size:16px}
+  .big-step p{margin:0;color:var(--text-dim);font-size:14px;line-height:1.55}
+
+  /* Inspection checklist */
+  .inspect-controls{display:flex;gap:8px;align-items:center;margin-bottom:16px;flex-wrap:wrap;background:var(--bg-2);padding:12px;border:1px solid var(--border);border-radius:var(--radius)}
+  .progress{flex:1;min-width:180px;display:flex;align-items:center;gap:10px}
+  .progress-bar{flex:1;height:8px;background:var(--bg-3);border-radius:4px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--accent);transition:width .25s ease}
+  .progress-label{font-size:13px;color:var(--text-dim);min-width:80px}
+  .item{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+  .item-head{display:grid;grid-template-columns:auto 1fr auto auto;gap:14px;padding:14px 16px;cursor:pointer;align-items:center}
+  .item-head:hover{background:var(--bg-2)}
+  .item-num{width:30px;height:30px;background:var(--bg-3);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text-dim);font-size:13px}
+  .item.checked .item-num{background:var(--good);color:#0e1116;border-color:var(--good)}
+  .item.failed .item-num{background:var(--danger);color:#0e1116;border-color:var(--danger)}
+  .item-title{font-weight:600;font-size:15px}
+  .item-subtitle{font-size:12px;color:var(--text-mute);margin-top:2px}
+  .item-meta{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .badge{display:inline-flex;align-items:center;padding:3px 8px;font-size:11px;background:var(--bg-3);color:var(--text-dim);border-radius:12px;border:1px solid var(--border);font-weight:500}
+  .badge.priority{background:rgba(229,115,115,.15);color:var(--danger);border-color:rgba(229,115,115,.3)}
+  .badge.easy{background:rgba(129,199,132,.15);color:var(--good);border-color:rgba(129,199,132,.3)}
+  .badge.medium{background:rgba(255,183,77,.15);color:var(--warn);border-color:rgba(255,183,77,.3)}
+  .badge.hard{background:rgba(229,115,115,.15);color:var(--danger);border-color:rgba(229,115,115,.3)}
+  .badge.free{background:rgba(100,181,246,.15);color:var(--info);border-color:rgba(100,181,246,.3)}
+  .toggle{font-size:18px;color:var(--text-mute);transition:transform .2s}
+  .item.open .toggle{transform:rotate(90deg)}
+  .item-body{padding:0 16px 18px;border-top:1px solid var(--border);display:none}
+  .item.open .item-body{display:block}
+  .item-body h4{margin-top:14px}
+  .item-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .mini-btn{padding:6px 12px;font-size:12px;border-radius:6px;background:var(--bg-2);border:1px solid var(--border);color:var(--text-dim)}
+  .mini-btn:hover{border-color:var(--accent);color:var(--text)}
+  .mini-btn.good{background:rgba(129,199,132,.1);border-color:rgba(129,199,132,.4);color:var(--good)}
+  .mini-btn.good:hover{background:rgba(129,199,132,.2)}
+  .mini-btn.bad{background:rgba(229,115,115,.1);border-color:rgba(229,115,115,.4);color:var(--danger)}
+  .mini-btn.bad:hover{background:rgba(229,115,115,.2)}
+  .mini-btn.active{box-shadow:0 0 0 2px var(--accent);color:var(--text)}
+
+  .test-box{background:var(--bg-2);border-left:3px solid var(--accent);padding:12px 14px;margin:12px 0;border-radius:0 6px 6px 0;font-size:14px}
+  .test-box .test-label{color:var(--accent);text-transform:uppercase;font-size:11px;letter-spacing:.5px;font-weight:700;margin-bottom:4px}
+
+  /* Symptom quiz */
+  .quiz-q{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-bottom:14px}
+  .quiz-q .q-num{color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:4px}
+  .quiz-q .q-text{font-weight:600;margin-bottom:12px;font-size:15px}
+  .quiz-options{display:flex;flex-wrap:wrap;gap:8px}
+  .quiz-opt{padding:8px 14px;border-radius:6px;background:var(--bg-2);border:1px solid var(--border);color:var(--text-dim);font-size:13px;cursor:pointer;transition:all .15s}
+  .quiz-opt:hover{color:var(--text);border-color:var(--accent)}
+  .quiz-opt.selected{background:rgba(197,165,114,.15);border-color:var(--accent);color:var(--accent)}
+
+  /* Fix plan */
+  .fix-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:10px;align-items:center}
+  .fix-rank{width:32px;height:32px;background:var(--accent);color:#1a1f27;font-weight:900;border-radius:50%;display:flex;align-items:center;justify-content:center}
+  .fix-row.done{opacity:.55}
+  .fix-row.done .fix-rank{background:var(--good)}
+  .fix-row .fix-title{font-weight:600}
+  .fix-row .fix-meta{font-size:12px;color:var(--text-mute);margin-top:3px}
+  .fix-row .fix-cost{color:var(--accent);font-weight:700;text-align:right}
+  .fix-row .fix-cost .label{display:block;font-size:11px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px;font-weight:500}
+
+  /* Diagram */
+  .diagram-wrap{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin:16px 0;text-align:center}
+  .diagram-wrap svg{max-width:100%;height:auto}
+  .diagram-caption{color:var(--text-mute);font-size:12px;margin-top:8px}
+
+  /* Glossary */
+  .gloss{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:8px}
+  .gloss dt{font-weight:600;color:var(--accent);margin-bottom:4px}
+  .gloss dd{margin:0;color:var(--text-dim);font-size:14px;line-height:1.55}
+
+  /* Misc */
+  .pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;background:var(--bg-3);color:var(--text-dim);border:1px solid var(--border);margin:2px}
+  .center{text-align:center}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:680px){.grid-2{grid-template-columns:1fr}}
+  hr.sep{border:0;border-top:1px solid var(--border);margin:24px 0}
+  .footer{padding:30px 20px 24px;text-align:center;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
+  .footer .disclaimer{max-width:640px;margin:0 auto;line-height:1.6}
+
+  /* Mobile */
+  @media (max-width:640px){
+    main{padding:14px 12px 60px}
+    h1{font-size:24px}
+    .hero{padding:22px 16px}
+    .topbar-inner{padding:10px 14px}
+    .item-head{grid-template-columns:auto 1fr auto;gap:10px}
+    .item-meta{grid-column:2 / -1;justify-content:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">!</div>
+      <div>
+        <div class="brand-text">Death Wobble Survival Guide</div>
+        <div class="brand-sub"><a href="index.html" style="color:var(--text-dim);text-decoration:none">← Trail Manual</a> · Jeep Cherokee XJ · For first-time owners</div>
+      </div>
+    </div>
+    <nav class="nav-tabs" id="tabs">
+      <button class="tab" data-route="#/panic">Don't Panic</button>
+      <button class="tab" data-route="#/what">What Is It</button>
+      <button class="tab" data-route="#/diagnose">Symptom Quiz</button>
+      <button class="tab" data-route="#/inspect">Inspection</button>
+      <button class="tab" data-route="#/fix">Fix Plan</button>
+      <button class="tab" data-route="#/glossary">Glossary</button>
+    </nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer class="footer">
+  <div class="disclaimer">
+    Educational guide compiled from community resources (NAXJA, Cherokee Forum, JeepForum, Pirate4x4) and shop experience. Death wobble involves safety-critical components — when in doubt, have a qualified mechanic inspect before driving on the highway. This guide doesn't replace a factory service manual.
+  </div>
+</footer>
+
+<script>
+(() => {
+  // -------- helpers --------
+  const $ = (s, el=document) => el.querySelector(s);
+  const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+  const el = (tag, attrs={}, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k,v] of Object.entries(attrs)) {
+      if (k === 'class') n.className = v;
+      else if (k === 'html') n.innerHTML = v;
+      else if (k === 'on') for (const [evt, fn] of Object.entries(v)) n.addEventListener(evt, fn);
+      else if (v !== null && v !== undefined && v !== false) n.setAttribute(k, v);
+    }
+    for (const k of kids.flat()) {
+      if (k === null || k === undefined || k === false) continue;
+      n.appendChild(typeof k === 'string' ? document.createTextNode(k) : k);
+    }
+    return n;
+  };
+  const LS_KEY = 'xj-dw-state-v1';
+  const state = (() => {
+    try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch(e) { return {}; }
+  })();
+  state.inspect = state.inspect || {};   // { itemId: 'pass' | 'fail' | undefined }
+  state.quiz = state.quiz || {};          // { qid: optionId }
+  state.done = state.done || {};          // { fixId: true }
+  const save = () => { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e){} };
+
+  // -------- content data --------
+  const INSPECT_ITEMS = [
+    {
+      id:'tirepressure',
+      title:'Tire pressure (all four)',
+      sub:'30 seconds · free · do this first',
+      difficulty:'easy', cost:'free',
+      what:'Wrong or unequal tire pressure can mask or cause wobble. Big lifted XJs often run too low for highway use.',
+      test:'Check all four tires cold with a gauge. Target ~30-32 psi front, 28-30 rear for daily street tires; ~35 psi for highway with oversized tires. Make sure left and right match within 1 psi.',
+      finding:'If front tires were under 25 psi or significantly mismatched, this alone can trigger wobble.',
+      fixIds:['fix-pressure'],
+    },
+    {
+      id:'lugnuts',
+      title:'Lug nut torque',
+      sub:'2 minutes · free',
+      difficulty:'easy', cost:'free',
+      what:'Loose lugs are rare but devastating — they let the wheel hub move relative to the rotor and feed any oscillation.',
+      test:'With a torque wrench set to 95 lb-ft, check every front lug nut in a star pattern. They should all reach 95 before the wrench clicks. If any turn easily before clicking, they were loose.',
+      finding:'If even one lug was loose, retorque all four wheels and re-test before doing anything else.',
+      fixIds:['fix-lugs'],
+    },
+    {
+      id:'tires',
+      title:'Tire condition & balance',
+      sub:'5 minutes · visual + drive feel',
+      difficulty:'easy', cost:'free to $80',
+      what:'A belt-separated tire, an out-of-round tire, or a wheel out of balance can either cause or amplify wobble.',
+      test:'Look at each front tire for: lumps or bulges in the sidewall or tread, uneven wear, cupping or scalloping. Spin each tire by hand if jacked up and watch for wobble side-to-side. Note when wobble appears in a normal vibration sense — DW is sudden and violent; tire imbalance is a constant shake at a specific speed.',
+      finding:'A visibly damaged tire is a hard fail — replace before driving highway again. A tire that "shakes the wheel" at 55-65 mph but stops cleanly is most likely just out of balance ($15-25/tire).',
+      fixIds:['fix-balance','fix-tires'],
+    },
+    {
+      id:'trackbar',
+      title:'Track bar (the #1 suspect)',
+      sub:'10 minutes · most common cause',
+      difficulty:'medium', cost:'free to inspect',
+      what:'The track bar is a single bar that ties your front axle to your frame and keeps it centered side-to-side. The end with a rubber bushing (frame side) and the end with a ball stud (axle side) take huge lateral loads. Worn rubber bushing = the #1 cause of XJ death wobble.',
+      test:'You will need a helper. With the truck on level ground and key on (engine off if power steering hisses), have helper rock the steering wheel left-right rapidly while you watch the track bar where it connects to the frame bracket on the passenger side. Any visible movement of the bushing in the bracket means it is worn. Also grab the axle-side end and try to wiggle the ball stud by hand — any play is bad.',
+      finding:'If the bushing is sloppy or the ball end has any play, this is almost certainly your root cause. Replace the whole track bar (not just the bushing — the ball wears too).',
+      fixIds:['fix-trackbar'],
+    },
+    {
+      id:'tierod',
+      title:'Tie rod ends',
+      sub:'10 minutes · second most common',
+      difficulty:'medium', cost:'free to inspect',
+      what:'The tie rod is the horizontal bar between your two front wheels. Its two ends (left and right tie rod ends) are ball-and-socket joints that wear out. They are also the cheapest steering parts.',
+      test:'With the truck on the ground, have a helper rock the steering left-right. Watch each tie rod end — the boot should not move axially in/out, and you should see no clunk or slop. With the front jacked up and wheels off the ground, grab a front tire at 9 and 3 and shake side-to-side. Any clunk + any movement at the tie rod end = worn.',
+      finding:'If either end feels sloppy, replace both sides as a pair. Cheap fix; do an alignment after.',
+      fixIds:['fix-tierod'],
+    },
+    {
+      id:'draglink',
+      title:'Drag link ends',
+      sub:'10 minutes',
+      difficulty:'medium', cost:'free to inspect',
+      what:'The drag link is the bar from your steering box (pitman arm) to the passenger-side knuckle. It transfers your steering input to the wheels. Its two ends wear like tie rod ends do.',
+      test:'Have helper rock the wheel left-right at idle. Watch each drag link end. Movement in the boot or audible clunk = worn.',
+      finding:'If sloppy, replace as a pair. Same kind of fix as tie rod.',
+      fixIds:['fix-draglink'],
+    },
+    {
+      id:'ballj',
+      title:'Front ball joints (upper & lower, both sides)',
+      sub:'15 minutes · 4 joints total',
+      difficulty:'medium', cost:'free to inspect',
+      what:'Each front knuckle is held by an upper and lower ball joint that lets the wheel pivot for steering. Worn ball joints introduce slop the wobble can exploit.',
+      test:'Jack up one front wheel until the tire is off the ground. Put a pry bar between the tire and the ground and lever up while watching the upper and lower ball joints. Any visible separation or play = worn. Repeat both sides.',
+      finding:'Replace as needed. If one is bad, the other side often follows within a year. Premium brand (Spicer, MOOG) recommended over cheapest — these are safety-critical.',
+      fixIds:['fix-balljoint'],
+    },
+    {
+      id:'box',
+      title:'Steering box sector shaft play',
+      sub:'10 minutes · often FREE to fix',
+      difficulty:'medium', cost:'free',
+      what:'The steering box has an adjuster screw on top that takes up wear in the sector shaft. After 100k+ miles it loosens and the steering wanders. Adjusting it is free and takes 5 minutes — the most underrated DW fix.',
+      test:'Pop the hood. Locate the steering box on driver-side frame (big cylinder near firewall). On top is a hex-head bolt locked by a 18mm jam nut. With key off and wheels straight, have a helper rock the wheel back and forth gently — feel the steering wheel for the dead spot where input doesn\'t move the wheels. If that dead zone exceeds about 1 inch of wheel rotation, the box needs adjustment.',
+      finding:'Loosen the jam nut, turn the adjuster clockwise IN VERY SMALL INCREMENTS (eighth-turn) until the dead spot is gone but the wheel still self-centers after a turn. Lock the jam nut. Drive carefully — overtightening destroys the box.',
+      fixIds:['fix-boxadjust','fix-boxswap'],
+    },
+    {
+      id:'bearing',
+      title:'Front wheel bearings (unit bearings)',
+      sub:'15 minutes',
+      difficulty:'medium', cost:'free to inspect',
+      what:'The Dana 30 front axle uses sealed unit bearings — when they wear they get sloppy and contribute to wobble. They also make a humming noise that changes with speed.',
+      test:'Jack the front so tire is off ground. Grab the tire at 12 and 6 (top and bottom) and try to rock it. Any clunk = worn unit bearing. Also spin the tire — listen for grinding/humming. Repeat on other side.',
+      finding:'Replace if play exists or noise is present. Both sides usually wear together.',
+      fixIds:['fix-bearings'],
+    },
+    {
+      id:'shaft',
+      title:'Steering shaft U-joint (firewall)',
+      sub:'5 minutes',
+      difficulty:'easy', cost:'free to inspect',
+      what:'There is a small U-joint between the column shaft and the steering box, inside the engine bay at the firewall. It dries out and wears, allowing small but troublesome play.',
+      test:'Open the hood, locate the shaft running from the firewall down to the steering box. Have a helper wiggle the steering wheel just a tiny bit — feel/see the U-joint for play. Any clunk or visible movement in the joint = worn.',
+      finding:'Replace with a Borgeson or Flaming River unit. Stops a common contributor.',
+      fixIds:['fix-shaftuj'],
+    },
+    {
+      id:'controlarm',
+      title:'Front control arm bushings',
+      sub:'10 minutes',
+      difficulty:'medium', cost:'free to inspect',
+      what:'Four bushings hold each front lower control arm to the frame and axle. Cracked or torn bushings let the axle move fore/aft slightly under load, which can feed wobble.',
+      test:'Look at each bushing visually — they are cylindrical rubber. Tears, large cracks, or a bushing pressed out of its sleeve are all fail. Pry against the control arm with a bar to see if it moves more than a hair in its mount.',
+      finding:'If bushings are cracked through, replace as a set. Most XJs don\'t need this fix unless they are old/high-mileage or the axle has been frequently shock-loaded.',
+      fixIds:['fix-cabushings'],
+    },
+    {
+      id:'pitman',
+      title:'Pitman arm',
+      sub:'2 minutes',
+      difficulty:'easy', cost:'free to inspect',
+      what:'The pitman arm comes off the steering box and attaches to the drag link. Its ball stud connection wears like a tie rod end.',
+      test:'Look where the drag link connects to the pitman arm. Have helper rock wheel and check for any movement between the drag link and the pitman ball stud. Movement = worn pitman.',
+      finding:'Rare but possible. Replace pitman if visibly sloppy.',
+      fixIds:['fix-pitman'],
+    },
+    {
+      id:'stabilizer',
+      title:'Steering stabilizer / damper',
+      sub:'2 minutes',
+      difficulty:'easy', cost:'free to inspect',
+      what:'IMPORTANT: a steering stabilizer is NOT a fix for death wobble — it only masks an underlying problem. But a leaking or stiff stabilizer can reveal one that was previously hidden, so it\'s worth a glance.',
+      test:'Look at the horizontal damper between tie rod and axle. If it is oil-soaked, leaking, or feels rigid (no resistance, or no movement), it is bad. If it looks fine, leave it.',
+      finding:'A bad stabilizer is rarely the cause. A new stabilizer ALONE will rarely cure DW. Replace it after fixing the real issue, not before.',
+      fixIds:['fix-stabilizer'],
+    },
+    {
+      id:'alignment',
+      title:'Toe alignment',
+      sub:'5 minutes',
+      difficulty:'easy', cost:'free if at home',
+      what:'Front toe (whether the front of the tires point inward or outward of straight) being wildly off can make any steering slop way more dangerous.',
+      test:'Measure the distance between the front of the front tires (at hub height) and the back of the front tires (same height). Front should be 1/16" - 1/8" shorter than the back ("toe-in"). If front is wider than back ("toe-out"), the truck darts and self-steers — a wobble multiplier.',
+      finding:'Adjust toe by loosening the tie rod sleeve clamps and rotating the sleeve. Or take to an alignment shop ($60-100).',
+      fixIds:['fix-alignment'],
+    },
+  ];
+
+  const FIXES = {
+    'fix-pressure':   {title:'Set tire pressure correctly', cost:0, time:'5 min', why:'Free; first thing to verify before anything else.'},
+    'fix-lugs':       {title:'Torque lug nuts to 95 lb-ft', cost:0, time:'5 min', why:'Free; safety-critical even if not the cause.'},
+    'fix-balance':    {title:'Re-balance front wheels', cost:50, time:'30 min at shop', why:'Inexpensive; eliminates a known wobble multiplier.'},
+    'fix-tires':      {title:'Replace damaged/separated tire', cost:200, time:'1 hr at shop', why:'A separated belt cannot be balanced or aligned out.'},
+    'fix-trackbar':   {title:'Replace track bar (or rebuild bushings)', cost:200, time:'1-2 hr DIY', why:'#1 cause of XJ death wobble. Most common single fix.'},
+    'fix-tierod':     {title:'Replace tie rod ends (pair)', cost:90, time:'1-2 hr DIY', why:'Cheap and very common cause. Do alignment after.'},
+    'fix-draglink':   {title:'Replace drag link ends (pair)', cost:80, time:'1-2 hr DIY', why:'Same as tie rod — cheap and common.'},
+    'fix-balljoint':  {title:'Replace front ball joints', cost:280, time:'3-4 hr DIY w/ press', why:'Safety-critical; pay for good brand (Spicer/MOOG).'},
+    'fix-boxadjust':  {title:'Adjust steering box sector shaft', cost:0, time:'10 min', why:'FREE. Most under-used DW fix. Try this before swapping.'},
+    'fix-boxswap':    {title:'Swap to ZJ steering box', cost:350, time:'4 hr DIY', why:'Larger sector shaft and stronger mounting. Common upgrade.'},
+    'fix-bearings':   {title:'Replace unit bearings (pair)', cost:300, time:'1-2 hr DIY', why:'Often paired with ball joints since both come off together.'},
+    'fix-shaftuj':    {title:'Replace steering shaft U-joint', cost:60, time:'30 min DIY', why:'Cheap; eliminates a common minor contributor.'},
+    'fix-cabushings': {title:'Replace front control arm bushings', cost:120, time:'3-4 hr DIY', why:'Rare cause. Only do if visibly cracked.'},
+    'fix-pitman':     {title:'Replace pitman arm', cost:80, time:'30 min DIY w/ puller', why:'Uncommon but cheap to fix when it fails.'},
+    'fix-stabilizer': {title:'Replace steering stabilizer', cost:60, time:'15 min DIY', why:'Do this LAST, not first. It masks, doesn\'t cure.'},
+    'fix-alignment':  {title:'Front alignment (toe)', cost:80, time:'30 min at shop', why:'Always required after any steering work.'},
+  };
+
+  const QUIZ = [
+    {
+      id:'speed',
+      q:'At what speed does the shaking happen?',
+      opts:[
+        {id:'lo','label':'Under 25 mph','weight':{}},
+        {id:'mid','label':'25 to 45 mph','weight':{'fix-balance':2,'fix-tires':2}},
+        {id:'hwy','label':'45 mph and above','weight':{'fix-trackbar':5,'fix-tierod':4,'fix-boxadjust':4}},
+      ]
+    },
+    {
+      id:'trigger',
+      q:'What triggers the wobble?',
+      opts:[
+        {id:'bump','label':'Hitting a bump or pothole','weight':{'fix-trackbar':5,'fix-tierod':3,'fix-boxadjust':3,'fix-balljoint':2}},
+        {id:'always','label':'Constant — shakes all the time at speed','weight':{'fix-balance':4,'fix-tires':3,'fix-bearings':2}},
+        {id:'corner','label':'Turning or cornering','weight':{'fix-balljoint':3,'fix-bearings':2,'fix-pitman':2}},
+        {id:'unsure','label':'Not sure','weight':{}},
+      ]
+    },
+    {
+      id:'lifted',
+      q:'Is your XJ lifted?',
+      opts:[
+        {id:'stock','label':'Stock or mild boost (under 2")','weight':{}},
+        {id:'med','label':'3 to 4.5" lift','weight':{'fix-trackbar':3,'fix-tierod':2}},
+        {id:'big','label':'5"+ long arm or SOA','weight':{'fix-trackbar':5,'fix-boxswap':3,'fix-balljoint':2}},
+      ]
+    },
+    {
+      id:'recent',
+      q:'Did it start after a recent change?',
+      opts:[
+        {id:'new-tires','label':'New tires or wheels','weight':{'fix-balance':4,'fix-tires':2,'fix-alignment':3}},
+        {id:'new-lift','label':'New lift kit','weight':{'fix-alignment':4,'fix-trackbar':2}},
+        {id:'new-steer','label':'New steering parts','weight':{'fix-alignment':5}},
+        {id:'no','label':'No — just appeared','weight':{'fix-trackbar':4,'fix-tierod':3,'fix-boxadjust':3}},
+      ]
+    },
+    {
+      id:'feel',
+      q:'Has the steering felt loose or wandering before today?',
+      opts:[
+        {id:'yes-loose','label':'Yes — loose, wandering','weight':{'fix-boxadjust':5,'fix-tierod':3,'fix-trackbar':3,'fix-shaftuj':2}},
+        {id:'yes-clunk','label':'Yes — clunks when going over bumps','weight':{'fix-trackbar':5,'fix-tierod':2,'fix-balljoint':3}},
+        {id:'no','label':'No — felt fine until the wobble','weight':{'fix-trackbar':3,'fix-tierod':2,'fix-boxadjust':2}},
+      ]
+    },
+    {
+      id:'miles',
+      q:'How many miles on your truck?',
+      opts:[
+        {id:'low','label':'Under 100k','weight':{}},
+        {id:'mid','label':'100-200k','weight':{'fix-tierod':2,'fix-trackbar':2,'fix-boxadjust':2}},
+        {id:'high','label':'Over 200k','weight':{'fix-tierod':3,'fix-trackbar':3,'fix-boxadjust':3,'fix-balljoint':3,'fix-bearings':2}},
+      ]
+    },
+  ];
+
+  // -------- router --------
+  function go(hash) {
+    if (location.hash !== hash) location.hash = hash;
+    else render();
+  }
+  window.addEventListener('hashchange', render);
+
+  function render() {
+    const h = location.hash || '#/panic';
+    $$('#tabs .tab').forEach(t => t.classList.toggle('active', t.dataset.route === h || (t.dataset.route === '#/panic' && (h==='' || h==='#/'))));
+    const app = $('#app');
+    app.innerHTML = '';
+    if (h === '#/panic' || h === '#/' || h === '') return renderPanic(app);
+    if (h.startsWith('#/what')) return renderWhat(app);
+    if (h.startsWith('#/diagnose')) return renderDiagnose(app);
+    if (h.startsWith('#/inspect')) return renderInspect(app);
+    if (h.startsWith('#/fix')) return renderFix(app);
+    if (h.startsWith('#/glossary')) return renderGlossary(app);
+    renderPanic(app);
+  }
+
+  // -------- PANIC --------
+  function renderPanic(app) {
+    app.appendChild(el('section', {class:'hero'},
+      el('div', {style:'color:var(--danger);font-size:12px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:10px'}, '⚠ Emergency response'),
+      el('h1', {}, 'Your XJ just shook violently. Now what?'),
+      el('p', {class:'lede'}, "Death wobble is terrifying but it's almost never about to kill you — and the fix is almost always inexpensive. Take a breath. Here's exactly what to do right now, and a plan for finding the cause."),
+      el('div', {class:'hero-cta'},
+        el('button', {class:'btn primary', on:{click:()=>go('#/diagnose')}}, 'Run the symptom quiz →'),
+        el('button', {class:'btn', on:{click:()=>go('#/what')}}, 'First, what is this thing?')
+      )
+    ));
+
+    app.appendChild(el('div', {class:'panel danger'},
+      el('div', {class:'panel-icon'}, '🚨'),
+      el('h2', {style:'margin-top:0'}, 'If it\'s happening right now'),
+      el('div', {class:'big-steps'},
+        el('div', {class:'big-step'},
+          el('div', {class:'n'}, '1'),
+          el('div', {}, el('h3',{},'Do NOT slam the brakes'), el('p', {}, 'Hard braking with the front axle oscillating can lock the wheels and pitch the truck sideways. Brake gently and progressively only.'))
+        ),
+        el('div', {class:'big-step'},
+          el('div', {class:'n'}, '2'),
+          el('div', {}, el('h3',{},'Ease off the throttle'), el('p', {}, 'Lift smoothly. Engine braking will start to slow the truck without upsetting the front end.'))
+        ),
+        el('div', {class:'big-step'},
+          el('div', {class:'n'}, '3'),
+          el('div', {}, el('h3',{},'Hold the wheel firm at 9 and 3'), el('p', {}, 'Both hands. Don\'t lock your elbows — let the wheel buck slightly within your grip. Do not fight it back and forth; the oscillation is faster than you.'))
+        ),
+        el('div', {class:'big-step'},
+          el('div', {class:'n'}, '4'),
+          el('div', {}, el('h3',{},'Slow under 30 mph'), el('p', {}, 'Death wobble feeds on speed. Below ~30-35 mph the resonance dies out and the truck will go quiet again.'))
+        ),
+        el('div', {class:'big-step'},
+          el('div', {class:'n'}, '5'),
+          el('div', {}, el('h3',{},'Get off the highway and inspect'), el('p', {}, 'It WILL happen again. Do not return to highway speed without finding and fixing the cause. Pull off, walk around the truck, run the inspection tab.'))
+        ),
+      )
+    ));
+
+    app.appendChild(el('div', {class:'panel info'},
+      el('h2', {style:'margin-top:0'}, 'The good news'),
+      el('p', {}, "On a Jeep XJ, death wobble is so common it has a name and a Wikipedia page. The fix is almost always a single worn part costing under $200 — sometimes a free adjustment. You can almost certainly diagnose it in your driveway in 30 minutes."),
+      el('p', {style:'margin-bottom:0'}, "What follows: a plain-English explainer, a 6-question quiz that ranks likely causes, an interactive inspection checklist that walks you through each component, and a prioritized fix plan based on what you found.")
+    ));
+
+    app.appendChild(el('div', {class:'grid-2', style:'margin-top:18px'},
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0'}, '⏱ The 30-minute plan'),
+        el('ol', {},
+          el('li',{},'Run the ', el('a',{href:'#/diagnose'},'symptom quiz'), ' (5 min)'),
+          el('li',{},'Read ', el('a',{href:'#/what'},'what is it'), ' (3 min)'),
+          el('li',{},'Walk through the ', el('a',{href:'#/inspect'},'inspection'), ' on your driveway (20 min)'),
+          el('li',{},'Open your generated ', el('a',{href:'#/fix'},'fix plan'), ' (2 min)')
+        )
+      ),
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0'}, '🛠 What you\'ll need'),
+        el('ul', {},
+          el('li',{},'A tire pressure gauge'),
+          el('li',{},'A torque wrench (95 lb-ft range)'),
+          el('li',{},'A floor jack and jack stands (or curb ramps)'),
+          el('li',{},'Optional: a helper to rock the steering wheel'),
+          el('li',{},'Optional: a pry bar for the ball joint test')
+        )
+      ),
+    ));
+  }
+
+  // -------- WHAT --------
+  function renderWhat(app) {
+    app.appendChild(el('h1', {}, 'What is death wobble?'));
+    app.appendChild(el('p', {class:'lede'}, "Plain English version: a chain of small worn parts gangs up on you, the front axle starts oscillating left-right-left-right several times per second, and the steering wheel shakes hard enough to feel like the truck's coming apart."));
+
+    app.appendChild(el('h2', {}, 'The physics, simplified'));
+    app.appendChild(el('p', {}, 'Your XJ has a solid front axle — both front wheels are connected by a single rigid axle housing. That whole axle pivots side-to-side and twists slightly on its rubber bushings. Two things hold it in place: the track bar (sideways) and the control arms (forward/back).'));
+    app.appendChild(el('p', {}, "When any of the steering joints or suspension bushings have worn slack, hitting a bump introduces a small steering input. The axle bounces back. The slack in the joints lets it bounce too far. That bounce creates another steering input. And the whole thing self-amplifies into resonance — the same way a kid pumping on a swing keeps building height."));
+    app.appendChild(el('p', {}, "Below about 35 mph the truck can't sustain the resonance — the oscillation dies. Above 45 mph the front-end forces are big enough to keep feeding it. That's why wobble is a highway-speed phenomenon."));
+
+    // SVG diagram - top-down steering linkage
+    app.appendChild(el('h2', {}, 'The parts involved'));
+    app.appendChild(el('div', {class:'diagram-wrap'},
+      el('div', {html: `
+<svg viewBox="0 0 700 360" xmlns="http://www.w3.org/2000/svg" style="background:#161b22;border-radius:8px">
+  <!-- Frame outline -->
+  <rect x="100" y="60" width="500" height="240" fill="none" stroke="#2c333e" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="105" y="55" fill="#6b7280" font-size="11" font-family="sans-serif">— frame —</text>
+
+  <!-- Axle housing -->
+  <rect x="120" y="180" width="460" height="22" fill="#3F51B5" opacity="0.4" stroke="#64b5f6" stroke-width="2"/>
+  <text x="345" y="194" fill="#fff" font-size="11" font-family="sans-serif" text-anchor="middle">FRONT AXLE</text>
+
+  <!-- Left wheel -->
+  <rect x="60" y="155" width="50" height="80" rx="6" fill="#2c333e" stroke="#9aa3b1" stroke-width="2"/>
+  <text x="85" y="200" fill="#9aa3b1" font-size="10" font-family="sans-serif" text-anchor="middle">L</text>
+
+  <!-- Right wheel -->
+  <rect x="590" y="155" width="50" height="80" rx="6" fill="#2c333e" stroke="#9aa3b1" stroke-width="2"/>
+  <text x="615" y="200" fill="#9aa3b1" font-size="10" font-family="sans-serif" text-anchor="middle">R</text>
+
+  <!-- Track bar (frame to axle, diagonal) -->
+  <line x1="180" y1="80" x2="520" y2="180" stroke="#e57373" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="180" cy="80" r="6" fill="#e57373"/>
+  <circle cx="520" cy="180" r="6" fill="#e57373"/>
+  <text x="350" y="125" fill="#e57373" font-size="12" font-family="sans-serif" font-weight="700">TRACK BAR ← #1 SUSPECT</text>
+
+  <!-- Tie rod (left knuckle to right knuckle) -->
+  <line x1="115" y1="245" x2="585" y2="245" stroke="#c5a572" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="115" cy="245" r="5" fill="#c5a572"/>
+  <circle cx="585" cy="245" r="5" fill="#c5a572"/>
+  <text x="350" y="260" fill="#c5a572" font-size="11" font-family="sans-serif" font-weight="700" text-anchor="middle">TIE ROD (both ends wear)</text>
+
+  <!-- Drag link (steering box to passenger knuckle) -->
+  <line x1="170" y1="280" x2="585" y2="265" stroke="#81c784" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="170" cy="280" r="5" fill="#81c784"/>
+  <circle cx="585" cy="265" r="5" fill="#81c784"/>
+  <text x="350" y="300" fill="#81c784" font-size="11" font-family="sans-serif" font-weight="700" text-anchor="middle">DRAG LINK</text>
+
+  <!-- Steering box / pitman -->
+  <rect x="140" y="270" width="35" height="35" fill="#9C27B0" opacity="0.4" stroke="#9C27B0" stroke-width="2"/>
+  <text x="157" y="292" fill="#9C27B0" font-size="9" font-family="sans-serif" text-anchor="middle">BOX</text>
+
+  <!-- Ball joints at knuckles -->
+  <circle cx="135" cy="175" r="6" fill="#FFC107"/>
+  <circle cx="565" cy="175" r="6" fill="#FFC107"/>
+  <text x="350" y="170" fill="#FFC107" font-size="10" font-family="sans-serif" text-anchor="middle">↑ BALL JOINTS (upper, hidden lower) ↑</text>
+
+  <!-- Title -->
+  <text x="350" y="30" fill="#e6e8eb" font-size="14" font-family="sans-serif" text-anchor="middle" font-weight="700">XJ Front Steering &amp; Suspension — Top Down</text>
+</svg>
+      `})
+    ));
+
+    app.appendChild(el('div', {class:'grid-2'},
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0;color:#e57373'}, 'Track bar'),
+        el('p', {}, 'The single biggest cause. A diagonal bar from frame to axle that keeps the axle from sliding sideways. Two ends: one bushing (wears) and one ball joint (also wears).'),
+      ),
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0;color:#c5a572'}, 'Tie rod'),
+        el('p', {}, 'The horizontal bar between the two front wheels. Two ends — these wear like ball joints. Replacement is cheap.'),
+      ),
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0;color:#81c784'}, 'Drag link'),
+        el('p', {}, 'Connects the steering box (pitman arm) to the passenger knuckle. Two ends, again. Same kind of wear as tie rod.'),
+      ),
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0;color:#FFC107'}, 'Ball joints'),
+        el('p', {}, 'Each front wheel pivots on an upper and lower ball joint inside the knuckle. Four total. They wear quietly until they\'re loose.'),
+      ),
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0;color:#9C27B0'}, 'Steering box'),
+        el('p', {}, 'Converts your steering wheel input into side-to-side drag link motion. Has an adjustable internal screw — when it loosens, the steering develops a dead spot. Adjustment is FREE.'),
+      ),
+      el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0;color:#64b5f6'}, 'Unit bearings'),
+        el('p', {}, 'Sealed wheel bearings inside each front hub. When they wear they get sloppy and noisy.'),
+      ),
+    ));
+
+    app.appendChild(el('hr', {class:'sep'}));
+    app.appendChild(el('div', {class:'panel warn'},
+      el('h3', {style:'margin-top:0'}, 'Why a steering stabilizer is NOT the fix'),
+      el('p', {style:'margin-bottom:0'}, "Every parts-store associate will sell you a heavy-duty steering stabilizer or dual-damper kit. These mask the symptom by damping the oscillation, but they don't fix what's slack. Worse: a working stabilizer can hide a worn part for weeks until the day the stabilizer fails and the wobble returns at highway speed with no warning. Fix the real cause. A new stabilizer is the LAST step, not the first.")
+    ));
+
+    app.appendChild(el('div', {class:'center', style:'margin-top:24px'},
+      el('button', {class:'btn primary', on:{click:()=>go('#/diagnose')}}, 'Next: take the symptom quiz →')
+    ));
+  }
+
+  // -------- DIAGNOSE (quiz) --------
+  function renderDiagnose(app) {
+    app.appendChild(el('h1', {}, 'Symptom quiz'));
+    app.appendChild(el('p', {class:'lede'}, "Six questions to rank the likely causes. There are no wrong answers — pick what fits closest. Your answers feed the fix-plan ranking; you can change them later and the plan updates."));
+
+    QUIZ.forEach((q, i) => {
+      const qEl = el('div', {class:'quiz-q'});
+      qEl.appendChild(el('div', {class:'q-num'}, 'Question ' + (i+1)));
+      qEl.appendChild(el('div', {class:'q-text'}, q.q));
+      const opts = el('div', {class:'quiz-options'});
+      q.opts.forEach(opt => {
+        const o = el('div', {class:'quiz-opt' + (state.quiz[q.id]===opt.id?' selected':''), on:{click:()=>{
+          state.quiz[q.id] = opt.id;
+          $$('.quiz-opt', opts).forEach(e=>e.classList.remove('selected'));
+          o.classList.add('selected');
+          save();
+          updateMeta();
+        }}}, opt.label);
+        opts.appendChild(o);
+      });
+      qEl.appendChild(opts);
+      app.appendChild(qEl);
+    });
+
+    const metaPanel = el('div', {class:'panel info', style:'margin-top:20px'});
+    app.appendChild(metaPanel);
+
+    function updateMeta() {
+      const answered = Object.keys(state.quiz).length;
+      metaPanel.innerHTML = '';
+      metaPanel.appendChild(el('div', {style:'display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap'},
+        el('div', {},
+          el('div', {style:'font-size:12px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px'}, 'Progress'),
+          el('div', {style:'font-size:18px;font-weight:700'}, answered + ' of ' + QUIZ.length + ' answered')
+        ),
+        el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'},
+          answered > 0 ? el('button', {class:'btn', on:{click:()=>{ state.quiz={}; save(); render(); }}}, 'Reset') : null,
+          el('button', {class:'btn primary', on:{click:()=>go('#/fix')}}, 'View fix plan →'),
+          el('button', {class:'btn', on:{click:()=>go('#/inspect')}}, 'Skip to inspection →')
+        )
+      ));
+    }
+    updateMeta();
+  }
+
+  // -------- INSPECT --------
+  function renderInspect(app) {
+    app.appendChild(el('h1', {}, 'Driveway inspection'));
+    app.appendChild(el('p', {class:'lede'}, "Work through each item. Tap PASS or FAIL as you go — your fix plan updates based on what you found. Your progress saves automatically. Estimated total time: 30-60 minutes if everything's accessible."));
+
+    const wrap = el('div', {});
+    const ctrlEl = el('div', {class:'inspect-controls'});
+    const progress = el('div', {class:'progress'},
+      el('div', {class:'progress-bar'}, el('div', {class:'progress-fill', id:'pf'})),
+      el('div', {class:'progress-label', id:'pl'}, '0/14')
+    );
+    ctrlEl.appendChild(progress);
+    ctrlEl.appendChild(el('button', {class:'mini-btn', on:{click:()=>{ state.inspect={}; save(); render(); }}}, 'Reset all'));
+    ctrlEl.appendChild(el('button', {class:'btn primary', on:{click:()=>go('#/fix')}}, 'See fix plan →'));
+    wrap.appendChild(ctrlEl);
+
+    INSPECT_ITEMS.forEach((item, idx) => {
+      const status = state.inspect[item.id];
+      const it = el('div', {class:'item' + (status === 'pass' ? ' checked' : status === 'fail' ? ' failed' : '')});
+      const head = el('div', {class:'item-head', on:{click:(e)=>{ if(e.target.tagName==='BUTTON') return; it.classList.toggle('open'); }}},
+        el('div', {class:'item-num'}, status === 'pass' ? '✓' : status === 'fail' ? '✗' : String(idx+1)),
+        el('div', {},
+          el('div', {class:'item-title'}, item.title),
+          el('div', {class:'item-subtitle'}, item.sub)
+        ),
+        el('div', {class:'item-meta'},
+          el('span', {class:'badge ' + item.difficulty}, item.difficulty),
+          el('span', {class:'badge ' + (item.cost==='free' ? 'free' : '')}, item.cost)
+        ),
+        el('div', {class:'toggle'}, '▶')
+      );
+      it.appendChild(head);
+
+      const body = el('div', {class:'item-body'});
+      body.appendChild(el('h4', {}, 'What is this?'));
+      body.appendChild(el('p', {}, item.what));
+      body.appendChild(el('div', {class:'test-box'},
+        el('div', {class:'test-label'}, 'How to test'),
+        item.test
+      ));
+      body.appendChild(el('h4', {}, 'What does a fail look like?'));
+      body.appendChild(el('p', {}, item.finding));
+      const actions = el('div', {class:'item-actions'});
+      actions.appendChild(el('button', {class:'mini-btn good' + (status === 'pass' ? ' active' : ''), on:{click:()=>{ state.inspect[item.id]='pass'; save(); render(); }}}, '✓ Passed'));
+      actions.appendChild(el('button', {class:'mini-btn bad' + (status === 'fail' ? ' active' : ''), on:{click:()=>{ state.inspect[item.id]='fail'; save(); render(); }}}, '✗ Failed'));
+      actions.appendChild(el('button', {class:'mini-btn', on:{click:()=>{ delete state.inspect[item.id]; save(); render(); }}}, 'Clear'));
+      body.appendChild(actions);
+      it.appendChild(body);
+      wrap.appendChild(it);
+    });
+
+    app.appendChild(wrap);
+
+    // update progress
+    const total = INSPECT_ITEMS.length;
+    const done = Object.keys(state.inspect).length;
+    const pct = total ? (done/total*100) : 0;
+    setTimeout(()=>{
+      const pf = document.getElementById('pf'); const pl = document.getElementById('pl');
+      if (pf) pf.style.width = pct + '%';
+      if (pl) pl.textContent = done + '/' + total + ' (' + Math.round(pct) + '%)';
+    }, 0);
+  }
+
+  // -------- FIX PLAN --------
+  function renderFix(app) {
+    app.appendChild(el('h1', {}, 'Your prioritized fix plan'));
+    app.appendChild(el('p', {class:'lede'}, "Combines your quiz answers and inspection results into a ranked plan. Items you flagged as FAILED come first, then quiz-weighted candidates, then the universal cheap-stuff-first ordering. Cross items off as you complete them."));
+
+    // Compute scores
+    const scores = {};
+    Object.keys(FIXES).forEach(id => scores[id] = 0);
+
+    // Score from quiz weights
+    QUIZ.forEach(q => {
+      const sel = state.quiz[q.id];
+      if (!sel) return;
+      const opt = q.opts.find(o=>o.id===sel);
+      if (!opt) return;
+      for (const [fix, w] of Object.entries(opt.weight)) {
+        scores[fix] = (scores[fix]||0) + w;
+      }
+    });
+
+    // Inspection: any "fail" boosts the corresponding fix significantly
+    let failedSomething = false;
+    INSPECT_ITEMS.forEach(item => {
+      if (state.inspect[item.id] === 'fail') {
+        failedSomething = true;
+        (item.fixIds || []).forEach(fix => {
+          scores[fix] = (scores[fix]||0) + 100;
+        });
+      }
+      if (state.inspect[item.id] === 'pass') {
+        (item.fixIds || []).forEach(fix => {
+          // demote items we already verified are good
+          scores[fix] = (scores[fix]||0) - 50;
+        });
+      }
+    });
+
+    // Always-recommended free items get a baseline boost
+    ['fix-pressure','fix-lugs','fix-boxadjust'].forEach(id => {
+      if (scores[id] >= 0) scores[id] += 1; // small nudge so they show up if nothing else
+    });
+
+    // Build ranking
+    const ranked = Object.entries(scores)
+      .filter(([id,s]) => s > 0)
+      .sort((a,b) => b[1] - a[1])
+      .map(([id]) => id);
+
+    // Summary state
+    const totalCost = ranked.filter(id => !state.done[id]).reduce((s,id) => s + FIXES[id].cost, 0);
+    const completed = ranked.filter(id => state.done[id]).length;
+
+    const summary = el('div', {class:'panel info'},
+      el('div', {style:'display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center'},
+        el('div', {},
+          el('div', {style:'color:var(--text-mute);font-size:12px;text-transform:uppercase;letter-spacing:.5px'}, 'Estimated remaining cost'),
+          el('div', {style:'font-size:28px;font-weight:800;color:var(--accent)'}, '$' + totalCost.toLocaleString()),
+          el('div', {style:'color:var(--text-mute);font-size:12px'}, ranked.length + ' suggested fixes · ' + completed + ' done')
+        ),
+        el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'},
+          el('button', {class:'btn', on:{click:()=>go('#/diagnose')}}, '← Re-take quiz'),
+          el('button', {class:'btn', on:{click:()=>go('#/inspect')}}, '← Inspection'),
+          el('button', {class:'mini-btn', on:{click:()=>{ state.done={}; save(); render(); }}}, 'Reset progress')
+        )
+      )
+    );
+    app.appendChild(summary);
+
+    if (!ranked.length) {
+      app.appendChild(el('div', {class:'panel'},
+        el('h3', {style:'margin-top:0'}, 'No data yet'),
+        el('p', {}, 'Run the symptom quiz or step through the inspection to generate your plan.'),
+        el('div', {style:'display:flex;gap:10px'},
+          el('button', {class:'btn primary', on:{click:()=>go('#/diagnose')}}, 'Symptom quiz →'),
+          el('button', {class:'btn', on:{click:()=>go('#/inspect')}}, 'Inspection →')
+        )
+      ));
+      return;
+    }
+
+    if (!failedSomething && completed === 0) {
+      app.appendChild(el('div', {class:'panel warn'},
+        el('p', {style:'margin:0'}, '💡 This is a quiz-based guess. Once you walk through the ', el('a',{href:'#/inspect'},'inspection'), ' and mark items as failed, this plan will refocus on what\'s actually wrong with YOUR truck.')
+      ));
+    }
+
+    ranked.forEach((id, idx) => {
+      const f = FIXES[id];
+      const isDone = !!state.done[id];
+      const row = el('div', {class:'fix-row' + (isDone ? ' done' : '')},
+        el('div', {class:'fix-rank'}, isDone ? '✓' : String(idx+1)),
+        el('div', {},
+          el('div', {class:'fix-title'}, f.title),
+          el('div', {class:'fix-meta'}, f.why + ' · ' + f.time)
+        ),
+        el('div', {class:'fix-cost'},
+          el('div', {}, f.cost === 0 ? 'FREE' : '$' + f.cost),
+          el('button', {class:'mini-btn' + (isDone ? ' active good' : ''), on:{click:()=>{ if(isDone) delete state.done[id]; else state.done[id]=true; save(); render(); }}, style:'margin-top:6px'}, isDone ? 'Undo' : 'Mark done')
+        )
+      );
+      app.appendChild(row);
+    });
+
+    app.appendChild(el('div', {class:'panel', style:'margin-top:20px'},
+      el('h3', {style:'margin-top:0'}, '🧭 General fix sequence (when in doubt)'),
+      el('ol', {},
+        el('li',{},'Free stuff first: pressure, lugs, steering box adjustment.'),
+        el('li',{},'Cheap parts next: tie rod ends, drag link ends, steering shaft U-joint.'),
+        el('li',{},'Mid-cost: track bar (THE one to replace if you can only do one).'),
+        el('li',{},'Bigger jobs: ball joints, unit bearings, steering box swap.'),
+        el('li',{},'Test drive between each fix where possible — sometimes one part fixes it.'),
+        el('li',{},'Alignment at the end (after any steering/tie-rod work).'),
+        el('li',{},'Stabilizer last — and only if you want one. It does not cure DW.')
+      )
+    ));
+  }
+
+  // -------- GLOSSARY --------
+  function renderGlossary(app) {
+    app.appendChild(el('h1', {}, 'Glossary'));
+    app.appendChild(el('p', {class:'lede'}, "Plain definitions of the terms used in this guide and on Jeep forums. Bookmark this tab; come back when a forum post uses a term you don't recognize."));
+
+    const terms = [
+      ['Death wobble','Violent left-right oscillation of the front axle/steering at highway speed, usually triggered by a bump. Resonant feedback loop caused by worn steering/suspension components.'],
+      ['Solid front axle','A single rigid axle housing connecting both front wheels — as opposed to independent front suspension. The XJ has this; it\'s great off-road but vulnerable to wobble.'],
+      ['Track bar','Diagonal bar from frame to front axle. Holds the axle from sliding side-to-side. #1 cause of XJ death wobble when its bushing wears out.'],
+      ['Tie rod','Horizontal steel bar connecting the two front wheels so they steer together. Has a ball-and-socket joint ("tie rod end") at each side.'],
+      ['Tie rod end','The ball joint at each end of the tie rod. Wears like any ball joint. Cheap to replace.'],
+      ['Drag link','Bar from the steering box (via the pitman arm) to the passenger-side front knuckle. Translates steering input into wheel motion.'],
+      ['Pitman arm','Arm bolted to the steering box output shaft (sector shaft). Connects to the drag link.'],
+      ['Ball joints','Articulating joints inside each front knuckle that allow the wheel to pivot for steering. Upper and lower on each side — four total.'],
+      ['Steering box','The hydraulic gearbox that translates steering wheel rotation into linear drag link motion. Has an internal adjustment that takes up wear.'],
+      ['Sector shaft','The output shaft of the steering box that the pitman arm attaches to. Its bearing preload is what the box\'s top adjuster screws against.'],
+      ['Unit bearing','The sealed wheel bearing assembly inside each front hub. Bolts onto the knuckle as a single unit. Cannot be repacked; replaced as an assembly.'],
+      ['Stabilizer / damper','Hydraulic cylinder between tie rod and axle that damps left-right axle motion. Does NOT fix death wobble — only masks symptoms.'],
+      ['Knuckle','The steerable cast-iron part at each front wheel that holds the wheel bearing and ball joints, and that the steering linkage connects to.'],
+      ['Toe / toe-in / toe-out','Whether the fronts of the front tires point slightly inward (toe-in, good — XJ wants ~1/16-1/8")  or outward (toe-out, bad — causes darting and amplifies wobble).'],
+      ['Caster','The angle of the steering axis. Affects self-centering and how stable the front end is. Often pulled out of spec by a lift.'],
+      ['Camber','How vertical each front tire stands. Less critical on a solid axle than caster/toe.'],
+      ['ZJ steering box','The steering box from a Grand Cherokee (ZJ) which is a direct upgrade for XJ — larger sector shaft, sturdier mounting.'],
+      ['Renix','Engine management computer used 1987-1990 on XJs. Pre-OBD diagnostic. Different from HO (1991+).'],
+      ['HO','"High Output" 4.0L engine starting 1991. Different ECU, manifold, injectors from Renix.'],
+      ['OBD-II','On-board diagnostics II — federally mandated from 1996 onward. Plug a code reader into the dash port.'],
+      ['Dana 30','Front axle on most XJs. Adequate for stock and mild builds.'],
+      ['SOA','"Spring over axle" lift — relocates leaf springs from below to above the axle for a big lift. Major project.'],
+      ['Long arm','Suspension kit that replaces stock short control arms with longer ones, mounted further back. Smoother ride and more articulation than short arm at the same lift height.'],
+      ['Lift kit','Suspension components that raise ride height to clear larger tires.'],
+      ['Alignment','Setting toe, caster, and camber to spec. Required after any steering work.'],
+      ['Bushing','Rubber (or polyurethane) cylinder that lets a joint move slightly while damping vibration. Wears with age and load.'],
+      ['Sector adjustment','The free, often-overlooked maintenance: turning the screw on top of the steering box to take up internal wear. Use small increments.'],
+      ['Geometry / death-wobble-prone geometry','Lift kits without enough caster correction or with extreme track bar angles often have wobble-prone geometry. Worth correcting at lift install.'],
+      ['Caster correction','Wedges or rotation of the axle to restore caster after a lift. Without it, big lifts can feel unstable.'],
+    ];
+    terms.forEach(([term, def]) => {
+      app.appendChild(el('div', {class:'gloss'},
+        el('dt', {}, term),
+        el('dd', {}, def)
+      ));
+    });
+  }
+
+  // -------- boot --------
+  if (!location.hash) location.hash = '#/panic';
+  render();
+})();
+</script>
+</body>
+</html>
