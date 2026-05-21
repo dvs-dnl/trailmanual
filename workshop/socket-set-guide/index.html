@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Socket Sets: What You Actually Need — The Workshop · Trail Manual</title>
+<meta name="description" content="Which socket set to buy first, what drive sizes actually cover, why 6-point beats 12-point on stuck fasteners, and what can wait until you need it.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Socket Sets: What You Actually Need (And What Can Wait)</h1>
+    <p class="lede">Socket sets come in configurations from a 40-piece starter kit to a 500-piece professional set that costs more than some vehicles. The difference between the two is mostly duplication. This guide explains what actually matters — drive sizes, point count, SAE vs. metric — so you can build a set that works without buying things twice.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>7 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Start with a 3/8" drive metric socket set covering 8–19mm. Add a 1/2" drive set with deep sockets for lug nuts and suspension hardware. Buy 6-point sockets, not 12-point. Keep chrome sockets for hand ratchets and buy a separate set of black impact-rated sockets for use with any impact wrench. Build from there as specific jobs demand it.</p>
+  </div>
+
+  <h2>Drive Sizes: Which One First</h2>
+  <p>The drive size is the square nub on the ratchet that connects to the socket — 1/4", 3/8", or 1/2" are the standard automotive sizes. The drive size determines how much torque the ratchet and socket can handle before the mechanism or socket wall is at risk.</p>
+
+  <p><strong>3/8" drive</strong> is the right first purchase for most DIYers. It covers the majority of under-hood work, brake jobs, interior panels, and moderate suspension hardware. Most fasteners in the 8–19mm range — which is the bulk of what you encounter — are well within 3/8" capability. The ratchets are a comfortable size to hold, and the drive size gives you enough socket wall thickness for stuck fasteners without being bulky.</p>
+
+  <p><strong>1/2" drive</strong> handles lug nuts, large suspension hardware (control arm bolts, track bar bolts, steering components), and axle work. Most lug nuts spec between 85–130 ft-lb — the 3/8" drive handles this torque, but a 1/2" drive ratchet and impact wrench are a better match for that workload. Add 1/2" drive after you have your 3/8" set established.</p>
+
+  <p><strong>1/4" drive</strong> reaches small fasteners in tight quarters — 6mm, 7mm, and 8mm bolts on sensors, interior trim, and delicate components — where a 3/8" ratchet is too large to swing. It's a useful addition for detailed engine work but not a first purchase. A lot of the 1/4" drive sockets also exist in your 3/8" set; you're mostly buying the smaller ratchet and a few sizes that don't appear in the 3/8" range.</p>
+
+  <h2>SAE vs. Metric: Which to Buy First</h2>
+  <p>Modern vehicles are metric. A Jeep JK, a Tacoma, a modern F-150, an XJ from 1984 onward — all metric fasteners on the vehicle itself. The service manual will specify torque in N·m. The bolt heads will be 10mm, 13mm, 15mm, 18mm.</p>
+
+  <p>SAE (inch-based: 3/8", 7/16", 1/2", 9/16"...) still shows up on older American vehicles, some trailers and accessories, and anything with SAE hardware that someone substituted during a previous repair. You'll eventually want an SAE set. But buy metric first and cover it well — 8mm through 22mm handles the vast majority of work on any modern truck or SUV.</p>
+
+  <div class="panel info">
+    <div class="panel-label">The metric-SAE crossover zone</div>
+    <p>Some metric sizes are close enough to SAE that you can mistake one for the other on a stuck fastener — 11mm and 7/16", 13mm and 1/2", 14mm and 9/16". This substitution destroys bolt heads. Always check the actual size before applying torque. If a socket doesn't slip on cleanly and seat flat, it's the wrong size.</p>
+  </div>
+
+  <h2>6-Point vs. 12-Point: This Actually Matters</h2>
+  <p>A 6-point socket has six flat contact faces that engage the flat sides of a hex fastener. A 12-point socket has twelve contact points — it can engage a fastener at twice as many positions, which makes it easier to position in tight spaces. That convenience has a cost.</p>
+
+  <p>On a stuck or corroded fastener, 12-point sockets contact the corners of the hex head rather than the flats. The corners are the weakest part of the fastener's geometry. Under high torque, the socket slips off the corners and rounds them — which turns a stuck bolt into a rounded-off bolt, which is a much harder problem. A 6-point socket contacts the flats and distributes the load across a larger, stronger surface area. It's much less likely to slip.</p>
+
+  <p><strong>For most shop use, buy 6-point sockets.</strong> The slight inconvenience of fewer engagement positions is not worth the risk of rounding a fastener that was already on the verge of coming loose anyway. 12-point sockets are fine for fresh, accessible fasteners that aren't corroded — in practice, that covers interior work and new-vehicle assembly tasks. For anything that's been on a truck for ten years, use 6-point.</p>
+
+  <h2>Shallow vs. Deep Sockets</h2>
+  <p>Shallow sockets are the standard — a short, compact socket that fits the majority of bolt heads. Deep sockets have a longer barrel, designed to reach fasteners on studs (lug nuts sit on studs, not bolts), or to clear a bolt shaft that protrudes above the surface.</p>
+
+  <p>Deep sockets are not optional for lug nut work — on most vehicles, the lug stud is long enough that a shallow socket won't fully seat on the nut. You want the nut fully seated in the socket before applying torque. Most socket sets include both shallow and deep in the same purchase; if you're buying piecemeal, confirm you have deep sockets in at least 17mm, 19mm, and 21mm to cover common lug nut sizes.</p>
+
+  <h2>Impact Sockets: A Separate Set</h2>
+  <p>This point is critical enough to repeat: impact-rated sockets (matte black finish, chrome-molybdenum steel, thicker walls) are for use with impact wrenches only. Chrome-vanadium sockets (the shiny ones in your hand-ratchet set) are for hand ratchets only.</p>
+
+  <p>Buy your hand ratchet set and your impact socket set as separate purchases. The impact sockets live with the impact wrench; the chrome sockets live with the hand ratchets. This removes any ambiguity in the moment of grabbing a tool.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Never mix these up</div>
+    <p>A chrome socket on an impact wrench can crack and send shards at high velocity. The difference in appearance (shiny chrome vs. matte black) is the visual cue — use it. If you're not sure whether a socket is impact-rated, don't put it on an impact wrench.</p>
+  </div>
+
+  <h2>Extensions and Universal Joints</h2>
+  <p>Most socket work requires extensions to reach fasteners that aren't directly accessible with a ratchet sitting flat on the socket. A few extensions cover the majority of situations:</p>
+
+  <ul>
+    <li><strong>3" extension:</strong> For reaching fasteners slightly recessed or set back from the surface. The workhorse extension.</li>
+    <li><strong>6" extension:</strong> For deeper access — valve covers, back of the engine block, inner fender fasteners. Use this when the 3" doesn't reach.</li>
+    <li><strong>Universal joint (U-joint):</strong> Allows the socket to pivot, reaching fasteners at an angle. Essential for fasteners with an obstruction directly above them. Limit torque when using a U-joint — the angular geometry reduces the effective force and can bind.</li>
+    <li><strong>Wobble extension:</strong> An extension with a slight built-in flex. Faster to use than a U-joint for mild angles. Worth having once you run into fasteners that need it.</li>
+  </ul>
+
+  <p>Extensions can be combined — a 3" plus a 6" gives you 9" of reach. Keep in mind that longer extensions flex under high torque and can cause a ratchet to slip or the socket to come off. For high-torque work, shorter extensions are more stable.</p>
+
+  <h2>The Starting Kit</h2>
+  <p>If you're building a socket collection from scratch, this covers most of what you'll face in the first year of DIY work on any modern truck or SUV:</p>
+
+  <ul>
+    <li><strong>3/8" drive metric socket set, 6-point, 8–19mm, shallow and deep</strong> — this is the core</li>
+    <li><strong>3/8" drive ratchet</strong> — long handle (at least 8–10") for better leverage</li>
+    <li><strong>3" and 6" 3/8" extensions</strong></li>
+    <li><strong>1/2" drive metric impact socket set, 6-point, 14–22mm, deep</strong> — for lug nuts and major suspension hardware</li>
+    <li><strong>1/2" drive breaker bar or impact wrench</strong> — for the muscle</li>
+    <li><strong>1/2" drive 17mm, 19mm, 21mm deep impact sockets</strong> — covers most lug nuts on trucks and SUVs</li>
+  </ul>
+
+  <div class="panel good">
+    <div class="panel-label">Add as needed</div>
+    <p>SAE sockets, 1/4" drive set, Torx sockets, and specialty sizes (27mm for axle nuts, 36mm for hub nuts) all have their place — but they come up for specific jobs. Buy them when you encounter the job that needs them. Buying a 200-piece set with every size usually means half the pieces never leave the tray.</p>
+  </div>
+
+  <hr class="divider">
+  <p>The 3/8" drive metric set is your first purchase. Get everything else in place — a floor jack, jack stands, a torque wrench — then identify the specific job you want to do next. The gaps in your socket collection will become obvious, and you'll fill them with exactly what you need rather than guessing at what you might need someday.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/impact-driver-wrench/"><span>Impact Driver vs. Impact Wrench: What Each One Actually Does</span><span>Read →</span></a>
+      <a class="related-link" href="/workshop/torque-wrench/"><span>Torque Wrenches: How to Choose and Use Them Correctly</span><span>Read →</span></a>
+      <a class="related-link" href="/workshop/breaker-bar/"><span>Breaker Bars and Cheater Pipes: How Much Force Is Too Much</span><span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Workshop — Trail Manual</title>
+<meta name="description" content="Vehicle-agnostic guides for anyone wrenching at home. Shop tools, safety fundamentals, technique, and garage setup — the knowledge that applies to every build.">
+<meta property="og:title" content="The Workshop — Trail Manual">
+<meta property="og:description" content="Shop tools, safety fundamentals, technique guides, and shop setup — the foundation every DIYer needs before touching a vehicle.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+/* ── Workshop-specific styles ────────────────────────────────────────── */
+
+.tm-hero {
+  padding: 56px 48px 48px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-bottom: none;
+  margin-bottom: 0;
+}
+.tm-hero h1 { font-size: 44px; max-width: 760px; }
+
+.tm-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(122,140,79,.15);
+  border: 1px solid rgba(122,140,79,.35);
+  border-radius: 20px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-weight: 700;
+  color: var(--accent-2);
+  margin-bottom: 18px;
+}
+
+/* Category strip below hero */
+.tm-cat-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+.tm-cat-item {
+  padding: 18px 20px;
+  border-right: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: background .12s ease;
+}
+.tm-cat-item:last-child { border-right: none; }
+.tm-cat-item:hover { background: var(--bg-3); text-decoration: none; }
+.tm-cat-icon { font-size: 24px; margin-bottom: 8px; }
+.tm-cat-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.tm-cat-count { font-size: 11px; color: var(--text-mute); }
+
+/* Guide cards */
+.tm-guide-section { margin-bottom: 40px; }
+.tm-guide-section-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+.tm-guide-section-icon { font-size: 28px; }
+.tm-guide-section-head h2 { font-size: 20px; letter-spacing: -.3px; font-weight: 700; margin: 0; }
+.tm-guide-section-head p { font-size: 13px; color: var(--text-dim); margin: 4px 0 0; }
+
+.tm-guide-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.tm-guide-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all .15s ease;
+  position: relative;
+}
+.tm-guide-card:hover { border-color: var(--accent); transform: translateY(-1px); text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,.3); }
+.tm-guide-card.soon { opacity: .6; cursor: default; pointer-events: none; }
+.tm-guide-card.soon:hover { transform: none; box-shadow: none; border-color: var(--border); }
+
+.tm-guide-card h3 { font-size: 15px; font-weight: 700; letter-spacing: -.1px; margin: 0; }
+.tm-guide-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; margin: 0; flex: 1; }
+.tm-guide-card-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  font-size: 11px;
+  color: var(--text-mute);
+}
+.tm-guide-card-footer .open { margin-left: auto; color: var(--accent); font-weight: 700; }
+
+.tm-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+}
+.tm-pill.live { background: rgba(129,199,132,.15); color: var(--good); border: 1px solid rgba(129,199,132,.3); }
+.tm-pill.soon { background: var(--bg-3); color: var(--text-mute); border: 1px solid var(--border); }
+.tm-pill.safety { background: rgba(229,115,115,.12); color: var(--danger); border: 1px solid rgba(229,115,115,.25); }
+
+/* Intro callout */
+.tm-intro-callout {
+  background: linear-gradient(135deg, rgba(122,140,79,.08) 0%, rgba(122,140,79,.04) 100%);
+  border: 1px solid rgba(122,140,79,.25);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.tm-intro-callout p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--text); }
+.tm-intro-callout p + p { margin-top: 10px; color: var(--text-dim); font-size: 14px; }
+
+/* Responsive */
+@media (max-width: 760px) {
+  .tm-cat-strip { grid-template-columns: 1fr 1fr; }
+  .tm-cat-item:nth-child(2) { border-right: none; }
+  .tm-cat-item:nth-child(3) { border-top: 1px solid var(--border); }
+  .tm-cat-item:nth-child(4) { border-top: 1px solid var(--border); border-right: none; }
+  .tm-guide-grid { grid-template-columns: 1fr; }
+  .tm-hero { padding: 36px 22px 32px; }
+  .tm-hero h1 { font-size: 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ───────────────────────────────────────────────────────── -->
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <div class="tm-brand-mark">TM</div>
+      <div>
+        <div class="tm-brand-text">Trail Manual</div>
+        <div class="tm-brand-sub">DIY field manual</div>
+      </div>
+    </a>
+    <nav class="tm-nav">
+      <a href="/">Home</a>
+      <a href="/tools/">Tools</a>
+      <a href="/workshop/" class="active">Workshop</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="tm-main">
+
+  <!-- ── HERO ─────────────────────────────────────────────────────── -->
+  <section class="tm-hero">
+    <div class="tm-hero-badge">Vehicle-agnostic · Any make, any model</div>
+    <h1>Before you touch the vehicle.</h1>
+    <p>
+      Every build runs on the same foundation: knowing which tools to trust, how to work without
+      getting hurt, and the techniques that keep you from destroying what you're trying to fix.
+      This section covers all of it — no assumed experience, no condescension.
+    </p>
+  </section>
+
+  <!-- ── CATEGORY STRIP ────────────────────────────────────────────── -->
+  <div class="tm-cat-strip">
+    <a class="tm-cat-item" href="#tools">
+      <div class="tm-cat-icon">🔧</div>
+      <div class="tm-cat-label">Shop Tools</div>
+      <div class="tm-cat-count">6 guides planned</div>
+    </a>
+    <a class="tm-cat-item" href="#safety">
+      <div class="tm-cat-icon">🦺</div>
+      <div class="tm-cat-label">Safety</div>
+      <div class="tm-cat-count">5 guides planned</div>
+    </a>
+    <a class="tm-cat-item" href="#technique">
+      <div class="tm-cat-icon">🛠</div>
+      <div class="tm-cat-label">Technique</div>
+      <div class="tm-cat-count">7 guides planned</div>
+    </a>
+    <a class="tm-cat-item" href="#shop-setup">
+      <div class="tm-cat-icon">🏠</div>
+      <div class="tm-cat-label">Shop Setup</div>
+      <div class="tm-cat-count">4 guides planned</div>
+    </a>
+  </div>
+
+  <!-- ── INTRO ─────────────────────────────────────────────────────── -->
+  <div class="tm-intro-callout">
+    <p>
+      The XJ database assumes you know which end of a torque wrench to hold. The Workshop doesn't —
+      and that's not a knock. Everyone started somewhere.
+    </p>
+    <p>
+      These guides exist because the most common reasons a DIY job goes wrong have nothing to do with
+      the specific repair: wrong jack placement, a breaker bar that slips, a chemical that strips paint,
+      or a fastener torqued to spec on a cold engine. The Workshop covers the layer underneath the build.
+    </p>
+  </div>
+
+  <!-- ── TOOLS ─────────────────────────────────────────────────────── -->
+  <div class="tm-guide-section" id="tools">
+    <div class="tm-guide-section-head">
+      <div class="tm-guide-section-icon">🔧</div>
+      <div>
+        <h2>Shop Tools</h2>
+        <p>What to buy, what not to cheap out on, and how to use each tool correctly.</p>
+      </div>
+    </div>
+    <div class="tm-guide-grid">
+
+      <a class="tm-guide-card" href="/workshop/floor-jack-and-stands/">
+        <h3>Floor Jacks and Jack Stands</h3>
+        <p>The weight ratings that matter, jack points for common off-road platforms, and why jack stands are not optional — ever.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill safety">Safety critical</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/torque-wrench/">
+        <h3>Torque Wrenches</h3>
+        <p>Click vs. beam vs. digital, how to set and read them correctly, and why torque specs exist in the first place.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/impact-driver-wrench/">
+        <h3>Impact Driver vs. Impact Wrench</h3>
+        <p>They're not the same tool. When each belongs in your hand, what to know about torque ratings, and what not to use them for.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/multimeter/">
+        <h3>Multimeter Basics</h3>
+        <p>Voltage, continuity, resistance — what each reading means, how to use a multimeter on a 12V system, and when to stop guessing.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/socket-set-guide/">
+        <h3>Socket Sets: What You Actually Need</h3>
+        <p>SAE vs. metric, shallow vs. deep, 3/8" vs. 1/2" drive — the honest minimum starter set and where to expand from there.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/breaker-bar/">
+        <h3>Breaker Bars and Cheater Pipes</h3>
+        <p>How much leverage is too much, what breaks first, and the right technique for stubborn fasteners before you reach for heat.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── SAFETY ─────────────────────────────────────────────────────── -->
+  <div class="tm-guide-section" id="safety">
+    <div class="tm-guide-section-head">
+      <div class="tm-guide-section-icon">🦺</div>
+      <div>
+        <h2>Safety</h2>
+        <p>The decisions that matter before anything goes wrong. Most shop accidents are preventable — and predictable.</p>
+      </div>
+    </div>
+    <div class="tm-guide-grid">
+
+      <a class="tm-guide-card" href="/workshop/working-under-a-vehicle/">
+        <h3>Working Under a Vehicle Safely</h3>
+        <p>Jack stand placement, ground surface requirements, warning signs your supports are failing, and the conditions that make this more dangerous than it looks.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill safety">Safety critical</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/fire-safety-in-the-shop/">
+        <h3>Fire Safety in the Shop</h3>
+        <p>Fuel, brake cleaner, rags, and open flames — how they interact, what extinguisher you actually need, and how to store chemicals without creating a hazard.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill safety">Safety critical</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/chemical-handling/">
+        <h3>Chemical Handling and Ventilation</h3>
+        <p>Brake cleaner, penetrating oil, battery acid, exhaust — what requires gloves, what requires airflow, and what you should never use indoors.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/when-to-stop/">
+        <h3>When to Stop and Go to a Shop</h3>
+        <p>Brake lines, fuel systems, suspension geometry — the repairs where a mistake has consequences you can't undo. An honest guide to knowing your limit.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/battery-and-electrical-safety/">
+        <h3>Battery and Electrical Safety</h3>
+        <p>Short circuits, hydrogen gas, disconnect sequence, and what to do when you smell burning while tracing a wiring issue.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── TECHNIQUE ──────────────────────────────────────────────────── -->
+  <div class="tm-guide-section" id="technique">
+    <div class="tm-guide-section-head">
+      <div class="tm-guide-section-icon">🛠</div>
+      <div>
+        <h2>Technique</h2>
+        <p>The skills that show up in every repair. Learn them once — use them on every build.</p>
+      </div>
+    </div>
+    <div class="tm-guide-grid">
+
+      <a class="tm-guide-card" href="/workshop/breaking-rusty-bolts/">
+        <h3>Breaking Rusty and Seized Bolts</h3>
+        <p>Penetrating oil dwell times, heat application, impact vs. hand tools, left-hand drill bits, and extraction kits — in the order that preserves the threads.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/reading-torque-specs/">
+        <h3>How to Read a Torque Specification</h3>
+        <p>Ft-lb vs. N·m, dry vs. wet vs. lubricated, torque-to-yield bolts, and why the sequence matters as much as the number.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/thread-repair/">
+        <h3>Thread Repair: Helicoil, Timesert, and Drill-Out</h3>
+        <p>When to use each method, sizing the insert correctly, and how to avoid making a stripped hole worse before you make it right.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/reading-a-wiring-diagram/">
+        <h3>Reading a Wiring Diagram</h3>
+        <p>Symbols, wire gauge notation, ground paths, and how to trace a circuit from a factory diagram without getting lost three relays in.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/liquid-gasket-vs-gasket/">
+        <h3>Gaskets vs. Liquid Sealant: When to Use What</h3>
+        <p>RTV, anaerobic sealant, gasket maker — what each seals, what each dissolves, and the surfaces where you should never use one or the other.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/understanding-fastener-grades/">
+        <h3>Fastener Grades and What They Mean</h3>
+        <p>Grade 5 vs. 8, SAE vs. metric class ratings, where hardware store bolts don't belong, and how to identify what came out of your vehicle.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/bleeding-brakes/">
+        <h3>Bleeding Brakes Correctly</h3>
+        <p>Two-person, vacuum, pressure, and gravity methods — which works best solo, the sequence that matters, and how to know you're done.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── SHOP SETUP ─────────────────────────────────────────────────── -->
+  <div class="tm-guide-section" id="shop-setup">
+    <div class="tm-guide-section-head">
+      <div class="tm-guide-section-icon">🏠</div>
+      <div>
+        <h2>Shop Setup</h2>
+        <p>What a functional home garage actually needs — and what can wait until you've done your first dozen repairs.</p>
+      </div>
+    </div>
+    <div class="tm-guide-grid">
+
+      <a class="tm-guide-card" href="/workshop/shop-lighting/">
+        <h3>Shop Lighting</h3>
+        <p>The lumen counts that make a difference, LED shop light options at different price points, and portable solutions for working outside.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/air-compressor-guide/">
+        <h3>Air Compressor Selection</h3>
+        <p>CFM vs. PSI, tank size, oil vs. oil-free, pancake vs. vertical — what you actually need for tire inflation, air tools, and paint work.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/floor-surface-options/">
+        <h3>Shop Floor Options</h3>
+        <p>Epoxy, interlocking tiles, rubber mat, bare concrete — what each protects against, what each costs, and what holds up under a floor jack.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-guide-card" href="/workshop/tool-storage/">
+        <h3>Tool Storage That Actually Works</h3>
+        <p>Rollaway chests, wall pegboard, drawer liners, and the storage layouts that make you faster — not just tidier.</p>
+        <div class="tm-guide-card-footer">
+          <span class="tm-pill soon">Coming soon</span>
+          <span class="open">Read →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ── CTA ──────────────────────────────────────────────────────── -->
+  <div class="tm-callout" style="margin-top:16px;">
+    <h3>Workshop guides are in development</h3>
+    <p style="color:var(--text-dim);font-size:14px;margin:8px 0 20px;">
+      Most of these are planned rather than live. Sign up and we'll let you know as sections open —
+      or <a href="/about/#sources">read about the sourcing process</a> if you want to know how Trail Manual builds content.
+    </p>
+    <form class="tm-email" onsubmit="event.preventDefault(); this.innerHTML='<p style=&quot;color:var(--good);margin:0;&quot;>You\'re in.</p>'">
+      <input type="email" placeholder="your@email.com" required>
+      <button class="tm-btn primary" type="submit">Notify me</button>
+    </form>
+  </div>
+
+</main>
+
+<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px;">
+        <div class="tm-brand-mark">TM</div>
+        <div>
+          <div class="tm-brand-text">Trail Manual</div>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0;line-height:1.6;">
+        Free, community-built DIY reference for off-road vehicle owners. No ads, no affiliate links.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/db/">XJ Database</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
+      <a href="/tools/">All tools →</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/workshop/#tools">Shop Tools</a>
+      <a href="/workshop/#safety">Safety</a>
+      <a href="/workshop/#technique">Technique</a>
+    </div>
+    <div>
+      <h4>Site</h4>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+
+</body>
+</html>

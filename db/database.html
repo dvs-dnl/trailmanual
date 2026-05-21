@@ -1,0 +1,846 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trail Manual — DIY reference for off-road vehicles</title>
+<style>
+  :root{
+    --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+    --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+    --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+    --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+    --danger:#e57373; --good:#81c784; --info:#64b5f6;
+    --radius:8px; --radius-lg:12px;
+    --shadow:0 4px 24px rgba(0,0,0,.35);
+    --max:1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  button{font:inherit;cursor:pointer}
+
+  .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%, rgba(14,17,22,.92) 100%);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
+  .topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;cursor:pointer}
+  .brand-mark{width:32px;height:32px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+  .brand-text{font-size:17px;letter-spacing:-.3px}
+  .brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.4px;text-transform:uppercase}
+
+  .vehicle-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;background:var(--bg-2);border:1px solid var(--border);border-radius:20px;font-size:13px;color:var(--text-dim);cursor:pointer}
+  .vehicle-pill:hover{border-color:var(--accent);color:var(--text)}
+  .vehicle-pill .v-label{font-weight:600;color:var(--text)}
+  .vehicle-pill .v-years{font-size:11px;color:var(--text-mute)}
+
+  .nav-tabs{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+  .tab{padding:8px 12px;border-radius:6px;color:var(--text-dim);background:transparent;border:1px solid transparent;font-size:13px;font-weight:500;white-space:nowrap}
+  .tab:hover{color:var(--text);background:var(--bg-2)}
+  .tab.active{color:var(--accent);background:var(--bg-2);border-color:var(--border)}
+  .tab.disabled{opacity:.4;cursor:not-allowed}
+
+  main{max-width:var(--max);margin:0 auto;padding:24px 20px 80px}
+  .hero{padding:32px 24px;background:linear-gradient(135deg,#1f242d 0%, #161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:24px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;right:-50px;top:-50px;width:280px;height:280px;background:radial-gradient(circle,rgba(197,165,114,.06) 0%,transparent 70%)}
+  .hero h1{margin:0 0 8px;font-size:28px;letter-spacing:-.5px;position:relative}
+  .hero p{margin:0;color:var(--text-dim);max-width:720px;position:relative}
+  .hero-stats{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap;position:relative}
+  .hero-stat{display:flex;flex-direction:column}
+  .hero-stat .n{font-size:22px;font-weight:700;color:var(--accent)}
+  .hero-stat .l{font-size:11px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px}
+
+  h2{font-size:18px;letter-spacing:-.2px;margin:28px 0 14px}
+  .grid-cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+  .grid-vehicles{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .cat-card,.vehicle-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:all .15s ease}
+  .cat-card:hover,.vehicle-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .cat-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+  .cat-card .name,.vehicle-card .v-name{font-weight:600;font-size:14px}
+  .cat-card .count,.vehicle-card .v-meta{font-size:12px;color:var(--text-mute)}
+  .vehicle-card.inactive{opacity:.55;cursor:default}
+  .vehicle-card.inactive:hover{transform:none;border-color:var(--border)}
+  .vehicle-card .v-badge{margin-left:auto;font-size:10px;background:var(--accent);color:#1a1f27;padding:2px 8px;border-radius:10px;font-weight:700;letter-spacing:.3px}
+  .vehicle-card.inactive .v-badge{background:var(--bg-3);color:var(--text-mute);font-weight:500}
+  .vehicle-card .v-platform{display:inline-block;font-size:10px;background:var(--bg-3);color:var(--text-mute);padding:2px 8px;border-radius:10px;margin-right:6px}
+
+  .grid-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+  .tier-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;cursor:pointer;transition:all .15s ease}
+  .tier-card:hover{border-color:var(--accent)}
+  .tier-card.selected{border-color:var(--accent);background:linear-gradient(180deg, rgba(197,165,114,.08), transparent)}
+  .tier-card .icon{font-size:24px;margin-bottom:8px}
+  .tier-card .name{font-weight:700;margin-bottom:4px}
+  .tier-card .desc{font-size:12px;color:var(--text-dim)}
+
+  .controls{display:flex;gap:10px;align-items:center;margin-bottom:16px;flex-wrap:wrap}
+  .search-input{flex:1;min-width:200px;background:var(--panel);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:var(--radius);font-size:14px;outline:none}
+  .search-input:focus{border-color:var(--accent)}
+  .select{background:var(--panel);border:1px solid var(--border);color:var(--text);padding:9px 12px;border-radius:var(--radius);font-size:14px;cursor:pointer}
+  .entries{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+  .entry-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;transition:all .15s ease;display:flex;flex-direction:column;gap:8px}
+  .entry-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .entry-card .title{font-weight:600;font-size:15px;line-height:1.35}
+  .entry-card .summary{font-size:13px;color:var(--text-dim);line-height:1.5}
+  .entry-card .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+  .badge{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:12px;font-size:11px;background:var(--bg-3);color:var(--text-dim);border:1px solid var(--border);font-weight:500}
+  .badge.diff{background:rgba(197,165,114,.15);color:var(--accent);border-color:rgba(197,165,114,.3)}
+  .badge.cost{background:rgba(122,140,79,.15);color:#a8c073;border-color:rgba(122,140,79,.3)}
+  .badge.must{background:rgba(229,115,115,.15);color:var(--danger);border-color:rgba(229,115,115,.3)}
+  .badge.tier{background:rgba(100,181,246,.15);color:var(--info);border-color:rgba(100,181,246,.3)}
+
+  .detail{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+  .detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px;flex-wrap:wrap}
+  .detail-title{font-size:24px;font-weight:700;margin:0 0 8px;letter-spacing:-.3px;line-height:1.2}
+  .back-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:6px 14px;border-radius:6px;font-size:13px}
+  .back-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .detail-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+  .detail-section{margin:24px 0}
+  .detail-section h3{font-size:14px;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);margin:0 0 12px;font-weight:700}
+  .detail-section p{margin:0 0 12px;line-height:1.65}
+  .detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+  .stat{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:12px}
+  .stat .l{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin-bottom:4px}
+  .stat .v{font-weight:600;font-size:15px;color:var(--text)}
+  .pro-con{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media (max-width:600px){.pro-con{grid-template-columns:1fr}}
+  .pro-con ul{margin:0;padding-left:20px} .pro-con li{margin-bottom:6px;font-size:14px}
+  .pro-list li::marker{color:var(--good)} .con-list li::marker{color:var(--danger)}
+  .parts-table{width:100%;border-collapse:collapse;font-size:13px}
+  .parts-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text-mute);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+  .parts-table td{padding:9px 10px;border-bottom:1px solid var(--border)}
+  .step{display:flex;gap:12px;margin-bottom:10px;background:var(--bg-2);padding:12px;border-radius:6px;border:1px solid var(--border)}
+  .step-num{flex-shrink:0;width:24px;height:24px;background:var(--accent);color:#1a1f27;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+  .tool-pill{display:inline-block;background:var(--bg-2);padding:5px 10px;border-radius:14px;font-size:12px;color:var(--text-dim);border:1px solid var(--border);margin:2px}
+  .alt-link{display:inline-block;background:var(--bg-2);border:1px solid var(--border);padding:5px 10px;border-radius:14px;font-size:12px;margin:2px;color:var(--accent)}
+  .alt-link:hover{border-color:var(--accent);text-decoration:none}
+
+  .builder-step{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:16px}
+  .builder-step h3{margin:0 0 12px;font-size:15px}
+  .budget-input{display:flex;align-items:center;gap:12px;margin-top:10px}
+  .budget-input input[type=range]{flex:1}
+  .budget-display{min-width:120px;text-align:right;color:var(--accent);font-weight:700;font-size:18px}
+  .build-output{display:grid;grid-template-columns:280px 1fr;gap:16px;margin-top:16px}
+  @media (max-width:760px){.build-output{grid-template-columns:1fr}}
+  .build-summary{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;position:sticky;top:80px;align-self:start;max-height:calc(100vh - 100px);overflow-y:auto}
+  .build-summary h3{margin:0 0 10px;color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px}
+  .total-cost{font-size:24px;font-weight:700;color:var(--text);margin:6px 0 14px}
+  .phase{margin:16px 0}
+  .phase h4{margin:0 0 8px;font-size:13px;letter-spacing:.3px;color:var(--text-dim);text-transform:uppercase}
+  .phase-list{list-style:none;padding:0;margin:0}
+  .phase-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:13px;display:flex;justify-content:space-between;gap:8px;cursor:pointer}
+  .phase-list li:hover{color:var(--accent)}
+  .phase-list .cost{color:var(--text-mute);font-size:12px;flex-shrink:0}
+
+  .empty{text-align:center;padding:60px 20px;color:var(--text-mute)}
+  .empty h3{margin:0 0 6px;color:var(--text-dim)}
+  .filter-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;background:var(--bg-3);border:1px solid var(--border);border-radius:14px;font-size:12px;color:var(--text-dim);cursor:pointer}
+  .filter-chip.active{background:rgba(197,165,114,.18);color:var(--accent);border-color:var(--accent)}
+  .filter-chip:hover{color:var(--text)}
+  .results-meta{color:var(--text-mute);font-size:13px;margin-bottom:12px}
+
+  .citations{font-size:12px;color:var(--text-dim)}
+  .citations a{display:block;margin:4px 0}
+  hr.sep{border:0;border-top:1px solid var(--border);margin:18px 0}
+  .footer{padding:30px 20px;text-align:center;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
+  .footer .disclaimer{max-width:640px;margin:0 auto;line-height:1.6}
+  .pill-row{display:flex;flex-wrap:wrap;gap:6px}
+  .tag-row{display:flex;flex-wrap:wrap;gap:6px}
+  .diff-stars{color:var(--accent);font-weight:700;letter-spacing:1px}
+  .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .tool-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px;text-decoration:none;color:var(--text);display:block}
+  .tool-card:hover{border-color:var(--accent);text-decoration:none}
+  .tool-card .tc-icon{font-size:24px;margin-bottom:8px}
+  .tool-card h3{margin:0 0 4px;font-size:15px;letter-spacing:-.1px}
+  .tool-card p{margin:0;color:var(--text-dim);font-size:13px;line-height:1.5}
+
+  .loading{text-align:center;padding:80px 20px;color:var(--text-mute)}
+  .spinner{display:inline-block;width:24px;height:24px;border:3px solid var(--bg-3);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  @media (max-width:640px){
+    .topbar-inner{padding:10px 14px}
+    main{padding:14px 12px 60px}
+    .hero{padding:22px 16px}
+    .hero h1{font-size:22px}
+    .detail{padding:18px}
+    .detail-title{font-size:20px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand" id="brandClick">
+      <div class="brand-mark">TM</div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">DIY reference for off-road vehicles</div>
+      </div>
+    </div>
+    <div id="vehiclePill"></div>
+    <nav class="nav-tabs" id="tabs"></nav>
+  </div>
+</header>
+
+<main id="app">
+  <div class="loading"><div class="spinner"></div><div style="margin-top:14px">Loading database…</div></div>
+</main>
+
+<footer class="footer">
+  <div class="disclaimer">
+    Trail Manual — community knowledge for off-road vehicle DIYers. Compiled from forum tech wikis, vendor documentation, and field experience. Always cross-reference with your factory service manual. Modifications affect vehicle safety and warranty — work at your own risk.
+  </div>
+</footer>
+
+<!-- Boot: load manifest first; vehicle shards lazy-load on demand -->
+<script src="data/manifest.js"></script>
+<script>
+(() => {
+  const root = window.__DIYDB__;
+  if (!root || !root.manifest) {
+    document.getElementById('app').innerHTML = '<div class="empty"><h3>Database not loaded</h3>Make sure you ran <code>python3 build.py</code> in the diy-database/ directory before opening this file.</div>';
+    return;
+  }
+  const M = root.manifest;
+  const CAT_META = M.category_meta;
+  const TIER_META = M.tier_meta;
+
+  // ---- helpers ----
+  const $ = (s, el=document) => el.querySelector(s);
+  const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
+  const el = (tag, attrs={}, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k,v] of Object.entries(attrs)) {
+      if (k === 'class') n.className = v;
+      else if (k === 'html') n.innerHTML = v;
+      else if (k === 'on') for (const [evt, fn] of Object.entries(v)) n.addEventListener(evt, fn);
+      else if (v !== null && v !== undefined && v !== false) n.setAttribute(k, v);
+    }
+    for (const k of kids.flat()) {
+      if (k === null || k === undefined || k === false) continue;
+      n.appendChild(typeof k === 'string' ? document.createTextNode(k) : k);
+    }
+    return n;
+  };
+  const moneyRange = c => {
+    if (!c) return '';
+    if (c.low === c.high || c.high == null) return '$' + (c.low||0).toLocaleString();
+    return '$' + (c.low||0).toLocaleString() + '–' + (c.high||0).toLocaleString();
+  };
+  const moneyMid = c => c ? ((c.low||0) + (c.high||0)) / 2 : 0;
+  const timeStr = t => { if (!t) return ''; if (t.low === t.high) return t.low + 'h'; return t.low + '–' + t.high + 'h'; };
+  const diffStars = d => '★'.repeat(d||0) + '☆'.repeat(5-(d||0));
+  const tierLabel = t => (TIER_META[t]||{}).label || t;
+  const catMeta = c => CAT_META[c] || {label:(c||'').replace(/_/g,' '), icon:'•', color:'#888'};
+
+  // ---- vehicle data lazy loader ----
+  // Maps vehicle id → array of entries (cached once loaded)
+  const VEHICLES = {};
+  M.vehicles.forEach(v => { if (v.active && root.data && root.data[v.id]) { VEHICLES[v.id] = root.data[v.id]; } });
+
+  function loadVehicle(vid, cb) {
+    if (VEHICLES[vid]) return cb(VEHICLES[vid]);
+    const s = document.createElement('script');
+    s.src = 'data/' + vid + '.js';
+    s.onload = () => { VEHICLES[vid] = (root.data || {})[vid] || []; cb(VEHICLES[vid]); };
+    s.onerror = () => { cb(null); };
+    document.head.appendChild(s);
+  }
+
+  function currentVehicleId() {
+    // hash format: #/<vid>/...path
+    const m = location.hash.match(/^#\/([a-z0-9_-]+)(\/|$)/);
+    if (m && m[1] && M.vehicles.find(v=>v.id===m[1] && v.active)) return m[1];
+    return null;
+  }
+  function vehicleMeta(vid) { return M.vehicles.find(v=>v.id===vid); }
+  function getEntries(vid) { return VEHICLES[vid] || []; }
+  function byId(vid, id) { return getEntries(vid).find(e => e.id === id); }
+
+  // ---- router ----
+  function go(hash) { if (location.hash !== hash) location.hash = hash; else render(); }
+  window.addEventListener('hashchange', render);
+  document.getElementById('brandClick').addEventListener('click', () => go('#/'));
+
+  function render() {
+    const vid = currentVehicleId();
+    renderTopbar(vid);
+    const app = $('#app');
+    app.innerHTML = '';
+    const h = location.hash || '#/';
+
+    // Vehicle picker is the root view
+    if (h === '#/' || h === '' || (!vid && !h.startsWith('#/about'))) return renderVehiclePicker(app);
+
+    if (h.startsWith('#/about')) return renderAbout(app);
+
+    // Beyond this, we need a vehicle and possibly to load its data
+    if (!getEntries(vid).length) {
+      app.appendChild(el('div', {class:'loading'}, el('div',{class:'spinner'}), el('div',{style:'margin-top:14px'}, 'Loading ' + (vehicleMeta(vid)||{}).label + '…')));
+      loadVehicle(vid, (entries) => {
+        if (!entries) {
+          app.innerHTML = '';
+          app.appendChild(el('div', {class:'empty'}, el('h3',{},'Could not load data'), 'Make sure data/' + vid + '.js exists.'));
+          return;
+        }
+        render();
+      });
+      return;
+    }
+
+    // sub-route within a vehicle
+    const sub = h.slice(('#/'+vid).length); // e.g. '/browse'
+    if (sub === '' || sub === '/' || sub === '/home') return renderVehicleHome(app, vid);
+    if (sub.startsWith('/browse')) return renderBrowse(app, vid);
+    if (sub.startsWith('/category/')) return renderCategory(app, vid, decodeURIComponent(sub.slice('/category/'.length)));
+    if (sub.startsWith('/tier/')) return renderTier(app, vid, decodeURIComponent(sub.slice('/tier/'.length)));
+    if (sub.startsWith('/entry/')) return renderEntry(app, vid, decodeURIComponent(sub.slice('/entry/'.length)));
+    if (sub.startsWith('/search')) {
+      const q = new URLSearchParams(sub.split('?')[1] || '').get('q') || '';
+      return renderSearch(app, vid, q);
+    }
+    if (sub.startsWith('/builder')) return renderBuilder(app, vid);
+    if (sub.startsWith('/tools')) return renderTools(app, vid);
+    return renderVehicleHome(app, vid);
+  }
+
+  // ---- topbar (vehicle pill + tabs) ----
+  function renderTopbar(vid) {
+    const pillContainer = $('#vehiclePill');
+    pillContainer.innerHTML = '';
+    if (vid) {
+      const v = vehicleMeta(vid);
+      const pill = el('div', {class:'vehicle-pill', on:{click:()=>go('#/')}},
+        el('span', {class:'v-label'}, (v && v.label) || vid),
+        el('span', {class:'v-years'}, (v && v.years) || ''),
+        el('span', {style:'color:var(--text-mute)'}, '✕')
+      );
+      pillContainer.appendChild(pill);
+    } else {
+      pillContainer.appendChild(el('span', {style:'color:var(--text-mute);font-size:13px'}, 'Pick a vehicle to begin →'));
+    }
+
+    const tabs = $('#tabs');
+    tabs.innerHTML = '';
+    if (vid) {
+      const items = [
+        {l:'Home',     r:'#/'+vid+'/home'},
+        {l:'Browse',   r:'#/'+vid+'/browse'},
+        {l:'Search',   r:'#/'+vid+'/search'},
+        {l:'Rig Builder',r:'#/'+vid+'/builder'},
+        {l:'Tools',    r:'#/'+vid+'/tools'},
+        {l:'About',    r:'#/about'},
+      ];
+      items.forEach(it => {
+        const active = location.hash.startsWith(it.r) || (it.l==='Home' && (location.hash==='#/'+vid || location.hash==='#/'+vid+'/'));
+        tabs.appendChild(el('button', {class:'tab' + (active?' active':''), on:{click:()=>go(it.r)}}, it.l));
+      });
+    } else {
+      tabs.appendChild(el('button', {class:'tab'+(location.hash.startsWith('#/about')?' active':''), on:{click:()=>go('#/about')}}, 'About'));
+    }
+  }
+
+  // ---- VEHICLE PICKER (home) ----
+  function renderVehiclePicker(app) {
+    app.appendChild(el('section', {class:'hero'},
+      el('h1', {}, 'Pick your platform'),
+      el('p', {}, "Trail Manual is a multi-vehicle DIY reference — maintenance procedures, build paths, vendor comparisons, and rig builders that adapt to your goal and budget. Pick a vehicle below to dive in. More platforms coming."),
+      el('div', {class:'hero-stats'},
+        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.total_entries||0)), el('div',{class:'l'},'Entries')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.vehicles.filter(v=>v.active).length)), el('div',{class:'l'},'Active vehicles')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.vehicles.length)), el('div',{class:'l'},'On the roadmap')),
+      )
+    ));
+
+    const active = M.vehicles.filter(v=>v.active);
+    const inactive = M.vehicles.filter(v=>!v.active);
+
+    if (active.length) {
+      app.appendChild(el('h2', {}, 'Available now'));
+      const grid = el('div', {class:'grid-vehicles'});
+      active.forEach(v => {
+        grid.appendChild(el('div', {class:'vehicle-card', on:{click:()=>go('#/'+v.id+'/home')}},
+          el('div', {class:'cat-icon', style:'background:rgba(197,165,114,.15);color:var(--accent);font-weight:900'}, (v.id||'').toUpperCase().slice(0,3)),
+          el('div', {style:'flex:1'},
+            el('div', {class:'v-name'}, v.label || v.id),
+            el('div', {class:'v-meta'},
+              v.platform ? el('span',{class:'v-platform'}, v.platform) : null,
+              (v.years || '') + ' · ' + (v.entry_count||0) + ' entries'
+            )
+          ),
+          el('div', {class:'v-badge'}, 'OPEN')
+        ));
+      });
+      app.appendChild(grid);
+    }
+
+    if (inactive.length) {
+      app.appendChild(el('h2', {}, 'Coming soon'));
+      const grid = el('div', {class:'grid-vehicles'});
+      inactive.forEach(v => {
+        grid.appendChild(el('div', {class:'vehicle-card inactive'},
+          el('div', {class:'cat-icon', style:'background:var(--bg-3);color:var(--text-mute);font-weight:900'}, (v.id||'').toUpperCase().slice(0,3)),
+          el('div', {style:'flex:1'},
+            el('div', {class:'v-name'}, v.label || v.id),
+            el('div', {class:'v-meta'},
+              v.platform ? el('span',{class:'v-platform'}, v.platform) : null,
+              (v.years || '')
+            )
+          ),
+          el('div', {class:'v-badge'}, 'SOON')
+        ));
+      });
+      app.appendChild(grid);
+    }
+  }
+
+  // ---- VEHICLE HOME ----
+  function renderVehicleHome(app, vid) {
+    const v = vehicleMeta(vid);
+    const entries = getEntries(vid);
+    const counts = {};
+    for (const e of entries) counts[e.category] = (counts[e.category]||0) + 1;
+    const totalCit = entries.reduce((s,e)=>s+(e.citations||[]).length, 0);
+
+    app.appendChild(el('section', {class:'hero'},
+      el('h1', {}, v.label + ' DIY database'),
+      v.description ? el('p', {}, v.description) : null,
+      el('div', {class:'hero-stats'},
+        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(entries.length)), el('div',{class:'l'},'Entries')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(Object.keys(counts).length)), el('div',{class:'l'},'Categories')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'},'5'), el('div',{class:'l'},'Build tiers')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(totalCit)), el('div',{class:'l'},'Citations'))
+      )
+    ));
+
+    app.appendChild(el('h2', {}, 'Pick your build goal'));
+    const tg = el('div', {class:'grid-tiers'});
+    Object.entries(TIER_META).forEach(([id, t]) => {
+      tg.appendChild(el('div', {class:'tier-card', on:{click:()=>go('#/'+vid+'/tier/'+id)}},
+        el('div', {class:'icon'}, t.icon),
+        el('div', {class:'name'}, t.label),
+        el('div', {class:'desc'}, t.desc)
+      ));
+    });
+    app.appendChild(tg);
+
+    app.appendChild(el('h2', {}, 'Browse by category'));
+    const cg = el('div', {class:'grid-cats'});
+    Object.entries(counts)
+      .sort((a,b)=>b[1]-a[1])
+      .forEach(([cat, n]) => {
+        const m = catMeta(cat);
+        cg.appendChild(el('div', {class:'cat-card', on:{click:()=>go('#/'+vid+'/category/'+cat)}},
+          el('div', {class:'cat-icon', style:`background:${m.color}22;color:${m.color}`}, m.icon),
+          el('div', {},
+            el('div', {class:'name'}, m.label),
+            el('div', {class:'count'}, n + ' entries')
+          )
+        ));
+      });
+    app.appendChild(cg);
+  }
+
+  // ---- BROWSE / CATEGORY / TIER ----
+  function renderBrowse(app, vid) {
+    const entries = getEntries(vid);
+    const counts = {};
+    for (const e of entries) counts[e.category] = (counts[e.category]||0) + 1;
+    app.appendChild(el('h2', {}, 'All categories'));
+    const cg = el('div', {class:'grid-cats'});
+    Object.entries(counts).sort((a,b)=>b[1]-a[1]).forEach(([cat, n]) => {
+      const m = catMeta(cat);
+      cg.appendChild(el('div', {class:'cat-card', on:{click:()=>go('#/'+vid+'/category/'+cat)}},
+        el('div', {class:'cat-icon', style:`background:${m.color}22;color:${m.color}`}, m.icon),
+        el('div', {}, el('div',{class:'name'}, m.label), el('div',{class:'count'}, n+' entries'))
+      ));
+    });
+    app.appendChild(cg);
+  }
+
+  function renderCategory(app, vid, cat) {
+    const entries = getEntries(vid).filter(e => e.category === cat);
+    const m = catMeta(cat);
+    app.appendChild(el('div', {style:'display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap'},
+      el('button', {class:'back-btn', on:{click:()=>go('#/'+vid+'/browse')}}, '← Categories'),
+      el('h2', {style:'margin:0'}, m.icon + ' ' + m.label),
+      el('span', {style:'color:var(--text-mute);font-size:13px'}, entries.length + ' entries')
+    ));
+    if (!entries.length) return app.appendChild(el('div', {class:'empty'}, el('h3',{},'No entries in this category')));
+    renderEntryGrid(app, vid, entries);
+  }
+
+  function renderTier(app, vid, tier) {
+    const entries = getEntries(vid).filter(e => (e.build_tiers||[]).includes(tier));
+    const t = TIER_META[tier] || {label:tier, desc:'', icon:'•'};
+    app.appendChild(el('div', {style:'display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap'},
+      el('button', {class:'back-btn', on:{click:()=>go('#/'+vid+'/home')}}, '← Home'),
+      el('h2', {style:'margin:0'}, t.icon + ' ' + t.label + ' build')
+    ));
+    app.appendChild(el('p', {style:'color:var(--text-dim);margin:0 0 14px'}, t.desc + ' — ' + entries.length + ' relevant entries.'));
+    app.appendChild(el('div', {style:'margin-bottom:14px'},
+      el('button', {class:'btn', style:'background:var(--accent);color:#1a1f27;border:0;padding:8px 14px;border-radius:6px;font-weight:700;cursor:pointer', on:{click:()=>go('#/'+vid+'/builder?tier='+tier)}}, '🛠 Open Rig Builder for this tier →')
+    ));
+    renderEntryGrid(app, vid, entries.sort((a,b)=> (a.category.localeCompare(b.category)) || (a.title.localeCompare(b.title))));
+  }
+
+  function renderEntryGrid(parent, vid, entries) {
+    const grid = el('div', {class:'entries'});
+    for (const e of entries) grid.appendChild(entryCard(vid, e));
+    parent.appendChild(grid);
+  }
+  function entryCard(vid, e) {
+    const m = catMeta(e.category);
+    const tags = e.tags||[];
+    const must = tags.find(t => /must-do|must-read|safety-critical/.test(t));
+    const cost = moneyRange(e.cost_usd);
+    return el('div', {class:'entry-card', on:{click:()=>go('#/'+vid+'/entry/'+encodeURIComponent(e.id))}},
+      el('div', {class:'title'}, e.title),
+      el('div', {class:'summary'}, e.summary || ''),
+      el('div', {class:'meta'},
+        el('span', {class:'badge', style:`color:${m.color}`}, m.icon + ' ' + m.label),
+        e.difficulty ? el('span', {class:'badge diff'}, diffStars(e.difficulty)) : null,
+        cost ? el('span', {class:'badge cost'}, cost) : null,
+        must ? el('span', {class:'badge must'}, '★ must-do') : null
+      )
+    );
+  }
+
+  // ---- ENTRY DETAIL ----
+  function renderEntry(app, vid, id) {
+    const e = byId(vid, id);
+    if (!e) return app.appendChild(el('div', {class:'empty'}, el('h3',{},'Entry not found'), el('button',{class:'back-btn',on:{click:()=>history.back()}},'← Back')));
+    const m = catMeta(e.category);
+    const wrap = el('div', {class:'detail'});
+    wrap.appendChild(el('div', {class:'detail-head'},
+      el('div', {},
+        el('div', {style:'color:'+m.color+';font-size:12px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:6px'}, m.icon + ' ' + m.label + (e.subcategory ? ' · ' + e.subcategory.replace(/_/g,' ') : '')),
+        el('h2', {class:'detail-title'}, e.title)
+      ),
+      el('button', {class:'back-btn', on:{click:()=>history.back()}}, '← Back')
+    ));
+    const meta = el('div', {class:'detail-meta'});
+    if (e.type) meta.appendChild(el('span', {class:'badge'}, e.type.replace(/_/g,' ')));
+    (e.build_tiers||[]).forEach(t => meta.appendChild(el('span', {class:'badge tier', on:{click:()=>go('#/'+vid+'/tier/'+t)}, style:'cursor:pointer'}, tierLabel(t))));
+    (e.year_compatibility||[]).forEach(y => meta.appendChild(el('span', {class:'badge'}, y)));
+    wrap.appendChild(meta);
+
+    const statRow = el('div', {class:'detail-grid'});
+    statRow.appendChild(el('div', {class:'stat'}, el('div',{class:'l'},'Difficulty'), el('div',{class:'v'}, el('span',{class:'diff-stars'}, diffStars(e.difficulty||0)) , ' (' + (e.difficulty||'?') + '/5)' )));
+    if (e.time_hours) statRow.appendChild(el('div', {class:'stat'}, el('div',{class:'l'},'Est. time'), el('div',{class:'v'}, timeStr(e.time_hours))));
+    if (e.cost_usd) statRow.appendChild(el('div', {class:'stat'}, el('div',{class:'l'},'Est. cost'), el('div',{class:'v'}, moneyRange(e.cost_usd))));
+    wrap.appendChild(statRow);
+
+    if (e.summary) wrap.appendChild(el('p', {style:'font-size:16px;color:var(--text-dim);margin:18px 0 0;font-style:italic'}, e.summary));
+    if (e.description) {
+      const sec = el('div', {class:'detail-section'}, el('h3',{},'Detail'));
+      e.description.split(/\n\n+/).forEach(p => sec.appendChild(el('p',{}, p)));
+      wrap.appendChild(sec);
+    }
+    if (e.steps && e.steps.length) {
+      const sec = el('div', {class:'detail-section'}, el('h3',{},'Steps'));
+      e.steps.forEach((s,i) => sec.appendChild(el('div', {class:'step'}, el('div',{class:'step-num'},String(i+1)), el('div',{},s))));
+      wrap.appendChild(sec);
+    }
+    if ((e.tools_required||[]).length || (e.skills_required||[]).length) {
+      const sec = el('div', {class:'detail-section'}, el('h3',{},'Tools & skills'));
+      if ((e.tools_required||[]).length) sec.appendChild(el('div', {style:'margin-bottom:10px'}, el('div',{style:'color:var(--text-mute);font-size:12px;margin-bottom:6px'},'Tools:'), el('div',{}, e.tools_required.map(t => el('span',{class:'tool-pill'}, t)))));
+      if ((e.skills_required||[]).length) sec.appendChild(el('div', {}, el('div',{style:'color:var(--text-mute);font-size:12px;margin-bottom:6px'},'Skills:'), el('div',{}, e.skills_required.map(t => el('span',{class:'tool-pill'}, t)))));
+      wrap.appendChild(sec);
+    }
+    if ((e.parts||[]).length) {
+      const sec = el('div', {class:'detail-section'}, el('h3',{},'Parts & vendors'));
+      const tbl = el('table', {class:'parts-table'});
+      tbl.appendChild(el('thead',{}, el('tr',{},
+        el('th',{},'Part'), el('th',{},'P/N'), el('th',{},'Vendor'), el('th',{style:'text-align:right'},'Est. price')
+      )));
+      const tb = el('tbody');
+      e.parts.forEach(p => tb.appendChild(el('tr',{},
+        el('td',{}, p.url ? el('a',{href:p.url,target:'_blank',rel:'noopener'}, p.name||'') : (p.name||'')),
+        el('td',{style:'color:var(--text-mute);font-size:12px'}, p.part_number||''),
+        el('td',{}, p.vendor||''),
+        el('td',{style:'text-align:right;color:var(--accent);font-weight:600'}, p.price_estimate_usd ? '$'+Number(p.price_estimate_usd).toLocaleString() : '—')
+      )));
+      tbl.appendChild(tb);
+      sec.appendChild(tbl);
+      wrap.appendChild(sec);
+    }
+    if ((e.pros||[]).length || (e.cons||[]).length) {
+      wrap.appendChild(el('div', {class:'detail-section'}, el('h3',{},'Tradeoffs'),
+        el('div', {class:'pro-con'},
+          el('div',{}, el('div',{style:'color:var(--good);font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;font-weight:700'},'Pros'),
+            el('ul',{class:'pro-list'}, (e.pros||[]).map(p => el('li',{},p)))),
+          el('div',{}, el('div',{style:'color:var(--danger);font-size:12px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;font-weight:700'},'Cons'),
+            el('ul',{class:'con-list'}, (e.cons||[]).map(p => el('li',{},p))))
+        )
+      ));
+    }
+    if ((e.alternatives||[]).length) {
+      const links = e.alternatives.map(id => {
+        const a = byId(vid, id);
+        if (!a) return null;
+        return el('a', {class:'alt-link', href:'#/'+vid+'/entry/'+encodeURIComponent(id)}, a.title);
+      }).filter(Boolean);
+      if (links.length) wrap.appendChild(el('div',{class:'detail-section'}, el('h3',{},'Alternatives'), el('div',{},links)));
+    }
+    if ((e.tags||[]).length) wrap.appendChild(el('div',{class:'detail-section'}, el('h3',{},'Tags'), el('div',{class:'tag-row'}, e.tags.map(t => el('span',{class:'tool-pill'},'#'+t)))));
+    if ((e.citations||[]).length) wrap.appendChild(el('div',{class:'detail-section'}, el('h3',{},'Sources'),
+      el('div',{class:'citations'}, e.citations.map(c => el('a',{href:c.url||'#',target:'_blank',rel:'noopener'}, (c.title||c.url) + ' ↗')))));
+    app.appendChild(wrap);
+  }
+
+  // ---- SEARCH ----
+  let searchTimer = null;
+  function renderSearch(app, vid, initial='') {
+    app.appendChild(el('h2', {}, 'Search'));
+    const ctrls = el('div', {class:'controls'});
+    const input = el('input', {class:'search-input', type:'search', placeholder:'Search title, summary, description, tags, parts…', value:initial});
+    const catSel = el('select', {class:'select'}, el('option',{value:''},'All categories'));
+    const entries = getEntries(vid);
+    const cats = Array.from(new Set(entries.map(e=>e.category))).sort();
+    cats.forEach(id => catSel.appendChild(el('option',{value:id}, (catMeta(id).icon||'') + ' ' + catMeta(id).label)));
+    const tierSel = el('select', {class:'select'}, el('option',{value:''},'Any build tier'));
+    Object.entries(TIER_META).forEach(([id,m]) => tierSel.appendChild(el('option',{value:id}, m.icon+' '+m.label)));
+    const diffSel = el('select', {class:'select'},
+      el('option',{value:''},'Any difficulty'),
+      el('option',{value:'1'},'★ Easy (1)'),
+      el('option',{value:'2'},'★★ (2)'),
+      el('option',{value:'3'},'★★★ (3)'),
+      el('option',{value:'4'},'★★★★ (4)'),
+      el('option',{value:'5'},'★★★★★ Advanced (5)')
+    );
+    const costSel = el('select', {class:'select'},
+      el('option',{value:''},'Any cost'),
+      el('option',{value:'100'},'< $100'),
+      el('option',{value:'500'},'< $500'),
+      el('option',{value:'1000'},'< $1,000'),
+      el('option',{value:'5000'},'< $5,000')
+    );
+    ctrls.appendChild(input); ctrls.appendChild(catSel); ctrls.appendChild(tierSel); ctrls.appendChild(diffSel); ctrls.appendChild(costSel);
+    app.appendChild(ctrls);
+    const meta = el('div', {class:'results-meta'});
+    const out = el('div', {class:'entries'});
+    app.appendChild(meta); app.appendChild(out);
+    function run() {
+      const q = input.value.trim().toLowerCase();
+      const cat = catSel.value, tier = tierSel.value;
+      const diff = diffSel.value ? Number(diffSel.value) : null;
+      const maxCost = costSel.value ? Number(costSel.value) : null;
+      const tokens = q.split(/\s+/).filter(Boolean);
+      const matches = [];
+      for (const e of entries) {
+        if (cat && e.category !== cat) continue;
+        if (tier && !(e.build_tiers||[]).includes(tier)) continue;
+        if (diff !== null && (e.difficulty||0) !== diff) continue;
+        if (maxCost !== null && moneyMid(e.cost_usd) > maxCost) continue;
+        if (tokens.length) {
+          const hay = (e.title + ' ' + (e.summary||'') + ' ' + (e.description||'') + ' ' + (e.tags||[]).join(' ') + ' ' + (e.parts||[]).map(p=>p.name+' '+(p.vendor||'')).join(' ') + ' ' + (e.subcategory||'')).toLowerCase();
+          if (!tokens.every(t => hay.includes(t))) continue;
+        }
+        matches.push(e);
+      }
+      meta.textContent = matches.length + ' result' + (matches.length===1?'':'s');
+      out.innerHTML = '';
+      matches.forEach(e => out.appendChild(entryCard(vid, e)));
+      if (!matches.length) out.appendChild(el('div', {class:'empty'}, el('h3',{},'No matches'), 'Try fewer filters or a different query.'));
+    }
+    input.addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(run, 100); });
+    [catSel,tierSel,diffSel,costSel].forEach(s => s.addEventListener('change', run));
+    run();
+    setTimeout(()=>input.focus(), 50);
+  }
+
+  // ---- BUILDER ----
+  function renderBuilder(app, vid) {
+    const entries = getEntries(vid);
+    const urlTier = (new URLSearchParams((location.hash.split('?')[1])||'')).get('tier') || '';
+    const state = { tier: urlTier, budget: 5000, experience: 2, style: 'balanced' };
+
+    const wrap = el('div', {});
+    wrap.appendChild(el('h2', {}, 'Rig Builder'));
+    wrap.appendChild(el('p', {style:'color:var(--text-dim);margin:0 0 18px;max-width:680px'}, 'Pick your goal, set a budget, and the builder will sequence a phased build plan from the database.'));
+
+    const step1 = el('div', {class:'builder-step'}, el('h3',{},'Step 1 — Pick your build goal'));
+    const tg = el('div', {class:'grid-tiers'});
+    Object.entries(TIER_META).forEach(([id, t]) => {
+      const card = el('div', {class:'tier-card'+(state.tier===id?' selected':''), on:{click:()=>{ state.tier=id; reflect(); compute(); }}},
+        el('div',{class:'icon'},t.icon), el('div',{class:'name'},t.label), el('div',{class:'desc'},t.desc));
+      card.dataset.tier = id; tg.appendChild(card);
+    });
+    step1.appendChild(tg); wrap.appendChild(step1);
+
+    const step2 = el('div', {class:'builder-step'}, el('h3',{},'Step 2 — Total parts budget'));
+    const bRange = el('input', {type:'range', min:'500', max:'25000', step:'500', value:String(state.budget)});
+    const bDisp = el('div', {class:'budget-display'}, '$' + state.budget.toLocaleString());
+    bRange.addEventListener('input', () => { state.budget = Number(bRange.value); bDisp.textContent = '$' + state.budget.toLocaleString(); compute(); });
+    step2.appendChild(el('div', {class:'budget-input'}, bRange, bDisp)); wrap.appendChild(step2);
+
+    const step3 = el('div', {class:'builder-step'}, el('h3',{},'Step 3 — Spend style'));
+    const styleRow = el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'});
+    [['budget','Budget'],['balanced','Balanced'],['premium','Premium']].forEach(([id,lbl]) => {
+      const chip = el('div', {class:'filter-chip'+(state.style===id?' active':''), on:{click:()=>{ state.style=id; styleRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
+      styleRow.appendChild(chip);
+    });
+    step3.appendChild(styleRow); wrap.appendChild(step3);
+
+    const step4 = el('div', {class:'builder-step'}, el('h3',{},'Step 4 — DIY experience'),
+      el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:10px'}, 'Caps difficulty of recommended work.'));
+    const expRow = el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'});
+    [[1,'Novice — ≤2★ only'],[2,'Intermediate — ≤4★'],[3,'Experienced — any']].forEach(([id,lbl]) => {
+      const chip = el('div', {class:'filter-chip'+(state.experience===id?' active':''), on:{click:()=>{ state.experience=id; expRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
+      expRow.appendChild(chip);
+    });
+    step4.appendChild(expRow); wrap.appendChild(step4);
+
+    const output = el('div', {class:'build-output'});
+    const summary = el('div', {class:'build-summary'});
+    const list = el('div', {});
+    output.appendChild(summary); output.appendChild(list); wrap.appendChild(output);
+    app.appendChild(wrap);
+
+    function reflect() { $$('.tier-card', tg).forEach(c => c.classList.toggle('selected', c.dataset.tier === state.tier)); }
+    reflect();
+
+    function compute() {
+      if (!state.tier) {
+        summary.innerHTML = ''; summary.appendChild(el('h3',{},'Build Summary')); summary.appendChild(el('div',{style:'color:var(--text-mute)'},'Pick a build goal to begin.'));
+        list.innerHTML = ''; return;
+      }
+      const diffCap = state.experience === 1 ? 2 : (state.experience === 2 ? 4 : 5);
+      const pool = entries.filter(e => (e.build_tiers||[]).includes(state.tier) && (e.difficulty||1) <= diffCap && e.category !== 'build_recipe' && e.cost_usd && (e.cost_usd.low > 0 || e.cost_usd.high > 0));
+      const tierPriority = {
+        daily_driver: ['maintenance','cooling','brakes','steering','engine','electrical'],
+        mild_trail:   ['suspension','wheels_tires','recovery','armor','maintenance','steering','electrical'],
+        moderate_trail:['suspension','axles','drivetrain','wheels_tires','armor','recovery','steering','engine','electrical'],
+        rock_crawler:  ['suspension','axles','drivetrain','steering','armor','wheels_tires','recovery','engine','cooling','electrical'],
+        overland:      ['suspension','wheels_tires','electrical','interior','recovery','armor','engine','cooling','maintenance']
+      }[state.tier] || [];
+      const score = (e) => {
+        const tags = (e.tags||[]).join(' ');
+        let s = 0;
+        if (/must-do|must-read|safety-critical/.test(tags)) s += 50;
+        const idx = tierPriority.indexOf(e.category);
+        if (idx >= 0) s += (10 - idx) * 4;
+        const mid = moneyMid(e.cost_usd);
+        if (state.style === 'budget' && mid > 0) s += Math.max(0, 20 - mid/50);
+        if (state.style === 'premium') s += Math.min(20, mid/100);
+        if (state.style === 'balanced') s += Math.max(0, 12 - Math.abs(mid - 400) / 80);
+        if (['upgrade_path','part','kit','how_to'].includes(e.type)) s += 5;
+        return s;
+      };
+      const grouped = new Map();
+      for (const e of pool) {
+        const key = (e.category||'') + '/' + (e.subcategory||'');
+        if (!grouped.has(key)) grouped.set(key, []);
+        grouped.get(key).push(e);
+      }
+      const picks = [];
+      for (const [, arr] of grouped) { arr.sort((a,b)=> score(b) - score(a)); picks.push(arr[0]); }
+      picks.sort((a,b)=> score(b) - score(a));
+      const chosen = []; let total = 0;
+      for (const e of picks) {
+        const c = moneyMid(e.cost_usd);
+        if (total + c <= state.budget * 1.05) { chosen.push(e); total += c; }
+      }
+      const phases = {
+        'Phase 1 — Foundation & safety': [],
+        'Phase 2 — Capability & protection': [],
+        'Phase 3 — Performance & comfort': []
+      };
+      for (const e of chosen) {
+        const tags = (e.tags||[]).join(' ');
+        if (/must-do|must-read|safety-critical|common-failure/.test(tags) || e.category==='maintenance' || e.category==='brakes' || e.category==='steering') phases['Phase 1 — Foundation & safety'].push(e);
+        else if (['suspension','axles','wheels_tires','armor','recovery','drivetrain'].includes(e.category)) phases['Phase 2 — Capability & protection'].push(e);
+        else phases['Phase 3 — Performance & comfort'].push(e);
+      }
+      const recipe = entries.find(e => e.category === 'build_recipe' && (e.build_tiers||[]).includes(state.tier));
+      summary.innerHTML = '';
+      summary.appendChild(el('h3',{},'Build Summary'));
+      summary.appendChild(el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:6px'}, (TIER_META[state.tier]||{}).label));
+      summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px'}, chosen.length + ' items · ' + state.style + ' · ≤' + diffCap + '★ work'));
+      summary.appendChild(el('div', {class:'total-cost'}, '$' + Math.round(total).toLocaleString()));
+      summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px;margin-bottom:14px'}, 'of $' + state.budget.toLocaleString() + ' budget'));
+      const progressFill = Math.min(100, total/state.budget*100);
+      summary.appendChild(el('div', {style:'height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden'},
+        el('div', {style:`width:${progressFill}%;height:100%;background:${progressFill > 100 ? 'var(--danger)' : 'var(--accent)'};transition:width .2s`})));
+      if (recipe) {
+        summary.appendChild(el('hr', {class:'sep'}));
+        summary.appendChild(el('div', {style:'font-size:12px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px'}, 'Featured recipe'));
+        summary.appendChild(el('a', {href:'#/'+vid+'/entry/'+encodeURIComponent(recipe.id), style:'font-weight:600;display:block'}, recipe.title + ' →'));
+      }
+      list.innerHTML = '';
+      for (const [pname, items] of Object.entries(phases)) {
+        if (!items.length) continue;
+        const phaseTotal = items.reduce((s,e)=>s+moneyMid(e.cost_usd),0);
+        const phaseEl = el('div', {class:'phase'}, el('h4',{}, pname + ' · $' + Math.round(phaseTotal).toLocaleString()));
+        const ul = el('ul', {class:'phase-list'});
+        items.forEach(e => {
+          const m = catMeta(e.category);
+          ul.appendChild(el('li', {on:{click:()=>go('#/'+vid+'/entry/'+encodeURIComponent(e.id))}},
+            el('span', {}, m.icon + ' ' + e.title),
+            el('span', {class:'cost'}, moneyRange(e.cost_usd))));
+        });
+        phaseEl.appendChild(ul); list.appendChild(phaseEl);
+      }
+      if (!chosen.length) list.appendChild(el('div', {class:'empty'}, el('h3',{},'No matches'), 'Try raising your budget or DIY skill cap.'));
+    }
+    compute();
+  }
+
+  // ---- TOOLS ----
+  function renderTools(app, vid) {
+    app.appendChild(el('h2', {}, 'Tools & special guides'));
+    app.appendChild(el('p', {style:'color:var(--text-dim);margin-bottom:18px'}, "Focused interactive tools that go deeper than a single database entry. More coming as the platform grows."));
+    const tools = el('div', {class:'tools-grid'});
+    // XJ-specific tools
+    if (vid === 'xj') {
+      tools.appendChild(el('a', {class:'tool-card', href:'death-wobble-guide.html'},
+        el('div',{class:'tc-icon'},'⚠️'),
+        el('h3',{},'Death Wobble Survival Guide'),
+        el('p',{},'For newbies: emergency response, plain-English explainer, symptom quiz, guided driveway inspection, prioritized fix plan.')
+      ));
+    }
+    tools.appendChild(el('div', {class:'tool-card', style:'opacity:.6'},
+      el('div',{class:'tc-icon'},'🔌'),
+      el('h3',{},'Wiring Calculator'),
+      el('p',{},'AWG selector for amp draw + distance. Coming soon.')
+    ));
+    tools.appendChild(el('div', {class:'tool-card', style:'opacity:.6'},
+      el('div',{class:'tc-icon'},'📏'),
+      el('h3',{},'Gear Ratio Calculator'),
+      el('p',{},'Pick tire size and use case → recommend axle gear ratio. Coming soon.')
+    ));
+    tools.appendChild(el('div', {class:'tool-card', style:'opacity:.6'},
+      el('div',{class:'tc-icon'},'⛽'),
+      el('h3',{},'Fuel & Range Planner'),
+      el('p',{},'Plan trail/overland fuel needs by tank, mpg, and aux storage. Coming soon.')
+    ));
+    app.appendChild(tools);
+  }
+
+  // ---- ABOUT ----
+  function renderAbout(app) {
+    app.appendChild(el('div', {class:'detail'},
+      el('h2', {style:'margin-top:0'}, 'About Trail Manual'),
+      el('p', {}, 'Trail Manual is a community-style DIY reference for off-road vehicles — maintenance procedures, common failures, off-road suspension and axle upgrades, engine and drivetrain work, electrical/lighting/interior modifications, and overland/recovery gear.'),
+      el('p', {}, 'The database is multi-vehicle and growing. The architecture deliberately keeps each vehicle as a separate data shard so the viewer stays fast even as more platforms come online.'),
+      el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'Roadmap'),
+      el('ul', {},
+        el('li',{}, el('strong',{},'Phase 1: '), 'Jeep Cherokee XJ ', el('span',{style:'color:var(--good)'},'(open now)')),
+        el('li',{}, el('strong',{},'Phase 2: '), 'Wrangler family — TJ, YJ, JK, JL, CJ-7, CJ-5'),
+        el('li',{}, el('strong',{},'Phase 3: '), 'Other Jeeps — ZJ, WJ, WK'),
+        el('li',{}, el('strong',{},'Phase 4: '), 'Other platforms — Toyota 4Runner, Tacoma, Nissan Pathfinder, and more')
+      ),
+      el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'How content is sourced'),
+      el('p', {}, 'Compiled from community knowledge bases (NAXJA, Cherokee Forum, JeepForum, Pirate4x4) and vendor documentation. Where individual sources are cited, follow the ↗ link.'),
+      el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'Caveats'),
+      el('p', {}, 'Prices are 2024–2026 ballparks that drift over time. Part numbers are spot-checks, not warranties — verify with the vendor at purchase. Every modification changes vehicle behavior; cross-reference with the factory service manual before doing safety-critical work.'),
+      el('p', {style:'color:var(--text-mute);font-size:12px;margin-top:24px'}, 'Database build: ' + (M.built_at || 'unknown'))
+    ));
+  }
+
+  if (!location.hash) location.hash = '#/';
+  render();
+})();
+</script>
+</body>
+</html>

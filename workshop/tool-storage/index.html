@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tool Storage That Actually Works — The Workshop · Trail Manual</title>
+<meta name="description" content="How to organize a home shop tool storage system. Rolling chests, wall storage, drawer layout, parts organization during a job — practical principles, not aspirational photos.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">&#8592; The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop &middot; Shop Setup</div>
+    <h1>Tool Storage That Actually Works</h1>
+    <p class="lede">Good tool storage isn't about tidiness &mdash; it's about speed. The goal is to reach the right tool without searching, know immediately when something is missing, and put tools back without thinking about where they go. Everything else is just aesthetics.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>8 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>A rolling lower chest plus a top chest covers hand tools. French cleats or pegboard on the wall handles bulky and frequently grabbed items. Organize by task, not by tool type. A $200&ndash;$400 tool chest from a discount tool retailer is fully functional &mdash; start there and add as your collection grows. Skip shadow boards for a home shop; they're expensive and inflexible.</p>
+  </div>
+
+  <h2>The Real Goal: Access Without Searching</h2>
+  <p>The measure of a tool storage system is how long it takes to get the tool you need and put it back where it belongs. If you're pulling apart a pile to find the right socket or spending 30 seconds deciding where to set something down after a job, the system is costing you time on every session.</p>
+  <p>This matters more than appearance. A clean-looking shop where tools are grouped by category rather than by use will still make you hunt. The organizational principle that actually reduces friction: <strong>store tools with the jobs they're used for</strong>, not in categories that make sense on paper.</p>
+
+  <h2>Rolling Tool Chests: The Core System</h2>
+  <p>A lower chest with drawers is the standard for hand tools in a home shop. A top chest or hutch sitting on top extends capacity and adds a surface for small loose items. Together, a lower chest (typically 26"&ndash;44" wide, 8&ndash;14 drawers) and a top chest give you enough storage for a complete hand tool set with room to grow.</p>
+  <p>What to look for in a chest:</p>
+  <ul>
+    <li><strong>Drawer slides:</strong> ball-bearing slides hold up better than friction slides and don't jam under load. This is the primary thing that separates a $200 chest from a $1,000 one &mdash; along with steel gauge and tolerances.</li>
+    <li><strong>Weight capacity:</strong> cheap chests have drawers rated at 20&ndash;30 lbs. Socket sets, combination wrench sets, and breaker bars are heavy. Look for 50+ lbs per drawer on the lower chest.</li>
+    <li><strong>Drawer liner:</strong> bare metal drawers let tools slide around, damage finishes, and make it hard to find anything at a glance. Foam liner or rubber toolbox liner keeps everything in place and makes gaps obvious. Add it to every drawer.</li>
+    <li><strong>Lock:</strong> if anyone else has access to the space, a keyed lock matters more than you'd expect. Most chests include a cylinder lock &mdash; verify it's included, not an add-on.</li>
+  </ul>
+
+  <div class="panel info">
+    <div class="panel-label">What tool chests actually cost</div>
+    <p>A functional 10&ndash;15 drawer lower + top chest combination runs $200&ndash;$400 at discount tool retailers (Harbor Freight, Tractor Supply, northern tool stores). Premium chests from Snap-on, Mac, or Matco run $1,500&ndash;$5,000+. The premium chests have better steel, tighter tolerances, smoother slides, and significantly longer service life. They are not necessary to start. Buy the best chest your current budget allows and upgrade later if you want to &mdash; tool chests hold their value well at the premium end.</p>
+  </div>
+
+  <h2>Drawer Layout: Organize by Task</h2>
+  <p>The most common mistake in drawer organization: grouping all wrenches together, all sockets together, all screwdrivers together. It looks logical and works against you in practice. When you're doing a brake job, you want every tool you need for that job within reach of one or two drawers &mdash; not distributed across five drawers by type.</p>
+  <p>A task-based layout for a home shop doing automotive work:</p>
+  <ul>
+    <li><strong>Top drawer(s):</strong> daily drivers. Ratchet (3/8"), combination wrenches (most-used range), pliers, screwdrivers, tape measure. These are the tools you reach for at the start of every session before you know what you need.</li>
+    <li><strong>Middle drawers:</strong> organized by job category. One drawer for brake and suspension hardware (flare nut wrenches, brake line tools, caliper wind-back tool). One drawer for electrical work (multimeter, wire strippers, terminals, crimper, electrical tape). One drawer for engine work (timing tools, gasket scrapers, feeler gauges).</li>
+    <li><strong>Lower drawers:</strong> heavier, bulkier, less-frequently-grabbed. Breaker bar and extensions. Impact sockets. Specialty pullers. Large adjustable wrenches.</li>
+    <li><strong>Deep bottom drawer:</strong> shop supplies. Zip ties, masking tape, marker, shop rags, nitrile gloves.</li>
+  </ul>
+
+  <h2>Wall Storage: What Belongs There</h2>
+  <p>Wall storage is for items that don't fit in drawers and items you grab on nearly every session. It should not become overflow storage for the chest &mdash; if something is on the wall because there's no room in the drawers, you've outgrown the chest.</p>
+  <p><strong>Pegboard</strong> is the most common choice. It's inexpensive, adaptable, and the hooks are universally available. The downsides: hooks that aren't locked can fall out when you grab tools, the board flexes if not well-mounted, and reconfiguring the layout requires starting over with hook placement.</p>
+  <p><strong>French cleats</strong> are better for a permanent shop. A French cleat system is a wall of interlocking 45-degree strips that accept custom holders you build or buy. Holders slide and reposition without tools. The system supports much more weight than pegboard and doesn't flex. Initial setup takes longer but the flexibility over time is worth it for a dedicated shop space.</p>
+  <p>Items that belong on the wall:</p>
+  <ul>
+    <li>Air hose and fittings</li>
+    <li>Extension cords (coiled and hung on a large hook)</li>
+    <li>Long pry bars and breaker bars (too tall for drawers)</li>
+    <li>Shop light or work light when not in use</li>
+    <li>Frequently used wrenches (a wrench rack on the wall eliminates rummaging in drawers)</li>
+    <li>Safety equipment: fire extinguisher, first aid kit &mdash; these must be visible and accessible, not stored</li>
+  </ul>
+
+  <h2>Socket and Wrench Organization</h2>
+  <p>Sockets are the easiest tools to lose track of because there are so many of similar sizes and they can land anywhere in a drawer. Dedicated organization makes it immediate when one is missing.</p>
+  <ul>
+    <li><strong>Socket rails:</strong> magnetic rails or clip-type rails keep sockets in size order and show you instantly if one is missing. Keep SAE and metric separate, 3/8" and 1/2" drive separate. Store rails in a dedicated drawer or mount them on the wall.</li>
+    <li><strong>Wrench holders:</strong> a wall-mounted wrench rack or a toolbox insert keeps wrenches in size order and eliminates fishing through a pile. Combination wrenches in order from 8mm to 24mm (metric) and 1/4" to 1" (SAE) takes seconds to scan.</li>
+    <li><strong>Deep well vs. standard:</strong> keep them on separate rails. Mixing them adds time when you're reaching for a specific one under the hood.</li>
+  </ul>
+
+  <div class="panel good">
+    <div class="panel-label">The missing-tool tell</div>
+    <p>The real value of socket rails and wrench racks isn't organization &mdash; it's that an empty slot tells you immediately where you left a tool. Before you can start the next job, you know something is still in the engine bay or on the floor. That saves the 20-minute search at cleanup time.</p>
+  </div>
+
+  <h2>Parts Management During a Job</h2>
+  <p>One of the most common sources of mistakes and delays in DIY work: losing track of parts mid-job. A bolt that has to go back in a specific location ends up in a pile with three others that look identical. A clip gets swept off the workbench. A fastener gets reused in the wrong hole.</p>
+  <p>The practices that prevent this:</p>
+  <ul>
+    <li><strong>Parts tray:</strong> a magnetic parts tray or a dedicated flat tray on the workbench holds the hardware for the active job. Nothing else goes in it while the job is in progress.</li>
+    <li><strong>Labeled zip-lock bags:</strong> for fasteners that must go back in specific locations, bag them immediately when removed and write on the bag with a marker. "Front left caliper slide pin bolts &mdash; torque 25 ft-lbs." A roll of masking tape and a Sharpie on the workbench handle this for anything you don't have a bag for.</li>
+    <li><strong>Photograph before disassembly:</strong> phone camera, two seconds. For wiring, hose routing, or any assembly you're unsure you'll remember. The photo is free insurance against reassembly confusion.</li>
+  </ul>
+
+  <h2>The Shadow Board Situation</h2>
+  <p>Foam shadow boards &mdash; where every tool has a custom cutout showing its exact outline &mdash; look exceptional in shop photos and are used in professional environments where tool accountability across a team is required. In a home shop, they are expensive, time-consuming to set up, and inflexible as your tool collection grows. Adding a new tool means cutting a new foam insert or buying a new board. Reorganizing means starting over.</p>
+  <p>Skip the shadow board. Put that time and money into better drawer liners, a French cleat wall, and socket rails. The result is equally organized and adapts as you add tools.</p>
+
+  <hr class="divider">
+
+  <p>Start with a rolling chest, add drawer liner to every drawer, and set it up by task rather than by tool type. Put a wrench rack and socket rails in before you put anything loose in a drawer. Those two choices &mdash; task-based layout and dedicated holders for high-count tools &mdash; account for most of the functional improvement in how a shop runs.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/shop-lighting/">Shop Lighting: How to See What You're Doing <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/floor-surface-options/">Shop Floor Options: Concrete, Epoxy, and Tiles <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/socket-set-guide/">Socket Sets: What You Actually Need <span>Shop Tools &rarr;</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. &copy; Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

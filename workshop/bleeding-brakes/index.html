@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bleeding Brakes Correctly — The Workshop · Trail Manual</title>
+<meta name="description" content="How to bleed brakes correctly: two-person, vacuum, and pressure methods, the correct corner sequence, fluid compatibility, and how to know when you're done.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.safety-badge{display:inline-flex;align-items:center;gap:8px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:6px;padding:8px 14px;margin-bottom:20px;font-size:12px;font-weight:700;color:var(--danger);text-transform:uppercase;letter-spacing:.5px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+<div class="page">
+  <div class="safety-badge">&#9888; Safety critical</div>
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Technique</div>
+    <h1>Bleeding Brakes Correctly</h1>
+    <p class="lede">Brake fluid doesn't compress. Air does. A single air bubble in the hydraulic system converts part of your pedal stroke into compressing air instead of actuating calipers — which means less braking force, a softer pedal, and a vehicle that doesn't stop the way you expect it to. Bleeding removes the air.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>10 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+      <span class="meta-pill">Safety critical</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>After any hydraulic component replacement, or any time the system was opened, bleed all four corners in the correct sequence starting furthest from the master cylinder. Use the two-person method for the most reliable results. A firm pedal with no sponginess means you're done. If the pedal is still soft after bleeding all four corners, the problem is a component failure — not trapped air.</p>
+    <p>Never let the master cylinder reservoir run dry during bleeding. Doing so pulls air into the system from the top and you'll need to start over.</p>
+  </div>
+
+  <h2>Why and When to Bleed</h2>
+  <p>Brake fluid absorbs moisture from the atmosphere over time — this is an inherent property of the glycol-based fluids used in most vehicles. Water absorption lowers the fluid's boiling point. Under heavy braking (mountain descents, track use, extended downhill towing), fluid that's absorbed significant water can boil, creating vapor bubbles that compress exactly like air. This is brake fade, and it can happen in a system with no air introduced from external sources.</p>
+  <p>Bleed brakes when:</p>
+  <ul>
+    <li>Any hydraulic component was replaced: caliper, wheel cylinder, brake line, master cylinder, ABS module</li>
+    <li>Any hydraulic fitting was opened or a line was disconnected</li>
+    <li>The pedal feels soft or spongy</li>
+    <li>As routine maintenance — most manufacturers recommend fluid flush every 2–3 years regardless of pedal feel</li>
+    <li>After severe brake fade to remove any boiled fluid</li>
+  </ul>
+
+  <h2>The Four Methods</h2>
+  <p><strong>Two-person bleeding</strong> is the most reliable method for ensuring air is completely expelled and the reservoir doesn't run dry. A helper handles the pedal while you work the bleeder screws — one person watching the reservoir, one person watching the clear hose at the caliper. This is the method described in detail below.</p>
+  <p><strong>Vacuum bleeding</strong> uses a hand-operated or powered vacuum pump to draw fluid through from each bleeder. A single person can do this. The limitation: bleeder screws that aren't perfectly sealed will draw air around the threads rather than through the caliper, producing bubbles that look like system air but aren't. Effective on well-maintained vehicles with good bleeder screws; unreliable on vehicles with corroded or worn bleeders.</p>
+  <p><strong>Pressure bleeding</strong> uses a pressurized cap on the reservoir to push fluid through the system. Reliable, efficient, and one-person — but requires a pressure bleeder kit specific to your master cylinder cap diameter. Professional shops use this method for speed.</p>
+  <p><strong>Gravity bleeding</strong> opens the bleeder screws and lets fluid flow under gravity alone. No pumping, no equipment. It works, but it's slow (30–60 minutes per corner) and requires patience to confirm all air is expelled. Suitable for routine fluid changes on vehicles with no air introduced from component replacement.</p>
+
+  <h2>Two-Person Bleeding: Step by Step</h2>
+  <p>You'll need: a clear hose that fits snugly over the bleeder screw nipple, a clean catch bottle, the correct brake fluid for your vehicle, and a helper.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Check the reservoir constantly</div>
+    <p>Assign one person to monitor the reservoir and keep it topped up throughout the bleeding process. If the reservoir runs dry, air enters the system from the master cylinder and you'll need to start from scratch. Keep a full bottle of the correct fluid on hand and check the level after every 2–3 bleeder actuations.</p>
+  </div>
+
+  <ol>
+    <li>Fill the reservoir to the MAX line. Cap it loosely so you can access it easily.</li>
+    <li>Move to the first wheel to bleed (see sequence below). Clean the bleeder screw — rust and dirt around the nipple will contaminate the fluid.</li>
+    <li>Attach the clear hose to the bleeder nipple. Place the other end in the catch bottle. The hose end should sit below the level of fluid in the bottle to prevent siphoning air back.</li>
+    <li>Have the helper pump the brake pedal 3–4 times with firm, full strokes, then hold the pedal down firmly on the last stroke and maintain pressure.</li>
+    <li>Open the bleeder screw — about a half turn. Fluid (and any air) will flow through the hose. Watch the clear hose for bubbles.</li>
+    <li>Close the bleeder screw before the helper releases the pedal. This is critical — releasing the pedal with the bleeder open pulls air back into the caliper.</li>
+    <li>Have the helper release the pedal, pump 3–4 more times, hold again, and repeat until you see only clean fluid with no bubbles in the clear hose.</li>
+    <li>Move to the next wheel in sequence. Top up the reservoir before moving.</li>
+  </ol>
+
+  <h2>Bleeding Sequence — Furthest from the Master Cylinder First</h2>
+  <p>The standard sequence works from the corner furthest from the master cylinder to the closest, which pushes any air toward the already-bled end of the system rather than re-contaminating it. For most vehicles with a front-mounted master cylinder:</p>
+  <ol>
+    <li>Rear passenger (furthest)</li>
+    <li>Rear driver</li>
+    <li>Front passenger</li>
+    <li>Front driver (closest to master cylinder)</li>
+  </ol>
+
+  <div class="panel warn">
+    <div class="panel-label">Verify the sequence for your vehicle</div>
+    <p>Some vehicles — particularly those with ABS or diagonal split brake circuits rather than front/rear split — have a different specified bleeding sequence. A diagonal split system connects the front left to the rear right in one circuit. Your factory service manual will specify the correct sequence. Using the wrong sequence on a diagonal split system may not fully purge all air from both circuits.</p>
+  </div>
+
+  <h2>Brake Fluid Compatibility — Not All Fluids Mix</h2>
+  <p>The DOT number on your reservoir cap is not a quality rating — it's a specification that determines fluid chemistry and whether fluids are compatible.</p>
+  <ul>
+    <li><strong>DOT 3, DOT 4, DOT 5.1:</strong> All glycol-based. Fully compatible with each other and with the rubber seals designed for glycol systems. DOT 4 has a higher dry and wet boiling point than DOT 3 and is an acceptable upgrade. DOT 5.1 has an even higher boiling point. If your cap says DOT 3, you can safely use DOT 4.</li>
+    <li><strong>DOT 5:</strong> Silicone-based. Not compatible with glycol systems — mixing DOT 5 with DOT 3 or DOT 4 causes the fluids to separate and produces sludge that damages seals. DOT 5 is purple; glycol-based fluids are clear to amber. Do not confuse DOT 5 with DOT 5.1, which is glycol-based despite the similar number.</li>
+  </ul>
+
+  <div class="panel danger">
+    <div class="panel-label">Mixing DOT 5 with glycol fluids damages the system</div>
+    <p>If you don't know what's currently in the system and you're doing a full flush, identify the fluid type before adding anything. An ABS module, master cylinder, or caliper seal damaged by incompatible fluid requires full replacement. The fluid type is specified on the reservoir cap and in the service manual. When in doubt, use what the cap specifies.</p>
+  </div>
+
+  <h2>Checking Your Work</h2>
+  <p>A properly bled system produces a firm, consistent pedal that resists further compression once the pads contact the rotor. Press the pedal firmly — it should stop solidly, not travel further under sustained pressure. If the pedal feels soft but better than before, you may have improved the situation without fully resolving it — bleed the sequence again.</p>
+  <p>A pedal that is still soft after a complete second bleed indicates a component problem: a leaking caliper piston seal, a master cylinder with internal bypass, a damaged brake line, or air that can't be expelled because an ABS modulator is trapping it (ABS systems sometimes require a scan tool to open the modulator valves during bleeding). At that point, diagnose the component failure rather than continuing to bleed.</p>
+
+  <h2>Fluid Disposal</h2>
+  <p>Brake fluid is hazardous waste. Do not pour it down a drain, into a storm drain, or onto the ground. Collect it in the catch bottle and take it to an auto parts store or municipal hazardous waste collection site. Most auto parts stores accept used brake fluid at no charge.</p>
+
+  <hr class="divider">
+  <p>Test your pedal feel in the driveway before driving on public roads. The pedal should be firm, high, and consistent. Any sponginess after a complete bleed warrants stopping and diagnosing before the vehicle is driven.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/working-under-a-vehicle/">
+        Working Under a Vehicle Safely
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/floor-jack-and-stands/">
+        Floor Jacks and Jack Stands
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/chemical-handling/">
+        Chemical Handling in the Shop
+        <span>Read →</span>
+      </a>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div></div>
+    <div class="footer-links"><a href="/">Home</a><a href="/workshop/">The Workshop</a><a href="/db/">XJ Database</a><a href="/about/">About</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

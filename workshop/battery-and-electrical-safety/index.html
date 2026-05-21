@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Battery and Electrical Safety — The Workshop · Trail Manual</title>
+<meta name="description" content="Automotive electrical safety for DIYers: battery disconnect sequence, arc flash hazards, jump-starting safely, hydrogen gas risk, and fuse basics.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="safety-badge">⚠ Safety critical</div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>Battery and Electrical Safety</h1>
+    <p class="lede">A 12-volt automotive system won't electrocute you — but it can deliver hundreds of amps of short-circuit current that causes arc flash, severe burns, and fires in seconds. The hazards are real and specific, and they're avoidable with the right habits.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>9 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Always disconnect the negative battery terminal first and reconnect it last. Keep metal tools away from the positive terminal when the battery is connected. Never bypass or upsize a fuse that keeps blowing — find the cause. And before working near airbag wiring (yellow connectors), disconnect the battery and wait 10 minutes for capacitors to discharge.</p>
+    <p>Automotive electrical work is approachable for anyone who understands how the system is structured. Most injuries happen from shortcuts that the person doing them has taken dozens of times before — until the one time they don't.</p>
+  </div>
+
+  <h2>Why Low Voltage Still Has High Stakes</h2>
+  <p>The misconception is that 12 volts can't hurt you. Voltage determines whether current will pass through your body — and 12V generally won't push enough current through human skin resistance to cause electrocution. But that's not the full picture of the hazard.</p>
+  <p>A healthy automotive battery can deliver 500 to 800 amps under short-circuit conditions — sometimes more. <strong>Amperage is what causes burns, ignites fires, and welds metal together.</strong> A wrench that bridges the positive terminal to a grounded chassis completes a dead short. That wrench will heat to red-hot in seconds, the battery can vent or crack, and anything nearby — plastic trim, a rag, your hand — is now part of an active fire hazard.</p>
+  <p>The danger in automotive electrical work isn't electrocution. It's arc flash, thermal burns, and fire from uncontrolled current flow. Understanding that distinction shapes the right habits.</p>
+
+  <h2>Battery Disconnect and Reconnect Sequence</h2>
+  <p>The correct sequence is: <strong>negative off first, positive off second. Positive on first, negative on last.</strong></p>
+  <p>Here's why the order matters. Your vehicle's chassis is the negative ground — every grounded component in the car connects back to the frame or body. The positive terminal connects to the starter, alternator, fuse box, and every circuit that carries power.</p>
+  <p>When you remove the positive terminal first and your wrench or hand accidentally touches the chassis while the negative terminal is still connected, nothing happens — the circuit is already open. But if you remove the negative terminal first and your wrench slips while loosening the positive, the wrench contacts the chassis (which is still positive-connected) and creates a short. That's the scenario that produces arc flash and potentially a welded-in-place wrench.</p>
+  <p>Remove negative first eliminates that scenario. The chassis is no longer energized, so any contact between a positive-side component and the chassis results in no current flow.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Positive terminal and bare metal</div>
+    <p>With the battery connected, keep metal tools away from the area above the positive terminal. A ratchet or combination wrench bridging the positive post to any chassis-grounded metal is an immediate dead short. Work deliberately, one hand where possible, and remove rings and watches before battery work.</p>
+  </div>
+
+  <h2>Hydrogen Gas and Battery Charging</h2>
+  <p>Lead-acid batteries off-gas hydrogen during charging, and especially during heavy charge cycles or overcharging. Hydrogen is explosive at concentrations between 4% and 75% in air — a very wide flammable range. In a closed garage with a battery on a charger overnight, hydrogen can accumulate near the battery area.</p>
+  <p>The sparks from jumper cable connections are the documented ignition source for battery explosions — and they happen frequently enough to be taken seriously. The reason the jump-starting sequence specifies connecting the last clamp to the engine block (not the battery) of the dead vehicle is specifically to keep the spark from that connection away from any hydrogen that may have accumulated near the battery.</p>
+  <p>Ventilate the area when charging. Don't smoke or use open flames near a battery that's on a charger. And treat the final jumper cable connection like what it is: a moment where you're creating a spark, intentionally, near a battery.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Battery maintenance charging</div>
+    <p>Trickle chargers and maintenance chargers (Battery Tender, etc.) produce less off-gassing than fast chargers because they work at lower current. They're still venting hydrogen, just in smaller quantities. Ventilate regardless of charger type.</p>
+  </div>
+
+  <h2>Jump-Starting: The Correct Sequence</h2>
+  <p>The standard jump-starting sequence exists to keep the final spark away from the dead battery. Follow it:</p>
+  <ol>
+    <li><strong>Red clamp to the dead battery's positive terminal.</strong></li>
+    <li><strong>Red clamp to the good battery's positive terminal.</strong></li>
+    <li><strong>Black clamp to the good battery's negative terminal.</strong></li>
+    <li><strong>Black clamp to an unpainted metal surface on the engine block of the dead vehicle</strong> — a bolt head, a bracket, the alternator bracket. Not the battery. The spark from this connection stays at the engine block, away from the battery and any accumulated hydrogen.</li>
+  </ol>
+  <p>Disconnect in the reverse order after starting. Don't let the clamps touch each other while any connection is still active.</p>
+  <p>If a vehicle won't start after a proper jump attempt, the problem may not be the battery — a battery that's deeply discharged or has failed cells won't accept a charge from another vehicle in the time it takes to jump start. A battery that's several years old and won't hold a charge should be load-tested and replaced if it fails.</p>
+
+  <h2>Fuses: What They Protect and What to Do When One Blows</h2>
+  <p>Fuses protect wiring, not devices. A fuse in a circuit rated for 10 amps will blow before the wiring can carry enough current to overheat and melt insulation. <strong>The fuse is the intended failure point.</strong> When it blows, something in that circuit tried to draw more current than the wiring can safely handle.</p>
+  <p>A fuse that blows once might be a spike or a one-time fault. A fuse that blows repeatedly has a cause — a short in the wiring, a failing component drawing excess current, a connector that's corroded and creating resistance that the system is trying to compensate for. Find the cause before replacing the fuse again.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Never upsize a fuse</div>
+    <p>Replacing a 10A fuse with a 30A fuse because you don't have the right size — or because the 10A keeps blowing — does not fix the problem. It removes the protection. The wiring in that circuit is rated for the original fuse amperage. A 30A fuse will allow the circuit to carry enough current to overheat the wiring, melt insulation, and start a fire in the harness before the fuse blows. Use the correct amperage, or don't use the circuit.</p>
+  </div>
+
+  <h2>Tracing Wiring Problems: The Burning Smell Warning</h2>
+  <p>When you smell burning while tracing a wiring problem or doing electrical work with the battery connected, <strong>disconnect the battery immediately.</strong> Don't trace the smell first. Don't try to identify the circuit. Disconnect the negative terminal and then investigate.</p>
+  <p>Burning insulation smell means a short is active — current is flowing through a path it shouldn't be, and the wiring in that path is getting hot. The longer it runs, the more insulation melts, and the more of the harness becomes part of the problem. Disconnecting the battery breaks the circuit and stops the heating. Then you can safely trace where the damage is.</p>
+  <p>Shorts in wiring harnesses are among the more difficult DIY electrical repairs because the fault can be anywhere along the harness length, often under conduit or behind panels. If you find burned insulation, the damaged section of wire needs to be replaced or properly repaired — not taped over.</p>
+
+  <h2>Airbag System: The 10-Minute Rule</h2>
+  <p>Airbag systems use capacitors in the SRS control module to ensure the airbag can still deploy if the battery is disconnected in a crash. Those capacitors retain charge after you disconnect the battery — typically for 2 to 10 minutes depending on the vehicle. Working near airbag wiring before that charge dissipates can trigger deployment.</p>
+  <p>The rule: <strong>disconnect the battery, then wait a minimum of 10 minutes before working near any component with a yellow connector.</strong> Yellow is the industry-wide color code for SRS wiring. If you see yellow connectors in the area you're working — steering column, dashboard, door panels, seats (side curtain airbags) — give the capacitors time to discharge before you disconnect anything.</p>
+  <p>An airbag deployment in your face at close range causes broken facial bones, burns from the deployment charge, and corneal damage from the powder in the bag. It is not a recoverable accident. The 10-minute wait costs nothing.</p>
+
+  <div class="panel info">
+    <div class="panel-label">Airbag clock spring</div>
+    <p>If your vehicle has a driver's airbag and you're removing the steering wheel, the clock spring (spiral cable) in the steering column maintains the electrical connection to the wheel through its range of rotation. Consult your service manual before removing a steering wheel on any vehicle with a driver's airbag. Getting this wrong at minimum triggers an airbag fault code; getting it badly wrong means a loose airbag circuit in the steering column.</p>
+  </div>
+
+  <hr class="divider">
+  <p>Before any battery or electrical work, confirm your disconnect sequence, clear the work area around the positive terminal, and have a plan for where your tools are going. For anything near the dashboard or steering column, check for yellow connectors before you start, and give the 10-minute wait the weight it deserves.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/multimeter/">Using a Multimeter <span>Read →</span></a>
+      <a class="related-link" href="/workshop/reading-a-wiring-diagram/">Reading a Wiring Diagram <span>Read →</span></a>
+      <a class="related-link" href="/workshop/fire-safety-in-the-shop/">Fire Safety in the Shop <span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

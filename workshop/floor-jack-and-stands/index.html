@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Floor Jacks and Jack Stands — The Workshop · Trail Manual</title>
+<meta name="description" content="Floor jacks lift. Jack stands hold. Learn weight ratings, jack points, stand placement, and the pre-work safety checks that keep you alive under a vehicle.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="safety-badge">⚠ Safety critical</div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Floor Jacks and Jack Stands</h1>
+    <p class="lede">A floor jack gets the vehicle in the air. Jack stands keep it there while you work. These are not interchangeable roles — and confusing them is how people get killed. This guide covers what to buy, where to place them, and the checks you do before sliding under a vehicle.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>8 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>A floor jack is a lifting tool, not a support tool. Never work under a vehicle held up only by a floor jack — hydraulic seals fail, valves leak, and vehicles fall. You need a 3-ton floor jack and a rated set of jack stands (minimum 3-ton capacity for trucks and SUVs), placed on solid concrete, at factory-designated lift points, before any part of your body goes under the vehicle.</p>
+  </div>
+
+  <h2>The One Rule That Overrides Everything Else</h2>
+  <p>The floor jack's only job is to raise the vehicle. The jack stand's job is to hold it there. These two tools are not interchangeable, and no amount of experience changes this. Hydraulic jacks have internal seals and valves that can fail without warning — a slow leak drops the vehicle silently. Jack stands are mechanical. They don't fail the same way.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Hard stop</div>
+    <p>Never work under a vehicle supported only by a floor jack. Not for a "quick" brake job. Not to swap a caliper. Not to check something. The jack stand goes under before you do — no exceptions.</p>
+  </div>
+
+  <p>This rule isn't about being cautious. It's about understanding the tool. A floor jack is a hydraulic cylinder with a pump. Hydraulic cylinders can develop internal bypassing — where fluid moves past the seals — causing a slow, steady descent. You won't feel it. The vehicle won't creak. It will simply be lower than it was, or it will come down fast. Either way, you don't want to be under it.</p>
+
+  <h2>Weight Ratings: What They Mean and What to Buy</h2>
+  <p>Every floor jack and jack stand has a rated capacity. A 3-ton floor jack can lift 6,000 lbs. That sounds like plenty — and for most trucks and SUVs, it is — but the rating matters most at the point of contact. You're not lifting the whole vehicle at once. You're lifting one corner at a time, and the weight distribution shifts when one end is in the air.</p>
+
+  <p><strong>For most trucks and body-on-frame SUVs (Jeep XJ, JK, TJ, 4Runner, Tacoma, F-150), a 3-ton floor jack is the right choice.</strong> A 2-ton jack will physically lift most of these vehicles, but you're working closer to the rated limit, and ratings are not infinite safety margins — they're the maximum before the tool is at risk of failure.</p>
+
+  <p>For jack stands, the minimum for a loaded truck or SUV is a 3-ton set (6,000 lb capacity per stand). A 6-ton stand set is not overkill if you're doing axle work with the drivetrain in place. Stands rated at 2 tons are adequate for passenger cars, not for trucks.</p>
+
+  <div class="panel info">
+    <div class="panel-label">On ratings</div>
+    <p>Jack stand ratings are per stand, not per pair. A "3-ton stand set" means each stand holds 3 tons. When you put two stands under a vehicle, you have 6 tons of holding capacity — which is why a 3-ton set is the minimum for a 4,500 lb SUV even though the math seems generous. You want that margin.</p>
+  </div>
+
+  <h2>Jack Types: Choosing the Right Tool</h2>
+  <p>Three types of jacks show up in most shops. They are not equivalent, and each has a specific role.</p>
+
+  <p><strong>Floor jacks (hydraulic trolley jacks)</strong> are the standard. They roll under the vehicle on casters, have a long handle for pumping and steering, and offer good control over lift height. A low-profile floor jack (saddle height around 3–3.5 inches) is necessary for lowered vehicles and useful for stock-height trucks working on level ground. For lifted vehicles, saddle height matters less. A 3-ton steel floor jack is the workhorse of most home shops.</p>
+
+  <p><strong>Bottle jacks</strong> are vertical hydraulic cylinders — compact, cheap, and capable of very high capacity. A 12-ton bottle jack costs less than $50. The tradeoff: they have a narrow base, no casters, and minimal travel range. They're excellent for pressing operations, supporting differentials, or working in a tight space where a floor jack won't fit. They're not a substitute for a floor jack as your primary lifting tool.</p>
+
+  <p><strong>Scissor jacks</strong> are the emergency tool in the trunk. They lift the vehicle high enough to swap a tire on the side of a road. They are not shop tools. Do not use them for any maintenance work.</p>
+
+  <h2>Jack Points: Where to Lift, Where Not To</h2>
+  <p>The jack contacts the vehicle at a single point. That point needs to be structurally sound — something that can take a concentrated load without bending, cracking, or punching through.</p>
+
+  <p><strong>Correct lift points:</strong></p>
+  <ul>
+    <li><strong>Frame rails:</strong> On body-on-frame vehicles (XJ, JK, TJ, most trucks), the frame is the primary lift point. Find a solid section of the rail, away from holes, welds, and brackets. The saddle of the jack goes on the flat bottom of the frame rail.</li>
+    <li><strong>Designated crossmembers:</strong> Many vehicles have a center crossmember designed for floor-jack contact. Your factory service manual will show it.</li>
+    <li><strong>Axle housings:</strong> For lifting from the axle end (rear or front), the differential pumpkin or axle tube is a solid contact point. Use a hockey puck or rubber pad to protect the housing.</li>
+    <li><strong>Pinch welds with an adapter:</strong> Unibody vehicles (older Cherokees are technically body-on-frame, but many crossovers are unibody) have pinch welds. Use a pinch-weld jack adapter — a notched rubber block — to distribute the load without folding the seam.</li>
+  </ul>
+
+  <p><strong>Never jack on:</strong></p>
+  <ul>
+    <li>The oil pan, transmission pan, or differential cover</li>
+    <li>Plastic body panels or skid plates not rated for lifting</li>
+    <li>Steering or suspension components</li>
+    <li>Brake lines, fuel lines, or wiring</li>
+    <li>Rust-weakened or patched sections of frame</li>
+  </ul>
+
+  <div class="panel warn">
+    <div class="panel-label">Check your service manual</div>
+    <p>Factory service manuals include a jacking and lifting diagram for your specific vehicle. If you don't have yours, look it up before you lift. The time spent finding the correct jack points is not optional — it's the job.</p>
+  </div>
+
+  <h2>Surface and Ground Rules</h2>
+  <p>The surface under your tires and under your stands matters as much as the stands themselves. A stand rated for 3 tons on solid concrete becomes a liability on asphalt in Phoenix in July — summer heat softens asphalt enough that stand legs sink, the vehicle shifts, and your geometry changes.</p>
+
+  <p><strong>Work on solid, level concrete whenever possible.</strong> If your garage floor has cracks or uneven sections, position the stands on solid areas. If you must work outside, a sheet of 3/4" plywood under each stand distributes the load across a larger area of soft ground. It's not ideal. Concrete is always better.</p>
+
+  <p>Never work on gravel, dirt, or grass. The ground shifts. Stands tip. Vehicles fall.</p>
+
+  <h2>Stand Placement After Lifting</h2>
+  <p>Once the vehicle is in the air, the floor jack's job is essentially done. Now you place the stands.</p>
+
+  <ol>
+    <li>Identify your stand contact points before you lift — frame rails, axle housings, or designated stand points from the service manual.</li>
+    <li>Position the stands while the vehicle is in the air but before you lower onto them. The top of the stand should be close to but not yet touching the vehicle.</li>
+    <li>Lower the floor jack slowly until the vehicle rests on the stands. The jack should be slack — the stands carry the load.</li>
+    <li>Do not remove the floor jack entirely. Leave it positioned nearby, lightly contacting the vehicle or a nearby lift point. If a stand slips, the jack provides a secondary catch.</li>
+  </ol>
+
+  <div class="panel good">
+    <div class="panel-label">Secondary catch</div>
+    <p>Leaving the floor jack in place under the vehicle — not load-bearing, but close — gives you a backup if a stand shifts. This is common practice in professional shops. It costs nothing and adds a layer of protection.</p>
+  </div>
+
+  <h2>The Pre-Work Check: Do This Every Time</h2>
+  <p>Before going under the vehicle, do three things:</p>
+
+  <ol>
+    <li><strong>Grab and shake.</strong> Put both hands on the vehicle and push and pull firmly. If the vehicle moves more than a fraction of an inch or you feel instability, stop. Find out why before going under.</li>
+    <li><strong>Look at the stands.</strong> Are all four legs touching the ground? Is the saddle properly engaged on the contact point? Is anything binding or leaning?</li>
+    <li><strong>Check that the floor is under the stands, not soft material.</strong> If you laid down cardboard for knee comfort, make sure it's not under a stand leg where it can compress and allow shifting.</li>
+  </ol>
+
+  <p>These checks take 30 seconds. They are not negotiable.</p>
+
+  <hr class="divider">
+  <p>If this is your first time lifting a vehicle, do a dry run before you commit to any actual work. Lift it, place the stands, do the shake test, and lower it back down — no tools, no task. Get familiar with the process before adding complexity. Once you're confident in the setup, the rest of the job is just the job.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/working-under-a-vehicle/"><span>Working Under a Vehicle Safely</span><span>Read →</span></a>
+      <a class="related-link" href="/workshop/torque-wrench/"><span>Torque Wrenches: How to Choose and Use Them Correctly</span><span>Read →</span></a>
+      <a class="related-link" href="/workshop/socket-set-guide/"><span>Socket Sets: What You Actually Need</span><span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

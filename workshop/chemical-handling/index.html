@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chemical Handling and Ventilation — The Workshop · Trail Manual</title>
+<meta name="description" content="Safe handling of shop chemicals: brake cleaner, coolant, brake fluid, solvents. What needs ventilation, proper PPE, storage, and disposal for DIY mechanics.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="safety-badge">⚠ Safety critical</div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>Chemical Handling and Ventilation</h1>
+    <p class="lede">Every standard DIY job involves chemicals that can damage your skin, eyes, or lungs — often before you notice they're doing it. The right habits take less than a minute to build into your workflow.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>9 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Wear nitrile gloves for anything chemical, safety glasses whenever you're working overhead or with aerosols, and ensure real airflow — not just a cracked door — whenever you're using anything with a strong odor. Keep chemicals in original containers, store them away from heat, and dispose of used fluids as hazardous waste.</p>
+    <p>The chemicals in a normal shop aren't exotic hazards. They're manageable with basic, consistent habits applied before you start a job.</p>
+  </div>
+
+  <h2>The Chemicals on Every DIY Job</h2>
+  <p>You don't have to be doing something unusual to encounter hazardous chemicals in the shop. A standard brake job involves brake fluid and brake cleaner. An oil change involves used motor oil. Coolant work involves ethylene glycol. A tune-up might involve throttle body cleaner and penetrating oil. These aren't industrial chemicals in a controlled setting — they're in spray cans and jugs on most people's shelves.</p>
+  <p>The common chemicals to know:</p>
+  <ul>
+    <li><strong>Brake cleaner</strong> — Fast-evaporating chlorinated or non-chlorinated solvent. Degreases effectively but is flammable (non-chlorinated especially), irritates airways, and is harsh on skin with repeated exposure.</li>
+    <li><strong>Penetrating oil</strong> (PB Blaster, Kroil, WD-40) — Generally lower acute toxicity but still requires ventilation in enclosed spaces due to petroleum distillate vapors.</li>
+    <li><strong>Battery terminal cleaner</strong> — Often acidic (baking soda/water or commercial formulas). Battery acid itself (sulfuric acid) is corrosive on contact.</li>
+    <li><strong>Gasket remover and carburetor cleaner</strong> — Aggressive solvents with high VOC content. These need airflow, not just a cracked window.</li>
+    <li><strong>Coolant (ethylene glycol)</strong> — Low acute toxicity to adults through skin contact, but highly toxic if ingested and attractive to animals due to its sweet smell.</li>
+    <li><strong>Brake fluid (DOT 3/4/5)</strong> — Hygroscopic and a paint stripper. Absorbs through skin with prolonged contact. Change gloves between brake work and anything else.</li>
+  </ul>
+
+  <h2>Skin Protection: Gloves and Contact</h2>
+  <p>The two chemicals that get into skin before you notice damage are brake fluid and battery acid. Brake fluid doesn't burn immediately — it strips oils from the skin over time and absorbs through the skin with prolonged exposure. Battery acid causes a burning sensation quickly but can cause damage in the time between contact and rinsing.</p>
+  <p><strong>Nitrile gloves are the standard for chemical work.</strong> Not latex — latex is thinner and some people have latex allergies. Not mechanic's grip gloves — fabric work gloves don't provide chemical resistance. Nitrile disposable gloves are inexpensive, provide reasonable chemical resistance to most shop fluids, and should be changed between tasks to avoid cross-contaminating your work surfaces or transferring chemicals to your face.</p>
+  <p>If you're doing extended work with solvents — cleaning a carburetor, stripping paint — the standard disposable nitrile gloves are not rated for immersion or long contact. Double-glove, work in shorter sessions, or use thicker chemical-resistant gloves for that task.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Brake fluid and paint</div>
+    <p>Brake fluid strips paint effectively and fast. If you get brake fluid on a painted surface, flush it immediately with water. If you get it on your skin, wash with soap and water. It's not an emergency with brief contact, but it's not something to leave sitting.</p>
+  </div>
+
+  <h2>Eye Protection: When It's Not Optional</h2>
+  <p>Safety glasses are not always required — but there are specific situations where skipping them is a real risk.</p>
+  <p>You need eye protection when:</p>
+  <ul>
+    <li>Working overhead in any position where debris, fluid, or scale can fall toward your face</li>
+    <li>Using any aerosol spray in enclosed spaces or at angles that direct mist toward your face</li>
+    <li>Working near springs under tension (coil springs, valve springs, anything compressed)</li>
+    <li>Using a wire brush, angle grinder, or cutting wheel — wire wheel fragments break off and travel at high speed</li>
+    <li>Disconnecting any fitting under pressure — brake lines, fuel lines, coolant hoses on a warm engine</li>
+  </ul>
+  <p>Brake cleaner in the eyes is a trip to urgent care. The solvents are aggressive enough to cause serious corneal damage in the time between contact and rinsing. A pair of ANSI Z87.1-rated safety glasses costs less than $15 and hangs on the wall in three seconds.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Chemical eye contact</div>
+    <p>If any chemical — especially brake cleaner, battery acid, or paint stripper — contacts your eyes: flush immediately with clean water for at least 15 minutes. Remove contact lenses first if present. Seek medical attention after flushing, even if your vision seems unaffected. Some chemical damage presents hours later.</p>
+  </div>
+
+  <h2>Ventilation: What "Enough Airflow" Actually Means</h2>
+  <p>A cracked door is not ventilation. It's a reduction in how quickly vapors build up — not a solution. Real ventilation means air is actively moving through the space, carrying vapors out before they accumulate to dangerous concentrations.</p>
+  <p>The minimum workable setup for most chemical tasks: <strong>garage door fully open and a fan positioned to move air out of the space</strong> (not just to circulate it). Point the fan toward an open door or window so you're pushing air out, not stirring it around.</p>
+  <p>Some tasks require more than that:</p>
+  <ul>
+    <li><strong>Spray painting or applying coatings</strong> — VOC concentrations build rapidly. Work outdoors or in a properly ventilated spray booth. A fan in a closed garage is not sufficient.</li>
+    <li><strong>Epoxy mixing and application</strong> — The hardener in most automotive epoxies is an isocyanate or amine, both of which irritate the respiratory system with repeated exposure. Respirator or outdoor work.</li>
+    <li><strong>Brake cleaner in volume</strong> — Using an entire can in a poorly ventilated space is enough to cause dizziness and nausea. Use it in short bursts with airflow.</li>
+    <li><strong>Any running engine indoors</strong> — Carbon monoxide has no smell, no color, and incapacitates before you notice symptoms. Even idling a vehicle in a garage with the door open produces dangerous concentrations near the exhaust. Run engines outdoors.</li>
+  </ul>
+
+  <div class="panel danger">
+    <div class="panel-label">Carbon monoxide</div>
+    <p>Carbon monoxide is odorless and lethal at concentrations that accumulate in minutes in a closed garage. Do not run an engine indoors, even briefly. Symptoms — headache, dizziness, confusion — appear as you're already being incapacitated. A CO detector in your shop is a worthwhile addition if you ever work with running vehicles in the space.</p>
+  </div>
+
+  <h2>Chemical Storage</h2>
+  <p>How you store chemicals matters as much as how you use them. The principles:</p>
+  <p><strong>Keep chemicals in their original containers with lids closed.</strong> Original containers are designed for the chemical inside — the right material, the right closure. Transferring solvents to unlabeled containers creates confusion and eliminates warning label information.</p>
+  <p><strong>Store away from heat sources.</strong> Aerosol cans should never be stored near a water heater, furnace, or in direct sunlight. Elevated temperatures increase pressure in sealed containers and can cause failures. A can of brake cleaner in a hot Arizona garage can exceed its rated temperature.</p>
+  <p><strong>Store off the ground when possible.</strong> Concrete is porous. Some solvents that pool on concrete over time can leach through the slab and contaminate soil and groundwater. A metal shelf keeps containers off the floor and reduces the likelihood of spills going directly into the concrete surface.</p>
+  <p><strong>Don't store large quantities.</strong> Keep what you use. A full shelf of partially used solvents represents both a fire hazard and a disposal problem. Buy what you need for a job and properly dispose of what remains if you won't use it soon.</p>
+
+  <h2>Coolant: The Specific Hazard to Know</h2>
+  <p>Ethylene glycol — the base of most conventional coolants — is sweet-smelling and attractive to animals. A coolant spill that you leave on the garage floor is a serious hazard to pets. Clean it up immediately with rags and dispose of them properly. Flush the area with water.</p>
+  <p>Coolant is not benign. It's toxic to animals in small quantities and toxic to humans in larger ones. It also contaminates groundwater — it should never be poured down a storm drain or on the ground.</p>
+
+  <h2>Disposal: Used Fluids Are Hazardous Waste</h2>
+  <p>Used motor oil, coolant, brake fluid, and gear oil are all classified as hazardous waste. They cannot go in the trash, down a drain, or on the ground.</p>
+  <p>Most auto parts stores — O'Reilly, AutoZone, NAPA — accept used motor oil and coolant for free. Call ahead to confirm capacity and what they accept. For brake fluid, gear oil, and transmission fluid, your local household hazardous waste (HHW) facility will accept them. Most municipalities run HHW drop-off events quarterly or maintain a permanent facility. Your city's waste management website will have the details.</p>
+
+  <div class="panel good">
+    <div class="panel-label">Keep a used-fluid container</div>
+    <p>A dedicated sealed container — an old coolant jug works — for collecting used motor oil, coolant, and brake fluid keeps your shop cleaner and makes disposal trips straightforward. Label it clearly and don't mix fluid types if your disposal site requires separation.</p>
+  </div>
+
+  <hr class="divider">
+  <p>Before your next job, check that you have nitrile gloves, safety glasses, and that your garage door can open fully. These habits take seconds to establish and they compound over time into a shop that's genuinely safer to work in.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/fire-safety-in-the-shop/">Fire Safety in the Shop <span>Read →</span></a>
+      <a class="related-link" href="/workshop/working-under-a-vehicle/">Working Under a Vehicle Safely <span>Read →</span></a>
+      <a class="related-link" href="/workshop/battery-and-electrical-safety/">Battery and Electrical Safety <span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

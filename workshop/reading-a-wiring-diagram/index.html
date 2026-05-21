@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reading a Wiring Diagram — The Workshop · Trail Manual</title>
+<meta name="description" content="How to read automotive wiring diagrams: symbols, wire gauge, color codes, relay circuits, and how to trace a fault from the load back to power and ground.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Technique</div>
+    <h1>Reading a Wiring Diagram</h1>
+    <p class="lede">Electrical problems get solved at a desk with a wiring diagram before they get solved at the vehicle with a multimeter. A diagram shows you the complete circuit — where power comes from, what controls it, where it returns to ground — and every place in between where the fault could be hiding.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>10 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>A wiring diagram is a map of a circuit, not a map of the car. Components that are physically far apart in the vehicle may sit next to each other on the diagram because they're part of the same circuit. Learn the symbols, find the legend, locate your load, and trace back to power and ground. Every possible fault lives somewhere along that path.</p>
+    <p>Get your diagrams from the factory service manual or a professional subscription (AllData, Mitchell1). Forum-sourced diagrams are frequently wrong or for the wrong model year.</p>
+  </div>
+
+  <h2>Find the Legend Before You Read Anything Else</h2>
+  <p>Every factory service manual has a wiring diagram legend — usually at the beginning of the electrical section — that defines every symbol used in that manufacturer's diagrams. Don't assume you know what a symbol means based on other vehicles you've worked on. Connector symbols, switch types, and component callouts vary by manufacturer and sometimes by model year.</p>
+  <p>Locate the legend, spend a few minutes with it, and keep it open alongside whatever diagram you're actually working from. The time spent here pays off immediately when you're staring at an unfamiliar symbol mid-circuit.</p>
+
+  <h2>Core Symbols You'll See on Every Diagram</h2>
+  <p>Regardless of manufacturer, these appear consistently:</p>
+  <ul>
+    <li><strong>Battery:</strong> Two parallel lines of unequal length (long = positive, short = negative) repeated in a stack. Usually at one end of the diagram feeding the main circuit.</li>
+    <li><strong>Fuse:</strong> A small oval or rectangle in a line, sometimes with a value (15A, 30A) labeled beside it. Fuses protect circuits from over-current.</li>
+    <li><strong>Relay:</strong> A rectangle (the coil) with a separate switching symbol (an arm moving between contacts). The coil controls the switch — low current activates the coil, high current flows through the switch.</li>
+    <li><strong>Switch:</strong> A line with a gap and an angled line representing the movable contact. Normally open (NO) shows the gap clearly; normally closed (NC) shows the contact touching.</li>
+    <li><strong>Motor/actuator:</strong> A circle with an M inside, or a specific symbol for the actuator type.</li>
+    <li><strong>Ground:</strong> A line terminating in a triangle (or a series of descending horizontal lines) pointing at the chassis symbol. This is where the circuit completes.</li>
+    <li><strong>Connector:</strong> Two mating shapes (often circles or rectangles with letters/numbers) indicating where wires connect to a plug. The connector identifier tells you which connector in the vehicle this is.</li>
+    <li><strong>Splice:</strong> A dot on the line where two or more wires join. Problems at splices cause multiple circuits to fail simultaneously.</li>
+  </ul>
+
+  <h2>Wire Gauge: What the Numbers Mean</h2>
+  <p>Wire gauge in automotive diagrams uses the AWG (American Wire Gauge) system, where <strong>lower numbers mean thicker wire with higher current capacity</strong>. An 18-gauge wire is appropriate for a sensor signal wire carrying milliamps. A 10-gauge wire is appropriate for a circuit drawing 30+ amps.</p>
+  <p>When diagrams list wire gauge, use it for diagnostic and repair reference. If you're repairing a damaged wire, match or exceed the gauge of the original — never use thinner wire to replace a heavier gauge. Undersize wire on a high-draw circuit is a heat and fire risk.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Color codes are manufacturer-specific</div>
+    <p>"Red is positive" is a common assumption that will mislead you on specific vehicles. Every manufacturer uses their own color coding system. Find the color code chart for your make, model, and year — usually in the front matter of the electrical section of the factory service manual. Identifying a wire by color alone without confirming the color code chart for your vehicle is guesswork.</p>
+  </div>
+
+  <h2>Grounds: The Hidden Cause of Most "Weird" Electrical Problems</h2>
+  <p>A ground symbol on a diagram represents a wire returning to the vehicle chassis, which completes the circuit back to the battery's negative terminal. Every circuit needs a complete path — power out, load, power back. The ground is the "back" half.</p>
+  <p>Corroded, loose, or missing grounds look exactly like a failed component when tested incorrectly. A fuel pump that reads correct resistance but won't run may have perfect power delivery and a failed ground — it can't run without both. A dash cluster that reads correctly on individual circuits but behaves erratically may share a ground with something that's creating interference.</p>
+
+  <div class="panel info">
+    <div class="panel-label">How to test a ground</div>
+    <p>Set your multimeter to DC voltage. Place the red probe on the positive terminal of the battery. Place the black probe on the ground point you're testing. With the circuit operating, you should see less than 0.1–0.2V (voltage drop across the ground). More than 0.5V indicates resistance in the ground path — find and clean the connection or add a supplemental ground wire. This is called a voltage drop test.</p>
+  </div>
+
+  <h2>Relays: How to Read a Relay Circuit</h2>
+  <p>A relay is a remotely controlled switch. It has two separate circuits on one component: a low-current control circuit that energizes the coil, and a high-current load circuit that does the actual work. Diagrams show these separately, which confuses people seeing relays for the first time.</p>
+  <p>Standard relay pins: <strong>85 and 86</strong> are the coil (control circuit) terminals. <strong>30</strong> is the common terminal (power in). <strong>87</strong> is normally open (connects when coil is energized). <strong>87a</strong> is normally closed (connects when coil is not energized). When you see a relay in a diagram, trace the 85/86 circuit first — that tells you what controls the relay. Then trace 30/87 to see what the relay switches.</p>
+  <p>To diagnose a relay: apply 12V to pins 85 and 86 and listen for a click. No click means the coil is open. Click but circuit doesn't work means the contacts are failed. You can also swap the relay for a known-good identical relay (same part number) as a quick test.</p>
+
+  <h2>Tracing a Circuit: The Method</h2>
+  <p>Start at the load — the component that should be working but isn't. From there, trace in two directions simultaneously on the diagram: toward the power source and toward the ground. Every point where the circuit can fail is somewhere between those two ends.</p>
+  <ol>
+    <li>Identify the load component on the diagram.</li>
+    <li>Trace toward ground: follow the ground wire to the chassis ground point. Note the ground location in the vehicle.</li>
+    <li>Trace toward power: follow the supply wire back through any switches, relays, and fuses to the power source.</li>
+    <li>List every component and connector in the circuit. Any of them can be the fault.</li>
+    <li>With a multimeter, test from the load outward — check for power at the load connector first. If power is present, check the ground. Narrow down from there.</li>
+  </ol>
+
+  <hr class="divider">
+  <p>Wiring problems that seem impossible become solvable the moment you have the right diagram and a systematic approach. Pull up the factory service manual, find the circuit, and trace it — the fault will be somewhere on the path you draw.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/multimeter/">
+        Using a Multimeter
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/battery-and-electrical-safety/">
+        Battery and Electrical Safety
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/understanding-fastener-grades/">
+        Fastener Grades and What They Mean
+        <span>Read →</span>
+      </a>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div></div>
+    <div class="footer-links"><a href="/">Home</a><a href="/workshop/">The Workshop</a><a href="/db/">XJ Database</a><a href="/about/">About</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

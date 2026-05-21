@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop Lighting Guide: How to Light a Home Garage — The Workshop · Trail Manual</title>
+<meta name="description" content="How to light a home garage shop properly. Lumens, color temperature, overhead vs. portable lights — what you actually need and what you can skip.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">&#8592; The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop &middot; Shop Setup</div>
+    <h1>Shop Lighting: How to See What You're Actually Doing</h1>
+    <p class="lede">Poor lighting doesn't just make a shop uncomfortable &mdash; it causes mistakes. Misread part numbers, missed cracks, unidentified fluid colors, wiring errors. Fixing your lighting is one of the highest-leverage improvements you can make to a home shop.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>7 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>For a single-car bay, start with two 4-foot LED shop lights (4,000&ndash;5,500 lumens each) at 5000&ndash;6500K color temperature mounted overhead. Add a portable work light on a stand for under-hood work and a flexible inspection light for tight spaces. You do not need expensive fixtures &mdash; big-box LED shop lights perform well for the price.</p>
+  </div>
+
+  <h2>Why Lighting Is a Safety and Accuracy Issue</h2>
+  <p>Most shop mistakes don't happen because someone was careless &mdash; they happen because someone couldn't see clearly. In dim light, you rely on assumption and touch instead of what's actually in front of you. You torque the wrong bolt. You mistake green coolant residue for oil. You wire a connector backwards because you guessed at the wire color.</p>
+  <p>Good lighting closes that gap. It lets you confirm what you're looking at before you act on it. That's not a comfort upgrade &mdash; it's a functional one.</p>
+
+  <h2>Lumens vs. Watts: The Number That Actually Matters</h2>
+  <p>Lumens measure light output &mdash; how much visible light a fixture actually produces. Watts measure power consumption. These used to correlate tightly with incandescent bulbs, but LED efficiency has made wattage a poor proxy for brightness. A 40W LED shop light and a 60W LED shop light might produce similar lumens if they're from different manufacturers with different efficiencies.</p>
+  <p>Focus on lumens. Here's a practical frame:</p>
+  <ul>
+    <li><strong>4,000&ndash;5,500 lumens:</strong> a single 4-foot LED shop light. Reasonable supplement for a focused work area.</li>
+    <li><strong>8,000&ndash;11,000 lumens:</strong> two 4-foot lights linked or positioned overhead. A solid starting point for a single-car bay.</li>
+    <li><strong>10,000&ndash;16,000 lumens total:</strong> what you want for full coverage in a single-car bay. Add portable lights to fill shadows under the hood and under the vehicle.</li>
+  </ul>
+
+  <div class="panel info">
+    <div class="panel-label">Color Rendering Index (CRI)</div>
+    <p>CRI measures how accurately a light source renders color compared to natural daylight (CRI 100). For shop work, aim for CRI 80 or above. CRI 90+ is noticeably better for reading fluid colors, identifying wire colors, and spotting corrosion. Most decent LED shop lights hit CRI 80. Fixtures advertising CRI 90+ cost more but are worth it if you do electrical or paint work.</p>
+  </div>
+
+  <h2>Color Temperature: Get This Right</h2>
+  <p>Color temperature is measured in Kelvin (K) and determines whether light looks warm (orange-tinted) or cool (blue-white). This matters in a shop because it directly affects how you read colors.</p>
+  <ul>
+    <li><strong>2700&ndash;3000K (warm white):</strong> living room lighting. Makes everything look slightly orange. Masks fluid colors and makes wire identification harder. Do not use this in a shop.</li>
+    <li><strong>4000K (neutral white):</strong> acceptable. Better than warm light but not ideal for color accuracy.</li>
+    <li><strong>5000&ndash;6500K (daylight):</strong> this is what you want. Shows true colors. Go toward 5000K if you find very blue-white light harsh; 6500K is clinical but maximizes color discrimination.</li>
+  </ul>
+
+  <div class="panel good">
+    <div class="panel-label">Recommendation</div>
+    <p>5000K, CRI 80+, for overhead lighting. Most 4-foot LED shop lights in the $30&ndash;$60 range hit this spec. Check the package &mdash; it will list both values. If it doesn't list CRI, assume CRI 80.</p>
+  </div>
+
+  <h2>Overhead Lights: The Foundation</h2>
+  <p>LED shop lights &mdash; 4-foot or 8-foot strip/panel fixtures &mdash; are the standard for home garages. They draw 40&ndash;60W, produce 4,000&ndash;5,500 lumens per fixture, and have rated lifespans of 50,000+ hours. Two 4-foot fixtures in a single-car bay gives you meaningful overhead coverage. Three or four is better and eliminates most shadows at the workbench and near the front of the vehicle.</p>
+  <p>Most fixtures mount directly to ceiling joists with the included hardware &mdash; two screws and a cord hang, or flush-mount with screws. They connect to a standard outlet or can be hardwired. Many are linkable: a "link" port lets multiple lights chain off one outlet and switch together, which keeps cord management cleaner.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Rented space or no ceiling access</div>
+    <p>If you can't mount to joists &mdash; rented garage, finished ceiling, low clearance &mdash; freestanding tripod work lights positioned high in the bay give you similar coverage and move with you. Two 5,000-lumen tripod LED work lights in a single-car bay cover most situations. Less permanent than ceiling-mounted but fully functional.</p>
+  </div>
+
+  <h2>Portable Work Lights: What You'll Use Every Session</h2>
+  <p>Overhead lights cast shadows into the engine bay and under the vehicle. You need portable light that goes where you need it.</p>
+  <ul>
+    <li><strong>LED work light on a stand (1,500&ndash;2,000 lumens):</strong> the workhorse. Positioned at hood height, it floods the engine bay without casting your own shadow over your work. Get one with a rotating head. Corded or rechargeable both work &mdash; rechargeable means one fewer cord to manage in an already-crowded bay.</li>
+    <li><strong>Magnetic LED work light (500&ndash;1,000 lumens):</strong> sticks to any steel surface. Good for positioning inside the engine bay, on the fender rail, or anywhere you need hands-free light in a specific spot without occupying floor space.</li>
+    <li><strong>Flexible inspection light (snake light or gooseneck, 200&ndash;500 lumens):</strong> gets into areas a work light can't reach. Essential for inspecting behind components, checking for leaks in tight spots, and wiring work in confined areas. A headlamp is a reasonable substitute for some of this, but it requires you to position your head at the work location &mdash; not always practical.</li>
+  </ul>
+
+  <h2>Where Spending More Doesn't Help Much</h2>
+  <p>Overhead LED shop lights are one of the few categories where big-box store fixtures genuinely perform well relative to price. The $35&ndash;$50 shop lights hit 4,000&ndash;5,000 lumens at 5000K without issue. More expensive fixtures &mdash; $100+ &mdash; offer better CRI, tighter color consistency across multiple units, longer rated lifespan, and better build quality. Those differences matter in a professional shop with six fixtures running eight hours a day. For a home shop with weekly use, the budget lights work.</p>
+  <p>Where spending more is worth it: portable work lights and inspection lights that see rough handling. Cheap work lights have flimsy stands that tip easily and connectors that corrode with shop use. A $60&ndash;$80 work light on a solid tripod with a locking head mechanism will outlast three $20 alternatives.</p>
+
+  <hr class="divider">
+
+  <p>Start with two 4-foot LED shop lights overhead &mdash; link them if the fixture supports it &mdash; and one 1,500-lumen work light on a stand. That combination handles most shop work. Add a flexible inspection light when you start doing leak diagnosis or detailed wiring work and realize overhead light isn't reaching where you need it.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/air-compressor-guide/">Air Compressor Selection for a Home Shop <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/floor-surface-options/">Shop Floor Options: Concrete, Epoxy, and Tiles <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/tool-storage/">Tool Storage That Actually Works <span>Shop Setup &rarr;</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. &copy; Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

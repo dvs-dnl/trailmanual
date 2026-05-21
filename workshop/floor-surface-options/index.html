@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop Floor Options: Concrete, Epoxy, and Tiles — The Workshop · Trail Manual</title>
+<meta name="description" content="Bare concrete, epoxy coating, interlocking tiles — how to choose the right garage floor surface for a home shop. Real prep requirements and what to avoid.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">&#8592; The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop &middot; Shop Setup</div>
+    <h1>Shop Floor Options: Sealed Concrete, Epoxy, and Interlocking Tiles</h1>
+    <p class="lede">Bare concrete soaks up oil, beats up your knees on long jobs, and never comes completely clean. Fixing it is a weekend project that changes how the shop works every time you're in it. The question is which approach fits your space, timeline, and budget.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>8 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>For most home shops: interlocking polypropylene tiles if you want fast and flexible, or a properly prepped 2-part epoxy if you want a permanent surface. Sealed concrete is the minimum floor treatment for any shop &mdash; it's free if you already own a penetrating sealer and takes an afternoon. Don't skip prep on epoxy or it will peel within a year.</p>
+  </div>
+
+  <h2>Why the Floor Matters in a Working Shop</h2>
+  <p>Bare concrete is porous. Oil that hits unsealed concrete doesn't wipe up &mdash; it penetrates within minutes and permanently stains the slab. Beyond staining, it creates a slip hazard when wet. Concrete is also unforgiving for anyone spending two hours on their knees doing brake work or lying on a creeper under the vehicle.</p>
+  <p>A better floor surface addresses three things: oil cleanup, comfort during long jobs, and shop cleanliness. None of these are cosmetic concerns &mdash; they directly affect how long you can work and how well you can maintain the space.</p>
+
+  <h2>Option 1: Penetrating Concrete Sealer (The Minimum)</h2>
+  <p>A penetrating sealer soaks into the concrete and chemically bonds with it, closing the pores without forming a surface film. Oil still lands on the surface rather than soaking in, so it wipes up with a rag instead of requiring a degreaser and scrubbing. This is not a glamorous upgrade but it's genuinely useful and takes one afternoon.</p>
+  <p>Application: clean the slab, let it dry, apply the sealer with a brush or roller. Most penetrating sealers require a second coat 4&ndash;6 hours after the first. The floor is back in service within 24 hours. Cost is $30&ndash;$60 for a single-car bay.</p>
+  <p>What it doesn't do: add traction (the surface feels the same), improve comfort, or make the floor look different. It's the foundation, not the finish.</p>
+
+  <h2>Option 2: Epoxy Coating</h2>
+  <p>A 2-part epoxy floor coating bonds to the concrete surface and cures into a hard, chemical-resistant, oil-shedding layer. Done correctly, it's one of the most durable floor upgrades possible for a home shop. Done incorrectly, it peels in sheets within six months.</p>
+  <p>The prep work is what makes or breaks an epoxy job:</p>
+  <ol>
+    <li><strong>Profile the surface:</strong> epoxy needs something to grip. Concrete must be acid-etched or mechanically ground to open the pores. Acid etching (muriatic acid solution, rinse thoroughly, neutralize) is the DIY standard. Grinding is more thorough and what professionals use. Skipping this step guarantees failure.</li>
+    <li><strong>Address moisture:</strong> if your slab has moisture coming through from below, epoxy will not bond. Test it: tape a 12" square of plastic sheeting to the floor for 24 hours. If moisture appears under it, address the source before coating.</li>
+    <li><strong>Fill cracks:</strong> use an epoxy crack filler before the main coat. Hairline cracks are okay; structural cracks need evaluation before any coating.</li>
+    <li><strong>Temperature and humidity:</strong> apply within the manufacturer's temperature range (typically 50&ndash;90&deg;F). High humidity slows cure and affects adhesion. Don't apply in direct sun or on a slab that has been in direct sun.</li>
+  </ol>
+
+  <div class="panel warn">
+    <div class="panel-label">One-part "epoxy" products from hardware stores</div>
+    <p>One-part floor paint labeled as "epoxy" is not the same product as 2-part epoxy. One-part products are latex or alkyd paint with "epoxy" in the name for marketing. They peel faster and are not chemical-resistant. Look for a product with two separate components that you mix before application. 2-part epoxy kits cost $80&ndash;$150 for a single-car bay.</p>
+  </div>
+
+  <p>After curing (24&ndash;72 hours for foot traffic, 7 days for vehicle traffic), a properly applied 2-part epoxy floor is oil-resistant, chemical-resistant, and cleanable with a mop. Color flake (broadcast into the wet epoxy before it cures) adds texture and hides imperfections.</p>
+
+  <h2>Option 3: Interlocking Polypropylene Tiles</h2>
+  <p>Modular plastic tiles that snap together on the existing floor &mdash; no adhesive, no prep, no cure time. You can install a single-car bay in two to three hours and the floor is in service immediately.</p>
+  <p>Polypropylene (the coin-top or diamond-plate style tiles) is the right material for a working shop. It resists oil, solvents, and automotive chemicals. It handles point loads from jack stands &mdash; a quality polypropylene tile supports 10,000+ lbs per square foot, well above what jack stands impose. It also provides mild cushioning compared to bare concrete and reduces reflected noise slightly.</p>
+  <p>Pricing: $1.50&ndash;$3.00 per square foot for polypropylene tiles. A 200 sq ft single-car bay runs $300&ndash;$600 depending on brand and tile thickness. Thicker tiles (3/4") are more comfortable underfoot and more forgiving under jack stands than thinner options (1/2").</p>
+
+  <div class="panel info">
+    <div class="panel-label">Rubber tiles vs. polypropylene tiles</div>
+    <p>Rubber interlocking tiles are softer underfoot than polypropylene and absorb more impact. The trade-off: rubber absorbs oil rather than shedding it, making cleanup harder and the tiles themselves contaminated over time. Rubber makes sense for a workout area or workshop floor that won't see vehicle fluids. For a garage where oil and coolant land on the floor regularly, polypropylene is the better choice.</p>
+  </div>
+
+  <h2>Anti-Fatigue Mats: Not a Floor Solution, But Don't Skip Them</h2>
+  <p>Anti-fatigue mats at the workbench and frequently used standing positions make a real difference on long jobs. The floor surface you choose doesn't eliminate the need for them &mdash; even a polypropylene tile floor is harder than a thick rubber mat. Look for foam-core rubber construction, 3/4" minimum thickness. The cheap thin foam mats compress quickly and lose their cushioning within months of regular shop use.</p>
+
+  <h2>Jack Stand Compatibility: Check Before You Buy</h2>
+  <p>Any floor covering in a working shop must handle the point load from jack stands. A typical 3-ton jack stand concentrates its load on a roughly 4-square-inch footpad. At 3 tons that's 1,500 lbs per square inch under load &mdash; check that your floor tile's load rating covers this. Quality polypropylene tiles are rated for it. Thin rubber mats and foam tiles compress under stands, which can allow the stand to sink slightly and shift. That's not acceptable under a vehicle.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">What to avoid entirely</div>
+    <p><strong>Carpet:</strong> absorbs oil, creates a fire hazard from solvent spills, and traps debris that damages painted surfaces when you drag parts across it.<br><br><strong>Painted concrete without primer:</strong> standard concrete paint without an epoxy primer peels within months under vehicle traffic and chemical exposure.<br><br><strong>Cheap foam tiles:</strong> the soft puzzle-piece foam tiles sold for children's play areas compress under vehicle weight, deteriorate on contact with solvents, and are not rated for shop use.</p>
+  </div>
+
+  <h2>Drainage: Plan Around It</h2>
+  <p>If your garage has a floor drain, don't cover it. Plan your tile or coating layout to leave the drain accessible and functional. A drain cover can sit flush with tile surfaces if you plan the layout from the drain outward. With epoxy, mask around the drain before coating. An inaccessible drain in a shop where fluids hit the floor creates a mess that compounds every time you wash the floor down.</p>
+
+  <hr class="divider">
+
+  <p>If your slab is in good shape and you want a permanent result, do the epoxy &mdash; but do the prep properly or don't do it at all. If you're renting, want a fast upgrade, or value flexibility as your shop evolves, interlocking polypropylene tiles are the answer. Either way, seal the concrete first if it's currently bare.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/shop-lighting/">Shop Lighting: How to See What You're Doing <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/tool-storage/">Tool Storage That Actually Works <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/working-under-a-vehicle/">Working Safely Under a Vehicle <span>Safety &rarr;</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. &copy; Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

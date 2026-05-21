@@ -3,15 +3,152 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trail Manual — DIY field manual for off-road builds</title>
-<meta name="description" content="A free, community-built DIY reference for off-road vehicles. Maintenance guides, build paths, vendor comparisons, and interactive tools. Currently covering the Jeep Cherokee XJ.">
-<link rel="stylesheet" href="_shared.css">
+<title>Trail Manual — DIY reference for off-road vehicle owners</title>
+<meta name="description" content="307 guides on the Jeep Cherokee XJ. Maintenance, suspension, axles, electrical, armor, and recovery — cross-referenced, free, and written without affiliate links.">
+<meta property="og:title" content="Trail Manual — DIY reference for off-road vehicle owners">
+<meta property="og:description" content="307 guides on the Jeep Cherokee XJ. Maintenance, suspension, axles, electrical, armor, and recovery — cross-referenced, free, and written without affiliate links.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+/* ── Homepage-specific extensions ──────────────────────────────────── */
+
+.tm-hero {
+  padding: 64px 52px 56px;
+  margin-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border-bottom: none;
+}
+.tm-hero h1 {
+  font-size: 48px;
+  max-width: 820px;
+}
+.tm-hero-overline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.tm-hero-overline .dot {
+  width: 6px; height: 6px;
+  background: var(--good);
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px rgba(129,199,132,.6);
+}
+
+/* Stats bar */
+.tm-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-bottom: 48px;
+  overflow: hidden;
+}
+.tm-stats-bar .stat {
+  padding: 20px 24px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.tm-stats-bar .stat:last-child { border-right: none; }
+.tm-stats-bar .n { font-size: 28px; font-weight: 800; color: var(--accent); line-height: 1; }
+.tm-stats-bar .l { font-size: 12px; color: var(--text-mute); text-transform: uppercase; letter-spacing: .4px; margin-top: 4px; }
+
+/* Platform badges */
+.tm-platforms { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+.tm-platform-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 3px 10px 3px 6px;
+  background: var(--bg-3); border: 1px solid var(--border); border-radius: 20px;
+  font-size: 12px; color: var(--text-dim); font-weight: 500; text-decoration: none;
+}
+.tm-platform-badge:hover { border-color: var(--accent); color: var(--text); text-decoration: none; }
+.tm-platform-badge .vdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.tm-platform-badge .live { background: var(--good); box-shadow: 0 0 5px rgba(129,199,132,.5); }
+.tm-platform-badge .coming { background: var(--border); }
+
+/* Blog */
+.tm-blog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+.tm-blog-card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 22px; display: flex; flex-direction: column; gap: 10px;
+  text-decoration: none; color: inherit; transition: all .15s ease;
+}
+.tm-blog-card:hover { border-color: var(--accent); transform: translateY(-2px); text-decoration: none; box-shadow: 0 8px 24px rgba(0,0,0,.3); }
+.tm-blog-tag {
+  display: inline-flex; align-items: center; padding: 3px 9px;
+  font-size: 10px; background: rgba(197,165,114,.12); color: var(--accent);
+  border: 1px solid rgba(197,165,114,.25); border-radius: 10px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .5px; align-self: flex-start;
+}
+.tm-blog-card h3 { margin: 0; font-size: 16px; line-height: 1.3; letter-spacing: -.2px; font-weight: 700; }
+.tm-blog-card p { margin: 0; color: var(--text-dim); font-size: 13px; line-height: 1.6; flex: 1; }
+.tm-blog-meta {
+  font-size: 11px; color: var(--text-mute); padding-top: 8px;
+  border-top: 1px dashed var(--border); display: flex; align-items: center; justify-content: space-between;
+}
+.tm-blog-meta .read-more { color: var(--accent); font-weight: 600; }
+
+/* Why section */
+.tm-why-grid { display: flex; flex-direction: column; gap: 12px; }
+.tm-why-row {
+  display: grid; grid-template-columns: 48px 200px 1fr; gap: 20px;
+  align-items: start; padding: 20px 22px;
+  background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius);
+}
+.tm-why-icon { font-size: 26px; line-height: 1; padding-top: 2px; }
+.tm-why-title { font-size: 15px; font-weight: 700; letter-spacing: -.1px; color: var(--text); }
+.tm-why-title small {
+  display: block; font-size: 11px; color: var(--text-mute); font-weight: 400;
+  text-transform: uppercase; letter-spacing: .4px; margin-top: 3px;
+}
+.tm-why-body { font-size: 14px; color: var(--text-dim); line-height: 1.65; margin: 0; }
+.tm-why-body strong { color: var(--text); }
+
+/* Email callout */
+.tm-callout-slim {
+  background: linear-gradient(135deg, var(--panel) 0%, var(--bg-2) 100%);
+  border: 1px solid var(--border); border-radius: var(--radius-lg);
+  padding: 32px 36px; display: flex; align-items: center; gap: 48px; flex-wrap: wrap;
+}
+.tm-callout-slim h3 { margin: 0 0 6px; font-size: 20px; letter-spacing: -.2px; }
+.tm-callout-slim p { margin: 0; color: var(--text-dim); font-size: 14px; }
+.tm-callout-slim .tm-email { margin-top: 0; flex: 1; min-width: 280px; }
+.tm-callout-text { flex: 1.2; min-width: 220px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tm-blog-grid { grid-template-columns: 1fr 1fr; }
+  .tm-why-row { grid-template-columns: 40px 1fr; }
+  .tm-why-body { grid-column: 1 / -1; padding-left: 60px; margin-top: -12px; }
+  .tm-stats-bar { grid-template-columns: 1fr 1fr; }
+  .tm-stats-bar .stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .tm-stats-bar .stat:nth-child(odd) { border-right: 1px solid var(--border); }
+  .tm-stats-bar .stat:nth-last-child(-n+2) { border-bottom: none; }
+  .tm-hero { padding: 44px 28px 40px; }
+  .tm-hero h1 { font-size: 36px; }
+}
+@media (max-width: 640px) {
+  .tm-blog-grid { grid-template-columns: 1fr; }
+  .tm-why-row { grid-template-columns: 1fr; }
+  .tm-why-icon { display: none; }
+  .tm-why-body { padding-left: 0; margin-top: 0; }
+  .tm-callout-slim { flex-direction: column; gap: 20px; padding: 24px 20px; }
+  .tm-hero { padding: 36px 20px 32px; }
+  .tm-hero h1 { font-size: 28px; letter-spacing: -.4px; }
+}
+</style>
 </head>
 <body>
 
-<!-- ====================================================================
-     HEADER  ·  Gutenberg: Group block with Site Logo + Navigation block
-     ==================================================================== -->
+<!-- ── HEADER ───────────────────────────────────────────────────────── -->
 <header class="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/">
@@ -24,61 +161,75 @@
     <nav class="tm-nav">
       <a href="/" class="active">Home</a>
       <a href="/tools/">Tools</a>
-      <a href="/about/">About</a>
+      <a href="/workshop/">Workshop</a>
       <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
     </nav>
   </div>
 </header>
 
 <main class="tm-main">
 
-  <!-- ====================================================================
-       HERO  ·  Gutenberg: Cover block with dark gradient + Heading + Buttons
-       Map this section to a Cover/Group block with these blocks inside:
-       - Paragraph block (eyebrow text, custom color #c5a572, uppercase)
-       - Heading block (H1, size 44px)
-       - Paragraph block (lede, color #9aa3b1)
-       - Buttons block (two buttons side-by-side)
-       ==================================================================== -->
+  <!-- ── HERO ─────────────────────────────────────────────────────── -->
   <section class="tm-hero">
-    <div class="tm-hero-eyebrow">Preview · Jeep Cherokee XJ live · More platforms coming</div>
-    <h1>The field manual every off-road build deserves.</h1>
-    <p>
-      Maintenance schedules, common-failure cures, lift-and-tire fitments, vendor comparisons,
-      and interactive tools — written for DIYers and free to use. Starting with the Jeep XJ
-      and growing across every off-road platform worth wrenching on.
-    </p>
-    <div class="tm-hero-cta">
-      <a class="tm-btn primary" href="/db/">Browse the XJ database →</a>
-      <a class="tm-btn danger" href="/db/death-wobble-guide.html">Death Wobble Guide</a>
+    <div class="tm-hero-overline">
+      <span class="dot"></span>
+      Jeep XJ database — 307 entries live
     </div>
-    <div class="tm-stats" style="margin-top:32px">
-      <div class="tm-stat"><div class="n">307</div><div class="l">Entries</div></div>
-      <div class="tm-stat"><div class="n">17</div><div class="l">Categories</div></div>
-      <div class="tm-stat"><div class="n">5</div><div class="l">Build tiers</div></div>
-      <div class="tm-stat"><div class="n">300+</div><div class="l">Citations</div></div>
+
+    <h1>The off-road reference the forums never finished building.</h1>
+
+    <p>
+      Forum threads age out. YouTube videos skip the hard parts. Shop manuals cost $200 and assume you
+      already know what you're doing. Trail Manual collects that scattered knowledge, organizes it, and
+      keeps it honest — real costs, real tradeoffs, and a clear answer to the question you actually came to ask.
+    </p>
+
+    <div class="tm-hero-cta" style="margin-top:28px;">
+      <a class="tm-btn primary" href="/db/">Browse the XJ database →</a>
+      <a class="tm-btn ghost" href="/db/death-wobble-guide.html">Death Wobble Guide</a>
+    </div>
+
+    <div class="tm-platforms">
+      <a class="tm-platform-badge" href="/db/">
+        <span class="vdot live"></span>
+        Jeep Cherokee XJ — Open now
+      </a>
+      <span class="tm-platform-badge">
+        <span class="vdot coming"></span>
+        Wrangler TJ / JK / JL — Coming next
+      </span>
+      <span class="tm-platform-badge">
+        <span class="vdot coming"></span>
+        4Runner · Tacoma · Pathfinder — Later
+      </span>
     </div>
   </section>
 
-  <!-- ====================================================================
-       FEATURED TOOLS  ·  Gutenberg: Columns block (2 columns) with Group blocks
-       Each tool card = one Group block containing Heading + Paragraph + Button
-       ==================================================================== -->
+  <!-- ── STATS BAR ─────────────────────────────────────────────────── -->
+  <div class="tm-stats-bar">
+    <div class="stat"><div class="n">307</div><div class="l">Database entries</div></div>
+    <div class="stat"><div class="n">17</div><div class="l">Categories</div></div>
+    <div class="stat"><div class="n">300+</div><div class="l">Cited sources</div></div>
+    <div class="stat"><div class="n">$0</div><div class="l">Cost to use</div></div>
+  </div>
+
+  <!-- ── FEATURED TOOLS ─────────────────────────────────────────────── -->
   <section class="tm-section">
     <div class="tm-section-head">
-      <div class="tm-section-eyebrow">What's open today</div>
-      <h2>Two interactive tools — built for the driveway</h2>
-      <p class="tm-section-lede">Free, no signup, no ads. Use them in your garage with greasy hands.</p>
+      <div class="tm-section-eyebrow">Open now</div>
+      <h2>Two tools built for the driveway</h2>
+      <p class="tm-section-lede">No signup. No ads. No paywalls. Use them on your phone with greasy hands.</p>
     </div>
 
     <div class="tm-grid-2">
       <a class="tm-tool-card" href="/db/">
         <span class="tag">XJ Database</span>
-        <h3>307-entry DIY database with rig builder</h3>
+        <h3>307-entry DIY database with Rig Builder</h3>
         <p>
-          Maintenance procedures, common-failure cures, lift kits, axle swaps, recovery gear, and
-          electrical upgrades — each with parts, prices, tools, and tradeoffs. The Rig Builder turns
-          a goal (mild trail, overland, rock crawler…) plus a budget into a phased build plan.
+          Maintenance procedures, common-failure guides, lift kits, axle swaps, recovery gear, and
+          electrical upgrades — each with parts lists, price ranges, tool requirements, and honest
+          vendor tradeoffs. The Rig Builder turns a build goal and a budget into a phased plan.
         </p>
         <div class="meta">
           <span>Browse · Search · Build</span>
@@ -90,9 +241,9 @@
         <span class="tag danger">For the panicked owner</span>
         <h3>Death Wobble Survival Guide</h3>
         <p>
-          You just had it happen at 60 mph. Take a breath. This guide walks you through the
-          emergency response, plain-English explainer, a 6-question symptom quiz, a guided
-          driveway inspection (saves your progress), and a prioritized fix plan.
+          If it just happened at 60 mph, take a breath. This guide walks through the emergency
+          response, a plain-English explanation of what's actually happening, a 6-question symptom
+          quiz, a driveway inspection checklist that saves your progress, and a prioritized fix plan.
         </p>
         <div class="meta">
           <span>Diagnose · Inspect · Fix</span>
@@ -102,102 +253,215 @@
     </div>
   </section>
 
-  <!-- ====================================================================
-       WHY SECTION  ·  Gutenberg: Columns block (3 columns) with Group blocks
-       Each card = Icon (Paragraph with emoji) + Heading H3 + Paragraph
-       ==================================================================== -->
+  <!-- ── WHY TRAIL MANUAL ───────────────────────────────────────────── -->
   <section class="tm-section">
     <div class="tm-section-head">
       <div class="tm-section-eyebrow">Why Trail Manual</div>
-      <h2>What forums won't give you in one place</h2>
+      <h2>What you don't get from forums, YouTube, or shop manuals</h2>
     </div>
 
-    <div class="tm-grid-3">
-      <div class="tm-card">
-        <div class="tm-card-icon">📚</div>
-        <h3>Cross-referenced, not chronological</h3>
-        <p>Forum threads age out. Trail Manual entries are kept current and link to alternatives, prerequisites, and cited sources.</p>
+    <div class="tm-why-grid">
+      <div class="tm-why-row">
+        <div class="tm-why-icon">📌</div>
+        <div class="tm-why-title">
+          Organized, not chronological
+          <small>vs. forum threads</small>
+        </div>
+        <p class="tm-why-body">
+          Forum threads age out, go off-topic, and bury the answer in page 7. Trail Manual entries are
+          kept current, linked to prerequisites and alternatives, and structured around the question you
+          actually have — not the argument that happened to follow it.
+        </p>
       </div>
-      <div class="tm-card">
-        <div class="tm-card-icon">💰</div>
-        <h3>Real prices, real tradeoffs</h3>
-        <p>Every entry lists vendor options and ballpark costs. Pros and cons are honest — including "you don't need this" verdicts.</p>
+
+      <div class="tm-why-row">
+        <div class="tm-why-icon">💬</div>
+        <div class="tm-why-title">
+          Honest verdicts, not affiliate hedging
+          <small>vs. review sites</small>
+        </div>
+        <p class="tm-why-body">
+          No affiliate links. No sponsored recommendations. When something is overpriced for most builds,
+          that's in the entry. When you probably don't need a part, that's in the entry too.
+          <strong>The goal is to help you make a good decision — not to sell you something.</strong>
+        </p>
       </div>
-      <div class="tm-card">
-        <div class="tm-card-icon">🛠</div>
-        <h3>Tools, not tutorials</h3>
-        <p>Interactive rig builders, diagnostic guides, and calculators that adapt to your build goal and DIY skill level.</p>
+
+      <div class="tm-why-row">
+        <div class="tm-why-icon">🔧</div>
+        <div class="tm-why-title">
+          Tools, not tutorials
+          <small>vs. YouTube</small>
+        </div>
+        <p class="tm-why-body">
+          YouTube shows you someone else's build. Trail Manual gives you interactive tools: a rig builder
+          that adapts to your goal and budget, a diagnostic guide that walks your specific symptoms, and
+          a database you can filter by category, difficulty, and build tier.
+        </p>
+      </div>
+
+      <div class="tm-why-row">
+        <div class="tm-why-icon">💰</div>
+        <div class="tm-why-title">
+          Real prices, not just procedures
+          <small>vs. shop manuals</small>
+        </div>
+        <p class="tm-why-body">
+          Shop manuals tell you the procedure. They don't tell you the OEM part costs $340, the quality
+          aftermarket equivalent costs $90, and the cheap one will fail in 18 months.
+          Every Trail Manual entry includes current vendor pricing and the tradeoffs between them.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- ====================================================================
-       ROADMAP  ·  Gutenberg: Group block with stacked Group rows
-       Each row = a Columns block (3 cols: phase / list / status)
-       ==================================================================== -->
+  <!-- ── BLOG ──────────────────────────────────────────────────────── -->
+  <section class="tm-section">
+    <div class="tm-section-head" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div>
+        <div class="tm-section-eyebrow">From the blog</div>
+        <h2 style="margin-bottom:0;">Guides, deep dives, and honest takes</h2>
+      </div>
+      <a href="/blog/" class="tm-btn ghost" style="align-self:center;">All posts →</a>
+    </div>
+    <p class="tm-section-lede" style="margin-bottom:24px;">New posts every week. No fluff, no sponsored angles.</p>
+
+    <div class="tm-blog-grid">
+      <a class="tm-blog-card" href="/db/xj-lift-kit-guide.html">
+        <span class="tm-blog-tag">XJ Suspension</span>
+        <h3>How Much Lift Does a Cherokee XJ Actually Need?</h3>
+        <p>Budget boost to long arm — what each costs, what it requires, and which is right for your build. The honest version of this decision.</p>
+        <div class="tm-blog-meta">
+          <span>10 min read</span>
+          <span class="read-more">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-blog-card" href="/blog/xj-death-wobble-causes/">
+        <span class="tm-blog-tag">Steering</span>
+        <h3>Death Wobble: What's Actually Causing It (and What Isn't)</h3>
+        <p>Track bar, tie rod, wheel balance — the real culprit list, ranked by how often each is actually responsible. Stop replacing parts in the wrong order.</p>
+        <div class="tm-blog-meta">
+          <span>8 min read</span>
+          <span class="read-more">Read →</span>
+        </div>
+      </a>
+
+      <a class="tm-blog-card" href="/blog/xj-cooling-system-failures/">
+        <span class="tm-blog-tag">Cooling</span>
+        <h3>The XJ Cooling System Failure You're Not Watching For</h3>
+        <p>Most XJ owners know to watch the temp gauge. Fewer know the plastic thermostat housing cracks before it leaks — and what that failure looks like from inside the cab.</p>
+        <div class="tm-blog-meta">
+          <span>7 min read</span>
+          <span class="read-more">Read →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- ── WORKSHOP ──────────────────────────────────────────────────── -->
+  <section class="tm-section">
+    <div class="tm-section-head">
+      <div class="tm-section-eyebrow">Vehicle-agnostic</div>
+      <h2>The Workshop: before you touch the vehicle</h2>
+      <p class="tm-section-lede">Shop tools, safety fundamentals, technique, and garage setup — the foundation that applies to every build, regardless of what you're wrenching on.</p>
+    </div>
+
+    <div class="tm-grid-2" style="margin-bottom:16px;">
+      <a class="tm-card tm-card-link" href="/workshop/#tools">
+        <div class="tm-card-icon">🔧</div>
+        <h3>Shop Tools</h3>
+        <p>Floor jacks, torque wrenches, impact drivers, multimeters — what to buy, what not to cheap out on, and how to use each correctly.</p>
+      </a>
+      <a class="tm-card tm-card-link" href="/workshop/#safety">
+        <div class="tm-card-icon">🦺</div>
+        <h3>Safety</h3>
+        <p>Working under a vehicle, fire safety, chemical handling, and knowing when a job belongs in a shop. Most accidents are preventable — and predictable.</p>
+      </a>
+      <a class="tm-card tm-card-link" href="/workshop/#technique">
+        <div class="tm-card-icon">🛠</div>
+        <h3>Technique</h3>
+        <p>Breaking seized bolts, reading torque specs, thread repair, wiring diagrams — the skills that come up on every repair.</p>
+      </a>
+      <a class="tm-card tm-card-link" href="/workshop/#shop-setup">
+        <div class="tm-card-icon">🏠</div>
+        <h3>Shop Setup</h3>
+        <p>Lighting, air compressors, floor surfaces, and tool storage — what a functional home garage actually needs, and what can wait.</p>
+      </a>
+    </div>
+    <div style="text-align:center;">
+      <a class="tm-btn ghost" href="/workshop/">Browse the Workshop →</a>
+    </div>
+  </section>
+
+  <!-- ── ROADMAP ────────────────────────────────────────────────────── -->
   <section class="tm-section">
     <div class="tm-section-head">
       <div class="tm-section-eyebrow">Roadmap</div>
       <h2>Built one platform at a time</h2>
-      <p class="tm-section-lede">The data model is multi-vehicle from day one. Adding a platform is mostly content work, not engineering — so the cadence will pick up as the audience grows.</p>
+      <p class="tm-section-lede">The data model handles multiple vehicles from the start. Adding a platform is mostly content work, not engineering — the pace picks up as the audience grows.</p>
     </div>
 
     <div class="tm-roadmap">
       <div class="tm-roadmap-row">
         <div class="tm-roadmap-phase">Phase 1</div>
-        <div class="tm-roadmap-list"><strong>Jeep Cherokee XJ</strong> (1984–2001) — 307 entries · maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, build recipes.</div>
+        <div class="tm-roadmap-list">
+          <strong>Jeep Cherokee XJ (1984–2001)</strong> — 307 entries across maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, and build recipes.
+        </div>
         <div class="tm-roadmap-status live">Open now</div>
       </div>
       <div class="tm-roadmap-row">
         <div class="tm-roadmap-phase">Phase 2</div>
-        <div class="tm-roadmap-list"><strong>Wrangler family</strong> — TJ, YJ, JK, JL, CJ-7, CJ-5. The natural next step. Shared off-road systems (axles, recovery, tires) reuse XJ entries.</div>
+        <div class="tm-roadmap-list">
+          <strong>Wrangler family</strong> — TJ, YJ, JK, JL, CJ-7, CJ-5. Shared off-road systems (axles, recovery, tires) reuse XJ entries directly.
+        </div>
         <div class="tm-roadmap-status next">Next</div>
       </div>
       <div class="tm-roadmap-row">
         <div class="tm-roadmap-phase">Phase 3</div>
-        <div class="tm-roadmap-list"><strong>Other Jeeps</strong> — Grand Cherokee ZJ, WJ, WK.</div>
+        <div class="tm-roadmap-list">
+          <strong>Other Jeeps</strong> — Grand Cherokee ZJ, WJ, WK.
+        </div>
         <div class="tm-roadmap-status">Later</div>
       </div>
       <div class="tm-roadmap-row">
         <div class="tm-roadmap-phase">Phase 4</div>
-        <div class="tm-roadmap-list"><strong>Other platforms</strong> — Toyota 4Runner, Tacoma, Nissan Pathfinder, and beyond.</div>
+        <div class="tm-roadmap-list">
+          <strong>Other platforms</strong> — Toyota 4Runner, Tacoma, Nissan Pathfinder, and beyond.
+        </div>
         <div class="tm-roadmap-status">Later</div>
       </div>
     </div>
   </section>
 
-  <!-- ====================================================================
-       EMAIL CAPTURE  ·  Gutenberg: Group block + your email plugin shortcode
-       Replace the <form> below with [mc4wp_form] or [contact-form-7] shortcode
-       ==================================================================== -->
-  <section class="tm-section">
-    <div class="tm-callout">
+  <!-- ── EMAIL CAPTURE ─────────────────────────────────────────────── -->
+  <div class="tm-callout-slim">
+    <div class="tm-callout-text">
       <h3>Get notified when a new platform opens</h3>
-      <p>About one email a month, usually less. Roadmap updates and the occasional deep-dive.</p>
-      <form class="tm-email" onsubmit="event.preventDefault(); alert('Replace with your email plugin shortcode.')">
-        <input type="email" placeholder="your@email.com" required>
-        <button class="tm-btn primary" type="submit">Notify me</button>
-      </form>
+      <p>About one email a month, usually less. Roadmap updates and the occasional deep-dive — no filler.</p>
     </div>
-  </section>
+    <form class="tm-email" onsubmit="event.preventDefault(); this.innerHTML='<p style=&quot;color:var(--good);margin:0;&quot;>You\'re in. We\'ll reach out when there\'s something worth saying.</p>'">
+      <input type="email" placeholder="your@email.com" required>
+      <button class="tm-btn primary" type="submit">Notify me</button>
+    </form>
+  </div>
 
 </main>
 
-<!-- ====================================================================
-     FOOTER  ·  Gutenberg: footer template part with Columns block (4 cols)
-     ==================================================================== -->
+<!-- ── FOOTER ────────────────────────────────────────────────────────── -->
 <footer class="tm-footer">
   <div class="tm-footer-inner">
     <div>
-      <div class="tm-brand" style="margin-bottom:12px">
+      <div class="tm-brand" style="margin-bottom:12px;">
         <div class="tm-brand-mark">TM</div>
         <div>
           <div class="tm-brand-text">Trail Manual</div>
           <div class="tm-brand-sub">trailmanual.com</div>
         </div>
       </div>
-      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0">
-        Built By Hand
+      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0;line-height:1.6;">
+        Free, community-built DIY reference for off-road vehicle owners. No ads, no affiliate links.
       </p>
     </div>
     <div>
@@ -208,18 +472,18 @@
     </div>
     <div>
       <h4>Platforms</h4>
-      <a href="/db/#/xj/">Jeep Cherokee XJ</a>
+      <a href="/db/">Jeep Cherokee XJ</a>
       <a href="/about/#roadmap">Roadmap</a>
     </div>
     <div>
-      <h4>About</h4>
+      <h4>Site</h4>
+      <a href="/blog/">Blog</a>
       <a href="/about/">About Trail Manual</a>
       <a href="/about/#sources">Sources &amp; method</a>
-      <a href="/contact/">Contact</a>
     </div>
   </div>
   <div class="disclaimer">
-    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+    Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
   </div>
 </footer>
 

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fastener Grades and What They Mean — The Workshop · Trail Manual</title>
+<meta name="description" content="SAE grades, metric class designations, stainless warnings, and where hardware store bolts absolutely do not belong. How to read bolt head markings before you throw the old hardware away.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Technique</div>
+    <h1>Fastener Grades and What They Mean</h1>
+    <p class="lede">Not all bolts are the same, and the differences aren't visible until something fails. A Grade 2 bolt from the hardware store and a Grade 8 bolt from a fastener supplier are the same size and thread pitch — but their tensile strength differs by roughly 3:1, and they fail in completely different ways under load.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>8 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Before you discard old fasteners, look at the head markings — they tell you what grade came out, which tells you what grade needs to go back in. For suspension, steering, brakes, and engine mounts, never substitute a lower grade than what the factory installed. Hardware store bolts are not for structural automotive applications.</p>
+  </div>
+
+  <h2>SAE Grades — US Bolts</h2>
+  <p>SAE (Society of Automotive Engineers) grade is indicated by radial lines stamped on the bolt head. More lines = higher strength. The three grades you'll encounter in automotive work:</p>
+  <ul>
+    <li><strong>Grade 2 — no head markings:</strong> Standard hardware store fastener. Minimum tensile strength of 74,000 psi. Used for low-load applications: body trim, interior brackets, non-structural covers. Never in a structural application.</li>
+    <li><strong>Grade 5 — three radial lines:</strong> Medium strength, minimum tensile strength 120,000 psi. The most common OEM fastener for moderate-load applications: engine accessories, non-critical chassis brackets, many fluid connections.</li>
+    <li><strong>Grade 8 — six radial lines:</strong> High strength, minimum tensile strength 150,000 psi. Used for high-load and high-vibration applications: suspension links, control arm bolts, U-bolts, engine mounts, transmission mounts. If a suspension fastener has six radial lines on the head, replace it with six radial lines.</li>
+  </ul>
+
+  <div class="panel info">
+    <div class="panel-label">Reading the head markings</div>
+    <p>The lines on a Grade 5 or Grade 8 bolt head are evenly spaced around the perimeter. Three lines = Grade 5, six lines = Grade 8. Grade 2 has no markings. If the bolt head is too corroded or damaged to read, measure the bolt dimensions and identify the application — then buy to the spec the application requires, not to what looks close.</p>
+  </div>
+
+  <h2>Metric Class Designations</h2>
+  <p>Metric fasteners use a two-number designation stamped on the head: <strong>8.8, 10.9, 12.9</strong>. The format is property class notation — the numbers encode both tensile strength and yield strength.</p>
+  <ul>
+    <li><strong>Class 8.8:</strong> The first number (8) × 100 = 800 MPa tensile strength. Used widely in OEM applications, roughly comparable to Grade 5 SAE in strength-to-size terms. Commonly found in engine components, body hardware, moderate structural applications.</li>
+    <li><strong>Class 10.9:</strong> 1,000 MPa tensile strength. High-strength metric fastener, comparable to Grade 8 SAE. Used in suspension, transmission, driveline applications. Black oxide finish is common on 10.9 bolts but not universal.</li>
+    <li><strong>Class 12.9:</strong> 1,200 MPa tensile strength. The highest common grade — used in highly loaded applications, often in black phosphate finish. Socket head cap screws are frequently 12.9.</li>
+  </ul>
+  <p>The class marking is stamped on the head as the number (e.g., "10.9"). On very small bolts it may be absent or abbreviated. If you can't read the marking, identify by application and replace to the correct class.</p>
+
+  <h2>Identifying What Came Out</h2>
+  <p>Take one second before tossing old fasteners: look at the head, read the markings, note what came out of the joint. This matters because the grade of the fastener that was installed is the minimum grade that goes back in. An original 10.9 means a 10.9 (or higher) goes back. Dropping to an 8.8 because it's cheaper or easier to source reduces clamping strength by roughly 20% — in a suspension component, that's a safety margin you don't want to give up.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Where hardware store bolts do not belong</div>
+    <p>Suspension links, control arms, track bars, tie rods, drag links, ball joint pinch bolts, caliper bracket bolts, caliper bolts, wheel studs, axle U-bolts, engine mounts, transmission mounts, transfer case mounts, differential cover bolts at high-torque applications. Any fastener that sees dynamic load, vibration, or shear force belongs to a grade specification — not a hardware store bin. The cost difference between a proper fastener and a hardware store bolt is negligible. The failure mode difference is not.</p>
+  </div>
+
+  <h2>Stainless Steel — Appearance Is Not Performance</h2>
+  <p>Stainless steel fasteners look durable and corrosion-resistant, and they are corrosion-resistant. But stainless is not a strength grade — it's a material designation. Common stainless (18-8, 304, 316) has tensile strength roughly comparable to Grade 5 SAE or Class 8.8 metric, which makes it adequate for non-critical applications but not for high-load structural use.</p>
+  <p>There are two specific problems with stainless in automotive applications:</p>
+  <ul>
+    <li><strong>Galling:</strong> Stainless-to-stainless threads cold-weld under torque. The threads seize while threading in, long before reaching the required torque spec. Anti-seize compound is mandatory on stainless-to-stainless applications — without it, you will destroy the fastener trying to install it.</li>
+    <li><strong>Heat:</strong> Common stainless steel loses significant tensile strength above approximately 500°F. Exhaust fasteners see temperatures well above this threshold. Stainless exhaust bolts will fail where proper high-temperature steel hardware would not. Use stainless for cosmetic applications and low-temperature environments. Use OEM-spec hardware or proper high-temp fasteners for exhaust systems.</li>
+  </ul>
+
+  <h2>Thread-Locking Compound — Blue vs. Red</h2>
+  <p>Thread-locking compounds (Loctite is the dominant brand) cure in the absence of air against metal and resist loosening from vibration. Two strengths matter for DIY work:</p>
+  <ul>
+    <li><strong>Blue (medium strength — Loctite 243):</strong> Use for most fasteners that need vibration resistance but may need to be disassembled in the future. Releases with standard hand tools. Correct for most suspension fasteners that aren't torque-spec-critical on their own, sensor bolts, accessory mounting bolts.</li>
+    <li><strong>Red (high strength — Loctite 271):</strong> Designed as a permanent locking agent. Requires heat (250°F or higher) to break loose. Use only where you are certain the fastener will never need to be removed, or where heat is readily available during disassembly. Common applications: ring gear bolts, flywheel bolts, fasteners on high-vibration components that should never back out.</li>
+  </ul>
+
+  <div class="panel warn">
+    <div class="panel-label">Thread locker and torque specs</div>
+    <p>Thread-locking compound on threads acts as a mild lubricant before it cures, which slightly affects torque-to-clamp conversion. For most applications the effect is small and within tolerance. For critical torque specs (cylinder head bolts, bearing caps), check whether the specification assumes clean dry threads or allows for thread locker. When in doubt, use the dry torque spec and apply thread locker minimally to the thread flanks rather than saturating the threads.</p>
+  </div>
+
+  <hr class="divider">
+  <p>Match the grade to the application, read the head markings before discarding old hardware, and don't substitute downward when a higher grade came out. The fastener grade is a load-bearing specification — treat it as one.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/reading-torque-specs/">
+        How to Read a Torque Specification
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/breaking-rusty-bolts/">
+        Breaking Rusty and Seized Bolts
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/thread-repair/">
+        Thread Repair — Helicoil, Timesert, and Drill-Out
+        <span>Read →</span>
+      </a>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div></div>
+    <div class="footer-links"><a href="/">Home</a><a href="/workshop/">The Workshop</a><a href="/db/">XJ Database</a><a href="/about/">About</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

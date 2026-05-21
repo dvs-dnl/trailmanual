@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gaskets vs. Liquid Sealant — The Workshop · Trail Manual</title>
+<meta name="description" content="When to use a solid gasket, RTV silicone, or anaerobic sealant — and what happens when you pick the wrong one. Surface prep, application, and the joints that use both.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Technique</div>
+    <h1>Gaskets vs. Liquid Sealant — When to Use Which</h1>
+    <p class="lede">The wrong sealant choice doesn't announce itself immediately — it announces itself as a drip on your garage floor two weeks later, or as squeeze-out blocking an oil passage you can't see. Matching the sealant type to the joint design is what separates a repair that holds from one that needs to be redone.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>9 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Solid gaskets seal by compression — use them where the joint was designed for one, and prep the surfaces properly. RTV silicone seals irregular surfaces and is applied as a bead before assembly, not as a paste to compensate for a bad surface. Anaerobic sealants cure in metal-to-metal contact and are not for aluminum. Use what the engineer specified, not what's on the shelf.</p>
+  </div>
+
+  <h2>Solid Gaskets — Sealing by Compression</h2>
+  <p>Solid gaskets — paper, rubber, cork, multi-layer steel (MLS) — work by conforming to the mating surfaces under clamping load. They fill small irregularities and create a barrier between the two surfaces. The gasket itself doesn't do the sealing; the clamping force and the gasket material together do.</p>
+  <p>This means surface condition matters. A cylinder head that's warped beyond the service limit won't seal with any gasket material. A valve cover flange with deep gouges from a previous gasket removal won't seal cleanly with a paper gasket. Surface finish requirements vary by gasket type:</p>
+  <ul>
+    <li><strong>Paper/fiber gaskets:</strong> tolerant of minor surface irregularities, but deep grooves or heavy corrosion will cause leaks.</li>
+    <li><strong>MLS (multi-layer steel) head gaskets:</strong> require a very smooth, flat surface — factory spec is typically 60–125 Ra microfinish. MLS gaskets are unforgiving of surface defects.</li>
+    <li><strong>Rubber gaskets</strong> (valve cover, oil pan on many modern engines): can seal against moderate surface variation, but need clean, oil-free surfaces to adhere and seat correctly.</li>
+  </ul>
+
+  <div class="panel warn">
+    <div class="panel-label">Remove old gasket material correctly</div>
+    <p>Use a razor blade gasket scraper on aluminum — never a wire wheel, abrasive pad, or angle grinder. Those tools remove material and create surface irregularities that prevent a good seal. On steel surfaces, a wire wheel is acceptable. On aluminum, patience with a razor blade is the right tool. Finish with brake cleaner on a lint-free rag.</p>
+  </div>
+
+  <h2>RTV Silicone — Where It Belongs and How to Apply It</h2>
+  <p>RTV (room-temperature vulcanizing) silicone is used where surfaces are too irregular for a solid gasket, on joints where the manufacturer designed a gasket-free assembly, or as a supplement to a solid gasket at specific locations (corners, T-junctions where gaskets meet each other).</p>
+  <p>Application: run a continuous bead — typically 3–4mm diameter — around the perimeter of the mating surface, staying inside the bolt holes. The bead should be consistent and complete with no gaps. Assemble before the RTV skins — most formulations give you 10–15 minutes of working time after application. Once the surfaces are together, let it cure for the time specified on the tube before refilling with fluid or running the engine.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Too much RTV causes the problem it's supposed to prevent</div>
+    <p>Excess RTV squeezes into the joint and can break free as the assembly flexes through heat cycles. In an engine, that means chunks of RTV floating through oil passages. A 3–4mm bead is enough. A thicker bead doesn't seal better — it creates squeeze-out that goes somewhere you don't want it. If you've applied too much and assembly is complete, there's no good fix — disassemble, clean, and start over.</p>
+  </div>
+
+  <h3>What RTV should never contact</h3>
+  <ul>
+    <li><strong>Oxygen sensors:</strong> Silicone vapor contaminates O2 sensors and causes rich running, misfires, and sensor failure. Keep RTV away from exhaust and intake ports.</li>
+    <li><strong>Coolant passages (check formulation):</strong> Standard grey RTV is not coolant-rated. Use coolant-resistant RTV (often blue or pink) anywhere the sealant will contact coolant.</li>
+    <li><strong>Torque-critical joints:</strong> RTV on threads or under bolt heads acts as a lubricant and changes the effective torque, producing more clamping force than the dry spec assumes.</li>
+  </ul>
+
+  <h2>Anaerobic Sealants — Metal-to-Metal, Airless Cure</h2>
+  <p>Anaerobic sealants (Permatex Ultra Black, Loctite 515, 518) cure in the absence of air in the presence of metal ions. They're designed for metal-to-metal sealing — differential covers, timing covers, machined flanges where the surfaces are flat and close enough to exclude air.</p>
+  <p>Apply a thin film to one surface, assemble, and the material cures fully as the air is excluded. The key word is thin — anaerobic sealants are not gasket replacements for irregular surfaces, they're sealants for precise metal-to-metal joints.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Do not use anaerobic sealant on aluminum-to-aluminum joints</div>
+    <p>Anaerobic sealants accelerate galvanic corrosion in aluminum. The metal ions that trigger curing also trigger an electrochemical reaction in aluminum that pits the surface over time. Use RTV on aluminum-to-aluminum joints. Anaerobic sealant belongs on steel-to-steel or steel-to-iron joints.</p>
+  </div>
+
+  <h2>The Both Scenario: When Solid Gasket and RTV Are Used Together</h2>
+  <p>Some assemblies use a solid gasket for the main joint and RTV at specific locations where the geometry prevents the gasket from sealing completely on its own. Common examples:</p>
+  <ul>
+    <li><strong>Valve covers:</strong> Most use a rubber gasket or cork gasket for the main perimeter. The corners where the camshaft end caps meet the head (on overhead cam engines) often require a small dab of RTV in the corner before the main gasket is installed.</li>
+    <li><strong>Timing covers:</strong> The junction where the timing cover meets the oil pan rail — a three-way corner — is a classic RTV application even when a solid gasket covers the rest of the timing cover.</li>
+    <li><strong>Intake manifolds:</strong> End seals on some pushrod engines use rubber end seals plus RTV at the corners where the end seal meets the side gasket.</li>
+  </ul>
+  <p>Your factory service manual will call out exactly where RTV is required on these joints. Don't apply it everywhere because you're not sure — apply it where the manual specifies and nowhere else.</p>
+
+  <h2>Surface Prep Is the Variable That Actually Determines the Outcome</h2>
+  <p>Both solid gaskets and liquid sealants require clean, dry, oil-free surfaces. Oil contamination prevents adhesion and allows the sealant to slip under load. Residual gasket material creates high spots that prevent uniform clamping. Old RTV that wasn't fully removed prevents new RTV from bonding to the metal.</p>
+  <p>The prep sequence: scrape old material with a razor blade (on aluminum) or a gasket scraper (on steel), wipe with brake cleaner on a lint-free rag, inspect under good lighting for residue or surface damage, and assemble within a few minutes of cleaning. Don't let cleaned surfaces sit overnight — they'll collect contamination from the air.</p>
+
+  <hr class="divider">
+  <p>Check your factory service manual for what the joint was designed to use, prep the surfaces correctly, and don't over-apply liquid sealant. The quality of the prep is what determines whether the repair holds — the sealant choice just needs to match the joint design.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/reading-torque-specs/">
+        How to Read a Torque Specification
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/understanding-fastener-grades/">
+        Fastener Grades and What They Mean
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/chemical-handling/">
+        Chemical Handling in the Shop
+        <span>Read →</span>
+      </a>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div></div>
+    <div class="footer-links"><a href="/">Home</a><a href="/workshop/">The Workshop</a><a href="/db/">XJ Database</a><a href="/about/">About</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

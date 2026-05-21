@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Air Compressor Guide for a Home Shop — The Workshop · Trail Manual</title>
+<meta name="description" content="How to choose a shop air compressor. CFM, tank size, oil vs. oil-free, 120V vs. 240V — the specs that matter and what most DIYers actually need.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">&#8592; The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop &middot; Shop Setup</div>
+    <h1>Choosing a Shop Air Compressor: What the Specs Actually Mean</h1>
+    <p class="lede">An air compressor that can't keep up with your tools isn't just frustrating &mdash; it runs the motor to failure. The specs on the label look like alphabet soup, but two of them are the ones that actually determine whether a compressor works for you.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>8 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>For a home shop doing tire inflation, general pneumatic tools, and occasional impact wrench use: a 20-gallon tank, 5&ndash;6 CFM at 90 PSI, 120V motor on a dedicated 20A circuit, oil-lubricated. That setup handles the majority of DIY use without constantly waiting for the tank to refill. You do not need a 60-gallon two-stage compressor for basic shop work.</p>
+  </div>
+
+  <h2>The Two Specs That Actually Matter</h2>
+  <p>Every compressor lists a wall of numbers. Two of them determine whether it works for you:</p>
+  <ul>
+    <li><strong>CFM (cubic feet per minute):</strong> how much air the compressor delivers continuously. This is the spec that determines whether your tools can actually run. A tool rated at 4 CFM needs a compressor that can supply 4 CFM &mdash; not just for a moment, but sustained. If the compressor can't keep up, the tool bogs down and the motor runs constantly.</li>
+    <li><strong>PSI (pounds per square inch):</strong> pressure. Most air tools require 90 PSI at the tool. Tire inflation requires regulated pressure. Spray equipment has its own requirements. Compressors typically cut off at 120&ndash;150 PSI and restart at 90&ndash;100 PSI &mdash; that differential is the working reserve in the tank.</li>
+  </ul>
+  <p>CFM is the more important number for sustained tool use. PSI matters for specific applications like tire inflation and spray work, but most tools need 90 PSI &mdash; which any compressor over about 100 PSI max provides with headroom.</p>
+
+  <div class="panel info">
+    <div class="panel-label">SCFM vs. CFM</div>
+    <p>Manufacturers often list SCFM (standard cubic feet per minute), measured at standard atmospheric conditions. It's a more accurate baseline for comparison than "peak CFM" at low pressure. When comparing compressors, look for CFM or SCFM at 90 PSI &mdash; that's the operating condition that matters for most tools.</p>
+  </div>
+
+  <h2>What Most DIYers Actually Need</h2>
+  <p>For a home shop doing tire inflation, operating a blow gun, running a pneumatic ratchet, and occasional impact wrench work: a <strong>20-gallon tank minimum</strong> with <strong>5&ndash;6 CFM at 90 PSI</strong>. That combination means the tank recovers fast enough that you're not standing around waiting between cycles.</p>
+  <p>Specific tool CFM requirements as reference points:</p>
+  <ul>
+    <li><strong>Tire inflator / blow gun:</strong> 1&ndash;2 CFM at 90 PSI</li>
+    <li><strong>Pneumatic ratchet (3/8"):</strong> 3&ndash;4 CFM at 90 PSI</li>
+    <li><strong>Impact wrench (1/2"):</strong> 4&ndash;5 CFM at 90 PSI</li>
+    <li><strong>DA sander or grinder:</strong> 6&ndash;9 CFM at 90 PSI (sustained use)</li>
+    <li><strong>Spray gun (HVLP):</strong> 10&ndash;14 CFM at 40 PSI</li>
+  </ul>
+  <p>If you're running a DA sander or spray gun regularly, you need more compressor. A 5&ndash;6 CFM unit will run a DA sander but the tank will not keep up with sustained use &mdash; you'll be working in bursts and waiting. For spray painting, budget for a larger compressor from the start.</p>
+
+  <h2>Pancake Compressors: Know Their Limits</h2>
+  <p>Pancake and hot dog compressors &mdash; the 1&ndash;6 gallon portable units &mdash; are fine for inflation and finish nailers. They are not adequate for sustained air tool use in a shop. The tank empties in seconds under load, the motor runs nearly constantly to keep up, and many are not designed for that duty cycle. You'll overheat the motor before you finish pulling lug nuts with an impact wrench.</p>
+  <p>A pancake compressor has its place: job site nail guns, tire inflation in the field, temporary setups. It is not a shop compressor.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Duty cycle matters more than tank size</div>
+    <p>A large tank stores more air but the motor still has to refill it. Check the duty cycle rating &mdash; the percentage of time the motor can run continuously. A 50% duty cycle motor can run for 30 minutes per hour. Running a sustained-use tool like an impact wrench on a 50% duty cycle compressor will heat the motor beyond its design limits. Look for 75% or higher for shop use.</p>
+  </div>
+
+  <h2>Oil-Lubricated vs. Oil-Free</h2>
+  <p>The difference is straightforward:</p>
+  <ul>
+    <li><strong>Oil-lubricated:</strong> cooler-running, quieter, longer service life. Requires checking and changing the oil every 200&ndash;500 hours. These compressors typically last 10&ndash;15 years with basic maintenance.</li>
+    <li><strong>Oil-free:</strong> no maintenance overhead, lighter, and more portable. They run hotter and louder, and the pump wears faster &mdash; typically 3,000&ndash;5,000 hours versus 10,000+ for oil-lubricated units.</li>
+  </ul>
+  <p>For a home shop that sees regular use, oil-lubricated is worth the slight maintenance overhead. The longevity difference is real. Oil-free makes sense for infrequent use, portability requirements, or environments where oil contamination in the air line is a concern (some spray work).</p>
+
+  <h2>120V vs. 240V: Electrical Reality</h2>
+  <p>A 120V compressor on a dedicated 20A circuit is the minimum for a shop unit. A 15A circuit will work but the motor struggles under load and trips breakers on cold starts. <strong>Do not run a shop compressor on a shared circuit</strong> &mdash; lights dimming when the motor starts is a sign the circuit is undersized.</p>
+  <p>Compressors over 2 HP require 240V. That means a new dedicated circuit and, in most cases, an electrician. Factor that cost in. A 2 HP 120V unit avoids that, but you're limited in how large a compressor you can run at that voltage. For most home shops, 120V with a dedicated 20A circuit is the practical ceiling without electrical work.</p>
+
+  <div class="panel good">
+    <div class="panel-label">The practical choice for most home shops</div>
+    <p>A 20&ndash;30 gallon, 5&ndash;6 CFM at 90 PSI, oil-lubricated, 120V unit on a dedicated 20A circuit. This is $200&ndash;$400 at discount tool retailers. It handles tire inflation, impact wrench use, pneumatic ratchets, and blow gun work without straining. For DA sanders or spray work, add 50% to those CFM numbers and plan accordingly.</p>
+  </div>
+
+  <h2>Noise: A Real Constraint in Shared Spaces</h2>
+  <p>Compressors are loud. Most single-stage shop compressors run 75&ndash;90 dB &mdash; roughly equivalent to a lawnmower. In an attached garage at 6am, that matters to everyone nearby.</p>
+  <p>Quiet compressors exist: 1&ndash;2 HP oil-lubricated units designed for low noise run 60&ndash;65 dB. They're effective but cost 2&ndash;3x what a standard unit costs and typically top out around 4 CFM at 90 PSI. If noise is a genuine constraint, budget for one from the start rather than trying to soundproof after the fact. Soundproofing a compressor requires adequate ventilation and isn't straightforward to do correctly.</p>
+
+  <h2>What You Don't Need</h2>
+  <p>A 60-gallon upright two-stage compressor is professional equipment. Two-stage compressors compress air twice to reach higher pressure (175+ PSI), which makes them suited for spray booths, production air tools, and sandblasting. They require 240V, dedicated wiring, and produce significant heat and noise. For a home shop doing maintenance, modification, and occasional bodywork, that's more compressor than you'll use.</p>
+  <p>Buy the compressor that matches your actual current use, not the most capable one you can imagine needing. You can always add a larger unit later if you expand into spray work or production use.</p>
+
+  <hr class="divider">
+
+  <p>Before buying, inventory which tools you intend to run and look up their CFM requirements. Add the CFM of any tools you might run simultaneously. That sum &mdash; padded by 20&ndash;25% &mdash; is your target delivery rate. Then size tank and motor around it. Most home shops land squarely in the 20&ndash;30 gallon, 5&ndash;6 CFM range.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/shop-lighting/">Shop Lighting: How to See What You're Doing <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/tool-storage/">Tool Storage That Actually Works <span>Shop Setup &rarr;</span></a>
+      <a class="related-link" href="/workshop/impact-driver-wrench/">Impact Driver vs. Impact Wrench <span>Shop Tools &rarr;</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. &copy; Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

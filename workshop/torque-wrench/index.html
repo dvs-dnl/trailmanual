@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Torque Wrenches: How to Choose and Use Them Correctly — The Workshop · Trail Manual</title>
+<meta name="description" content="How to choose, set, and use a torque wrench correctly. Click vs. beam vs. digital, storage, calibration, and why torque specs exist in the first place.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Torque Wrenches: How to Choose and Use Them Correctly</h1>
+    <p class="lede">Torque specs exist for a reason, and "tight enough" is not a substitute for a calibrated wrench. This guide covers what torque actually does, which wrench type belongs in a DIY shop, and the mistakes that turn a $40 tool into a stripped-out repair bill.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>7 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Buy a 3/8" drive click-style torque wrench for most jobs, and a 1/2" drive for lug nuts and suspension work. Set the dial to spec, apply steady pressure until it clicks, and stop. Dial it back to minimum before you put it away. Have it calibrated every two years or after any impact or drop.</p>
+  </div>
+
+  <h2>Why Torque Specs Exist</h2>
+  <p>Torque specs are about clamping force — the tension pulling two mating surfaces together through a fastener. When you tighten a bolt, you're stretching it slightly. That stretch creates tension, and that tension is what holds the joint together. Too little torque and the bolt works loose from vibration. Too much and you stretch the bolt past its yield point, strip the threads, or crush a gasket.</p>
+
+  <p>This is especially critical in a few situations: cylinder head bolts (where clamping force determines head gasket integrity), lug nuts (where uneven or insufficient torque causes rotor warping and, in worst cases, wheel separation), and suspension components (where under-torqued fasteners work loose on the trail).</p>
+
+  <p>The torque spec in your service manual accounts for the fastener grade, material of the mating surface, thread pitch, and expected operating conditions. When you substitute feel for spec, you're guessing on all of those variables at once.</p>
+
+  <h2>Click vs. Beam vs. Digital: An Honest Comparison</h2>
+
+  <h3>Click Wrenches</h3>
+  <p>The standard for most DIY work. You dial in the target torque, apply pressure to the fastener, and when you reach the set value the wrench clicks and the handle breaks away slightly. The feedback is unmistakable. Click wrenches are accurate from about 20% to 100% of their rated range — meaning a 10–80 ft-lb wrench shouldn't be used below 16 ft-lb, where the spring mechanism is unreliable.</p>
+  <p>They require some maintenance: they can go out of calibration if dropped, and they must be stored at minimum setting (more on this below). But for the average home shop, a quality click wrench covers everything from spark plugs to lug nuts.</p>
+
+  <h3>Beam Wrenches</h3>
+  <p>A beam wrench is a long flex bar with a pointer that indicates torque on a fixed scale. There is no spring mechanism. They never go out of calibration from storage because there's nothing to store under tension. They're accurate, they're cheap, and they work. The downside is ergonomics: you have to see the scale while applying torque, which is awkward in tight spaces and requires more focus to read correctly.</p>
+  <p>If you're budget-constrained or you distrust your ability to maintain a click wrench, a beam wrench is a legitimate choice. Professionals who need verifiable accuracy sometimes prefer them precisely because they have no calibration drift.</p>
+
+  <h3>Digital (Electronic) Wrenches</h3>
+  <p>Digital torque wrenches display torque in real time on an LCD screen and often beep or flash when you reach the target. They're accurate and offer features like multiple units and angle measurement. They're also expensive — typically $80–$200+ for a quality unit — and they require batteries that die at inconvenient times.</p>
+  <p>For most DIY shops, a digital wrench is unnecessary. The click wrench does the same job for less money. If you're doing angle-torque specifications (common on modern aluminum engine fasteners), the digital angle feature is genuinely useful — but that's a specific use case, not a general reason to buy one.</p>
+
+  <h2>How to Use a Click Wrench Correctly</h2>
+  <p>The procedure matters. Doing it wrong produces inaccurate results even with a good wrench.</p>
+
+  <ol>
+    <li><strong>Start the fastener by hand.</strong> Thread it in until snug before the torque wrench touches it. Using a torque wrench to drive fasteners wastes the wrench's calibrated range on the low end and adds unnecessary wear.</li>
+    <li><strong>Dial to the specified torque.</strong> Most click wrenches have a handle you twist and a locking collar you tighten to hold the setting. Set it before picking up the wrench — don't estimate partway through.</li>
+    <li><strong>Apply slow, steady pressure.</strong> Smooth, continuous pull — not jerky movements. The click is a pressure-release mechanism; sudden movements can trigger a false click or mask whether you hit the target.</li>
+    <li><strong>Stop at the click.</strong> The wrench clicks when it reaches the set torque. Stop pulling the moment you feel and hear it. Continuing past the click applies additional torque — the spec is what the spec is, not a minimum to exceed.</li>
+    <li><strong>Dial back to minimum before storing.</strong> This is the most commonly skipped step. The click mechanism uses an internal spring; storing it at any setting other than minimum keeps that spring under constant compression, which causes fatigue over time and puts the wrench out of calibration. Every time. No exceptions.</li>
+  </ol>
+
+  <div class="panel warn">
+    <div class="panel-label">Storage matters</div>
+    <p>A click torque wrench left at a mid-range setting in a toolbox will gradually go out of calibration. The spring loses tension under constant load. After a year or two of improper storage, a wrench that reads 80 ft-lb might be applying 70 or 90. Always dial to minimum (usually marked as "0" or "MIN") before putting it away.</p>
+  </div>
+
+  <h2>Drive Sizes and What They Cover</h2>
+  <p><strong>3/8" drive</strong> is the workhorse for most under-hood and interior work. Spark plugs, valve covers, intake manifolds, brake calipers, and most bolts in the 15–80 ft-lb range. This is the drive size to buy first.</p>
+
+  <p><strong>1/2" drive</strong> is for lug nuts, suspension bolts, axle hardware, and any fastener that requires more than about 100 ft-lb. Lug nuts on most trucks spec between 85–130 ft-lb; a 1/2" drive wrench handles that range comfortably. A 3/8" drive wrench rated to 100 ft-lb will physically produce that torque, but the handle will be longer and more awkward — the 1/2" drive is the right tool for the job.</p>
+
+  <p><strong>1/4" drive</strong> torque wrenches exist for small fasteners — interior trim screws, sensor housings, delicate aluminum components — typically in the 5–30 in-lb range. Most DIYers don't need one until they're doing detailed engine work. It's a third wrench, not a first.</p>
+
+  <h2>Unit Conversion: Ft-lb and N·m</h2>
+  <p>Service manuals from different eras and manufacturers use either foot-pounds (ft-lb) or Newton-meters (N·m). The conversion is straightforward:</p>
+  <ul>
+    <li><strong>Ft-lb to N·m:</strong> multiply by 1.356 (80 ft-lb = 108.5 N·m)</li>
+    <li><strong>N·m to ft-lb:</strong> multiply by 0.738 (110 N·m = 81.2 ft-lb)</li>
+  </ul>
+  <p>Most quality torque wrenches have both scales marked. If yours only has one, keep a conversion chart in your service manual or use the calculator in your phone — don't estimate.</p>
+
+  <h2>Calibration: When and How</h2>
+  <p>A click torque wrench should be calibrated every 5,000 cycles or every two years, whichever comes first — and immediately after any significant impact or drop. Professional calibration services exist (tool dealers and metrology labs), but you can do a rough check at home.</p>
+
+  <p>Home calibration check: hang a known weight (in pounds) from the square drive at a measured distance (in feet) from the drive center. The torque equals weight × distance. If you hang a 20 lb weight 2 feet from the drive, you should be applying 40 ft-lb. Set the wrench to 40 ft-lb and verify it clicks. This method has limitations — it's not certified calibration — but it tells you whether you're way off.</p>
+
+  <div class="panel info">
+    <div class="panel-label">When calibration really matters</div>
+    <p>Calibration matters most on critical fasteners: cylinder head bolts, rod and main bearing caps, lug nuts. For most other applications — drain plugs, valve covers, intake bolts — a wrench that's 5–10% off is unlikely to cause a failure. If you're doing engine rebuilds, get it calibrated professionally. If you're doing routine maintenance, a home check is adequate.</p>
+  </div>
+
+  <h2>What Over-Torquing Does to Aluminum</h2>
+  <p>Steel fasteners into steel have a margin. You can slightly over-torque a steel bolt in a steel block and the consequences are survivable — a stretched bolt, maybe a failed fastener eventually. Aluminum is different.</p>
+
+  <p>Over-torquing aluminum threads pulls them. The threads strip out of the bore, and the repair is a thread insert (Heli-Coil or Time-Sert) — which is doable but takes more time and skill, and has to be done correctly or the problem repeats. On valve covers, oil pans, intake manifolds, and sensor ports, this is a common and expensive outcome of skipping the torque wrench.</p>
+
+  <p>Aluminum also cold-welds to steel fasteners under certain conditions. This is why aluminum head bolts (used in some modern engines) should not be reused — the spec accounts for new bolt elasticity, and a reused bolt is already stretched past its yield point before you start.</p>
+
+  <hr class="divider">
+  <p>If you don't own a torque wrench yet, start with a 3/8" drive click wrench covering roughly 10–80 ft-lb and a 1/2" drive click wrench in the 25–250 ft-lb range. Those two tools cover the majority of work on any light truck or SUV. Add a 1/4" drive wrench when you encounter fasteners that genuinely require one.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/socket-set-guide/"><span>Socket Sets: What You Actually Need</span><span>Read →</span></a>
+      <a class="related-link" href="/workshop/impact-driver-wrench/"><span>Impact Driver vs. Impact Wrench: What Each One Actually Does</span><span>Read →</span></a>
+      <a class="related-link" href="/workshop/reading-torque-specs/"><span>Reading Torque Specs and Fastener Grades</span><span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

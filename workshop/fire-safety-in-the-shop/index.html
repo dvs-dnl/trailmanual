@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fire Safety in the Shop — The Workshop · Trail Manual</title>
+<meta name="description" content="Shop fire prevention for DIY mechanics: what burns fast, how to store chemicals safely, extinguisher requirements, and what to do if a fire starts.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="safety-badge">⚠ Safety critical</div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>Fire Safety in the Shop</h1>
+    <p class="lede">A garage has every ingredient a fire needs: fuel sources, ignition sources, and often poor ventilation. Most shop fires are preventable — but only if you understand what actually burns and why.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>10 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Mount a minimum 5 lb ABC-rated fire extinguisher somewhere visible and accessible in your shop — not stored in a cabinet. Know the PASS technique before you need it. Keep aerosol solvents away from heat sources, store oily rags in a sealed metal container, and never bring a running engine indoors.</p>
+    <p>A shop fire can go from containable to total loss in under two minutes. The preparation happens before the fire, not during it.</p>
+  </div>
+
+  <h2>Why Garages Are High-Risk Environments</h2>
+  <p>Fire needs three things: fuel, heat, and oxygen. A working garage has all three in abundance, often closer together than you'd find in most other spaces.</p>
+  <p>The fuel sources are obvious — gasoline, brake cleaner, penetrating oil, carburetor cleaner, paint, and the vehicle itself. What's less obvious is the form those fuels take. <strong>Gasoline vapor ignites at concentrations as low as 1.4% in air</strong> — well below what you can smell. A small fuel spill in a closed garage builds vapor concentration quickly. The liquid doesn't ignite; the vapor does.</p>
+  <p>Ignition sources in a garage are everywhere: angle grinders throw sparks, soldering irons and heat guns stay hot long after you set them down, battery terminals arc when connections are made, and a single static discharge can be enough near a vapor source.</p>
+  <p>Ventilation is the variable most garages get wrong. A closed garage doesn't disperse vapor — it collects it. Solvent vapors are heavier than air, which means they pool at floor level and spread toward ignition sources (water heaters, furnaces, power tool motors) that you may not even be thinking about.</p>
+
+  <h2>What Burns Fast: The Specific Hazards</h2>
+
+  <h3>Aerosol Solvents</h3>
+  <p>Brake cleaner, carburetor cleaner, and throttle body cleaner are some of the most flammable materials in a typical shop. The aerosol propellant makes them worse — you're spraying a fine mist of flammable vapor into the air around a hot engine or near a grinder. The flash point of most chlorinated brake cleaners is well below room temperature, and the non-chlorinated varieties are even more flammable.</p>
+  <p>Never spray brake cleaner near anything that could produce heat or spark. That includes running engines, grinders, soldering irons, and even fluorescent shop lights with aging ballasts.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Critical hazard — brake cleaner and welding gas</div>
+    <p>Non-chlorinated brake cleaner in the presence of argon or CO2 shielding gas (used in MIG welding) can produce phosgene — a toxic gas that causes severe lung damage. Keep brake cleaner and welding operations completely separated. Never spray brake cleaner to clean a part you're about to weld, and never weld in an area where brake cleaner has recently been used.</p>
+  </div>
+
+  <h3>Oily Rags and Spontaneous Combustion</h3>
+  <p>This one surprises people, but it is thoroughly documented: rags soaked in linseed oil, certain gear oils, and some penetrating oils can self-ignite if bunched in a pile. The oxidation process generates heat, and a compressed pile of rags can't dissipate that heat fast enough. The result is a fire that starts without any external ignition source, sometimes hours after you've left the shop.</p>
+  <p>Used rags belong in a sealed metal container — not a plastic bin, not a pile in the corner, not a paper bag. Metal containers rated for oily waste are available at hardware stores and cost less than your first emergency room visit.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Gasoline storage</div>
+    <p>Store gasoline only in approved containers with sealed caps, away from heat sources. A single gallon of gasoline has the explosive energy equivalent of several sticks of dynamite — the vapor, not the liquid. Don't store more than you need, and never store gas near a water heater or furnace with a standing pilot light.</p>
+  </div>
+
+  <h2>Your Fire Extinguisher: What You Need and Where to Put It</h2>
+  <p>You need a minimum 5 lb ABC-rated dry chemical extinguisher. "ABC" means it handles ordinary combustibles (A), flammable liquids (B), and electrical fires (C). All three categories apply to a garage. A 5 lb unit gives you roughly 10–15 seconds of discharge — enough to address a small, contained fire. A 10 lb unit is better and worth the small additional cost.</p>
+  <p><strong>Mount it on the wall in a visible, accessible location.</strong> Not in a cabinet under the workbench. Not in the corner behind the spare tire stack. If you have to move things to reach it, it will not be where you need it when you need it. Mount it near an exit so you approach the fire from a position where you can also retreat.</p>
+  <p>Know the PASS technique before you need it:</p>
+  <ul>
+    <li><strong>Pull</strong> the safety pin</li>
+    <li><strong>Aim</strong> at the base of the fire, not the flames</li>
+    <li><strong>Squeeze</strong> the handle to discharge</li>
+    <li><strong>Sweep</strong> side to side across the base of the fire</li>
+  </ul>
+  <p>After any use — even a brief test discharge — the extinguisher needs to be recharged or replaced. A partially discharged extinguisher has lost pressure and cannot be trusted to fully deploy when needed. Check the pressure gauge periodically; the needle should be in the green zone.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Never use water</div>
+    <p>Water on a chemical or electrical fire makes things worse. Water conducts electricity and can cause an electrical fire to arc toward you. Water on a burning liquid (gasoline, oil) spreads the fire by spattering burning fuel. Use a rated extinguisher, not a garden hose.</p>
+  </div>
+
+  <h2>Fuel System Work: Additional Rules</h2>
+  <p>Any time you're opening the fuel system — dropping a tank, replacing injectors, disconnecting fuel lines — the risk profile changes significantly. Fuel under pressure can spray in a fine mist that ignites at any ignition source nearby.</p>
+  <p>The rules for fuel work:</p>
+  <ul>
+    <li>No open flames within 10 feet of any open fuel fitting</li>
+    <li>Let the engine cool completely before opening any part of the fuel system — hot exhaust manifolds and catalytic converters are effective ignition sources</li>
+    <li>Work outdoors or with the garage door fully open and a fan moving air out of the workspace</li>
+    <li>Have dry rags within reach before you open any fuel line — catch drips immediately, don't let them pool</li>
+    <li>Depressurize the fuel system before disconnecting any fitting (consult your service manual for the procedure — it usually involves pulling the fuel pump fuse and cranking until the engine stalls)</li>
+  </ul>
+
+  <h2>If a Fire Starts</h2>
+  <p>The decision you have to make is fast and binary: is this small, contained, and within reach of your extinguisher — or is it not?</p>
+  <p>A fire that is still in its origin point, has not spread to adjacent surfaces or materials, and has not produced significant smoke is a candidate for extinguisher use. Approach from the side nearest an exit, use PASS, and be ready to retreat the moment it stops responding to the extinguisher.</p>
+  <p>Anything larger than that — fire in multiple locations, fire that has reached stored chemicals or a vehicle's fuel system, fire producing heavy black smoke — is not a shop extinguisher scenario. Get out, close the garage door behind you to slow oxygen supply, and call 911 from outside.</p>
+
+  <div class="panel info">
+    <div class="panel-label">Closing the door matters</div>
+    <p>A closed garage door significantly slows a fire's access to fresh oxygen. It can be the difference between a contained structure fire and a total loss. Get out, close the door, call 911. Do not go back in.</p>
+  </div>
+
+  <hr class="divider">
+  <p>If your shop doesn't have a mounted, accessible fire extinguisher today, that's the first thing to fix before your next project. Check the mounting hardware on any extinguisher you already own, verify the pressure gauge is in the green, and walk yourself through where it is relative to your exits.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/chemical-handling/">Chemical Handling and Ventilation <span>Read →</span></a>
+      <a class="related-link" href="/workshop/working-under-a-vehicle/">Working Under a Vehicle Safely <span>Read →</span></a>
+      <a class="related-link" href="/workshop/battery-and-electrical-safety/">Battery and Electrical Safety <span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jeep Cherokee XJ Lift Kit Guide — How Much Lift Do You Actually Need?</title>
+<meta name="description" content="The honest guide to XJ lift kits: budget boost vs. 3-inch vs. 4.5-inch vs. long arm. What each costs, what it requires, and which is right for your build.">
+<meta property="og:title" content="Jeep Cherokee XJ Lift Kit Guide — How Much Lift Do You Actually Need?">
+<meta property="og:description" content="The honest guide to XJ lift kits: budget boost vs. 3-inch vs. 4.5-inch vs. long arm. What each costs, what it requires, and which is right for your build.">
+<style>
+  :root{
+    --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+    --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+    --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+    --accent:#c5a572;
+    --accent-2:#7a8c4f;
+    --accent-3:#b86e3a;
+    --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+    --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+    --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+    --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+    --radius:8px; --radius-lg:12px;
+    --shadow:0 4px 24px rgba(0,0,0,.35);
+    --max:800px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Topbar */
+  .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+  .topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+  .brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px;letter-spacing:-.5px}
+  .brand-text{font-size:16px;letter-spacing:-.2px}
+  .brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+  .back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px;background:transparent}
+  .back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+
+  /* Layout */
+  .page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+
+  /* Hero */
+  .hero{background:linear-gradient(135deg,#1a1f1a 0%,#181620 50%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:32px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.12) 0%,transparent 70%)}
+  .hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+  .hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative;max-width:680px}
+  .hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+  .hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap;position:relative}
+  .meta-pill{font-size:12px;color:var(--text-mute);display:flex;align-items:center;gap:5px}
+  .meta-pill strong{color:var(--text-dim)}
+
+  /* Verdict box */
+  .verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+  .verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+  .verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+  .verdict p + p{margin-top:10px}
+
+  /* Article body */
+  h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+  h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+  p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+  p strong{color:var(--text)}
+  ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+  li{margin-bottom:6px;line-height:1.6}
+  li strong{color:var(--text)}
+
+  /* Section divider */
+  .section-divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+
+  /* Panel cards */
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+  .panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+  .panel.good{background:var(--good-bg);border-color:var(--good-border)}
+  .panel.info{background:var(--info-bg);border-color:var(--info-border)}
+  .panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+  .panel-icon{font-size:20px;margin-bottom:6px}
+  .panel h4{margin:0 0 8px;font-size:14px;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  .panel.warn h4{color:var(--warn)}
+  .panel.good h4{color:var(--good)}
+  .panel.info h4{color:var(--info)}
+  .panel.danger h4{color:var(--danger)}
+  .panel p{margin:0;font-size:14px;line-height:1.6}
+  .panel p + p{margin-top:8px}
+
+  /* Lift tier cards */
+  .tier-grid{display:grid;gap:14px;margin:20px 0}
+  .tier{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px}
+  .tier-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .tier-name{font-size:17px;font-weight:700;letter-spacing:-.2px}
+  .tier-tag{font-size:11px;padding:3px 9px;border-radius:10px;font-weight:600;border:1px solid}
+  .tier-tag.budget{color:var(--warn);background:var(--warn-bg);border-color:var(--warn-border)}
+  .tier-tag.popular{color:var(--good);background:var(--good-bg);border-color:var(--good-border)}
+  .tier-tag.advanced{color:var(--info);background:var(--info-bg);border-color:var(--info-border)}
+  .tier-tag.serious{color:var(--accent);background:rgba(197,165,114,.1);border-color:rgba(197,165,114,.3)}
+  .tier p{margin:0 0 12px;font-size:14px;color:var(--text-dim);line-height:1.6}
+  .tier-specs{display:flex;gap:20px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--border)}
+  .tier-spec{font-size:12px}
+  .tier-spec .label{color:var(--text-mute);text-transform:uppercase;letter-spacing:.4px;display:block;margin-bottom:2px}
+  .tier-spec .val{color:var(--text);font-weight:600}
+
+  /* Kit comparison table */
+  .kit-table{width:100%;border-collapse:collapse;font-size:13px;margin:20px 0}
+  .kit-table th{text-align:left;padding:10px 12px;background:var(--bg-3);color:var(--text-mute);font-weight:600;text-transform:uppercase;letter-spacing:.4px;font-size:11px;border-bottom:1px solid var(--border)}
+  .kit-table td{padding:12px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top}
+  .kit-table tr:last-child td{border-bottom:0}
+  .kit-table tr:hover td{background:var(--bg-2)}
+  .kit-table .kit-name{color:var(--text);font-weight:600}
+  .kit-table .kit-price{color:var(--accent);font-weight:700;white-space:nowrap}
+  .kit-table .rating{display:flex;gap:2px}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--border);display:inline-block}
+  .dot.on{background:var(--accent)}
+  .best-for{font-size:11px;color:var(--text-mute);margin-top:4px}
+  .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-lg)}
+
+  /* Geometry requirements */
+  .geo-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin:20px 0}
+  .geo-cell{background:var(--panel);padding:14px 16px}
+  .geo-cell.header{background:var(--bg-3);font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);font-weight:700}
+  .geo-cell.lift-label{font-weight:700;color:var(--text);font-size:14px}
+  .geo-req{font-size:12px;display:flex;align-items:center;gap:5px;margin-bottom:5px;line-height:1.4}
+  .geo-req:last-child{margin-bottom:0}
+  .geo-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+  .req{background:var(--warn)}
+  .opt{background:var(--info);opacity:.7}
+  .no{background:var(--border)}
+  @media(max-width:640px){
+    .geo-row{grid-template-columns:1fr 1fr;}.geo-cell.header:nth-child(3),.geo-cell.header:nth-child(4){display:none}
+  }
+
+  /* Next steps */
+  .next-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0}
+  .next-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;display:block;color:var(--text);transition:border-color .15s}
+  .next-card:hover{border-color:var(--accent);text-decoration:none}
+  .next-card .nc-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin-bottom:4px}
+  .next-card .nc-title{font-weight:600;font-size:15px;color:var(--text)}
+  .next-card .nc-desc{font-size:13px;color:var(--text-dim);margin-top:4px;line-height:1.5}
+  @media(max-width:580px){.next-grid{grid-template-columns:1fr}}
+
+  /* Pull quote */
+  .pull{border-left:3px solid var(--accent);padding:12px 18px;margin:24px 0;background:var(--panel);border-radius:0 var(--radius) var(--radius) 0}
+  .pull p{margin:0;font-size:15px;color:var(--text);font-style:italic;line-height:1.65}
+
+  /* Footer */
+  .footer{padding:30px 20px 24px;text-align:center;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
+  .footer .disclaimer{max-width:640px;margin:0 auto;line-height:1.6}
+
+  /* Mobile */
+  @media(max-width:640px){
+    .page{padding:16px 14px 60px}
+    .hero{padding:24px 18px}
+    .hero h1{font-size:24px}
+    .topbar-inner{padding:10px 14px}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">TM</div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Jeep Cherokee XJ · Suspension</div>
+      </div>
+    </div>
+    <a href="database.html" class="back-link">← Back to Database</a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">Build Guide · Jeep Cherokee XJ</div>
+    <h1>How Much Lift Does a Jeep Cherokee XJ Actually Need?</h1>
+    <p class="lede">Every new XJ owner asks the same question. The answer depends on what you're building — and most people start with more lift than they need, or the wrong kind entirely.</p>
+    <div class="hero-meta">
+      <span class="meta-pill">⏱ <strong>10 min read</strong></span>
+      <span class="meta-pill">🚙 <strong>XJ 1984–2001</strong></span>
+      <span class="meta-pill">🔧 <strong>All skill levels</strong></span>
+    </div>
+  </div>
+
+  <!-- Verdict -->
+  <div class="verdict">
+    <div class="verdict-label">The Short Answer</div>
+    <p><strong>A 3-inch short-arm lift is the right starting point for most XJ builds.</strong> It clears 31s without issue, fits 32s with minor trimming, handles daily driving and mild trail use, and doesn't demand the extra hardware (slip yoke eliminator, caster correction, long-travel shocks) that a 4.5-inch lift requires.</p>
+    <p>If you're building a dedicated rock crawler, a 4.5-inch or long-arm system makes sense. If you haven't wheeled yet and you're not sure how far you want to go, start at 3 inches. You can always go higher later — going back down wastes money.</p>
+  </div>
+
+  <!-- Intro -->
+  <p>The XJ lift kit market has more options than it deserves. Budget boosts, spring packs, short arm, long arm, 2 inches, 3 inches, 4.5 inches, 5.5 inches — and a half-dozen brands competing at each height. If you're new to the platform, the noise is paralyzing.</p>
+
+  <p>This guide cuts through it. We'll cover each lift height honestly — what it costs, what it actually does, what geometry work it demands, and which kit we'd buy at each level. We're pulling directly from the XJ-specific guides in our database, so the numbers and part numbers are real.</p>
+
+  <hr class="section-divider">
+
+  <!-- Section: The Heights -->
+  <h2>The Four Lift Heights Worth Knowing</h2>
+
+  <p>XJ lifts cluster into four practical tiers. There's technically more variation within each — a "3-inch" from Rough Country rides nothing like a "3-inch" from Iron Rock Off Road — but the tiers define what hardware each height demands and what tires it supports.</p>
+
+  <div class="tier-grid">
+
+    <div class="tier">
+      <div class="tier-header">
+        <div class="tier-name">Budget Boost — 2 inches</div>
+        <span class="tier-tag budget">Dead End</span>
+      </div>
+      <p>Polyurethane front coil spacers plus an add-a-leaf (AAL) in the rear. Cheap. Fast to install. And for most builds, a mistake.</p>
+      <p>The problem isn't that it doesn't work — it does, barely. The problem is what it does to your suspension. Spacers stack preload on already-tired stock coils, which is often why XJs sag in the first place. The AAL stiffens the rear leaf pack, killing ride quality and articulation. You'll get some tire clearance, but you're building on a weak foundation.</p>
+      <p>The budget boost makes sense in exactly one case: you need <em>slightly</em> more clearance on a tight budget and you plan to do a proper lift within a year. Otherwise, spend the extra $400 and do the 3-inch from the start.</p>
+      <div class="tier-specs">
+        <div class="tier-spec"><span class="label">Cost</span><span class="val">$120–$300</span></div>
+        <div class="tier-spec"><span class="label">Tire clearance</span><span class="val">30s, marginal 31s</span></div>
+        <div class="tier-spec"><span class="label">Install time</span><span class="val">4–8 hours</span></div>
+        <div class="tier-spec"><span class="label">Geometry work</span><span class="val">None required</span></div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <div class="tier-name">3-Inch Short Arm</div>
+        <span class="tier-tag popular">Most Builds</span>
+      </div>
+      <p>New replacement front coils, a full rear leaf pack (or AAL on budget kits), and extended shocks. This is where the XJ suspension market really lives — there are at least six legitimate kits at this height.</p>
+      <p>At 3 inches, you can clear 31x10.50s without touching the fenders, and 32x11.50s with a fender trim. That covers most trail use. You'll need extended brake lines, and a track bar relocation or adjustable bar helps — but isn't strictly required. A slip yoke eliminator is optional at 3 inches on most rigs.</p>
+      <p>The ride difference between a $500 Rough Country kit and a $1,400 Iron Rock Off Road kit is real and significant. More on that below.</p>
+      <div class="tier-specs">
+        <div class="tier-spec"><span class="label">Cost</span><span class="val">$450–$1,900</span></div>
+        <div class="tier-spec"><span class="label">Tire clearance</span><span class="val">31s clean, 32s with trim</span></div>
+        <div class="tier-spec"><span class="label">Install time</span><span class="val">8–18 hours</span></div>
+        <div class="tier-spec"><span class="label">Geometry work</span><span class="val">Track bar, brake lines</span></div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <div class="tier-name">4.5-Inch Short Arm</div>
+        <span class="tier-tag advanced">Trail / Overland</span>
+      </div>
+      <p>This height clears 33s reliably and opens up 35s with bodywork. It's the right choice for dedicated trail rigs, overland builds with a roof tent and rear storage, or anyone planning to run 33-inch tires long-term.</p>
+      <p>The catch: 4.5 inches demands more. Caster drops 3+ degrees and requires correction (offset ball joint sleeves or cam-correction bolts). A slip yoke eliminator and CV rear driveshaft become effectively mandatory — the factory two-piece rear shaft will vibrate badly at this height. You're looking at an extra $550–$700 in SYE + driveshaft costs alone.</p>
+      <p>If you're doing 4.5 inches, budget for the whole package: lift, SYE/CV shaft, caster correction, extended brake lines, and an adjustable track bar. Anything less and you'll be chasing problems.</p>
+      <div class="tier-specs">
+        <div class="tier-spec"><span class="label">Cost (kit only)</span><span class="val">$1,000–$2,200</span></div>
+        <div class="tier-spec"><span class="label">Tire clearance</span><span class="val">33s, 35s with mods</span></div>
+        <div class="tier-spec"><span class="label">Install time</span><span class="val">16–24 hours</span></div>
+        <div class="tier-spec"><span class="label">Geometry work</span><span class="val">SYE required, caster correction</span></div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-header">
+        <div class="tier-name">Long Arm (3"–5.5")</div>
+        <span class="tier-tag serious">Rock Crawlers</span>
+      </div>
+      <p>A long-arm conversion replaces the factory short upper and lower control arms with longer arms that mount to relocated brackets on the frame. The longer arms reduce the pinion angle change at ride height and dramatically increase droop travel — which means more axle articulation on the trail.</p>
+      <p>Long arm is not a beginner upgrade. It's more expensive ($3,000–$7,000 installed), requires significant fabrication or well-fitting brackets, and makes daily driving alignment more critical. It's the right call for dedicated rock crawlers running 35s+ who need every inch of travel.</p>
+      <p>For reference: an IRO 3-inch short arm can be upgraded to their ROCK-LINK long arm later by buying the conversion brackets — a reasonable way to get into short arm now and go long arm when the budget and the build demand it.</p>
+      <div class="tier-specs">
+        <div class="tier-spec"><span class="label">Cost</span><span class="val">$2,000–$5,000+</span></div>
+        <div class="tier-spec"><span class="label">Tire clearance</span><span class="val">35s, 37s with prep</span></div>
+        <div class="tier-spec"><span class="label">Install time</span><span class="val">Full weekend+</span></div>
+        <div class="tier-spec"><span class="label">Geometry work</span><span class="val">Full geometry refresh</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section: 3-inch comparison -->
+  <h2>Which 3-Inch Kit? Comparing the Main Options</h2>
+
+  <p>Most XJ owners are shopping the 3-inch market. Here's an honest side-by-side of the four kits we'd actually consider — and one we'd skip.</p>
+
+  <div class="table-wrap">
+    <table class="kit-table">
+      <thead>
+        <tr>
+          <th>Kit</th>
+          <th>Cost</th>
+          <th>Rear Spring</th>
+          <th>Ride Quality</th>
+          <th>Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="kit-name">Rough Country 3" X-Series</div>
+            <div class="best-for">PN 633XN2</div>
+          </td>
+          <td class="kit-price">$450–700</td>
+          <td>Add-a-leaf</td>
+          <td>
+            <div class="rating">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="best-for">Stiff, harsh on pavement</div>
+          </td>
+          <td>Tight budgets or a stepping stone</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="kit-name">Rusty's 3" Spring Pack</div>
+            <div class="best-for">RK-303A-XJ</div>
+          </td>
+          <td class="kit-price">$700–1,100</td>
+          <td>Full leaf pack</td>
+          <td>
+            <div class="rating">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="best-for">Softer than RC, coils sag over time</div>
+          </td>
+          <td>Daily drivers, mild trail</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="kit-name">Old Man Emu 3" (OME)</div>
+            <div class="best-for">939 coils + CS013R pack</div>
+          </td>
+          <td class="kit-price">$1,000–1,500</td>
+          <td>Full leaf pack</td>
+          <td>
+            <div class="rating">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span>
+            </div>
+            <div class="best-for">Best on-road ride at this height</div>
+          </td>
+          <td>Overland, daily drivers with load</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="kit-name">Iron Rock Off Road 3"</div>
+            <div class="best-for">XJ-3-SA</div>
+          </td>
+          <td class="kit-price">$1,300–1,900</td>
+          <td>Full leaf pack</td>
+          <td>
+            <div class="rating">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span>
+            </div>
+            <div class="best-for">Stiffer than OME, carries steel bumpers well</div>
+          </td>
+          <td>Trail-focused, steel bumper builds, upgrade path to long arm</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel info">
+    <div class="panel-icon">ℹ️</div>
+    <h4>The AAL vs. Full Leaf Pack Distinction Matters</h4>
+    <p>An add-a-leaf wedges into your existing leaf pack and stiffens it. A full leaf pack replaces the whole thing. Full packs articulate better, hold their arch longer, and ride more predictably. The Rough Country kit uses an AAL at 3 inches — every other kit worth buying uses a full pack. If you're debating between the RC kit and anything above it, this is the biggest real difference.</p>
+  </div>
+
+  <div class="pull">
+    <p>"OME is the ride-quality benchmark. IRO is the build-quality benchmark. RC is the budget benchmark. If you need to pick one and you're not on a hard budget ceiling, OME for daily/overland, IRO for trail with a steel bumper."</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section: Geometry -->
+  <h2>What Each Height Actually Requires</h2>
+
+  <p>No lift kit comes with everything you need. Here's what each height demands beyond the kit itself — and what's optional versus required.</p>
+
+  <div class="geo-row">
+    <div class="geo-cell header"></div>
+    <div class="geo-cell header">2" Boost</div>
+    <div class="geo-cell header">3" Short Arm</div>
+    <div class="geo-cell header">4.5" Short Arm</div>
+
+    <div class="geo-cell lift-label">Extended brake lines</div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot no"></span><span>Not needed</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Required</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Required</span></div>
+    </div>
+
+    <div class="geo-cell lift-label">Track bar / relocation</div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot no"></span><span>Not needed</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot opt"></span><span>Recommended</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Required</span></div>
+    </div>
+
+    <div class="geo-cell lift-label">Transfer case drop</div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot no"></span><span>Not needed</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Included in most kits</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Required</span></div>
+    </div>
+
+    <div class="geo-cell lift-label">SYE + CV driveshaft</div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot no"></span><span>Not needed</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot opt"></span><span>Optional (automatics more likely to need it)</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Effectively required</span></div>
+    </div>
+
+    <div class="geo-cell lift-label">Caster correction</div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot no"></span><span>Not needed</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot opt"></span><span>Optional (helps steering feel)</span></div>
+    </div>
+    <div class="geo-cell">
+      <div class="geo-req"><span class="geo-dot req"></span><span>Required for alignment</span></div>
+    </div>
+  </div>
+
+  <div class="panel warn">
+    <div class="panel-icon">⚠️</div>
+    <h4>Budget for the Full System, Not Just the Kit</h4>
+    <p>A 4.5-inch kit listed at $1,400 is really a $2,200–2,600 project once you add extended brake lines, the SYE and CV driveshaft, caster correction sleeves, and an adjustable track bar. Build your budget around the whole system — not just the lift — or you'll be doing the job twice.</p>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Section: Which is right for you -->
+  <h2>Which One Is Right for Your Build?</h2>
+
+  <h3>Start here: What tires do you actually want to run?</h3>
+  <p>Tire size drives everything else. The right lift for a rig running 31-inch all-terrains is completely different from the right lift for a rig that needs to clear 35-inch muds. If you're not sure what tires you want, pick 33s — they're the sweet spot for XJ builds that see real trails, fit well at 4 inches, and don't require the axle work that 35s demand.</p>
+
+  <ul>
+    <li><strong>30–31 inch tires:</strong> Budget boost or 3-inch. No fender work required.</li>
+    <li><strong>32–33 inch tires:</strong> 3-inch (32s with trim) or 4.5-inch (33s without trim).</li>
+    <li><strong>35 inch tires:</strong> 4.5-inch with significant fender work, or long arm with full prep.</li>
+    <li><strong>37 inch tires:</strong> Long arm, full axle work, body mounts, fenders. Budget $10k+.</li>
+  </ul>
+
+  <h3>Daily driver or dedicated trail rig?</h3>
+  <p>If this XJ commutes five days a week and hits the trail on weekends, OME at 3 inches is the answer. Ride quality on pavement is noticeably better than any other kit at this height, the progressive coils handle load variation well, and it holds up to everyday use.</p>
+  <p>If the XJ lives on a trailer and only comes out for wheeling, skip OME and go IRO or RockKrawler — the slightly stiffer setup performs better when you're asking for articulation under load.</p>
+
+  <h3>Do you have a steel front bumper and winch?</h3>
+  <p>Add that weight before you pick a coil. A steel bumper plus a winch can add 150–200 lbs to the front axle. Stock-rate coils and soft coils (like OME Medium) will sag under that load. If you're running a steel bumper, you need HD coils — OME Heavy (PN 939), IRO HD coils, or RockKrawler triple-rate coils. Order the HD version or you'll be re-doing the front coils within a year.</p>
+
+  <hr class="section-divider">
+
+  <!-- Section: What to do next -->
+  <h2>What to Do Next</h2>
+
+  <p>Once you've picked a lift height, the next step is planning the full parts list before you order anything. Kits arrive piecemeal and the geometry corrections are sometimes backordered — having everything on the bench before the XJ goes in the air saves a lot of grief.</p>
+
+  <p>The XJ database has individual guides for each of the kits mentioned here, plus separate guides on the geometry corrections (SYE, track bar, caster correction) that give you the full install detail, torque specs, and common mistakes.</p>
+
+  <div class="next-grid">
+    <a href="database.html?vehicle=xj&category=suspension" class="next-card">
+      <div class="nc-label">Browse the Database</div>
+      <div class="nc-title">XJ Suspension Guides</div>
+      <div class="nc-desc">Full guides for each lift kit, shock, coil, and leaf pack in the database.</div>
+    </a>
+    <a href="death-wobble-guide.html" class="next-card">
+      <div class="nc-label">Common Problem</div>
+      <div class="nc-title">Death Wobble Survival Guide</div>
+      <div class="nc-desc">If your XJ shakes at highway speeds, start here before touching your suspension.</div>
+    </a>
+    <a href="database.html?vehicle=xj&search=track+bar" class="next-card">
+      <div class="nc-label">Geometry Work</div>
+      <div class="nc-title">Track Bar & Relocation</div>
+      <div class="nc-desc">The first geometry correction most lifted XJs need.</div>
+    </a>
+    <a href="database.html?vehicle=xj&search=sye" class="next-card">
+      <div class="nc-label">4.5" Requirement</div>
+      <div class="nc-title">Slip Yoke Eliminator Guide</div>
+      <div class="nc-desc">What an SYE does, when you need it, and which kit to use.</div>
+    </a>
+  </div>
+
+  <div class="panel good" style="margin-top:12px">
+    <div class="panel-icon">✓</div>
+    <h4>One More Thing</h4>
+    <p>Whatever lift you pick, replace your shocks at the same time. Stock shocks top out at any real lift height, cause handling problems, and wear faster. If budget is tight, Bilstein 4600s are the best value at 2 inches. At 3 inches or higher, step up to Bilstein 5100s (adjustable), Fox 2.0 IFP, or King 2.0 IFP if the rest of the kit warrants it.</p>
+  </div>
+
+</div><!-- /page -->
+
+<footer class="footer">
+  <div class="disclaimer">
+    Trail Manual is a free, community-built reference. No affiliate links, no sponsored content — just what works. Suspension work affects vehicle safety; torque everything to spec and get an alignment after any lift. When in doubt, have a qualified mechanic inspect before driving at highway speeds.
+  </div>
+</footer>
+
+</body>
+</html>

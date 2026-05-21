@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>When to Stop and Go to a Shop — The Workshop · Trail Manual</title>
+<meta name="description" content="Which repairs are beyond DIY and when to recognize a job has gone wrong mid-way. Honest guidance on brakes, steering, airbags, fuel systems, and structural repairs.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;background:var(--danger-bg);border:1px solid var(--danger-border);border-radius:20px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--danger);margin-bottom:16px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+
+<div class="page">
+  <div class="safety-badge">⚠ Safety critical</div>
+
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>When to Stop and Go to a Shop</h1>
+    <p class="lede">Most repairs are within reach of a motivated DIYer with the right information. A few are not — and the ones that aren't tend to have serious consequences when they go wrong. This guide names them directly.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>10 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>Brake hydraulics, steering geometry after suspension work, pressurized fuel system repairs, airbag system wiring, and structural frame welding are the categories where a mistake affects whether the vehicle stops, steers, or protects occupants in a crash. These aren't repairs to learn on the fly.</p>
+    <p>Knowing when to stop is as important as knowing how to start. Recognizing mid-job warning signs — a fastener that won't torque to spec, a brake pedal that won't firm up, steering that feels wrong after reassembly — and treating them as signals rather than problems to push through is what separates good DIYers from people who cause accidents.</p>
+  </div>
+
+  <h2>The Honest Framing</h2>
+  <p>Trail Manual exists because most repairs are achievable for a motivated person with a service manual and the right tools. Brake pads, rotors, calipers, wheel bearings, ball joints, tie rod ends, shocks, control arms — these are all within reach, documented thoroughly, and done by home mechanics every day without incident.</p>
+  <p>This guide is about the exceptions. The jobs where the margin for error is low, the consequences of an error are severe, and the specialized equipment or knowledge required to verify the work correctly is typically only found in a proper shop. It's not a discouragement from DIY — it's a map of where the stakes change.</p>
+
+  <h2>Brake Hydraulics</h2>
+  <p>Brake pads, rotors, and calipers are DIY-appropriate. The hydraulic system — brake lines, the master cylinder, ABS module work, and proportioning valves — requires more care and a clearer go/stop threshold.</p>
+  <p>The test is straightforward: after any brake hydraulic work, you bleed the system and pump the pedal. The pedal should be firm and consistent within the first few strokes and should not travel to the floor. <strong>If the pedal goes to the floor or is spongy after a proper bleed, stop.</strong> Do not drive the vehicle. Something is wrong — a fitting that isn't sealing, air still in the system, a master cylinder that isn't building pressure — and these conditions mean the vehicle may not stop when you need it to.</p>
+  <p>Brake line replacement on a vehicle with badly rusted hard lines is a job that requires flare tools, the right line material, and properly formed flares at every fitting. A bad flare is a brake failure waiting to happen, often under the first hard stop.</p>
+
+  <div class="panel danger">
+    <div class="panel-label">Do not drive with a soft pedal</div>
+    <p>A brake pedal that travels more than halfway to the floor before building pressure, or that slowly sinks under steady pressure, indicates a hydraulic problem. The vehicle should not be driven. Tow it if you need to move it to a shop.</p>
+  </div>
+
+  <h2>Steering Geometry After Suspension Work</h2>
+  <p>Installing a suspension lift changes the geometry of your steering and suspension system. Caster, camber, and toe — the angles at which your wheels meet the road — shift when ride height changes. Some of that shift is corrected with adjustable components (cam bolts, adjustable control arms, correction casters). None of it can be verified without an alignment rack.</p>
+  <p>Driving on significantly misaligned steering geometry feels fine until it doesn't. Excessive toe-out wears tires from the inside edge and makes the vehicle want to wander. Incorrect caster creates handling instability at highway speeds that can feel manageable right up until a sudden lane change makes it feel like something is wrong with the vehicle. These aren't immediate failures — they're degrading conditions that cost you tires and can create dangerous handling situations at the worst moments.</p>
+  <p>After any suspension lift installation or steering component replacement, get an alignment from a shop with a proper alignment rack. The cost is modest and the diagnostic information it provides is something you genuinely cannot replicate in your driveway.</p>
+
+  <h2>Pressurized Fuel System Repairs</h2>
+  <p>The fuel system operates under pressure — modern fuel-injected vehicles typically run 40–60 PSI at the rail. When you disconnect a fuel line without depressurizing the system first, fuel sprays. Not drips — sprays, in a fine mist, around a hot engine block and exhaust manifold.</p>
+  <p>Fuel rail and injector replacement, sending unit work, and any repair involving the high-pressure side of the fuel system requires depressurizing first. The standard procedure involves pulling the fuel pump fuse or relay and cranking the engine until it stalls and won't restart — this uses up the residual pressure in the rail. Consult your service manual for the specific procedure for your vehicle before touching any fuel fitting.</p>
+  <p>If you're doing fuel work and fuel is spraying or dripping beyond what a rag can immediately control, stop. Absorb what's there, move the vehicle somewhere ventilated, and reassess before continuing.</p>
+
+  <h2>Airbag Systems</h2>
+  <p>The SRS (Supplemental Restraint System) covers airbags, seatbelt pretensioners, and the control module that deploys them. These systems have capacitors that retain charge after the battery is disconnected. Deploying an airbag in your face while doing steering column or dashboard work causes serious injury — broken bones, burns, and blast trauma at that range.</p>
+  <p>If you're doing steering column work, instrument cluster removal, or anything that requires working around the wiring behind the dash, know what you're working around:</p>
+  <ul>
+    <li>Airbag wiring harnesses are typically yellow. If you see yellow connectors in the area you're working, that's the SRS system.</li>
+    <li>Always disconnect the battery and wait a minimum of 10 minutes before working near airbag components. The capacitors need time to discharge.</li>
+    <li>Never probe airbag connector terminals with test equipment. The system is sensitive by design.</li>
+    <li>If an airbag warning light is on and you're not certain why, have the SRS codes pulled before doing any interior electrical work.</li>
+  </ul>
+
+  <div class="panel warn">
+    <div class="panel-label">Clock spring and steering column work</div>
+    <p>The clock spring (spiral cable) in the steering column carries current to the airbag in the steering wheel and maintains connection through steering rotation. If your vehicle has a driver's airbag and you're doing steering column work, understand what the clock spring is and where it is before disconnecting anything in that area.</p>
+  </div>
+
+  <h2>Structural Welds and Frame Repair</h2>
+  <p>Frame repair after collision damage, rust-through frame sections, and body panel welding that's part of the vehicle's structural load path are in a different category from body work. A weld that fails in a structural location fails under the loads that vehicle structures are designed to handle — cornering, braking, and most critically, crash energy management.</p>
+  <p>This doesn't mean frame welding is impossible for a home shop — it means it requires actual welding proficiency, understanding of load paths in the specific structure you're repairing, and ideally verification by someone with appropriate knowledge. Welding a skid plate mount is different from welding a cracked frame rail. Know which category your repair falls into before deciding who should do it.</p>
+
+  <h2>Warning Signs a Mid-Job DIY Has Gone Wrong</h2>
+  <p>Recognizing when a job has developed a problem is a skill that prevents bigger problems. These are the signals to take seriously:</p>
+  <ul>
+    <li><strong>A fastener that won't torque to spec.</strong> If a bolt reaches its torque spec before it's fully seated, or if it turns freely without tightening, the threads are likely stripped — in the fastener, the nut, or the receiving threads. A stripped torque-critical fastener is not a job to continue on. The repair for stripped threads (Helicoil, time-sert, replacement) needs to happen before that component goes back on the vehicle.</li>
+    <li><strong>A brake pedal that won't firm up after bleeding.</strong> Multiple rounds of proper bleeding and the pedal is still spongy or low. Stop and find the cause — don't drive it hoping it improves.</li>
+    <li><strong>Steering that feels different after a component swap.</strong> Any change in steering feel, pull, or return-to-center behavior after steering or suspension work is a signal to check alignment and component torque before driving more miles.</li>
+    <li><strong>Noises from something you just reassembled.</strong> A clunk, squeal, or grinding from a component you just put back together is telling you something. It's not break-in — it's a fastener that's loose, a component installed incorrectly, or interference between parts. Stop and investigate.</li>
+  </ul>
+
+  <h2>How to Find a Shop Worth Trusting</h2>
+  <p>When you do need a shop, finding one that communicates honestly is the work. A few indicators:</p>
+  <ul>
+    <li>They can produce a work order with actual part numbers and labor line items — not a vague description.</li>
+    <li>When you ask what they found, they can describe it specifically. "Your caliper piston is seized" is specific. "Your brakes are bad" is not.</li>
+    <li>They're willing to show you the worn or failed part they replaced. This is common practice at good shops.</li>
+    <li>They don't recommend urgently replacing items that don't appear on the work order for the problem you brought it in for — at least not without explanation.</li>
+  </ul>
+
+  <hr class="divider">
+  <p>Before starting any repair in the categories above, be honest about what verification you can do yourself and what you can't. The test for brake hydraulics is clear — a firm pedal — and if you can't achieve it, the next step is a shop, not another bleed attempt. For alignment, the verification requires equipment you don't have. Plan that trip before the lift goes on, not after.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/working-under-a-vehicle/">Working Under a Vehicle Safely <span>Read →</span></a>
+      <a class="related-link" href="/workshop/bleeding-brakes/">Bleeding Brakes <span>Read →</span></a>
+      <a class="related-link" href="/workshop/reading-torque-specs/">Reading and Using Torque Specs <span>Read →</span></a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div>
+    </div>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/db/">XJ Database</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>

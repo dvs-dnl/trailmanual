@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thread Repair — Helicoil, Timesert, and Drill-Out — The Workshop · Trail Manual</title>
+<meta name="description" content="When and how to repair stripped threads using Helicoil wire inserts, Timesert solid inserts, and drill-out techniques. Sizing, installation, and when to go to a machine shop.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
+.meta-pill{font-size:12px;color:var(--text-mute)}
+.meta-pill strong{color:var(--text-dim)}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel.warn .panel-label{color:var(--warn)}
+.panel.good .panel-label{color:var(--good)}
+.panel.info .panel-label{color:var(--info)}
+.panel.danger .panel-label{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p+p{margin-top:8px}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
+.related-links{display:flex;flex-direction:column;gap:8px}
+.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
+.related-link:hover{border-color:var(--accent);text-decoration:none}
+.related-link span{color:var(--accent);font-size:12px}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
+.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-brand{display:flex;align-items:center;gap:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{color:var(--text-mute);font-size:13px}
+.footer-links a:hover{color:var(--text)}
+.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
+@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
+    <a class="back-link" href="/workshop/">← The Workshop</a>
+  </div>
+</div>
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Technique</div>
+    <h1>Thread Repair — Helicoil, Timesert, and Drill-Out</h1>
+    <p class="lede">Stripped threads in aluminum are one of the more deflating things that can happen mid-repair — a bolt that won't torque to spec, a hole that spins forever, a drain plug that won't seal. The good news is that most stripped threads are repairable at home with the right kit and the right technique.</p>
+    <div class="hero-meta">
+      <span class="meta-pill"><strong>9 min read</strong></span>
+      <span class="meta-pill">Vehicle-agnostic</span>
+    </div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">Bottom line</div>
+    <p>For most stripped threads in aluminum — intake manifolds, valve covers, oil pans, sensor bungs — a Helicoil wire insert kit is the right first choice. It's widely available, designed for this application, and restores threads to original size. For high-load applications like spark plug holes or head bolt threads, a solid insert (Timesert) is stronger and worth the extra cost.</p>
+    <p>Before you drill anything, identify the exact thread pitch of the original bolt. Getting that wrong means starting over with a larger hole.</p>
+  </div>
+
+  <h2>When You Need Thread Repair</h2>
+  <p>The signs are usually clear: a bolt that won't torque to spec and just spins, threads in the hole that are visibly damaged or missing when you look in with a flashlight, or a previous repair that failed. Aluminum is the material most prone to thread damage because it's soft — steel bolts threading into aluminum under heat cycling, corrosion, or over-torquing will eventually win.</p>
+  <p>Common locations: oil drain plugs (frequent, and often caused by gorilla-torquing on the previous change), spark plug holes in aluminum heads, valve cover bolt holes, intake manifold bolt holes, and caliper bracket bolts going into aluminum spindles.</p>
+
+  <div class="panel warn">
+    <div class="panel-label">Don't drill before diagnosing</div>
+    <p>A bolt that spins freely may have stripped threads in the hole, or the bolt itself may be stripped. Thread the bolt into a known-good nut first. If it threads in fine, the problem is in the hole. If it won't thread in, the bolt is the problem and you may need only a new bolt, not a repair.</p>
+  </div>
+
+  <h2>Getting the Size Right First</h2>
+  <p>Thread repair requires drilling to a specific oversize and tapping new threads at that larger diameter. The exact drill and tap size depends on the original thread specification — and thread specifications include both diameter and pitch.</p>
+  <p>An M10 bolt can be M10×1.25 or M10×1.5 — same diameter, different pitch, completely incompatible. A <strong>thread pitch gauge</strong> (a cheap set of small combs that you hold against the threads) will identify the pitch in seconds. Alternatively, thread a new bolt of the size you believe it is into the hole — if it's wrong, you'll feel it immediately. Never force it.</p>
+  <p>Write down the thread spec (e.g., M10×1.25) before ordering a kit. Kits are sold by original thread size — the kit contains the correct drill bit, tap, and inserts for that specific size.</p>
+
+  <h2>Helicoil — Wire Thread Inserts</h2>
+  <p>A Helicoil is a stainless steel wire coil that installs into an oversized tapped hole. Once installed, its inner diameter matches the original thread specification — a standard M10×1.25 bolt threads into an M10×1.25 Helicoil as if the original threads were never damaged.</p>
+
+  <h3>Installation sequence</h3>
+  <ol>
+    <li><strong>Drill the hole</strong> to the diameter specified in the kit instructions. Use a drill press or, if drilling by hand, work carefully to keep the bit perpendicular to the surface. A wandering bit produces a tapered hole that won't accept the insert correctly.</li>
+    <li><strong>Tap new threads</strong> using the tap included in the kit. Lubricate with cutting oil or even motor oil. Back the tap off a quarter turn for every half turn forward to break the chip. Thread tapping in aluminum is forgiving — in cast iron it requires more patience.</li>
+    <li><strong>Clean the hole</strong> thoroughly. Aluminum chips in a threaded hole will prevent the insert from seating and can damage whatever you're sealing (especially oil passages). Use brake cleaner and compressed air.</li>
+    <li><strong>Install the insert</strong> using the installation tool included in the kit. The coil feeds in on a mandrel and the installation tool breaks the tang (the drive tab) off after it's seated. Don't improvise this step — using the wrong tool can distort the insert.</li>
+    <li><strong>Break off the tang</strong> using the tang break-off tool or a punch. The tang should be below the surface of the hole; if it's not, the insert isn't fully seated.</li>
+  </ol>
+
+  <div class="panel info">
+    <div class="panel-label">Depth check</div>
+    <p>The installed insert should sit flush with or slightly below the surface. An insert that stands proud will catch on gaskets or prevent the bolt from seating. If the insert is proud, it wasn't driven deep enough during installation — remove it with an extraction tool and redo it rather than trying to tap it down.</p>
+  </div>
+
+  <h2>Timesert and Solid Inserts — When You Need More Strength</h2>
+  <p>Helicoil wire inserts are strong enough for most applications. But spark plug holes in aluminum heads, head bolt threads, and other high-load, high-temperature applications put greater demands on the repair. A solid threaded bushing — Timesert is the best-known brand — provides better pull-out resistance and handles heat cycling more predictably than a wire coil.</p>
+  <p>The installation process is similar: drill to oversize, tap new threads, drive in the solid insert. The solid insert locks in place either mechanically (it's driven in with interference fit) or chemically (Loctite applied during installation). The tolerance requirements are tighter than Helicoil — a wandering drill bit or an untrue hole is more likely to cause a problem with a solid insert than with a wire coil.</p>
+  <p>Timesert kits cost significantly more than Helicoil kits. For a spark plug repair on an aluminum head, that cost is justified. For a valve cover bolt, it's not necessary.</p>
+
+  <h2>Center-Punching: The Step That Actually Matters Most</h2>
+  <p>The most common installation failure is a drill bit that wanders off-center. In a threaded hole, the bit wants to follow the existing thread helix rather than go straight — which means the new hole ends up off-center and the insert won't accept the original bolt correctly.</p>
+  <p>Before drilling, use a center punch to create a positive location for the drill bit at the exact center of the bolt hole. If the old bolt broke off in the hole, use a scribe to find the center before punching. Take your time here — this is the step that determines whether the repair works.</p>
+  <p>For through-holes where you can see from both sides, verify alignment before you finish drilling. For blind holes in engine components, use a drill guide if available.</p>
+
+  <h2>When the Repair Has Already Been Repaired</h2>
+  <p>A hole that has already had a Helicoil installed and then failed is a bigger problem. You can't install a second Helicoil in the same hole without drilling to an even larger diameter — and at some point there isn't enough surrounding material to hold the insert. The same is true of a hole that was drilled off-center and tapped crooked on a previous repair attempt.</p>
+  <p>This is when a machine shop becomes the right answer. They have the fixtures to hold the component square, the ability to weld aluminum and re-drill, and experience with exactly this class of problem. A $100–200 machine shop repair on a cylinder head or block is a better outcome than a second bad repair that makes the component unserviceable.</p>
+
+  <hr class="divider">
+  <p>Thread repair done correctly is a permanent fix — the repaired hole is often stronger than the original aluminum threads. Do the size identification carefully, keep the drill bit centered, and use the installation tools the kit provides rather than improvising.</p>
+
+  <div class="related">
+    <h3>Related guides</h3>
+    <div class="related-links">
+      <a class="related-link" href="/workshop/breaking-rusty-bolts/">
+        Breaking Rusty and Seized Bolts
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/reading-torque-specs/">
+        How to Read a Torque Specification
+        <span>Read →</span>
+      </a>
+      <a class="related-link" href="/workshop/understanding-fastener-grades/">
+        Fastener Grades and What They Mean
+        <span>Read →</span>
+      </a>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand"><div class="brand-mark">TM</div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div></div>
+    <div class="footer-links"><a href="/">Home</a><a href="/workshop/">The Workshop</a><a href="/db/">XJ Database</a><a href="/about/">About</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
+</footer>
+</body>
+</html>
