@@ -350,3 +350,39 @@ img{max-width:100%;display:block}
   .tm-section{margin:42px 0}
   .tm-section h2{font-size:22px}
 }
+
+/* ============ Mobile hamburger nav ============ */
+.tm-nav-toggle{
+  display:none;
+  margin-left:auto;
+  background:var(--accent);
+  border:none;
+  border-radius:6px;
+  color:#1a1f27;
+  cursor:pointer;
+  width:34px;height:34px;
+  align-items:center;justify-content:center;
+  font-size:18px;
+  line-height:1;
+  flex-shrink:0;
+}
+.tm-nav-toggle:hover{background:#d6b783}
+@media(max-width:680px){
+  .tm-topbar-inner{flex-wrap:nowrap;position:relative}
+  .tm-nav-toggle{display:flex}
+  .tm-nav{
+    display:none;
+    position:absolute;
+    top:100%;left:0;right:0;
+    background:#0e1116;
+    border-bottom:1px solid var(--border);
+    padding:8px 14px 14px;
+    flex-direction:column;
+    gap:2px;
+    z-index:99;
+    margin-left:0;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+  }
+  .tm-nav.tm-open{display:flex}
+  .tm-nav a{width:100%;padding:11px 12px;font-size:15px;border-radius:6px}
+}

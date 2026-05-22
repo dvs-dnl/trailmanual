@@ -165,6 +165,7 @@
       <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
     </nav>
+    <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
   </div>
 </header>
 
@@ -487,5 +488,25 @@
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn=document.getElementById('tm-nav-toggle');
+  var nav=document.querySelector('.tm-nav');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    nav.classList.toggle('tm-open');
+    btn.innerHTML=nav.classList.contains('tm-open')
+      ?'&#10005;'   /* ✕ */
+      :'&#9776;';   /* ☰ */
+  });
+  // Close on outside click
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
+      nav.classList.remove('tm-open');
+      btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
 </body>
 </html>
