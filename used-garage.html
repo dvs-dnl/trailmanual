@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Used Garage — Buyer's Field Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0c0b09;
+    --bg-elevated: #15130f;
+    --bg-card: #181612;
+    --border: #2a2620;
+    --border-strong: #3d3830;
+    --text: #ebe5d8;
+    --text-dim: #948a78;
+    --text-faint: #5e564a;
+    --accent: #c89b54;
+    --accent-warm: #d4663d;
+    --good: #7ea672;
+    --warn: #c97852;
+    --bad: #b04d3a;
+    --ev: #6b9bbd;
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Manrope", -apple-system, sans-serif;
+    --mono: "JetBrains Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.5;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(200,155,84,0.04) 0%, transparent 50%),
+      radial-gradient(circle at 80% 100%, rgba(212,102,61,0.03) 0%, transparent 50%);
+  }
+  .masthead {
+    border-bottom: 1px solid var(--border);
+    padding: 48px 32px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+  .top-meta .vol { color: var(--accent); }
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 800;
+    font-size: clamp(40px, 7vw, 78px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+  }
+  h1.title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--text-dim);
+    font-weight: 400;
+    max-width: 720px;
+    line-height: 1.4;
+  }
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 36px;
+  }
+  .stat {
+    background: var(--bg);
+    padding: 18px 20px;
+  }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .stat-val {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .stat-val .unit {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-dim);
+    margin-left: 2px;
+  }
+  .controls {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    background: rgba(12, 11, 9, 0.92);
+  }
+  .control-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .control-row:last-of-type { margin-bottom: 0; }
+  .control-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    margin-right: 4px;
+  }
+  .pill-group {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    padding: 3px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    background: transparent;
+    border: none;
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    font-weight: 500;
+  }
+  .pill:hover { color: var(--text); }
+  .pill.active {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .search-input {
+    flex: 1;
+    min-width: 180px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    font-family: var(--sans);
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.18s;
+  }
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text-faint); }
+  .sort-select {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    outline: none;
+  }
+  .budget-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+  }
+  .budget-group span {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .budget-input {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 12px;
+    width: 70px;
+    padding: 6px 4px;
+    outline: none;
+    border-bottom: 1px dotted var(--border-strong);
+  }
+  .budget-input:focus { border-bottom-color: var(--accent); }
+  .budget-divider {
+    color: var(--text-faint);
+    font-family: var(--mono);
+    padding: 0 4px;
+  }
+  .toggle-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    padding: 7px 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .toggle-group:hover { border-color: var(--border-strong); }
+  .toggle-switch {
+    position: relative;
+    width: 28px;
+    height: 14px;
+    background: var(--border-strong);
+    border-radius: 7px;
+    transition: background 0.2s;
+  }
+  .toggle-switch::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+    background: var(--text-dim);
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+  .toggle-group.on .toggle-switch { background: var(--accent); }
+  .toggle-group.on .toggle-switch::after {
+    left: 16px;
+    background: var(--bg);
+  }
+  .toggle-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .toggle-group.on .toggle-label { color: var(--text); }
+  .results-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 12px;
+  }
+  .editor-note {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .note-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  .note-header {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+  }
+  .note-byline {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-top: 8px;
+  }
+  .note-body {
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .note-body p { margin-bottom: 14px; }
+  .note-body em { color: var(--accent); font-style: italic; }
+  .grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--border);
+    transition: background 0.2s;
+  }
+  .card[data-tier="top"]::before { background: var(--accent); }
+  .card[data-tier="strong"]::before { background: var(--good); }
+  .card[data-tier="decent"]::before { background: var(--text-faint); }
+  .card:hover { border-color: var(--border-strong); }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+  .card-title-block { flex: 1; }
+  .card-make {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+  }
+  .card-model {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  .card-years {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+  .save-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-faint);
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s;
+    flex-shrink: 0;
+  }
+  .save-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .save-btn.saved {
+    background: var(--accent);
+    color: var(--bg);
+    border-color: var(--accent);
+  }
+  .card-silhouette {
+    width: 90px;
+    height: 36px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--text-faint);
+    opacity: 0.45;
+    transition: opacity 0.2s;
+    margin-top: 2px;
+  }
+  .card-silhouette svg { width: 100%; height: 100%; overflow: visible; }
+  .card:hover .card-silhouette { opacity: 0.7; }
+  @media (max-width: 640px) { .card-silhouette { width: 68px; height: 28px; } }
+  .badges {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    padding: 3px 8px;
+    border: 1px solid currentColor;
+    color: var(--text-dim);
+  }
+  .badge.cat-ev { color: var(--ev); }
+  .badge.tier-top { color: var(--accent); }
+  .badge.tier-strong { color: var(--good); }
+  .badge.bg { background: var(--bg-elevated); border-color: var(--border); }
+  .key-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 18px 0;
+  }
+  .key-num {
+    background: var(--bg-card);
+    padding: 12px 14px;
+  }
+  .key-num-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    margin-bottom: 4px;
+  }
+  .key-num-val {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .key-num-val .small {
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--text-dim);
+    font-weight: 400;
+  }
+  .rating-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+  .rating { flex: 1; }
+  .rating-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .dots { display: flex; gap: 3px; }
+  .dot {
+    width: 12px;
+    height: 4px;
+    background: var(--border-strong);
+  }
+  .dot.filled { background: var(--accent); }
+  .dot.filled.green { background: var(--good); }
+  body.no-sport .rating-sport { display: none; }
+  body.no-sport .sort-option-sport { display: none; }
+  .sweet-spot-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 12px;
+    background: rgba(200,155,84,0.08);
+    border: 1px solid rgba(200,155,84,0.3);
+    border-radius: 3px;
+    font-family: var(--mono);
+    font-size: 11px;
+    margin-top: 14px;
+  }
+  .sweet-spot-label {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--text-dim);
+  }
+  .sweet-spot-val { color: var(--accent); font-weight: 700; }
+  .sweet-spot-row.warn { background: rgba(176,77,58,0.08); border-color: rgba(176,77,58,0.3); }
+  .sweet-spot-row.warn .sweet-spot-val { color: var(--bad); }
+  .family-map, .trim-guide {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    overflow-x: auto;
+  }
+  .family-table, .trim-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--sans);
+    font-size: 12.5px;
+  }
+  .family-table th, .trim-table th {
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-faint);
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 500;
+  }
+  .family-table td, .trim-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+  .family-row-current { background: rgba(200,155,84,0.06); }
+  .family-row-current td { font-weight: 500; }
+  .family-row-info td { color: var(--text-faint); font-style: italic; }
+  .family-gen {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+  }
+  .family-row-current .family-gen { color: var(--accent); }
+  .family-tier-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .family-tier-dot.top { background: var(--accent); }
+  .family-tier-dot.strong { background: var(--good); }
+  .family-tier-dot.decent { background: var(--warn); }
+  .family-tier-dot.info { background: var(--text-faint); }
+  .family-link {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .family-link:hover { border-bottom-color: var(--accent); }
+  .family-here {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .trim-name { font-weight: 600; color: var(--text); }
+  .trim-features { color: var(--text-dim); line-height: 1.4; font-size: 12px; }
+  .trim-signal { font-family: var(--mono); font-size: 10.5px; color: var(--accent); white-space: nowrap; }
+  .summary-line {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    padding: 14px 0;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+  .expand-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    padding: 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+  .expand-btn:hover { gap: 10px; }
+  .expand-btn .arrow { transition: transform 0.2s; }
+  .card.expanded .arrow { transform: rotate(90deg); }
+  .details {
+    display: none;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .card.expanded .details { display: block; }
+  .detail-section { margin-bottom: 18px; }
+  .detail-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .detail-content {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  .pro-con-list { list-style: none; padding: 0; }
+  .pro-con-list li {
+    padding: 5px 0 5px 16px;
+    position: relative;
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.45;
+  }
+  .pro-con-list.pros li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: var(--good);
+    font-weight: 700;
+  }
+  .pro-con-list.cons li::before {
+    content: "−";
+    position: absolute;
+    left: 0;
+    color: var(--warn);
+    font-weight: 700;
+  }
+  .spec-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 12px;
+    gap: 12px;
+  }
+  .spec-line:last-child { border-bottom: none; }
+  .spec-key { color: var(--text-dim); font-family: var(--mono); font-size: 11px; flex-shrink: 0; }
+  .spec-val { color: var(--text); text-align: right; }
+  .empty-state {
+    grid-column: 1 / -1;
+    padding: 80px 20px;
+    text-align: center;
+    color: var(--text-faint);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+  }
+  .watch-banner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(176,77,58,0.06), transparent);
+  }
+  .watch-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+  .watch-title .danger { color: var(--bad); }
+  .watch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .watch-item {
+    padding: 12px 0;
+    border-top: 1px solid var(--border);
+  }
+  .watch-item-name {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .watch-item-reason {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.4;
+  }
+  footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 32px 60px;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-faint);
+    line-height: 1.8;
+  }
+  footer .colophon-title {
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  @media (max-width: 640px) {
+    .masthead { padding: 28px 20px 20px; }
+    .controls { padding: 18px 20px; }
+    .grid { padding: 20px; grid-template-columns: 1fr; gap: 16px; }
+    .editor-note { padding: 24px 20px; }
+    .note-inner { grid-template-columns: 1fr; gap: 12px; }
+    .watch-banner { padding: 20px; }
+    footer { padding: 28px 20px 40px; }
+    .top-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .budget-input { width: 60px; }
+  }
+  /* ── Mobile filter toggle ──────────────────────────────────── */
+  .filter-toggle-btn {
+    display: none;
+  }
+  /* Filter panel: hidden by default (mobile), always shown on desktop */
+  .filter-collapsible {
+    display: none;
+  }
+  .filter-collapsible.open {
+    display: block;
+  }
+  @media (min-width: 769px) {
+    .filter-collapsible {
+      display: block !important;
+    }
+  }
+  @media (max-width: 768px) {
+    .controls {
+      position: static;
+      backdrop-filter: none;
+      background: rgba(12, 11, 9, 0.98);
+    }
+    .filter-toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      font-family: var(--mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 10px 16px;
+      cursor: pointer;
+      width: 100%;
+      justify-content: space-between;
+      transition: border-color 0.18s;
+    }
+    .filter-toggle-btn:hover { border-color: var(--border-strong); }
+    .filter-toggle-btn.open { border-color: var(--accent); color: var(--accent); }
+    .filter-toggle-btn .toggle-caret {
+      transition: transform 0.2s;
+      font-size: 10px;
+    }
+    .filter-toggle-btn.open .toggle-caret { transform: rotate(180deg); }
+    .filter-toggle-label-count {
+      font-size: 10px;
+      color: var(--accent);
+      margin-left: 4px;
+    }
+    .filter-collapsible {
+      padding-top: 14px;
+    }
+  }
+
+  /* ── Inspection additions ─────────────────────────────────── */
+  .inspection-brief {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .inspection-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .inspection-toggle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .inspection-toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .inspection-toggle-btn.open { border-color: var(--accent); color: var(--accent); }
+  .checklist-wrap { display: none; margin-top: 12px; }
+  .checklist-wrap.open { display: block; }
+  .checklist-note {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
+    margin-bottom: 10px;
+  }
+  .checklist { list-style: none; padding: 0; margin-bottom: 16px; }
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--border);
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-box {
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    border: 1px solid var(--border-strong);
+    margin-top: 2px;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: transparent;
+  }
+  .check-box.checked {
+    background: var(--good);
+    border-color: var(--good);
+    color: var(--bg);
+  }
+  .ppi-banner {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: rgba(200,155,84,0.06);
+    border: 1px solid rgba(200,155,84,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .ppi-text { flex: 1; min-width: 200px; }
+  .ppi-headline {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .ppi-subtext {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.45;
+  }
+  .ppi-btn {
+    background: none;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 8px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.18s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .ppi-btn:hover { background: var(--accent); color: var(--bg); }
+
+  /* ── Due Diligence section ────────────────────────────────── */
+  .due-diligence {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .due-dil-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .due-dil-subtitle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+    max-width: 680px;
+    line-height: 1.5;
+  }
+  .dil-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .dil-card {
+    padding: 16px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+  }
+  .dil-card-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .dil-card-q {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .dil-card-why {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.45;
+  }
+  @media (max-width: 640px) {
+    .due-diligence { padding: 24px 20px; }
+    .ppi-banner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="top-meta">
+    <span><a href="https://tools.trailmanual.com" style="color:inherit;text-decoration:none;">The Used Garage</a> · Vol. <span class="vol">02</span> · Field Edition + Electric</span>
+    <span id="header-budget">Budget: $6,000 – $8,000</span>
+  </div>
+  <h1 class="title">The <em>Used</em> Question.</h1>
+  <p class="subtitle">A field guide to reliable, long-lived used vehicles. Sedans, trucks, SUVs, and now electrics — filter by what actually matters to you.</p>
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-label">Vehicles Researched</div>
+      <div class="stat-val" id="stat-count">—</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Top-tier Picks</div>
+      <div class="stat-val" id="stat-top">—</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">In Your Budget</div>
+      <div class="stat-val" id="stat-in-budget">—</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">EVs / Hybrids</div>
+      <div class="stat-val" id="stat-ev">—</div>
+    </div>
+  </div>
+</header>
+<section class="controls">
+  <button class="filter-toggle-btn" id="filter-toggle-btn" aria-expanded="false">
+    <span>Filters <span class="filter-toggle-label-count" id="filter-active-count"></span></span>
+    <span class="toggle-caret">▼</span>
+  </button>
+  <div class="filter-collapsible" id="filter-collapsible">
+  <div class="control-row">
+    <span class="control-label">Body</span>
+    <div class="pill-group" id="category-filter">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="Sedan">Sedan</button>
+      <button class="pill" data-cat="Truck">Truck</button>
+      <button class="pill" data-cat="SUV">SUV</button>
+      <button class="pill" data-cat="EV">EV / PHEV</button>
+    </div>
+    <span class="control-label">Tier</span>
+    <div class="pill-group" id="tier-filter">
+      <button class="pill active" data-tier="all">All</button>
+      <button class="pill" data-tier="top">Top</button>
+      <button class="pill" data-tier="strong">Strong</button>
+      <button class="pill" data-tier="decent">Decent</button>
+    </div>
+    <span class="control-label">View</span>
+    <div class="pill-group" id="saved-filter">
+      <button class="pill active" data-saved="all">All</button>
+      <button class="pill" data-saved="saved">Saved ★</button>
+    </div>
+  </div>
+  <div class="control-row">
+    <span class="control-label">Budget</span>
+    <div class="budget-group">
+      <span>$</span>
+      <input type="number" class="budget-input" id="budget-min" value="6000" min="0" step="500">
+      <span class="budget-divider">–</span>
+      <span>$</span>
+      <input type="number" class="budget-input" id="budget-max" value="8000" min="0" step="500">
+    </div>
+    <div class="toggle-group on" id="sport-toggle">
+      <div class="toggle-switch"></div>
+      <div class="toggle-label">Sportiness matters</div>
+    </div>
+    <input type="text" class="search-input" placeholder="Search make, model, engine..." id="search-input">
+    <select class="sort-select" id="sort-select">
+      <option value="tier">Sort: Tier</option>
+      <option value="price-low">Price: Low → High</option>
+      <option value="price-high">Price: High → Low</option>
+      <option value="mileage-low">Mileage: Low → High</option>
+      <option value="mileage-high">Mileage: High → Low</option>
+      <option value="reliability">Reliability ★</option>
+      <option value="sport" class="sort-option-sport">Sportiness ★</option>
+      <option value="longevity">Expected Longevity</option>
+      <option value="fuel">Fuel Economy ★</option>
+      <option value="tow">Tow Rating ★</option>
+      <option value="family">Family Score ★</option>
+    </select>
+  </div>
+  <div class="control-row">
+    <span class="control-label">Family</span>
+    <div class="pill-group" id="family-filter">
+      <button class="pill family-pill" data-family="rear">Roomy rear</button>
+      <button class="pill family-pill" data-family="cargo">Large cargo</button>
+      <button class="pill family-pill" data-family="vents">Rear AC vents</button>
+      <button class="pill family-pill" data-family="seats5">Seats 5+</button>
+      <button class="pill family-pill" data-family="third">3rd row</button>
+      <button class="pill family-pill" data-family="top">Top family pick</button>
+    </div>
+  </div>
+  <div class="results-meta" id="results-meta">Showing all entries</div>
+  </div><!-- /.filter-collapsible -->
+</section>
+<section class="editor-note">
+  <div class="note-inner">
+    <div>
+      <div class="note-header">Editor's Pick</div>
+      <div class="note-byline">If you only read one entry</div>
+    </div>
+    <div class="note-body">
+      <p>At $7,500, the strongest single pick across every gas category is a <em>well-maintained 2014 Acura TSX</em> with under 130k miles. For trucks: <em>2010–2012 Honda Ridgeline RTL</em>. For SUVs: a rust-free <em>2007–2010 Toyota 4Runner V6</em>.</p>
+      <p id="ev-note" style="display:none">For electrics, the rules are different. <em>Avoid air-cooled Leafs in Phoenix.</em> If you can stretch to $13–15k, a <em>2017–2019 Chevy Bolt with a documented battery replacement</em> is the single best used EV value in America — new pack, larger capacity, fresh 8-year warranty.</p>
+    </div>
+  </div>
+</section>
+<main class="grid" id="grid"></main>
+<section class="watch-banner">
+  <div class="watch-title">What to <span class="danger">avoid</span> in this price band</div>
+  <div class="watch-grid" id="watch-list"></div>
+</section>
+<section class="due-diligence">
+  <div class="due-dil-title">Before You Buy: The Right Questions</div>
+  <div class="due-dil-subtitle">What every informed used-car buyer should verify before handing over money. Think of this as a mental checklist — one you run through before the test drive even happens.</div>
+  <div class="dil-grid">
+    <div class="dil-card">
+      <div class="dil-card-num">01 · Documentation</div>
+      <div class="dil-card-q">Are there service records — even partial ones?</div>
+      <div class="dil-card-why">Oil change history is the most revealing. Engines that went long between changes often show it after 150k. Even partial records are better than none. A seller with no paperwork isn't necessarily hiding something, but you're taking on more risk.</div>
+    </div>
+    <div class="dil-card">
+      <div class="dil-card-num">02 · Electronics</div>
+      <div class="dil-card-q">Has anyone run an OBD scan?</div>
+      <div class="dil-card-why">A $20 scanner plugs into the port under the dash and reads any stored codes — including ones that were cleared right before the sale. Ask the seller to allow a scan. If they won't, that's an answer.</div>
+    </div>
+    <div class="dil-card">
+      <div class="dil-card-num">03 · Structure</div>
+      <div class="dil-card-q">What does the undercarriage look like?</div>
+      <div class="dil-card-why">Rust hides where you can't see it from the driver's seat — frame rails, rockers, subframe mounting points, wheel wells. In Phoenix it matters less. In the Midwest or Northeast, it's often the reason a cheap car is cheap.</div>
+    </div>
+    <div class="dil-card">
+      <div class="dil-card-num">04 · History</div>
+      <div class="dil-card-q">Does the VIN show accidents, flood damage, or odometer rollback?</div>
+      <div class="dil-card-why">Carfax and AutoCheck are not perfect — private-sale accidents don't always show up. But a clean report rules out the most obvious red flags. Run one on any serious candidate before the test drive, not after.</div>
+    </div>
+    <div class="dil-card">
+      <div class="dil-card-num">05 · Independent Verification</div>
+      <div class="dil-card-q">Will the seller allow a pre-purchase inspection?</div>
+      <div class="dil-card-why">$100–$150 at an independent shop is the single best money in used car buying. A mechanic on a lift sees what a test drive misses. Any seller who refuses a PPI is telling you something. Confident sellers welcome it.</div>
+    </div>
+    <div class="dil-card">
+      <div class="dil-card-num">06 · EV/Hybrid Only</div>
+      <div class="dil-card-q">What is the battery state of health?</div>
+      <div class="dil-card-why">For EVs, the battery is the vehicle. State of health (SoH) below 80% means meaningfully less range than the window sticker. Ask for a health report — dealers can usually pull one, and third-party scan services exist for private sales too.</div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="colophon-title">Colophon &amp; Method</div>
+  Set in Fraunces, Manrope, and JetBrains Mono. Reliability data synthesized from RepairPal, J.D. Power, iSeeCars, Consumer Reports, Recurrent, and owner forums. Prices reflect national averages as of May 2026; regional variation ±$1,000. For EVs, the battery is the vehicle — always verify capacity bars, state-of-health, and recall status before purchase. None of this replaces a pre-purchase inspection.
+</footer>
+<script>
+const vehicles = [
+  // SEDANS
+  {id:"tsx-2014",make:"Acura",model:"TSX",years:"2014",category:"Sedan",tier:"top",mileageLow:110000,mileageHigh:150000,sweetSpotLow:90000,sweetSpotHigh:130000,family:"acura-tsx",familyName:"Acura TSX",familyOrder:2,priceLow:7000,priceHigh:8000,reliability:5,sport:4,longevity:250000,mpg:"22/31 mpg",mpgCombined:25,engine:"2.4L K24 I4 (201hp) / 3.5L V6 (280hp)",transmission:"6-spd manual or 5-spd auto",drivetrain:"FWD",bestYears:"2014 (swan song, fewest complaints)",avoidYears:"2004–05 (trans), 2009–10 (oil consumption), 2012 (power steering)",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,trims:[{"name":"Base","features":"I4 engine, leather, sunroof, heated seats standard.","signal":"Bottom of range"},{"name":"Technology Package","features":"Adds factory navigation, premium audio, ELS sound system.","signal":"Top of I4 range"},{"name":"V6 / V6 w/ Tech","features":"Upgrade to 280hp V6. V6 Tech adds nav and premium audio.","signal":"Premium · rarer"}],fNotes:"Midsize sedan. Rear AC vents standard. 36.1\" rear legroom, 14 cu ft trunk. Solid family pick if you don't need 3rd row.",summary:"The strongest single pick. Premium feel, K24 reliability, sporty handling.",pros:["Bulletproof K24 engine, regularly hits 250k+","Annual repairs $415 (vs $739 segment avg)","Premium interior, leather + sunroof standard","Slick 6-speed manual available"],cons:["Premium fuel required","Modest power on I4 vs turbo competitors","FWD only"]},
+  {id:"tsx-earlier",make:"Acura",model:"TSX",years:"2010–2013",category:"Sedan",tier:"strong",mileageLow:130000,mileageHigh:170000,sweetSpotLow:110000,sweetSpotHigh:150000,family:"acura-tsx",familyName:"Acura TSX",familyOrder:1,priceLow:6000,priceHigh:7500,reliability:4,sport:4,longevity:230000,mpg:"21/30 mpg",mpgCombined:24,engine:"2.4L K24 I4 / 3.5L V6",transmission:"6-spd manual or 5-spd auto",drivetrain:"FWD",bestYears:"2010, 2011, 2013",avoidYears:"2012 (157 complaints — power steering, engine failures)",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Same 2nd-gen TSX body as 2014. Rear vents, 36\" rear legroom, 14 cu ft trunk.",summary:"Same DNA as the 2014, more attainable at the lower end.",pros:["K24 engine still bulletproof","More inventory available","V6 option (280hp)"],cons:["2012 has serious issues — verify VIN","Premium fuel"]},
+  {id:"mazda3-2014",make:"Mazda",model:"Mazda3",years:"2014–2015",category:"Sedan",tier:"top",mileageLow:90000,mileageHigh:130000,sweetSpotLow:80000,sweetSpotHigh:130000,family:"mazda3",familyName:"Mazda3",familyOrder:2,priceLow:6500,priceHigh:8000,reliability:5,sport:4,longevity:250000,mpg:"30/41 mpg",mpgCombined:34,engine:"2.0L or 2.5L SKYACTIV-G I4",transmission:"6-spd manual or 6-spd auto",drivetrain:"FWD",bestYears:"2014–2015 (new SKYACTIV platform)",avoidYears:"None major; pre-2014 cars are still good but less refined",fScore:2,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:1,fNotes:"Compact. 35.8\" rear legroom is tight for two car seats. NO rear AC vents — a real summer issue. 12 cu ft trunk. Better as a second car than primary family hauler.",summary:"Most fun-per-dollar in the budget. Sharp steering, durable SKYACTIV engine.",pros:["200k–300k mile potential","Annual maintenance ~$433","Available sedan or hatch","Premium interior for compact class"],cons:["Tighter rear seat than rivals","Some road noise"]},
+  {id:"mazda3-2012",make:"Mazda",model:"Mazda3",years:"2012–2013",category:"Sedan",tier:"strong",mileageLow:110000,mileageHigh:150000,sweetSpotLow:100000,sweetSpotHigh:140000,family:"mazda3",familyName:"Mazda3",familyOrder:1,priceLow:6000,priceHigh:7500,reliability:4,sport:4,longevity:220000,mpg:"27/39 mpg",mpgCombined:31,engine:"2.0L MZR or 2.5L MZR I4",transmission:"5-spd manual or 5-spd auto",drivetrain:"FWD",bestYears:"2012, 2013 (pre-SKYACTIV but reliable)",avoidYears:"None major",fScore:2,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:1,fNotes:"Same compact dimensions as 2014. Tight rear, no rear vents.",summary:"Pre-SKYACTIV but still excellent. Cheaper entry to the Mazda3 ethos.",pros:["Cheaper than 2014+","Engaging handling","Roomy enough"],cons:["Less refined than 2014+","Worse fuel economy than SKYACTIV"]},
+  {id:"civic-si-2014",make:"Honda",model:"Civic Si Sedan",years:"2014–2015",category:"Sedan",tier:"top",mileageLow:100000,mileageHigh:140000,sweetSpotLow:90000,sweetSpotHigh:130000,family:"civic-si",familyName:"Civic Si Sedan",familyOrder:2,priceLow:7500,priceHigh:8500,reliability:5,sport:5,longevity:250000,mpg:"22/31 mpg",mpgCombined:25,engine:"2.4L K24 I4 (205hp)",transmission:"6-spd manual only",drivetrain:"FWD",bestYears:"2014–2015 (205hp bump, most reliable Si era)",avoidYears:"2016+ (less reliable than 9th gen)",fScore:2,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:1,fNotes:"Sport sedan trim. Tight rear, no rear vents, small trunk. Not a family vehicle in any meaningful sense.",summary:"Sedan body, 6-speed manual, K24. Pure driver's car under $8k.",pros:["Above-average reliability (better than 2016+ Civics)","Manual-only, no CVT to worry about","Sport seats + LSD","Honda parts everywhere"],cons:["Manual only","Premium fuel preferred","Si trim hard to find under $8k"]},
+  {id:"civic-si-2012",make:"Honda",model:"Civic Si Sedan",years:"2012–2013",category:"Sedan",tier:"strong",mileageLow:120000,mileageHigh:160000,sweetSpotLow:110000,sweetSpotHigh:150000,family:"civic-si",familyName:"Civic Si Sedan",familyOrder:1,priceLow:6500,priceHigh:7500,reliability:4,sport:5,longevity:230000,mpg:"22/31 mpg",mpgCombined:25,engine:"2.4L K24 I4 (201hp)",transmission:"6-spd manual only",drivetrain:"FWD",bestYears:"2012, 2013",avoidYears:"None major",fScore:2,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:1,fNotes:"Same caveats as 2014 Si. Sport focus over family practicality.",summary:"K24, 6-speed, 4hp less than 2014. Easier on the budget.",pros:["Same K24 reliability","More attainable price","Civic ubiquity = cheap parts"],cons:["Higher mileage at this price","Slightly less power than 2014–15"]},
+  {id:"mazda6-2014",make:"Mazda",model:"Mazda6",years:"2014–2015",category:"Sedan",tier:"top",mileageLow:110000,mileageHigh:150000,sweetSpotLow:90000,sweetSpotHigh:130000,priceLow:7500,priceHigh:8500,reliability:4,sport:4,longevity:250000,mpg:"28/40 mpg",mpgCombined:32,engine:"2.5L SKYACTIV-G I4 (184hp)",transmission:"6-spd manual or 6-spd auto",drivetrain:"FWD",bestYears:"2014 (SKYACTIV redesign)",avoidYears:"None major",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Midsize. 38.7\" rear legroom (best in class at the time), 14.8 cu ft trunk, rear vents on most trims.",summary:"Grown-up Mazda3. Sporty, can hit 250k+. Sedan only.",pros:["200k–300k potential","More space than Mazda3","Stunning styling for sub-$8k","Manual available"],cons:["Top of budget","Watch for suspension wear at high miles"]},
+  {id:"fusion-2014",make:"Ford",model:"Fusion (Titanium/SE EcoBoost)",years:"2014–2015",category:"Sedan",tier:"strong",mileageLow:100000,mileageHigh:140000,sweetSpotLow:80000,sweetSpotHigh:120000,priceLow:6500,priceHigh:8000,reliability:3,sport:3,longevity:200000,mpg:"22/33 mpg",mpgCombined:26,engine:"1.6L or 2.0L EcoBoost I4 turbo",transmission:"6-spd auto",drivetrain:"FWD or AWD",bestYears:"2014–2015 with 2.0L EcoBoost (safer than 1.6L)",avoidYears:"1.6L EcoBoost (coolant intrusion concerns)",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Midsize. 38.3\" rear legroom, 16 cu ft trunk, rear AC vents on SE and Titanium trims. AWD option is a winter-family bonus.",summary:"Stylish, underrated, drives well. AWD available — rare at this price.",pros:["Genuinely good chassis","AWD available","Hybrid option (47mpg)","Striking styling"],cons:["1.6L EcoBoost has coolant issues — get 2.0L","Ford reliability ≠ Honda/Mazda","Tight rear"]},
+  {id:"jetta-gli",make:"Volkswagen",model:"Jetta GLI",years:"2013–2015",category:"Sedan",tier:"strong",mileageLow:100000,mileageHigh:140000,sweetSpotLow:90000,sweetSpotHigh:130000,priceLow:7000,priceHigh:8000,reliability:3,sport:5,longevity:200000,mpg:"22/33 mpg",mpgCombined:26,engine:"2.0T TSI I4 (210hp)",transmission:"6-spd manual or 6-spd DSG",drivetrain:"FWD",bestYears:"2014–2015",avoidYears:"Pre-2013 with old EA113 motor",fScore:3,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,trims:[{"name":"GLI Base","features":"Standard 210hp turbo, sport suspension, cloth seats.","signal":"Bottom of range"},{"name":"GLI w/ Sunroof","features":"Adds sunroof, alloys, Bluetooth.","signal":"Mid"},{"name":"GLI Autobahn","features":"Leather, heated seats, premium audio, navigation, Fender sound.","signal":"Top of range"}],fNotes:"Compact sedan, but Jetta is roomy for class. 38\" rear legroom, 15.5 cu ft trunk. NO rear vents on most trims.",summary:"European driver's choice. Better feel than Japanese rivals. VW reliability tax applies.",pros:["210hp turbo","Sport-tuned suspension","Step above in driving feel","Slick interior"],cons:["VW reliability is shakier","Parts/labor cost more","Carbon buildup on direct injection","Find a good indie VW shop"]},
+  {id:"gti-mk6-late",make:"Volkswagen",model:"GTI Mk6 (late)",years:"2013–2014",category:"Sedan",tier:"strong",mileageLow:110000,mileageHigh:150000,sweetSpotLow:80000,sweetSpotHigh:130000,family:"vw-gti",familyName:"Golf GTI",familyOrder:3,priceLow:8000,priceHigh:11000,reliability:3,sport:5,longevity:210000,mpg:"21/31 mpg",mpgCombined:25,engine:"2.0T TSI CBFA I4 (200hp)",transmission:"6-spd manual or 6-spd DSG (DQ250)",drivetrain:"FWD",bestYears:"2014 (final Mk6, refined infotainment)",avoidYears:"None within this range — both 2013 (late) and 2014 came with updated tensioner",fScore:2,fRear:0,fCargo:1,fVents:0,fThird:0,fSeats5:1,trims:[{"name":"Base","features":"Cloth seats, basic alloys, no nav. Manual mirrors.","signal":"Bottom of range"},{"name":"Wolfsburg Edition","features":"Sunroof, Bluetooth, alloys, cloth interior. The popular value trim.","signal":"Best $/value"},{"name":"Driver's Edition (2013)","features":"Plaid cloth, special wheels, sport accents. Enthusiast favorite. Rare.","signal":"Mid · rare"},{"name":"Autobahn","features":"Leather, heated seats, premium audio, navigation, dual-zone climate.","signal":"Top of range"}],fNotes:"4-door hatch. 35.6\" rear legroom is compact-car tight, but the hatch swallows gear nicely. No rear vents. Wolfsburg, Autobahn, Driver's Edition trims all worth seeking.",summary:"The safest Mk6. Updated tensioner from factory, refined cabin, last of the analog GTIs.",pros:["Updated timing chain tensioner from factory (no Mk6 nightmare)","Iconic chassis, manual or DSG","Huge aftermarket","Practical 4-door hatch"],cons:["Top of budget — clean examples push above $8k","Carbon buildup ($400–$700 every 60k)","DSG fluid service every 40k ($300–$450)","Premium fuel"]},
+  {id:"gti-mk6-early",make:"Volkswagen",model:"GTI Mk6 (early)",years:"2010–2012",category:"Sedan",tier:"decent",mileageLow:120000,mileageHigh:160000,sweetSpotLow:100000,sweetSpotHigh:140000,family:"vw-gti",familyName:"Golf GTI",familyOrder:2,priceLow:7000,priceHigh:9500,reliability:2,sport:5,longevity:200000,mpg:"21/31 mpg",mpgCombined:25,engine:"2.0T TSI CCTA I4 (200hp)",transmission:"6-spd manual or 6-spd DSG (DQ250)",drivetrain:"FWD",bestYears:"Any with TSB 21-11-01 tensioner update documented",avoidYears:"All 2010–2012 without verified tensioner replacement",fScore:2,fRear:0,fCargo:1,fVents:0,fThird:0,fSeats5:1,trims:[{"name":"Base (2010)","features":"Cloth, no nav, basic. 2010 was launch year with limited options.","signal":"Bottom of range"},{"name":"GTI w/ Sunroof+Nav","features":"Added 2011 — sunroof, navigation, alloys, Bluetooth.","signal":"Mid"},{"name":"Autobahn (2011+)","features":"Leather, heated seats, premium audio, nav, dual-zone climate. The loaded trim.","signal":"Top of range"},{"name":"Driver's Edition (2012)","features":"Plaid cloth, sport features, special wheels. Rare.","signal":"Mid · rare"}],fNotes:"Same body and chassis as Mk6 late. The car itself is great — the K1 timing chain tensioner is the catastrophic risk. Walk away from any example without service records.",summary:"Same chassis as 2013–14 but with the tensioner time bomb. Worth it only with documented update.",pros:["Same chassis as the safer 2013–14","Often cheaper at same mileage","Autobahn trims have heated leather, premium audio","Manual or DSG"],cons:["K1 timing chain tensioner can fail at startup → $4–8k engine damage","Must verify TSB 21-11-01 update before buying","Carbon buildup, water pump, PCV all wear items","Premium fuel"]},
+  {id:"gti-mk5",make:"Volkswagen",model:"GTI Mk5",years:"2006–2009",category:"Sedan",tier:"decent",mileageLow:120000,mileageHigh:170000,sweetSpotLow:90000,sweetSpotHigh:130000,family:"vw-gti",familyName:"Golf GTI",familyOrder:1,priceLow:4500,priceHigh:7500,reliability:2,sport:5,longevity:190000,mpg:"21/31 mpg",mpgCombined:25,engine:"2.0T FSI BPY I4 (200hp)",transmission:"6-spd manual or 6-spd DSG (DQ250)",drivetrain:"FWD",bestYears:"2008–2009 (most refined, fewer first-year bugs)",avoidYears:"2006–2007 (first two years of FSI in US — most issues)",fScore:2,fRear:0,fCargo:1,fVents:0,fThird:0,fSeats5:1,trims:[{"name":"Base","features":"Cloth interior, basic alloys, no nav.","signal":"Bottom of range"},{"name":"GTI w/ Leather","features":"Leather seats, sunroof, premium audio. Optional package.","signal":"Mid"},{"name":"GTI w/ Nav (2008+)","features":"Adds factory navigation. Less common.","signal":"Top of range"}],fNotes:"Original-feel GTI hatch. Older interior tech, mechanical maintenance map is the real cost of entry.",summary:"Cheapest GTI entry. The maintenance map is the price you pay for the original feel.",pros:["Cheapest entry to GTI ownership","Iconic Mk5 driving feel","Manual or DSG available","Active enthusiast community for parts"],cons:["HPFP cam follower wear — inspect every 10k","Carbon buildup ($400–$700 every 60k)","DSG mechatronic failure $2k–$3k","Water pump (plastic impeller), PCV, ignition coils — all wear items at this age","Older tech, no Bluetooth on most"]},
+  {id:"legacy-25i",make:"Subaru",model:"Legacy 2.5i",years:"2013–2015",category:"Sedan",tier:"strong",mileageLow:110000,mileageHigh:150000,sweetSpotLow:80000,sweetSpotHigh:130000,priceLow:6500,priceHigh:8000,reliability:3,sport:3,longevity:200000,mpg:"26/36 mpg",mpgCombined:30,engine:"2.5L FB25 boxer-4",transmission:"CVT",drivetrain:"AWD standard",bestYears:"2013–2015 (post-head-gasket era)",avoidYears:"Pre-2010 (head gaskets)",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Midsize sedan with standard AWD — meaningful safety bonus for families in winter weather. 38\" rear legroom, 14.7 cu ft trunk. Rear vents on Premium trim and up.",summary:"AWD at this price is rare. Solid all-weather pick.",pros:["AWD standard","Spacious interior","Among most likely midsize to hit 200k"],cons:["FB25 has oil consumption issues — check often","CVT service costs","Not sporty unless turbo"]},
+  {id:"wrx-sedan",make:"Subaru",model:"WRX Sedan",years:"2010–2012",category:"Sedan",tier:"decent",mileageLow:130000,mileageHigh:170000,sweetSpotLow:120000,sweetSpotHigh:150000,priceLow:7500,priceHigh:8500,reliability:2,sport:5,longevity:180000,mpg:"19/25 mpg",mpgCombined:21,engine:"2.5L turbo boxer-4 (265hp)",transmission:"5-spd manual",drivetrain:"Symmetrical AWD",bestYears:"2011–2012",avoidYears:"Any without documented maintenance",fScore:2,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:1,fNotes:"AWD is a safety plus, but otherwise compact and performance-focused. Tight rear, small trunk, no rear vents.",summary:"Genuinely fast AWD turbo sedan. But: caveat emptor.",pros:["265hp turbo","Symmetrical AWD","Brilliant in snow","Driver's car"],cons:["Head gasket and ringland issues real","Often modified/abused at this price","Turbo failure from oil starvation","PPI is mandatory"]},
+  {id:"accord-v6-2010",make:"Honda",model:"Accord V6 EX-L",years:"2010–2012",category:"Sedan",tier:"top",mileageLow:130000,mileageHigh:170000,sweetSpotLow:110000,sweetSpotHigh:150000,family:"honda-accord",familyName:"Honda Accord",familyOrder:2,priceLow:6500,priceHigh:8000,reliability:4,sport:4,longevity:230000,mpg:"19/29 mpg",mpgCombined:23,engine:"3.5L V6 (271hp) or 2.4L I4 (190hp)",transmission:"5-spd auto (V6) or 6-spd manual (rare)",drivetrain:"FWD",bestYears:"2010, 2011, 2012 (8th gen sweet spot)",avoidYears:"2008 (early production); 2013–14 (electrical issues)",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Classic family sedan. 37.2\" rear legroom, 14 cu ft trunk, rear vents standard on EX-L. Most rear LATCH access is straightforward.",summary:"V6 EX-L is the surprise sporty pick — 271hp, 0-60 in 5.6s, full luxury.",pros:["V6 hits 0-60 in 5.6s — genuinely quick","EX-L gets leather, sunroof, heated seats","Bulletproof J35 V6","200k+ routine"],cons:["Watch for VCM oil consumption (V6) — VCM Muzzler is the fix","Premium fuel preferred on V6","Power steering pump can leak"]},
+  {id:"accord-i4-2011",make:"Honda",model:"Accord I4 LX/EX",years:"2011–2012",category:"Sedan",tier:"top",mileageLow:130000,mileageHigh:170000,sweetSpotLow:110000,sweetSpotHigh:160000,family:"honda-accord",familyName:"Honda Accord",familyOrder:3,priceLow:6000,priceHigh:7500,reliability:5,sport:2,longevity:250000,mpg:"23/34 mpg",mpgCombined:27,engine:"2.4L K24 I4 (190hp)",transmission:"5-spd manual or 5-spd auto",drivetrain:"FWD",bestYears:"2011, 2012",avoidYears:"None major in this range",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Same body as the V6, marginally lighter. Excellent family pick — comfortable rear, generous trunk, rear vents on EX-L.",summary:"If you don't need the V6, the I4 is even more reliable. K24 is legendary.",pros:["Same K24 family as TSX/Si — bulletproof","Better fuel economy than V6","No VCM issues (I4)","Cheapest Accord with high-life ceiling"],cons:["Not sporty — comfortable cruiser","No leather on base trims","Look is conservative"]},
+  {id:"accord-2006",make:"Honda",model:"Accord (7th gen)",years:"2006–2007",category:"Sedan",tier:"strong",mileageLow:160000,mileageHigh:220000,sweetSpotLow:150000,sweetSpotHigh:200000,family:"honda-accord",familyName:"Honda Accord",familyOrder:1,priceLow:6000,priceHigh:7500,reliability:4,sport:3,longevity:270000,mpg:"21/30 mpg",mpgCombined:24,engine:"2.4L I4 (166hp) or 3.0L V6 (244hp)",transmission:"5-spd manual or 5-spd auto",drivetrain:"FWD",bestYears:"2006, 2007 (CarComplaints 'Pretty Good' approval)",avoidYears:"2003, 2004, 2005 (V6 transmission failures)",fScore:4,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"7th gen Accord. 38.5\" rear legroom, 14 cu ft trunk. Rear vents only on EX trim and above. Older interior tech.",summary:"Older but proven. The 2006–07 V6 6-speed is a cult classic.",pros:["Owners regularly report 300k+ miles","2006–07 V6 6-speed is a rare gem","Cheap parts everywhere","Simple, easy to work on"],cons:["High mileage at this price (180k+)","Older interior and tech","Pre-2006 V6 trans failures — verify year"]},
+  // TRUCKS
+  {id:"tacoma",make:"Toyota",model:"Tacoma Double Cab",years:"2005–2014",category:"Truck",tier:"top",mileageLow:200000,mileageHigh:270000,sweetSpotLow:180000,sweetSpotHigh:240000,priceLow:7000,priceHigh:8500,reliability:5,sport:2,longevity:350000,mpg:"16/21 mpg",mpgCombined:18,tow:"6,500 lbs",towNum:6500,engine:"4.0L V6 (236hp) or 2.7L I4",transmission:"5-spd manual or 5-spd auto",drivetrain:"RWD or 4WD",bestYears:"2010–2014 (post frame-rust era)",avoidYears:"Salt-state trucks with frame rust — check Toyota recall history",fScore:3,fRear:0,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"Double Cab = 4 doors, but 32.6\" rear legroom is tight for two rear-facing car seats. No rear AC vents. Bed swallows strollers and gear easily.",summary:"The king of long-haul reliability. Expect a 200k+ truck with another 150k left.",pros:["Owners routinely hit 300k+","4.0L V6 is bulletproof","Massive aftermarket support","Best resale = easy exit"],cons:["Almost always 200k+ miles in this budget","Frame rust in salt states (verify clean)","4WD models at top of budget"]},
+  {id:"ridgeline",make:"Honda",model:"Ridgeline (1st gen)",years:"2009–2014",category:"Truck",tier:"top",mileageLow:140000,mileageHigh:180000,sweetSpotLow:130000,sweetSpotHigh:170000,priceLow:7000,priceHigh:8500,reliability:4,sport:2,longevity:230000,mpg:"15/20 mpg",mpgCombined:17,tow:"5,000 lbs",towNum:5000,engine:"3.5L J35 V6 (250hp)",transmission:"5-spd auto",drivetrain:"AWD (VTM-4) standard",bestYears:"2012–2014 (post-refresh)",avoidYears:"Salt-state trucks with rust",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Most family-friendly truck of its era. Crew cab with 36.7\" rear legroom, rear AC vents on RTL, plus the in-bed lockable trunk for groceries and gear.",summary:"Sleeper pick. AWD crew cab Honda, way more attainable than a Tacoma.",pros:["8.1/10 reliability (iSeeCars #2 midsize)","Crew cab + AWD standard","Rides like an SUV, hauls like a truck","In-bed trunk!"],cons:["Tows only 5,000 lbs","Rust if not undercoated in salt states","Paint can be fragile","Not for serious off-road"]},
+  {id:"f150-2009",make:"Ford",model:"F-150 SuperCrew (5.0L V8 or 3.7L V6)",years:"2011–2014",category:"Truck",tier:"strong",mileageLow:130000,mileageHigh:180000,sweetSpotLow:110000,sweetSpotHigh:150000,priceLow:6500,priceHigh:8000,reliability:3,sport:2,longevity:220000,mpg:"15/21 mpg",mpgCombined:17,tow:"11,300 lbs (5.0L)",towNum:11300,engine:"5.0L V8 (360hp), 3.7L V6, or 3.5L EcoBoost",transmission:"6-spd auto",drivetrain:"RWD or 4WD",bestYears:"2011–2014 with 5.0L Coyote V8 or 3.7L V6",avoidYears:"2004–2008 (5.4L Triton — spark plug & cam phaser hell). 3.5L EcoBoost at this price (turbos!)",fScore:4,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"SuperCrew = 43.5\" rear legroom — limo-class for a pickup. Rear vents vary by year/trim (more common on XLT and up). The bed handles every stroller and bike configuration.",summary:"Realistic full-size pick. The 5.0L V8 is the safe bet.",pros:["5.0L Coyote V8 is durable","Massive selection","Best-in-class capability","Parts ubiquity"],cons:["Avoid 5.4L Triton at all costs","EcoBoost turbos are a wildcard at high miles","Gas mileage mediocre"]},
+  {id:"silverado",make:"Chevrolet",model:"Silverado 1500 Crew Cab",years:"2007–2013",category:"Truck",tier:"strong",mileageLow:150000,mileageHigh:200000,sweetSpotLow:130000,sweetSpotHigh:170000,priceLow:6000,priceHigh:8000,reliability:3,sport:2,longevity:230000,mpg:"15/21 mpg",mpgCombined:17,tow:"9,500 lbs",towNum:9500,engine:"5.3L V8 (Vortec/Gen IV)",transmission:"4-spd or 6-spd auto",drivetrain:"RWD or 4WD",bestYears:"2010–2013 with 6-spd auto",avoidYears:"2007–2013 with active AFM lifters un-deleted",fScore:4,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"Crew Cab has 41.3\" rear legroom. Rear vents not standard on lower trims — verify on the specific truck. Bed is the cargo solution.",summary:"Parts everywhere, simple to fix. AFM is the wildcard.",pros:["5.3L V8 widely serviceable","Cheap parts","Goes 250k+ with care","Comfortable highway cruiser"],cons:["AFM lifter failure on some years","Mediocre interiors","16 mpg combined","Many were work trucks — verify use"]},
+  {id:"frontier",make:"Nissan",model:"Frontier Crew Cab",years:"2010–2014",category:"Truck",tier:"strong",mileageLow:140000,mileageHigh:180000,sweetSpotLow:130000,sweetSpotHigh:170000,priceLow:6500,priceHigh:8000,reliability:4,sport:2,longevity:230000,mpg:"15/21 mpg",mpgCombined:17,tow:"6,500 lbs",towNum:6500,engine:"4.0L VQ40 V6 (261hp)",transmission:"5-spd auto or 6-spd manual",drivetrain:"RWD or 4WD",bestYears:"2011+ (post strawberry-milkshake fix)",avoidYears:"2005–2010 without radiator/transmission cooler service (coolant intrusion)",fScore:3,fRear:0,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"Crew Cab is smaller than competitors — 33.6\" rear legroom is tight. No rear vents. Bed compensates for in-cabin space.",summary:"Underrated. VQ40 V6 is one of Nissan's best engines.",pros:["VQ40 V6 is robust","Body-on-frame durability","Cheaper than Tacoma at same condition","Manual transmission available"],cons:["Radiator-to-trans 'strawberry milkshake' on pre-2011s","Smaller crew cab than competitors","Aging interior"]},
+  {id:"power-wagon-2016",make:"Ram",model:"2500 Power Wagon",years:"2014–2018",category:"Truck",tier:"strong",mileageLow:100000,mileageHigh:150000,sweetSpotLow:90000,sweetSpotHigh:130000,priceLow:30000,priceHigh:44000,reliability:3,sport:3,longevity:280000,mpg:"12/17 mpg",mpgCombined:14,tow:"10,030 lbs",towNum:10030,engine:"6.4L HEMI V8 (410hp, 429 lb-ft)",transmission:"6-spd auto (66RFE)",drivetrain:"4WD — locking Dana 44 front + Dana 60 rear, front sway bar disconnect",bestYears:"2016–2018 (post-first-year refinement, pre-2019 refresh)",avoidYears:"Any without documented MDS delete or lifter inspection. Verify 66RFE shift quality — slipping is a red flag.",fScore:3,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,trims:[{"name":"Power Wagon","features":"Single factory off-road package. 12,000 lb Warn winch, locking front/rear differentials, front sway bar disconnect, Bilstein shocks, 33\" BFGoodrich KO2 tires on 17\" steel beadlock-ready wheels.","signal":"One trim — it either has the factory gear or it doesn't"}],fNotes:"Crew Cab only. 45.5\" rear legroom — genuinely roomy for an HD truck. No rear AC vents standard. The bed handles everything. This is a factory-built off-road HD, not an aftermarket lift kit on a work truck.",summary:"The only factory-serious off-road HD pickup. Everything a TRD Pro wishes it was, in a real HD package.",pros:["Factory 12,000 lb Warn winch — not a cheap bolt-on","Locking front Dana 44 + rear Dana 60 axles from the factory","Front sway bar disconnect for real off-road articulation","6.4L HEMI — 429 lb-ft pulls anything","Bilstein shocks standard","Phoenix = no rust; these age well in the desert"],cons:["MDS (cylinder deactivation) lifter failures are common — verify delete or inspect carefully","66RFE is the weak link; not as stout as the diesel 68RFE under hard use","12–14 mpg combined — budget for fuel","$35–44k even at 120k miles; these hold value stubbornly","Exhaust manifold bolts back out — check for exhaust leak at manifold","Front end wear (track bar, tie rod, drag link) at high miles — inspect for death wobble risk"]},
+  // SUVs
+  {id:"4runner-v6",make:"Toyota",model:"4Runner V6 SR5",years:"2005–2010",category:"SUV",tier:"top",mileageLow:180000,mileageHigh:230000,sweetSpotLow:170000,sweetSpotHigh:220000,family:"toyota-4runner",familyName:"Toyota 4Runner",familyOrder:1,priceLow:7000,priceHigh:8500,reliability:5,sport:2,longevity:350000,mpg:"16/22 mpg",mpgCombined:18,tow:"5,000 lbs",towNum:5000,engine:"4.0L 1GR-FE V6 (236hp)",transmission:"5-spd auto",drivetrain:"RWD or 4WD with low range",bestYears:"2006–2009 (best balance of features + reliability)",avoidYears:"2003–2005 (head gasket, airbag issues)",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,trims:[{"name":"SR5","features":"Standard V6, cloth or upgraded interior, available 4WD with low range.","signal":"Bottom of range"},{"name":"Trail Edition","features":"KDSS suspension, locking rear diff, crawl control. Off-road focused.","signal":"Mid · sought-after"},{"name":"Sport Edition","features":"X-REAS suspension, body-color cladding, road-tuned setup.","signal":"Mid"}],fNotes:"4th gen 4Runner. 35.9\" rear legroom, large cargo area (75 cu ft seats down). Rear AC vents standard. 3rd row was optional on V6 SR5 trims — verify on the specific listing.",summary:"Closest thing to a guaranteed 100k more miles at any price.",pros:["Owners routinely hit 300k+","True body-on-frame off-road capability","Massive aftermarket","Best resale on the list"],cons:["Frame rust on salt-state trucks (CHECK THIS)","Premium price for the privilege","Truck-like ride","16 mpg combined"]},
+  {id:"4runner-v8",make:"Toyota",model:"4Runner V8 Limited",years:"2005–2009",category:"SUV",tier:"top",mileageLow:180000,mileageHigh:220000,sweetSpotLow:160000,sweetSpotHigh:200000,family:"toyota-4runner",familyName:"Toyota 4Runner",familyOrder:2,priceLow:6500,priceHigh:8000,reliability:5,sport:3,longevity:320000,mpg:"14/19 mpg",mpgCombined:16,tow:"7,300 lbs",towNum:7300,engine:"4.7L 2UZ-FE V8 (260hp)",transmission:"5-spd auto",drivetrain:"Full-time 4WD",bestYears:"2005–2009 with full service records",avoidYears:"Rusty frame trucks",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,fNotes:"Limited V8 trim commonly equipped with 3rd row and rear-zone climate. 7-passenger capability when configured. Top-tier family SUV with off-road capability.",summary:"Same legendary chassis with the 2UZ-FE V8 — one of Toyota's all-time engines.",pros:["2UZ-FE V8 is on the 'engines that never die' list","Full-time 4WD","Quieter and torquier than V6"],cons:["Worse mileage (~15 mpg)","Premium fuel recommended","Same frame-rust concerns"]},
+  {id:"rx350",make:"Lexus",model:"RX 350",years:"2007–2012",category:"SUV",tier:"top",mileageLow:140000,mileageHigh:190000,sweetSpotLow:120000,sweetSpotHigh:170000,priceLow:6500,priceHigh:8000,reliability:5,sport:2,longevity:280000,mpg:"18/24 mpg",mpgCombined:20,tow:"3,500 lbs",towNum:3500,engine:"3.5L 2GR-FE V6 (270hp)",transmission:"6-spd auto",drivetrain:"FWD or AWD",bestYears:"2010–2012 (3rd gen refinement)",avoidYears:"None major; verify timing maintenance",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,trims:[{"name":"Base","features":"Leather, sunroof, 18\" wheels. The most common trim.","signal":"Bottom of range"},{"name":"Premium Package","features":"Adds heated/ventilated seats, memory seats, rain-sensing wipers.","signal":"Mid"},{"name":"Navigation Package","features":"Adds factory nav, Mark Levinson audio, larger display.","signal":"Top of range"},{"name":"F Sport (2013+)","features":"Sport-tuned suspension, paddle shifters, sport seats.","signal":"Premium · sporty"}],fNotes:"Lexus rear climate is among the best in the budget. 38.5\" rear legroom, 40 cu ft cargo behind 2nd row. No 3rd row but the 2nd row alone is luxurious enough for families of 4.",summary:"Toyota Highlander mechanicals with Lexus refinement. 300k+ documented.",pros:["2GR-FE V6 is 'unkillable'","Cheap to maintain by luxury standards","Quiet, comfortable, well-built","Optional AWD"],cons:["Premium fuel recommended","Dated nav/infotainment","Boring to drive (this is a feature)"]},
+  {id:"crv-2008",make:"Honda",model:"CR-V",years:"2008–2011",category:"SUV",tier:"top",mileageLow:130000,mileageHigh:170000,sweetSpotLow:110000,sweetSpotHigh:150000,priceLow:6000,priceHigh:8000,reliability:5,sport:2,longevity:250000,mpg:"21/27 mpg",mpgCombined:23,tow:"1,500 lbs",towNum:1500,engine:"2.4L K24 I4 (180hp)",transmission:"5-spd auto",drivetrain:"FWD or AWD",bestYears:"2010–2011",avoidYears:"2007–2009 watch AC compressor",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"Compact SUV benchmark for families. 38.5\" rear legroom, 36 cu ft cargo, rear AC vents on EX-L. Easy car-seat access — square door openings and tall ride height.",summary:"RepairPal #2 of 26 compact SUVs. $407 annual repair avg.",pros:["K24 engine = TSX/Si/Accord family","Among lowest annual repair costs in segment","Roomy cabin","Easy resale"],cons:["AC compressor failures on early units","Not sporty","AWD adds complexity"]},
+  {id:"pilot",make:"Honda",model:"Pilot EX-L",years:"2009–2012",category:"SUV",tier:"strong",mileageLow:140000,mileageHigh:180000,sweetSpotLow:130000,sweetSpotHigh:170000,priceLow:6500,priceHigh:8000,reliability:4,sport:2,longevity:230000,mpg:"17/24 mpg",mpgCombined:19,tow:"4,500 lbs",towNum:4500,engine:"3.5L J35 V6 (250hp)",transmission:"5-spd auto",drivetrain:"FWD or AWD",bestYears:"2009–2012 (after redesign)",avoidYears:"None major if VCM is addressed",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,fNotes:"8-passenger 3-row family hauler. EX-L trims get rear AC vents and zone climate. The default Honda family pick for 3+ kids.",summary:"3-row family hauler with Honda longevity. VCM is the one watch-out.",pros:["8 passengers","215k+ potential lifespan","Roomy and refined","Honda parts ubiquity"],cons:["VCM oil consumption — install VCM Muzzler ($150)","Timing belt service ~$1000 every 100k","AWD adds cost"]},
+  {id:"rav4-v6",make:"Toyota",model:"RAV4 V6",years:"2007–2012",category:"SUV",tier:"strong",mileageLow:140000,mileageHigh:180000,sweetSpotLow:110000,sweetSpotHigh:150000,priceLow:6500,priceHigh:8000,reliability:5,sport:3,longevity:280000,mpg:"19/27 mpg",mpgCombined:22,tow:"3,500 lbs",towNum:3500,engine:"3.5L 2GR-FE V6 (269hp)",transmission:"5-spd auto",drivetrain:"FWD or AWD",bestYears:"2009–2012",avoidYears:"Pre-2009 watch for steering shaft recall",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,fNotes:"Optional 3rd row is tiny — kids only, not adults. Otherwise: 38\" rear legroom, generous cargo, rear vents on Limited trim.",summary:"Fastest non-performance SUV of its era. 0-60 in under 7s.",pros:["269hp from the Lexus engine","Surprisingly quick","Optional 3rd row","Toyota longevity"],cons:["3rd row tiny for adults","Fuel economy unimpressive","V6 RAV4s are getting rarer"]},
+  {id:"forester",make:"Subaru",model:"Forester",years:"2010–2013",category:"SUV",tier:"strong",mileageLow:120000,mileageHigh:160000,sweetSpotLow:100000,sweetSpotHigh:140000,priceLow:6000,priceHigh:8000,reliability:3,sport:2,longevity:200000,mpg:"21/27 mpg",mpgCombined:23,tow:"2,400 lbs",towNum:2400,engine:"2.5L FB25 boxer-4",transmission:"4-spd auto or 5-spd manual",drivetrain:"Symmetrical AWD standard",bestYears:"2010–2012 (pre-CVT)",avoidYears:"2011+ FB25 with oil consumption",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"AWD standard — strong family argument for winter buyers. 38\" rear legroom, 33 cu ft cargo, great outward visibility. Rear vents on Limited and Touring.",summary:"AWD champ for winter buyers. Watch the head gaskets and oil burn.",pros:["Standard AWD","Great visibility","Compression test before buying"],cons:["Head gasket issues on EJ engines (pre-2011)","FB25 oil consumption (2011+)","Annual repair $632"]},
+  {id:"highlander",make:"Toyota",model:"Highlander V6",years:"2008–2011",category:"SUV",tier:"strong",mileageLow:150000,mileageHigh:190000,sweetSpotLow:130000,sweetSpotHigh:170000,priceLow:6500,priceHigh:8000,reliability:5,sport:2,longevity:280000,mpg:"18/24 mpg",mpgCombined:20,tow:"5,000 lbs",towNum:5000,engine:"3.5L 2GR-FE V6 (270hp)",transmission:"5-spd auto",drivetrain:"FWD or AWD",bestYears:"2009–2011",avoidYears:"None major",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,fNotes:"Classic 3-row family SUV. 7 or 8 passenger configurations. Rear AC vents and tri-zone climate on most trims. Quieter, more comfortable highway cruiser than 4Runner or Pilot.",summary:"Smoother, more comfortable alternative to the Pilot.",pros:["Same engine as RX 350, RAV4 V6","Optional 3rd row","Quieter than Pilot/4Runner","Excellent resale"],cons:["Less off-road capable than 4Runner","Boring to drive","Tight 3rd row"]},
+  {id:"mdx",make:"Acura",model:"MDX",years:"2007–2011",category:"SUV",tier:"decent",mileageLow:150000,mileageHigh:190000,sweetSpotLow:130000,sweetSpotHigh:170000,priceLow:6500,priceHigh:8000,reliability:4,sport:3,longevity:230000,mpg:"16/21 mpg",mpgCombined:18,tow:"5,000 lbs",towNum:5000,engine:"3.7L J37 V6 (300hp)",transmission:"5-spd or 6-spd auto",drivetrain:"SH-AWD",bestYears:"2010–2011 (post 6-spd auto)",avoidYears:"Verify timing belt done at 100k",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,trims:[{"name":"Base","features":"Leather, 7-passenger, SH-AWD, sunroof. Strong starting point.","signal":"Bottom of range"},{"name":"Technology Package","features":"Adds navigation, ELS premium audio, larger wheels.","signal":"Mid"},{"name":"Advance Package","features":"Adds adaptive cruise, collision mitigation, ventilated seats, blind spot.","signal":"Top of range"},{"name":"Entertainment Package","features":"Rear DVD entertainment system for kids.","signal":"Side option"}],fNotes:"7-passenger 3-row luxury. Tri-zone climate with rear vents standard. SH-AWD is a winter family-safety bonus. Tight 3rd row but acceptable for kids.",summary:"Upscale 3-row with Honda underpinnings. Timing belt is the catch.",pros:["300hp","SH-AWD is excellent","Luxury features","Honda reliability under the badge"],cons:["Timing belt $1000 every 100k — verify done","Premium fuel","Older interior tech"]},
+  {id:"cx9",make:"Mazda",model:"CX-9",years:"2010–2013",category:"SUV",tier:"decent",mileageLow:130000,mileageHigh:170000,sweetSpotLow:110000,sweetSpotHigh:140000,priceLow:6000,priceHigh:7500,reliability:3,sport:4,longevity:220000,mpg:"17/24 mpg",mpgCombined:19,tow:"3,500 lbs",towNum:3500,engine:"3.7L V6 (273hp)",transmission:"6-spd auto",drivetrain:"FWD or AWD",bestYears:"2010–2013",avoidYears:"Verify water pump service",fScore:5,fRear:1,fCargo:1,fVents:1,fThird:1,fSeats5:1,fNotes:"7-passenger 3-row that actually handles well. Rear AC vents standard on most trims. 3rd row is usable for kids on shorter trips.",summary:"Best-driving 3-row of the era. Water pump is the time bomb.",pros:["Drives better than any rival 3-row","200k+ potential","Sleeper styling"],cons:["Water pump driven by timing chain — failure = big bill","Less reliable than Toyota/Honda 3-rows"]},
+  // EVs / PHEVs
+  {id:"bolt-2017",make:"Chevrolet",model:"Bolt EV (battery-replaced)",years:"2017–2019",category:"EV",tier:"top",mileageLow:50000,mileageHigh:100000,sweetSpotLow:50000,sweetSpotHigh:100000,priceLow:11000,priceHigh:16000,reliability:4,sport:3,longevity:250000,mpg:"119 MPGe",mpgCombined:119,engine:"150kW motor + 66kWh new pack (post-recall)",transmission:"Single-speed automatic",drivetrain:"FWD",range:"259 miles EPA on replacement pack",bestYears:"Any 2017–2019 with VIN-verified battery replacement",avoidYears:"ANY Bolt without recall replacement (fire risk)",fScore:3,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:1,fNotes:"Sub-compact hatch. 36.5\" rear legroom is OK, 16.9 cu ft cargo is below average. No rear AC vents. Works for a small family with one or two car seats; tight for three across.",summary:"If the battery was replaced: probably the best used EV value in America.",pros:["Replacement pack is LARGER than original (259mi vs 238mi)","Fresh 8yr/100k warranty from install date","Liquid-cooled battery handles Phoenix heat","DC fast charging (CCS) standard","0–60 in 6.5s — actually quick"],cons:["MUST verify replacement on VIN at experience.gm.com","Without replacement: fire risk, do not buy","Top of typical EV budget","Tight rear seat"]},
+  {id:"volt-2014",make:"Chevrolet",model:"Volt (PHEV)",years:"2012–2015",category:"EV",tier:"top",mileageLow:90000,mileageHigh:140000,sweetSpotLow:90000,sweetSpotHigh:130000,priceLow:6000,priceHigh:8500,reliability:4,sport:3,longevity:230000,mpg:"98 MPGe · 37 gas",mpgCombined:98,engine:"111kW motor + 1.4L gas generator, 16.5kWh battery",transmission:"Voltec multi-mode",drivetrain:"FWD",range:"35–40 miles EV + ~340 miles gas (38 mpg)",bestYears:"2014–2015 (refinements, 38 mile EV range)",avoidYears:"None major — among most reliable PHEVs ever made",fScore:1,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:0,fNotes:"Battery tunnel splits the rear seat — only 4 passengers total. That alone disqualifies it for a family with two kids and a third passenger. Small trunk too.",summary:"Best of both worlds: 35-mile EV commute + gas backup. Voltec drivetrain is bulletproof.",pros:["Liquid-cooled battery handles heat well","No range anxiety — gas backup","Most reliable PHEV ever made","Within budget"],cons:["Premium fuel on gas engine","Rear seat only seats 4 (center console)","No DC fast charging","Heavier than gas Cruze"]},
+  {id:"prius-plugin",make:"Toyota",model:"Prius Plug-In",years:"2012–2015",category:"EV",tier:"strong",mileageLow:90000,mileageHigh:140000,sweetSpotLow:90000,sweetSpotHigh:140000,priceLow:5500,priceHigh:8000,reliability:5,sport:1,longevity:280000,mpg:"95 MPGe · 50 hyb",mpgCombined:95,engine:"60kW motor + 1.8L Atkinson, 4.4kWh battery",transmission:"eCVT",drivetrain:"FWD",range:"11 miles pure EV + 50mpg hybrid mode",bestYears:"2014–2015",avoidYears:"None major",fScore:3,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"5-passenger hatchback. 36\" rear legroom, 21 cu ft cargo. No rear AC vents (real concern for Phoenix family use). Excellent fuel economy is its family virtue.",summary:"Limited EV range, but unkillable. Prius reliability + small EV bonus.",pros:["Bulletproof Toyota hybrid drivetrain","50+ mpg in hybrid mode","Goes 300k+ routinely","Cheap to maintain"],cons:["Only 11mi EV range (barely 'plug-in')","Not actually electric most of the time","Boring to drive","Aging design"]},
+  {id:"leaf-2015",make:"Nissan",model:"Leaf SV/SL (Lizard battery)",years:"2015",category:"EV",tier:"decent",mileageLow:60000,mileageHigh:100000,sweetSpotLow:60000,sweetSpotHigh:90000,family:"nissan-leaf",familyName:"Nissan Leaf",familyOrder:2,priceLow:5500,priceHigh:7500,reliability:3,sport:2,longevity:150000,mpg:"114 MPGe",mpgCombined:114,engine:"80kW AC motor, 24kWh battery",transmission:"Single-speed automatic",drivetrain:"FWD",range:"65–80 miles realistic (84 EPA when new)",bestYears:"2015 ('Lizard' battery designed for hot climates)",avoidYears:"2011–2014 in hot climates (severe battery degradation)",fScore:3,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"5-passenger hatch. 33.3\" rear legroom is tight, but the hatch shape makes the seats feel airier. No rear AC vents. Range is the family limiter.",summary:"Cheapest entry to EV ownership. Phoenix heat is the wildcard.",pros:["Cheap entry to EV ownership","Mechanically very simple","Free fuel","Tons of inventory"],cons:["NO LIQUID COOLING — Phoenix heat accelerates degradation","Range depends entirely on battery health","CHAdeMO fast charging is dying in North America","Verify capacity bars (12=new, 9-10=ok, 7-8=short hops only)"]},
+  {id:"leaf-2013",make:"Nissan",model:"Leaf SV/SL (early)",years:"2013–2014",category:"EV",tier:"decent",mileageLow:70000,mileageHigh:120000,sweetSpotLow:60000,sweetSpotHigh:90000,family:"nissan-leaf",familyName:"Nissan Leaf",familyOrder:1,priceLow:4000,priceHigh:6000,reliability:2,sport:2,longevity:130000,mpg:"115 MPGe",mpgCombined:115,engine:"80kW AC motor, 24kWh battery",transmission:"Single-speed automatic",drivetrain:"FWD",range:"50–70 miles realistic in 2026",bestYears:"Late-2014 production (some have Lizard battery)",avoidYears:"All early 2013s in hot climates",fScore:3,fRear:1,fCargo:1,fVents:0,fThird:0,fSeats5:1,fNotes:"Same body as 2015. Battery range concerns make it impractical for typical family logistics in Phoenix.",summary:"Cheap but very risky in Phoenix. Battery degradation is severe.",pros:["Very cheap entry point","Good for short, predictable commutes","Use LeafSpy app to verify SOH before buying"],cons:["Battery degradation severe in hot climates","5yr/60k battery warranty long expired","May have <50mi real range","$5,500–$7,000 to refurb battery"]},
+  {id:"i3-rex",make:"BMW",model:"i3 REx",years:"2014–2016",category:"EV",tier:"decent",mileageLow:60000,mileageHigh:100000,sweetSpotLow:60000,sweetSpotHigh:100000,priceLow:8000,priceHigh:13000,reliability:3,sport:4,longevity:180000,mpg:"117 MPGe · 39 gas",mpgCombined:117,engine:"125kW motor + 0.65L gas generator, 22–33kWh battery",transmission:"Single-speed automatic",drivetrain:"RWD",range:"72 miles EV + 78 miles gas backup (REx model)",bestYears:"2016 (33kWh battery option)",avoidYears:"Pure BEV version in low-charging areas",fScore:1,fRear:0,fCargo:0,fVents:0,fThird:0,fSeats5:0,fNotes:"Only 4 passengers AND the rear coach doors only open when the front doors are open — making car-seat installation a daily hassle. Skip for families.",summary:"Quirky, premium, fun to drive. REx range extender solves anxiety. BMW tax applies.",pros:["Carbon fiber body (low weight, no rust)","Liquid-cooled battery","Genuinely fun to drive","REx eliminates range anxiety","Premium feel"],cons:["BMW parts expensive when they break","Tight on rear space","Resale value is soft","Specialized service required"]},
+  {id:"rav4-ev",make:"Toyota",model:"RAV4 EV (Tesla powertrain)",years:"2012–2014",category:"EV",tier:"decent",mileageLow:40000,mileageHigh:90000,sweetSpotLow:40000,sweetSpotHigh:70000,priceLow:8500,priceHigh:12000,reliability:1,sport:3,longevity:130000,mpg:"76 MPGe",mpgCombined:76,engine:"115kW Tesla motor, 41.8kWh Tesla battery pack",transmission:"Single-speed automatic",drivetrain:"FWD",range:"65–85 miles realistic (103 mi EPA when new)",bestYears:"Any with documented drive unit replacement after 2016",avoidYears:"Original (un-replaced) drive unit; high-heat climate history",fScore:4,fRear:1,fCargo:1,fVents:1,fThird:0,fSeats5:1,fNotes:"RAV4 body so the family ergonomics are fine, but the underlying recommendation against this vehicle (see card cons) outweighs family creds.",summary:"Compliance car with Tesla guts. Cool concept, brutal repair reality.",pros:["Real Tesla motor (154hp, 273 lb-ft, 7.2s 0-60)","Liquid-cooled battery","Roomy SUV body"],cons:["Only ~2,500 ever made — orphaned parts","Drive unit replacement $17,467 from dealer","Tesla no longer supports it","Out-of-warranty (5yr/60k, original-owner-only)","No qualified service outside California","Phoenix heat = battery enemy"]}
+];
+const watchOuts = [
+  {name:"Toyota RAV4 EV (any)",reason:"Tesla powertrain in a compliance-built Toyota. Parts orphaned, drive unit failures, $17k+ repairs. Stay away."},
+  {name:"Chevy Bolt WITHOUT battery replacement",reason:"Active fire risk recall. Verify VIN at experience.gm.com before buying any 2017–2022 Bolt."},
+  {name:"Early Nissan Leaf (2011–2012) in hot climates",reason:"Air-cooled battery degrades catastrophically in Arizona heat. May have under 40 miles of usable range."},
+  {name:"BMW 3 Series / Audi A4 / Infiniti G37 (any)",reason:"Cars hitting $7k are usually the ones nobody wants to fix. One repair eats the purchase price."},
+  {name:"Ford F-150 2004–2008 (5.4L Triton)",reason:"Spark plug breakage and cam phaser failures. Plan on $1,500 for a single repair."},
+  {name:"Dodge Ram 1500 Hemi (pre-2013)",reason:"MDS lifter ticks, exhaust manifold bolts. Inheriting deferred maintenance."},
+  {name:"Chevy Equinox / GMC Terrain 2010–2013 (2.4L)",reason:"Catastrophic oil consumption. Often dies before 150k."},
+  {name:"Range Rover / Land Rover (anything)",reason:"A $7k Range Rover is a financial disaster waiting to happen."},
+  {name:"Nissan Pathfinder / Murano 2013–2015",reason:"CVT failure is endemic. Repair runs $4,000+."},
+  {name:"Honda Accord 2013–2014",reason:"Electrical issues showed up just after warranty. Skip these years."},
+  {name:"Acura TSX 2012",reason:"157 complaints — power steering, engine failures. Worst TSX year by far."},
+  {name:"Fiat 500e / VW e-Golf (any)",reason:"Compliance cars like RAV4 EV. Limited parts, limited service, limited future."}
+];
+// Info-only rows that appear in family maps but don't render as cards
+// (typically because they're above budget or otherwise out of scope)
+const familyExtraRows = {
+  "vw-gti": [
+    {familyOrder: 4, label: "Mk7", years: "2015–2019", engineShort: "2.0T TSI · 210hp", tier: "info", price: "$10–15k", note: "above budget · best Gen reliability"}
+  ]
+};
+let state = {
+  category: "all", tier: "all", saved: "all", search: "", sort: "tier",
+  budgetMin: 6000, budgetMax: 8000, showSport: true,
+  savedIds: new Set(), expandedIds: new Set(),
+  familyFilters: new Set()
+};
+const tierRank = { top: 0, strong: 1, decent: 2 };
+async function loadSaved() {
+  try {
+    if (window.storage) {
+      const result = await window.storage.get("saved-vehicles");
+      if (result && result.value) state.savedIds = new Set(JSON.parse(result.value));
+      const prefs = await window.storage.get("ug-prefs");
+      if (prefs && prefs.value) {
+        const p = JSON.parse(prefs.value);
+        if (p.budgetMin != null) state.budgetMin = p.budgetMin;
+        if (p.budgetMax != null) state.budgetMax = p.budgetMax;
+        if (p.showSport != null) state.showSport = p.showSport;
+      }
+    }
+  } catch (e) {}
+}
+async function persistSaved() {
+  try {
+    if (window.storage) await window.storage.set("saved-vehicles", JSON.stringify([...state.savedIds]));
+  } catch (e) {}
+}
+async function persistPrefs() {
+  try {
+    if (window.storage) {
+      await window.storage.set("ug-prefs", JSON.stringify({
+        budgetMin: state.budgetMin, budgetMax: state.budgetMax, showSport: state.showSport
+      }));
+    }
+  } catch (e) {}
+}
+function fmtMiles(n) { return (n / 1000).toFixed(0) + "k"; }
+function fmtPrice(n) { return "$" + (n / 1000).toFixed(1) + "k"; }
+function fmtPriceFull(n) { return "$" + n.toLocaleString(); }
+function dotsHTML(rating, max = 5, color = "") {
+  let h = '<div class="dots">';
+  for (let i = 0; i < max; i++) {
+    h += `<div class="dot ${i < rating ? "filled " + color : ""}"></div>`;
+  }
+  h += '</div>';
+  return h;
+}
+function inBudget(v) {
+  return v.priceLow <= state.budgetMax && v.priceHigh >= state.budgetMin;
+}
+function applyFilters() {
+  let filtered = vehicles.filter(v => {
+    if (state.category !== "all" && v.category !== state.category) return false;
+    if (state.tier !== "all" && v.tier !== state.tier) return false;
+    if (state.saved === "saved" && !state.savedIds.has(v.id)) return false;
+    if (!inBudget(v)) return false;
+    if (state.search) {
+      const q = state.search.toLowerCase();
+      const hay = (v.make + " " + v.model + " " + v.engine + " " + v.years + " " + (v.summary || "")).toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    if (state.familyFilters.size > 0) {
+      if (state.familyFilters.has("rear")   && !v.fRear)   return false;
+      if (state.familyFilters.has("cargo")  && !v.fCargo)  return false;
+      if (state.familyFilters.has("vents")  && !v.fVents)  return false;
+      if (state.familyFilters.has("seats5") && !v.fSeats5) return false;
+      if (state.familyFilters.has("third")  && !v.fThird)  return false;
+      if (state.familyFilters.has("top")    && (v.fScore || 0) < 4) return false;
+    }
+    return true;
+  });
+  filtered.sort((a, b) => {
+    switch (state.sort) {
+      case "tier": return tierRank[a.tier] - tierRank[b.tier];
+      case "price-low": return a.priceLow - b.priceLow;
+      case "price-high": return b.priceHigh - a.priceHigh;
+      case "mileage-low": return a.mileageLow - b.mileageLow;
+      case "mileage-high": return b.mileageHigh - a.mileageHigh;
+      case "reliability": return b.reliability - a.reliability;
+      case "sport": return b.sport - a.sport;
+      case "longevity": return b.longevity - a.longevity;
+      case "fuel": return (b.mpgCombined || 0) - (a.mpgCombined || 0);
+      case "tow": return (b.towNum || 0) - (a.towNum || 0);
+      case "family": return (b.fScore || 0) - (a.fScore || 0);
+      default: return 0;
+    }
+  });
+  return filtered;
+}
+function shortEngine(engine) {
+  // shorten engine spec for family map cells
+  return (engine || "").replace(/\s+\(.*?\)/g, "").slice(0, 32);
+}
+function priceShort(low, high) {
+  const f = (n) => (n / 1000).toFixed(n % 1000 === 500 ? 1 : 0);
+  return "$" + f(low) + "–" + f(high) + "k";
+}
+function renderSweetSpot(v) {
+  if (v.sweetSpotLow == null) return "";
+  const isAvoid = v.tier === "decent" && v.id === "rav4-ev";
+  const cls = isAvoid ? "sweet-spot-row warn" : "sweet-spot-row";
+  const label = isAvoid ? "Sweet Spot" : "Sweet Spot Mileage";
+  const val = isAvoid ? "(avoid platform)" : `${fmtMiles(v.sweetSpotLow)} – ${fmtMiles(v.sweetSpotHigh)}`;
+  return `<div class="${cls}"><span class="sweet-spot-label">${label}</span><span class="sweet-spot-val">${val}</span></div>`;
+}
+function renderFamilyMap(v) {
+  if (!v.family) return "";
+  // Gather siblings from vehicles + any extra info-only rows
+  const siblings = vehicles
+    .filter(x => x.family === v.family)
+    .map(x => ({
+      familyOrder: x.familyOrder,
+      genLabel: (() => {
+        const m = x.model;
+        const mkMatch = m.match(/Mk\d.*$/i);
+        if (mkMatch) return mkMatch[0];
+        const parts = m.split(' ');
+        if (parts.length > 1) return parts.slice(1).join(' ');
+        return x.years;
+      })(),
+      genFull: x.model,
+      years: x.years,
+      engineShort: shortEngine(x.engine),
+      tier: x.tier,
+      price: priceShort(x.priceLow, x.priceHigh),
+      id: x.id,
+      isCurrent: x.id === v.id,
+      isInfo: false
+    }));
+  const extras = (familyExtraRows[v.family] || []).map(r => ({
+    familyOrder: r.familyOrder,
+    genLabel: r.label,
+    genFull: r.label,
+    years: r.years,
+    engineShort: r.engineShort,
+    tier: r.tier,
+    price: r.price,
+    note: r.note,
+    isCurrent: false,
+    isInfo: true
+  }));
+  const allRows = [...siblings, ...extras].sort((a, b) => a.familyOrder - b.familyOrder);
+  if (allRows.length < 2) return "";
+  const familyName = v.familyName || "Family";
+  const rows = allRows.map(r => {
+    const rowClass = r.isCurrent ? "family-row-current" : (r.isInfo ? "family-row-info" : "");
+    const tierLabel = r.isInfo ? "info" : r.tier;
+    const action = r.isCurrent
+      ? `<span class="family-here">━ here</span>`
+      : (r.isInfo
+        ? `<span style="color:var(--text-faint);font-family:var(--mono);font-size:10.5px">${r.note || "info"}</span>`
+        : `<button class="family-link" data-jump="${r.id}">View →</button>`);
+    const genCell = r.isCurrent ? `▸ ${r.genLabel}` : r.genLabel;
+    return `<tr class="${rowClass}">
+      <td class="family-gen">${genCell}</td>
+      <td>${r.years}</td>
+      <td>${r.engineShort}</td>
+      <td><span class="family-tier-dot ${tierLabel}"></span>${r.isInfo ? "info only" : tierLabel.charAt(0).toUpperCase() + tierLabel.slice(1)}</td>
+      <td>${r.price}</td>
+      <td>${action}</td>
+    </tr>`;
+  }).join("");
+  return `
+    <div class="detail-section family-map">
+      <div class="detail-label">${familyName} — Family Map</div>
+      <table class="family-table">
+        <thead>
+          <tr><th>Generation</th><th>Years</th><th>Engine</th><th>Tier</th><th>Price (2026)</th><th></th></tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+function renderTrimGuide(v) {
+  if (!v.trims || v.trims.length === 0) return "";
+  const rows = v.trims.map(t => `
+    <tr>
+      <td class="trim-name">${t.name}</td>
+      <td class="trim-features">${t.features}</td>
+      <td class="trim-signal">${t.signal}</td>
+    </tr>
+  `).join("");
+  return `
+    <div class="detail-section trim-guide">
+      <div class="detail-label">Trim Guide — ${v.years}</div>
+      <table class="trim-table">
+        <thead>
+          <tr><th>Trim</th><th>Features</th><th>Used Pricing</th></tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
+function renderInspectionSection(v) {
+  const isEV = v.category === "EV";
+  const universalChecks = isEV ? [
+    "Request battery state-of-health (SoH) report — anything below 80% is a negotiation point",
+    "Verify no open recalls, especially battery or thermal system related",
+    "Test all charge levels: L1/L2 functionality, DC Fast if applicable",
+    "OBD scan with EV-capable scanner — no active battery or drivetrain codes",
+    "Cold-weather range behavior: ask previous owner or check forum reports for this specific year"
+  ] : [
+    "OBD scan — no active or pending codes before purchase",
+    "Cold start: no smoke (blue/white/black), no rough idle, no startup knock or rattle",
+    "Test drive: highway cruise, hard braking, one full-throttle pull",
+    "Undercarriage and frame rails — rust, cracks, patched welds",
+    "Service records: at minimum, evidence of consistent oil change intervals"
+  ];
+
+  // Surface the top known issues for this vehicle as specific inspection targets
+  const specificChecks = (v.cons || []).slice(0, Math.min(4, (v.cons || []).length))
+    .map(c => {
+      // Strip trailing formatting artifacts and truncate long items
+      const clean = c.replace(/ — .{30,}$/, '').trim();
+      return clean.length > 90 ? clean.slice(0, 87) + '…' : clean;
+    })
+    .filter(c => c.length > 5);
+
+  const totalCount = universalChecks.length + specificChecks.length;
+  const btnLabel = `View ${totalCount} Checks`;
+
+  return `
+    <div class="inspection-brief">
+      <div class="inspection-header">
+        <div class="detail-label" style="margin-bottom:0">Inspection Checklist</div>
+        <button class="inspection-toggle-btn" onclick="
+          var btn=this;
+          var wrap=btn.closest('.inspection-brief').querySelector('.checklist-wrap');
+          var open=wrap.classList.toggle('open');
+          btn.classList.toggle('open',open);
+          btn.textContent=open?'Hide':'${btnLabel}';
+        ">${btnLabel}</button>
+      </div>
+      <div class="checklist-wrap">
+        <div class="checklist-note">Universal checks · ${v.make} ${v.model} known issues</div>
+        <ul class="checklist">
+          ${universalChecks.map(item => `
+          <li>
+            <div class="check-box" onclick="this.classList.toggle('checked');this.textContent=this.classList.contains('checked')?'✓':''"></div>
+            <span>${item}</span>
+          </li>`).join('')}
+          ${specificChecks.map(item => `
+          <li>
+            <div class="check-box" onclick="this.classList.toggle('checked');this.textContent=this.classList.contains('checked')?'✓':''"></div>
+            <span>Verify: ${item}</span>
+          </li>`).join('')}
+        </ul>
+      </div>
+      <div class="ppi-banner">
+        <div class="ppi-text">
+          <div class="ppi-headline">Before you buy — get this inspected.</div>
+          <div class="ppi-subtext">A pre-purchase inspection ($100–$150 from an independent shop) is the single best money in used car buying. A mechanic on a lift sees what a test drive misses: rust, leaks, worn bushings, deferred maintenance.</div>
+        </div>
+        <a href="#" class="ppi-btn">Find a vetted inspection shop near you →</a>
+      </div>
+    </div>
+  `;
+}
+
+
+const BODY_MAP = {
+  'tsx-2014':'sedan','tsx-earlier':'sedan',
+  'mazda3-2014':'sport-hatch','mazda3-2012':'sport-hatch',
+  'civic-si-2014':'sport-sedan','civic-si-2012':'sport-sedan',
+  'mazda6-2014':'sedan','fusion-2014':'sedan',
+  'jetta-gli':'sport-sedan',
+  'gti-mk6-late':'sport-hatch','gti-mk6-early':'sport-hatch','gti-mk5':'sport-hatch',
+  'legacy-25i':'sedan','wrx-sedan':'sport-sedan',
+  'accord-v6-2010':'sedan','accord-i4-2011':'sedan','accord-2006':'sedan',
+  'tacoma':'compact-pickup','ridgeline':'ridgeline',
+  'f150-2009':'fullsize-pickup','silverado':'fullsize-pickup',
+  'frontier':'compact-pickup','power-wagon-2016':'power-wagon',
+  '4runner-v6':'boxy-suv','4runner-v8':'boxy-suv',
+  'rx350':'luxury-crossover','crv-2008':'compact-suv',
+  'pilot':'midsize-suv','rav4-v6':'compact-suv',
+  'forester':'compact-suv','highlander':'midsize-suv',
+  'mdx':'midsize-suv','cx9':'midsize-suv',
+  'bolt-2017':'tall-hatch','volt-2014':'sport-hatch',
+  'prius-plugin':'prius','leaf-2015':'leaf-hatch','leaf-2013':'leaf-hatch',
+  'i3-rex':'bmw-i3','rav4-ev':'compact-suv'
+};
+
+/* SVG viewBox 0 0 200 80. Car faces right (rear=left x≈18, front=right x≈182).
+   Ground visual y=74. Wheel centres y=65, radius 9-11.
+   Stroke = currentColor (inherits .card-silhouette color).
+   Wheel fill = var(--bg-card) to punch holes through body fill. */
+const SVG_SIL = {
+
+'sedan': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M18,65 L18,57 Q21,51 34,47 L50,41 Q54,34 60,22 L71,14 Q82,10 100,10 Q118,10 129,14 L140,22 Q146,34 150,41 L166,47 Q179,51 182,57 L182,65 L171,65 A12,9 0 0 0 147,65 L53,65 A12,9 0 0 0 29,65 Z"/>
+  <path d="M18,65 L18,57 Q21,51 34,47 L50,41 Q54,34 60,22 L71,14 Q82,10 100,10 Q118,10 129,14 L140,22 Q146,34 150,41 L166,47 Q179,51 182,57 L182,65 L171,65 A12,9 0 0 0 147,65 L53,65 A12,9 0 0 0 29,65 Z"/>
+  <path d="M71,14 Q65,26 62,41 L138,41 Q135,26 129,14 Z" stroke-opacity="0.45" fill="none"/>
+  <line x1="93" y1="13" x2="90" y2="41" stroke-opacity="0.3"/>
+  <line x1="107" y1="13" x2="110" y2="41" stroke-opacity="0.3"/>
+  <circle cx="41" cy="65" r="9" fill="var(--bg-card)"/><circle cx="159" cy="65" r="9" fill="var(--bg-card)"/>
+  <circle cx="41" cy="65" r="4"/><circle cx="159" cy="65" r="4"/>
+</svg>`,
+
+'sport-sedan': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M16,66 L16,58 Q19,52 32,48 L48,43 Q52,36 56,24 L65,15 Q78,11 100,11 Q122,11 135,15 L144,24 Q148,36 152,43 L168,48 Q181,52 184,58 L184,66 L173,66 A12,9 0 0 0 149,66 L51,66 A12,9 0 0 0 27,66 Z"/>
+  <path d="M16,66 L16,58 Q19,52 32,48 L48,43 Q52,36 56,24 L65,15 Q78,11 100,11 Q122,11 135,15 L144,24 Q148,36 152,43 L168,48 Q181,52 184,58 L184,66 L173,66 A12,9 0 0 0 149,66 L51,66 A12,9 0 0 0 27,66 Z"/>
+  <path d="M65,15 Q59,27 56,43 L144,43 Q141,27 135,15 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="39" cy="66" r="9" fill="var(--bg-card)"/><circle cx="161" cy="66" r="9" fill="var(--bg-card)"/>
+  <circle cx="39" cy="66" r="4"/><circle cx="161" cy="66" r="4"/>
+</svg>`,
+
+'sport-hatch': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M22,65 L22,57 Q25,51 37,47 L52,42 Q56,35 59,25 L68,15 Q80,11 100,11 Q120,11 132,16 L141,25 Q144,34 146,42 Q152,51 160,55 L170,58 Q178,54 180,58 L180,65 L169,65 A12,9 0 0 0 145,65 L55,65 A12,9 0 0 0 31,65 Z"/>
+  <path d="M22,65 L22,57 Q25,51 37,47 L52,42 Q56,35 59,25 L68,15 Q80,11 100,11 Q120,11 132,16 L141,25 Q144,34 146,42 Q152,51 160,55 L170,58 Q178,54 180,58 L180,65 L169,65 A12,9 0 0 0 145,65 L55,65 A12,9 0 0 0 31,65 Z"/>
+  <path d="M68,15 Q62,27 58,42 L142,42 Q140,30 132,16 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="43" cy="65" r="9" fill="var(--bg-card)"/><circle cx="157" cy="65" r="9" fill="var(--bg-card)"/>
+  <circle cx="43" cy="65" r="4"/><circle cx="157" cy="65" r="4"/>
+</svg>`,
+
+'prius': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M20,65 L20,57 Q23,51 36,47 L52,43 Q54,37 55,28 L62,16 Q72,10 96,9 Q116,9 125,13 L135,20 Q141,29 145,39 Q148,47 154,52 L165,56 Q174,52 177,57 L178,65 L167,65 A12,9 0 0 0 143,65 L57,65 A12,9 0 0 0 33,65 Z"/>
+  <path d="M20,65 L20,57 Q23,51 36,47 L52,43 Q54,37 55,28 L62,16 Q72,10 96,9 Q116,9 125,13 L135,20 Q141,29 145,39 Q148,47 154,52 L165,56 Q174,52 177,57 L178,65 L167,65 A12,9 0 0 0 143,65 L57,65 A12,9 0 0 0 33,65 Z"/>
+  <path d="M62,16 Q57,28 54,43 L136,43 Q133,30 125,13 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="45" cy="65" r="9" fill="var(--bg-card)"/><circle cx="155" cy="65" r="9" fill="var(--bg-card)"/>
+  <circle cx="45" cy="65" r="4"/><circle cx="155" cy="65" r="4"/>
+</svg>`,
+
+'tall-hatch': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M28,65 L28,55 Q30,49 40,45 L54,41 Q56,35 57,25 L60,14 Q68,8 100,8 Q132,8 140,14 L143,25 Q144,35 146,41 L160,45 Q170,49 172,55 L172,65 L161,65 A13,10 0 0 0 135,65 L65,65 A13,10 0 0 0 39,65 Z"/>
+  <path d="M28,65 L28,55 Q30,49 40,45 L54,41 Q56,35 57,25 L60,14 Q68,8 100,8 Q132,8 140,14 L143,25 Q144,35 146,41 L160,45 Q170,49 172,55 L172,65 L161,65 A13,10 0 0 0 135,65 L65,65 A13,10 0 0 0 39,65 Z"/>
+  <path d="M60,14 Q57,26 55,41 L145,41 Q143,26 140,14 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="52" cy="65" r="10" fill="var(--bg-card)"/><circle cx="148" cy="65" r="10" fill="var(--bg-card)"/>
+  <circle cx="52" cy="65" r="4"/><circle cx="148" cy="65" r="4"/>
+</svg>`,
+
+'bmw-i3': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M36,65 L36,53 Q38,47 46,43 L58,39 Q60,33 61,21 L65,10 Q74,6 100,6 Q126,6 135,10 L139,21 Q140,33 142,39 L154,43 Q162,47 164,53 L164,65 L153,65 A11,9 0 0 0 131,65 L69,65 A11,9 0 0 0 47,65 Z"/>
+  <path d="M36,65 L36,53 Q38,47 46,43 L58,39 Q60,33 61,21 L65,10 Q74,6 100,6 Q126,6 135,10 L139,21 Q140,33 142,39 L154,43 Q162,47 164,53 L164,65 L153,65 A11,9 0 0 0 131,65 L69,65 A11,9 0 0 0 47,65 Z"/>
+  <path d="M65,10 Q62,21 60,39 L140,39 Q138,21 135,10 Z" stroke-opacity="0.45" fill="none"/>
+  <line x1="100" y1="39" x2="100" y2="65" stroke-opacity="0.35"/>
+  <circle cx="58" cy="65" r="9" fill="var(--bg-card)"/><circle cx="142" cy="65" r="9" fill="var(--bg-card)"/>
+  <circle cx="58" cy="65" r="4"/><circle cx="142" cy="65" r="4"/>
+</svg>`,
+
+'leaf-hatch': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M22,65 L22,56 Q24,50 37,46 L52,42 Q55,35 58,26 L65,16 Q76,10 100,10 Q125,10 136,15 L146,24 Q149,34 150,42 Q156,50 162,54 L172,57 Q179,53 181,57 L181,65 L170,65 A12,9 0 0 0 146,65 L54,65 A12,9 0 0 0 30,65 Z"/>
+  <path d="M22,65 L22,56 Q24,50 37,46 L52,42 Q55,35 58,26 L65,16 Q76,10 100,10 Q125,10 136,15 L146,24 Q149,34 150,42 Q156,50 162,54 L172,57 Q179,53 181,57 L181,65 L170,65 A12,9 0 0 0 146,65 L54,65 A12,9 0 0 0 30,65 Z"/>
+  <path d="M65,16 Q60,28 57,42 L143,42 Q141,30 136,15 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="42" cy="65" r="9" fill="var(--bg-card)"/><circle cx="158" cy="65" r="9" fill="var(--bg-card)"/>
+  <circle cx="42" cy="65" r="4"/><circle cx="158" cy="65" r="4"/>
+</svg>`,
+
+'compact-suv': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M16,63 L16,52 Q18,46 30,42 L44,37 Q47,29 52,19 L60,10 Q71,6 100,6 Q129,6 140,10 L148,19 Q153,29 156,37 L170,42 Q182,46 184,52 L184,63 L173,63 A14,11 0 0 0 147,63 L53,63 A14,11 0 0 0 27,63 Z"/>
+  <path d="M16,63 L16,52 Q18,46 30,42 L44,37 Q47,29 52,19 L60,10 Q71,6 100,6 Q129,6 140,10 L148,19 Q153,29 156,37 L170,42 Q182,46 184,52 L184,63 L173,63 A14,11 0 0 0 147,63 L53,63 A14,11 0 0 0 27,63 Z"/>
+  <path d="M60,10 Q55,22 52,37 L148,37 Q145,22 140,10 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="40" cy="63" r="11" fill="var(--bg-card)"/><circle cx="160" cy="63" r="11" fill="var(--bg-card)"/>
+  <circle cx="40" cy="63" r="5"/><circle cx="160" cy="63" r="5"/>
+</svg>`,
+
+'boxy-suv': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M18,63 L18,50 Q20,44 28,40 L42,35 Q45,26 48,16 L54,8 Q63,5 100,5 Q137,5 146,8 L152,16 Q155,26 158,35 L172,40 Q180,44 182,50 L182,63 L171,63 A14,11 0 0 0 145,63 L55,63 A14,11 0 0 0 29,63 Z"/>
+  <path d="M18,63 L18,50 Q20,44 28,40 L42,35 Q45,26 48,16 L54,8 Q63,5 100,5 Q137,5 146,8 L152,16 Q155,26 158,35 L172,40 Q180,44 182,50 L182,63 L171,63 A14,11 0 0 0 145,63 L55,63 A14,11 0 0 0 29,63 Z"/>
+  <path d="M54,8 L48,35 L152,35 L146,8 Z" stroke-opacity="0.45" fill="none"/>
+  <line x1="54" y1="6" x2="146" y2="6" stroke-opacity="0.3"/>
+  <circle cx="42" cy="63" r="11" fill="var(--bg-card)"/><circle cx="158" cy="63" r="11" fill="var(--bg-card)"/>
+  <circle cx="42" cy="63" r="5"/><circle cx="158" cy="63" r="5"/>
+</svg>`,
+
+'midsize-suv': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M14,63 L14,51 Q16,45 26,41 L40,36 Q43,27 48,17 L57,8 Q67,5 100,5 Q133,5 143,8 L152,17 Q157,27 160,36 L174,41 Q184,45 186,51 L186,63 L175,63 A14,11 0 0 0 149,63 L51,63 A14,11 0 0 0 25,63 Z"/>
+  <path d="M14,63 L14,51 Q16,45 26,41 L40,36 Q43,27 48,17 L57,8 Q67,5 100,5 Q133,5 143,8 L152,17 Q157,27 160,36 L174,41 Q184,45 186,51 L186,63 L175,63 A14,11 0 0 0 149,63 L51,63 A14,11 0 0 0 25,63 Z"/>
+  <path d="M57,8 L50,36 L150,36 L143,8 Z" stroke-opacity="0.45" fill="none"/>
+  <line x1="88" y1="7" x2="86" y2="36" stroke-opacity="0.3"/>
+  <line x1="117" y1="7" x2="119" y2="36" stroke-opacity="0.3"/>
+  <circle cx="38" cy="63" r="11" fill="var(--bg-card)"/><circle cx="162" cy="63" r="11" fill="var(--bg-card)"/>
+  <circle cx="38" cy="63" r="5"/><circle cx="162" cy="63" r="5"/>
+</svg>`,
+
+'luxury-crossover': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M18,64 L18,54 Q21,48 34,44 L50,39 Q54,32 60,21 L70,13 Q82,8 100,8 Q118,8 130,13 L140,21 Q146,32 150,39 L166,44 Q179,48 182,54 L182,64 L171,64 A13,10 0 0 0 147,64 L53,64 A13,10 0 0 0 29,64 Z"/>
+  <path d="M18,64 L18,54 Q21,48 34,44 L50,39 Q54,32 60,21 L70,13 Q82,8 100,8 Q118,8 130,13 L140,21 Q146,32 150,39 L166,44 Q179,48 182,54 L182,64 L171,64 A13,10 0 0 0 147,64 L53,64 A13,10 0 0 0 29,64 Z"/>
+  <path d="M70,13 Q64,25 60,39 L140,39 Q136,25 130,13 Z" stroke-opacity="0.45" fill="none"/>
+  <circle cx="41" cy="64" r="10" fill="var(--bg-card)"/><circle cx="159" cy="64" r="10" fill="var(--bg-card)"/>
+  <circle cx="41" cy="64" r="5"/><circle cx="159" cy="64" r="5"/>
+</svg>`,
+
+'compact-pickup': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M18,43 L18,63 L184,63 L184,43 L154,43 Q150,38 148,30 L142,16 Q134,8 108,8 Q88,8 80,12 L70,20 Q65,30 63,43 Z"/>
+  <path d="M184,63 L184,43 L154,43 Q150,38 148,30 L142,16 Q134,8 108,8 Q88,8 80,12 L70,20 Q65,30 63,43 L18,43 L18,63"/>
+  <line x1="154" y1="43" x2="154" y2="63"/>
+  <path d="M70,20 Q66,30 64,43 L142,43 L142,16 Z" stroke-opacity="0.45" fill="none"/>
+  <path d="M18,63 L29,63 A14,11 0 0 1 57,63 L122,63 A14,11 0 0 1 148,63 L154,63 L184,63" fill="none"/>
+  <circle cx="43" cy="63" r="11" fill="var(--bg-card)"/><circle cx="135" cy="63" r="11" fill="var(--bg-card)"/>
+  <circle cx="43" cy="63" r="5"/><circle cx="135" cy="63" r="5"/>
+</svg>`,
+
+'ridgeline': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M20,44 L20,63 L180,63 L180,44 L152,44 Q148,38 146,30 L140,18 Q132,10 108,10 Q86,10 78,14 L68,22 Q64,32 62,44 Z"/>
+  <path d="M180,63 L180,44 L152,44 Q148,38 146,30 L140,18 Q132,10 108,10 Q86,10 78,14 L68,22 Q64,32 62,44 L20,44 L20,63"/>
+  <line x1="152" y1="44" x2="152" y2="63"/>
+  <path d="M68,22 Q64,32 62,44 L140,44 L140,18 Z" stroke-opacity="0.45" fill="none"/>
+  <path d="M20,63 L31,63 A13,10 0 0 1 57,63 L122,63 A13,10 0 0 1 146,63 L152,63 L180,63" fill="none"/>
+  <circle cx="44" cy="63" r="10" fill="var(--bg-card)"/><circle cx="134" cy="63" r="10" fill="var(--bg-card)"/>
+  <circle cx="44" cy="63" r="5"/><circle cx="134" cy="63" r="5"/>
+</svg>`,
+
+'fullsize-pickup': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M14,42 L14,62 L186,62 L186,40 L152,40 Q148,34 146,24 L138,12 Q128,6 104,6 Q82,6 72,10 L60,18 Q55,28 53,42 Z"/>
+  <path d="M186,62 L186,40 L152,40 Q148,34 146,24 L138,12 Q128,6 104,6 Q82,6 72,10 L60,18 Q55,28 53,42 L14,42 L14,62"/>
+  <line x1="152" y1="40" x2="152" y2="62"/>
+  <path d="M60,18 Q55,29 53,42 L138,42 L138,12 Z" stroke-opacity="0.45" fill="none"/>
+  <path d="M14,62 L26,62 A15,12 0 0 1 56,62 L122,62 A15,12 0 0 1 152,62 L186,62" fill="none"/>
+  <circle cx="41" cy="62" r="12" fill="var(--bg-card)"/><circle cx="137" cy="62" r="12" fill="var(--bg-card)"/>
+  <circle cx="41" cy="62" r="5"/><circle cx="137" cy="62" r="5"/>
+</svg>`,
+
+'power-wagon': `<svg viewBox="0 0 200 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <path fill="currentColor" fill-opacity="0.07" d="M12,40 L12,62 L188,62 L188,38 L152,38 Q148,32 146,20 L136,8 Q124,3 100,3 Q76,3 64,8 L54,20 Q50,32 48,40 Z"/>
+  <path d="M188,62 L188,38 L152,38 Q148,32 146,20 L136,8 Q124,3 100,3 Q76,3 64,8 L54,20 Q50,32 48,40 L12,40 L12,62"/>
+  <line x1="152" y1="38" x2="152" y2="62"/>
+  <line x1="12" y1="40" x2="12" y2="62" stroke-width="2.5"/>
+  <path d="M64,8 Q58,20 48,40 L136,40 L136,8 Z" stroke-opacity="0.45" fill="none"/>
+  <path d="M12,62 L26,62 A16,14 0 0 1 58,62 L120,62 A16,14 0 0 1 152,62 L188,62" fill="none"/>
+  <circle cx="42" cy="62" r="14" fill="var(--bg-card)"/><circle cx="136" cy="62" r="14" fill="var(--bg-card)"/>
+  <circle cx="42" cy="62" r="6"/><circle cx="136" cy="62" r="6"/>
+</svg>`
+
+};
+
+function getSilhouetteSVG(v) {
+  const t = BODY_MAP[v.id] || (v.category === 'Truck' ? 'compact-pickup' : v.category === 'SUV' ? 'compact-suv' : 'sedan');
+  return SVG_SIL[t] || SVG_SIL['sedan'];
+}
+
+function renderCard(v) {
+  const isSaved = state.savedIds.has(v.id);
+  const isExpanded = state.expandedIds.has(v.id);
+  const isEV = v.category === "EV";
+  const milesLeft = v.longevity - v.mileageHigh;
+  const milesLeftFmt = milesLeft > 0 ? `~${fmtMiles(milesLeft)}` : "—";
+  return `
+    <article class="card ${isExpanded ? "expanded" : ""}" data-tier="${v.tier}" data-id="${v.id}">
+      <div class="card-header">
+        <div class="card-title-block">
+          <div class="card-make">${v.make}</div>
+          <div class="card-model">${v.model}</div>
+          <div class="card-years">${v.years}</div>
+          <div class="badges">
+            <span class="badge tier-${v.tier}">${v.tier} Tier</span>
+            <span class="badge bg ${isEV ? 'cat-ev' : ''}">${v.category}</span>
+          </div>
+        </div>
+        <div class="card-silhouette">${getSilhouetteSVG(v)}</div>
+        <button class="save-btn ${isSaved ? "saved" : ""}" data-save="${v.id}" aria-label="Save ${v.model}">★</button>
+      </div>
+      <div class="key-numbers">
+        <div class="key-num">
+          <div class="key-num-label">Price Range</div>
+          <div class="key-num-val">${fmtPrice(v.priceLow)} – ${fmtPrice(v.priceHigh)}</div>
+        </div>
+        <div class="key-num">
+          <div class="key-num-label">Typical Miles</div>
+          <div class="key-num-val">${fmtMiles(v.mileageLow)} – ${fmtMiles(v.mileageHigh)}</div>
+        </div>
+        <div class="key-num">
+          <div class="key-num-label">${isEV ? "Current Range" : "Expected Life"}</div>
+          <div class="key-num-val">${isEV && v.range ? v.range.split(' ').slice(0, 3).join(' ') : fmtMiles(v.longevity) + ' <span class="small">total</span>'}</div>
+        </div>
+        <div class="key-num">
+          <div class="key-num-label">${isEV ? "Powertrain Health" : "Miles Left"}</div>
+          <div class="key-num-val">${isEV ? '<span class="small">Verify battery</span>' : milesLeftFmt}</div>
+        </div>
+        <div class="key-num">
+          <div class="key-num-label">${isEV ? "Efficiency" : "Fuel Economy"}</div>
+          <div class="key-num-val" style="font-size:14px">${v.mpg || '<span class="small">—</span>'}</div>
+        </div>
+        <div class="key-num">
+          <div class="key-num-label">${v.tow ? "Tow Rating" : "Drivetrain"}</div>
+          <div class="key-num-val" style="font-size:14px">${v.tow || (v.drivetrain || '').replace(/ standard| with low range|Symmetrical /g, '').slice(0, 22) || '<span class="small">—</span>'}</div>
+        </div>
+      </div>
+      <div class="rating-row">
+        <div class="rating rating-reliability">
+          <div class="rating-label">Reliability</div>
+          ${dotsHTML(v.reliability, 5, "green")}
+        </div>
+        <div class="rating rating-family">
+          <div class="rating-label">Family</div>
+          ${dotsHTML(v.fScore || 0, 5)}
+        </div>
+        <div class="rating rating-sport">
+          <div class="rating-label">Sportiness</div>
+          ${dotsHTML(v.sport, 5)}
+        </div>
+      </div>
+      ${renderSweetSpot(v)}
+      <div class="summary-line">${v.summary}</div>
+      <button class="expand-btn" data-expand="${v.id}">
+        <span>${isExpanded ? "Collapse" : "Full Briefing"}</span>
+        <span class="arrow">→</span>
+      </button>
+      <div class="details">
+        ${renderFamilyMap(v)}
+        ${renderTrimGuide(v)}
+        <div class="detail-section">
+          <div class="detail-label">Powertrain</div>
+          <div class="detail-content">
+            <div class="spec-line"><span class="spec-key">${isEV ? 'Motor/Battery' : 'Engine'}</span><span class="spec-val">${v.engine}</span></div>
+            <div class="spec-line"><span class="spec-key">Transmission</span><span class="spec-val">${v.transmission}</span></div>
+            <div class="spec-line"><span class="spec-key">Drivetrain</span><span class="spec-val">${v.drivetrain}</span></div>
+            ${v.range ? `<div class="spec-line"><span class="spec-key">Range</span><span class="spec-val">${v.range}</span></div>` : ''}
+          </div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">Best Years to Buy</div>
+          <div class="detail-content">${v.bestYears}</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">Years / Trims to Avoid</div>
+          <div class="detail-content">${v.avoidYears}</div>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">Strengths</div>
+          <ul class="pro-con-list pros">${v.pros.map(p => `<li>${p}</li>`).join("")}</ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">Watch-outs</div>
+          <ul class="pro-con-list cons">${v.cons.map(c => `<li>${c}</li>`).join("")}</ul>
+        </div>
+        <div class="detail-section">
+          <div class="detail-label">Family Profile · ${v.fScore || 0}/5</div>
+          <div class="detail-content" style="margin-bottom:8px">
+            <span class="badge bg ${v.fRear   ? 'cat-ev' : ''}" style="margin-right:4px;color:${v.fRear   ? 'var(--good)' : 'var(--text-faint)'}">${v.fRear   ? '✓' : '·'} Roomy rear</span>
+            <span class="badge bg ${v.fCargo  ? 'cat-ev' : ''}" style="margin-right:4px;color:${v.fCargo  ? 'var(--good)' : 'var(--text-faint)'}">${v.fCargo  ? '✓' : '·'} Large cargo</span>
+            <span class="badge bg ${v.fVents  ? 'cat-ev' : ''}" style="margin-right:4px;color:${v.fVents  ? 'var(--good)' : 'var(--text-faint)'}">${v.fVents  ? '✓' : '·'} Rear AC vents</span>
+            <span class="badge bg ${v.fSeats5 ? 'cat-ev' : ''}" style="margin-right:4px;color:${v.fSeats5 ? 'var(--good)' : 'var(--text-faint)'}">${v.fSeats5 ? '✓' : '·'} Seats 5+</span>
+            <span class="badge bg ${v.fThird  ? 'cat-ev' : ''}" style="margin-right:4px;color:${v.fThird  ? 'var(--good)' : 'var(--text-faint)'}">${v.fThird  ? '✓' : '·'} 3rd row</span>
+          </div>
+          <div class="detail-content">${v.fNotes || ''}</div>
+        </div>
+        ${renderInspectionSection(v)}
+      </div>
+    </article>
+  `;
+}
+function renderGrid() {
+  const filtered = applyFilters();
+  const grid = document.getElementById("grid");
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty-state">No vehicles match these filters. Try widening your budget or clearing filters.</div>';
+  } else {
+    grid.innerHTML = filtered.map(renderCard).join("");
+  }
+  const evNoteEl = document.getElementById("ev-note");
+  if (evNoteEl) evNoteEl.style.display = (state.category === "EV") ? "" : "none";
+  let metaText = `Showing ${filtered.length} of ${vehicles.length} entries · budget ${fmtPriceFull(state.budgetMin)}–${fmtPriceFull(state.budgetMax)}`;
+  if (state.search) metaText += ` · search: "${state.search}"`;
+  if (state.saved === "saved") metaText += ` · saved only`;
+  document.getElementById("results-meta").textContent = metaText;
+  document.getElementById("header-budget").textContent = `Budget: ${fmtPriceFull(state.budgetMin)} – ${fmtPriceFull(state.budgetMax)}`;
+  document.querySelectorAll("[data-save]").forEach(btn => {
+    btn.addEventListener("click", async (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.save;
+      if (state.savedIds.has(id)) state.savedIds.delete(id);
+      else state.savedIds.add(id);
+      await persistSaved();
+      renderGrid();
+      renderStats();
+    });
+  });
+  document.querySelectorAll("[data-expand]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.expand;
+      if (state.expandedIds.has(id)) state.expandedIds.delete(id);
+      else state.expandedIds.add(id);
+      renderGrid();
+    });
+  });
+  document.querySelectorAll("[data-jump]").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const targetId = btn.dataset.jump;
+      // Verify target is in the currently filtered list
+      const target = vehicles.find(x => x.id === targetId);
+      if (!target) return;
+      // Ensure target is visible by widening budget if needed
+      if (target.priceLow > state.budgetMax) state.budgetMax = Math.max(state.budgetMax, target.priceHigh);
+      if (target.priceHigh < state.budgetMin) state.budgetMin = Math.min(state.budgetMin, target.priceLow);
+      state.expandedIds.add(targetId);
+      renderGrid();
+      // Scroll to the target card
+      setTimeout(() => {
+        const el = document.querySelector(`article.card[data-id="${targetId}"]`);
+        if (el) el.scrollIntoView({behavior: "smooth", block: "start"});
+      }, 50);
+    });
+  });
+}
+function renderWatchOuts() {
+  document.getElementById("watch-list").innerHTML = watchOuts.map(w => `
+    <div class="watch-item">
+      <div class="watch-item-name">${w.name}</div>
+      <div class="watch-item-reason">${w.reason}</div>
+    </div>
+  `).join("");
+}
+function renderStats() {
+  document.getElementById("stat-count").innerHTML = vehicles.length + '<span class="unit"> vehicles</span>';
+  document.getElementById("stat-top").innerHTML = vehicles.filter(v => v.tier === "top").length + '<span class="unit"> picks</span>';
+  document.getElementById("stat-in-budget").innerHTML = vehicles.filter(inBudget).length + '<span class="unit"> matches</span>';
+  document.getElementById("stat-ev").innerHTML = vehicles.filter(v => v.category === "EV").length + '<span class="unit"> options</span>';
+}
+function applySportVisibility() {
+  document.body.classList.toggle("no-sport", !state.showSport);
+  if (!state.showSport && state.sort === "sport") {
+    state.sort = "tier";
+    document.getElementById("sort-select").value = "tier";
+  }
+}
+document.querySelectorAll("#category-filter .pill").forEach(p => {
+  p.addEventListener("click", () => {
+    document.querySelectorAll("#category-filter .pill").forEach(b => b.classList.remove("active"));
+    p.classList.add("active");
+    state.category = p.dataset.cat;
+    renderGrid();
+  });
+});
+document.querySelectorAll("#tier-filter .pill").forEach(p => {
+  p.addEventListener("click", () => {
+    document.querySelectorAll("#tier-filter .pill").forEach(b => b.classList.remove("active"));
+    p.classList.add("active");
+    state.tier = p.dataset.tier;
+    renderGrid();
+  });
+});
+document.querySelectorAll("#saved-filter .pill").forEach(p => {
+  p.addEventListener("click", () => {
+    document.querySelectorAll("#saved-filter .pill").forEach(b => b.classList.remove("active"));
+    p.classList.add("active");
+    state.saved = p.dataset.saved;
+    renderGrid();
+  });
+});
+document.querySelectorAll("#family-filter .pill").forEach(p => {
+  p.addEventListener("click", () => {
+    const key = p.dataset.family;
+    if (state.familyFilters.has(key)) {
+      state.familyFilters.delete(key);
+      p.classList.remove("active");
+    } else {
+      state.familyFilters.add(key);
+      p.classList.add("active");
+    }
+    renderGrid();
+  });
+});
+document.getElementById("search-input").addEventListener("input", (e) => {
+  state.search = e.target.value;
+  renderGrid();
+});
+document.getElementById("sort-select").addEventListener("change", (e) => {
+  state.sort = e.target.value;
+  renderGrid();
+});
+document.getElementById("budget-min").addEventListener("input", async (e) => {
+  const v = parseInt(e.target.value, 10);
+  if (!isNaN(v) && v >= 0) {
+    state.budgetMin = v;
+    await persistPrefs();
+    renderGrid();
+    renderStats();
+  }
+});
+document.getElementById("budget-max").addEventListener("input", async (e) => {
+  const v = parseInt(e.target.value, 10);
+  if (!isNaN(v) && v >= 0) {
+    state.budgetMax = v;
+    await persistPrefs();
+    renderGrid();
+    renderStats();
+  }
+});
+document.getElementById("sport-toggle").addEventListener("click", async () => {
+  state.showSport = !state.showSport;
+  document.getElementById("sport-toggle").classList.toggle("on", state.showSport);
+  applySportVisibility();
+  await persistPrefs();
+  renderGrid();
+});
+(async () => {
+  await loadSaved();
+  document.getElementById("budget-min").value = state.budgetMin;
+  document.getElementById("budget-max").value = state.budgetMax;
+  document.getElementById("sport-toggle").classList.toggle("on", state.showSport);
+  applySportVisibility();
+  renderStats();
+  renderWatchOuts();
+  renderGrid();
+})();
+
+// ── Mobile filter toggle ──────────────────────────────────────
+(function() {
+  const btn = document.getElementById("filter-toggle-btn");
+  const panel = document.getElementById("filter-collapsible");
+  if (!btn || !panel) return;
+
+  btn.addEventListener("click", function() {
+    const isOpen = panel.classList.toggle("open");
+    btn.classList.toggle("open", isOpen);
+    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+})();
+</script>
+</body>
+</html>
