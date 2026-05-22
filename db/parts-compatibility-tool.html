@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parts Compatibility Validator — Trail Manual</title>
+<meta name="description" content="Find cross-compatible parts for your Jeep. See what swaps from other vehicles — steering boxes, axles, seats, and more — with OEM part numbers and fitment notes.">
+<style>
+:root{
+  --bg:#0e1116;--bg-2:#171b22;--bg-3:#1f242d;
+  --panel:#1a1f27;--panel-2:#222831;--border:#2c333e;
+  --text:#e6e8eb;--text-dim:#9aa3b1;--text-mute:#6b7280;
+  --accent:#c5a572;--accent-2:#7a8c4f;--accent-3:#b86e3a;
+  --danger:#e57373;--danger-bg:rgba(229,115,115,.1);--danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d;--warn-bg:rgba(255,183,77,.1);--warn-border:rgba(255,183,77,.35);
+  --good:#81c784;--good-bg:rgba(129,199,132,.1);--good-border:rgba(129,199,132,.35);
+  --info:#64b5f6;--info-bg:rgba(100,181,246,.1);--info-border:rgba(100,181,246,.35);
+  --radius:8px;--radius-lg:12px;--max:1060px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer}
+
+/* NAV */
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;background:var(--accent-3);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:15px;flex-shrink:0}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.breadcrumb{display:flex;align-items:center;gap:6px;margin-left:auto;font-size:13px;color:var(--text-mute);flex-wrap:wrap}
+.breadcrumb .crumb{color:var(--text-dim);cursor:pointer}
+.breadcrumb .crumb:hover{color:var(--accent)}
+.breadcrumb .sep{color:var(--text-mute)}
+.breadcrumb .active{color:var(--text)}
+
+/* MAIN */
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+h1{font-size:28px;letter-spacing:-.4px;margin:0 0 10px;line-height:1.2}
+h2{font-size:20px;letter-spacing:-.3px;margin:0 0 16px}
+.lede{font-size:15px;color:var(--text-dim);max-width:680px;line-height:1.65;margin:0 0 28px}
+.section-head{margin-bottom:20px}
+.section-head p{color:var(--text-dim);font-size:14px;margin:6px 0 0}
+
+/* STEPS */
+.step-bar{display:flex;gap:0;margin-bottom:32px;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.step{flex:1;padding:10px 14px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:600;color:var(--text-mute);background:var(--bg-2);border-right:1px solid var(--border);transition:all .15s}
+.step:last-child{border-right:0}
+.step.active{color:var(--accent);background:rgba(197,165,114,.08)}
+.step.done{color:var(--good);background:rgba(129,199,132,.06)}
+.step .step-n{display:block;font-size:16px;font-weight:700;letter-spacing:0;margin-bottom:1px}
+
+/* SCREEN: VEHICLE */
+.vehicle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.vehicle-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 20px;background:var(--panel);cursor:pointer;transition:all .18s;position:relative;overflow:hidden}
+.vehicle-card:hover{border-color:var(--accent);background:var(--panel-2)}
+.vehicle-card.soon{opacity:.5;cursor:default}
+.vehicle-card.soon:hover{border-color:var(--border);background:var(--panel)}
+.vehicle-card .vc-tag{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent-3);margin-bottom:8px}
+.vehicle-card h3{font-size:19px;margin:0 0 4px;letter-spacing:-.2px}
+.vehicle-card .vc-years{font-size:13px;color:var(--text-dim)}
+.vehicle-card .vc-cats{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
+.vehicle-card .vc-cat{font-size:11px;padding:3px 8px;background:var(--bg-3);border:1px solid var(--border);border-radius:20px;color:var(--text-mute)}
+.vc-arrow{position:absolute;bottom:18px;right:18px;font-size:20px;color:var(--text-mute);transition:all .18s}
+.vehicle-card:hover .vc-arrow{color:var(--accent);transform:translateX(3px)}
+.soon-badge{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;background:var(--bg-3);border:1px solid var(--border);border-radius:10px;color:var(--text-mute);margin-left:8px}
+
+/* SCREEN: CATEGORY */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.cat-card{border:1px solid var(--border);border-radius:var(--radius);padding:16px 16px 14px;background:var(--panel);cursor:pointer;transition:all .18s;display:flex;flex-direction:column;gap:6px}
+.cat-card:hover{border-color:var(--accent);background:var(--panel-2)}
+.cat-card .cc-icon{font-size:24px}
+.cat-card h4{font-size:15px;margin:0;letter-spacing:-.1px}
+.cat-card .cc-count{font-size:12px;color:var(--text-mute)}
+
+/* SCREEN: PARTS */
+.part-list{display:grid;gap:10px}
+.part-row{border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;background:var(--panel);cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:14px}
+.part-row:hover{border-color:var(--accent);background:var(--panel-2)}
+.part-row .pr-icon{font-size:22px;flex-shrink:0}
+.part-row .pr-name{font-size:15px;font-weight:600}
+.part-row .pr-stock{font-size:12px;color:var(--text-mute);margin-top:2px}
+.part-row .pr-count{margin-left:auto;font-size:12px;color:var(--text-mute);flex-shrink:0;background:var(--bg-3);padding:3px 9px;border-radius:12px;border:1px solid var(--border)}
+
+/* SCREEN: RESULTS */
+.stock-panel{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;margin-bottom:24px}
+.stock-panel .sp-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-mute);font-weight:700;margin-bottom:6px}
+.stock-panel .sp-desc{font-size:14px;color:var(--text);margin-bottom:4px}
+.stock-panel .sp-note{font-size:13px;color:var(--warn);display:flex;gap:8px;align-items:flex-start}
+
+.swap-grid{display:grid;gap:16px}
+.swap-card{border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--panel);overflow:hidden}
+.swap-card.avoid{border-color:var(--danger-border)}
+.swap-card.avoid .sc-header{background:var(--danger-bg)}
+.sc-header{padding:16px 18px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
+.sc-title{font-size:16px;font-weight:700;margin:0 0 4px;letter-spacing:-.1px}
+.sc-summary{font-size:13px;color:var(--text-dim);line-height:1.5}
+.sc-badges{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.badge{display:inline-flex;align-items:center;padding:3px 9px;font-size:11px;font-weight:600;border-radius:12px;border:1px solid;white-space:nowrap}
+.badge.fitment-direct{background:var(--good-bg);color:var(--good);border-color:var(--good-border)}
+.badge.fitment-conditional{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-border)}
+.badge.fitment-requires-modification{background:rgba(100,181,246,.1);color:var(--info);border-color:rgba(100,181,246,.35)}
+.badge.fitment-not-recommended{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-border)}
+.badge.diff-easy{background:var(--good-bg);color:var(--good);border-color:var(--good-border)}
+.badge.diff-medium{background:var(--warn-bg);color:var(--warn);border-color:var(--warn-border)}
+.badge.diff-hard{background:rgba(100,181,246,.1);color:var(--info);border-color:rgba(100,181,246,.35)}
+.badge.diff-avoid{background:var(--danger-bg);color:var(--danger);border-color:var(--danger-border)}
+.sc-body{padding:16px 18px}
+.sc-meta-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:14px}
+.sc-meta{font-size:12px}
+.sc-meta .sm-label{color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px;font-size:10px;font-weight:700;margin-bottom:2px}
+.sc-meta .sm-val{color:var(--text);font-weight:600}
+.sc-notes{margin-top:12px}
+.sc-notes .sn-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);font-weight:700;margin-bottom:8px}
+.sc-notes ul{margin:0;padding:0 0 0 16px}
+.sc-notes li{font-size:13px;color:var(--text-dim);margin-bottom:5px;line-height:1.5}
+.fitment-note{font-size:13px;padding:8px 12px;border-radius:6px;background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.25);color:var(--warn);margin-bottom:12px;display:flex;gap:8px;align-items:flex-start}
+.fitment-note.good{background:var(--good-bg);border-color:var(--good-border);color:var(--good)}
+.also-fits{font-size:12px;color:var(--text-mute);margin-top:10px;padding-top:10px;border-top:1px dashed var(--border)}
+
+/* UTILITY */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:8px;font-weight:600;font-size:13px;border:1px solid var(--border);background:var(--bg-2);color:var(--text);cursor:pointer;transition:all .15s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn.back{padding:7px 12px;font-size:12px}
+.no-results{text-align:center;padding:48px 20px;color:var(--text-mute);font-size:14px}
+.coming-soon-banner{border:1px dashed var(--border);border-radius:var(--radius);padding:20px;text-align:center;color:var(--text-mute);font-size:14px;background:var(--bg-2)}
+.coming-soon-banner strong{display:block;color:var(--text-dim);margin-bottom:4px}
+.hero-section{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero-section::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(184,110,58,.12) 0%,transparent 65%);pointer-events:none}
+.hero-section h1{position:relative;font-size:clamp(22px,4vw,36px)}
+.hero-section .lede{position:relative}
+.hero-caveat{position:relative;margin-top:12px;font-size:12px;color:var(--text-mute);padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;display:inline-flex;gap:6px;align-items:center}
+@media(max-width:600px){
+  .sc-meta-row{grid-template-columns:1fr 1fr}
+  .step{padding:8px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark">TM</div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Parts Compatibility</div>
+      </div>
+    </a>
+    <div class="breadcrumb" id="breadcrumb"></div>
+  </div>
+</nav>
+
+<main>
+  <div id="app"></div>
+</main>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+
+const COMPAT = {
+  xj: {
+    label: "Jeep Cherokee XJ",
+    years: "1984–2001",
+    categories: {
+      steering: {
+        label: "Steering", icon: "🔧",
+        parts: {
+          "steering-box": {
+            label: "Steering Box", icon: "⚙️",
+            stock: { desc: "Saginaw 706 recirculating ball, 2.75\" piston, ~3.5 turns lock-to-lock", note: "Undersized for lifted builds with larger tires" },
+            swaps: [
+              { id:"xj-durango-box", title:"1999 Dodge Durango Steering Box", summary:"Most popular XJ steering upgrade. Larger 3.125\" piston vs. 2.75\" stock. Nearly doubles hydraulic assist.", donor:"1999 Dodge Durango 4x4", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$150–$300 used", part:"NAPA #27-7588", notes:["Use 1999 specifically — two variants existed in 1998; 1999 is the stronger unit","Some units have an internal snap ring limiting lock-to-lock travel — remove it and replace the cylinder end cap","Pair with the WJ power steering pump (below) for full benefit","Also fits TJ Wrangler (same Saginaw box swap)"], also_fits:["TJ Wrangler"] }
+            ]
+          },
+          "power-steering-pump": {
+            label: "Power Steering Pump", icon: "💧",
+            stock: { desc: "~1,450 psi / 2.0 GPM output", note: "Undersized when paired with the Durango steering box" },
+            swaps: [
+              { id:"xj-wj-pump", title:"1999–2004 WJ Grand Cherokee Pump (4.7L V8)", summary:"Nearly 30% higher pressure output. Pairs with the Durango box or works as a stand-alone upgrade.", donor:"1999–2004 Jeep Grand Cherokee (WJ) 4.7L V8", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$50–$150 used", part:"MasterPro #20-62608 (2002 WJ V8 4.7L)", notes:["Output: ~1,900 psi / 2.8 GPM vs. stock ~1,450 psi / 2.0 GPM","2001+ WJ pump is the strongest variant","Transfer the high-pressure output fitting from your XJ pump to the WJ pump body","XJ reservoir swaps onto WJ pump body, or plug the smaller return port","1996+ XJ mounting brackets are compatible without modification"] }
+            ]
+          },
+          "tie-rods": {
+            label: "Tie Rods / Drag Link", icon: "↔️",
+            stock: { desc: "Stock XJ tie rods, ~1\" diameter", note: "Prone to bending on lifted rigs with larger tires" },
+            swaps: [
+              { id:"xj-zj-tierods", title:"1993–1998 ZJ Grand Cherokee V8 Tie Rods", summary:"Beefier than stock XJ. Direct bolt-in — XJ, ZJ, and TJ share nearly identical front axle geometry.", donor:"1993–1998 Jeep Grand Cherokee (ZJ) V8", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$50–$100 used", part:"Varies by year", notes:["Direct bolt-in — no modification needed","ZJ, XJ, and TJ share nearly identical steering linkage geometry","Good budget upgrade before stepping up to aftermarket HD tie rods"], also_fits:["TJ Wrangler"] }
+            ]
+          }
+        }
+      },
+      axles: {
+        label: "Axles", icon: "🔩",
+        parts: {
+          "rear-axle": {
+            label: "Rear Axle (Dana 35 → Dana 44)", icon: "🪝",
+            stock: { desc: "Dana 35 (most trims) or Dana 44 (tow package, rare)", note: "Dana 35 is a common failure point — upgrading is standard practice on any built XJ" },
+            swaps: [
+              { id:"xj-d44-xj-tow", title:"XJ Tow-Package Dana 44 (Junkyard Score)", summary:"The cleanest bolt-in option. Correct width, bolt pattern, and spring perch location.", donor:"1984–2001 Jeep Cherokee XJ (tow-package trim)", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$500–$1,200 used", part:"Varies", notes:["Hard to find — tow-package trims were uncommon","All dimensions match stock: width, bolt pattern (5×4.5\"), spring perch location","Best junkyard find if you encounter one"] },
+              { id:"xj-d44-mj", title:"Jeep Comanche (MJ) 1987–1990 Dana 44", summary:"Correct width and bolt pattern, but spring perch relocation is required.", donor:"1987–1990 Jeep Comanche (MJ) — optional Dana 44", fitment:"requires-modification", fitment_label:"Requires modification", diff:"hard", cost:"$200–$600 used", part:"Varies", notes:["Correct 5×4.5\" bolt pattern and axle width","MJ is spring-under design; XJ runs springs over axle — perches must be cut and relocated","Rusty's Off Road sells a kit to simplify the relocation","Currie builds purpose-built Dana 44 assemblies for the XJ rear if fabrication isn't your thing"] },
+              { id:"xj-d44-zj-avoid", title:"ZJ/WJ Grand Cherokee Dana 44", summary:"Avoid — aluminum housing is significantly weaker for off-road use.", donor:"1993–2004 Jeep Grand Cherokee (ZJ/WJ)", fitment:"not-recommended", fitment_label:"Not recommended", diff:"avoid", cost:"N/A", part:"N/A", notes:["Aluminum housing is a well-documented weak point","Better options exist — this swap isn't worth pursuing"] }
+            ]
+          },
+          "front-axle": {
+            label: "Front Axle (Dana 30 HP)", icon: "🪝",
+            stock: { desc: "Dana 30 High-Pinion. Some pre-1992 units have center axle disconnect (CAD).", note: "Verify high-pinion vs. low-pinion before purchasing any donor unit" },
+            swaps: [
+              { id:"xj-d30-hp-donor", title:"1993–1999 XJ High-Pinion Dana 30 (no CAD)", summary:"Best clean/strong donor units. No vacuum disconnect complexity. Also a direct fit into TJ Wrangler.", donor:"1993–1999 Jeep Cherokee XJ", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$100–$300 used", part:"Varies", notes:["Pre-1992 units often have the center axle disconnect (CAD) — avoid unless you want the complexity","2000–2001 XJ front axle is LOW-pinion — completely different; do not confuse","1993–1999 HP D30 bolts directly into TJ Wrangler — all four control arm brackets and track bar bracket align identically","TJ front axle gears will NOT fit in XJ front housing — different gear tooth profiles"], also_fits:["TJ Wrangler"] }
+            ]
+          }
+        }
+      },
+      seats: {
+        label: "Seats", icon: "🪑",
+        parts: {
+          "front-seats": {
+            label: "Front Seats", icon: "🪑",
+            stock: { desc: "XJ front seats; mount pattern changed between 1994 and 1995", note: "Compatibility splits at 1994/1995 — check your year before buying" },
+            swaps: [
+              { id:"xj-seats-any-xj", title:"Any XJ Seat (1984–2001)", summary:"Universal within the generation. All XJ years share the same mount pattern.", donor:"Any 1984–2001 Jeep Cherokee XJ", fitment:"direct", fitment_label:"All XJ years — direct bolt-in", diff:"easy", cost:"$50–$200 used pair", part:"Varies", notes:["All XJ model years share the same mount — no exceptions"] },
+              { id:"xj-seats-zj", title:"ZJ Grand Cherokee Seats (1993–1998)", summary:"Direct bolt-in for 1995–2001 XJ. Brackets needed for 1984–1994.", fitment_note_full:"1995–2001 XJ: direct bolt-in  |  1984–1994 XJ: requires fabricated brackets or aftermarket adapters", donor:"1993–1998 Jeep Grand Cherokee (ZJ)", fitment:"conditional", fitment_label:"Year-dependent — see notes", diff:"easy", cost:"$75–$250 used pair", part:"Varies", notes:["1995–2001 XJ: direct bolt-in, no modification needed","1984–1994 XJ: angle iron brackets or aftermarket adapters required","Electric ZJ seat base: fore/aft electric adjustment is lost when installed in a manually-wired XJ; heater and lumbar still work if wired in"] },
+              { id:"xj-seats-wj", title:"WJ Grand Cherokee Seats (1999–2004)", summary:"Same story as ZJ — direct bolt-in for 1995–2001, brackets needed for 1984–1994.", fitment_note_full:"1995–2001 XJ: direct bolt-in  |  1984–1994 XJ: requires fabricated brackets", donor:"1999–2004 Jeep Grand Cherokee (WJ)", fitment:"conditional", fitment_label:"Year-dependent — see notes", diff:"easy", cost:"$100–$300 used pair", part:"Varies", notes:["Same mount geometry as ZJ — same caveats apply","WJ power seat electronics are functional in XJ if wired separately"] },
+              { id:"xj-seats-tj", title:"TJ Wrangler Seats (1997–2006)", summary:"Compatible at mount points for 1995–2001 XJ with minor plastic trimming.", fitment_note_full:"1995–2001 XJ: fits with minor plastic trim  |  1984–1994 XJ: requires brackets", donor:"1997–2006 Jeep Wrangler TJ", fitment:"conditional", fitment_label:"Year-dependent — see notes", diff:"easy", cost:"$75–$200 used pair", part:"Varies", notes:["Minor trimming around the lower seat retractor area","Popular for those who prefer the sportier TJ seat profile"] }
+            ]
+          }
+        }
+      },
+      brakes: {
+        label: "Brakes", icon: "🛑",
+        parts: {
+          "front-brakes": {
+            label: "Front Brakes", icon: "🛑",
+            stock: { desc: "Stock XJ single-piston front calipers and rotors", note: "Marginal on lifted XJs with larger tires; WJ upgrade is the standard fix" },
+            swaps: [
+              { id:"xj-brakes-wj", title:"WJ Grand Cherokee Front Brake Upgrade", summary:"Larger rotors and calipers from WJ. Significant improvement in stopping power. Plan for a complete swap including knuckles.", donor:"1999–2004 Jeep Grand Cherokee (WJ)", fitment:"requires-modification", fitment_label:"Requires modification", diff:"hard", cost:"$800–$1,000 complete", part:"2003–2004 WJ calipers preferred", notes:["Use 2003–2004 WJ calipers (silver, not earlier black) for best fitment","WJ rotors must be redrilled to 5×4.5\" bolt pattern, OR swap to 2000–2006 XJ/TJ/LJ hubs (which accept WJ rotors without redrilling)","1995+ XJ already has a dual-diaphragm booster — no booster swap needed","Full swap: WJ knuckles + calipers + rotors + hub swap (to avoid redrilling)","Best combined with the Durango steering box and WJ pump swap"] }
+            ]
+          }
+        }
+      },
+      suspension: {
+        label: "Suspension", icon: "🔼",
+        parts: {
+          "front-coils": {
+            label: "Front Coil Springs", icon: "🔼",
+            stock: { desc: "Stock XJ front coil springs; rate varies by trim level", note: "ZJ Upcountry coils are the classic budget lift trick" },
+            swaps: [
+              { id:"xj-coils-zj-upcountry", title:"ZJ V8 Upcountry Front Coil Springs (1993–1998)", summary:"Direct bolt-in. ~1–1.5\" free lift with no other changes. Higher spring rate suits heavy front ends.", donor:"1993–1998 Jeep Grand Cherokee (ZJ) V8 Upcountry package", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$30–$80 used pair", part:"Varies", notes:["~1–1.5\" of free lift with no other modifications","Higher spring rate than stock XJ — handles heavy bumpers and winches well","Widely available at junkyards; good first step before a dedicated lift kit"] }
+            ]
+          }
+        }
+      },
+      electrical: {
+        label: "Electrical", icon: "⚡",
+        parts: {
+          "alternator": {
+            label: "Alternator", icon: "⚡",
+            stock: { desc: "75–90A alternator depending on year and trim", note: "Insufficient for rigs running winches, dual batteries, or significant lighting" },
+            swaps: [
+              { id:"xj-alt-mopar136", title:"Mopar 136A Alternator (1997–1998 Dodge trucks / ZJ / WJ)", summary:"Nearly double the output of stock. Requires slight bracket grinding — not a big job.", donor:"1997–1998 Dodge Ram, Dakota, Durango, or ZJ/WJ Grand Cherokee", fitment:"requires-modification", fitment_label:"Minor modification (bracket clearance)", diff:"medium", cost:"$75–$150 used / ~$180 reman", part:"Varies (136A Mopar unit)", notes:["136A vs. stock 75–90A — significantly more capacity","Slight grinding needed on the mounting bracket for clearance","Critical upgrade if running a winch, dual batteries, or LED light bars","Available as a remanufactured unit from most major parts stores"] }
+            ]
+          }
+        }
+      },
+      drivetrain: {
+        label: "Drivetrain", icon: "🔄",
+        parts: {
+          "transfer-case": {
+            label: "Transfer Case", icon: "🔄",
+            stock: { desc: "NP231 Command-Trac, 2.72:1 low range", note: "The 2.72:1 low range is limiting for technical rock crawling" },
+            swaps: [
+              { id:"xj-tcase-nv241or", title:"NV241OR RockTrac (2003–2006 TJ Rubicon)", summary:"4:1 low range vs. 2.72:1 stock. Transformative for rock crawling. Complex swap — plan carefully.", donor:"2003–2006 Jeep Wrangler TJ Rubicon", fitment:"requires-modification", fitment_label:"Requires modification", diff:"hard", cost:"$2,000–$2,500 used", part:"NV241OR", notes:["4:1 low range vs. stock 2.72:1 — major capability upgrade","23-spline short input — swap the input gear from your existing NP231 into the NV241OR","Rear output housing is longer — rear driveshaft will likely be too short; plan for a replacement or custom shaft","32-spline front and rear outputs","Confirmed XJ install (2001 XJ); more commonly done in TJ Wranglers","Budget $2,500–$3,500 all-in with driveshaft work"] }
+            ]
+          },
+          "manual-transmission": {
+            label: "Manual Transmission (4-cyl XJ)", icon: "⚙️",
+            stock: { desc: "AX-5 5-speed (4-cylinder). AX-15 (6-cylinder — already strong).", note: "The AX-5 in 4-cylinder XJs is the weak link; the Dakota AX-15 is the fix" },
+            swaps: [
+              { id:"xj-trans-dakota-ax15", title:"1994+ Dodge Dakota AX-15 5-Speed", summary:"Direct bolt-in upgrade over the AX-5. Use XJ bellhousing.", donor:"1994+ Dodge Dakota V6", fitment:"requires-modification", fitment_label:"Requires XJ bellhousing", diff:"medium", cost:"$200–$500 used", part:"AX-15 with XJ bellhousing", notes:["Use the XJ bellhousing — Dakota bellhousing will not work","The Dakota AX-15 is significantly stronger than the AX-5","Good option for 4-cyl XJ owners wanting more transmission durability"] }
+            ]
+          }
+        }
+      }
+    }
+  },
+  jk: {
+    label: "Jeep Wrangler JK",
+    years: "2007–2018",
+    categories: {
+      axles: {
+        label: "Axles", icon: "🔩",
+        parts: {
+          "front-axle": {
+            label: "Front Axle (Dana 30 → Dana 44)", icon: "🪝",
+            stock: { desc: "Dana 30 (Sport/Sahara) or Dana 44 (Rubicon only)", note: "Dana 30 is a common upgrade target on built JKs" },
+            swaps: [
+              { id:"jk-front-rubicon-d44", title:"JK Rubicon Dana 44 Front Axle", summary:"Direct bolt-in. All mounting points are identical to the Sport/Sahara Dana 30.", donor:"2007–2018 Jeep Wrangler JK Rubicon", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$1,500–$3,000 used complete", part:"Varies (Rubicon Dana 44)", notes:["All mounting points identical to Sport/Sahara — no fabrication needed","E-locker requires wiring (power + ground run to the axle); harness kits available under the dash radio panel","Verify gear ratio — Rubicon axles come 3.73 or 4.10 from factory depending on config","Rubicon carrier bearings are metric/larger — non-Rubicon housing CANNOT accept Rubicon internals without machining","Automatic JKs require ECU reprogramming if gear ratio changes"] }
+            ]
+          },
+          "rear-axle": {
+            label: "Rear Axle", icon: "🪝",
+            stock: { desc: "Dana 44 30-spline (Sport/Sahara); Dana 44 32-spline w/ ARB locker (Rubicon). Note: early 2007 2-door had a Dana 35.", note: "The non-Rubicon D44 can be upgraded internally without a full axle swap" },
+            swaps: [
+              { id:"jk-rear-rubicon-d44", title:"JK Rubicon Dana 44 Rear Axle", summary:"Direct bolt-in. 32-spline shafts, factory ARB locker, larger carrier bearings.", donor:"2007–2018 Jeep Wrangler JK Rubicon", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$1,500–$3,000 used complete", part:"Varies (Rubicon Dana 44)", notes:["All mounting points identical — no fabrication needed","Factory ARB Air Locker requires an air compressor or CO2 system onboard","Verify gear ratio matches the front axle before purchasing","Automatic JKs: ECU reprogramming required if gear ratio changes"] },
+              { id:"jk-rear-chromoly-shafts", title:"4340 Chromoly Axle Shaft Kit (keep your existing D44)", summary:"Strength upgrade without the full axle swap. Often more cost-effective for moderate builds.", donor:"Revolution Gear Discovery Series or equivalent", fitment:"direct", fitment_label:"Bolt-in — no housing change", diff:"medium", cost:"$300–$600", part:"Revolution Gear Discovery Series — 2007–2018 JK non-Rubicon", notes:["Replaces stock 30-spline shafts with stronger 4340 chromoly","Often more cost-effective than a full Rubicon swap for moderate builds","Can pair with a locker (ARB, Eaton, Detroit) in the existing housing for a complete solution"] }
+            ]
+          }
+        }
+      },
+      seats: {
+        label: "Seats", icon: "🪑",
+        parts: {
+          "front-seats": {
+            label: "Front Seats", icon: "🪑",
+            stock: { desc: "JK front seats; consistent mount pattern across all 2007–2018 years", note: "All JK years are cross-compatible — full intra-generation flexibility" },
+            swaps: [
+              { id:"jk-seats-any-jk", title:"Any JK Front Seat (2007–2018)", summary:"Full intra-generation compatibility. All years share the same bolt holes.", donor:"Any 2007–2018 Jeep Wrangler JK", fitment:"direct", fitment_label:"All JK years — direct bolt-in", diff:"easy", cost:"$100–$400 used pair", part:"Varies", notes:["Bolt holes are consistent across the entire generation","2011+ seat brackets may be slightly shorter — swap the brackets from the donor seat year to resolve any height difference","Confirmed: 2016 seats install in a 2008 JK with the bracket swap","If the original seat had seat-mounted side-impact airbags (SIABs), the replacement must also include them, or the circuit must be properly disabled — SIAB-equipped seats are uncommon, verify before buying"] },
+              { id:"jk-seats-jlu-rear", title:"JLU Rear Seats (2018+) into JKU", summary:"Direct fit. JLU rear seats bolt into the JKU rear positions.", donor:"2018+ Jeep Wrangler JL Unlimited (JLU)", fitment:"direct", fitment_label:"Direct bolt-in (rear only)", diff:"easy", cost:"$150–$400 used", part:"Varies (JLU rear seat)", notes:["Reuse the outer seatbelt latches from the JKU","Use one JLU latch for the center rear seatbelt position","JL FRONT seats do NOT bolt into JK — JLU front seat rails are wider; front seat swap is not possible"] }
+            ]
+          }
+        }
+      }
+    }
+  },
+  tj: {
+    label: "Jeep Wrangler TJ",
+    years: "1997–2006",
+    coming_soon: true
+  },
+  jl: {
+    label: "Jeep Wrangler JL",
+    years: "2018–present",
+    coming_soon: true
+  }
+};
+
+const CAT_ICONS = { steering:"🔧", axles:"🔩", seats:"🪑", brakes:"🛑", suspension:"🔼", electrical:"⚡", drivetrain:"🔄" };
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+
+let state = { screen: "vehicle", vehicle: null, category: null, part: null };
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+
+function render() {
+  const app = document.getElementById("app");
+  updateBreadcrumb();
+
+  if (state.screen === "vehicle") { app.innerHTML = renderVehicleScreen(); }
+  else if (state.screen === "category") { app.innerHTML = renderCategoryScreen(); }
+  else if (state.screen === "parts") { app.innerHTML = renderPartsScreen(); }
+  else if (state.screen === "results") { app.innerHTML = renderResultsScreen(); }
+}
+
+function renderVehicleScreen() {
+  const cards = Object.entries(COMPAT).map(([key, v]) => {
+    if (v.coming_soon) {
+      return `<div class="vehicle-card soon">
+        <div class="vc-tag">Coming Soon</div>
+        <h3>${v.label} <span class="soon-badge">Soon</span></h3>
+        <div class="vc-years">${v.years}</div>
+      </div>`;
+    }
+    const cats = Object.keys(v.categories).map(c => `<span class="vc-cat">${v.categories[c].label}</span>`).join("");
+    return `<div class="vehicle-card" onclick="selectVehicle('${key}')">
+      <div class="vc-tag">Select vehicle</div>
+      <h3>${v.label}</h3>
+      <div class="vc-years">${v.years}</div>
+      <div class="vc-cats">${cats}</div>
+      <span class="vc-arrow">→</span>
+    </div>`;
+  }).join("");
+
+  return `
+    <div class="hero-section">
+      <h1>Parts Compatibility Validator</h1>
+      <p class="lede">Find what swaps from other vehicles into yours — with OEM part numbers, year ranges, fitment notes, and honest difficulty ratings. Built from community knowledge, not affiliate databases.</p>
+      <div class="hero-caveat">⚠ Verify fitment for your specific year before purchasing. Data is community-sourced and updated regularly.</div>
+    </div>
+    ${renderSteps()}
+    <div class="section-head">
+      <h2>Select your vehicle</h2>
+      <p>TJ and JL data is coming soon — XJ and JK are fully populated.</p>
+    </div>
+    <div class="vehicle-grid">${cards}</div>`;
+}
+
+function renderCategoryScreen() {
+  const v = COMPAT[state.vehicle];
+  const cards = Object.entries(v.categories).map(([key, cat]) => {
+    const partCount = Object.keys(cat.parts).length;
+    const swapCount = Object.values(cat.parts).reduce((sum, p) => sum + p.swaps.length, 0);
+    return `<div class="cat-card" onclick="selectCategory('${key}')">
+      <div class="cc-icon">${cat.icon || CAT_ICONS[key] || "🔧"}</div>
+      <h4>${cat.label}</h4>
+      <div class="cc-count">${swapCount} swap${swapCount !== 1 ? "s" : ""} documented</div>
+    </div>`;
+  }).join("");
+
+  return `
+    ${renderSteps()}
+    <div class="section-head">
+      <h2>${v.label} <span style="color:var(--text-mute);font-weight:400">${v.years}</span></h2>
+      <p>Choose a part category to see documented cross-compatible swaps.</p>
+    </div>
+    <div class="cat-grid">${cards}</div>`;
+}
+
+function renderPartsScreen() {
+  const v = COMPAT[state.vehicle];
+  const cat = v.categories[state.category];
+  const rows = Object.entries(cat.parts).map(([key, part]) => {
+    const swapCount = part.swaps.length;
+    return `<div class="part-row" onclick="selectPart('${key}')">
+      <div class="pr-icon">${part.icon || "🔧"}</div>
+      <div>
+        <div class="pr-name">${part.label}</div>
+        <div class="pr-stock">${part.stock.desc}</div>
+      </div>
+      <div class="pr-count">${swapCount} swap${swapCount !== 1 ? "s" : ""}</div>
+    </div>`;
+  }).join("");
+
+  return `
+    ${renderSteps()}
+    <div class="section-head">
+      <h2>${cat.label}</h2>
+      <p>Select a specific part to see what cross-compatible options have been documented.</p>
+    </div>
+    <div class="part-list">${rows}</div>`;
+}
+
+function renderResultsScreen() {
+  const v = COMPAT[state.vehicle];
+  const cat = v.categories[state.category];
+  const part = cat.parts[state.part];
+
+  const fitmentLabels = {
+    "direct": "Direct bolt-in",
+    "conditional": "Year-dependent fitment",
+    "requires-modification": "Requires modification",
+    "not-recommended": "Not recommended"
+  };
+
+  const diffLabels = { easy:"Easy", medium:"Moderate", hard:"Complex", avoid:"Avoid" };
+
+  const swapCards = part.swaps.map(s => {
+    const avoidClass = s.fitment === "not-recommended" ? " avoid" : "";
+    const fitNote = s.fitment_note_full
+      ? `<div class="fitment-note">${s.fitment_note_full}</div>`
+      : (s.fitment === "conditional" ? `<div class="fitment-note">⚠ Fitment depends on your XJ year — read notes carefully</div>` : "");
+
+    const partNum = s.part && s.part !== "Varies" && s.part !== "N/A" && s.part !== "Varies by year"
+      ? `<div class="sc-meta"><div class="sm-label">Part Number</div><div class="sm-val">${s.part}</div></div>` : "";
+
+    const alsoFits = s.also_fits && s.also_fits.length
+      ? `<div class="also-fits">Also fits: ${s.also_fits.join(", ")}</div>` : "";
+
+    const notes = s.notes && s.notes.length
+      ? `<div class="sc-notes"><div class="sn-label">Fitment Notes</div><ul>${s.notes.map(n=>`<li>${n}</li>`).join("")}</ul></div>` : "";
+
+    return `<div class="swap-card${avoidClass}">
+      <div class="sc-header">
+        <div>
+          <div class="sc-title">${s.title}</div>
+          <div class="sc-summary">${s.summary}</div>
+        </div>
+        <div class="sc-badges">
+          <span class="badge fitment-${s.fitment}">${fitmentLabels[s.fitment] || s.fitment_label}</span>
+          <span class="badge diff-${s.diff}">${diffLabels[s.diff] || s.diff}</span>
+        </div>
+      </div>
+      <div class="sc-body">
+        ${fitNote}
+        <div class="sc-meta-row">
+          <div class="sc-meta"><div class="sm-label">Donor Vehicle</div><div class="sm-val">${s.donor}</div></div>
+          ${s.cost !== "N/A" ? `<div class="sc-meta"><div class="sm-label">Typical Cost</div><div class="sm-val">${s.cost}</div></div>` : ""}
+          ${partNum}
+        </div>
+        ${notes}
+        ${alsoFits}
+      </div>
+    </div>`;
+  }).join("");
+
+  return `
+    ${renderSteps()}
+    <div class="stock-panel">
+      <div class="sp-label">Stock / OEM</div>
+      <div class="sp-desc">${part.stock.desc}</div>
+      ${part.stock.note ? `<div class="sp-note">⚠ ${part.stock.note}</div>` : ""}
+    </div>
+    <div class="section-head">
+      <h2>${part.label} — Compatible Swaps</h2>
+      <p>${part.swaps.length} option${part.swaps.length !== 1 ? "s" : ""} documented. Sorted: best bolt-in options first.</p>
+    </div>
+    <div class="swap-grid">${swapCards}</div>
+    <div style="margin-top:32px;padding:16px 18px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);font-size:13px;color:var(--text-mute)">
+      <strong style="color:var(--text-dim);display:block;margin-bottom:4px">Know a swap that's missing?</strong>
+      Data is community-sourced and expanded over time. Send corrections or additions to <a href="mailto:dvs.dnl@gmail.com">dvs.dnl@gmail.com</a> — include part numbers and year ranges.
+    </div>`;
+}
+
+function renderSteps() {
+  const steps = [
+    { label: "Vehicle", key: "vehicle" },
+    { label: "Category", key: "category" },
+    { label: "Part", key: "parts" },
+    { label: "Results", key: "results" }
+  ];
+  const order = ["vehicle", "category", "parts", "results"];
+  const cur = order.indexOf(state.screen);
+
+  return `<div class="step-bar">
+    ${steps.map((s, i) => {
+      const cls = i < cur ? "done" : i === cur ? "active" : "";
+      return `<div class="step ${cls}"><span class="step-n">${i+1}</span>${s.label}</div>`;
+    }).join("")}
+  </div>`;
+}
+
+// ─── BREADCRUMB ───────────────────────────────────────────────────────────────
+
+function updateBreadcrumb() {
+  const bc = document.getElementById("breadcrumb");
+  const parts = [];
+  if (state.vehicle) {
+    const v = COMPAT[state.vehicle];
+    parts.push(`<span class="crumb" onclick="goTo('vehicle')">Vehicles</span>`);
+    parts.push(`<span class="sep">/</span>`);
+    if (state.screen === "category") {
+      parts.push(`<span class="active">${v.label}</span>`);
+    } else {
+      parts.push(`<span class="crumb" onclick="goTo('category')">${v.label}</span>`);
+    }
+  }
+  if (state.category && state.screen !== "category") {
+    const cat = COMPAT[state.vehicle].categories[state.category];
+    parts.push(`<span class="sep">/</span>`);
+    if (state.screen === "parts") {
+      parts.push(`<span class="active">${cat.label}</span>`);
+    } else {
+      parts.push(`<span class="crumb" onclick="goTo('parts')">${cat.label}</span>`);
+    }
+  }
+  if (state.part && state.screen === "results") {
+    const part = COMPAT[state.vehicle].categories[state.category].parts[state.part];
+    parts.push(`<span class="sep">/</span>`);
+    parts.push(`<span class="active">${part.label}</span>`);
+  }
+  bc.innerHTML = parts.join("");
+}
+
+// ─── NAVIGATION ──────────────────────────────────────────────────────────────
+
+function selectVehicle(key) {
+  state.vehicle = key; state.category = null; state.part = null;
+  state.screen = "category";
+  render(); window.scrollTo(0, 0);
+}
+
+function selectCategory(key) {
+  state.category = key; state.part = null;
+  state.screen = "parts";
+  render(); window.scrollTo(0, 0);
+}
+
+function selectPart(key) {
+  state.part = key;
+  state.screen = "results";
+  render(); window.scrollTo(0, 0);
+}
+
+function goTo(screen) {
+  if (screen === "vehicle") { state.vehicle = null; state.category = null; state.part = null; state.screen = "vehicle"; }
+  else if (screen === "category") { state.category = null; state.part = null; state.screen = "category"; }
+  else if (screen === "parts") { state.part = null; state.screen = "parts"; }
+  render(); window.scrollTo(0, 0);
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+
+render();
+</script>
+</body>
+</html>
