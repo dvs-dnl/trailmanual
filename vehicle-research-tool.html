@@ -729,6 +729,18 @@
   .filter-toggle-btn {
     display: none;
   }
+  /* Filter panel: hidden by default (mobile), always shown on desktop */
+  .filter-collapsible {
+    display: none;
+  }
+  .filter-collapsible.open {
+    display: block;
+  }
+  @media (min-width: 769px) {
+    .filter-collapsible {
+      display: block !important;
+    }
+  }
   @media (max-width: 768px) {
     .controls {
       position: static;
@@ -765,10 +777,8 @@
       margin-left: 4px;
     }
     .filter-collapsible {
-      display: none;
       padding-top: 14px;
     }
-    .filter-collapsible.open { display: block; }
   }
 
   /* ── Inspection additions ─────────────────────────────────── */
@@ -1716,7 +1726,7 @@ function renderGrid() {
     grid.innerHTML = filtered.map(renderCard).join("");
   }
   const evNoteEl = document.getElementById("ev-note");
-  if (evNoteEl) evNoteEl.style.display = filtered.some(v => v.category === "EV") ? "" : "none";
+  if (evNoteEl) evNoteEl.style.display = (state.category === "EV") ? "" : "none";
   let metaText = `Showing ${filtered.length} of ${vehicles.length} entries · budget ${fmtPriceFull(state.budgetMin)}–${fmtPriceFull(state.budgetMax)}`;
   if (state.search) metaText += ` · search: "${state.search}"`;
   if (state.saved === "saved") metaText += ` · saved only`;

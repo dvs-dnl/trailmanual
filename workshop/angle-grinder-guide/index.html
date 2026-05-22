@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Angle Grinder — Wheel Types, Guards, and Safe Use — The Workshop · Trail Manual</title>
+<meta name="description" content="Angle grinders are among the most useful and most dangerous tools in the shop. Here's how to pick the right disc, keep the guard on, and not send a wheel fragment through your leg.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">The Workshop</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← All guides</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Angle Grinder — Wheel Types, Guards, and Safe Use</h1>
+    <p class="lede">An angle grinder is one of the most capable tools you can own — it cuts steel, removes rust, smooths welds, and strips paint. It's also one of the fastest tools in the shop to put you in an emergency room if you use the wrong disc, skip the guard, or let the wheel catch wrong. This guide covers what to reach for and what to avoid.</p>
+    <div class="safety-badge">⚠ Safety critical</div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p>A 4.5" angle grinder handles the vast majority of automotive and fabrication work. The disc you mount determines what the tool can do — cutting, grinding, and surface prep all require different wheels, and running the wrong one is how discs shatter. Always use the guard, wear face protection (not just safety glasses), and never exceed the RPM rating printed on the disc.</p>
+    <p>If you have to remove the guard to reach the workpiece, you've found a job for a different tool. The guard is not there for comfort — it exists because angle grinder wheel failures are explosive and directional.</p>
+  </div>
+
+  <h2>Size: 4.5" vs. 7"</h2>
+  <p>The grinder's disc diameter dictates power, weight, and how much of any given job it can handle. For automotive work — cutting exhaust sections, cleaning welds, removing rust, stripping body panels — a <strong>4.5" grinder</strong> is the right size. It's light enough to control with one hand when needed, fits in tight spaces under the vehicle, and the discs are cheap and widely available.</p>
+
+  <p>A <strong>7" grinder</strong> moves more material faster and handles heavy fabrication work — grinding down weld beads on thick plate, removing large areas of scale on frame sections. It's also significantly harder to control and produces enough torque at kickback to break a wrist. If you're new to grinders, own and practice with a 4.5" before going larger.</p>
+
+  <p><strong>RPM matters as much as size.</strong> A standard 4.5" grinder runs 11,000–13,000 RPM at no load. Every disc you mount will have a maximum RPM stamped on the label or disc face — that rating must meet or exceed your grinder's speed. Running a disc rated for 10,000 RPM on an 11,000 RPM grinder puts centrifugal force past the disc's design limit. This is how wheels explode.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Non-negotiable</div>
+    <p>Check the RPM rating on every disc before you mount it. If the disc's max RPM is lower than your grinder's no-load RPM, don't use it. The number is printed on the disc itself or on its label — it takes two seconds to confirm.</p>
+  </div>
+
+  <h2>Disc Types and What They're For</h2>
+  <p>Each disc is built for a specific kind of contact. Using the wrong one doesn't produce a marginal result — it produces a dangerous one. Here's the breakdown of what you'll actually use in automotive work:</p>
+
+  <h3>Cutting Discs (Type 1 / Type 41)</h3>
+  <p>Flat, thin — typically 0.040" to 0.045" thick for metal cutting. These are for <strong>cutting only</strong>: slicing through exhaust pipe, cutting out rusted floor panels, trimming steel bar stock. The thin profile makes them efficient at cutting but extremely fragile under side load. Never use the flat face of a cutting disc to grind — the disc will flex, crack, and may shatter. Contact should be at the disc's edge, with the disc running perpendicular to the cut line.</p>
+
+  <h3>Grinding Discs (Type 27 / Depressed Center)</h3>
+  <p>Thicker — 0.25" or more — and designed to absorb lateral pressure. Use these to knock down weld beads, remove surface rust from frame sections, or smooth rough steel edges. The depressed center (the raised hub) positions the disc at the correct 5–15° angle to the workpiece. Run grinding discs at this angle consistently — going flat removes the speed advantage and increases heat; going steep digs and grabs.</p>
+
+  <h3>Flap Discs</h3>
+  <p>Overlapping abrasive flaps arranged radially around a fiberglass or plastic backing. Flap discs are <strong>the right choice for blending and finishing welds</strong>, feathering edges, and surface prep before paint or undercoating. They cut aggressively at first, then get finer as the flaps wear — giving you a naturally smooth finish without switching discs. Grits typically range from 40 (aggressive material removal) to 120 (finishing). For off-road work, a 60-grit flap disc covers 80% of weld cleanup and surface prep jobs.</p>
+
+  <h3>Wire Wheels and Wire Cup Brushes</h3>
+  <p>Twisted-wire or knotted-wire wheels are for <strong>rust removal and stripping</strong> — cleaning scale off frame rails, removing old undercoating, prepping bare metal before POR-15 or a weld. These are not cutting or grinding tools. They don't remove material; they scrub it.</p>
+  <p>Wire wheels are among the most injury-prone attachments on a grinder. Individual wires break off at speed and embed in skin at near-invisible sizes. Wear <strong>full face protection</strong> — a face shield, not just safety glasses — and a long-sleeve shirt. Don't run wire attachments near fuel lines, brake lines, or wiring.</p>
+
+  <h3>Strip Discs (Surface Conditioning Discs)</h3>
+  <p>Open-mesh synthetic abrasive discs — these are aggressive paint and coating strippers. They remove body seam sealer, old paint, and undercoating without biting into the metal the way a grinding disc would. Useful for rust repair on body panels where you need bare metal but don't want to thin the sheetmetal with a standard abrasive.</p>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">Watch out</div>
+    <p>Never use a <strong>wood-cutting</strong> or <strong>masonry</strong> disc on metal. Never use a <strong>metal cutting disc</strong> on masonry or concrete. Cross-contamination causes heat buildup that degrades the disc bond. And never use an abrasive disc on stainless steel unless it's rated for stainless — standard discs can introduce iron contamination that causes rust staining and corrosion on the workpiece.</p>
+  </div>
+
+  <h2>The Guard — Why It Stays On</h2>
+  <p>The guard covers roughly half the disc and deflects debris and sparks away from your face and body. More critically, it acts as a barrier if the disc shatters — fragments travel at the disc's surface speed, which at 11,000 RPM on a 4.5" disc is around 130 mph. A guard deflects those fragments; your forearm does not.</p>
+
+  <p>The guard also positions the tool correctly. When it's in place, the natural angle of the grinder puts the disc at the right working angle. Remove the guard and you lose that feedback — the disc can go flat against the work, load up, and kick back with the full torque of the motor behind it.</p>
+
+  <p>Guards are adjustable. Most rotate 360° around the spindle to direct sparks away from you regardless of which direction you're working. If the guard is in the way because of its current orientation, <strong>rotate it</strong> — don't remove it. Two seconds with a wrench and the guard is pointed where you need it.</p>
+
+  <h2>PPE for Grinder Work</h2>
+  <p>This is one tool where you need to think through your protection before you power on:</p>
+  <ul>
+    <li><strong>Face shield over safety glasses</strong> — not one or the other. Safety glasses alone don't protect the face from wire wheel fragments or a disc chip. A face shield over glasses gives you eye protection from fine debris that wraps around a shield.</li>
+    <li><strong>Hearing protection</strong> — angle grinders run loud. Extended use without ear protection causes cumulative hearing loss over time.</li>
+    <li><strong>Gloves</strong> — leather or cut-resistant, not latex or nitrile. You're handling sharp metal and sparks. Avoid loose gloves that can catch.</li>
+    <li><strong>Long sleeves</strong> — sparks travel. They don't burn immediately, but they pile up on synthetic fabrics and ignite. Natural fiber (cotton, denim) is more forgiving than polyester.</li>
+    <li><strong>No loose clothing near the disc.</strong> A grinder will snag fabric in a fraction of a second.</li>
+  </ul>
+
+  <h2>Technique: Starting, Working, and Stopping</h2>
+  <p>Before powering on, inspect the disc. Look for chips, cracks, or any damage to the abrasive face. A cracked disc should go in the trash — there's no safe way to use a compromised abrasive wheel. Also confirm the disc is seated fully on the spindle and the retaining nut is tight. An under-tightened disc can walk off the arbor mid-use.</p>
+
+  <p>When you start the grinder, let it spin up to full speed before contacting the workpiece. Touching the disc to metal before it's at speed increases load on startup and can cause the disc to skip. Once running, bring the disc to the workpiece at the correct angle for the disc type — 5–15° for grinding discs, perpendicular for cutting discs — and move the tool with deliberate, controlled passes.</p>
+
+  <p><strong>Keep the tool moving.</strong> Holding a grinding disc in one spot generates heat and loads the abrasive unevenly. On body panels, heat causes warping. On edge work, it creates gouges. Move in consistent strokes across the work area.</p>
+
+  <p>Pay attention to where the sparks are going. Before you start, position yourself so the spark stream doesn't go toward fuel, rags, open containers, or anything flammable. Have a fire extinguisher within reach when working near fuel system components — not across the shop, within reach.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Kickback — the most common way grinders injure people</div>
+    <p>Kickback happens when the disc catches on the workpiece — typically when a cutting disc pinches in a narrowing cut, or when a grinding disc catches an edge. The tool rotates violently in the opposite direction of disc spin, toward the operator. To reduce kickback risk: never let a cutting slot close on the disc (support the work so the cut opens, not closes), move the disc against its rotation direction across the work surface, and maintain a firm two-handed grip whenever possible. If the tool kicks, the grip is what keeps it from becoming a projectile.</p>
+  </div>
+
+  <h2>Disc Inspection and Storage</h2>
+  <p>Abrasive discs degrade over time, even unused. Most manufacturers mark a three-year shelf life from manufacture date on the disc label. Old discs stored in damp conditions are particularly risky — moisture weakens the resin bond that holds the abrasive together. If a disc is unmarked, discolored, has visible moisture damage, or you don't know how old it is, don't use it.</p>
+
+  <p>Store discs flat or hanging vertically on a peg — never stacked at odd angles where warping can occur. A warped cutting disc vibrates badly and will fail faster under load.</p>
+
+  <div class="panel panel-good">
+    <div class="panel-label">A note on budget grinders</div>
+    <p>A $30 angle grinder from a discount tool bin isn't dangerous because it's cheap — it's dangerous because cheap grinders often have no spindle lock, wobbly arbors, and poor guard retention. A quality 4.5" corded grinder from Makita, DeWalt, Bosch, or Milwaukee runs $60–$90 and will last years of regular shop use. The disc costs more in the long run than the tool — buy the tool once at the right level.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/power-tool-kickback/">Power Tool Kickback — Grinders, Saws, and Impact Tools</a>
+      <a class="related-card" href="/workshop/eye-and-hand-protection/">Eye and Hand Protection — What Each Job Requires</a>
+      <a class="related-card" href="/workshop/fire-safety-in-the-shop/">Fire Safety in the Shop</a>
+      <a class="related-card" href="/workshop/breaking-rusty-bolts/">Breaking Rusty Bolts — Heat, Impact, and Extractors</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+</body>
+</html>
