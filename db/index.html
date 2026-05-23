@@ -93,6 +93,13 @@
   .back-btn:hover{border-color:var(--accent);color:var(--accent)}
   .detail-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
   .detail-section{margin:24px 0}
+  .video-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;margin:10px 0 6px}
+  .video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px;border:0}
+  .video-credit{font-size:12px;color:var(--text-mute);font-family:var(--mono);margin:4px 0 0}
+  .video-credit a{color:var(--accent);text-decoration:none}
+  .video-credit a:hover{text-decoration:underline}
+  .video-context{font-size:13px;color:var(--text-dim);margin:0 0 10px;line-height:1.5}
+
   .detail-section h3{font-size:14px;text-transform:uppercase;letter-spacing:.6px;color:var(--accent);margin:0 0 12px;font-weight:700}
   .detail-section p{margin:0 0 12px;line-height:1.65}
   .detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
@@ -622,6 +629,30 @@
     if ((e.tags||[]).length) wrap.appendChild(el('div',{class:'detail-section'}, el('h3',{},'Tags'), el('div',{class:'tag-row'}, e.tags.map(t => el('span',{class:'tool-pill'},'#'+t)))));
     if ((e.citations||[]).length) wrap.appendChild(el('div',{class:'detail-section'}, el('h3',{},'Sources'),
       el('div',{class:'citations'}, e.citations.map(c => el('a',{href:c.url||'#',target:'_blank',rel:'noopener'}, (c.title||c.url) + ' ↗')))));
+    if (e.youtube_id) {
+      const vSec = el('div',{class:'detail-section'});
+      vSec.appendChild(el('h3',{},'Watch It Done'));
+      vSec.appendChild(el('p',{class:'video-context'},'Seeing the sequence in real time is worth more than reading about it twice.'));
+      const vWrap = el('div',{class:'video-wrap'});
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/'+e.youtube_id+'?rel=0';
+      iframe.title = (e.youtube_title||e.title||'')+(e.youtube_channel?' — '+e.youtube_channel:'');
+      iframe.setAttribute('allow','accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture');
+      iframe.setAttribute('allowfullscreen','');
+      vWrap.appendChild(iframe);
+      vSec.appendChild(vWrap);
+      if (e.youtube_channel) {
+        const cred = el('p',{class:'video-credit'});
+        cred.appendChild(document.createTextNode('Video: '));
+        const a = document.createElement('a');
+        a.href = e.youtube_channel_url||'https://youtube.com';
+        a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = e.youtube_channel;
+        cred.appendChild(a);
+        vSec.appendChild(cred);
+      }
+      wrap.appendChild(vSec);
+    }
     app.appendChild(wrap);
   }
 
