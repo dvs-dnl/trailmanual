@@ -781,21 +781,21 @@
       if (scores[id] >= 0) scores[id] += 1; // small nudge so they show up if nothing else
     });
 
-    // Build ranking
-    const ranked = Object.entries(scores)
-      .filter(([id,s]) => s > 0)
-      .sort((a,b) => b[1] - a[1])
-      .map(([id]) => id);
+    // Build ranking — free items always first, then by score
+    const _byScore = (lo, hi) => Object.entries(scores)
+      .filter(([id,s]) => s > 0 && FIXES[id].cost >= lo && FIXES[id].cost <= hi)
+      .sort((a,b) => b[1]-a[1]).map(([id])=>id);
+    const ranked = [..._byScore(0,0), ..._byScore(1,Infinity)];
 
     // Summary state
-    const totalCost = ranked.filter(id => !state.done[id]).reduce((s,id) => s + FIXES[id].cost, 0);
+    const freeRemaining = ranked.filter(id => FIXES[id].cost === 0 && !state.done[id]).length;
     const completed = ranked.filter(id => state.done[id]).length;
 
     const summary = el('div', {class:'panel info'},
       el('div', {style:'display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center'},
         el('div', {},
-          el('div', {style:'color:var(--text-mute);font-size:12px;text-transform:uppercase;letter-spacing:.5px'}, 'Estimated remaining cost'),
-          el('div', {style:'font-size:28px;font-weight:800;color:var(--accent)'}, '$' + totalCost.toLocaleString()),
+          el('div', {style:'color:var(--text-mute);font-size:12px;text-transform:uppercase;letter-spacing:.5px'}, 'Free checks first'),
+          el('div', {style:'font-size:28px;font-weight:800;color:var(--info)'}, freeRemaining > 0 ? freeRemaining + ' free to start' : '✓ Free checks done'),
           el('div', {style:'color:var(--text-mute);font-size:12px'}, ranked.length + ' suggested fixes · ' + completed + ' done')
         ),
         el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'},
