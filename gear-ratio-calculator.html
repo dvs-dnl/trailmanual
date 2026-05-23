@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gear Ratio Calculator — Trail Manual</title>
+<meta name="description" content="Find the right axle gear ratio for your tire size. Select your vehicle and trim, enter your planned tires, and get a specific re-gear recommendation with RPM and crawl ratio comparisons.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+:root {
+  --calc-border: 1px solid var(--border);
+  --calc-radius: 10px;
+  --good: #3d8b37;
+  --good-bg: #edf7ec;
+  --good-border: #b5ddb2;
+  --warn: #b07d1a;
+  --warn-bg: #fdf6e3;
+  --warn-border: #e8d38a;
+  --bad: #c0392b;
+  --bad-bg: #fdf0ee;
+  --bad-border: #f0b8b2;
+}
+
+.calc-page { max-width: 1020px; margin: 0 auto; padding: 40px 20px 80px; }
+
+.calc-hero { margin-bottom: 36px; padding-bottom: 28px; border-bottom: var(--calc-border); }
+.calc-hero h1 { font-size: clamp(26px, 3.5vw, 36px); letter-spacing: -.5px; margin: 0 0 10px; color: var(--text); }
+.calc-hero p  { font-size: 16px; color: var(--text-dim); max-width: 640px; line-height: 1.65; margin: 0; }
+
+/* Two-column layout */
+.calc-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+@media (max-width: 700px) { .calc-layout { grid-template-columns: 1fr; } }
+
+.calc-panel { background: var(--surface); border: var(--calc-border); border-radius: var(--calc-radius); padding: 24px; }
+.calc-panel-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: var(--accent); margin: 0 0 18px; }
+
+/* Vehicle selectors */
+.calc-select-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+@media (max-width: 480px) { .calc-select-row { grid-template-columns: 1fr; } }
+
+.calc-field { display: flex; flex-direction: column; gap: 6px; }
+.calc-field label { font-size: 12px; font-weight: 600; color: var(--text-mute); text-transform: uppercase; letter-spacing: .4px; }
+.calc-field select,
+.calc-field input[type=number] {
+  background: var(--bg);
+  border: var(--calc-border);
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 14px;
+  color: var(--text);
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color .15s;
+}
+.calc-field select:focus,
+.calc-field input[type=number]:focus { outline: none; border-color: var(--accent); }
+.calc-field .note { font-size: 11px; color: var(--text-mute); line-height: 1.5; margin-top: 2px; }
+
+/* Specs grid (auto-filled values) */
+.calc-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 0; }
+@media (max-width: 480px) { .calc-specs { grid-template-columns: 1fr; } }
+
+.calc-spec { background: var(--bg); border: var(--calc-border); border-radius: 8px; padding: 12px 14px; }
+.calc-spec-label { font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--text-mute); font-weight: 600; margin-bottom: 4px; }
+.calc-spec-val { font-size: 20px; font-weight: 700; color: var(--text); letter-spacing: -.3px; }
+.calc-spec-sub  { font-size: 11px; color: var(--text-mute); margin-top: 2px; }
+.calc-spec input[type=number] { font-size: 20px; font-weight: 700; color: var(--text); background: transparent; border: none; outline: none; width: 100%; padding: 0; font-family: inherit; letter-spacing: -.3px; }
+
+/* Tire size slider/buttons */
+.tire-options { display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 12px; }
+.tire-btn {
+  border: var(--calc-border);
+  background: var(--bg);
+  color: var(--text-dim);
+  border-radius: 7px;
+  padding: 7px 13px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
+}
+.tire-btn:hover { border-color: var(--accent); color: var(--accent); }
+.tire-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.tire-custom { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.tire-custom input { width: 80px; background: var(--bg); border: var(--calc-border); border-radius: 7px; padding: 7px 10px; font-size: 14px; font-weight: 600; color: var(--text); font-family: inherit; }
+.tire-custom input:focus { outline: none; border-color: var(--accent); }
+.tire-custom label { font-size: 13px; color: var(--text-mute); }
+
+/* Results panel */
+.calc-verdict {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 9px;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 1px solid;
+}
+.calc-verdict.good { background: var(--good-bg); border-color: var(--good-border); }
+.calc-verdict.warn { background: var(--warn-bg); border-color: var(--warn-border); }
+.calc-verdict.bad  { background: var(--bad-bg);  border-color: var(--bad-border); }
+.verdict-icon { font-size: 20px; line-height: 1; margin-top: 1px; }
+.verdict-text strong { display: block; font-size: 14px; margin-bottom: 3px; }
+.verdict-text span { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+.calc-verdict.good .verdict-text strong { color: var(--good); }
+.calc-verdict.warn .verdict-text strong { color: var(--warn); }
+.calc-verdict.bad  .verdict-text strong { color: var(--bad); }
+
+/* Comparison table */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 14px; margin-bottom: 18px; }
+.compare-table th { text-align: left; padding: 8px 10px; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; color: var(--text-mute); font-weight: 700; border-bottom: var(--calc-border); }
+.compare-table td { padding: 10px 10px; color: var(--text-dim); border-bottom: 1px solid var(--bg-3); vertical-align: top; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td:first-child { font-weight: 600; color: var(--text); font-size: 13px; }
+.compare-table .after { color: var(--accent); font-weight: 700; }
+.compare-table .change { font-size: 11px; color: var(--text-mute); display: block; }
+
+/* Gear options */
+.gear-options { display: flex; flex-wrap: wrap; gap: 7px; margin: 6px 0 14px; }
+.gear-chip {
+  border: var(--calc-border);
+  background: var(--bg);
+  border-radius: 7px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-mute);
+  cursor: pointer;
+  transition: all .15s;
+  font-family: inherit;
+  position: relative;
+}
+.gear-chip.recommended { border-color: var(--accent); color: var(--accent); background: rgba(107,174,54,.08); }
+.gear-chip.recommended::after { content: "★ rec"; font-size: 9px; font-weight: 700; text-transform: uppercase; position: absolute; top: -8px; right: 4px; color: var(--accent); }
+.gear-chip.selected { background: var(--accent); border-color: var(--accent); color: #fff; }
+.gear-chip.selected::after { color: rgba(255,255,255,.7); }
+.gear-chip:hover { border-color: var(--accent); }
+
+.axle-note { font-size: 12px; color: var(--text-dim); background: var(--bg); border: var(--calc-border); border-radius: 8px; padding: 10px 12px; line-height: 1.6; margin-top: 4px; }
+.axle-note strong { color: var(--text); }
+
+/* Formula note */
+.calc-formula-note { font-size: 11px; color: var(--text-mute); border-top: var(--calc-border); padding-top: 12px; margin-top: 16px; line-height: 1.6; }
+
+.divider-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--text-mute); font-weight: 700; margin: 14px 0 8px; }
+</style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <div class="tm-brand-mark">TM</div>
+      <div>
+        <div class="tm-brand-text">Trail Manual</div>
+        <div class="tm-brand-sub">DIY field manual</div>
+      </div>
+    </a>
+    <nav class="tm-nav">
+      <a href="/">Home</a>
+      <a href="/tools/" class="active">Tools</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+    </nav>
+    <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
+  </div>
+</header>
+
+<main>
+<div class="calc-page">
+
+  <div class="calc-hero">
+    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);margin-bottom:10px">Trail Manual · Gear Ratio Calculator</div>
+    <h1>Axle Gear Ratio Calculator</h1>
+    <p>Select your vehicle and trim to load factory specs as defaults. Set your target tire size. The calculator gives you a recommended gear ratio, shows the RPM impact at highway speed, and computes your crawl ratio — before and after.</p>
+  </div>
+
+  <div class="calc-layout">
+
+    <!-- LEFT: INPUTS -->
+    <div>
+      <div class="calc-panel">
+        <div class="calc-panel-title">Vehicle Setup</div>
+
+        <div class="calc-select-row">
+          <div class="calc-field">
+            <label for="sel-vehicle">Vehicle</label>
+            <select id="sel-vehicle">
+              <option value="">— Select vehicle —</option>
+              <optgroup label="Jeep Cherokee">
+                <option value="jeep-xj">Cherokee XJ (1984–2001)</option>
+              </optgroup>
+              <optgroup label="Jeep Wrangler">
+                <option value="jeep-tj">Wrangler TJ (1997–2006)</option>
+                <option value="jeep-jk">Wrangler JK (2007–2018)</option>
+                <option value="jeep-jl">Wrangler JL (2018–present)</option>
+              </optgroup>
+              <optgroup label="Toyota">
+                <option value="toyota-4runner">4Runner (2003–2024)</option>
+                <option value="toyota-tacoma">Tacoma (2005–2023)</option>
+                <option value="toyota-fj">FJ Cruiser (2006–2014)</option>
+                <option value="toyota-lc">Land Cruiser (1990–2021)</option>
+              </optgroup>
+              <optgroup label="Ford">
+                <option value="ford-bronco">Bronco (2021–present)</option>
+              </optgroup>
+              <optgroup label="Chevrolet">
+                <option value="chevy-zr2">Colorado ZR2 (2017–2024)</option>
+              </optgroup>
+              <optgroup label="Ram">
+                <option value="ram-pw">Power Wagon (2005–present)</option>
+              </optgroup>
+              <optgroup label="Nissan">
+                <option value="nissan-xterra">Xterra (2005–2015)</option>
+              </optgroup>
+              <optgroup label="Land Rover">
+                <option value="land-rover-defender">Defender Classic (1983–2016)</option>
+              </optgroup>
+              <optgroup label="Suzuki">
+                <option value="suzuki-samurai">Samurai (1986–1995)</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="sel-trim">Trim / Package</label>
+            <select id="sel-trim" disabled>
+              <option value="">— Select vehicle first —</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="divider-label">Current Setup (auto-filled — edit to override)</div>
+        <div class="calc-specs" id="specs-grid">
+          <div class="calc-spec">
+            <div class="calc-spec-label">Axle Ratio</div>
+            <div class="calc-spec-val"><input type="number" id="inp-axle" step="0.01" min="1" max="8" placeholder="—"></div>
+            <div class="calc-spec-sub" id="lbl-axle">Select a trim above</div>
+          </div>
+          <div class="calc-spec">
+            <div class="calc-spec-label">TC Low Ratio</div>
+            <div class="calc-spec-val"><input type="number" id="inp-tc" step="0.001" min="1" max="6" placeholder="—"></div>
+            <div class="calc-spec-sub" id="lbl-tc">Transfer case</div>
+          </div>
+          <div class="calc-spec">
+            <div class="calc-spec-label">Trans 1st Gear</div>
+            <div class="calc-spec-val"><input type="number" id="inp-t1" step="0.001" min="1" max="8" placeholder="—"></div>
+            <div class="calc-spec-sub" id="lbl-t1">Used for crawl ratio</div>
+          </div>
+          <div class="calc-spec">
+            <div class="calc-spec-label">Trans Top Gear</div>
+            <div class="calc-spec-val"><input type="number" id="inp-top" step="0.001" min="0.3" max="1.2" placeholder="—"></div>
+            <div class="calc-spec-sub" id="lbl-top">Used for highway RPM</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <div class="divider-label">Stock Tire Diameter</div>
+          <div class="calc-spec" style="max-width:200px">
+            <div class="calc-spec-label">Diameter (inches)</div>
+            <div class="calc-spec-val"><input type="number" id="inp-stock-tire" step="0.1" min="20" max="50" placeholder="—"></div>
+            <div class="calc-spec-sub" id="lbl-stock-tire">Factory size</div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px">
+          <div class="divider-label">Target Tire Size</div>
+          <div class="tire-options" id="tire-btns">
+            <button class="tire-btn" data-d="27">27"</button>
+            <button class="tire-btn" data-d="28">28"</button>
+            <button class="tire-btn" data-d="29">29"</button>
+            <button class="tire-btn" data-d="30">30"</button>
+            <button class="tire-btn" data-d="31">31"</button>
+            <button class="tire-btn" data-d="32">32"</button>
+            <button class="tire-btn" data-d="33">33"</button>
+            <button class="tire-btn" data-d="34">34"</button>
+            <button class="tire-btn" data-d="35">35"</button>
+            <button class="tire-btn" data-d="37">37"</button>
+            <button class="tire-btn" data-d="40">40"</button>
+          </div>
+          <div class="tire-custom">
+            <input type="number" id="inp-new-tire" step="0.5" min="20" max="50" placeholder="e.g. 33.5">
+            <label for="inp-new-tire">Custom diameter (in)</label>
+          </div>
+          <div class="note" style="margin-top:6px">
+            Common metric conversions: 285/70R17 = 33.0" · 315/70R17 = 34.4" · 35x12.5R15 = 35.0"
+          </div>
+        </div>
+
+      </div><!-- /calc-panel -->
+    </div><!-- /left -->
+
+    <!-- RIGHT: RESULTS -->
+    <div>
+      <div class="calc-panel" id="results-panel">
+        <div class="calc-panel-title">Results</div>
+
+        <div id="results-empty" style="color:var(--text-mute);font-size:14px;padding:20px 0;">
+          Select a vehicle, trim, and target tire size to see your recommendation.
+        </div>
+
+        <div id="results-content" style="display:none">
+
+          <!-- Verdict -->
+          <div class="calc-verdict" id="verdict-box">
+            <div class="verdict-icon" id="verdict-icon">✓</div>
+            <div class="verdict-text">
+              <strong id="verdict-title">Stock gearing is fine</strong>
+              <span id="verdict-detail">Your tire size increase is small enough that re-gearing isn't required.</span>
+            </div>
+          </div>
+
+          <!-- Recommended gear ratio -->
+          <div class="divider-label">Recommended Axle Ratio</div>
+          <div style="margin-bottom:6px;font-size:13px;color:var(--text-dim)">
+            Calculated target: <strong id="calc-target" style="color:var(--text)">—</strong> → round up to:
+          </div>
+          <div class="gear-options" id="gear-chips"></div>
+
+          <!-- Comparison table -->
+          <div class="divider-label">Highway RPM (in overdrive)</div>
+          <table class="compare-table">
+            <thead>
+              <tr><th>Config</th><th>60 mph</th><th>70 mph</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stock tires + stock gears</td>
+                <td id="rpm-stock-60">—</td>
+                <td id="rpm-stock-70">—</td>
+              </tr>
+              <tr>
+                <td>New tires + stock gears</td>
+                <td id="rpm-newtire-60">—</td>
+                <td id="rpm-newtire-70">—</td>
+              </tr>
+              <tr>
+                <td class="after">New tires + rec. gears</td>
+                <td id="rpm-regear-60" class="after">—</td>
+                <td id="rpm-regear-70" class="after">—</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Crawl ratio -->
+          <div class="divider-label">Crawl Ratio (4-Lo, 1st gear)</div>
+          <table class="compare-table">
+            <thead>
+              <tr><th>Config</th><th>Crawl Ratio</th><th>Effective</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stock gears</td>
+                <td id="crawl-stock">—</td>
+                <td id="crawl-stock-note">—</td>
+              </tr>
+              <tr>
+                <td class="after">Recommended gears</td>
+                <td id="crawl-rec" class="after">—</td>
+                <td id="crawl-rec-note" class="after">—</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Axle note -->
+          <div id="axle-note-box" class="axle-note" style="display:none">
+            <strong>Axle note:</strong> <span id="axle-note-text"></span>
+          </div>
+          <div id="weak-note-box" class="axle-note" style="display:none;margin-top:8px;border-color:var(--warn-border);background:var(--warn-bg)">
+            <strong>Weak link:</strong> <span id="weak-note-text"></span>
+          </div>
+
+          <div class="calc-formula-note">
+            RPM = (mph × axle ratio × top gear × 1056) ÷ (π × tire diameter). Crawl ratio = axle ratio × TC low × trans 1st gear. Stock tire diameters are nominal; actual sizes vary slightly by brand. Verify specs against your VIN before purchasing a ring &amp; pinion set.
+          </div>
+
+        </div><!-- /results-content -->
+      </div><!-- /calc-panel -->
+
+      <!-- Related links below results -->
+      <div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <a href="/blog/when-to-re-gear-axles/" class="tm-tool-card" style="padding:14px 16px">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:4px">When to Re-Gear Your Axles</div>
+          <div style="font-size:12px;color:var(--text-dim)">The math, the feel, and when to leave it alone.</div>
+        </a>
+        <a href="/db/" class="tm-tool-card" style="padding:14px 16px">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">XJ Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:4px">XJ DIY Database</div>
+          <div style="font-size:12px;color:var(--text-dim)">307 guides for the Cherokee XJ.</div>
+        </a>
+      </div>
+    </div><!-- /right -->
+
+  </div><!-- /calc-layout -->
+</div><!-- /calc-page -->
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark">TM</div>
+        <div>
+          <div class="tm-brand-text">Trail Manual</div>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/db/">XJ Database</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/tools/">All tools →</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/blog/">Blog</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/channels/">Channels</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Verify specs against your factory service manual before purchasing parts. © Trail Manual, 2026.
+  </div>
+</footer>
+
+<script>
+// ─── VEHICLE DATA ────────────────────────────────────────────────────────────
+const VEHICLES = {
+  'jeep-xj': {
+    name: 'Jeep Cherokee (XJ)',
+    trims: {
+      'auto-40':    { label: '4.0L Auto (AW4) — most common', axle: 3.55, tc: 2.72, tcName: 'NP231', stockTire: 27.7, t1: 2.804, tTop: 0.69, transName: 'AW4 4-spd', axleNote: 'Dana 30 front / Dana 35 rear. Dana 44 rear on some tow-package models.', weakLink: 'Dana 35 C-clip axle is a common upgrade candidate at 33″ and above. Consider Ford 8.8 or Dana 44 swap.' },
+      'manual-25':  { label: '2.5L Manual (AX-5)', axle: 3.07, tc: 2.72, tcName: 'NP231', stockTire: 27.7, t1: 3.93, tTop: 0.86, transName: 'AX-5 5-spd', axleNote: 'Dana 30 front / Dana 35 rear.', weakLink: 'Dana 35 C-clip axle is marginal for serious wheeling at 33″+.' },
+      'early-np207':{ label: 'Early XJ (1984–1990) — NP207', axle: 3.55, tc: 2.61, tcName: 'NP207', stockTire: 27.7, t1: 2.804, tTop: 0.69, transName: 'AW4 4-spd', axleNote: 'Dana 30 front / Dana 35 rear. NP207 is a full-time TC with center diff.', weakLink: 'NP207 is often swapped to NP231 for part-time 4WD capability.' }
+    }
+  },
+  'jeep-tj': {
+    name: 'Jeep Wrangler (TJ)',
+    trims: {
+      'sport-4cyl':    { label: 'Sport 4-cyl (2.5L Manual)', axle: 3.07, tc: 2.72, tcName: 'NP231', stockTire: 28.3, t1: 3.93, tTop: 0.86, transName: 'AX-5 5-spd', axleNote: 'Dana 30 front / Dana 35 rear.', weakLink: 'Dana 35 is marginal at 33″+ under hard wheeling loads.' },
+      'sahara-6-auto': { label: 'Sport/Sahara 6-cyl Auto', axle: 3.73, tc: 2.72, tcName: 'NP231', stockTire: 28.3, t1: 2.841, tTop: 0.69, transName: '42RLE 4-spd', axleNote: 'Dana 30 front / Dana 35 rear.', weakLink: 'Dana 35 is marginal at 33″+.' },
+      'sahara-6-man':  { label: 'Sport/Sahara 6-cyl Manual', axle: 3.73, tc: 2.72, tcName: 'NP231', stockTire: 28.3, t1: 3.83, tTop: 0.79, transName: 'AX-15 5-spd', axleNote: 'Dana 30 front / Dana 35 rear.', weakLink: 'Dana 35 is marginal at 33″+.' },
+      'rubicon':       { label: 'Rubicon (2003–2006)', axle: 4.10, tc: 4.0, tcName: 'NP241OR Rock-Trac', stockTire: 31.0, t1: 4.46, tTop: 0.84, transName: 'NSG370 6-spd', axleNote: 'Dana 44 front and rear with factory ARB-style lockers.', weakLink: 'Best TJ package. Dana 44 handles 35″ with no re-gear concern.' }
+    }
+  },
+  'jeep-jk': {
+    name: 'Jeep Wrangler (JK)',
+    trims: {
+      'sport-38':  { label: 'Sport 3.8L (2007–2011)', axle: 3.21, tc: 2.72, tcName: 'NP231', stockTire: 32.1, t1: 2.841, tTop: 0.686, transName: '42RLE 4-spd', axleNote: 'Dana 30 front / Chrysler 8.25″ rear.', weakLink: 'Chrysler 8.25″ rear is the weak point here — not Dana 35. Consider upgrade at 35″+.' },
+      'sport-36':  { label: 'Sport 3.6L (2012–2018)', axle: 3.21, tc: 2.72, tcName: 'NP231', stockTire: 32.1, t1: 3.59, tTop: 0.83, transName: 'W5A580 5-spd', axleNote: 'Dana 30 front / Dana M186 rear.', weakLink: 'Dana M186 is adequate for street use and moderate wheeling at 33–35″.' },
+      'sahara':    { label: 'Sahara (3.73 gears)', axle: 3.73, tc: 2.72, tcName: 'NP231', stockTire: 32.1, t1: 3.59, tTop: 0.83, transName: 'W5A580 5-spd', axleNote: 'Dana 30 front / Dana 44 rear.', weakLink: 'Good stock setup. Dana 44 rear handles 35″ well.' },
+      'rubicon':   { label: 'Rubicon', axle: 4.10, tc: 4.0, tcName: 'NP241OR Rock-Trac', stockTire: 32.1, t1: 4.46, tTop: 0.84, transName: 'NSG370 6-spd', axleNote: 'Dana 44 front and rear with factory lockers.', weakLink: 'Best factory off-road package. Handles 35″ without re-gear. 37″ benefits from 4.88.' }
+    }
+  },
+  'jeep-jl': {
+    name: 'Jeep Wrangler (JL)',
+    trims: {
+      'sport':    { label: 'Sport (3.45 gears)', axle: 3.45, tc: 2.72, tcName: 'NV241', stockTire: 32.1, t1: 5.00, tTop: 0.608, transName: 'ZF 8HP75 8-spd', axleNote: 'Spicer 30 front / Spicer 35 rear (updated design vs. older Dana 35).', weakLink: 'Spicer 35 is improved but still a consideration at 35″+. Sahara\'s Dana 44 is a worthwhile upgrade.' },
+      'sahara':   { label: 'Sahara (3.73 gears)', axle: 3.73, tc: 2.72, tcName: 'NV241', stockTire: 32.1, t1: 5.00, tTop: 0.608, transName: 'ZF 8HP75 8-spd', axleNote: 'Spicer 30 front / Spicer 44 rear.', weakLink: 'Solid package. Handles 35″ without re-gear in most use cases.' },
+      'rubicon':  { label: 'Rubicon (4.10 gears)', axle: 4.10, tc: 4.0, tcName: 'Rock-Trac 4:1', stockTire: 32.1, t1: 5.00, tTop: 0.608, transName: 'ZF 8HP75 8-spd', axleNote: 'Spicer 44 front and rear with factory e-lockers.', weakLink: 'Best factory setup available. 37″ works well; 40″ benefits from 4.88.' },
+      'rubicon-392': { label: '392 Extreme Recon (4.56 gears)', axle: 4.56, tc: 4.0, tcName: 'Rock-Trac 4:1', stockTire: 37.0, t1: 4.70, tTop: 0.64, transName: '10R80 10-spd', axleNote: 'Spicer 44 front and rear. Factory 37″ BFG tires.', weakLink: 'Already optimized for 37″. Re-gear only needed at 40″+.' }
+    }
+  },
+  'toyota-4runner': {
+    name: 'Toyota 4Runner',
+    trims: {
+      '4th-v6':     { label: '4th Gen V6 (2003–2009)', axle: 3.73, tc: 2.566, tcName: 'A340F TC', stockTire: 30.5, t1: 2.804, tTop: 0.705, transName: 'A340F 4-spd', axleNote: 'Toyota 7.5″ IFS front / Toyota 8″ solid rear. E-locker available on 4th gen Sport edition.', weakLink: 'IFS front limits articulation and SUA (Solid Axle swap) is popular for serious wheeling.' },
+      '5th-sr5':    { label: '5th Gen SR5/TRD Off-Road (2010–2024)', axle: 3.73, tc: 2.566, tcName: 'A343F TC', stockTire: 31.4, t1: 3.52, tTop: 0.725, transName: 'A750F 5-spd', axleNote: 'Toyota 8.2″ IFS front / Toyota 8.2″ solid rear. E-locker on TRD Pro.', weakLink: '3.73 works to 33″; 35″ starts to strain it. 4.56 is the common re-gear target for 35–37″ builds.' }
+    }
+  },
+  'toyota-tacoma': {
+    name: 'Toyota Tacoma',
+    trims: {
+      '2nd-v6':  { label: '2nd Gen V6 4x4 Auto (2005–2015)', axle: 3.91, tc: 2.566, tcName: 'ADD TC', stockTire: 30.5, t1: 3.52, tTop: 0.725, transName: 'A750F 5-spd', axleNote: 'Toyota 7.5″ IFS front / 8.4″ solid rear. E-locker optional.', weakLink: 'IFS limits articulation vs. solid axle rigs.' },
+      '3rd-v6':  { label: '3rd Gen V6 4x4 Auto (2016–2023)', axle: 3.91, tc: 2.566, tcName: 'ADD TC', stockTire: 30.5, t1: 3.52, tTop: 0.60, transName: 'A960F 6-spd', axleNote: 'Toyota 8″ IFS front / 8.4″ solid rear.', weakLink: '3.91 gears are aggressive from factory — 33″ fits without re-gear. 35″ is marginal.' }
+    }
+  },
+  'toyota-fj': {
+    name: 'Toyota FJ Cruiser',
+    trims: {
+      'auto': { label: '4WD Auto', axle: 3.73, tc: 2.566, tcName: 'ADD TC', stockTire: 31.4, t1: 3.52, tTop: 0.725, transName: 'A750F 5-spd', axleNote: 'Toyota 8″ solid front / 8″ solid rear. Factory e-locker available on Trail Teams edition.', weakLink: 'Solid axles make it better off-road than 4Runner. 35″ tires common without re-gear on 3.73s.' }
+    }
+  },
+  'toyota-lc': {
+    name: 'Toyota Land Cruiser',
+    trims: {
+      '80-series':  { label: '80 Series (1990–1997)', axle: 4.11, tc: 2.488, tcName: 'HF2A-V', stockTire: 31.5, t1: 2.45, tTop: 0.705, transName: 'A440F 4-spd', axleNote: 'Dana 60-equivalent solid front / solid rear. Factory front+rear lockers on Land Cruiser 80.', weakLink: 'Built-like-a-tank from factory. 35″ is common; 37″ benefits from re-gear to 4.88.' },
+      '100-series': { label: '100 Series (1998–2007)', axle: 3.91, tc: 2.488, tcName: 'HF2A-V', stockTire: 31.5, t1: 3.52, tTop: 0.725, transName: 'A750F 5-spd', axleNote: 'IFS front / solid rear. Factory front+rear lockers.', weakLink: 'IFS limits front articulation compared to 80 Series.' },
+      '200-series': { label: '200 Series (2008–2021)', axle: 3.91, tc: 2.597, tcName: 'ATC', stockTire: 32.5, t1: 4.15, tTop: 0.63, transName: 'AB60F 6-spd', axleNote: 'IFS front / solid rear. KDSS and CRAWL Control. Factory Multi-Terrain Select.', weakLink: 'Heavy vehicle. KDSS adds complexity for lift modifications.' }
+    }
+  },
+  'ford-bronco': {
+    name: 'Ford Bronco',
+    trims: {
+      'base-23':   { label: 'Base/Big Bend (2.3L EcoBoost)', axle: 3.73, tc: 2.72, tcName: 'CommandTrak', stockTire: 31.6, t1: 4.17, tTop: 0.64, transName: '7G-DCT 7-spd', axleNote: 'Dana 44 solid front and rear on all Bronco models. Significant advantage vs. IFS competitors.', weakLink: 'Good baseline. 33–35″ works without re-gear; 37″ benefits from 4.88+.' },
+      'badlands':  { label: 'Badlands/Wildtrak (2.7L EcoBoost)', axle: 4.46, tc: 2.72, tcName: 'AdvanceTrak', stockTire: 33.0, t1: 4.70, tTop: 0.64, transName: '10R80 10-spd', axleNote: 'Dana 44 front and rear. Factory Bilstein position-sensitive shocks.', weakLink: 'Already well-geared for 33″. 35″ fits within acceptable range without re-gear.' },
+      'sasquatch': { label: 'Any trim + Sasquatch Package', axle: 4.70, tc: 3.06, tcName: 'CommandTrak', stockTire: 35.0, t1: 4.70, tTop: 0.64, transName: '10R80 10-spd', axleNote: 'Dana 44 front and rear. Factory 35″ BFG KO2. Front and rear locking diffs.', weakLink: 'Optimized from factory for 35″. 37″ is marginal; re-gear to 5.13 helps.' }
+    }
+  },
+  'chevy-zr2': {
+    name: 'Chevrolet Colorado ZR2',
+    trims: {
+      'zr2': { label: 'ZR2 / ZR2 Bison', axle: 3.42, tc: 2.72, tcName: 'BorgWarner', stockTire: 31.0, t1: 4.56, tTop: 0.65, transName: '8L90 8-spd', axleNote: 'Dana M200 front / Dana M220 rear with Eaton e-lockers front and rear.', weakLink: 'Excellent factory package. 33″ fits without re-gear; 35″ benefits from 4.10 or 4.56.' }
+    }
+  },
+  'ram-pw': {
+    name: 'Ram Power Wagon',
+    trims: {
+      'pw': { label: 'Power Wagon 2500', axle: 4.10, tc: 2.64, tcName: 'NV241', stockTire: 33.0, t1: 3.23, tTop: 0.67, transName: '68RFE 6-spd', axleNote: 'Dana 44 front / Chrysler 11.5″ rear with factory front+rear lockers. Factory winch.', weakLink: 'Heavy-duty from factory. Handles 35″ without re-gear. 37″ starts to strain stock gearing.' }
+    }
+  },
+  'nissan-xterra': {
+    name: 'Nissan Xterra',
+    trims: {
+      'pro4x':   { label: 'Pro-4X / S Auto', axle: 3.692, tc: 2.084, tcName: 'BorgWarner', stockTire: 30.6, t1: 3.82, tTop: 0.67, transName: 'RE5R05A 5-spd', axleNote: 'M226 IFS front / M226 solid rear. Factory e-locker rear.', weakLink: 'TC low ratio of 2.08:1 is the limiting factor. Crawl ratio is modest even with stock gears.' },
+      'off-road': { label: 'Off-Road Manual', axle: 4.083, tc: 2.084, tcName: 'BorgWarner', stockTire: 30.6, t1: 3.79, tTop: 0.85, transName: 'FS5R30A 5-spd', axleNote: 'M226 IFS front / M226 solid rear.', weakLink: 'Better crawl ratio than auto; still limited by 2.08:1 TC.' }
+    }
+  },
+  'land-rover-defender': {
+    name: 'Land Rover Defender (Classic)',
+    trims: {
+      '90-td5': { label: '90 Td5 / 110 TD5 (1998–2016)', axle: 3.54, tc: 3.32, tcName: 'LT230T', stockTire: 31.0, t1: 3.32, tTop: 0.77, transName: 'R380 5-spd', axleNote: 'Dana 60-based solid front and rear. LT230 TC gives excellent crawl from factory.', weakLink: 'Extremely capable stock. 35″ common upgrade; 37″ benefits from gear change to 3.90–4.10.' }
+    }
+  },
+  'suzuki-samurai': {
+    name: 'Suzuki Samurai',
+    trims: {
+      'std': { label: 'Standard 4WD', axle: 3.727, tc: 1.998, tcName: 'Suzuki 2-spd TC', stockTire: 27.3, t1: 3.73, tTop: 0.85, transName: '4-speed manual', axleNote: 'Suzuki solid front and rear axles. Very light and compact — tire upgrade bang-for-buck is high.', weakLink: 'TC low ratio of 2.0:1 limits crawl. Gear-drive TC swap (SJ413 case or Marlin Crawler) is a popular mod.' }
+    }
+  }
+};
+
+// ─── AVAILABLE GEAR RATIOS ───────────────────────────────────────────────────
+const AVAILABLE_RATIOS = [3.07, 3.21, 3.45, 3.55, 3.73, 3.91, 4.10, 4.30, 4.56, 4.88, 5.13, 5.38];
+
+// ─── HELPERS ────────────────────────────────────────────────────────────────
+function calcRPM(mph, axle, tTop, tire) {
+  if (!axle || !tTop || !tire) return null;
+  return Math.round((mph * axle * tTop * 1056) / (Math.PI * tire));
+}
+function calcCrawl(axle, tc, t1) {
+  if (!axle || !tc || !t1) return null;
+  return (axle * tc * t1).toFixed(1);
+}
+function nextRatio(target) {
+  for (let r of AVAILABLE_RATIOS) if (r >= target) return r;
+  return AVAILABLE_RATIOS[AVAILABLE_RATIOS.length - 1];
+}
+function fmt(n) { return n ? n.toLocaleString() : '—'; }
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let newTireD = null;
+let selectedGear = null;
+
+// ─── DOM refs ────────────────────────────────────────────────────────────────
+const selVehicle = document.getElementById('sel-vehicle');
+const selTrim    = document.getElementById('sel-trim');
+const inpAxle    = document.getElementById('inp-axle');
+const inpTc      = document.getElementById('inp-tc');
+const inpT1      = document.getElementById('inp-t1');
+const inpTop     = document.getElementById('inp-top');
+const inpStock   = document.getElementById('inp-stock-tire');
+const inpNew     = document.getElementById('inp-new-tire');
+
+// ─── VEHICLE SELECT ──────────────────────────────────────────────────────────
+selVehicle.addEventListener('change', () => {
+  const v = VEHICLES[selVehicle.value];
+  selTrim.innerHTML = v
+    ? Object.entries(v.trims).map(([k, t]) => `<option value="${k}">${t.label}</option>`).join('')
+    : '<option>— Select vehicle first —';
+  selTrim.disabled = !v;
+  if (v) { selTrim.dispatchEvent(new Event('change')); }
+});
+
+selTrim.addEventListener('change', () => {
+  const v = VEHICLES[selVehicle.value];
+  if (!v) return;
+  const t = v.trims[selTrim.value];
+  if (!t) return;
+  inpAxle.value  = t.axle;
+  inpTc.value    = t.tc;
+  inpT1.value    = t.t1;
+  inpTop.value   = t.tTop;
+  inpStock.value = t.stockTire;
+  document.getElementById('lbl-axle').textContent   = 'Factory setting';
+  document.getElementById('lbl-tc').textContent     = t.tcName;
+  document.getElementById('lbl-t1').textContent     = t.transName;
+  document.getElementById('lbl-top').textContent    = t.transName + ' overdrive';
+  document.getElementById('lbl-stock-tire').textContent = 'Nominal diameter';
+  recalc();
+});
+
+// ─── TIRE BUTTONS ────────────────────────────────────────────────────────────
+document.querySelectorAll('.tire-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tire-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    newTireD = parseFloat(btn.dataset.d);
+    inpNew.value = newTireD;
+    recalc();
+  });
+});
+inpNew.addEventListener('input', () => {
+  document.querySelectorAll('.tire-btn').forEach(b => b.classList.remove('active'));
+  newTireD = parseFloat(inpNew.value) || null;
+  if (newTireD) {
+    document.querySelectorAll('.tire-btn').forEach(b => {
+      if (parseFloat(b.dataset.d) === newTireD) b.classList.add('active');
+    });
+  }
+  recalc();
+});
+
+// Watch manual overrides
+[inpAxle, inpTc, inpT1, inpTop, inpStock].forEach(el => {
+  el.addEventListener('input', recalc);
+});
+
+// ─── MAIN CALC ───────────────────────────────────────────────────────────────
+function recalc() {
+  const axle  = parseFloat(inpAxle.value);
+  const tc    = parseFloat(inpTc.value);
+  const t1    = parseFloat(inpT1.value);
+  const tTop  = parseFloat(inpTop.value);
+  const stock = parseFloat(inpStock.value);
+  const nTire = newTireD;
+
+  const ready = axle && tc && t1 && tTop && stock && nTire;
+  document.getElementById('results-empty').style.display   = ready ? 'none' : '';
+  document.getElementById('results-content').style.display = ready ? '' : 'none';
+  if (!ready) return;
+
+  // Target ratio
+  const targetRatio = (nTire / stock) * axle;
+  const recRatio    = nextRatio(targetRatio);
+  selectedGear = selectedGear || recRatio;
+  if (!AVAILABLE_RATIOS.includes(selectedGear)) selectedGear = recRatio;
+
+  document.getElementById('calc-target').textContent = targetRatio.toFixed(2) + ':1';
+
+  // Gear chips
+  const gearDiv = document.getElementById('gear-chips');
+  gearDiv.innerHTML = '';
+  // Show window around recommended: 2 below, 3 above
+  const recIdx = AVAILABLE_RATIOS.indexOf(recRatio);
+  const start  = Math.max(0, recIdx - 2);
+  const end    = Math.min(AVAILABLE_RATIOS.length, recIdx + 4);
+  AVAILABLE_RATIOS.slice(start, end).forEach(r => {
+    const chip = document.createElement('button');
+    chip.className = 'gear-chip' + (r === recRatio ? ' recommended' : '') + (r === selectedGear ? ' selected' : '');
+    chip.textContent = r.toFixed(2) + ':1';
+    chip.addEventListener('click', () => {
+      selectedGear = r;
+      recalc();
+    });
+    gearDiv.appendChild(chip);
+  });
+
+  // RPM
+  const r60s = calcRPM(60, axle, tTop, stock);
+  const r70s = calcRPM(70, axle, tTop, stock);
+  const r60n = calcRPM(60, axle, tTop, nTire);
+  const r70n = calcRPM(70, axle, tTop, nTire);
+  const r60r = calcRPM(60, selectedGear, tTop, nTire);
+  const r70r = calcRPM(70, selectedGear, tTop, nTire);
+
+  document.getElementById('rpm-stock-60').textContent   = fmt(r60s);
+  document.getElementById('rpm-stock-70').textContent   = fmt(r70s);
+  document.getElementById('rpm-newtire-60').innerHTML   = fmt(r60n) + `<span class="change">${delta(r60n, r60s)} vs stock</span>`;
+  document.getElementById('rpm-newtire-70').innerHTML   = fmt(r70n) + `<span class="change">${delta(r70n, r70s)} vs stock</span>`;
+  document.getElementById('rpm-regear-60').innerHTML    = fmt(r60r) + `<span class="change">${delta(r60r, r60s)} vs stock</span>`;
+  document.getElementById('rpm-regear-70').innerHTML    = fmt(r70r) + `<span class="change">${delta(r70r, r70s)} vs stock</span>`;
+
+  // Crawl
+  const cs = calcCrawl(axle, tc, t1);
+  const cr = calcCrawl(selectedGear, tc, t1);
+  document.getElementById('crawl-stock').textContent    = cs + ':1';
+  document.getElementById('crawl-stock-note').textContent = crawlNote(parseFloat(cs));
+  document.getElementById('crawl-rec').textContent      = cr + ':1';
+  document.getElementById('crawl-rec-note').textContent  = crawlNote(parseFloat(cr));
+
+  // Verdict
+  const ratio = nTire / stock;
+  const vBox  = document.getElementById('verdict-box');
+  const vIcon = document.getElementById('verdict-icon');
+  const vTitle= document.getElementById('verdict-title');
+  const vDet  = document.getElementById('verdict-detail');
+
+  vBox.className = 'calc-verdict';
+  if (ratio < 1.07) {
+    vBox.classList.add('good');
+    vIcon.textContent = '✓';
+    vTitle.textContent = 'Stock gearing is fine';
+    vDet.textContent  = `A ${((ratio-1)*100).toFixed(0)}% increase in tire diameter is within acceptable range. You may notice slightly lower RPM at highway speeds, but re-gearing isn't required.`;
+  } else if (ratio < 1.15) {
+    vBox.classList.add('warn');
+    vIcon.textContent = '⚠';
+    vTitle.textContent = 'Re-gear recommended';
+    vDet.textContent  = `A ${((ratio-1)*100).toFixed(0)}% tire increase will cause noticeable RPM drop and possible transmission hunting. Re-gearing to ${recRatio.toFixed(2)}:1 will restore performance.`;
+  } else {
+    vBox.classList.add('bad');
+    vIcon.textContent = '⚡';
+    vTitle.textContent = 'Re-gear strongly recommended';
+    vDet.textContent  = `A ${((ratio-1)*100).toFixed(0)}% tire increase will significantly degrade performance. The engine will lug and the transmission will hunt on every incline. Re-gear to ${recRatio.toFixed(2)}:1 or higher before wheeling seriously.`;
+  }
+
+  // Axle / weak link notes
+  const v = VEHICLES[selVehicle.value];
+  const t = v && v.trims[selTrim.value];
+  const axleNoteBox = document.getElementById('axle-note-box');
+  const weakNoteBox = document.getElementById('weak-note-box');
+  if (t) {
+    document.getElementById('axle-note-text').textContent = t.axleNote;
+    document.getElementById('weak-note-text').textContent = t.weakLink;
+    axleNoteBox.style.display = '';
+    weakNoteBox.style.display = '';
+  } else {
+    axleNoteBox.style.display = 'none';
+    weakNoteBox.style.display = 'none';
+  }
+}
+
+function delta(a, b) {
+  if (!a || !b) return '';
+  const d = a - b;
+  const pct = ((d / b) * 100).toFixed(0);
+  return (d > 0 ? '+' : '') + d + ' RPM (' + (d > 0 ? '+' : '') + pct + '%)';
+}
+function crawlNote(r) {
+  if (r < 20) return 'Limited — minimal rock crawl';
+  if (r < 30) return 'Moderate — trail capable';
+  if (r < 50) return 'Good — rock crawl capable';
+  if (r < 70) return 'Excellent — competition capable';
+  return 'Extreme — purpose-built crawl';
+}
+
+// Mobile nav toggle
+const navToggle = document.getElementById('tm-nav-toggle');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    document.querySelector('.tm-nav').classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>

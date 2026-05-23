@@ -704,13 +704,13 @@
         list.innerHTML = ''; return;
       }
       const diffCap = state.experience === 1 ? 2 : (state.experience === 2 ? 4 : 5);
-      const pool = entries.filter(e => (e.build_tiers||[]).includes(state.tier) && (e.difficulty||1) <= diffCap && e.category !== 'build_recipe' && e.cost_usd && (e.cost_usd.low > 0 || e.cost_usd.high > 0));
+      const pool = entries.filter(e => (e.build_tiers||[]).includes(state.tier) && (e.difficulty||1) <= diffCap && e.category !== 'build_recipe' && e.category !== 'maintenance' && e.cost_usd && (e.cost_usd.low > 0 || e.cost_usd.high > 0));
       const tierPriority = {
-        daily_driver: ['maintenance','cooling','brakes','steering','engine','electrical'],
-        mild_trail:   ['suspension','wheels_tires','recovery','armor','maintenance','steering','electrical'],
+        daily_driver: ['cooling','brakes','steering','engine','electrical'],
+        mild_trail:   ['suspension','wheels_tires','recovery','armor','steering','electrical'],
         moderate_trail:['suspension','axles','drivetrain','wheels_tires','armor','recovery','steering','engine','electrical'],
         rock_crawler:  ['suspension','axles','drivetrain','steering','armor','wheels_tires','recovery','engine','cooling','electrical'],
-        overland:      ['suspension','wheels_tires','electrical','interior','recovery','armor','engine','cooling','maintenance']
+        overland:      ['suspension','wheels_tires','electrical','interior','recovery','armor','engine','cooling']
       }[state.tier] || [];
       const score = (e) => {
         const tags = (e.tags||[]).join(' ');
@@ -746,7 +746,7 @@
       };
       for (const e of chosen) {
         const tags = (e.tags||[]).join(' ');
-        if (/must-do|must-read|safety-critical|common-failure/.test(tags) || e.category==='maintenance' || e.category==='brakes' || e.category==='steering') phases['Phase 1 — Foundation & safety'].push(e);
+        if (/must-do|must-read|safety-critical|common-failure/.test(tags) || e.category==='brakes' || e.category==='steering') phases['Phase 1 — Foundation & safety'].push(e);
         else if (['suspension','axles','wheels_tires','armor','recovery','drivetrain'].includes(e.category)) phases['Phase 2 — Capability & protection'].push(e);
         else phases['Phase 3 — Performance & comfort'].push(e);
       }
