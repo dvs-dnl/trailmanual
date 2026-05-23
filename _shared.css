@@ -432,3 +432,76 @@ img{max-width:100%;display:block}
 .video-credit a:hover {
   text-decoration: underline;
 }
+
+/* ============================================================
+   Light / Dark theme  — applied via data-theme attribute on <html>
+   Default (no attribute) = dark.  JS sets it from localStorage.
+   ============================================================ */
+
+[data-theme="light"]{
+  --bg:#f4f2ee;
+  --bg-2:#eceae4;
+  --bg-3:#e3ded6;
+  --panel:#eceae4;
+  --panel-2:#e3ded6;
+  --border:#cdc7bb;
+  --text:#1c1e22;
+  --text-dim:#4c5560;
+  --text-mute:#7a8390;
+  --accent:#8a5e24;           /* darker khaki for light bg */
+  --accent-2:#4d5e28;          /* darker olive */
+  --accent-3:#7a3215;          /* darker rust */
+  --danger:#c62828;
+  --warn:#e65100;
+  --good:#2e7d32;
+  --info:#1565c0;
+}
+
+/* Topbar needs explicit override — background uses hardcoded hex, not CSS var */
+[data-theme="light"] .tm-topbar{
+  background:linear-gradient(180deg,#f4f2ee 0%, rgba(244,242,238,.95) 100%);
+}
+
+/* Mobile dropdown nav also uses hardcoded bg */
+@media(max-width:680px){
+  [data-theme="light"] .tm-nav{
+    background:#f4f2ee;
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+  }
+}
+
+/* Tool card shadow in light mode */
+[data-theme="light"] .tm-tool-card:hover{
+  box-shadow:0 8px 32px rgba(0,0,0,.12);
+}
+
+/* Primary button text stays dark — accent colour changes, text must remain dark */
+[data-theme="light"] .tm-btn.primary{color:#fff}
+[data-theme="light"] .tm-btn.primary:hover{background:#7a5220;border-color:#7a5220;color:#fff}
+
+/* ============ Theme toggle button ============ */
+.tm-theme-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:34px;height:34px;
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:var(--bg-2);
+  color:var(--text-dim);
+  cursor:pointer;
+  font-size:16px;
+  flex-shrink:0;
+  transition:border-color .15s,color .15s,background .15s;
+  padding:0;
+  line-height:1;
+}
+.tm-theme-btn:hover{
+  border-color:var(--accent);
+  color:var(--text);
+}
+/* The icon inside the button — swap sun/moon via data-theme */
+.tm-theme-btn .tm-icon-dark{ display:block }
+.tm-theme-btn .tm-icon-light{ display:none }
+[data-theme="light"] .tm-theme-btn .tm-icon-dark{ display:none }
+[data-theme="light"] .tm-theme-btn .tm-icon-light{ display:block }

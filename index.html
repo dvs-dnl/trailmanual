@@ -991,6 +991,13 @@
   .adventure-inner { padding: 48px 20px; }
 }
 </style>
+<script>
+(function(){
+  var t=localStorage.getItem('tm-theme')||
+    (window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
 </head>
 <body>
 
@@ -1012,6 +1019,7 @@
       <a href="/about/">About</a>
     </nav>
     <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
+<button class="tm-theme-btn" id="tm-theme-btn" aria-label="Toggle light/dark mode"><span class="tm-icon-dark">&#9790;</span><span class="tm-icon-light">&#9728;</span></button>
   </div>
 </header>
 
@@ -1442,6 +1450,16 @@
       btn.innerHTML='&#9776;';
     }
   });
+  // Theme toggle
+  var themeBtn=document.getElementById('tm-theme-btn');
+  if(themeBtn){
+    themeBtn.addEventListener('click',function(){
+      var cur=document.documentElement.getAttribute('data-theme')||'dark';
+      var next=cur==='dark'?'light':'dark';
+      document.documentElement.setAttribute('data-theme',next);
+      localStorage.setItem('tm-theme',next);
+    });
+  }
 })();
 </script>
 </body>
