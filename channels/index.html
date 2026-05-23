@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Channels — Trail Manual</title>
+<meta name="description" content="Recommended YouTube channels for Jeep, off-road, and DIY auto repair — curated for accuracy, not follower count. Includes channels from women, people of color, and working mechanics.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+.ch-hero {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 48px;
+}
+.ch-hero h1 {
+  font-size: 38px;
+  letter-spacing: -.5px;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+.ch-hero p {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 660px;
+  line-height: 1.7;
+  margin: 0 0 20px;
+}
+.ch-policy-note {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 18px;
+  max-width: 680px;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+.ch-policy-note strong {
+  color: var(--text);
+}
+
+/* Section headers */
+.ch-section {
+  margin-bottom: 56px;
+}
+.ch-section-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.ch-section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--text-dim);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 6px;
+}
+.ch-section h2 {
+  font-size: 22px;
+  margin: 0 0 6px;
+}
+.ch-section-desc {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 0 0 24px;
+  max-width: 640px;
+  line-height: 1.6;
+}
+
+/* Channel cards */
+.ch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.ch-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .18s;
+  text-decoration: none;
+  color: inherit;
+}
+.ch-card:hover {
+  border-color: var(--accent);
+}
+.ch-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ch-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+  color: #1a1f27;
+  background: var(--accent);
+}
+.ch-avatar.blue   { background: #4a9edd; }
+.ch-avatar.green  { background: #5db87a; }
+.ch-avatar.rose   { background: #d4738a; }
+.ch-avatar.teal   { background: #4dbdbd; }
+.ch-avatar.amber  { background: var(--accent); }
+.ch-card-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.3;
+}
+.ch-card-creator {
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  margin: 0;
+}
+.ch-card-focus {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+.ch-card-best {
+  font-size: 13px;
+  color: var(--accent);
+  font-family: var(--mono);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  line-height: 1.5;
+}
+.ch-card-best::before {
+  content: "Best for: ";
+  color: var(--text-faint, #5a6270);
+}
+.ch-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  font-family: var(--mono);
+  margin-top: auto;
+}
+.ch-link:hover { text-decoration: underline; }
+.ch-link::after { content: " →"; }
+
+/* Diversity callout */
+.ch-diversity-note {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 48px;
+  max-width: 760px;
+}
+.ch-diversity-note h3 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+.ch-diversity-note p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  .ch-hero h1 { font-size: 28px; }
+  .ch-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <div class="tm-brand-mark">TM</div>
+      <div>
+        <div class="tm-brand-text">Trail Manual</div>
+        <div class="tm-brand-sub">DIY field manual</div>
+      </div>
+    </a>
+    <nav class="tm-nav">
+      <a href="/">Home</a>
+      <a href="/tools/">Tools</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/channels/" class="active">Channels</a>
+      <a href="/about/">About</a>
+    </nav>
+    <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
+  </div>
+</header>
+
+<main class="tm-main">
+
+  <section class="ch-hero">
+    <div class="tm-section-eyebrow">Resources</div>
+    <h1>Channels worth watching.</h1>
+    <p>
+      Curated for accuracy first, not follower count. These are channels run by
+      working mechanics, serious builders, and people who've actually done the job —
+      not just narrated over someone else's footage.
+    </p>
+    <div class="ch-policy-note">
+      <span>📺</span>
+      <span>
+        <strong>How this works:</strong> When a Trail Manual guide links to a video,
+        the creator still gets the view, the ad revenue, and the credit. We embed — we don't host.
+        Every embed includes a visible byline so you know whose work you're watching.
+      </span>
+    </div>
+  </section>
+
+  <div class="ch-diversity-note">
+    <h3>A note on who's represented here</h3>
+    <p>
+      Most automotive YouTube is documented by white men — not because women and people of color
+      don't wrench, but because the community defaulted to a narrow slice of who gets attention.
+      This list intentionally corrects that. You'll find female mechanics, Filipino shop techs,
+      Asian creators, and channels that don't look like the thumbnail on every other car video.
+      Accuracy is the baseline. Representation is a feature, not a checkbox.
+    </p>
+  </div>
+
+  <!-- ── JEEP & OFF-ROAD ─────────────────────────────────────────────── -->
+  <section class="ch-section">
+    <div class="ch-section-label">Jeep &amp; Off-Road</div>
+    <p class="ch-section-desc">Vehicle-specific channels for XJ, JK, TJ, JL, and trail prep.</p>
+    <div class="ch-grid">
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar green">MW</div>
+          <div>
+            <p class="ch-card-name">Major Weakness</p>
+            <p class="ch-card-creator">Jeep XJ &amp; MJ focused</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          One of the deepest XJ-specific channels on the platform. Covers Cherokee and Comanche MJ
+          mods, repairs, and trail prep without dumbing anything down.
+        </p>
+        <p class="ch-card-best">XJ suspension, axles, body work, trail builds</p>
+        <a class="ch-link" href="https://www.youtube.com/channel/UCTyIC7PeYFOJdW5HFT9pQ_A" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar green">TR</div>
+          <div>
+            <p class="ch-card-name">Trail Recon</p>
+            <p class="ch-card-creator">Jeep Wrangler &amp; overland</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Serious overland adventures across California, Utah, Colorado, and Baja.
+          Strong trail footage and honest documentation of what breaks and why.
+        </p>
+        <p class="ch-card-best">JK/JL trail prep, recovery, overlanding context</p>
+        <a class="ch-link" href="https://www.youtube.com/@TrailRecon" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar green">4W</div>
+          <div>
+            <p class="ch-card-name">Four Wheeler Network</p>
+            <p class="ch-card-creator">JP Magazine / professional builds</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Professional production, technically accurate builds and installs. Long-form
+          documentation of real suspension lifts, axle swaps, and trail runs.
+        </p>
+        <p class="ch-card-best">Technical installs, build documentation, long-form how-tos</p>
+        <a class="ch-link" href="https://www.youtube.com/@fourwheeler" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── GENERAL DIY ──────────────────────────────────────────────────── -->
+  <section class="ch-section">
+    <div class="ch-section-label">General DIY — Accuracy First</div>
+    <p class="ch-section-desc">
+      These channels prioritize getting it right. The vehicles aren't always Jeeps — but
+      torque specs, brake bleeding, and electrical diagnosis work the same on anything.
+    </p>
+    <div class="ch-grid">
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar blue">SM</div>
+          <div>
+            <p class="ch-card-name">South Main Auto Repair LLC</p>
+            <p class="ch-card-creator">Eric O — 22+ years, real shop</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Eric O runs a three-bay shop in upstate New York and films his actual day-to-day work.
+          No staging, no drama — just proper diagnostic process on real vehicles.
+        </p>
+        <p class="ch-card-best">Diagnostics, electrical, scan tool work, sensor troubleshooting</p>
+        <a class="ch-link" href="https://www.youtube.com/channel/UCtAGzm9e_liY7ko1PBhzTHA" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar blue">CF</div>
+          <div>
+            <p class="ch-card-name">ChrisFix</p>
+            <p class="ch-card-creator">Step-by-step, beginner-friendly</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Best camera angles and clearest labeling of any beginner-level channel.
+          If you need to see the exact motion — where the socket goes, which way to turn —
+          this is the one.
+        </p>
+        <p class="ch-card-best">First repairs, basic maintenance, fluid work, brakes</p>
+        <a class="ch-link" href="https://www.youtube.com/channel/UCes1EvRjcKU4sY_UEavndBw" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar blue">RW</div>
+          <div>
+            <p class="ch-card-name">Ratchets And Wrenches</p>
+            <p class="ch-card-creator">DIY focused, community-minded</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Solid DIY tutorials with a tone that doesn't assume you already know everything.
+          Honest about what's hard and what's genuinely manageable at home.
+        </p>
+        <p class="ch-card-best">Maintenance guides, budget repairs, home garage work</p>
+        <a class="ch-link" href="https://www.youtube.com/@myRatchets" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar blue">HM</div>
+          <div>
+            <p class="ch-card-name">Humble Mechanic</p>
+            <p class="ch-card-creator">Charles — former VW master tech</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          VW/Audi specialist, but his content on tools, technique, and shop workflow applies
+          everywhere. Excellent on torque sequences, thread repair, and working methodically.
+        </p>
+        <p class="ch-card-best">Technique fundamentals, tool selection, working in tight spaces</p>
+        <a class="ch-link" href="https://www.youtube.com/channel/UC2gRQKQgI3CsrcnMuHPyYsQ" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar blue">SD</div>
+          <div>
+            <p class="ch-card-name">Super Mario Diagnostics</p>
+            <p class="ch-card-creator">Professional diagnostics &amp; scan tools</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Focused on the diagnostic process — OBD2, scan tool interpretation, electrical fault
+          finding. Bridges the gap between reading a code and understanding what caused it.
+        </p>
+        <p class="ch-card-best">Scan tool use, OBD2 codes, electrical diagnosis</p>
+        <a class="ch-link" href="https://www.youtube.com/@supermariodiagnostics" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── WOMEN-LED ─────────────────────────────────────────────────────── -->
+  <section class="ch-section">
+    <div class="ch-section-label">Women-Led</div>
+    <p class="ch-section-desc">
+      Mechanics, builders, and educators who happen to be women. The content is good because
+      they know what they're doing — not as a novelty.
+    </p>
+    <div class="ch-grid">
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar rose">EH</div>
+          <div>
+            <p class="ch-card-name">Emelia Hartford</p>
+            <p class="ch-card-creator">Performance builds &amp; racing</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Builds and races high-performance vehicles — including a twin-turbo C8 Corvette
+          that held a world quarter-mile record. Strong build documentation. Former host
+          of Netflix's <em>Fastest Car</em>.
+        </p>
+        <p class="ch-card-best">Performance mods, build documentation, engine work</p>
+        <a class="ch-link" href="https://www.youtube.com/channel/UCr47E3UYaFoKU7Mroevt4aQ" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar rose">JC</div>
+          <div>
+            <p class="ch-card-name">Jessicann And You Can Too!</p>
+            <p class="ch-card-creator">Jessica Chou — basic maintenance</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Started this channel to demystify car maintenance for people who were told it wasn't
+          for them. Clear, calm, no condescension. Covers spark plugs, jump starts, headliners,
+          and other first-repair territory.
+        </p>
+        <p class="ch-card-best">First-time repairs, basic maintenance, entry-level guides</p>
+        <a class="ch-link" href="https://www.youtube.com/channel/UCNqMrlFSlUm7fGnPLV_BoIw" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar rose">AW</div>
+          <div>
+            <p class="ch-card-name">AutomotiveWoman</p>
+            <p class="ch-card-creator">Juliana Chiovitti — tips &amp; how-tos</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Bite-sized tips, tricks, and how-tos covering a broad range of vehicles.
+          Good format for quick technique reference without sitting through a 40-minute video.
+        </p>
+        <p class="ch-card-best">Quick techniques, tool intros, maintenance overviews</p>
+        <a class="ch-link" href="https://www.youtube.com/@automotivewoman" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar rose">GA</div>
+          <div>
+            <p class="ch-card-name">Girls Auto Clinic</p>
+            <p class="ch-card-creator">All-female shop, real repairs</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          A Philadelphia shop run entirely by female technicians. Their channel shows
+          real shop work — not simplified "women's versions" of repairs. Just mechanics doing the job.
+        </p>
+        <p class="ch-card-best">Shop safety, professional technique, community education</p>
+        <a class="ch-link" href="https://www.youtube.com/@girlsautoclinic" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar rose">FM</div>
+          <div>
+            <p class="ch-card-name">Female Mechanic</p>
+            <p class="ch-card-creator">15+ years experience, restoration work</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Restoration projects and real shop work from a mechanic with 15+ years on the job.
+          Documents the kind of work most channels don't bother filming: grinding rust, fitting
+          panels, doing the unglamorous stuff correctly.
+        </p>
+        <p class="ch-card-best">Restoration, body work, underbody repair</p>
+        <a class="ch-link" href="https://www.youtube.com/@femalemechanic7181" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DIVERSE PERSPECTIVES ─────────────────────────────────────────── -->
+  <section class="ch-section">
+    <div class="ch-section-label">Diverse Perspectives</div>
+    <p class="ch-section-desc">
+      Channels from creators who bring different backgrounds, locations, and approaches
+      to the same problems you're solving in your driveway.
+    </p>
+    <div class="ch-grid">
+
+      <div class="ch-card">
+        <div class="ch-card-top">
+          <div class="ch-avatar teal">AM</div>
+          <div>
+            <p class="ch-card-name">Asian Mechanic Guy</p>
+            <p class="ch-card-creator">Filipino mechanic, Vancouver, BC</p>
+          </div>
+        </div>
+        <p class="ch-card-focus">
+          Founded by the first Filipino mechanic certified in his shop in Vancouver. DIY
+          procedures aimed at home mechanics who want to see the actual process without
+          a production budget behind it.
+        </p>
+        <p class="ch-card-best">Home garage procedures, step-by-step repairs, working alone</p>
+        <a class="ch-link" href="https://www.youtube.com/@asianmechanicguy6483" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── SUGGEST A CHANNEL ─────────────────────────────────────────────── -->
+  <section style="margin-bottom:60px;padding-top:16px;border-top:1px solid var(--border)">
+    <h2 style="font-size:18px;margin:0 0 12px">Know a channel that belongs here?</h2>
+    <p style="color:var(--text-dim);font-size:15px;max-width:560px;line-height:1.6;margin:0 0 16px">
+      Especially if it's run by someone not already well represented in this list.
+      Accuracy is the bar — if the information is good and the perspective is different from
+      what's already here, it's worth adding.
+    </p>
+    <a href="/about/" class="ch-link" style="font-size:14px">Get in touch via the About page</a>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark">TM</div>
+        <div>
+          <div class="tm-brand-text">Trail Manual</div>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0">
+        Built By Hand
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/db/">XJ Database</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
+      <a href="/tools/">All tools →</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/workshop/">Workshop</a>
+      <a href="/channels/">Channels</a>
+      <a href="/about/#roadmap">Roadmap</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/contact/">Contact</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('tm-nav-toggle');
+  var nav=document.querySelector('.tm-nav');
+  if(!btn||!nav)return;
+  btn.addEventListener('click',function(){
+    nav.classList.toggle('tm-open');
+    btn.innerHTML=nav.classList.contains('tm-open')
+      ?'&#10005;'
+      :'&#9776;';
+  });
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!nav.contains(e.target)){
+      nav.classList.remove('tm-open');
+      btn.innerHTML='&#9776;';
+    }
+  });
+})();
+</script>
+</body>
+</html>
