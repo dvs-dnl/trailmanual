@@ -9,6 +9,62 @@
 <meta property="og:description" content="Shop tools, safety fundamentals, technique guides, and shop setup — the foundation every DIYer needs before touching a vehicle.">
 <link rel="stylesheet" href="/_shared.css">
 <style>
+
+/* ── Photo page hero ─────────────────────────────────────────────────── */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: -30px -20px 0;
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a2010;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,13,18,.35) 0%,
+    rgba(10,13,18,.6) 55%,
+    rgba(10,13,18,.97) 100%);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 52px 48px 40px;
+  max-width: 900px;
+}
+.page-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent-2);
+  margin-bottom: 12px;
+}
+.page-hero-inner h1 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+  margin: 0 0 14px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+  max-width: 700px;
+}
+.page-hero-inner p {
+  font-size: 17px;
+  color: rgba(230,232,235,.8);
+  max-width: 600px;
+  line-height: 1.65;
+  margin: 0;
+}
 /* ── Workshop-specific styles ────────────────────────────────────────── */
 
 .tm-hero {
@@ -41,8 +97,8 @@
   grid-template-columns: repeat(4, 1fr);
   background: var(--bg-2);
   border: 1px solid var(--border);
-  border-top: none;
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  border-top: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   margin-bottom: 40px;
   overflow: hidden;
 }
@@ -156,10 +212,9 @@
     </a>
     <nav class="tm-nav">
       <a href="/">Home</a>
-      <a href="https://tools.trailmanual.com">Tools</a>
+      <a href="/tools/">Tools</a>
       <a href="/workshop/" class="active">Workshop</a>
       <a href="/channels/">Channels</a>
-      <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
     </nav>
     <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
@@ -169,18 +224,18 @@
 <main class="tm-main">
 
   <!-- ── HERO ─────────────────────────────────────────────────────── -->
-  <section class="tm-hero">
-    <div class="tm-hero-badge">Vehicle-agnostic · Any make, any model</div>
-    <h1>Before you touch the vehicle.</h1>
-    <p>
-      Every build runs on the same foundation: knowing which tools to trust, how to work without
-      getting hurt, and the techniques that keep you from destroying what you're trying to fix.
-      This section covers all of it — no assumed experience, no condescension.
-    </p>
-  </section>
+  <div class="page-hero">
+    <div class="page-hero-photo" style="background-image:url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1400&q=75');background-position:center 45%;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow">Vehicle-agnostic · Any make, any model</div>
+      <h1>Before you touch the vehicle.</h1>
+      <p>Every build runs on the same foundation: knowing which tools to trust, how to work without getting hurt, and the techniques that keep you from destroying what you're trying to fix.</p>
+    </div>
+  </div>
 
   <!-- ── CATEGORY STRIP ────────────────────────────────────────────── -->
-  <div class="tm-cat-strip">
+  <div class="tm-cat-strip" style="margin-top:32px">
     <a class="tm-cat-item" href="#tools">
       <div class="tm-cat-icon">🔧</div>
       <div class="tm-cat-label">Shop Tools</div>
@@ -523,7 +578,7 @@
       <h4>Tools</h4>
       <a href="/db/">XJ Database</a>
       <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
-      <a href="https://tools.trailmanual.com">All tools →</a>
+      <a href="/tools/">All tools →</a>
     </div>
     <div>
       <h4>Learn</h4>
@@ -535,7 +590,6 @@
     <div>
       <h4>Site</h4>
       <a href="/channels/">Channels</a>
-      <a href="/blog/">Blog</a>
       <a href="/about/">About Trail Manual</a>
       <a href="/about/#sources">Sources &amp; method</a>
     </div>

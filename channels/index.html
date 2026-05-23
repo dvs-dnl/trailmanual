@@ -4,9 +4,65 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Channels — Trail Manual</title>
-<meta name="description" content="Recommended YouTube channels for Jeep, off-road, and DIY auto repair — curated for accuracy, not follower count. Includes channels from women, people of color, and working mechanics.">
+<meta name="description" content="Recommended YouTube channels for Jeep, off-road, and DIY auto repair — curated for accuracy and depth by working mechanics and specialists.">
 <link rel="stylesheet" href="/_shared.css">
 <style>
+
+/* ── Photo page hero ─────────────────────────────────────────────────── */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: -30px -20px 48px;
+  min-height: 260px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1f27;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,13,18,.35) 0%,
+    rgba(10,13,18,.6) 50%,
+    rgba(10,13,18,.97) 100%);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 32px 36px;
+  max-width: 760px;
+}
+.page-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.page-hero-inner h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin: 0 0 14px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+.page-hero-inner p {
+  font-size: 17px;
+  color: rgba(230,232,235,.8);
+  max-width: 600px;
+  line-height: 1.65;
+  margin: 0;
+}
+
 .ch-hero {
   padding: 60px 0 40px;
   border-bottom: 1px solid var(--border);
@@ -214,35 +270,27 @@
   </div>
 </header>
 
-<main class="tm-main">
+<main class="tm-main" style="padding-top:0">
 
-  <section class="ch-hero">
-    <div class="tm-section-eyebrow">Resources</div>
-    <h1>Channels worth watching.</h1>
-    <p>
-      Curated for accuracy first, not follower count. These are channels run by
-      working mechanics, serious builders, and people who've actually done the job —
-      not just narrated over someone else's footage.
-    </p>
-    <div class="ch-policy-note">
-      <span>📺</span>
-      <span>
-        <strong>How this works:</strong> When a Trail Manual guide links to a video,
-        the creator still gets the view, the ad revenue, and the credit. We embed — we don't host.
-        Every embed includes a visible byline so you know whose work you're watching.
-      </span>
+  <!-- Photo hero -->
+  <div class="page-hero">
+    <div class="page-hero-photo" style="background-image:url('https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=1400&q=75');background-position:center 45%;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow">Resources</div>
+      <h1>Channels worth watching.</h1>
+      <p>Curated for accuracy first, not follower count. Working mechanics, serious builders, and people who've actually done the job.</p>
     </div>
-  </section>
+  </div>
 
-  <div class="ch-diversity-note">
-    <h3>A note on who's represented here</h3>
-    <p>
-      Most automotive YouTube is documented by white men — not because women and people of color
-      don't wrench, but because the community defaulted to a narrow slice of who gets attention.
-      This list intentionally corrects that. You'll find female mechanics, Filipino shop techs,
-      Asian creators, and channels that don't look like the thumbnail on every other car video.
-      Accuracy is the baseline. Representation is a feature, not a checkbox.
-    </p>
+  <!-- Embed policy note -->
+  <div class="ch-policy-note" style="margin-bottom:40px">
+    <span>📺</span>
+    <span>
+      <strong>How this works:</strong> When a Trail Manual guide links to a video,
+      the creator still gets the view, the ad revenue, and the credit. We embed — we don't host.
+      Every embed includes a visible byline so you know whose work you're watching.
+    </span>
   </div>
 
   <!-- ── JEEP & OFF-ROAD ─────────────────────────────────────────────── -->
@@ -395,13 +443,10 @@
     </div>
   </section>
 
-  <!-- ── WOMEN-LED ─────────────────────────────────────────────────────── -->
+  <!-- ── BUILDS & PERFORMANCE ─────────────────────────────────────────── -->
   <section class="ch-section">
-    <div class="ch-section-label">Women-Led</div>
-    <p class="ch-section-desc">
-      Mechanics, builders, and educators who happen to be women. The content is good because
-      they know what they're doing — not as a novelty.
-    </p>
+    <div class="ch-section-label">Builds &amp; Performance</div>
+    <p class="ch-section-desc">Build documentation, restoration, and performance work — real projects filmed from start to finish.</p>
     <div class="ch-grid">
 
       <div class="ch-card">
@@ -430,9 +475,8 @@
           </div>
         </div>
         <p class="ch-card-focus">
-          Started this channel to demystify car maintenance for people who were told it wasn't
-          for them. Clear, calm, no condescension. Covers spark plugs, jump starts, headliners,
-          and other first-repair territory.
+          Demystifies car maintenance for first-time DIYers. Clear, calm, no condescension.
+          Covers spark plugs, jump starts, headliners, and other first-repair territory.
         </p>
         <p class="ch-card-best">First-time repairs, basic maintenance, entry-level guides</p>
         <a class="ch-link" href="https://www.youtube.com/channel/UCNqMrlFSlUm7fGnPLV_BoIw" target="_blank" rel="noopener">Watch on YouTube</a>
@@ -463,8 +507,8 @@
           </div>
         </div>
         <p class="ch-card-focus">
-          A Philadelphia shop run entirely by female technicians. Their channel shows
-          real shop work — not simplified "women's versions" of repairs. Just mechanics doing the job.
+          Philadelphia shop with a strong education focus. Their channel shows real shop work
+          — professional technique, safety, and community-oriented repair education.
         </p>
         <p class="ch-card-best">Shop safety, professional technique, community education</p>
         <a class="ch-link" href="https://www.youtube.com/@girlsautoclinic" target="_blank" rel="noopener">Watch on YouTube</a>
@@ -490,13 +534,10 @@
     </div>
   </section>
 
-  <!-- ── DIVERSE PERSPECTIVES ─────────────────────────────────────────── -->
+  <!-- ── HOME GARAGE ───────────────────────────────────────────────────── -->
   <section class="ch-section">
-    <div class="ch-section-label">Diverse Perspectives</div>
-    <p class="ch-section-desc">
-      Channels from creators who bring different backgrounds, locations, and approaches
-      to the same problems you're solving in your driveway.
-    </p>
+    <div class="ch-section-label">Home Garage</div>
+    <p class="ch-section-desc">Step-by-step repair from home mechanics doing it the right way — no production budget, no shortcuts.</p>
     <div class="ch-grid">
 
       <div class="ch-card">
@@ -508,9 +549,8 @@
           </div>
         </div>
         <p class="ch-card-focus">
-          Founded by the first Filipino mechanic certified in his shop in Vancouver. DIY
-          procedures aimed at home mechanics who want to see the actual process without
-          a production budget behind it.
+          Vancouver-based home mechanic channel. DIY procedures filmed with care — covers the
+          actual process start to finish without a production budget behind it.
         </p>
         <p class="ch-card-best">Home garage procedures, step-by-step repairs, working alone</p>
         <a class="ch-link" href="https://www.youtube.com/@asianmechanicguy6483" target="_blank" rel="noopener">Watch on YouTube</a>
@@ -523,9 +563,8 @@
   <section style="margin-bottom:60px;padding-top:16px;border-top:1px solid var(--border)">
     <h2 style="font-size:18px;margin:0 0 12px">Know a channel that belongs here?</h2>
     <p style="color:var(--text-dim);font-size:15px;max-width:560px;line-height:1.6;margin:0 0 16px">
-      Especially if it's run by someone not already well represented in this list.
-      Accuracy is the bar — if the information is good and the perspective is different from
-      what's already here, it's worth adding.
+      Accuracy is the bar. If the content is solid and it covers something not already in the list,
+      it's worth adding.
     </p>
     <a href="/about/" class="ch-link" style="font-size:14px">Get in touch via the About page</a>
   </section>
@@ -543,9 +582,7 @@
           <div class="tm-brand-sub">trailmanual.com</div>
         </div>
       </div>
-      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0">
-        Built By Hand
-      </p>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">Free, community-built DIY reference for off-road vehicle owners. No ads, no affiliate links, no paywall.</p>
     </div>
     <div>
       <h4>Tools</h4>

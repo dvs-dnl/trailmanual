@@ -6,10 +6,65 @@
 <title>About — Trail Manual</title>
 <meta name="description" content="Trail Manual is a community-built DIY reference for off-road vehicles. Here's how it's organized, where the content comes from, and what we're trying to build.">
 <link rel="stylesheet" href="/_shared.css">
+<style>
+/* Photo page hero */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: -30px -20px 48px;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1f27;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,13,18,.4) 0%,
+    rgba(10,13,18,.6) 50%,
+    rgba(10,13,18,.96) 100%);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 32px 36px;
+  max-width: 760px;
+}
+.page-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.page-hero-inner h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin: 0 0 14px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+.page-hero-inner p {
+  font-size: 17px;
+  color: rgba(230,232,235,.8);
+  max-width: 640px;
+  line-height: 1.65;
+  margin: 0;
+}
+</style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/">
@@ -21,34 +76,27 @@
     </a>
     <nav class="tm-nav">
       <a href="/">Home</a>
-      <a href="https://tools.trailmanual.com">Tools</a>
-      <a href="/about/" class="active">About</a>
+      <a href="/tools/">Tools</a>
+      <a href="/workshop/">Workshop</a>
       <a href="/channels/">Channels</a>
-      <a href="/blog/">Blog</a>
+      <a href="/about/" class="active">About</a>
     </nav>
     <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
   </div>
 </header>
 
-<main class="tm-main">
+<main class="tm-main" style="padding-top:0">
 
-  <!-- ====================================================================
-       PAGE TITLE  ·  Gutenberg: Group block — Heading + Paragraph (lede)
-       ==================================================================== -->
-  <section style="margin-bottom:40px">
-    <div class="tm-section-eyebrow">About</div>
-    <h1 style="font-size:36px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.15">A DIY field manual, kept honest by enthusiasts.</h1>
-    <p class="tm-section-lede" style="font-size:17px;max-width:700px">
-      Trail Manual exists because the knowledge to keep an old off-road vehicle alive and trail-capable is
-      scattered across decades of forum posts. This is one place to collect, cross-reference, and present it.
-    </p>
-  </section>
+  <div class="page-hero">
+    <div class="page-hero-photo" style="background-image:url('https://images.unsplash.com/photo-1501444303789-0dc6a4a2e3b0?auto=format&fit=crop&w=1400&q=75');background-position:center 60%;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow">About</div>
+      <h1>A DIY field manual, kept honest by enthusiasts.</h1>
+      <p>Trail Manual exists because the knowledge to keep an old off-road vehicle alive and trail-capable is scattered across decades of forum posts. This is one place to collect, cross-reference, and present it.</p>
+    </div>
+  </div>
 
-  <!-- ====================================================================
-       BODY COPY  ·  Gutenberg: Group block with .tm-prose styling
-       Map paragraphs to Paragraph blocks, headings to Heading H2/H3 blocks,
-       lists to List blocks, blockquotes to Quote blocks.
-       ==================================================================== -->
   <article class="tm-prose">
 
     <h2 id="why">Why this exists</h2>
@@ -129,7 +177,7 @@
 
     <h2 id="contact">Get in touch</h2>
     <p>
-      Spot an error, want to contribute a writeup, or want a platform added sooner? <a href="/contact/">Drop a note</a>.
+      Spot an error, want to contribute a writeup, or want a platform added sooner? <a href="mailto:dvs.dnl@gmail.com">Drop a note</a>.
       The database is open to corrections and additions from anyone with field experience.
     </p>
 
@@ -137,7 +185,6 @@
 
 </main>
 
-<!-- FOOTER (same as home) -->
 <footer class="tm-footer">
   <div class="tm-footer-inner">
     <div>
@@ -148,26 +195,27 @@
           <div class="tm-brand-sub">trailmanual.com</div>
         </div>
       </div>
-      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0">
-        Built By Hand
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, community-built DIY reference for off-road vehicle owners. No ads, no affiliate links, no paywall.
       </p>
     </div>
     <div>
       <h4>Tools</h4>
       <a href="/db/">XJ Database</a>
       <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
-      <a href="https://tools.trailmanual.com">All tools →</a>
+      <a href="/db/xj-lift-kit-guide.html">XJ Lift Guide</a>
+      <a href="/tools/">All tools →</a>
     </div>
     <div>
-      <h4>Platforms</h4>
-      <a href="/db/#/xj/">Jeep Cherokee XJ</a>
+      <h4>Learn</h4>
+      <a href="/workshop/">Workshop</a>
+      <a href="/channels/">Channels</a>
       <a href="/about/#roadmap">Roadmap</a>
     </div>
     <div>
       <h4>About</h4>
       <a href="/about/">About Trail Manual</a>
       <a href="/about/#sources">Sources &amp; method</a>
-      <a href="/contact/">Contact</a>
     </div>
   </div>
   <div class="disclaimer">
@@ -182,11 +230,8 @@
   if(!btn||!nav)return;
   btn.addEventListener('click',function(){
     nav.classList.toggle('tm-open');
-    btn.innerHTML=nav.classList.contains('tm-open')
-      ?'&#10005;'   /* ✕ */
-      :'&#9776;';   /* ☰ */
+    btn.innerHTML=nav.classList.contains('tm-open')?'&#10005;':'&#9776;';
   });
-  // Close on outside click
   document.addEventListener('click',function(e){
     if(!btn.contains(e.target)&&!nav.contains(e.target)){
       nav.classList.remove('tm-open');

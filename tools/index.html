@@ -6,6 +6,61 @@
 <title>Tools — Trail Manual</title>
 <meta name="description" content="Interactive DIY tools for off-road vehicles: maintenance database, rig builders, diagnostic guides, and more.">
 <link rel="stylesheet" href="/_shared.css">
+<style>
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: -30px -20px 48px;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1f27;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,13,18,.4) 0%,
+    rgba(10,13,18,.6) 50%,
+    rgba(10,13,18,.96) 100%);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 32px 36px;
+  max-width: 760px;
+}
+.page-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.page-hero-inner h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin: 0 0 14px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+.page-hero-inner p {
+  font-size: 17px;
+  color: rgba(230,232,235,.8);
+  max-width: 640px;
+  line-height: 1.65;
+  margin: 0;
+}
+</style>
 </head>
 <body>
 
@@ -21,27 +76,27 @@
     </a>
     <nav class="tm-nav">
       <a href="/">Home</a>
-      <a href="https://tools.trailmanual.com" class="active">Tools</a>
+      <a href="/tools/" class="active">Tools</a>
       <a href="/workshop/">Workshop</a>
       <a href="/channels/">Channels</a>
-      <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
     </nav>
     <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation">&#9776;</button>
   </div>
 </header>
 
-<main class="tm-main">
+<main class="tm-main" style="padding-top:0">
 
-  <!-- PAGE TITLE -->
-  <section style="margin-bottom:40px">
-    <div class="tm-section-eyebrow">Tools</div>
-    <h1 style="font-size:36px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.15">Interactive guides, built for the driveway.</h1>
-    <p class="tm-section-lede" style="font-size:17px;max-width:700px">
-      Free, no signup, no ads. Use them with greasy hands. Each tool is a single page —
-      open it on your phone and work through it while the truck's on jack stands.
-    </p>
-  </section>
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-photo" style="background-image:url('https://images.unsplash.com/photo-1572043792984-a9b184a52ade?auto=format&fit=crop&w=1400&q=75');background-position:center 40%;"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-inner">
+      <div class="page-hero-eyebrow">Tools</div>
+      <h1>Interactive guides, built for the driveway.</h1>
+      <p>Free, no signup, no ads. Use them with greasy hands. Each tool is a single page — open it on your phone and work through it while the truck's on jack stands.</p>
+    </div>
+  </div>
 
   <!-- ====================================================================
        LIVE TOOLS  ·  Gutenberg: Columns block (2 cols), Group blocks inside
@@ -170,18 +225,18 @@
       <h4>Tools</h4>
       <a href="/db/">XJ Database</a>
       <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
-      <a href="https://tools.trailmanual.com">All tools →</a>
+      <a href="/tools/">All tools →</a>
     </div>
     <div>
-      <h4>Platforms</h4>
-      <a href="/db/#/xj/">Jeep Cherokee XJ</a>
+      <h4>Learn</h4>
+      <a href="/workshop/">Workshop</a>
+      <a href="/channels/">Channels</a>
       <a href="/about/#roadmap">Roadmap</a>
     </div>
     <div>
       <h4>About</h4>
       <a href="/about/">About Trail Manual</a>
       <a href="/about/#sources">Sources &amp; method</a>
-      <a href="/contact/">Contact</a>
     </div>
   </div>
   <div class="disclaimer">
