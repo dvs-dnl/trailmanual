@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Intro to MIG Welding for DIYers — The Workshop · Trail Manual</title>
+<meta name="description" content="What MIG welding is, what it can and cannot do for a home shop, what machine and gas to start with, and the safety rules you cannot skip. A starting point for DIYers who have never struck an arc.">
+<style>
+:root{
+  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
+  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
+  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
+  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
+  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
+  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
+  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
+  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
+  --radius:8px; --radius-lg:12px; --max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark">TM</div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">The Workshop</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← All guides</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Intro to MIG Welding for DIYers</h1>
+    <p class="lede">MIG is the welding process most home shops should start with — it has the shortest learning curve, handles the steel thicknesses you'll actually weld on a vehicle, and the equipment can be set up in a corner of a one-car garage. This guide covers what MIG is, what machine to buy first, what gas to run, and the safety rules that aren't negotiable.</p>
+    <div class="safety-badge">⚠ Safety critical</div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p>For a home shop welding mild steel between roughly 18 gauge (about 0.048") and 1/4", a 120V or 240V MIG machine running 0.030" solid wire with a 75/25 argon-CO₂ shielding gas mix is the standard starter setup. A quality 140-amp 120V machine will weld up to about 3/16" cleanly; jump to 240V (180–210 amp class) the moment you intend to weld 1/4" frame brackets or skid plates.</p>
+    <p>Welding produces UV that will burn your retinas through a single unprotected glance and fumes you should never inhale. A proper auto-darkening helmet, leather gloves, long sleeves of natural fiber, and ventilation aren't add-ons — they are part of the tool. Skipping any of them is how DIYers end up at urgent care with arc flash.</p>
+  </div>
+
+  <h2>What MIG actually is</h2>
+  <p>MIG stands for <strong>Metal Inert Gas</strong>, also called GMAW (Gas Metal Arc Welding). The process feeds a continuous solid wire through the gun while shielding gas flows around the arc to keep oxygen and nitrogen in the air away from the molten weld pool. Without that gas, the weld becomes porous and brittle.</p>
+
+  <p>The advantage over stick welding (SMAW) is the continuous wire — you pull the trigger and weld for as long as you want without stopping to change a rod. The advantage over TIG is speed and learning curve: a beginner can lay an acceptable structural bead on flat plate in an afternoon with MIG. The same beginner needs weeks to make a clean TIG weld.</p>
+
+  <p>The trade-off is that MIG depends on shielding gas, which means you can't weld outdoors in any real wind, and the equipment is less portable than a stick machine. For a closed garage doing automotive work, that trade-off is the right one.</p>
+
+  <h2>MIG vs. flux-core — and why beginners get pushed toward the wrong one</h2>
+  <p>Cheap "MIG-ready" machines often ship set up for <strong>flux-cored arc welding (FCAW)</strong>, which uses a self-shielding wire and no gas bottle. FCAW has its place — outdoor work, dirty steel, thicker material — but it produces more spatter, more smoke, and a rougher bead than gas-shielded MIG. On 18-gauge body panels, self-shielded flux-core will blow through the metal before you can react.</p>
+
+  <p>If you bought a machine to do automotive work — patch panels, brackets, exhaust, bumper builds — get a gas bottle and run solid wire. The setup cost of a 40 cu ft argon-CO₂ bottle ($150–$250 to buy outright, or rent for $80–$120 annually plus refill cost) is real, but the difference in weld quality and ease is enormous.</p>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">Watch out</div>
+    <p>Polarity matters. Gas-shielded MIG runs <strong>DCEP</strong> (electrode positive — gun lead to the positive terminal). Self-shielded flux-core runs <strong>DCEN</strong> (electrode negative — gun lead to negative). Most machines have a swap inside the wire-feed compartment. If you change processes and forget to swap polarity, welds will look terrible and you'll waste hours chasing settings. Check first.</p>
+  </div>
+
+  <h2>What machine to buy</h2>
+  <p>The question that drives the answer is: <strong>what power do you have in your garage?</strong></p>
+
+  <h3>120V machines (standard wall outlet)</h3>
+  <p>A 120V MIG runs on the same circuit as any household tool. Realistic range is 24 gauge to roughly 3/16" steel — enough for body panels, sheet brackets, exhaust, and most XJ/JK skid mounting that doesn't get into 1/4" plate. Look for a 140-amp class machine from <strong>Hobart, Miller, Lincoln, ESAB, or Forney</strong>. Expect $500–$900 for a decent unit.</p>
+
+  <p>Avoid no-name imports under $300. The cost cuts come from the wire feed mechanism, which is the heart of a MIG machine — poor wire feed means inconsistent arcs, burn-back into the contact tip, and a frustrating learning experience that gets blamed on technique.</p>
+
+  <h3>240V machines</h3>
+  <p>If your garage has — or can have — a 240V circuit, a 180- to 210-amp class machine extends what you can weld up to 1/4" or 5/16" in a single pass. For anyone planning to build their own bumpers, weld frame reinforcements, or do meaningful fabrication, 240V is worth the upgrade. Same brand list. Expect $800–$1,400.</p>
+
+  <p>Adding a 240V/30A circuit to a garage is a 1–2 hour electrical job for a licensed electrician and is one of the highest-leverage shop upgrades you can make. It also unlocks plasma cutters, larger air compressors, and induction heaters down the line.</p>
+
+  <h3>Duty cycle</h3>
+  <p>Every welder has a <strong>duty cycle</strong> rating — the percentage of a 10-minute window the machine can weld at a given amperage before it needs to cool. A 140-amp machine rated "20% duty cycle at 90 amps" can weld for 2 minutes out of every 10 at 90 amps before thermal cutoff. For a home shop doing short beads with cooling time in between, this is rarely a limit. For someone running long bumper seams, it is. Read the duty cycle spec before you buy.</p>
+
+  <h2>Wire, gas, and contact tips</h2>
+  <p>The consumables are where small mistakes cause hours of frustration.</p>
+
+  <h3>Wire diameter</h3>
+  <ul>
+    <li><strong>0.023"</strong> — sheet metal, body panels, anything 18 gauge or thinner. Less heat input, less burn-through.</li>
+    <li><strong>0.030"</strong> — the default. Handles roughly 18 gauge through 3/16" comfortably. Start here if you're buying one spool.</li>
+    <li><strong>0.035"</strong> — heavier work, 1/8" through 1/4". Faster deposit, more heat. Wants 240V machines.</li>
+  </ul>
+  <p>Buy ER70S-6 solid wire — the "-6" indicates a higher silicon and manganese content that tolerates mill scale and surface contamination better than -3. It's the right wire for the vast majority of automotive steel.</p>
+
+  <h3>Shielding gas</h3>
+  <p><strong>75% argon / 25% CO₂</strong> (often called C25 or 75/25) is the standard automotive blend. It produces a clean, soft arc with minimal spatter on mild steel. <strong>100% CO₂</strong> is cheaper but runs hotter, spatters more, and is harder for beginners to control — most shops avoid it. <strong>Tri-mix</strong> (argon, helium, CO₂) is for stainless. Aluminum requires pure argon and a different drive system entirely.</p>
+
+  <p>Gas flow at the regulator should be set around <strong>20–25 CFH</strong> (cubic feet per hour) for indoor work. Higher flow doesn't help and wastes gas; lower flow creates porosity. If you can feel a draft on the welding area, find a way to block it before you start — even a fan across the shop can pull shielding gas away from the puddle.</p>
+
+  <h3>Contact tips</h3>
+  <p>The copper contact tip is a consumable — buy them in tens, not by single piece. When the bore wears, wire feeds erratically and arcs blow out. The tip size must match the wire diameter (0.030" tip for 0.030" wire). A burnt-on weld at the tip (burn-back) means the wire fused to the tip; cut it free, replace the tip, and lower wire feed speed slightly.</p>
+
+  <h2>Setting the machine</h2>
+  <p>Two knobs on most MIG machines control everything that matters: <strong>voltage</strong> (heat) and <strong>wire feed speed</strong> (deposit rate). Their relationship is what produces a good bead.</p>
+
+  <p>Most machines include a printed chart inside the wire-feed door listing recommended voltage and wire speed for common steel thicknesses. <strong>Start there.</strong> Manufacturers test these charts on real coupons; they are not marketing. Adjust from the chart based on what you see and hear:</p>
+
+  <ul>
+    <li><strong>Too cold</strong> (voltage too low or wire speed too high): bead sits on top of the metal like a worm. The wire stubs into the work with a popping sound instead of arcing smoothly.</li>
+    <li><strong>Too hot</strong> (voltage too high or wire speed too low): you'll burn through thin material or get an unstable arc with the wire melting back into the tip.</li>
+    <li><strong>Correct</strong>: a steady frying-bacon sound — sizzling, continuous, no popping. The bead lays flat with consistent ripples and visible tie-in to both base metals.</li>
+  </ul>
+
+  <p><strong>Always practice on scrap of the same thickness as the workpiece.</strong> Five minutes of test beads on a scrap plate will save you from grinding out bad welds on the real part.</p>
+
+  <h2>Clean steel, clean welds</h2>
+  <p>MIG is more tolerant of dirty steel than TIG, but it is not magic. Mill scale, rust, paint, oil, and zinc plating all degrade weld quality and — in the case of <strong>galvanized steel</strong> — produce toxic zinc fumes that cause metal fume fever (think 24 hours of flu-like symptoms after the weld).</p>
+
+  <p>Grind back paint, primer, undercoating, and rust at least an inch from the weld zone on both sides. For galvanized steel, grind off the zinc coating where the bead will go, weld with strong ventilation, and assume any galvanized weld zone needs to be re-coated after the work.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Never weld on these without prep and ventilation</div>
+    <ul>
+      <li><strong>Galvanized steel</strong> — zinc fumes are toxic; grind the zinc off the weld zone and ventilate aggressively.</li>
+      <li><strong>Fuel tanks or fuel lines</strong> — even "empty" tanks contain vapor that ignites instantly. This is work for a shop with proper purging equipment.</li>
+      <li><strong>Containers that held flammable liquids</strong> — same problem as fuel tanks.</li>
+      <li><strong>Anything near brake lines, fuel lines, wiring, or upholstery</strong> — sparks travel feet, smolder hidden, and start fires that erupt hours later.</li>
+    </ul>
+  </div>
+
+  <h2>PPE — non-negotiable</h2>
+  <p>Welding produces three injury vectors: UV/IR light, molten metal spatter, and inhaled fumes. Every piece of welding PPE addresses one of these.</p>
+
+  <ul>
+    <li><strong>Auto-darkening helmet</strong> — rated shade 10–13 for MIG. A passive (fixed-shade) helmet works but you have to nod it down each weld, and beginners habitually start the arc before the lens drops. Spend the $80–$200 on auto-darkening. <strong>Arc flash from a single unprotected glance burns the cornea</strong> and produces the equivalent of looking at the sun. Symptoms appear 4–12 hours later and feel like sand in the eyes — irreversible damage with repeated exposure.</li>
+    <li><strong>Leather welding gloves</strong> — not mechanic gloves, not work gloves. MIG-grade leather gloves shield against UV burns to the back of the hand and against spatter that will pass through synthetic fabric without resistance.</li>
+    <li><strong>Long sleeves and pants, natural fiber</strong> — cotton or denim or wool. Polyester and synthetic blends melt onto skin under hot spatter. A welding jacket ($40–$120) is the right answer for any extended session.</li>
+    <li><strong>Closed leather boots</strong> — sneakers catch sparks at the laces; sandals are a non-starter.</li>
+    <li><strong>Respiratory protection</strong> — at minimum, weld in a ventilated space with a box fan pulling air across (not toward) the weld and out an open door. For extended welding or any galvanized work, a fume extractor or P100-rated respirator is the right call.</li>
+  </ul>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Hidden burn risk: helpers and bystanders</div>
+    <p>If a friend, family member, or kid is watching you weld, they need a helmet or shade-rated welding curtain between them and the arc — not sunglasses, not a quick look away. Arc flash injuries to bystanders are extremely common because they don't expect the danger. Put up a curtain or send them out of the garage. There is no safe distance to glance at an unfiltered MIG arc.</p>
+  </div>
+
+  <h2>Fire and the welding environment</h2>
+  <p>A MIG weld produces sparks that travel 10–15 feet horizontally and bounce off floors and benches. Before you strike an arc, do a 360° sweep of the work area:</p>
+
+  <ul>
+    <li>Rags, paper, sawdust, cardboard, and oily shop towels — remove or cover with a welding blanket.</li>
+    <li>Solvent containers, brake cleaner cans, paint cans, propane bottles — out of the work area. Brake cleaner exposed to a welding arc produces phosgene gas, which is lethal.</li>
+    <li>Vehicle interior — close doors and protect carpet, headliner, and seats with welding blankets. Sparks find upholstery.</li>
+    <li>Fuel tank — if welding anywhere on a vehicle that still has a fuel tank installed, ask whether the tank can be drained, dropped, or shielded. A spark on a fuel-soaked vapor barrier is how vehicles burn down hours after the welder is unplugged.</li>
+  </ul>
+
+  <p>Keep a <strong>fire extinguisher rated ABC (and ideally a second water-based or Class D nearby for metal fires)</strong> within arm's reach. Check it monthly. After welding, do a fire watch — stay in the area for at least 30 minutes scanning for smolder. Most weld-caused fires start after the welder has left the room.</p>
+
+  <div class="panel panel-good">
+    <div class="panel-label">The honest beginner setup</div>
+    <p>If you're buying everything new for a home garage today: a Hobart Handler 140 or Lincoln Easy MIG 140 (~$650), a rented 40 cu ft 75/25 bottle (~$100 first year), a spool of 0.030" ER70S-6 wire (~$25), an auto-darkening helmet from Lincoln/Antra/YESWELDER (~$80–$150), leather gloves and jacket (~$80), and a welding blanket (~$30). About $1,000–$1,200 all-in for a setup that will weld every patch panel, bracket, and skid plate a typical XJ or JK build needs.</p>
+  </div>
+
+  <h2>What MIG cannot do for you</h2>
+  <p>A few honest limits — knowing what to send to a real fabricator is part of the skill:</p>
+
+  <ul>
+    <li><strong>Suspension components and frame structural welds</strong> — control arms, axle truss work, roll cages, and steering brackets are life-safety welds. If you're new to welding, these are not the welds to learn on. Build experience on non-structural brackets first, then graduate.</li>
+    <li><strong>Aluminum</strong> — possible with MIG but requires a spool gun, pure argon, and significantly more practice. Most home aluminum work is sent to a TIG shop or done by experienced welders.</li>
+    <li><strong>Thin-wall exhaust</strong> on its own is fine; <strong>headers and stainless tubing</strong> are TIG territory if you want them to last.</li>
+    <li><strong>Cast iron</strong> — possible with special process and pre/post-heat, but rarely worth the effort for a DIYer. Most cast iron repair goes to a specialist.</li>
+  </ul>
+
+  <h2>Where to go next</h2>
+  <p>Once you have a machine and gas, the path forward is repetitive scrap practice — flat butt joints, lap joints, T-joints, and overhead positions, all on 1/8" or 3/16" mild steel scrap. Most local community colleges offer 6–12 week welding intro classes for under $400, and a few hours with an experienced welder will save you weeks of bad-habit reinforcement. The classes also give you access to industrial machines so you can see what a healthy puddle is supposed to look like before you get used to the limits of a starter unit.</p>
+
+  <p>The other half of welding skill is metallurgy and joint prep — beveling thick stock, controlling distortion, understanding what a tack weld is for, when to stitch, and when to run continuous. Those topics get their own guides as the workshop grows.</p>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/angle-grinder-guide/">Angle Grinder — Wheels, Guards, and Safe Use</a>
+      <a class="related-card" href="/workshop/fire-safety-in-the-shop/">Fire Safety in the Shop</a>
+      <a class="related-card" href="/workshop/battery-and-electrical-safety/">Battery and Electrical Safety</a>
+      <a class="related-card" href="/workshop/chemical-handling/">Chemical Handling in the Shop</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+</body>
+</html>
