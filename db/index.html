@@ -32,7 +32,9 @@
 
   .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%, rgba(14,17,22,.92) 100%);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
   .topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-  .brand{display:flex;align-items:center;gap:12px;font-weight:700;cursor:pointer}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;cursor:pointer;color:inherit;text-decoration:none}
+  .brand:hover{text-decoration:none}
+  .brand:hover .brand-text{color:var(--accent)}
   .brand-mark{width:32px;height:32px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;color:#1a1f27;font-weight:900;font-size:15px}
   .brand-text{font-size:17px;letter-spacing:-.3px}
   .brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.4px;text-transform:uppercase}
@@ -223,13 +225,13 @@
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand" id="brandClick">
+    <a class="brand" id="brandClick" href="/" aria-label="Trail Manual home">
       <div class="brand-mark">TM</div>
       <div>
         <div class="brand-text">Trail Manual</div>
         <div class="brand-sub">DIY reference for off-road vehicles</div>
       </div>
-    </div>
+    </a>
     <div id="vehiclePill"></div>
     <nav class="nav-tabs" id="tabs"></nav>
   </div>
@@ -313,7 +315,6 @@
   // ---- router ----
   function go(hash) { if (location.hash !== hash) location.hash = hash; else render(); }
   window.addEventListener('hashchange', render);
-  document.getElementById('brandClick').addEventListener('click', () => go('#/'));
 
   function render() {
     const vid = currentVehicleId();

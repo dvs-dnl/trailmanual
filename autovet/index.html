@@ -405,9 +405,12 @@
 </script>
 
 <!-- ── Topbar ──────────────────────────────────────────────────────── -->
-<div class="tm-topbar">
+<header class="tm-topbar">
   <div class="tm-topbar-inner">
-    <a class="tm-logo" href="/">Trail Manual</a>
+    <a class="tm-brand" href="/">
+      <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
     <nav class="tm-nav" id="tmNav">
       <a href="/">Home</a>
       <a href="/db/">Vehicles</a>
@@ -416,17 +419,11 @@
       <a href="/blog/">Blog</a>
       <a href="/about/">About</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:10px;margin-left:auto;">
-      <button class="tm-theme-btn" id="themeToggle" aria-label="Toggle theme">
-        <span class="tm-icon-dark">☽</span>
-        <span class="tm-icon-light">☀︎</span>
-      </button>
-      <button class="tm-hamburger" id="tmHamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <button class="tm-nav-toggle" id="tmHamburger" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
   </div>
-</div>
+</header>
 
 <!-- ── Page hero ──────────────────────────────────────────────────── -->
 <div class="tm-page">
