@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dana 44 Front Axle — Early Bronco Guide | Trail Manual</title>
+  <meta name="description" content="Everything you need to know about the Dana 44 front axle on the 1966–1977 Ford Bronco — specs, failure points, rebuild process, gearing, and upgrade options.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A; --info: #4F7795;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-family: var(--sans); font-size: clamp(15px, 2vw, 18px); font-weight: 400; color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-family: var(--sans); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-family: var(--sans); font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+
+    /* Spec table */
+    .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .spec-table th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); background: var(--bone); padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--bone-d); }
+    .spec-table td { padding: 11px 14px; border-bottom: 1px solid var(--bone); color: var(--slate); vertical-align: top; line-height: 1.5; }
+    .spec-table tr:nth-child(even) td { background: rgba(232,226,210,0.2); }
+    .spec-table td:first-child { font-family: var(--mono); font-size: 12px; color: var(--clay); width: 35%; }
+
+    /* Gear table */
+    .gear-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .gear-table th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); background: var(--bone); padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--bone-d); }
+    .gear-table td { padding: 10px 14px; border-bottom: 1px solid var(--bone); color: var(--slate); font-size: 14px; }
+    .gear-table tr:nth-child(even) td { background: rgba(232,226,210,0.2); }
+    .gear-table td:first-child { font-family: var(--mono); font-size: 12px; color: var(--clay); }
+    .tag-recommended { display: inline-block; padding: 2px 7px; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; background: rgba(94,140,90,0.1); color: var(--good); border: 1px solid rgba(94,140,90,0.3); border-radius: 3px; margin-left: 6px; }
+
+    .note { border-left: 3px solid var(--info); padding: 14px 18px 14px 20px; background: rgba(79,119,149,0.06); margin: 24px 0; border-radius: 0 4px 4px 0; }
+    .note p { font-size: 15px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .note-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--info); margin-bottom: 6px; }
+
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 36px 20px 28px; }
+      .article { padding: 32px 20px 60px; }
+      .spec-table, .gear-table { font-size: 13px; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/bronco/" class="active">Early Bronco</a>
+      <a href="/vehicle-research-tool.html">Used Garage</a>
+      <a href="/gear-ratio-calculator.html">Calculators</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <p class="eyebrow">Axle Guide · Early Bronco</p>
+  <h1>The Dana 44 Front Axle</h1>
+  <p class="masthead-subhead">The strengths, the failure points, and when to rebuild vs. upgrade. The Dana 44 is the original Bronco front axle — it's capable for most builds and gets underestimated.</p>
+  <p class="masthead-meta">First Gen <span>·</span> 1966–1977 <span>·</span> Updated 2026</p>
+</div>
+
+<article class="article">
+
+  <p>The early Bronco's Dana 44 front axle is a proven unit that has held up under serious use for sixty years. It's not the largest axle available and it won't hold up to the abuse you can give a Dana 60 — but for street-plus-trail builds on 33s and 35s, a well-maintained 44 with the right gearing will not be your weak point.</p>
+
+  <h2>Specs and Configuration</h2>
+
+  <table class="spec-table">
+    <thead>
+      <tr><th>Spec</th><th>Detail</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ring gear diameter</td><td>8.5 inches</td></tr>
+      <tr><td>Axle shaft spline count</td><td>30-spline inner, 19-spline outer (1966–1971); 27-spline inner in later versions</td></tr>
+      <tr><td>Stock ring and pinion</td><td>3.50:1 open differential</td></tr>
+      <tr><td>Knuckle type</td><td>Open knuckle (1966–1970); closed/radius arm knuckle style in later variants</td></tr>
+      <tr><td>Axle U-joints</td><td>Dana Spicer 1310 series</td></tr>
+      <tr><td>Wheel bearing type</td><td>Tapered roller bearing, manually adjustable</td></tr>
+      <tr><td>Transfer case mating</td><td>Dana 20 (stock) via front driveshaft</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Common Failure Points</h2>
+
+  <h3>Wheel bearings</h3>
+  <p>The tapered roller front wheel bearings require periodic adjustment and re-packing. Neglected bearings develop play that accelerates wear on the spindle and hub. If you feel any wobble or hear a cyclic groan on turns, check the front bearings first. A full bearing service with new races runs $80–$150 in parts. This is the highest-frequency maintenance item on the 44 front end.</p>
+
+  <h3>Ball joints</h3>
+  <p>Upper and lower ball joints wear predictably with age. Worn ball joints cause wandering steering and — at the far end — dangerous loss of control. Check them by lifting the front wheels off the ground and grabbing the tire at 12 and 6 o'clock — movement indicates wear. Replacement ball joints run $40–$80 each and are still readily available from Dana aftermarket sources.</p>
+
+  <h3>Axle U-joints</h3>
+  <p>The outer axle U-joints (sometimes called birfields or Spicer-style universal joints depending on the year) transmit power through the steering knuckle to the front hubs. They fail from aggressive angles and neglected lubrication. A clunk or vibration at full steering lock on low-speed turns is the classic symptom. Replace in pairs. Quality replacements from Spicer run $35–$60 each.</p>
+
+  <h3>Steering gear play</h3>
+  <p>The recirculating ball steering box develops slop with age and miles. Excessive play at the steering wheel that can't be adjusted out means a rebuild or replacement is due. The stock steering geometry also induces some slop at trail speeds — a drag link and tie rod inspection is warranted on any truck over 150,000 miles.</p>
+
+  <h2>High-Steer Conversion</h2>
+
+  <p>High-steer kits relocate the steering tie rod from below the axle tube to above it — eliminating the bumpsteer tendencies that appear when lift height separates the drag link and tie rod angles. If you're running more than 4 inches of lift, a high-steer conversion is worth doing. Companies like Slee Off-Road and early Bronco specialists offer kits specific to the Dana 44 application. Budget $400–$800 for the hardware plus alignment costs.</p>
+
+  <h2>Axle Shaft Upgrades</h2>
+
+  <p>Stock axle shafts hold up fine for street and moderate trail use. If you're running 37-inch or larger tires, running a locker, or competing, upgrading to chromoly shafts from Superior Axle &amp; Gear or Alloy USA is worthwhile insurance. Chromoly shafts run $200–$350 per side — not cheap, but far less than a trail repair on broken OEM steel.</p>
+
+  <h2>Locker Options</h2>
+
+  <p>The Dana 44's 8.5-inch ring gear supports the full range of locking differentials:</p>
+
+  <p><strong>Detroit Locker</strong> — fully automatic, engages and disengages mechanically. Excellent traction, noticeable handling characteristics on pavement (some understeer, occasional clunk on tight turns at low speed). The traditional trail-use choice for a front axle you want locked at all times off-road.</p>
+
+  <p><strong>ARB Air Locker</strong> — air-actuated, fully open until you lock it from the cab. The most trail-capable option because you control exactly when it engages. Requires a compressor, air lines, and cab switch. Installation is more involved but the control is worth it for varied-terrain driving.</p>
+
+  <p><strong>Lunch box lockers (Detroit TruTrac, Spartan)</strong> — a drop-in automatic locker that replaces the spider gears. Lower cost, minimal installation. Works well for trails but can cause steering pull on street use. A reasonable budget option for weekend-only builds.</p>
+
+  <h2>Gearing for Tire Size</h2>
+
+  <p>The stock 3.50:1 ring and pinion is appropriate for the truck's original tire size (30–31 inches). Any significant tire upgrade requires a regear to restore highway RPM and driveability.</p>
+
+  <table class="gear-table">
+    <thead>
+      <tr><th>Tire diameter</th><th>Recommended ring/pinion</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>30–31"</td><td>3.50:1 <span class="tag-recommended">stock</span></td><td>Original spec. Drives as designed.</td></tr>
+      <tr><td>33"</td><td>4.10:1 or 4.56:1</td><td>4.10 keeps highway RPM manageable; 4.56 gives better low-end response</td></tr>
+      <tr><td>35"</td><td>4.56:1 <span class="tag-recommended">recommended</span></td><td>The most common combination on trail-built first-gens</td></tr>
+      <tr><td>37"</td><td>4.88:1 or 5.13:1</td><td>5.13 preferred if you have a locker and plan serious terrain</td></tr>
+      <tr><td>40"+</td><td>5.38:1+</td><td>At this point, evaluate whether the 44 is the right axle for the application</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Dana 44 vs. Dana 60</h2>
+
+  <div class="verdict">
+    <p class="verdict-label">Verdict</p>
+    <p>Run the stock Dana 44 until you have a specific reason to upgrade — either because you've broken shafts, you're running 40-inch tires consistently, or you're building for competition. The 44 is not the weak link on a trail-capable street build. Save the budget for gearing, a locker, and fresh ball joints instead.</p>
+  </div>
+
+  <p>A Dana 60 front swap is a serious undertaking — new mounts, new driveshaft geometry, modified steering, different wheel bolt pattern in most cases. The weight penalty is real (a Dana 60 weighs substantially more, affecting steering feel and front suspension dynamics on an already front-heavy truck). Build the 44 out correctly before assuming a bigger axle is the answer.</p>
+
+  <div class="article-footer-nav">
+    <p>Continue reading</p>
+    <div class="footer-nav-links">
+      <a class="footer-nav-link" href="/bronco/lift-suspension-guide.html">Lift &amp; Suspension</a>
+      <a class="footer-nav-link" href="/bronco/engine-guide.html">Engine Guide</a>
+      <a class="footer-nav-link" href="/bronco/">← All Early Bronco Guides</a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <p>Trail Manual — honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>

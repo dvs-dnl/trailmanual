@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Early Bronco Rust and Restoration Guide | Trail Manual</title>
+  <meta name="description" content="Where the first-gen Ford Bronco rots, what's fixable, and how to evaluate a seller's repair work. Restoration cost ranges, panel sources, and when to walk away.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A; --info: #4F7795;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-family: var(--sans); font-size: clamp(15px, 2vw, 18px); font-weight: 400; color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-family: var(--sans); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-family: var(--sans); font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+
+    /* Rust zone map */
+    .rust-zones { list-style: none; margin: 20px 0; }
+    .rust-zone { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: flex-start; padding: 16px 18px; border-bottom: 1px solid var(--bone); background: var(--paper); }
+    .rust-zone:nth-child(odd) { background: rgba(232,226,210,0.3); }
+    .rust-zone:last-child { border-bottom: none; }
+    .zone-severity {
+      width: 42px; height: 42px; border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      flex-shrink: 0;
+    }
+    .zone-severity.high { background: rgba(178,59,47,0.12); color: var(--safety); border: 1px solid rgba(178,59,47,0.3); }
+    .zone-severity.med { background: rgba(216,144,53,0.12); color: var(--warn); border: 1px solid rgba(216,144,53,0.3); }
+    .zone-severity.low { background: rgba(94,140,90,0.1); color: var(--good); border: 1px solid rgba(94,140,90,0.3); }
+    .rust-zone-body h3 { font-family: var(--sans); font-weight: 500; font-size: 15px; color: var(--slate); margin: 0 0 5px; }
+    .rust-zone-body p { font-size: 14px; color: var(--slate-l); line-height: 1.55; margin: 0; }
+
+    /* Cost range table */
+    .cost-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+    .cost-table th { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); background: var(--bone); padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--bone-d); }
+    .cost-table td { padding: 11px 14px; border-bottom: 1px solid var(--bone); color: var(--slate); vertical-align: top; line-height: 1.5; }
+    .cost-table tr:nth-child(even) td { background: rgba(232,226,210,0.2); }
+    .cost-table td:first-child { font-weight: 500; }
+    .cost-table td:nth-child(2) { font-family: var(--mono); font-size: 12px; color: var(--clay); }
+
+    .warn-block { border-left: 3px solid var(--warn); padding: 14px 18px 14px 20px; background: rgba(216,144,53,0.06); margin: 24px 0; border-radius: 0 4px 4px 0; }
+    .warn-block p { font-size: 15px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .warn-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warn); margin-bottom: 6px; }
+
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 36px 20px 28px; }
+      .article { padding: 32px 20px 60px; }
+      .cost-table { font-size: 13px; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/bronco/" class="active">Early Bronco</a>
+      <a href="/vehicle-research-tool.html">Used Garage</a>
+      <a href="/gear-ratio-calculator.html">Calculators</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <p class="eyebrow">Restoration Guide · Early Bronco</p>
+  <h1>Rust and Restoration</h1>
+  <p class="masthead-subhead">Where first-gen Broncos rot, what's fixable, and how to evaluate a seller's repair work before you hand over money. Honest cost ranges included.</p>
+  <p class="masthead-meta">First Gen <span>·</span> 1966–1977 <span>·</span> Updated 2026</p>
+</div>
+
+<article class="article">
+
+  <p>Rust is not a reason to avoid a first-gen Bronco. Rust in the wrong places — or rust that's been hidden rather than repaired — is. The difference between a Bronco worth buying at $15,000 and one worth walking away from often comes down to which specific panels are compromised and what was done about it. This guide maps the anatomy of first-gen rust and gives you the tools to evaluate what you're looking at.</p>
+
+  <h2>Rust Zone Map</h2>
+
+  <p>The following zones represent the most common and most consequential areas of corrosion on the 1966–1977 Bronco, ranked by severity and structural impact.</p>
+
+  <ul class="rust-zones">
+    <li class="rust-zone">
+      <div class="zone-severity high">HIGH</div>
+      <div class="rust-zone-body">
+        <h3>Floor pans</h3>
+        <p>The single most expensive and most common rust problem. Water enters from the cowl, from door seals, and from below. Full replacement pans are available from Dynacorn and LMC Truck — quality sheet metal that welds in correctly. Installed cost runs $800–$2,500 depending on how much of the floor needs replacement. The risk isn't the repair itself; it's buying a truck with hidden floor rust that was carpeted back over without treatment.</p>
+      </div>
+    </li>
+    <li class="rust-zone">
+      <div class="zone-severity high">HIGH</div>
+      <div class="rust-zone-body">
+        <h3>Frame rails and crossmembers</h3>
+        <p>Surface rust on frame rails is expected and manageable. Rust that has penetrated the boxed sections of the main rails or eaten through crossmembers is a structural problem. This is the deal-killer — a compromised frame requires professional repair that frequently costs more than the truck. Get under it with a flashlight and probe suspect areas with a pick.</p>
+      </div>
+    </li>
+    <li class="rust-zone">
+      <div class="zone-severity high">HIGH</div>
+      <div class="rust-zone-body">
+        <h3>Lower cowl and firewall corners</h3>
+        <p>Water pools in the cowl drain channel and works into the firewall corners. These are difficult and expensive to repair correctly — access requires significant disassembly. A seller who hasn't addressed cowl rust has often patched it cosmetically. Press on the corners of the firewall from the inside; they should be solid metal.</p>
+      </div>
+    </li>
+    <li class="rust-zone">
+      <div class="zone-severity med">MED</div>
+      <div class="rust-zone-body">
+        <h3>Rockers — inner and outer</h3>
+        <p>Inner rocker rust often precedes outer rocker rust and is invisible until the outer panel is removed. A-pillar bases that have rotted into the rockers become structural repairs. Tap along the full length of both sides. Body filler in the lower rockers is a significant warning sign.</p>
+      </div>
+    </li>
+    <li class="rust-zone">
+      <div class="zone-severity med">MED</div>
+      <div class="rust-zone-body">
+        <h3>Quarter panel rear wheel arch</h3>
+        <p>Road spray and trapped moisture cause the quarter panels behind the rear wheels to rot from the inside out. The inner structure in this area is a common hidden rot pocket. Repro outer quarters are available; inner structure repair is fabrication work.</p>
+      </div>
+    </li>
+    <li class="rust-zone">
+      <div class="zone-severity med">MED</div>
+      <div class="rust-zone-body">
+        <h3>Wheelhouses and inner fenders</h3>
+        <p>Sound deadening and undercoating in the wheelhouses trap moisture and accelerate rust. Pull back any sound deadening during inspection. Wheelhouse replacement panels are available; this is a manageable repair if caught before it spreads to the firewall.</p>
+      </div>
+    </li>
+    <li class="rust-zone">
+      <div class="zone-severity low">LOW</div>
+      <div class="rust-zone-body">
+        <h3>Doors, tailgate, and exterior panels</h3>
+        <p>Outer sheet metal rust on doors and fenders is mostly cosmetic. Repro panels are well-supported. If a seller has rust-free doors and a solid floor, the cosmetic metal is the least of your concerns. Price it in as deferred maintenance rather than a deal-killer.</p>
+      </div>
+    </li>
+  </ul>
+
+  <h2>How to Evaluate a Seller's Repair Work</h2>
+
+  <p>A fresh restoration is not automatically a good sign. The key is distinguishing legitimate work from a quick flip. Three tools will tell you most of what you need to know:</p>
+
+  <p><strong>The tap test.</strong> A firm tap on sheet metal produces a clear ring. A tap on body filler or rust-compromised metal sounds dull and dead. Work your way along every panel you're suspicious of, especially the lower third of the truck.</p>
+
+  <p><strong>The magnet test.</strong> Rare earth magnets don't stick to body filler. Run a small magnet across any area with suspiciously perfect contours — body filler applied over rust repairs reveals itself immediately. Two or three passes on the lower rockers and rear quarters are worth the minute it takes.</p>
+
+  <p><strong>Ask for documentation.</strong> Legitimate restoration shops generate paper: invoices, before photos, parts receipts. A seller who can show you the work history is demonstrating transparency. A seller who describes a thorough restoration but has no documentation for it deserves skepticism.</p>
+
+  <div class="warn-block">
+    <p class="warn-label">The fresh paint problem</p>
+    <p>A complete repaint — especially if it's recent — can hide a great deal. This isn't automatically dishonest, but it makes inspection harder. Ask specifically when the truck was painted and why. If the paint is concealing recent bodywork, you want to know what that bodywork covered.</p>
+  </div>
+
+  <h2>What's Restorable vs. Structural</h2>
+
+  <p>Panel rust — floors, fenders, quarters, rockers — is restorable. It's expensive and labor-intensive, but the parts exist and skilled fabricators know the job. Budget accordingly and price it into your offer.</p>
+
+  <p>Frame rust that has compromised the boxed sections of the main rails or the crossmembers is a different problem. Structural weld repairs on a 55-year-old frame require a skilled welder, proper equipment, and honest material assessment. The economics rarely work out — by the time you've paid for frame repair, you've exceeded the value of the truck in most cases. Walk away unless you have specific skills or specific knowledge about a documented professional repair.</p>
+
+  <h2>Restoration Cost Ranges</h2>
+
+  <table class="cost-table">
+    <thead>
+      <tr><th>Build level</th><th>Cost range</th><th>What it gets you</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Budget driver</td><td>$8,000–$15,000</td><td>Solid floors patched or replaced, cosmetic paint, mechanical sorted, drivable. Not show quality. Not meant to be.</td></tr>
+      <tr><td>Clean driver</td><td>$20,000–$40,000</td><td>Full floor replacement, panel-correct exterior, rebuilt drivetrain. Drives well, looks honest. The practical sweet spot for most owners.</td></tr>
+      <tr><td>Frame-off restoration</td><td>$45,000–$80,000</td><td>Full disassembly, sandblasted frame, original color paint, reupholstered interior. Show-condition. Will recoup value at sale if documented.</td></tr>
+      <tr><td>Restomod build</td><td>$60,000–$150,000+</td><td>Coyote swap, custom suspension, modern interior. Trophy truck or high-end restomod shop build. Market for these is strong but narrow.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Driver vs. Trailer Queen</h2>
+
+  <div class="verdict">
+    <p class="verdict-label">Verdict</p>
+    <p>A truck with honest patina and known rust that drives well is more valuable than a concours restoration that never leaves the garage. Buy the truck you'll actually use. If you're building to drive it — trails, roads, events — a clean driver-grade Bronco is the right call at every price point.</p>
+  </div>
+
+  <h2>Original Color Codes</h2>
+
+  <p>Ford used a standardized paint code system on the door jamb data plate. Early Broncos were available in a range that changed by model year — from the original Rangoon Red and Arcadian Blue of the first years through the earth tones of the emissions era. The Early Ford Bronco Club (efbclub.com) maintains a color reference that cross-references Ford codes with modern paint equivalents. If you're restoring to original color, get the data plate code first and match from there rather than from memory or photos.</p>
+
+  <div class="article-footer-nav">
+    <p>Continue reading</p>
+    <div class="footer-nav-links">
+      <a class="footer-nav-link" href="/bronco/buyers-guide.html">Buyer's Guide</a>
+      <a class="footer-nav-link" href="/bronco/parts-vendors-guide.html">Parts &amp; Vendors</a>
+      <a class="footer-nav-link" href="/bronco/">← All Early Bronco Guides</a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <p>Trail Manual — honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
