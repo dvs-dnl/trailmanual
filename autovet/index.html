@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AutoVet — Know Before You Buy | Trail Manual</title>
+<meta name="description" content="AutoVet walks you through researching a used vehicle, decoding the VIN, and building a model-specific inspection checklist — then connects you with a vetted local shop for a professional pre-purchase inspection.">
+<meta property="og:title" content="AutoVet — Know Before You Buy">
+<meta property="og:description" content="Research the vehicle, decode the VIN, get a model-specific inspection checklist, book a vetted local shop. Know what you're buying before you buy it.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+
+/* ── Anti-FOUC ──────────────────────────────────────────────────────── */
+
+/* ── Page hero ──────────────────────────────────────────────────────── */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: -30px -20px 0;
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/adventure-xj-trailside-repair.jpeg');
+  background-size: cover;
+  background-position: center 55%;
+  background-color: #1a1f27;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,13,18,.45) 0%,
+    rgba(10,13,18,.65) 50%,
+    rgba(10,13,18,.97) 100%);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 52px 48px 44px;
+  max-width: 860px;
+}
+.page-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 14px;
+  background: rgba(197,165,114,.1);
+  border: 1px solid rgba(197,165,114,.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+.page-hero-eyebrow .status-dot {
+  width: 6px; height: 6px;
+  background: var(--warn);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(230,115,0,.7);
+  flex-shrink: 0;
+}
+.page-hero-inner h1 {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -1.8px;
+  line-height: 1.07;
+  margin: 0 0 16px;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0,0,0,.35);
+  max-width: 680px;
+}
+.page-hero-inner h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+.page-hero-inner p {
+  font-size: 18px;
+  color: rgba(225,228,232,.82);
+  max-width: 580px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Intro statement ─────────────────────────────────────────────────── */
+.av-intro {
+  padding: 40px 0 8px;
+  max-width: 720px;
+}
+.av-intro p {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--text-dim);
+  margin: 0 0 16px;
+}
+.av-intro p strong { color: var(--text); }
+
+/* ── Pipeline steps ──────────────────────────────────────────────────── */
+.av-pipeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin: 40px 0;
+}
+
+.av-step {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 56px 1fr auto;
+  gap: 0 24px;
+  align-items: start;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+  position: relative;
+}
+.av-step:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0,0,0,.32);
+  text-decoration: none;
+}
+.av-step.av-soon {
+  opacity: .72;
+}
+.av-step.av-soon:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border);
+  cursor: default;
+}
+.av-step-connector {
+  position: absolute;
+  left: 55px;
+  bottom: -14px;
+  width: 2px;
+  height: 14px;
+  background: var(--border);
+  z-index: 1;
+}
+.av-step:last-child .av-step-connector { display: none; }
+
+.av-step-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--accent);
+  flex-shrink: 0;
+  background: rgba(197,165,114,.08);
+}
+.av-step.av-live .av-step-num {
+  background: rgba(197,165,114,.15);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(197,165,114,.1);
+}
+.av-step.av-soon .av-step-num {
+  border-color: var(--border);
+  color: var(--text-mute);
+  background: transparent;
+}
+
+.av-step-body {}
+.av-step-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .7px;
+  color: var(--text-mute);
+  margin-bottom: 6px;
+}
+.av-step-title {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.av-step-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  max-width: 580px;
+}
+.av-step-desc ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.av-step-badge {
+  flex-shrink: 0;
+  align-self: start;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.av-step-badge.live {
+  background: rgba(129,199,132,.15);
+  color: var(--good);
+  border: 1px solid rgba(129,199,132,.3);
+}
+.av-step-badge.soon {
+  background: var(--bg-3);
+  color: var(--text-mute);
+  border: 1px solid var(--border);
+}
+.av-step-badge.building {
+  background: rgba(230,115,0,.1);
+  color: var(--warn);
+  border: 1px solid rgba(230,115,0,.25);
+}
+
+.av-step-cta {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent);
+}
+.av-step-cta::after { content: "→"; }
+
+/* ── What you get callout ────────────────────────────────────────────── */
+.av-callout {
+  background: linear-gradient(135deg, rgba(197,165,114,.07) 0%, rgba(197,165,114,.03) 100%);
+  border: 1px solid rgba(197,165,114,.22);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 40px 0;
+}
+.av-callout h3 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--accent);
+  margin: 0 0 16px;
+}
+.av-callout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+}
+.av-callout-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.av-callout-item::before {
+  content: "✓";
+  color: var(--good);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Honest section ──────────────────────────────────────────────────── */
+.av-honest {
+  border-top: 1px solid var(--border);
+  padding: 36px 0;
+  margin: 8px 0;
+}
+.av-honest h2 {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+  margin: 0 0 16px;
+}
+.av-honest p {
+  font-size: 15px;
+  color: var(--text-dim);
+  line-height: 1.75;
+  max-width: 680px;
+  margin: 0 0 12px;
+}
+
+/* ── Notify section ──────────────────────────────────────────────────── */
+.av-notify {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  margin: 40px 0;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.av-notify-text { flex: 1; }
+.av-notify-text h3 {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.3px;
+  margin: 0 0 8px;
+}
+.av-notify-text p {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin: 0;
+}
+.av-notify-action { flex-shrink: 0; }
+
+/* ── Related tools ───────────────────────────────────────────────────── */
+.av-related { margin: 0 0 48px; }
+.av-related h2 {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--text-mute);
+  margin: 0 0 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.av-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.av-related-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color .15s, transform .12s;
+  display: block;
+}
+.av-related-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+.av-related-card h3 { font-size: 14px; font-weight: 700; margin: 0 0 6px; }
+.av-related-card p { font-size: 12px; color: var(--text-dim); line-height: 1.5; margin: 0; }
+.av-related-card-arrow {
+  display: block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────── */
+@media (max-width: 760px) {
+  .page-hero-inner { padding: 36px 20px 32px; }
+  .page-hero-inner h1 { font-size: 34px; letter-spacing: -1px; }
+  .page-hero-inner p { font-size: 15px; }
+  .av-step { grid-template-columns: 44px 1fr; padding: 20px; gap: 0 16px; }
+  .av-step-badge { display: none; }
+  .av-step-title { font-size: 17px; }
+  .av-step-connector { left: 41px; }
+  .av-callout-grid { grid-template-columns: 1fr; }
+  .av-notify { flex-direction: column; gap: 20px; }
+  .av-notify-action { width: 100%; }
+  .av-notify-action a { display: block; text-align: center; }
+  .av-related-grid { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Anti-FOUC -->
+<script>
+(function(){
+  var t = localStorage.getItem('tm-theme');
+  if (t) document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+
+<!-- ── Topbar ──────────────────────────────────────────────────────── -->
+<div class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-logo" href="/">Trail Manual</a>
+    <nav class="tm-nav" id="tmNav">
+      <a href="/">Home</a>
+      <a href="/db/">Vehicles</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/autovet/" class="active">Buy a Rig</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:10px;margin-left:auto;">
+      <button class="tm-theme-btn" id="themeToggle" aria-label="Toggle theme">
+        <span class="tm-icon-dark">☽</span>
+        <span class="tm-icon-light">☀︎</span>
+      </button>
+      <button class="tm-hamburger" id="tmHamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Page hero ──────────────────────────────────────────────────── -->
+<div class="tm-page">
+<div class="page-hero">
+  <div class="page-hero-photo"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-eyebrow">
+      <span class="status-dot"></span>
+      AutoVet — In development
+    </div>
+    <h1>Know what you're buying<br><em>before you buy it.</em></h1>
+    <p>Most used-vehicle mistakes are predictable. AutoVet walks you through every step — from initial research to a professional inspection — so you don't inherit someone else's problems.</p>
+  </div>
+</div>
+
+<!-- ── Main content ──────────────────────────────────────────────── -->
+<div class="tm-content">
+
+  <div class="av-intro">
+    <p>Most buyers look at a car, decide they like it, and then look for reasons to justify the purchase. That's backwards. <strong>The right order is: research first, then inspect, then decide.</strong></p>
+    <p>AutoVet is being built to enforce that order — and to put professional-grade inspection knowledge in the hands of anyone buying a used vehicle, for free.</p>
+  </div>
+
+  <!-- Pipeline -->
+  <div class="av-pipeline">
+
+    <!-- Step 1: Research — LIVE -->
+    <a class="av-step av-live" href="/vehicle-research-tool.html">
+      <div class="av-step-num">01</div>
+      <div class="av-step-body">
+        <div class="av-step-label">Step 1</div>
+        <div class="av-step-title">Research the vehicle</div>
+        <div class="av-step-desc">
+          Before you look at a single listing, know what you're getting into. Common failure points, best and worst model years, what owners actually complain about, and what makes a given rig worth owning long-term.
+          <ul>
+            <li>Known issues and failure patterns by year</li>
+            <li>What to look for at first glance</li>
+            <li>Honest verdict on long-term ownership</li>
+          </ul>
+        </div>
+        <div class="av-step-cta">Start your research</div>
+      </div>
+      <div class="av-step-badge live">Live now</div>
+      <div class="av-step-connector"></div>
+    </a>
+
+    <!-- Step 2: VIN Decode — Coming soon -->
+    <div class="av-step av-soon">
+      <div class="av-step-num">02</div>
+      <div class="av-step-body">
+        <div class="av-step-label">Step 2</div>
+        <div class="av-step-title">Decode the VIN</div>
+        <div class="av-step-desc">
+          Enter the VIN and get back the actual build — factory options, assembly plant, any open recalls, and known TSBs for that specific vehicle. Not just the model — this unit, this configuration.
+          <ul>
+            <li>Factory build confirmation vs. listed specs</li>
+            <li>Open NHTSA recalls (federal requirement to disclose, often isn't)</li>
+            <li>Technical Service Bulletins for this exact vehicle</li>
+          </ul>
+        </div>
+      </div>
+      <div class="av-step-badge soon">Coming soon</div>
+      <div class="av-step-connector"></div>
+    </div>
+
+    <!-- Step 3: Inspection checklist — Coming soon -->
+    <div class="av-step av-soon">
+      <div class="av-step-num">03</div>
+      <div class="av-step-body">
+        <div class="av-step-label">Step 3</div>
+        <div class="av-step-title">Get a model-specific inspection checklist</div>
+        <div class="av-step-desc">
+          Generic inspection checklists are useless — they tell you to check the brakes on every vehicle regardless of whether that vehicle's known problem is the brakes. AutoVet generates a checklist built around what actually fails on this year, make, and model.
+          <ul>
+            <li>Inspection items ranked by failure frequency</li>
+            <li>Category-by-category walkthrough: exterior, engine bay, underbody, road test, docs</li>
+            <li>Red flags that are immediate deal-breakers vs. negotiating points</li>
+          </ul>
+        </div>
+      </div>
+      <div class="av-step-badge building">In development</div>
+      <div class="av-step-connector"></div>
+    </div>
+
+    <!-- Step 4: Book a shop — Coming soon -->
+    <div class="av-step av-soon">
+      <div class="av-step-num">04</div>
+      <div class="av-step-body">
+        <div class="av-step-label">Step 4</div>
+        <div class="av-step-title">Book a vetted local shop for a professional PPI</div>
+        <div class="av-step-desc">
+          If you want a professional set of eyes on the car — and for anything above $10K, you should — AutoVet connects you with a certified shop near the seller. Not anonymous contractor dispatch. Vetted, accountable shops who know what they're looking at.
+          <ul>
+            <li>Certified technicians, not gig-economy inspectors</li>
+            <li>Photo documentation per checklist item</li>
+            <li>Written report delivered to you by email</li>
+          </ul>
+        </div>
+      </div>
+      <div class="av-step-badge soon">Coming soon</div>
+    </div>
+
+  </div>
+
+  <!-- What you get -->
+  <div class="av-callout">
+    <h3>The whole thing is free for buyers</h3>
+    <div class="av-callout-grid">
+      <div class="av-callout-item">Research tool — live now, no account required</div>
+      <div class="av-callout-item">VIN decode — no login, no paywall</div>
+      <div class="av-callout-item">Model-specific inspection checklist — free</div>
+      <div class="av-callout-item">Shop booking — you pay the shop directly for the inspection</div>
+      <div class="av-callout-item">No ads. No affiliate links. No sponsored results.</div>
+      <div class="av-callout-item">Built by the team behind Trail Manual</div>
+    </div>
+  </div>
+
+  <!-- Honest section -->
+  <div class="av-honest">
+    <h2>What's live, what's not</h2>
+    <p>The vehicle research tool is live and works right now — no account, no signup. Enter a vehicle and get a structured breakdown of what owners actually deal with and what to watch for when you go look at one.</p>
+    <p>The VIN decoder, checklist generator, and shop booking network are being built. If you want to be notified when they're ready, or if you're a Phoenix-area shop that wants to be considered for the vetted network, use the contact below.</p>
+  </div>
+
+  <!-- Notify -->
+  <div class="av-notify">
+    <div class="av-notify-text">
+      <h3>Get notified when AutoVet launches</h3>
+      <p>No newsletter, no drip campaign. One email when the checklist and shop booking go live. If you're a shop in the Phoenix area and want to be considered for the vetted network, mention that.</p>
+    </div>
+    <div class="av-notify-action">
+      <a class="btn-primary" href="mailto:dvs.dnl@gmail.com?subject=AutoVet%20launch%20notification&body=I%27d%20like%20to%20be%20notified%20when%20AutoVet%20launches.">Get notified →</a>
+    </div>
+  </div>
+
+  <!-- Related -->
+  <div class="av-related">
+    <h2>Also on Trail Manual</h2>
+    <div class="av-related-grid">
+      <a class="av-related-card" href="/vehicle-research-tool.html">
+        <h3>Used Garage — Buyer's Field Guide</h3>
+        <p>Curated breakdown of reliable used vehicles. Honest verdicts, known issues, what owners actually say.</p>
+        <span class="av-related-card-arrow">Start researching →</span>
+      </a>
+      <a class="av-related-card" href="/db/">
+        <h3>DIY Database</h3>
+        <p>310+ guides on maintenance, suspension, axles, armor, and recovery for XJ, TJ, JK, and Wrangler.</p>
+        <span class="av-related-card-arrow">Browse guides →</span>
+      </a>
+      <a class="av-related-card" href="/workshop/">
+        <h3>The Workshop</h3>
+        <p>Shop tools, safety fundamentals, wrenching technique — the foundation every DIYer needs.</p>
+        <span class="av-related-card-arrow">Explore →</span>
+      </a>
+    </div>
+  </div>
+
+</div><!-- /tm-content -->
+</div><!-- /tm-page -->
+
+<!-- ── Footer ─────────────────────────────────────────────────────── -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div class="tm-footer-col">
+      <div class="tm-footer-brand">Trail Manual</div>
+      <p class="tm-footer-about">Free, community-built DIY reference for off-road vehicle owners. No ads, no affiliates, no sponsored content.</p>
+    </div>
+    <div class="tm-footer-col">
+      <div class="tm-footer-heading">Vehicles</div>
+      <a href="/db/?v=xj">Jeep Cherokee XJ</a>
+      <a href="/db/?v=jk">Jeep Wrangler JK</a>
+      <a href="/db/?v=tj">Jeep Wrangler TJ</a>
+      <a href="/db/?v=jl">Jeep Wrangler JL</a>
+    </div>
+    <div class="tm-footer-col">
+      <div class="tm-footer-heading">AutoVet</div>
+      <a href="/vehicle-research-tool.html">Vehicle research tool</a>
+      <a href="/autovet/">Inspection checklist</a>
+      <a href="/autovet/">Shop booking</a>
+      <a href="/channels/">Channel directory</a>
+    </div>
+    <div class="tm-footer-col">
+      <div class="tm-footer-heading">Site</div>
+      <a href="/workshop/">The Workshop</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+    </div>
+  </div>
+  <div class="tm-footer-bottom">
+    <span>© 2025 Trail Manual. Built for the community.</span>
+    <span>No ads · No affiliates · No sponsored content</span>
+  </div>
+</footer>
+
+<script>
+// Theme toggle
+(function(){
+  var btn = document.getElementById('themeToggle');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var current = document.documentElement.getAttribute('data-theme');
+    var next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('tm-theme', next);
+  });
+})();
+
+// Hamburger
+(function(){
+  var btn = document.getElementById('tmHamburger');
+  var nav = document.getElementById('tmNav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+  });
+})();
+</script>
+
+</body>
+</html>
