@@ -70,7 +70,57 @@
   .tab.disabled{opacity:.4;cursor:not-allowed}
 
   main{max-width:var(--max);margin:0 auto;padding:24px 20px 80px}
-  /* Defensive: explicit color so legacy cascade can't break the hero */
+
+  /* === Twin Grids: hero image + tools grid (§11.1) === */
+  .hero.with-image{padding:0;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--panel)}
+  .hero-photo{width:100%;height:280px;background-size:cover;background-position:center;position:relative}
+  .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(26,35,48,.78) 100%)}
+  .hero-photo .hero-photo-icon{position:absolute;left:24px;bottom:24px;width:60px;height:60px;z-index:2}
+  .hero-photo .hero-photo-icon svg{width:100%;height:100%;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+  .hero-photo .hero-photo-label{position:absolute;right:24px;bottom:24px;font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.4);padding:6px 12px;border-radius:3px;backdrop-filter:blur(4px);z-index:2}
+  .hero-body{padding:28px 32px 32px}
+  .hero-body h1{margin:0 0 10px;font-size:36px;letter-spacing:-.02em;line-height:1.06;font-weight:500}
+  .hero-body .tagline{margin:0 0 18px;color:var(--text-dim);font-size:17px;max-width:680px;line-height:1.55}
+  .hero-body .hero-stats{margin:0;display:flex;gap:24px;flex-wrap:wrap}
+  .hero-body .hero-stat .n{font-size:22px;font-weight:600;color:var(--text);font-family:var(--font-sans,inherit)}
+  .hero-body .hero-stat .l{font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;color:var(--text-dim);letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
+
+  /* Tools grid (canonical Twin Grids) */
+  .tg-section{margin:32px 0 8px}
+  .tg-section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:18px;gap:24px;flex-wrap:wrap}
+  .tg-section-head .left{display:flex;align-items:baseline;gap:14px}
+  .tg-label{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim)}
+  .tg-title{font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0}
+  .tg-sub{font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;color:var(--text-dim);letter-spacing:.06em;text-transform:uppercase}
+  .grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius)}
+  .tg-tool{background:var(--panel);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:170px;text-decoration:none;color:var(--text);cursor:pointer;transition:background .15s;border:0}
+  .tg-tool:hover{background:var(--bone-deep,#C9C1AC)}
+  .tg-tool:hover .tg-arrow{transform:translateX(4px);color:var(--accent)}
+  .tg-tool.soon{opacity:.6;cursor:default}
+  .tg-tool.soon:hover{background:var(--panel)}
+  .tg-tool.soon:hover .tg-arrow{transform:none;color:var(--text-dim)}
+  .tg-icon{width:34px;height:34px;border-radius:6px;background:rgba(201,126,80,.14);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .tg-icon.safety{background:rgba(178,59,47,.14);color:var(--safety,#B23B2F)}
+  .tg-icon.good{background:rgba(94,140,90,.14);color:var(--good,#5E8C5A)}
+  .tg-icon.neutral{background:var(--bg-2);color:var(--text-dim)}
+  .tg-tool h3{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.2;margin:0;color:var(--text);text-align:left}
+  .tg-tool p{font-size:13px;color:var(--text-dim);flex:1;line-height:1.5;margin:0}
+  .tg-tool .tg-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+  .tg-tag{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1px solid var(--border);color:var(--text-dim)}
+  .tg-tag.safety{background:rgba(178,59,47,.1);color:var(--safety,#B23B2F);border-color:rgba(178,59,47,.3)}
+  .tg-tag.new{background:rgba(94,140,90,.12);color:var(--good,#5E8C5A);border-color:rgba(94,140,90,.3)}
+  .tg-tag.clay{background:rgba(201,126,80,.12);color:var(--accent);border-color:rgba(201,126,80,.3)}
+  .tg-arrow{font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px;transition:transform .15s,color .15s}
+  .tg-arrow::after{content:'\2192';font-size:13px}
+
+  /* Vehicle picker — silhouette card */
+  .v-icon-art{width:64px;height:64px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+  .v-icon-art img{width:100%;height:100%;object-fit:contain}
+
+  @media (max-width:900px){.grid-tools{grid-template-columns:1fr 1fr}.hero-photo{height:220px}}
+  @media (max-width:560px){.grid-tools{grid-template-columns:1fr}.hero-photo{height:170px}.hero-body{padding:20px 18px 22px}}
+
+    /* Defensive: explicit color so legacy cascade can't break the hero */
   .hero{color:var(--text)}
   .hero h1{color:var(--text)}
   .hero .lede,.hero p{color:var(--text-dim)}
@@ -315,6 +365,35 @@
   const CAT_META = M.category_meta;
   const TIER_META = M.tier_meta;
 
+  // ---- per-vehicle visuals (Twin Grids §11.1) ----
+  const VEHICLE_VISUALS = {
+    xj:            { icon:'/images/icon-xj.svg',          hero:'/images/adventure-xj-sedona-slickrock.jpeg', tagline:'The original compact SUV. Solid axles, unibody, 4.0L for life.' },
+    tj:            { icon:'/images/icon-wrangler.svg',    hero:'/images/tj-grey-rock-ledge.jpeg',            tagline:'Coil-sprung Wrangler. Still many builders\' favorite.' },
+    jk:            { icon:'/images/icon-wrangler.svg',    hero:'/images/adventure-jk-sedona-cathedral.jpeg', tagline:'The first four-door Wrangler. The truck the modern aftermarket was built around.' },
+    jl:            { icon:'/images/icon-wrangler.svg',    hero:null, tagline:'The current Wrangler. Solid axles, removable doors, and now a plug-in hybrid.' },
+    '4runner':     { icon:'/images/icon-4runner.svg',     hero:null, tagline:'Five generations of body-on-frame Toyota. The long-haul SUV.' },
+    tacoma:        { icon:'/images/icon-tacoma.svg',      hero:null, tagline:'Three decades of mid-size Toyota pickup. The trail truck.' },
+    bronco:        { icon:'/images/icon-bronco.svg',      hero:null, tagline:'Before Wranglers, before Tacomas. The first go-anywhere short-wheelbase 4x4.' },
+    raptor:        { icon:'/images/icon-raptor.svg',      hero:null, tagline:'Half-ton off-road truck. Long-travel suspension, factory bypass shocks.' },
+    'power-wagon': { icon:'/images/icon-power-wagon.svg', hero:null, tagline:'The factory-built crawler. Disconnecting sway bar, lockers, 12,000lb winch.' },
+    gladiator:     { icon:'/images/icon-gladiator.svg',   hero:null, tagline:'Wrangler running gear, truck bed. The crawler that\'ll haul lumber too.' },
+  };
+  const HERO_GRADIENTS = {
+    xj:'linear-gradient(135deg,#2B3A4A,#4A3B2E 60%,#8A4E2C)',
+    tj:'linear-gradient(135deg,#3D5B47,#2B3A4A 60%,#1A2330)',
+    jk:'linear-gradient(135deg,#1A2330,#2B3A4A 60%,#5B6B7E)',
+    jl:'linear-gradient(135deg,#4A3B2E,#2B3A4A 60%,#3D5B47)',
+    '4runner':'linear-gradient(135deg,#8A4E2C,#4A3B2E 60%,#2B3A4A)',
+    tacoma:'linear-gradient(135deg,#A85D33,#8A4E2C 60%,#4A3B2E)',
+    bronco:'linear-gradient(135deg,#C97E50,#A85D33 60%,#4A3B2E)',
+    raptor:'linear-gradient(135deg,#1A2330,#3A4A5E 60%,#5B6B7E)',
+    'power-wagon':'linear-gradient(135deg,#4A3B2E,#8A4E2C 60%,#C97E50)',
+    gladiator:'linear-gradient(135deg,#5B6B7E,#3D5B47 60%,#2B3A4A)',
+  };
+  function vehicleVisual(vid) { return VEHICLE_VISUALS[vid] || {}; }
+  function vehicleGradient(vid) { return HERO_GRADIENTS[vid] || HERO_GRADIENTS.xj; }
+
+
   // ---- helpers ----
   const $ = (s, el=document) => el.querySelector(s);
   const $$ = (s, el=document) => Array.from(el.querySelectorAll(s));
@@ -434,7 +513,6 @@
         {l:'Home',     r:'#/'+vid+'/home'},
         {l:'Browse',   r:'#/'+vid+'/browse'},
         {l:'Search',   r:'#/'+vid+'/search'},
-        {l:'Rig Builder',r:'#/'+vid+'/builder'},
         {l:'Tools',    r:'#/'+vid+'/tools'},
         {l:'About',    r:'#/about'},
       ];
@@ -467,7 +545,7 @@
       const grid = el('div', {class:'grid-vehicles'});
       active.forEach(v => {
         grid.appendChild(el('div', {class:'vehicle-card', on:{click:()=>go('#/'+v.id+'/home')}},
-          el('div', {class:'cat-icon', style:'background:rgba(197,165,114,.15);color:var(--accent);font-weight:900'}, (v.id||'').toUpperCase().slice(0,3)),
+          (function(){ var w=el('div',{class:'v-icon-art'}); var iv=(VEHICLE_VISUALS[v.id]||{}).icon; w.innerHTML = iv ? "<img src='"+iv+"' alt='"+(v.label||v.id)+"'/>" : "<div class='cat-icon' style='background:rgba(201,126,80,.15);color:var(--accent);font-weight:900'>"+(v.id||'').toUpperCase().slice(0,3)+"</div>"; return w; })(),
           el('div', {style:'flex:1'},
             el('div', {class:'v-name'}, v.label || v.id),
             el('div', {class:'v-meta'},
@@ -486,7 +564,7 @@
       const grid = el('div', {class:'grid-vehicles'});
       inactive.forEach(v => {
         grid.appendChild(el('div', {class:'vehicle-card inactive'},
-          el('div', {class:'cat-icon', style:'background:var(--bg-3);color:var(--text-mute);font-weight:900'}, (v.id||'').toUpperCase().slice(0,3)),
+          (function(){ var w=el('div',{class:'v-icon-art', style:'opacity:.55'}); var iv=(VEHICLE_VISUALS[v.id]||{}).icon; w.innerHTML = iv ? "<img src='"+iv+"' alt='"+(v.label||v.id)+"'/>" : "<div class='cat-icon' style='background:var(--bg-3);color:var(--text-mute);font-weight:900'>"+(v.id||'').toUpperCase().slice(0,3)+"</div>"; return w; })(),
           el('div', {style:'flex:1'},
             el('div', {class:'v-name'}, v.label || v.id),
             el('div', {class:'v-meta'},
@@ -501,26 +579,118 @@
     }
   }
 
-  // ---- VEHICLE HOME ----
+  // ---- VEHICLE HOME (Twin Grids §11.1) ----
   function renderVehicleHome(app, vid) {
     const v = vehicleMeta(vid);
     const entries = getEntries(vid);
     const counts = {};
     for (const e of entries) counts[e.category] = (counts[e.category]||0) + 1;
     const totalCit = entries.reduce((s,e)=>s+(e.citations||[]).length, 0);
+    const visual = vehicleVisual(vid);
 
-    app.appendChild(el('section', {class:'hero'},
-      el('h1', {}, v.label + ' DIY database'),
-      v.description ? el('p', {}, v.description) : null,
+    // --- HERO with photo or gradient + silhouette icon ---
+    const photoStyle = visual.hero
+      ? "background-image:url('" + visual.hero + "')"
+      : "background:" + vehicleGradient(vid);
+    const hero = el('section', {class:'hero with-image'});
+    const photo = el('div', {class:'hero-photo', style: photoStyle});
+    if (visual.icon) {
+      const iconWrap = el('div', {class:'hero-photo-icon'});
+      iconWrap.innerHTML = "<img src='" + visual.icon + "' alt='" + (v.label||vid) + " silhouette'/>";
+      photo.appendChild(iconWrap);
+    }
+    photo.appendChild(el('span', {class:'hero-photo-label'}, (v.platform || v.label || vid)));
+    hero.appendChild(photo);
+    hero.appendChild(el('div', {class:'hero-body'},
+      el('h1', {}, (v.label || vid) + ' DIY database'),
+      visual.tagline ? el('p', {class:'tagline'}, visual.tagline)
+                     : (v.description ? el('p', {class:'tagline'}, v.description) : null),
       el('div', {class:'hero-stats'},
         el('div', {class:'hero-stat'}, el('div',{class:'n'},String(entries.length)), el('div',{class:'l'},'Entries')),
         el('div', {class:'hero-stat'}, el('div',{class:'n'},String(Object.keys(counts).length)), el('div',{class:'l'},'Categories')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'},'5'), el('div',{class:'l'},'Build tiers')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(Object.keys(TIER_META).length)), el('div',{class:'l'},'Build tiers')),
         el('div', {class:'hero-stat'}, el('div',{class:'n'},String(totalCit)), el('div',{class:'l'},'Citations'))
       )
     ));
+    app.appendChild(hero);
 
-    app.appendChild(el('h2', {}, 'Pick your build goal'));
+    // --- TOOLS section (canonical 4-up) ---
+    const SOLID_AXLE = {xj:1,jk:1,jl:1,tj:1,bronco:1,'full-size-bronco':1,gladiator:1,'power-wagon':1};
+    const DW_HREF = {
+      xj: '/xj-death-wobble-guide.html',
+      jk: '/db/jk-death-wobble-guide.html',
+      tj: '/db/tj-yj-death-wobble-guide.html',
+      jl: '/db/death-wobble-guide.html',
+      bronco: '/db/death-wobble-guide.html',
+      gladiator: '/db/death-wobble-guide.html',
+      'power-wagon': '/db/death-wobble-guide.html',
+    };
+    const dwLive = !!SOLID_AXLE[vid];
+    const dwHref = DW_HREF[vid] || '/db/death-wobble-guide.html';
+
+    const toolsHead = el('div', {class:'tg-section-head'},
+      el('div', {class:'left'},
+        el('span', {class:'tg-label'}, '01 / Tools'),
+        el('h2', {class:'tg-title'}, 'Built for your rig')
+      ),
+      el('span', {class:'tg-sub'}, '4 tools')
+    );
+
+    function makeTool(opts) {
+      const wrap = el(opts.href ? 'a' : 'div', Object.assign({class:'tg-tool' + (opts.soon ? ' soon':'')}, opts.href ? {href:opts.href} : {}));
+      if (opts.onclick && !opts.href) wrap.addEventListener('click', opts.onclick);
+      wrap.appendChild(el('div', {class:'tg-icon ' + (opts.iconClass||'')}, opts.iconChar || '•'));
+      wrap.appendChild(el('h3', {}, opts.title));
+      wrap.appendChild(el('p', {}, opts.desc));
+      wrap.appendChild(el('div', {class:'tg-foot'},
+        el('span', {class:'tg-tag ' + (opts.tagClass||'')}, opts.tag),
+        el('span', {class:'tg-arrow'}, opts.cta || (opts.soon ? 'Soon' : 'Open'))
+      ));
+      return wrap;
+    }
+
+    const toolsGrid = el('div', {class:'grid-tools'});
+    // 1. Rig Builder (live — internal route)
+    toolsGrid.appendChild(makeTool({
+      title: 'Rig Builder', tag: 'Interactive', tagClass: 'clay',
+      iconChar: '🛠', iconClass: 'good',
+      desc: 'Pick a build goal and pull together the matching parts, costs, and procedures.',
+      cta: 'Build',
+      onclick: () => go('#/'+vid+'/builder')
+    }));
+    // 2. Death Wobble — live for solid-axle vehicles
+    if (dwLive) {
+      toolsGrid.appendChild(makeTool({
+        title: 'Death Wobble', tag: 'Safety', tagClass: 'safety',
+        iconChar: '⚠', iconClass: 'safety',
+        desc: 'Diagnose the cause in 8 questions. Track-bar, ball joints, balance — find it before it finds you.',
+        cta: 'Diagnose',
+        href: dwHref,
+      }));
+    } else {
+      toolsGrid.appendChild(makeTool({
+        title: 'Steering Diagnostic', tag: 'Coming soon', soon: true,
+        iconChar: '⚠', iconClass: 'neutral',
+        desc: 'IFS-front diagnostic for steering wander, vibration, and pull. Different physics, different fix.',
+      }));
+    }
+    // 3. Maintenance — coming soon for all
+    toolsGrid.appendChild(makeTool({
+      title: 'Maintenance', tag: 'Coming soon', soon: true,
+      iconChar: '⟳', iconClass: 'neutral',
+      desc: 'Mileage-driven service schedule. Oil, diffs, transfer case, and trim-specific intervals.',
+    }));
+    // 4. Build List — coming soon for all
+    toolsGrid.appendChild(makeTool({
+      title: 'Build List', tag: 'Coming soon', soon: true,
+      iconChar: '☰', iconClass: 'neutral',
+      desc: 'Stack lift, tires, armor, and recovery. Save, share, and price-check your build.',
+    }));
+
+    app.appendChild(el('section', {class:'tg-section'}, toolsHead, toolsGrid));
+
+    // --- BUILD TIERS (existing) ---
+    app.appendChild(el('h2', {style:'margin-top:32px'}, 'Pick your build goal'));
     const tg = el('div', {class:'grid-tiers'});
     Object.entries(TIER_META).forEach(([id, t]) => {
       tg.appendChild(el('div', {class:'tier-card', on:{click:()=>go('#/'+vid+'/tier/'+id)}},
@@ -531,7 +701,8 @@
     });
     app.appendChild(tg);
 
-    app.appendChild(el('h2', {}, 'Browse by category'));
+    // --- CATEGORIES (existing) ---
+    app.appendChild(el('h2', {style:'margin-top:32px'}, 'Browse by category'));
     const cg = el('div', {class:'grid-cats'});
     Object.entries(counts)
       .sort((a,b)=>b[1]-a[1])
