@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+  (function(){
+    try{
+      var t=localStorage.getItem('tm-theme');
+      if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+      document.documentElement.setAttribute('data-theme',t);
+    }catch(e){document.documentElement.setAttribute('data-theme','light');}
+  })();
+</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
   <script>
@@ -48,7 +57,7 @@
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
   button{font:inherit;cursor:pointer}
 
-  .topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--slate-deep) 0%, rgba(14,17,22,.92) 100%);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
+  .topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
   .topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;cursor:pointer}
   .brand-mark{width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}
@@ -67,8 +76,8 @@
   .tab.disabled{opacity:.4;cursor:not-allowed}
 
   main{max-width:var(--max);margin:0 auto;padding:24px 20px 80px}
-  .hero{padding:32px 24px;background:linear-gradient(135deg,#1f242d 0%, #161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:24px;position:relative;overflow:hidden}
-  .hero::after{content:'';position:absolute;right:-50px;top:-50px;width:280px;height:280px;background:radial-gradient(circle,rgba(197,165,114,.06) 0%,transparent 70%)}
+  .hero{padding:32px 24px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:24px;position:relative;overflow:hidden}
+  .hero::after{content:'';position:absolute;right:-50px;top:-50px;width:280px;height:280px;background:radial-gradient(circle,rgba(201,126,80,.06) 0%,transparent 70%)}
   .hero h1{margin:0 0 8px;font-size:28px;letter-spacing:-.5px;position:relative}
   .hero p{margin:0;color:var(--text-dim);max-width:720px;position:relative}
   .hero-stats{display:flex;gap:24px;margin-top:18px;flex-wrap:wrap;position:relative}
@@ -86,7 +95,7 @@
   .cat-card .count,.vehicle-card .v-meta{font-size:12px;color:var(--text-mute)}
   .vehicle-card.inactive{opacity:.55;cursor:default}
   .vehicle-card.inactive:hover{transform:none;border-color:var(--border)}
-  .vehicle-card .v-badge{margin-left:auto;font-size:10px;background:var(--accent);color:#1a1f27;padding:2px 8px;border-radius:10px;font-weight:700;letter-spacing:.3px}
+  .vehicle-card .v-badge{margin-left:auto;font-size:10px;background:var(--accent);color:var(--panel);padding:2px 8px;border-radius:10px;font-weight:700;letter-spacing:.3px}
   .vehicle-card.inactive .v-badge{background:var(--bg-3);color:var(--text-mute);font-weight:500}
   .vehicle-card .v-platform{display:inline-block;font-size:10px;background:var(--bg-3);color:var(--text-mute);padding:2px 8px;border-radius:10px;margin-right:6px}
 
@@ -135,7 +144,7 @@
   .parts-table th{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);color:var(--text-mute);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.5px}
   .parts-table td{padding:9px 10px;border-bottom:1px solid var(--border)}
   .step{display:flex;gap:12px;margin-bottom:10px;background:var(--bg-2);padding:12px;border-radius:6px;border:1px solid var(--border)}
-  .step-num{flex-shrink:0;width:24px;height:24px;background:var(--accent);color:#1a1f27;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
+  .step-num{flex-shrink:0;width:24px;height:24px;background:var(--accent);color:var(--panel);font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px}
   .tool-pill{display:inline-block;background:var(--bg-2);padding:5px 10px;border-radius:14px;font-size:12px;color:var(--text-dim);border:1px solid var(--border);margin:2px}
   .alt-link{display:inline-block;background:var(--bg-2);border:1px solid var(--border);padding:5px 10px;border-radius:14px;font-size:12px;margin:2px;color:var(--accent)}
   .alt-link:hover{border-color:var(--accent);text-decoration:none}
@@ -167,6 +176,33 @@
   .citations{font-size:12px;color:var(--text-dim)}
   .citations a{display:block;margin:4px 0}
   hr.sep{border:0;border-top:1px solid var(--border);margin:18px 0}
+
+  /* --- dark theme overrides --- */
+  [data-theme="dark"]{
+    --bg:var(--slate-deep);
+    --bg-2:#22303F;
+    --bg-3:#2D3C4E;
+    --panel:var(--slate);
+    --panel-2:#22303F;
+    --border:#3A4A5E;
+    --text:var(--bone);
+    --text-dim:#A5AFBE;
+    --text-mute:#7A8595;
+  }
+
+  /* --- theme toggle button --- */
+  .tm-theme-btn{
+    background:transparent;border:1px solid var(--border);
+    color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);
+    cursor:pointer;display:inline-flex;align-items:center;
+    transition:color .15s,border-color .15s;margin-left:8px;flex-shrink:0;
+  }
+  .tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+  .tm-theme-icon-sun{display:none}
+  .tm-theme-icon-moon{display:inline-block}
+  [data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
+  [data-theme="dark"] .tm-theme-icon-moon{display:none}
+
   .footer{padding:30px 20px;text-align:center;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
   .footer .disclaimer{max-width:640px;margin:0 auto;line-height:1.6}
   .pill-row{display:flex;flex-wrap:wrap;gap:6px}
@@ -206,6 +242,10 @@
     </div>
     <div id="vehiclePill"></div>
     <nav class="nav-tabs" id="tabs"></nav>
+    <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+      <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+      <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </div>
 </header>
 
@@ -504,7 +544,7 @@
     ));
     app.appendChild(el('p', {style:'color:var(--text-dim);margin:0 0 14px'}, t.desc + ' — ' + entries.length + ' relevant entries.'));
     app.appendChild(el('div', {style:'margin-bottom:14px'},
-      el('button', {class:'btn', style:'background:var(--accent);color:#1a1f27;border:0;padding:8px 14px;border-radius:6px;font-weight:700;cursor:pointer', on:{click:()=>go('#/'+vid+'/builder?tier='+tier)}}, '🛠 Open Rig Builder for this tier →')
+      el('button', {class:'btn', style:'background:var(--accent);color:var(--panel);border:0;padding:8px 14px;border-radius:6px;font-weight:700;cursor:pointer', on:{click:()=>go('#/'+vid+'/builder?tier='+tier)}}, '🛠 Open Rig Builder for this tier →')
     ));
     renderEntryGrid(app, vid, entries.sort((a,b)=> (a.category.localeCompare(b.category)) || (a.title.localeCompare(b.title))));
   }
@@ -866,6 +906,18 @@
 
   if (!location.hash) location.hash = '#/';
   render();
+})();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('tm-theme-btn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var current=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';
+    var next=current==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('tm-theme',next);}catch(e){}
+  });
 })();
 </script>
 </body>

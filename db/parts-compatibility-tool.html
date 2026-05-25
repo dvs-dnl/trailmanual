@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+  (function(){
+    try{
+      var t=localStorage.getItem('tm-theme');
+      if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+      document.documentElement.setAttribute('data-theme',t);
+    }catch(e){document.documentElement.setAttribute('data-theme','light');}
+  })();
+</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
   <script>
@@ -51,7 +60,7 @@ a:hover{text-decoration:underline}
 button{font:inherit;cursor:pointer}
 
 /* NAV */
-.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--paper) 0%, rgba(247,244,237,.96) 100%);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
 .topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
 .brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}
@@ -163,6 +172,33 @@ h2{font-size:20px;letter-spacing:-.3px;margin:0 0 16px}
   .sc-meta-row{grid-template-columns:1fr 1fr}
   .step{padding:8px 10px;font-size:11px}
 }
+
+  /* --- dark theme overrides --- */
+  [data-theme="dark"]{
+    --bg:var(--slate-deep);
+    --bg-2:#22303F;
+    --bg-3:#2D3C4E;
+    --panel:var(--slate);
+    --panel-2:#22303F;
+    --border:#3A4A5E;
+    --text:var(--bone);
+    --text-dim:#A5AFBE;
+    --text-mute:#7A8595;
+  }
+
+  /* --- theme toggle button --- */
+  .tm-theme-btn{
+    background:transparent;border:1px solid var(--border);
+    color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);
+    cursor:pointer;display:inline-flex;align-items:center;
+    transition:color .15s,border-color .15s;margin-left:8px;flex-shrink:0;
+  }
+  .tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+  .tm-theme-icon-sun{display:none}
+  .tm-theme-icon-moon{display:inline-block}
+  [data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
+  [data-theme="dark"] .tm-theme-icon-moon{display:none}
+
 </style>
 </head>
 <body>
@@ -177,6 +213,10 @@ h2{font-size:20px;letter-spacing:-.3px;margin:0 0 16px}
       </div>
     </a>
     <div class="breadcrumb" id="breadcrumb"></div>
+    <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+      <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+      <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
   </div>
 </nav>
 
@@ -609,6 +649,18 @@ function goTo(screen) {
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 
 render();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('tm-theme-btn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var current=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';
+    var next=current==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('tm-theme',next);}catch(e){}
+  });
+})();
 </script>
 </body>
 </html>
