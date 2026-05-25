@@ -433,6 +433,232 @@
     margin-top: 14px;
     padding-top: 10px;
   }
+  /* ── Start My Build button ─────────────────────────── */
+  .start-build-wrap {
+    border-top: 1px solid var(--line-soft);
+    margin-top: 14px;
+    padding-top: 14px;
+  }
+  .start-build-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(196,75,31,0.18), rgba(196,75,31,0.05));
+    border: 1px solid rgba(196,75,31,0.45);
+    color: var(--ink);
+    padding: 12px 14px;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    transition: all .15s;
+  }
+  .start-build-btn:hover {
+    background: linear-gradient(180deg, rgba(196,75,31,0.32), rgba(196,75,31,0.1));
+    border-color: var(--rust);
+  }
+  .start-build-btn .sb-arrow {
+    font-size: 14px;
+    color: var(--amber);
+  }
+  .start-build-btn .sb-sub {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .start-build-btn .sb-text { text-align: left; }
+  .start-build-btn[data-existing="true"] {
+    background: linear-gradient(180deg, rgba(95,183,100,0.18), rgba(95,183,100,0.04));
+    border-color: rgba(95,183,100,0.45);
+  }
+  .start-build-btn[data-existing="true"]:hover {
+    background: linear-gradient(180deg, rgba(95,183,100,0.32), rgba(95,183,100,0.08));
+    border-color: var(--signal);
+  }
+  .start-build-btn[data-existing="true"] .sb-arrow { color: var(--signal); }
+  /* ── Start My Build modal ──────────────────────────── */
+  .sb-modal-bg {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 16px;
+    overflow-y: auto;
+  }
+  .sb-modal-bg[data-open="true"] { display: flex; }
+  .sb-modal {
+    background: var(--bg-elev);
+    border: 1px solid var(--line-soft);
+    width: 100%;
+    max-width: 580px;
+    padding: 28px;
+    position: relative;
+    color: var(--ink);
+  }
+  .sb-modal .sb-close {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: none;
+    border: none;
+    color: var(--ink-dim);
+    font-size: 22px;
+    cursor: pointer;
+    width: 30px; height: 30px;
+    display: grid; place-items: center;
+  }
+  .sb-modal .sb-close:hover { color: var(--ink); }
+  .sb-modal h3 {
+    font-family: var(--display);
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+    line-height: 1;
+  }
+  .sb-modal .sb-modal-sub {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+  }
+  .sb-modal-section-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin: 18px 0 8px;
+  }
+  .sb-vehicle-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .sb-veh-card {
+    background: var(--bg-elev-2);
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    cursor: pointer;
+    text-align: left;
+    color: var(--ink);
+    transition: border-color .12s;
+  }
+  .sb-veh-card:hover { border-color: var(--rust); }
+  .sb-veh-card[data-selected="true"] {
+    border-color: var(--rust);
+    background: linear-gradient(180deg, rgba(196,75,31,0.12), rgba(196,75,31,0.02));
+  }
+  .sb-veh-card .sbv-nick {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .sb-veh-card .sbv-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+  .sb-veh-card .sbv-existing {
+    margin-top: 6px;
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--signal);
+    letter-spacing: 0.06em;
+  }
+  .sb-add-toggle {
+    background: none;
+    border: 1px dashed var(--line-soft);
+    color: var(--ink-dim);
+    padding: 10px 14px;
+    width: 100%;
+    cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all .12s;
+  }
+  .sb-add-toggle:hover { color: var(--rust); border-color: var(--rust); }
+  .sb-form {
+    margin-top: 12px;
+    padding: 14px;
+    background: var(--bg);
+    border: 1px solid var(--line-soft);
+    display: none;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 10px;
+  }
+  .sb-form[data-open="true"] { display: grid; }
+  .sb-form .sb-full { grid-column: 1 / -1; }
+  .sb-form label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .sb-form input, .sb-form textarea {
+    width: 100%;
+    background: var(--bg-elev-2);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    padding: 7px 10px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .sb-form input:focus, .sb-form textarea:focus { outline: none; border-color: var(--rust); }
+  .sb-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  .sb-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    background: var(--bg-elev-2);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .sb-btn:hover { border-color: var(--rust); }
+  .sb-btn-primary {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: #fff;
+  }
+  .sb-btn-primary:hover { background: #e65d2b; border-color: #e65d2b; }
+  .sb-btn:disabled { opacity: .4; cursor: not-allowed; }
+  .sb-help {
+    font-size: 12px;
+    color: var(--ink-dim);
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .sb-empty {
+    padding: 14px;
+    background: var(--bg);
+    border: 1px dashed var(--line-soft);
+    color: var(--ink-dim);
+    font-size: 13px;
+    text-align: center;
+  }
   details summary {
     cursor: pointer;
     font-family: var(--mono);
@@ -1272,6 +1498,50 @@ const tierLabels = {
   premium:  'PREMIUM',
   turnkey:  'TURNKEY'
 };
+/* ============================================================
+   PROJECT INTEGRATION
+   Maps decision-tool option IDs → V8 parts checklist path IDs.
+   If an option has a mapping, the card gets a "Start My Build"
+   button that creates a project in My Garage and opens the
+   parts checklist in project mode.
+   ============================================================ */
+const PATH_MAP = {
+  'hemi-57-diy':      { pathId: 'hemi-57-diy',   title: '5.7L Hemi · DIY build' },
+  'hemi-57-shop':     { pathId: 'hemi-57-diy',   title: '5.7L Hemi · Shop build (DIY-equivalent parts list)' },
+  'hemi-64-diy':      { pathId: 'hemi-64-diy',   title: '6.4L Hemi · DIY build' },
+  'hemi-64-rubitrux': { pathId: 'hemi-64-diy',   title: '6.4L Hemi · RubiTrux turnkey (DIY-equivalent parts list)' },
+  'ls-53-budget':     { pathId: 'ls-53-diy',     title: 'DIY 5.3L LS · Junkyard build' },
+  'motech-lt':        { pathId: 'motech-lt-diy', title: 'MoTech LT · DIY kit build' },
+  'motech-turnkey':   { pathId: 'motech-lt-diy', title: 'MoTech LT · Turnkey (DIY-equivalent parts list)' },
+  'bruiser-lx3':      { pathId: 'bruiser-lx3',   title: 'Bruiser LX3 6.6L · Turnkey kit' }
+};
+const GARAGE_KEY = 'tm.garage.v1';
+
+function loadGarageRaw() {
+  try {
+    const raw = localStorage.getItem(GARAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) {}
+  return { vehicles: [], activeVehicleId: null, version: 3 };
+}
+function saveGarageRaw(g) {
+  try { localStorage.setItem(GARAGE_KEY, JSON.stringify(g)); } catch (e) {}
+}
+
+// Find existing projects on this option (across all rigs)
+function existingProjectsForPath(pathId) {
+  const g = loadGarageRaw();
+  const matches = [];
+  (g.vehicles || []).forEach(v => {
+    (v.projects || []).forEach(p => {
+      if (p.type === 'v8-swap' && p.pathId === pathId) {
+        matches.push({ vehicleId: v.id, vehicleName: v.nickname || [v.year, v.make, v.model].filter(Boolean).join(' '), projectId: p.id });
+      }
+    });
+  });
+  return matches;
+}
+
 function buildCards() {
   grid.innerHTML = '';
   options.forEach(o => {
@@ -1284,6 +1554,18 @@ function buildCards() {
     card.dataset.ac = o.ac;
     const prosHTML = o.pros.map(p => `<li>${p}</li>`).join('');
     const consHTML = o.cons.map(p => `<li>${p}</li>`).join('');
+    const mapping = PATH_MAP[o.id];
+    const existing = mapping ? existingProjectsForPath(mapping.pathId) : [];
+    const btnHTML = mapping ? `
+        <div class="start-build-wrap">
+          <button class="start-build-btn" data-option-id="${o.id}" data-existing="${existing.length > 0 ? 'true' : 'false'}">
+            <span class="sb-text">
+              ${existing.length > 0 ? 'Open existing build' : 'Start my build'}
+              <span class="sb-sub">${existing.length > 0 ? existing.length + ' project' + (existing.length === 1 ? '' : 's') + ' in your garage' : 'Track parts in My Garage'}</span>
+            </span>
+            <span class="sb-arrow">→</span>
+          </button>
+        </div>` : '';
     card.innerHTML = `
       <div class="card-head">
         <span class="card-tier tier-${o.tier}">${tierLabels[o.tier]}</span>
@@ -1327,12 +1609,199 @@ function buildCards() {
           <summary>SHOP DETAIL · COST BREAKDOWN · PHX NOTES</summary>
           <div class="detail-content">${o.detail}</div>
         </details>
+        ${btnHTML}
       </div>
     `;
     grid.appendChild(card);
   });
 }
 buildCards();
+
+/* ============================================================
+   START MY BUILD modal
+   ============================================================ */
+let sbOptionId = null;        // which decision-tool option triggered the modal
+let sbSelectedVehicleId = null;
+
+function openStartBuildModal(optionId) {
+  sbOptionId = optionId;
+  sbSelectedVehicleId = null;
+  const o = options.find(x => x.id === optionId);
+  const mapping = PATH_MAP[optionId];
+  if (!o || !mapping) return;
+
+  document.getElementById('sbModalTitle').textContent = mapping.title;
+  document.getElementById('sbModalSub').textContent = 'Start build · attach to a rig';
+  // Reset new-rig form
+  document.getElementById('sbForm').dataset.open = 'false';
+  ['sb-nick','sb-year','sb-make','sb-model','sb-trim','sb-mileage'].forEach(id => {
+    document.getElementById(id).value = '';
+  });
+  // Render vehicle list
+  renderSbVehicleList();
+  updateSbSubmit();
+  document.getElementById('sbModalBg').dataset.open = 'true';
+}
+
+function closeStartBuildModal() {
+  document.getElementById('sbModalBg').dataset.open = 'false';
+}
+
+function renderSbVehicleList() {
+  const mapping = PATH_MAP[sbOptionId];
+  const host = document.getElementById('sbVehicleList');
+  host.innerHTML = '';
+  const g = loadGarageRaw();
+  const existing = existingProjectsForPath(mapping.pathId);
+  const existingByVid = {};
+  existing.forEach(e => existingByVid[e.vehicleId] = e);
+
+  if ((g.vehicles || []).length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'sb-empty';
+    empty.textContent = 'Your garage is empty. Add a vehicle below to start.';
+    host.appendChild(empty);
+    // Auto-open form
+    document.getElementById('sbForm').dataset.open = 'true';
+    return;
+  }
+  g.vehicles.forEach(v => {
+    const card = document.createElement('button');
+    card.className = 'sb-veh-card';
+    card.type = 'button';
+    card.dataset.vid = v.id;
+    card.dataset.selected = 'false';
+    const nick = v.nickname || [v.year, v.make, v.model].filter(Boolean).join(' ') || 'Unnamed rig';
+    const sub = [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+    card.innerHTML = `
+      <div class="sbv-nick">${escSb(nick)}</div>
+      ${sub && sub !== nick ? `<div class="sbv-sub">${escSb(sub)}</div>` : ''}
+      ${existingByVid[v.id] ? `<div class="sbv-existing">✓ Already has a build for this engine — selecting will open it</div>` : ''}
+    `;
+    card.addEventListener('click', () => {
+      sbSelectedVehicleId = v.id;
+      [...host.querySelectorAll('.sb-veh-card')].forEach(c => c.dataset.selected = String(c.dataset.vid === v.id));
+      updateSbSubmit();
+    });
+    host.appendChild(card);
+  });
+}
+
+function updateSbSubmit() {
+  const btn = document.getElementById('sbStart');
+  const formOpen = document.getElementById('sbForm').dataset.open === 'true';
+  const hasInput = document.getElementById('sb-make').value.trim() || document.getElementById('sb-model').value.trim() || document.getElementById('sb-nick').value.trim();
+  // Enabled if a vehicle is selected, OR if the new-rig form has at least nickname/make/model
+  btn.disabled = !sbSelectedVehicleId && !(formOpen && hasInput);
+  // Label switches based on context
+  if (sbSelectedVehicleId) {
+    const existing = existingProjectsForPath(PATH_MAP[sbOptionId].pathId).find(e => e.vehicleId === sbSelectedVehicleId);
+    btn.textContent = existing ? 'Open existing build →' : 'Start build →';
+  } else if (formOpen && hasInput) {
+    btn.textContent = 'Add rig + start build →';
+  } else {
+    btn.textContent = 'Start build →';
+  }
+}
+
+function escSb(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+
+function sbUid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function startBuild() {
+  const mapping = PATH_MAP[sbOptionId];
+  if (!mapping) return;
+  const g = loadGarageRaw();
+  g.vehicles = g.vehicles || [];
+
+  let vid = sbSelectedVehicleId;
+  // If the form has input, that creates a new vehicle (and overrides selection)
+  const formOpen = document.getElementById('sbForm').dataset.open === 'true';
+  const f = (id) => document.getElementById(id).value.trim();
+  const formHasInput = f('sb-make') || f('sb-model') || f('sb-nick');
+
+  if (formOpen && formHasInput) {
+    const nv = {
+      id: sbUid(),
+      createdAt: new Date().toISOString(),
+      nickname: f('sb-nick'),
+      year: f('sb-year'),
+      make: f('sb-make'),
+      model: f('sb-model') || 'Wrangler',
+      trim: f('sb-trim'),
+      mileage: f('sb-mileage') ? Number(f('sb-mileage')) : 0,
+      vin: '',
+      notes: '',
+      log: [],
+      fuelLog: [],
+      reminders: [],
+      customServices: [],
+      projects: []
+    };
+    g.vehicles.push(nv);
+    g.activeVehicleId = nv.id;
+    vid = nv.id;
+  }
+
+  if (!vid) {
+    alert('Pick a rig or add a new one first.');
+    return;
+  }
+  const v = g.vehicles.find(x => x.id === vid);
+  if (!v) return;
+  v.projects = v.projects || [];
+  // Reuse existing project for this path if one exists
+  let proj = v.projects.find(p => p.type === 'v8-swap' && p.pathId === mapping.pathId);
+  if (!proj) {
+    proj = {
+      id: sbUid(),
+      type: 'v8-swap',
+      pathId: mapping.pathId,
+      title: mapping.title,
+      startedAt: new Date().toISOString().slice(0, 10),
+      notes: '',
+      progress: { purchased: {}, installed: {}, expanded: {}, partExp: {}, filter: 'all' }
+    };
+    v.projects.push(proj);
+  }
+  g.activeVehicleId = vid;
+  saveGarageRaw(g);
+
+  // Navigate to checklist in project mode
+  location.href = '/v8-swap-parts-checklist.html?project=' + encodeURIComponent(proj.id) + '&vehicle=' + encodeURIComponent(vid);
+}
+
+// Click delegation on the grid
+grid.addEventListener('click', (ev) => {
+  const btn = ev.target.closest('.start-build-btn');
+  if (!btn) return;
+  ev.preventDefault();
+  openStartBuildModal(btn.dataset.optionId);
+});
+
+// Modal wire-up
+document.getElementById('sbClose').addEventListener('click', closeStartBuildModal);
+document.getElementById('sbCancel').addEventListener('click', closeStartBuildModal);
+document.getElementById('sbModalBg').addEventListener('click', (e) => {
+  if (e.target.id === 'sbModalBg') closeStartBuildModal();
+});
+document.getElementById('sbAddToggle').addEventListener('click', () => {
+  const form = document.getElementById('sbForm');
+  form.dataset.open = form.dataset.open === 'true' ? 'false' : 'true';
+  if (form.dataset.open === 'true') {
+    document.getElementById('sb-nick').focus();
+  }
+  updateSbSubmit();
+});
+['sb-nick','sb-year','sb-make','sb-model','sb-trim','sb-mileage'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updateSbSubmit);
+});
+document.getElementById('sbStart').addEventListener('click', startBuild);
+
 /* ============================================================
    BUILD COMPARISON TABLE
    ============================================================ */
@@ -1403,5 +1872,58 @@ function applyFilters() {
   });
 }
 </script>
+
+<!-- ── Start My Build modal ───────────────────────────── -->
+<div class="sb-modal-bg" id="sbModalBg">
+  <div class="sb-modal">
+    <button class="sb-close" id="sbClose" aria-label="Close">&times;</button>
+    <h3 id="sbModalTitle">Start build</h3>
+    <div class="sb-modal-sub" id="sbModalSub">Start build · attach to a rig</div>
+    <div class="sb-help">
+      Attach this engine path as a project to one of your rigs in My Garage. The parts checklist
+      opens preloaded with your selection, and your progress (purchased / installed) saves to that
+      rig's garage record — so you can track this build alongside maintenance for the same vehicle.
+    </div>
+
+    <div class="sb-modal-section-title">Choose a rig</div>
+    <div class="sb-vehicle-list" id="sbVehicleList"></div>
+
+    <div style="margin-top:14px">
+      <button class="sb-add-toggle" id="sbAddToggle">+ Or add a new rig</button>
+      <div class="sb-form" id="sbForm">
+        <div class="sb-full">
+          <label>Nickname (optional)</label>
+          <input id="sb-nick" placeholder="e.g. 'White Whale'">
+        </div>
+        <div>
+          <label>Year</label>
+          <input id="sb-year" type="number" placeholder="2008">
+        </div>
+        <div>
+          <label>Make</label>
+          <input id="sb-make" placeholder="Jeep" value="Jeep">
+        </div>
+        <div>
+          <label>Model</label>
+          <input id="sb-model" placeholder="Wrangler" value="Wrangler">
+        </div>
+        <div>
+          <label>Trim</label>
+          <input id="sb-trim" placeholder="Rubicon Unlimited">
+        </div>
+        <div class="sb-full">
+          <label>Current mileage</label>
+          <input id="sb-mileage" type="number" placeholder="125000">
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-actions">
+      <button class="sb-btn" id="sbCancel">Cancel</button>
+      <button class="sb-btn sb-btn-primary" id="sbStart" disabled>Start build →</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

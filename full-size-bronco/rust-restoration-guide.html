@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full-Size Bronco Rust &amp; Restoration Guide (1978–1996) | Trail Manual</title>
+  <meta name="description" content="Where full-size Ford Broncos rust, what is structural, and the inspection order — from frame rails to floor pans to tailgate.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--slate);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Site header ─────────────────────────────────────────── */
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    /* ── Masthead ────────────────────────────────────────────── */
+    .masthead {
+      border-bottom: 1px solid var(--bone);
+      padding: 56px 32px 48px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .masthead-eyebrow {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+    .masthead-sub {
+      font-family: var(--sans);
+      font-size: 18px;
+      color: var(--slate-l);
+      line-height: 1.5;
+      max-width: 640px;
+      margin-bottom: 24px;
+    }
+    .masthead-meta {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bone-d);
+    }
+
+    /* ── Article body ────────────────────────────────────────── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article h2 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--slate);
+      margin: 48px 0 16px;
+      padding-top: 8px;
+    }
+    .article h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 19px;
+      letter-spacing: -0.01em;
+      color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    .article p {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .article ul {
+      margin: 12px 0 18px 20px;
+    }
+    .article ul li {
+      font-size: 16px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .article strong { font-weight: 600; }
+
+    /* ── Verdict ─────────────────────────────────────────────── */
+    .verdict {
+      border-left: 3px solid var(--clay);
+      padding: 18px 20px 18px 24px;
+      background: var(--bone);
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .verdict-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 8px;
+    }
+    .verdict p {
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Rust zone cards ─────────────────────────────────────── */
+    .rust-zones {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--bone);
+      border: 1px solid var(--bone);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .rust-zone {
+      background: var(--paper);
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .rust-severity {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .rust-severity.critical { background: var(--safety); }
+    .rust-severity.serious { background: var(--warn); }
+    .rust-severity.common { background: var(--clay-l); }
+    .rust-zone-body h4 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--slate);
+      margin-bottom: 6px;
+    }
+    .rust-zone-body p {
+      font-size: 14px;
+      color: var(--slate-l);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .rust-legend {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .rust-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+    }
+    .rust-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Budget table ────────────────────────────────────────── */
+    .budget-table {
+      border: 1px solid var(--bone);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .budget-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--bone);
+      align-items: start;
+      gap: 16px;
+    }
+    .budget-row:last-child { border-bottom: none; }
+    .budget-row:nth-child(odd) { background: var(--paper); }
+    .budget-row:nth-child(even) { background: var(--bone); }
+    .budget-label { font-size: 15px; color: var(--slate); font-weight: 500; margin-bottom: 3px; }
+    .budget-note { font-size: 13px; color: var(--slate-l); line-height: 1.5; }
+    .budget-range { font-family: var(--mono); font-size: 12px; color: var(--clay); font-weight: 500; white-space: nowrap; }
+
+    /* ── Warning block ───────────────────────────────────────── */
+    .warn-block {
+      border-left: 3px solid var(--safety);
+      padding: 16px 20px 16px 22px;
+      background: rgba(178,59,47,0.04);
+      margin: 24px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .warn-block-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--safety);
+      margin-bottom: 6px;
+    }
+    .warn-block p {
+      font-size: 15px;
+      color: var(--slate);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* ── Info block ──────────────────────────────────────────── */
+    .info-block {
+      border-left: 3px solid var(--slate-l);
+      padding: 16px 20px 16px 22px;
+      background: rgba(91,107,126,0.05);
+      margin: 24px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .info-block p {
+      font-size: 15px;
+      color: var(--slate);
+      margin: 0;
+      line-height: 1.65;
+    }
+
+    /* ── Footer nav ──────────────────────────────────────────── */
+    .article-footer-nav {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--bone);
+    }
+    .footer-nav-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      margin-bottom: 14px;
+    }
+    .footer-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bone);
+      border: 1px solid var(--bone-d);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      text-decoration: none;
+      transition: border-color 0.15s;
+    }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .footer-nav-link.back::after { content: none; }
+    .footer-nav-link.back::before { content: '←'; color: var(--clay); }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    .site-footer {
+      border-top: 1px solid var(--bone);
+      padding: 28px 32px;
+      text-align: center;
+    }
+    .site-footer p {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bone-d);
+    }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 36px 20px 32px; }
+      .article { padding: 32px 20px 60px; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+      .rust-zone { grid-template-columns: 16px 1fr; }
+      .budget-row { grid-template-columns: 1fr; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/full-size-bronco/" class="active">Full-Size Bronco</a>
+      <a href="/bronco/">Early Bronco</a>
+      <a href="/bronco6g/">New Bronco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="masthead">
+    <p class="masthead-eyebrow">Full-Size Bronco · Rust &amp; Restoration</p>
+    <h1>Rust &amp; Restoration Guide</h1>
+    <p class="masthead-sub">Full-size Broncos rust in predictable places. The body-on-frame design means you are evaluating two separate structures that deteriorate at different rates. Determine frame condition before evaluating anything else.</p>
+    <p class="masthead-meta">Ford Bronco · 1978–1996 · All configurations</p>
+  </div>
+
+  <article class="article">
+
+    <div class="verdict">
+      <p class="verdict-label">Bottom Line</p>
+      <p>The frame is the starting point for every full-size Bronco evaluation. Body rust is cosmetic; frame rust is structural. A truck with a solid frame and rough body has a future. A truck with a compromised frame is parts — regardless of how good the paint looks.</p>
+    </div>
+
+    <p>The full-size Bronco is a body-on-frame vehicle, which means the body and frame are separate structures. A truck can have clean sheet metal over a compromised frame, and a truck can have rough body panels over a frame that will last another 30 years. Do not evaluate the body until you have evaluated the frame. Order matters.</p>
+
+    <h2>Primary Rust Zones</h2>
+
+    <div class="rust-legend">
+      <div class="rust-legend-item"><span class="rust-legend-dot" style="background:var(--safety)"></span>Structural — determines the truck's future</div>
+      <div class="rust-legend-item"><span class="rust-legend-dot" style="background:var(--warn)"></span>Serious — needs repair before use</div>
+      <div class="rust-legend-item"><span class="rust-legend-dot" style="background:var(--clay-l)"></span>Common — repairable, price accordingly</div>
+    </div>
+
+    <div class="rust-zones">
+      <div class="rust-zone">
+        <div><span class="rust-severity critical"></span></div>
+        <div class="rust-zone-body">
+          <h4>Frame rails — front section (radius arm mounts)</h4>
+          <p>The front section of the frame, where the radius arms mount and the front crossmembers tie in, is the highest-stakes rust location on the full-size Bronco. This section carries the front suspension loads. Surface rust here is expected after decades. Pitting that has perforated the steel changes the vehicle's structural story — the section can be repaired by a competent fabricator, but the work is significant and the cost reflects that. Evaluate this section before everything else under the truck.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity critical"></span></div>
+        <div class="rust-zone-body">
+          <h4>Frame rails — body mount locations</h4>
+          <p>Along both frame rails, where the rubber body mount pads sit, water traps and holds. This is a predictable perforation location. The body mount hardware presses against the rail and retains moisture. Inspect every body mount location — there are typically six to eight — for pitting and perforation. A frame that is solid everywhere except at a few body mount locations can be repaired; a frame that is perforated at most of them is a more serious conversation.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity critical"></span></div>
+        <div class="rust-zone-body">
+          <h4>Frame rails — rear kick-up section</h4>
+          <p>Behind the rear axle, the frame rails kick upward toward the rear bumper. This section traps road debris, moisture, and salt. It is a common perforation zone, and the rear shock mounts and leaf spring rear hangers attach here. Compromised metal in this section means compromised spring and shock attachment points. The rear section can be plated or replaced, but that needs to be on the table when pricing a truck.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity serious"></span></div>
+        <div class="rust-zone-body">
+          <h4>Floor pans — front footwells and under rear seat</h4>
+          <p>Front footwells rust from both water intrusion and condensation from the occupant side. The area under the rear seat is a secondary zone. Pull the carpet during inspection — a seller who will not allow this during a purchase decision is not making your life easier. Replacement pan sections are available from LMC Truck and similar suppliers. Budget $800–$2,000 for full floor pan work at shop rates, depending on how much needs replacing.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity serious"></span></div>
+        <div class="rust-zone-body">
+          <h4>Tailgate — hinge attachment areas and bottom edge</h4>
+          <p>The removable Bronco tailgate is a rust magnet. The hinge attachment areas where the hinges bolt to the body collect water and rust from inside the structure. The bottom edge of the tailgate rusts from road debris impact and moisture trapping. A tailgate that is rusted through at the hinge attachment points is both a safety issue and a restoration challenge — the surrounding body structure typically shares the rust. Replacement tailgates exist through salvage and some reproduction sources, but condition varies widely.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity common"></span></div>
+        <div class="rust-zone-body">
+          <h4>Rockers — inner structure</h4>
+          <p>Inner rockers rust before the outer panels show it. Tap the bottom edge of the rocker panel during inspection — a hollow sound means the inner structure is gone. The outer cosmetic panel can look fine while the inner rocker is completely perforated. Replacement rocker sections are available. This is a repairable situation with a competent body shop, but it is labor-intensive work. Price accordingly when negotiating.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity common"></span></div>
+        <div class="rust-zone-body">
+          <h4>Cab corners — lower rear of cab</h4>
+          <p>Rear lower corners of the cab rust from both inside and outside. Visible bubbling in the paint at the cab corner is usually preceded by invisible inner panel rot. Panel replacement is straightforward for a competent body shop and replacement panels are available. Not structural, but visually obvious and worth factoring into the purchase price.</p>
+        </div>
+      </div>
+      <div class="rust-zone">
+        <div><span class="rust-severity common"></span></div>
+        <div class="rust-zone-body">
+          <h4>Rear wheel well arch seams</h4>
+          <p>The arch seam where the wheel well panel meets the quarter panel is a primary water and debris trap. Road material packs into the seam and accelerates rust from inside out. The arch often looks solid from the outside while rotting from the inside. Probe the seam gently with a pick or screwdriver tip during inspection. Localized rust here is repairable; extensive rot that has spread into the quarter panel is a bigger job.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>How to Inspect (In Order)</h2>
+
+    <h3>1. Frame first — before anything else</h3>
+    <p>Get the truck on a lift or over a pit. Inspect the full length of both frame rails with a flashlight. Probe any area that looks darker or has paint bubbling with your fingernail or a small pick. You are distinguishing between surface rust (expected, not a concern), pitting (concerning in structural areas), and perforation (through-hole, changes the evaluation).</p>
+    <p>The three frame sections that matter most: front (radius arm mounts), middle (body mount locations), rear (rear axle area through the kick-up). If the frame passes these three zones, the rest of the inspection is about pricing — not about the truck's fundamental viability.</p>
+
+    <h3>2. Floor pans — before you look at the body</h3>
+    <p>With a flashlight under the truck, you can often see light through perforated floor pans. From inside the cab, pull the carpet in the front footwells and check the metal directly. The spare tire well in the rear cargo area is another inspection point — water sitting in the spare well migrates into the rear floor structure.</p>
+
+    <h3>3. Tailgate — before you negotiate on the body</h3>
+    <p>Open and close the tailgate. Check for sagging (hinge area rust). Inspect the hinge attachment points on both the tailgate itself and the body where it mounts. Look at the bottom edge. A tailgate in poor condition is either a parts cost or a negotiating point — it is not a hidden issue if you check.</p>
+
+    <h3>4. Rockers and cab corners</h3>
+    <p>Walk the perimeter with a magnet. Body filler does not attract a magnet; metal does. Rockers and cab corners are common filler destinations on trucks that have been cosmetically freshened. Filler over rust without proper prep will bubble and fail within a few seasons — price the repair into the deal.</p>
+
+    <h2>Restoration Budget Reality</h2>
+
+    <div class="budget-table">
+      <div class="budget-row">
+        <div>
+          <div class="budget-label">Driver restoration</div>
+          <div class="budget-note">Solid structure, mechanically sound, cosmetically acceptable. Not numbers-matching, not showroom — functional and honest.</div>
+        </div>
+        <div class="budget-range">$3,000–$8,000</div>
+      </div>
+      <div class="budget-row">
+        <div>
+          <div class="budget-label">Full floor pan replacement</div>
+          <div class="budget-note">Complete front and rear floor pan work, parts and labor. Varies by how much is salvageable.</div>
+        </div>
+        <div class="budget-range">$800–$2,000</div>
+      </div>
+      <div class="budget-row">
+        <div>
+          <div class="budget-label">Rocker repair (both sides)</div>
+          <div class="budget-note">Inner rocker repair or replacement, outer panel finish. Per-side pricing varies by condition.</div>
+        </div>
+        <div class="budget-range">$600–$1,800</div>
+      </div>
+      <div class="budget-row">
+        <div>
+          <div class="budget-label">Frame section repair / plating</div>
+          <div class="budget-note">Localized structural plating by a competent fabricator. Varies heavily by how much is affected.</div>
+        </div>
+        <div class="budget-range">$500–$2,500+</div>
+      </div>
+      <div class="budget-row">
+        <div>
+          <div class="budget-label">Full frame-off restoration</div>
+          <div class="budget-note">Complete disassembly, media blast, full body and paint, rebuilt drivetrain. At shop rates.</div>
+        </div>
+        <div class="budget-range">$30,000–$60,000+</div>
+      </div>
+    </div>
+
+    <div class="warn-block">
+      <p class="warn-block-label">Frame-Off Math</p>
+      <p>A full frame-off restoration on a full-size Bronco does not pencil out financially on a rough starting truck versus a solid one. The cleanup work on a worse truck does not save you money — it costs you more, because every corroded fastener, every compromised panel, and every surprise inside the body adds time at shop rates. Buy the best starting example you can find if frame-off restoration is the goal.</p>
+    </div>
+
+    <h2>Numbers-Matching Considerations</h2>
+    <p>A numbers-matching restoration — original engine matching the VIN, original transfer case, original body tags intact, documented history — commands a premium in the current market. If that matters to your goals, verify:</p>
+    <ul>
+      <li>Engine stampings match the VIN (typically stamped on the block at the front, near the distributor)</li>
+      <li>Original transfer case present and documented</li>
+      <li>Body data plate (on the driver's door jamb) intact and legible</li>
+      <li>No major accident or collision history (pull the VIN history report and look at panel gaps and factory weld seams for evidence of previous body work)</li>
+    </ul>
+    <p>Most buyers are not restoring to numbers-matching standards. A driver restoration — solid structure, functioning drivetrain, body that does not actively continue rusting — is where most buyers land, and it is a valid and achievable goal for a truck that will actually be driven.</p>
+
+    <div class="info-block">
+      <p><strong>Parts sources for body work:</strong> LMC Truck is the primary supplier for reproduction floor pans, rocker panels, and cab corners for full-size Ford trucks and Broncos. National Parts Depot and Dennis Carpenter Ford Restoration Parts are secondary sources. Most structural body panels are available in reproduction. The tailgate is more limited — expect to pay more or search longer for a solid original.</p>
+    </div>
+
+    <nav class="article-footer-nav">
+      <p class="footer-nav-label">Continue reading</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/full-size-bronco/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/full-size-bronco/suspension-lift-guide.html">Suspension &amp; Lift</a>
+        <a class="footer-nav-link back" href="/full-size-bronco/">All Full-Size Bronco Guides</a>
+      </div>
+    </nav>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual · Free reference for off-road owners · No ads, no affiliate links</p>
+</footer>
+
+</body>
+</html>

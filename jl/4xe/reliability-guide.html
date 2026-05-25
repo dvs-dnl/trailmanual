@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wrangler 4XE Reliability Guide — How to Evaluate a Used 4XE | Trail Manual</title>
+  <meta name="description" content="Seven categories, weighted by consequence. The framework for evaluating any used Jeep Wrangler 4XE — HV battery, electrical, drivetrain, corrosion, and recall compliance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-family: var(--sans); font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-family: var(--sans); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .warning-block { border-left: 3px solid var(--safety); padding: 18px 20px 18px 24px; background: rgba(178,59,47,0.05); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .warning-block p { font-weight: 500; font-size: 16px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .warning-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--safety); margin-bottom: 8px; }
+    .score-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1px; background: var(--bone); border: 1px solid var(--bone); margin: 24px 0; }
+    .score-card { background: var(--paper); padding: 22px 24px; }
+    .score-weight { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--clay); letter-spacing: 0.06em; margin-bottom: 6px; }
+    .score-card h3 { font-family: var(--sans); font-weight: 500; font-size: 15px; color: var(--slate); margin: 0 0 8px; }
+    .score-card p { font-size: 14px; line-height: 1.6; color: var(--slate-l); margin: 0; }
+    .score-card.high-weight { border-top: 3px solid var(--clay); }
+    .interp-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--bone); border: 1px solid var(--bone); margin: 24px 0; }
+    .interp-row { background: var(--paper); padding: 18px 24px; display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: flex-start; }
+    .interp-score { font-family: var(--mono); font-size: 15px; font-weight: 500; color: var(--slate); }
+    .interp-score.good { color: var(--good); }
+    .interp-score.warn { color: var(--warn); }
+    .interp-score.bad { color: var(--safety); }
+    .interp-desc { font-size: 15px; line-height: 1.6; color: var(--slate-l); }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .score-grid { grid-template-columns: 1fr; } .interp-row { grid-template-columns: 1fr; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/jl/" class="active">JL Wrangler</a>
+      <a href="/db/">Database</a>
+      <a href="https://trailmanual.com">Home</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">Reliability Guide · Wrangler 4XE</div>
+  <h1>How to Evaluate a Used 4XE</h1>
+  <p class="masthead-subhead">Seven categories, weighted by consequence. The 4XE's complexity means reliability problems aren't evenly distributed — a bad score in the wrong category changes the economics of the vehicle entirely.</p>
+  <div class="masthead-meta">JL Generation<span>·</span>2021–Present<span>·</span>Trail Manual Research</div>
+</div>
+
+<article class="article">
+
+  <p>Consumer Reports has rated the Wrangler 4XE the most unreliable midsize SUV in its annual survey. That doesn't mean every 4XE is a problem — it means the variance is high and the consequences of a bad example are significant. The framework below weights categories by what it costs when things go wrong, which is the only weighting that matters when you're deciding whether to buy.</p>
+
+  <h2>The Seven Categories</h2>
+
+  <div class="score-grid">
+    <div class="score-card high-weight">
+      <div class="score-weight">Category 1 — 30%</div>
+      <h3>Powertrain &amp; Hybrid System Health</h3>
+      <p>The HV battery is the most consequential component. Replacement cost out of warranty: $15,000–$30,000. Fire recall status is non-negotiable — the latest remedy must be confirmed, not just the original 95B fix. Check that the battery charges to 100%, holds charge, and that EV range is within ~15% of the rated 21 miles. No active HV DTCs. No FORM mode history. No heat, odor, or fluid signs near the battery tray.</p>
+    </div>
+    <div class="score-card high-weight">
+      <div class="score-weight">Category 3 — 20%</div>
+      <h3>Electrical &amp; Software</h3>
+      <p>The 4XE's software stack manages three power systems simultaneously. Stellantis issued an OTA update that bricked the hybrid control system in 24,000 vehicles. The EVIC system is prone to glitches from minor to dangerous. The 12V auxiliary battery can be stressed faster than in a conventional vehicle. Verify all software recalls are completed, no phantom warning messages, no "Stop Safely" history. 12V replaced once is acceptable; twice is a flag.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-weight">Category 2 — 15%</div>
+      <h3>HVAC &amp; Battery Thermal Management</h3>
+      <p>The active liquid cooling system regulates HV battery temperature — thermal events directly affect cell longevity and fire risk. The February 2024 defroster recall (~139,000 vehicles) is a distinct but related item: verify completion. Check that battery coolant is clean and at spec. No thermal warnings or battery warning lights in extreme temperatures.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-weight">Category 4 — 15%</div>
+      <h3>Drivetrain</h3>
+      <p>The 4XE shares mechanical 4WD hardware with the standard Wrangler — Dana 44s front and rear on Rubicons, Chrysler 8.25" rear on lower trims. The electric motors add torque that stresses components differently than the gas-only version. Check differential fluid color (gray or milky = water intrusion). No clunking from front axle under power. Transfer case shifts cleanly through all ranges. Rubicon: front axle disconnect actuator functions correctly.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-weight">Category 5 — 10%</div>
+      <h3>Rust &amp; Corrosion</h3>
+      <p>Standard Wrangler frame corrosion is well-documented. The 4XE adds the battery tray to the concern list — penetrating rust creates moisture pathways to high-voltage components. Battery tray underside: surface oxidation is acceptable, scaling or penetrating rust is not. Check frame rails at the rear, rocker panels, and door hinges for galvanic corrosion. Salt-belt vehicles warrant extra scrutiny.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-weight">Category 6 — 5%</div>
+      <h3>Service History &amp; Recall Compliance</h3>
+      <p>The 4XE has accumulated an unusual recall count for a vehicle this young. All recalls must be verified independently via NHTSA VIN lookup — seller confirmation is not sufficient. Oil change intervals depend on actual ICE usage patterns; verify service was done at appropriate intervals for how the vehicle was actually driven.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-weight">Category 7 — 5%</div>
+      <h3>TSBs Addressed vs. Outstanding</h3>
+      <p>Technical Service Bulletins from Stellantis cover oil cooler seal failures, battery calibration software, EVIC behavior, and NVH. A dealer can run the VIN and identify open TSBs. A vehicle with documented TSB work performed is better than one with no TSB history and known applicable bulletins. Pay particular attention to oil cooler TSBs on 2021–2023 examples.</p>
+    </div>
+  </div>
+
+  <h2>Score Interpretation</h2>
+  <p>These ranges map to the 1–5 scale from the Trail Manual reliability rubric. Use the weighted category scores to arrive at a composite.</p>
+  <div class="interp-grid">
+    <div class="interp-row">
+      <div class="interp-score good">4.0–5.0</div>
+      <div class="interp-desc">Buy with confidence. All critical recalls resolved, strong service history, no active issues. A pre-purchase inspection by an independent mechanic is still required — but the fundamentals are in order.</div>
+    </div>
+    <div class="interp-row">
+      <div class="interp-score warn">3.0–3.9</div>
+      <div class="interp-desc">Proceed with caution. Identify exactly which categories pulled the score down. A 3.5 with a weak TSB score is a different vehicle than a 3.5 with a weak Powertrain score. Get the specific issue documented and repair cost estimated before proceeding.</div>
+    </div>
+    <div class="interp-row">
+      <div class="interp-score bad">2.0–2.9</div>
+      <div class="interp-desc">Serious concerns. One or more high-weight categories scored poorly. Require a full dealer diagnostic, written documentation of all findings, and a meaningful price concession that reflects repair cost plus an uncertainty premium.</div>
+    </div>
+    <div class="interp-row">
+      <div class="interp-score bad">Below 2.0</div>
+      <div class="interp-desc">Walk away. Foundational issues — fire recall unresolved with latest remedy, active HV faults, no service history, or structural corrosion on the battery tray. No price concession compensates adequately for this level of risk.</div>
+    </div>
+  </div>
+
+  <h2>The Override Rule</h2>
+  <div class="warning-block">
+    <div class="warning-label">Non-Negotiable</div>
+    <p>Regardless of total score — if the fire recall has not been resolved with the latest Stellantis remedy, do not buy the vehicle. This condition cannot be averaged away by strong scores in other categories. It is a minimum threshold, not a variable.</p>
+  </div>
+
+  <p>The scoring framework is a structured way to surface problems that have economic consequences. The categories with lower weights (rust, TSBs, service history) still matter — a weak score there on an otherwise clean vehicle is a negotiating opportunity. A weak score in Category 1 (Powertrain) or Category 3 (Electrical) changes the fundamental economics of the purchase.</p>
+
+  <div class="article-footer-nav">
+    <p>Continue reading</p>
+    <div class="footer-nav-links">
+      <a class="footer-nav-link" href="/jl/4xe/buyers-guide.html">Buyer's Guide</a>
+      <a class="footer-nav-link" href="/jl/4xe/recall-guide.html">Recall History</a>
+      <a class="footer-nav-link" href="/jl/4xe/common-problems-guide.html">Common Problems</a>
+      <a class="footer-nav-link" href="/jl/4xe/">← All 4XE Guides</a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; Free reference for off-road owners. No ads, no affiliate links.</p>
+</footer>
+
+</body>
+</html>

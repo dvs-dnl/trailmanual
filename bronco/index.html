@@ -11,248 +11,121 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Early Ford Bronco — 1966–1977 | Trail Manual</title>
-  <meta name="description" content="The complete Trail Manual guide to the first-generation Ford Bronco — buyer's guides, engine options, Dana 44 front axle, suspension, rust, and parts sources.">
+  <title>Early Ford Bronco 1966–1977 | Trail Manual</title>
+  <meta name="description" content="The Trail Manual guide to the Early Ford Bronco — tools, database, and trusted reads for the 1966–1977 first-generation Bronco.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
   <style>
-    :root {
-      --slate: #2B3A4A;
-      --slate-d: #1A2330;
-      --slate-l: #5B6B7E;
-      --clay: #C97E50;
-      --clay-d: #A85D33;
-      --clay-l: #E8AB85;
-      --bone: #E8E2D2;
-      --bone-d: #C9C1AC;
-      --paper: #F7F4ED;
-      --sans: "DM Sans", -apple-system, sans-serif;
-      --mono: "JetBrains Mono", monospace;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--paper);
-      color: var(--slate);
-      font-family: var(--sans);
-      font-weight: 400;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
+:root{
+  --slate:#2B3A4A; --slate-d:#1A2330; --slate-l:#5B6B7E;
+  --clay:#C97E50; --clay-d:#A85D33; --clay-l:#E8AB85;
+  --bone:#E8E2D2; --bone-d:#C9C1AC; --paper:#F7F4ED; --panel:#FFFCF5;
+  --safety:#B23B2F; --good:#5E8C5A; --moss:#3D5B47;
+  --sans:"DM Sans",-apple-system,sans-serif;
+  --mono:"JetBrains Mono",monospace;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--slate);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 
-    /* ── Site header ─────────────────────────────────────────── */
-    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
-    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
-    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
-    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
-    .tm-nav { display: flex; gap: 20px; }
-    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
-    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+.topbar{background:var(--slate-d);border-bottom:1px solid #2B3A4A;position:sticky;top:0;z-index:100}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--bone)}
+.brand-mark{width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
+.brand-dot{width:5px;height:5px;border-radius:50%;background:var(--clay);display:inline-block;margin-bottom:2px}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,226,210,0.65);transition:color .15s}
+.nav a:hover,.nav a.active{color:var(--bone)}
 
-    /* ── Hero ────────────────────────────────────────────────── */
-    .hero {
-      border-bottom: 1px solid var(--bone);
-      padding: 64px 32px 56px;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 40px;
-      align-items: center;
-    }
-    .hero-text { min-width: 0; }
-    .hero-icon {
-      flex-shrink: 0;
-      opacity: 0.92;
-    }
-    .hero-icon svg {
-      display: block;
-      filter: drop-shadow(0 4px 24px rgba(43,58,74,0.12));
-    }
-    .eyebrow {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--clay);
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-family: var(--sans);
-      font-weight: 500;
-      font-size: clamp(42px, 7vw, 72px);
-      letter-spacing: -0.02em;
-      line-height: 0.95;
-      color: var(--slate);
-      margin-bottom: 20px;
-    }
-    .hero-lede {
-      font-family: var(--sans);
-      font-size: clamp(16px, 2vw, 19px);
-      font-weight: 400;
-      color: var(--slate-l);
-      max-width: 680px;
-      line-height: 1.55;
-      margin-bottom: 36px;
-    }
+.hero{max-width:var(--max);margin:0 auto;padding:64px 32px 48px;border-bottom:1px solid var(--bone)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
+.hero h1{font-weight:500;font-size:clamp(42px,7vw,72px);letter-spacing:-0.02em;line-height:0.95;margin-bottom:20px}
+.hero-lede{font-size:clamp(16px,2vw,19px);color:var(--slate-l);max-width:680px;line-height:1.55;margin-bottom:32px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bone);border:1px solid var(--bone-d);border-radius:4px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+.chip-dot{width:6px;height:6px;border-radius:50%;background:var(--clay)}
 
-    /* ── Stat chips ─────────────────────────────────────────── */
-    .stat-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .stat-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 7px 14px;
-      background: var(--bone);
-      border: 1px solid var(--bone-d);
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--slate);
-    }
-    .stat-chip-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--clay);
-      flex-shrink: 0;
-    }
+.section{max-width:var(--max);margin:0 auto;padding:56px 32px 0}
+.section.last{padding-bottom:80px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--bone);padding-bottom:14px;margin-bottom:24px;gap:24px;flex-wrap:wrap}
+.section-head .left{display:flex;align-items:baseline;gap:14px}
+.section-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate-l)}
+.section-title{font-size:24px;font-weight:600;letter-spacing:-0.015em}
+.section-sub{font-family:var(--mono);font-size:11px;color:var(--slate-l);letter-spacing:0.06em;text-transform:uppercase}
 
-    /* ── Content grid ────────────────────────────────────────── */
-    .content-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 56px 32px 80px;
-    }
-    .section-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--slate-l);
-      border-bottom: 1px solid var(--bone);
-      padding-bottom: 12px;
-      margin-bottom: 32px;
-    }
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1px;
-      background: var(--bone);
-      border: 1px solid var(--bone);
-    }
-    .card {
-      background: var(--paper);
-      padding: 28px;
-      text-decoration: none;
-      display: block;
-      transition: background 0.15s;
-      position: relative;
-    }
-    .card:hover {
-      background: var(--bone);
-    }
-    .card:hover .card-arrow {
-      transform: translateX(4px);
-      color: var(--clay);
-    }
-    .card-eyebrow {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--clay);
-      margin-bottom: 10px;
-    }
-    .card-title {
-      font-family: var(--sans);
-      font-weight: 500;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-      color: var(--slate);
-      margin-bottom: 10px;
-      line-height: 1.25;
-    }
-    .card-desc {
-      font-family: var(--sans);
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--slate-l);
-      line-height: 1.55;
-      margin-bottom: 20px;
-    }
-    .card-arrow {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate-l);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: transform 0.15s, color 0.15s;
-    }
-    .card-arrow::after {
-      content: '→';
-      font-size: 13px;
-    }
+/* Tools grid */
+.grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
+.tool-card{background:var(--paper);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative}
+.tool-card:hover{background:var(--bone)}
+.tool-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
+.tool-card.soon{opacity:.6}
+.tool-card.soon:hover{background:var(--paper)}
+.tool-card.soon:hover .arrow{transform:none;color:var(--slate-l)}
+.tool-icon{width:36px;height:36px;border-radius:6px;background:rgba(201,126,80,.14);color:var(--clay);display:flex;align-items:center;justify-content:center}
+.tool-icon.safety{background:rgba(178,59,47,.14);color:var(--safety)}
+.tool-icon.good{background:rgba(94,140,90,.14);color:var(--good)}
+.tool-icon.neutral{background:var(--bone);color:var(--slate-l)}
+.tool-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tool-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
+.tool-desc{font-size:14px;color:var(--slate-l);flex:1}
+.tool-foot{display:flex;align-items:center;justify-content:space-between}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1px solid var(--bone-d);color:var(--slate-l)}
+.tag.safety{background:rgba(178,59,47,.1);color:var(--safety);border-color:rgba(178,59,47,.3)}
+.tag.new{background:rgba(94,140,90,.12);color:var(--good);border-color:rgba(94,140,90,.3)}
+.tag.clay{background:rgba(201,126,80,.1);color:var(--clay);border-color:rgba(201,126,80,.3)}
+.arrow{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-l);display:inline-flex;align-items:center;gap:6px;transition:transform .15s,color .15s}
+.arrow::after{content:'\2192';font-size:13px}
 
-    /* ── Footer ─────────────────────────────────────────────── */
-    .site-footer {
-      border-top: 1px solid var(--bone);
-      padding: 28px 32px;
-      text-align: center;
-    }
-    .site-footer p {
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--bone-d);
-    }
+/* Learn grid */
+.grid-learn{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
+.learn-card{background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:190px;transition:background .15s}
+.learn-card:hover{background:var(--bone)}
+.learn-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
+.learn-eye{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay)}
+.learn-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.22}
+.learn-desc{font-size:13.5px;color:var(--slate-l);flex:1;line-height:1.5}
 
-    @media (max-width: 720px) {
-      .hero { grid-template-columns: 1fr; padding: 40px 20px 36px; }
-      .hero-icon { display: none; }
-    }
-    @media (max-width: 600px) {
-      .content-section { padding: 40px 20px 60px; }
-      .card-grid { grid-template-columns: 1fr; }
-      .tm-topbar-inner { padding: 12px 16px; }
-      .tm-nav { gap: 14px; }
-    }
-  </style>
+@media (max-width:900px){
+  .grid-tools,.grid-learn{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .hero{padding:40px 20px 32px}
+  .section{padding:40px 20px 0}
+  .section.last{padding-bottom:60px}
+  .grid-tools,.grid-learn{grid-template-columns:1fr}
+  .topbar-inner{padding:12px 16px}
+  .nav{gap:14px}
+}
+
+.footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:48px}
+.footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
+</style>
 </head>
 <body>
 
-<header class="tm-topbar">
-  <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/">
-      <span class="tm-brand-mark" aria-hidden="true">
-        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
-          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
-          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-        </svg>
-      </span>
-      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/></svg></span>
+      <span class="brand-text">TRAIL<span class="brand-dot"></span>MANUAL</span>
     </a>
-    <nav class="tm-nav">
+    <nav class="nav">
+      <a href="/xj/">Cherokee XJ</a>
+      <a href="/tj/">Wrangler TJ</a>
+      <a href="/jk/">Wrangler JK</a>
+      <a href="/jl/">Wrangler JL</a>
       <a href="/bronco/" class="active">Early Bronco</a>
-      <a href="/vehicle-research-tool.html">Used Garage</a>
-      <a href="/gear-ratio-calculator.html">Calculators</a>
+      <a href="/full-size-bronco/">Full-Size</a>
+      <a href="/bronco-ii/">Bronco II</a>
+      <a href="/bronco6g/">New Bronco</a>
+      <a href="/4runner/">4Runner</a>
+      <a href="/tacoma/">Tacoma</a>
     </nav>
   </div>
 </header>
@@ -260,119 +133,98 @@
 <main>
 
   <section class="hero">
-    <div class="hero-text">
-      <p class="eyebrow">Early Ford Bronco · 1966–1977</p>
-      <h1>The First Bronco.</h1>
-      <p class="hero-lede">Before Wranglers, before Tacomas — Ford built a go-anywhere open-wheel truck that defined what an off-road vehicle could be. First generation, full stop.</p>
-      <div class="stat-chips">
-        <span class="stat-chip"><span class="stat-chip-dot"></span>11 years of production</span>
-        <span class="stat-chip"><span class="stat-chip-dot"></span>4 body styles</span>
-        <span class="stat-chip"><span class="stat-chip-dot"></span>5 engine options</span>
+    <p class="eyebrow">Early Ford Bronco · 1966–1977</p>
+    <h1>The First Bronco.</h1>
+    <p class="hero-lede">Before Wranglers, before Tacomas — Ford built a go-anywhere open-wheel truck that defined what an off-road vehicle could be. Eleven years of production, solid axles front and rear, and a body short enough to crawl rocks no full-size could touch.</p>
+    <div class="chips">
+      <span class="chip"><span class="chip-dot"></span>1966–1977</span>
+      <span class="chip"><span class="chip-dot"></span>Solid front & rear axles</span>
+      <span class="chip"><span class="chip-dot"></span>170 I6 → 302 V8</span>
+      <span class="chip"><span class="chip-dot"></span>92" wheelbase</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-label">01 / Tools</span>
+        <h2 class="section-title">Built for your rig</h2>
       </div>
+      <span class="section-sub">4 tools</span>
     </div>
-    <div class="hero-icon" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 92" width="200" height="184">
-        <rect x="2" y="6" width="96" height="74" rx="3" fill="#1A2330"/>
-        <rect x="4" y="6" width="15" height="7" rx="1" fill="#C97E50"/>
-        <rect x="81" y="6" width="15" height="7" rx="1" fill="#C97E50"/>
-        <rect x="5" y="15" width="22" height="22" rx="1" fill="#C97E50"/>
-        <rect x="73" y="15" width="22" height="22" rx="1" fill="#C97E50"/>
-        <rect x="7" y="17" width="18" height="16" rx="0" fill="#A86038"/>
-        <rect x="75" y="17" width="18" height="16" rx="0" fill="#A86038"/>
-        <rect x="31" y="15" width="38" height="4" rx="1" fill="#F7F4ED"/>
-        <rect x="31" y="22" width="38" height="4" rx="1" fill="#F7F4ED"/>
-        <rect x="31" y="29" width="38" height="4" rx="1" fill="#F7F4ED"/>
-        <rect x="31" y="36" width="38" height="4" rx="1" fill="#F7F4ED"/>
-        <rect x="29" y="13" width="42" height="30" rx="1" fill="none" stroke="#2B3A4A" stroke-width="1.5"/>
-        <rect x="2" y="42" width="96" height="14" rx="0" fill="#0F1820"/>
-        <rect x="0" y="56" width="100" height="9" rx="2" fill="#0F1820"/>
-        <rect x="6" y="55" width="8" height="5" rx="1" fill="#0A1218"/>
-        <rect x="86" y="55" width="8" height="5" rx="1" fill="#0A1218"/>
-        <rect x="2" y="65" width="96" height="15" rx="2" fill="#1A2330"/>
-      </svg>
-    </div>
-  </section>
-
-  <section class="content-section">
-    <p class="section-label">Reference guides</p>
-    <div class="card-grid">
-
-      <a class="card" href="/bronco/buyers-guide.html">
-        <p class="card-eyebrow">Buyer's Guide</p>
-        <h2 class="card-title">Buying an Early Bronco</h2>
-        <p class="card-desc">What to look for, what to avoid, and what years are worth fighting for.</p>
-        <span class="card-arrow">Read guide</span>
+    <div class="grid-tools">
+      <a class="tool-card soon" href="#" aria-disabled="true">
+        <div class="tool-icon neutral"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg></div>
+        <div class="tool-title">Build List</div>
+        <div class="tool-desc">Stack lift, tires, armor, and recovery. Save, share, and price-check your build.</div>
+        <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
       </a>
 
-      <a class="card" href="/bronco/engine-guide.html">
-        <p class="card-eyebrow">Engine Guide</p>
-        <h2 class="card-title">Early Bronco Engines</h2>
-        <p class="card-desc">From the 170 six to Coyote swaps: every powertrain option explained.</p>
-        <span class="card-arrow">Read guide</span>
+      <a class="tool-card" href="/db/?v=bronco">
+        <div class="tool-icon good"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg></div>
+        <div class="tool-title">Database</div>
+        <div class="tool-desc">The reference library. Every DIY procedure for this platform, filtered to your trim, year, and engine.</div>
+        <div class="tool-foot"><span class="tag new">32 guides</span><span class="arrow">Browse</span></div>
       </a>
 
-      <a class="card" href="/bronco/dana-44-guide.html">
-        <p class="card-eyebrow">Axle Guide</p>
-        <h2 class="card-title">The Dana 44 Front Axle</h2>
-        <p class="card-desc">The strengths, the failure points, and when to rebuild vs. upgrade.</p>
-        <span class="card-arrow">Read guide</span>
+      <a class="tool-card soon" href="#" aria-disabled="true">
+        <div class="tool-icon neutral"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="tool-title">Maintenance</div>
+        <div class="tool-desc">Mileage-driven service schedule for your trim. Oil, diffs, transfer case, and more.</div>
+        <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
       </a>
 
-      <a class="card" href="/bronco/lift-suspension-guide.html">
-        <p class="card-eyebrow">Suspension Guide</p>
-        <h2 class="card-title">Lift and Suspension</h2>
-        <p class="card-desc">TTB, solid axle swap, spring-over: what works and what costs more than the truck.</p>
-        <span class="card-arrow">Read guide</span>
+      <a class="tool-card" href="/db/death-wobble-guide.html">
+        <div class="tool-icon safety"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
+        <div class="tool-title">Death Wobble</div>
+        <div class="tool-desc">Diagnose the cause in 8 questions. Track-bar, ball joints, tire balance — find it before it finds you.</div>
+        <div class="tool-foot"><span class="tag safety">Safety</span><span class="arrow">Diagnose</span></div>
       </a>
-
-      <a class="card" href="/bronco/rust-restoration-guide.html">
-        <p class="card-eyebrow">Restoration Guide</p>
-        <h2 class="card-title">Rust and Restoration</h2>
-        <p class="card-desc">Where they rot, what's fixable, and how to read a seller's story.</p>
-        <span class="card-arrow">Read guide</span>
-      </a>
-
-      <a class="card" href="/bronco/parts-vendors-guide.html">
-        <p class="card-eyebrow">Parts Guide</p>
-        <h2 class="card-title">Parts and Vendors</h2>
-        <p class="card-desc">Who makes what, who still stocks what, and who to trust.</p>
-        <span class="card-arrow">Read guide</span>
-      </a>
-
     </div>
   </section>
 
-  <section class="content-section" style="padding-top: 0;">
-    <p class="section-label">More Bronco Models</p>
-    <div class="card-grid">
-
-      <a class="card" href="/bronco-ii/">
-        <p class="card-eyebrow">Bronco II · 1984–1990</p>
-        <h2 class="card-title">Bronco II</h2>
-        <p class="card-desc">Ford's compact Ranger-based Bronco. TTB front suspension, Cologne V6, budget off-road.</p>
-        <span class="card-arrow">Read guides</span>
+  <section class="section last">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-label">02 / Learn</span>
+        <h2 class="section-title">Read and watch</h2>
+      </div>
+      <span class="section-sub">Latest · All posts · Workshop · Channels</span>
+    </div>
+    <div class="grid-learn">
+      <a class="learn-card" href="/blog/when-to-re-gear-axles/">
+        <p class="learn-eye">Latest blog</p>
+        <h3 class="learn-title">When to re-gear your axles</h3>
+        <p class="learn-desc">The math behind the change — and the feeling that tells you it’s time.</p>
+        <span class="arrow">Read</span>
       </a>
 
-      <a class="card" href="/full-size-bronco/">
-        <p class="card-eyebrow">Full-Size Bronco · 1978–1996</p>
-        <h2 class="card-title">Full-Size Bronco</h2>
-        <p class="card-desc">The big one — five generations, V8 power, and the shift from solid axle to TTB in 1980.</p>
-        <span class="card-arrow">Read guides</span>
+      <a class="learn-card" href="/blog/">
+        <p class="learn-eye">All posts</p>
+        <h3 class="learn-title">Read the blog</h3>
+        <p class="learn-desc">Every post — tools, mod tests, trail reports. Sorted by date, filterable.</p>
+        <span class="arrow">Browse</span>
       </a>
 
-      <a class="card" href="/bronco6g/">
-        <p class="card-eyebrow">New Bronco · 2021–Present</p>
-        <h2 class="card-title">6th Gen Bronco</h2>
-        <p class="card-desc">The return — solid axles, factory lockers, Sasquatch package, massive aftermarket.</p>
-        <span class="card-arrow">Read guides</span>
+      <a class="learn-card" href="/workshop/">
+        <p class="learn-eye">Workshop</p>
+        <h3 class="learn-title">Shop technique</h3>
+        <p class="learn-desc">Torque, seized bolts, brake bleed — the foundations every DIYer needs.</p>
+        <span class="arrow">Enter</span>
       </a>
 
+      <a class="learn-card" href="/channels/">
+        <p class="learn-eye">Channels</p>
+        <h3 class="learn-title">YouTubers we trust</h3>
+        <p class="learn-desc">Honest builders, working trucks. No sponsored fluff, no thumbnail screaming.</p>
+        <span class="arrow">See list</span>
+      </a>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
+<footer class="footer">
   <p>Trail Manual — honest research for capable vehicles.</p>
 </footer>
 

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ford Bronco II Rust Guide — Where They Rot and What Matters | Trail Manual</title>
+  <meta name="description" content="A complete guide to Ford Bronco II rust — the six primary rust zones, what's structural, what's repairable, and what makes a truck a parts car rather than a project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--slate);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Site header ─────────────────────────────────────────── */
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    /* ── Masthead ────────────────────────────────────────────── */
+    .masthead {
+      border-bottom: 1px solid var(--bone);
+      padding: 56px 32px 44px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+    .masthead .subhead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--slate-l);
+      max-width: 640px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .meta-line {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone-d);
+    }
+
+    /* ── Article body ────────────────────────────────────────── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article h2 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--slate);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+    .article h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    .article p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+
+    /* ── Rust zone cards ─────────────────────────────────────── */
+    .rust-zone {
+      border: 1px solid var(--bone);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .rust-zone-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--bone);
+      border-bottom: 1px solid var(--bone-d);
+    }
+    .rust-zone-number {
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--clay);
+      min-width: 28px;
+    }
+    .rust-zone-title {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--slate);
+      flex: 1;
+    }
+    .rust-badge {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      border: 1px solid;
+      white-space: nowrap;
+    }
+    .rust-badge.structural { background: rgba(178,59,47,0.06); color: var(--safety); border-color: rgba(178,59,47,0.25); }
+    .rust-badge.cosmetic { background: rgba(94,140,90,0.08); color: #5E8C5A; border-color: rgba(94,140,90,0.3); }
+    .rust-badge.monitor { background: rgba(216,144,53,0.08); color: #D89035; border-color: rgba(216,144,53,0.3); }
+    .rust-zone-body { padding: 18px 20px; background: var(--paper); }
+    .rust-zone-body p { font-size: 15px; line-height: 1.65; color: var(--slate); margin: 0; }
+    .rust-zone-body p + p { margin-top: 10px; }
+
+    /* ── Fixability table ────────────────────────────────────── */
+    .fix-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      border: 1px solid var(--bone);
+      border-radius: 4px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+    .fix-table th {
+      background: var(--bone);
+      padding: 10px 16px;
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      font-weight: 500;
+    }
+    .fix-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--bone);
+      color: var(--slate);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .fix-table tr:last-child td { border-bottom: none; }
+    .fix-table tr:nth-child(even) td { background: rgba(232,226,210,0.3); }
+    .fix-status {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .fix-status.fixable { color: var(--good); }
+    .fix-status.walkaway { color: var(--safety); }
+    .fix-status.budget { color: var(--warn); }
+
+    /* ── Verdict block ───────────────────────────────────────── */
+    .verdict {
+      border-left: 3px solid var(--clay);
+      padding: 18px 20px 18px 24px;
+      background: var(--bone);
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .verdict-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 8px;
+    }
+    .verdict p {
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Footer nav ──────────────────────────────────────────── */
+    .article-footer-nav {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--bone);
+    }
+    .footer-nav-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      margin-bottom: 16px;
+    }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bone);
+      border: 1px solid var(--bone-d);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .footer-nav-link.back::after { content: none; }
+    .footer-nav-link.back::before { content: '←'; color: var(--clay); }
+
+    /* ── Site footer ─────────────────────────────────────────── */
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 40px 20px 32px; }
+      .article { padding: 36px 20px 60px; }
+      .rust-zone-header { flex-wrap: wrap; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+      .footer-nav-links { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/bronco-ii/" class="active">Bronco II</a>
+      <a href="/bronco/">Early Bronco</a>
+      <a href="/bronco6g/">New Bronco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="masthead">
+    <p class="eyebrow">Ford Bronco II · Rust Guide</p>
+    <h1>Where They Rot and What Matters</h1>
+    <p class="subhead">Bronco IIs rust. The question isn't whether rust exists — it's where, how bad, and whether it's structural. Most survivors have rust in multiple locations. Your job is to know which ones end the conversation and which ones you can live with.</p>
+    <p class="meta-line">1984–1990 · All body styles · Six primary rust zones</p>
+  </div>
+
+  <article class="article">
+
+    <p>Get under the truck before you open the hood. Bring a flashlight and something to tap with — a screwdriver handle works fine. Hollow sounds, soft spots, and paint cracks that follow the seam lines tell you more than the seller's description ever will. This guide takes you through the zones in priority order, starting with the one that ends the deal.</p>
+
+    <h2>Primary Rust Zones</h2>
+
+    <div class="rust-zone">
+      <div class="rust-zone-header">
+        <span class="rust-zone-number">01</span>
+        <span class="rust-zone-title">Frame Rails</span>
+        <span class="rust-badge structural">Structural · Critical</span>
+      </div>
+      <div class="rust-zone-body">
+        <p>The most important inspection on any Bronco II. Get under and look at both frame rails from front to rear. You're looking at two danger zones: the front crossmember area where the TTB radius arm mounts bolt up, and the rear section behind the rear axle where water sits and steel gives up.</p>
+        <p>Surface rust, oxidation scale, and even moderate pitting are normal on a vehicle this old. Rust that goes through the steel — where you can push a pick or screwdriver through the rail — is not normal, and it's not repairable at reasonable cost. A perforated frame changes the vehicle's identity from project truck to parts donor. Do not buy a truck with a perforated frame expecting to fix it economically.</p>
+        <p>Also check the radius arm mount points specifically. These are welded to the frame and take significant dynamic load from the TTB. Rust that's compromised the area around the mount welds is a safety issue, not a cosmetic one.</p>
+      </div>
+    </div>
+
+    <div class="rust-zone">
+      <div class="rust-zone-header">
+        <span class="rust-zone-number">02</span>
+        <span class="rust-zone-title">Cab Corners</span>
+        <span class="rust-badge monitor">Repairable · Budget for it</span>
+      </div>
+      <div class="rust-zone-body">
+        <p>The most visible rust zone and the one sellers try to hide. Cab corners are the quarter panel area at the bottom rear of the cab — they collect water and rust from outside in and inside out simultaneously. Paint bubbling along the lower edge of the cab corner means the inner panel structure is already gone.</p>
+        <p>Replacement panels are available from aftermarket suppliers. A correct repair — cut out the rust, weld in new metal, properly treat and prime before paint — runs $800–$1,500 per side for professional body work. Sellers who have filled cab corners with Bondo and repainted them are offering you a cosmetic fix that will bubble through again within a few years. Probe suspicious areas with your screwdriver handle.</p>
+      </div>
+    </div>
+
+    <div class="rust-zone">
+      <div class="rust-zone-header">
+        <span class="rust-zone-number">03</span>
+        <span class="rust-zone-title">Rocker Panels</span>
+        <span class="rust-badge monitor">Semi-structural · Inspect carefully</span>
+      </div>
+      <div class="rust-zone-body">
+        <p>Inner and outer rockers rust together. The outer panel hides the inner structure, which rots from trapped moisture and road spray. The rockers connect the floor to the body structure — not load-bearing in the same way as the frame, but they matter for body integrity.</p>
+        <p>Tap along the bottom edge of the rocker panel from front wheel well to rear. A solid thud means intact metal. A hollow knock or soft flex means the inner rocker is gone. Rust that's been filled with fiberglass mat and painted over is a common and nearly worthless repair — looks solid until you press on it. Run your finger along the seam between the rocker and the body panel and feel for soft spots or seam sealer that's clearly covering something.</p>
+      </div>
+    </div>
+
+    <div class="rust-zone">
+      <div class="rust-zone-header">
+        <span class="rust-zone-number">04</span>
+        <span class="rust-zone-title">Floor Pans</span>
+        <span class="rust-badge monitor">Repairable · Pull the carpet</span>
+      </div>
+      <div class="rust-zone-body">
+        <p>Pull the carpet back, always. Sellers leave carpet in because it hides floors. The driver's front footwell and the area under the rear seat are the primary spots — water infiltrates from worn door seals and the cargo area, sits on the floor, and works from underneath simultaneously.</p>
+        <p>Surface discoloration and light rust are manageable: wire wheel, rust converter, seam sealer, and a proper coating. Rust that flexes when you push on it, or that you can push through with moderate pressure, means floor pan replacement. Aftermarket replacement pans exist and are affordable in materials — figure 6–12 hours of work to do the job correctly, plus welding equipment.</p>
+      </div>
+    </div>
+
+    <div class="rust-zone">
+      <div class="rust-zone-header">
+        <span class="rust-zone-number">05</span>
+        <span class="rust-zone-title">Tailgate Area and Rear Lower Body</span>
+        <span class="rust-badge monitor">Frequently missed</span>
+      </div>
+      <div class="rust-zone-body">
+        <p>The area around the tailgate hinge attachment points and the lower rear body panel trap water that has nowhere to drain effectively. Rust starts at the hinge attachment points and spreads into the surrounding structure. This is frequently missed during inspection because it's not visible without removing interior cargo area trim.</p>
+        <p>Look at the lower rear body panel from outside and check for bubbling or waviness in the paint near the bottom. Then get inside and look at the tailgate hinge mounting areas from the interior side. Water staining and rust scale on the inner face of the rear body is a signal that the outer panel is already compromised.</p>
+      </div>
+    </div>
+
+    <div class="rust-zone">
+      <div class="rust-zone-header">
+        <span class="rust-zone-number">06</span>
+        <span class="rust-zone-title">Rear Wheel Well Arches</span>
+        <span class="rust-badge monitor">Seam trap</span>
+      </div>
+      <div class="rust-zone-body">
+        <p>The seam between the outer wheel well arch panel and the inner structure is a water trap. Road spray gets behind the tire, hits the arch, and sits in the seam. Rust starts at the seam and works in both directions — outward through the visible arch panel and inward through the hidden structure.</p>
+        <p>Look at the inside of the wheel arch with your flashlight and look for rust starting from the top of the arch where the seam is. Also check the point where the arch meets the quarter panel — another seam that traps moisture. Surface rust here is normal; perforation through the arch panel or seam is a repair job that tends to be more involved than it looks.</p>
+      </div>
+    </div>
+
+    <h2>What's Fixable vs. Walk Away</h2>
+
+    <table class="fix-table">
+      <thead>
+        <tr>
+          <th>Condition</th>
+          <th>Verdict</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cab corners with rust</td>
+          <td><span class="fix-status fixable">Fixable</span></td>
+          <td>Budget $800–$1,500 per side for correct repair. Not a walk-away on its own.</td>
+        </tr>
+        <tr>
+          <td>Surface floor rust</td>
+          <td><span class="fix-status fixable">Fixable</span></td>
+          <td>Wire wheel, treat, coat, move on. Common and manageable.</td>
+        </tr>
+        <tr>
+          <td>Perforated floor pans</td>
+          <td><span class="fix-status budget">Budget carefully</span></td>
+          <td>Panel replacement is doable. Adds up in time if you're doing both front and rear sections.</td>
+        </tr>
+        <tr>
+          <td>Rocker panels — hollow but not perforated</td>
+          <td><span class="fix-status budget">Budget carefully</span></td>
+          <td>Inner rocker replacement is a body-off-frame-level job if done correctly. Price the truck accordingly.</td>
+        </tr>
+        <tr>
+          <td>Perforated frame rails</td>
+          <td><span class="fix-status walkaway">Walk away</span></td>
+          <td>Not economically fixable. A perforated frame is a parts vehicle.</td>
+        </tr>
+        <tr>
+          <td>TTB radius arm mount area compromised</td>
+          <td><span class="fix-status walkaway">Walk away</span></td>
+          <td>Structural and safety issue. The front suspension loads run through this point.</td>
+        </tr>
+        <tr>
+          <td>B-pillar base rust</td>
+          <td><span class="fix-status budget">Investigate thoroughly</span></td>
+          <td>Structural rust here is often hidden under seam sealer. Probe it. If it's gone through the base, the repair scope is significant.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="verdict">
+      <p class="verdict-label">Rust verdict</p>
+      <p>A Bronco II with surface rust everywhere but a solid frame is a project worth considering. A Bronco II with a compromised frame is parts. Know which one you're looking at before you open your wallet — and spend more time under the truck than you do looking at the paint.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p class="footer-nav-label">More Bronco II guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/bronco-ii/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/bronco-ii/rollover-stability-guide.html">Rollover &amp; Stability</a>
+        <a class="footer-nav-link back" href="/bronco-ii/">All Bronco II Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual · Free reference for off-road vehicle owners · No ads, no affiliate links</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeep Wrangler JK 2007–2018 | Trail Manual</title>
+  <meta name="description" content="The Trail Manual guide to the Jeep Wrangler JK — tools, DIY database, and trusted reads for the 2007–2018 JK and JKU.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+:root{
+  --slate:#2B3A4A; --slate-d:#1A2330; --slate-l:#5B6B7E;
+  --clay:#C97E50; --clay-d:#A85D33; --clay-l:#E8AB85;
+  --bone:#E8E2D2; --bone-d:#C9C1AC; --paper:#F7F4ED; --panel:#FFFCF5;
+  --safety:#B23B2F; --good:#5E8C5A; --moss:#3D5B47;
+  --sans:"DM Sans",-apple-system,sans-serif;
+  --mono:"JetBrains Mono",monospace;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--slate);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+.topbar{background:var(--slate-d);border-bottom:1px solid #2B3A4A;position:sticky;top:0;z-index:100}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--bone)}
+.brand-mark{width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
+.brand-dot{width:5px;height:5px;border-radius:50%;background:var(--clay);display:inline-block;margin-bottom:2px}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,226,210,0.65);transition:color .15s}
+.nav a:hover,.nav a.active{color:var(--bone)}
+
+.hero{max-width:var(--max);margin:0 auto;padding:64px 32px 48px;border-bottom:1px solid var(--bone)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
+.hero h1{font-weight:500;font-size:clamp(42px,7vw,72px);letter-spacing:-0.02em;line-height:0.95;margin-bottom:20px}
+.hero-lede{font-size:clamp(16px,2vw,19px);color:var(--slate-l);max-width:680px;line-height:1.55;margin-bottom:32px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bone);border:1px solid var(--bone-d);border-radius:4px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+.chip-dot{width:6px;height:6px;border-radius:50%;background:var(--clay)}
+
+.section{max-width:var(--max);margin:0 auto;padding:56px 32px 0}
+.section.last{padding-bottom:80px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--bone);padding-bottom:14px;margin-bottom:24px;gap:24px;flex-wrap:wrap}
+.section-head .left{display:flex;align-items:baseline;gap:14px}
+.section-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate-l)}
+.section-title{font-size:24px;font-weight:600;letter-spacing:-0.015em}
+.section-sub{font-family:var(--mono);font-size:11px;color:var(--slate-l);letter-spacing:0.06em;text-transform:uppercase}
+
+/* Tools grid */
+.grid-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
+.tool-card{background:var(--paper);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative}
+.tool-card:hover{background:var(--bone)}
+.tool-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
+.tool-card.soon{opacity:.6}
+.tool-card.soon:hover{background:var(--paper)}
+.tool-card.soon:hover .arrow{transform:none;color:var(--slate-l)}
+.tool-icon{width:36px;height:36px;border-radius:6px;background:rgba(201,126,80,.14);color:var(--clay);display:flex;align-items:center;justify-content:center}
+.tool-icon.safety{background:rgba(178,59,47,.14);color:var(--safety)}
+.tool-icon.good{background:rgba(94,140,90,.14);color:var(--good)}
+.tool-icon.neutral{background:var(--bone);color:var(--slate-l)}
+.tool-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.tool-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
+.tool-desc{font-size:14px;color:var(--slate-l);flex:1}
+.tool-foot{display:flex;align-items:center;justify-content:space-between}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1px solid var(--bone-d);color:var(--slate-l)}
+.tag.safety{background:rgba(178,59,47,.1);color:var(--safety);border-color:rgba(178,59,47,.3)}
+.tag.new{background:rgba(94,140,90,.12);color:var(--good);border-color:rgba(94,140,90,.3)}
+.tag.clay{background:rgba(201,126,80,.1);color:var(--clay);border-color:rgba(201,126,80,.3)}
+.arrow{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-l);display:inline-flex;align-items:center;gap:6px;transition:transform .15s,color .15s}
+.arrow::after{content:'\2192';font-size:13px}
+
+/* Learn grid */
+.grid-learn{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
+.learn-card{background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:190px;transition:background .15s}
+.learn-card:hover{background:var(--bone)}
+.learn-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
+.learn-eye{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay)}
+.learn-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.22}
+.learn-desc{font-size:13.5px;color:var(--slate-l);flex:1;line-height:1.5}
+
+@media (max-width:900px){
+  .grid-tools,.grid-learn{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  .hero{padding:40px 20px 32px}
+  .section{padding:40px 20px 0}
+  .section.last{padding-bottom:60px}
+  .grid-tools,.grid-learn{grid-template-columns:1fr}
+  .topbar-inner{padding:12px 16px}
+  .nav{gap:14px}
+}
+
+.footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:48px}
+.footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/></svg></span>
+      <span class="brand-text">TRAIL<span class="brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="nav">
+      <a href="/xj/">Cherokee XJ</a>
+      <a href="/tj/">Wrangler TJ</a>
+      <a href="/jk/" class="active">Wrangler JK</a>
+      <a href="/jl/">Wrangler JL</a>
+      <a href="/bronco/">Early Bronco</a>
+      <a href="/full-size-bronco/">Full-Size</a>
+      <a href="/bronco-ii/">Bronco II</a>
+      <a href="/bronco6g/">New Bronco</a>
+      <a href="/4runner/">4Runner</a>
+      <a href="/tacoma/">Tacoma</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <p class="eyebrow">Jeep Wrangler JK · 2007–2018</p>
+    <h1>The Modern Wrangler.</h1>
+    <p class="hero-lede">Eleven years of production, the first four-door Wrangler, and the platform that built the modern Jeep aftermarket. Solid axles, removable doors and top, and a build community that documented every part of the truck.</p>
+    <div class="chips">
+      <span class="chip"><span class="chip-dot"></span>2007–2018</span>
+      <span class="chip"><span class="chip-dot"></span>Solid front & rear axles</span>
+      <span class="chip"><span class="chip-dot"></span>3.8L V6 / 3.6L Pentastar</span>
+      <span class="chip"><span class="chip-dot"></span>Dana 30/44 · Dana 44</span>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-label">01 / Tools</span>
+        <h2 class="section-title">Built for your rig</h2>
+      </div>
+      <span class="section-sub">6 tools</span>
+    </div>
+    <div class="grid-tools">
+      <a class="tool-card" href="/db/?v=jk">
+        <div class="tool-icon good"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg></div>
+        <div class="tool-title">Database</div>
+        <div class="tool-desc">The reference library. Every DIY procedure for this platform, filtered to your trim, year, and engine.</div>
+        <div class="tool-foot"><span class="tag new">60+ guides</span><span class="arrow">Browse</span></div>
+      </a>
+
+      <a class="tool-card" href="/my-garage.html">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="tool-title">My Garage</div>
+        <div class="tool-desc">Log every service and build project for this rig. Mileage tracking, service intervals, and a per-vehicle history that stays on your device.</div>
+        <div class="tool-foot"><span class="tag new">New</span><span class="arrow">Open</span></div>
+      </a>
+
+      <a class="tool-card" href="/db/jk-death-wobble-guide.html">
+        <div class="tool-icon safety"><svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
+        <div class="tool-title">Death Wobble</div>
+        <div class="tool-desc">Diagnose the cause in 8 questions. Track-bar, ball joints, tire balance — find it before it finds you.</div>
+        <div class="tool-foot"><span class="tag safety">Safety</span><span class="arrow">Diagnose</span></div>
+      </a>
+
+      <a class="tool-card" href="/jk-wrangler-engine-swap-tool.html">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M4 14V8a2 2 0 0 1 2-2h2l2-2h4l2 2h2a2 2 0 0 1 2 2v6"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></div>
+        <div class="tool-title">V8 Engine Swap</div>
+        <div class="tool-desc">Compare every JK V8 path — AEV Hemi, MoTech LT, Bruiser LX3, DIY LS. Honest Phoenix-emissions verdicts, real cost ranges, and a "Start My Build" button that attaches a parts checklist to your rig.</div>
+        <div class="tool-foot"><span class="tag clay">Decision tool</span><span class="arrow">Compare</span></div>
+      </a>
+
+      <a class="tool-card" href="/v8-swap-parts-checklist.html">
+        <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div class="tool-title">V8 Swap Parts Checklist</div>
+        <div class="tool-desc">Pick an engine path, get the full parts list — engine, trans, harness, cooling, fuel, A/C, axles. Check parts off as you buy and install. Costs total live, progress saves locally.</div>
+        <div class="tool-foot"><span class="tag new">New</span><span class="arrow">Build</span></div>
+      </a>
+
+      <a class="tool-card soon" href="#" aria-disabled="true">
+        <div class="tool-icon neutral"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg></div>
+        <div class="tool-title">Build List</div>
+        <div class="tool-desc">Stack lift, tires, armor, and recovery. Save, share, and price-check your build.</div>
+        <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section last">
+    <div class="section-head">
+      <div class="left">
+        <span class="section-label">02 / Learn</span>
+        <h2 class="section-title">Read and watch</h2>
+      </div>
+      <span class="section-sub">Latest · All posts · Workshop · Channels</span>
+    </div>
+    <div class="grid-learn">
+      <a class="learn-card" href="/blog/when-to-re-gear-axles/">
+        <p class="learn-eye">Latest blog</p>
+        <h3 class="learn-title">When to re-gear your axles</h3>
+        <p class="learn-desc">The math behind the change — and the feeling that tells you it’s time.</p>
+        <span class="arrow">Read</span>
+      </a>
+
+      <a class="learn-card" href="/blog/">
+        <p class="learn-eye">All posts</p>
+        <h3 class="learn-title">Read the blog</h3>
+        <p class="learn-desc">Every post — tools, mod tests, trail reports. Sorted by date, filterable.</p>
+        <span class="arrow">Browse</span>
+      </a>
+
+      <a class="learn-card" href="/workshop/">
+        <p class="learn-eye">Workshop</p>
+        <h3 class="learn-title">Shop technique</h3>
+        <p class="learn-desc">Torque, seized bolts, brake bleed — the foundations every DIYer needs.</p>
+        <span class="arrow">Enter</span>
+      </a>
+
+      <a class="learn-card" href="/channels/">
+        <p class="learn-eye">Channels</p>
+        <h3 class="learn-title">YouTubers we trust</h3>
+        <p class="learn-desc">Honest builders, working trucks. No sponsored fluff, no thumbnail screaming.</p>
+        <span class="arrow">See list</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Trail Manual — honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>

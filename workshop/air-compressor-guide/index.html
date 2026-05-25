@@ -15,23 +15,40 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Air Compressor Guide for a Home Shop — The Workshop · Trail Manual</title>
 <meta name="description" content="How to choose a shop air compressor. CFM, tank size, oil vs. oil-free, 120V vs. 240V — the specs that matter and what most DIYers actually need.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0e1116; --bg-2:#171b22; --bg-3:#1f242d;
-  --panel:#1a1f27; --panel-2:#222831; --border:#2c333e;
-  --text:#e6e8eb; --text-dim:#9aa3b1; --text-mute:#6b7280;
-  --accent:#c5a572; --accent-2:#7a8c4f; --accent-3:#b86e3a;
-  --danger:#e57373; --danger-bg:rgba(229,115,115,.1); --danger-border:rgba(229,115,115,.35);
-  --warn:#ffb74d; --warn-bg:rgba(255,183,77,.1); --warn-border:rgba(255,183,77,.35);
-  --good:#81c784; --good-bg:rgba(129,199,132,.1); --good-border:rgba(129,199,132,.35);
-  --info:#64b5f6; --info-bg:rgba(100,181,246,.1); --info-border:rgba(100,181,246,.35);
-  --radius:8px; --radius-lg:12px; --max:800px;
+  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  /* Legacy aliases — light-theme values mapped from canon */
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--panel-canon); --panel-2:var(--bone); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:1200px;
+
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
 }
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
-.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0e1116 0%,rgba(14,17,22,.94) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--paper) 0%, rgba(247,244,237,.96) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
 .topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
 .brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}

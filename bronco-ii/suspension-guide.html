@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ford Bronco II Suspension Guide — TTB, Lift Options, and SAS | Trail Manual</title>
+  <meta name="description" content="Everything you need to know about the Ford Bronco II TTB suspension — how it works, ball joint maintenance, lift options from 2 to 5 inches, and when to consider a solid axle swap.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--slate);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Site header ─────────────────────────────────────────── */
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    /* ── Masthead ────────────────────────────────────────────── */
+    .masthead {
+      border-bottom: 1px solid var(--bone);
+      padding: 56px 32px 44px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+    .masthead .subhead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--slate-l);
+      max-width: 640px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .meta-line {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone-d);
+    }
+
+    /* ── Article body ────────────────────────────────────────── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article h2 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--slate);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+    .article h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    .article p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+
+    /* ── Spec table ──────────────────────────────────────────── */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      border: 1px solid var(--bone);
+      border-radius: 4px;
+      overflow: hidden;
+      font-size: 14px;
+    }
+    .spec-table th {
+      background: var(--bone);
+      padding: 10px 16px;
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      font-weight: 500;
+    }
+    .spec-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--bone);
+      color: var(--slate);
+      line-height: 1.5;
+    }
+    .spec-table tr:last-child td { border-bottom: none; }
+    .spec-table tr:nth-child(even) td { background: rgba(232,226,210,0.3); }
+
+    /* ── Lift options ────────────────────────────────────────── */
+    .lift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--bone);
+      border: 1px solid var(--bone);
+      margin: 24px 0;
+    }
+    .lift-card { background: var(--paper); padding: 20px 22px; }
+    .lift-amount {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--clay);
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .lift-label {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      margin-bottom: 8px;
+    }
+    .lift-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      border: 1px solid;
+      margin-bottom: 10px;
+    }
+    .lift-badge.good { background: rgba(94,140,90,0.08); color: #5E8C5A; border-color: rgba(94,140,90,0.3); }
+    .lift-badge.caution { background: rgba(216,144,53,0.08); color: #D89035; border-color: rgba(216,144,53,0.3); }
+    .lift-badge.advanced { background: rgba(91,107,126,0.08); color: var(--slate-l); border-color: rgba(91,107,126,0.3); }
+    .lift-card p { font-size: 13px; color: var(--slate-l); line-height: 1.55; margin: 0; }
+
+    /* ── Verdict block ───────────────────────────────────────── */
+    .verdict {
+      border-left: 3px solid var(--clay);
+      padding: 18px 20px 18px 24px;
+      background: var(--bone);
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .verdict-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 8px;
+    }
+    .verdict p {
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Info block ──────────────────────────────────────────── */
+    .info-block {
+      border-left: 3px solid var(--bone-d);
+      padding: 16px 20px 16px 22px;
+      background: var(--paper);
+      margin: 24px 0;
+      border-radius: 0 4px 4px 0;
+      border: 1px solid var(--bone);
+      border-left: 3px solid var(--slate-l);
+    }
+    .info-block p { font-size: 15px; color: var(--slate-l); line-height: 1.65; margin: 0; }
+    .info-block p + p { margin-top: 10px; }
+
+    /* ── Footer nav ──────────────────────────────────────────── */
+    .article-footer-nav {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--bone);
+    }
+    .footer-nav-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      margin-bottom: 16px;
+    }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bone);
+      border: 1px solid var(--bone-d);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .footer-nav-link.back::after { content: none; }
+    .footer-nav-link.back::before { content: '←'; color: var(--clay); }
+
+    /* ── Site footer ─────────────────────────────────────────── */
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 40px 20px 32px; }
+      .article { padding: 36px 20px 60px; }
+      .lift-grid { grid-template-columns: 1fr; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+      .footer-nav-links { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/bronco-ii/" class="active">Bronco II</a>
+      <a href="/bronco/">Early Bronco</a>
+      <a href="/bronco6g/">New Bronco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="masthead">
+    <p class="eyebrow">Ford Bronco II · Suspension Guide</p>
+    <h1>TTB Suspension &amp; Lift Options</h1>
+    <p class="subhead">The Twin Traction Beam is the defining mechanical fact of the Bronco II. Understanding what it is, how it works, and where it fails is the first thing any Bronco II owner needs to know before they start bolting parts on.</p>
+    <p class="meta-line">1984–1990 · Front TTB · Rear leaf springs · Lift options through SAS</p>
+  </div>
+
+  <article class="article">
+
+    <h2>What TTB Is</h2>
+    <p>TTB stands for Twin Traction Beam — Ford's independent front suspension design used from 1980 onward on the Ranger and Bronco II platforms. Unlike a traditional solid front axle, each front wheel is attached to its own beam that pivots from a common point near the center of the vehicle. Each beam swings through an arc as the suspension compresses and extends.</p>
+    <p>That pivot geometry is the critical thing to understand. As the beams move through their arc, they create camber and caster changes at the wheel. At stock ride height, those changes are managed. As you add lift, the geometry changes become more pronounced — and at higher lift heights, you start fighting tire scrub, handling changes, and accelerated tire wear without proper correction.</p>
+
+    <div class="info-block">
+      <p>TTB is not a bad design. It allows more articulation than a conventional IFS system and works well within its design envelope. The problems start when people lift it without understanding the geometry, or neglect the ball joints that keep it functional.</p>
+    </div>
+
+    <h3>Key TTB facts</h3>
+    <p>Each front beam runs from the outer wheel to a pivot point near the frame center. The beams are controlled fore and aft by radius arms that mount to the frame at the front. The suspension uses coil springs at the front — not leaf springs. Ball joints at the outer ends of each beam are the primary wear item. The Dana 28 front axle (or Dana 35 front on some trims) provides the differential function, while each half-shaft runs outboard to the wheel through the beam.</p>
+
+    <h2>Stock Suspension Specifications</h2>
+
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Specification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Front suspension type</td>
+          <td>Twin Traction Beam (TTB) independent with coil springs</td>
+        </tr>
+        <tr>
+          <td>Front axle</td>
+          <td>Dana 28 (most) / Dana 35 TTB (later Sport models)</td>
+        </tr>
+        <tr>
+          <td>Front wheel travel (stock)</td>
+          <td>Approximately 5.5 inches</td>
+        </tr>
+        <tr>
+          <td>Rear suspension type</td>
+          <td>Leaf springs, live axle</td>
+        </tr>
+        <tr>
+          <td>Rear axle</td>
+          <td>Dana 35 (most configurations)</td>
+        </tr>
+        <tr>
+          <td>Stock tire diameter</td>
+          <td>27"–28" (varies by trim)</td>
+        </tr>
+        <tr>
+          <td>Max lift before geometry correction needed</td>
+          <td>Approximately 2" with quality kit</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Lift Options</h2>
+    <p>The TTB geometry limits how high you can lift without running into handling and tire wear problems. Here's what the options actually look like:</p>
+
+    <div class="lift-grid">
+      <div class="lift-card">
+        <p class="lift-amount">2"</p>
+        <p class="lift-label">Practical daily lift</p>
+        <span class="lift-badge good">Recommended</span>
+        <p>Achievable with quality replacement coils or coil spacers — Rough Country and Superlift both make Bronco II-specific kits. Retains acceptable geometry. Fits 31" tires without significant rubbing. Get an alignment after installation. Budget $300–$600 for parts, $150–$250 for alignment.</p>
+      </div>
+      <div class="lift-card">
+        <p class="lift-amount">3–4"</p>
+        <p class="lift-label">Geometry correction required</p>
+        <span class="lift-badge caution">Correction needed</span>
+        <p>At this height, camber change and caster shift become problems you can't correct with alignment alone. Radius arm drop brackets are required to bring the geometry back into range. Superlift makes a complete kit. Budget $600–$1,200 installed. Skips this and you'll eat through tires and wonder why the truck wanders.</p>
+      </div>
+      <div class="lift-card">
+        <p class="lift-amount">5"+</p>
+        <p class="lift-label">SAS territory</p>
+        <span class="lift-badge advanced">Plan for SAS</span>
+        <p>Not recommended on stock TTB. At 5" and above, the geometry becomes difficult to correct in a way that produces predictable handling. Most serious builders going this high are doing a solid axle swap at the same time — and that's the right call. Don't fight the geometry this hard on a budget platform.</p>
+      </div>
+    </div>
+
+    <h2>Ball Joint Maintenance</h2>
+    <p>Upper ball joints are the critical maintenance item on the Bronco II TTB. Ford's design puts high stress on the upper ball joint — it carries load in a way that wears it faster than a ball joint on a traditional solid front axle setup. This isn't a flaw unique to Bronco IIs; it's the nature of the TTB design.</p>
+    <p>Signs of worn upper ball joints: steering wander that's worse on rough roads, a clunking or popping sound over bumps, and — if you jack the front end and grab the wheel at 12 and 6 o'clock — visible or feelable play. When checking for play, support the beam at the coil spring location, not under the wheel. If you support under the wheel, you unload the ball joint and won't see the actual wear.</p>
+
+    <h3>Replacement</h3>
+    <p>Moog Problem Solver upper ball joints are the go-to choice — they're greaseable and made to a higher spec than the OEM replacements. Parts cost runs $120–$150 per side for a quality upper ball joint. A full front end job (uppers, lowers, alignment) runs $300–$500 in parts and $200–$300 for labor, depending on your market. Do both sides at the same time. An alignment is not optional after this work.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">Ball joint verdict</p>
+      <p>If you don't know when the ball joints were last replaced and you're buying a truck, replace them before you trail it. This is a $400–$600 job that eliminates a genuine safety variable. Budget it as part of the purchase cost.</p>
+    </div>
+
+    <h2>Solid Axle Swap (SAS)</h2>
+    <p>The SAS is the serious build choice for Bronco II owners who want to go bigger. It replaces the TTB entirely with a solid front axle — typically a Dana 44 — which eliminates the geometry compromise, allows for more lift, and opens up significantly more aftermarket support.</p>
+
+    <h3>Donor axle options</h3>
+    <p>The most common donor is a 1978–1979 full-size Bronco high-pinion Dana 44. It's the right width, comes with known strength, and has strong aftermarket support. Salvage yard 44s from Scout IIs, older Chevrolet trucks, and other applications are also used. The high-pinion orientation (where the driveshaft connects above center) is preferred because it provides better ground clearance at the differential housing.</p>
+
+    <h3>What's involved</h3>
+    <p>The SAS requires custom crossmember fabrication to mount the axle and spring perches, new steering geometry to work with the solid axle, and a longer front driveshaft. Spring perches (or radius arm mounts for a radius arm setup) need to be fabricated or purchased as a kit. This is not a weekend project. Plan on 40–80 hours of garage time if you're fabricating, or use a complete kit from a specialist builder if you want to minimize complexity.</p>
+    <p>Cost range: $1,500–$4,000 depending on how much fabrication your setup requires and what axle you source. The swap is well-documented in Bronco II communities — find builds that match your goals and reverse-engineer the spec list before you start buying parts.</p>
+
+    <h2>Rear Suspension</h2>
+    <p>The rear is simpler: leaf springs on a Dana 35 axle. Add-a-leaf packs or full replacement leaf packs are both reasonable options for a 2" rear lift. Rancho, Superlift, and Skyjacker all make Bronco II rear leaf kits. A 2" rear lift pairs well with a 2" front lift to keep the truck level.</p>
+    <p>The Dana 35 rear axle is adequate for stock tires and moderate trail use. For anything more aggressive — 33" tires or higher, regular wheeling — a Dana 44 rear axle swap is worth considering at the same time as the front SAS.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">Suspension verdict</p>
+      <p>For a trail truck staying under 33" tires, a quality 2" TTB lift is the practical choice. Budget $400–$800 all-in, get an alignment, and replace the ball joints at the same time if they're original. If you're going bigger — or want 35s and meaningful articulation — plan for SAS from the beginning. Doing it twice costs twice as much.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p class="footer-nav-label">More Bronco II guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/bronco-ii/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/bronco-ii/engine-guide.html">Engine Guide</a>
+        <a class="footer-nav-link" href="/bronco-ii/rollover-stability-guide.html">Rollover &amp; Stability</a>
+        <a class="footer-nav-link back" href="/bronco-ii/">All Bronco II Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual · Free reference for off-road vehicle owners · No ads, no affiliate links</p>
+</footer>
+
+</body>
+</html>

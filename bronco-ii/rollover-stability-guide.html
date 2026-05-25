@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ford Bronco II Rollover &amp; Stability Guide — The Real History | Trail Manual</title>
+  <meta name="description" content="The honest guide to Ford Bronco II rollover risk — the NHTSA history, the geometry behind the problem, what actually increases risk, and what actually helps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--slate);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Site header ─────────────────────────────────────────── */
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    /* ── Masthead ────────────────────────────────────────────── */
+    .masthead {
+      border-bottom: 1px solid var(--bone);
+      padding: 56px 32px 44px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+    .masthead .subhead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--slate-l);
+      max-width: 640px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .meta-line {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone-d);
+    }
+
+    /* ── Article body ────────────────────────────────────────── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article h2 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--slate);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+    .article h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    .article p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+
+    /* ── Timeline ────────────────────────────────────────────── */
+    .timeline { margin: 28px 0; border-left: 2px solid var(--bone-d); padding-left: 24px; }
+    .timeline-item { margin-bottom: 24px; position: relative; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -29px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--clay);
+      border: 2px solid var(--paper);
+    }
+    .timeline-year {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 4px;
+    }
+    .timeline-item p { font-size: 15px; line-height: 1.65; color: var(--slate); margin: 0; }
+
+    /* ── Risk / help two-column ──────────────────────────────── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--bone);
+      border: 1px solid var(--bone);
+      margin: 28px 0;
+    }
+    .two-col-panel { background: var(--paper); padding: 22px 24px; }
+    .two-col-header {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--bone);
+    }
+    .two-col-header.risk { color: var(--safety); }
+    .two-col-header.help { color: var(--good); }
+    .factor-list { list-style: none; }
+    .factor-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--bone);
+      font-size: 14px;
+      color: var(--slate);
+      line-height: 1.5;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .factor-list li:last-child { border-bottom: none; }
+    .factor-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-top: 5px;
+      flex-shrink: 0;
+    }
+    .factor-dot.risk { background: var(--safety); }
+    .factor-dot.help { background: var(--good); }
+
+    /* ── Safety alert ────────────────────────────────────────── */
+    .safety-note {
+      border-left: 3px solid var(--safety);
+      padding: 16px 20px 16px 22px;
+      background: rgba(178,59,47,0.04);
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .safety-note-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--safety);
+      margin-bottom: 8px;
+    }
+    .safety-note p { font-size: 15px; color: var(--slate); line-height: 1.65; margin: 0; }
+
+    /* ── Verdict block ───────────────────────────────────────── */
+    .verdict {
+      border-left: 3px solid var(--clay);
+      padding: 18px 20px 18px 24px;
+      background: var(--bone);
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .verdict-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 8px;
+    }
+    .verdict p {
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Footer nav ──────────────────────────────────────────── */
+    .article-footer-nav {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--bone);
+    }
+    .footer-nav-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      margin-bottom: 16px;
+    }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bone);
+      border: 1px solid var(--bone-d);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .footer-nav-link.back::after { content: none; }
+    .footer-nav-link.back::before { content: '←'; color: var(--clay); }
+
+    /* ── Site footer ─────────────────────────────────────────── */
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 40px 20px 32px; }
+      .article { padding: 36px 20px 60px; }
+      .two-col { grid-template-columns: 1fr; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+      .footer-nav-links { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/bronco-ii/" class="active">Bronco II</a>
+      <a href="/bronco/">Early Bronco</a>
+      <a href="/bronco6g/">New Bronco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="masthead">
+    <p class="eyebrow">Ford Bronco II · Rollover &amp; Stability</p>
+    <h1>The Real Rollover History</h1>
+    <p class="subhead">The Ford Bronco II has a documented rollover history. NHTSA investigated it, Ford settled a class action in 1995, and the vehicle was discontinued. This guide explains what actually caused the risk, what the geometry looks like, and what — if anything — you can do about it today.</p>
+    <p class="meta-line">1984–1990 · TTB geometry · NHTSA history · Practical risk management</p>
+  </div>
+
+  <article class="article">
+
+    <div class="safety-note">
+      <p class="safety-note-label">Safety context</p>
+      <p>This guide covers a documented safety issue honestly. The goal is accurate information, not alarm or dismissal. Understanding the physics and history helps you make better decisions about how you use the vehicle, what modifications actually help, and what makes the situation worse.</p>
+    </div>
+
+    <h2>What You Need to Know First</h2>
+    <p>The Bronco II rolls over if pushed hard enough in emergency maneuvers. This is documented, litigated, and settled. The question isn't whether it happened — it did. The question is what the geometry behind it looks like, what actually increases the risk in daily use, and what you can do about it.</p>
+    <p>The short version: the Bronco II has a higher center of gravity relative to its track width than most contemporary vehicles, and the TTB suspension geometry works against you at the moment you need it most — when you're in a hard emergency maneuver. The margin between normal operation and rollover is smaller than it is in most vehicles. Drive it knowing that, and maintain it properly, and the risk is manageable. Push it in ways it wasn't designed for, and the margin disappears.</p>
+
+    <h2>The History</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="timeline-year">Late 1980s</p>
+        <p>NHTSA begins receiving rollover complaints and opens an investigation into the Bronco II following reported incidents in which drivers lost control and the vehicle rolled over during emergency maneuvers at highway speeds.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">1988</p>
+        <p>Consumers Union publishes a study finding the Bronco II more prone to tipping in emergency handling tests than comparable compact SUVs of the period. Ford challenges the methodology; the debate becomes public.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">1989–1990</p>
+        <p>Ford maintains the vehicle is safe when operated normally, pointing to driver behavior and road conditions in accident reports. The Bronco II is officially discontinued in 1990, replaced by the Explorer — which Ford positions as having improved handling characteristics.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">1995</p>
+        <p>Ford settles a class action lawsuit for approximately $65 million. The settlement provides for a Consumer Alert label warning about rollover risk and offers free suspension modifications — primarily shock absorber upgrades — to owners who requested them. No admission of a design defect is included in the settlement terms.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-year">1990s–2000s</p>
+        <p>Ford's Explorer encounters its own high-profile rollover controversy, this time involving Firestone tire failures. The Bronco II situation recedes from public attention as the Explorer case dominates coverage of SUV rollover risk.</p>
+      </div>
+    </div>
+
+    <h2>The Geometry Explanation</h2>
+    <p>Two geometric facts combine to create the Bronco II's rollover susceptibility. Neither alone would be disqualifying. Together, they create a vehicle with less margin than its competitors.</p>
+
+    <h3>1. High center of gravity relative to track width</h3>
+    <p>The Bronco II's body sits high on a relatively narrow track width — the distance between the tire contact patches on the left and right sides. A high CG on a narrow footprint is the classic recipe for rollover susceptibility: the vehicle has to lean further before gravity works against it, but it also reaches that point faster in a hard maneuver than a wider-tracked or lower vehicle would.</p>
+    <p>This isn't unique to the Bronco II — it's true of early Jeep CJs, early full-size Broncos, Land Cruisers of the era, and many trucks of the period. The Bronco II's numbers sat at the edge of what was normal, not far outside it.</p>
+
+    <h3>2. TTB geometry in emergency cornering</h3>
+    <p>This is the less obvious factor. When the Bronco II enters a hard turn, the body rolls toward the outside of the turn. As it does, the TTB beam on the outside of the turn compresses — and because of the pivot geometry, this compression changes the camber of the outer wheel (the wheel that's carrying most of the vehicle's weight in the corner).</p>
+    <p>That camber change reduces the cornering force available from the outer tire at precisely the moment when you need maximum cornering grip. In engineering terms, the suspension geometry works against the vehicle's stability at the critical moment. A solid front axle doesn't have this characteristic — under body roll, a solid axle maintains more consistent wheel camber, keeping the outer tire's contact patch flatter and its grip higher.</p>
+    <p>The result: in a hard, abrupt steering maneuver — the kind you make to avoid a hazard on the highway — the Bronco II's recoverable limit is lower than a vehicle with a solid front axle or a better-geometry IFS system would be at the same speed.</p>
+
+    <h2>What Actually Increases the Risk</h2>
+
+    <div class="two-col">
+      <div class="two-col-panel">
+        <p class="two-col-header risk">Increases risk</p>
+        <ul class="factor-list">
+          <li>
+            <span class="factor-dot risk"></span>
+            <span><strong>Oversized tires without proper lift.</strong> Larger tires raise the center of gravity without widening the track. You get more height, less stability.</span>
+          </li>
+          <li>
+            <span class="factor-dot risk"></span>
+            <span><strong>Worn ball joints.</strong> Worn TTB ball joints reduce control authority — the vehicle steers less predictably and recovers from hard maneuvers with less precision.</span>
+          </li>
+          <li>
+            <span class="factor-dot risk"></span>
+            <span><strong>Improper tire inflation.</strong> Overinflated tires reduce contact patch size and cornering grip. Underinflated tires for trail use degrade on-road handling.</span>
+          </li>
+          <li>
+            <span class="factor-dot risk"></span>
+            <span><strong>Lifting without geometry correction.</strong> A lift that changes caster and camber without correcting them via radius arm drops produces unpredictable handling that differs from what the driver expects.</span>
+          </li>
+          <li>
+            <span class="factor-dot risk"></span>
+            <span><strong>Aggressive cornering at highway speed.</strong> The Bronco II is a trail truck. It was not engineered for the emergency avoidance maneuvers that happen at 65+ mph highway speeds.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="two-col-panel">
+        <p class="two-col-header help">Reduces risk</p>
+        <ul class="factor-list">
+          <li>
+            <span class="factor-dot help"></span>
+            <span><strong>Fresh ball joints.</strong> Maintained ball joints give you maximum control authority. This is the single highest-return maintenance item for on-road safety.</span>
+          </li>
+          <li>
+            <span class="factor-dot help"></span>
+            <span><strong>Correct tire pressure.</strong> Run the manufacturer-recommended pressure for on-road use. Adjust for trail use only when you're off pavement.</span>
+          </li>
+          <li>
+            <span class="factor-dot help"></span>
+            <span><strong>Quality lift with geometry correction.</strong> If you're lifting, use kits with radius arm drop brackets that correct the caster and camber back toward stock geometry.</span>
+          </li>
+          <li>
+            <span class="factor-dot help"></span>
+            <span><strong>Hub-centric wheel spacers.</strong> Modest hub-centric spacers (with extended wheel studs, not lug bolt spacers) can widen the track modestly and improve the CG-to-track-width ratio. Not dramatic, but a real improvement.</span>
+          </li>
+          <li>
+            <span class="factor-dot help"></span>
+            <span><strong>Solid axle swap.</strong> A front SAS replaces the TTB with a solid axle, eliminating the geometry-under-roll problem entirely. The most thorough solution, but also the most involved.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Context</h2>
+    <p>The Bronco II's rollover history is real and documented, but it exists in a context that's often ignored. The early Ford Explorer had its own rollover crisis a decade later — same fundamental issue of high CG on a narrow-track platform, compounded by tire failures. Early Jeep CJs were pulled from the market partly for stability concerns. Lifted trucks of every make from the same era share the same basic physics.</p>
+    <p>The Bronco II's margin is smaller than most — that's the honest assessment. It's not a vehicle that rolls over randomly in normal driving. It's a vehicle whose limit in an abrupt emergency maneuver is lower than a car or crossover's would be. That's worth understanding clearly, not minimizing.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">Honest verdict</p>
+      <p>The Bronco II rolls over if pushed hard enough in emergency maneuvers. So do many vehicles — including later Ford Explorers, early Jeep CJs, and lifted trucks of all kinds. The difference is the Bronco II's margin is smaller than most. Drive it for what it is — a lightweight trail truck that rewards thoughtful operation — and the risk is manageable. Use it as a performance vehicle or ignore the suspension maintenance, and the margin disappears. Know what you're driving.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p class="footer-nav-label">More Bronco II guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/bronco-ii/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/bronco-ii/suspension-guide.html">Suspension Guide</a>
+        <a class="footer-nav-link back" href="/bronco-ii/">All Bronco II Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual · Free reference for off-road vehicle owners · No ads, no affiliate links</p>
+</footer>
+
+</body>
+</html>

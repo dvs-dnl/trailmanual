@@ -682,6 +682,92 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 10px;
 }
+/* ── Project cards ─────────────────────────────────────── */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+}
+.proj-card {
+  background: var(--slate-deeper);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--clay);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.proj-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: rgba(201,126,80,0.18);
+  color: var(--clay-light);
+  border: 1px solid rgba(201,126,80,0.35);
+}
+.proj-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.proj-title {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--bone);
+}
+.proj-notes {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.proj-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.proj-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 10px;
+}
+.proj-stat .lbl {
+  display: block;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+.proj-stat .val {
+  font-family: var(--mono);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--bone);
+}
+.proj-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.proj-actions .btn { padding: 6px 12px; }
+.proj-actions a.btn { text-decoration: none; }
+
 .reminder-card {
   background: var(--slate-deeper);
   border: 1px solid var(--border);
@@ -1272,15 +1358,18 @@ function loadState() {
   return { vehicles: [], activeVehicleId: null, version: 2 };
 }
 
-// Migration to v2: add fuelLog, reminders, customServices to every vehicle.
+// Migration: v2 added fuelLog/reminders/customServices, v3 adds projects.
 function migrateState(data) {
   data.vehicles = (data.vehicles || []).map(v => ({
     fuelLog: [],
     reminders: [],
     customServices: [],
-    ...v
+    projects: [],
+    ...v,
+    // Make sure projects always exists even on already-migrated v2 records
+    projects: Array.isArray(v.projects) ? v.projects : []
   }));
-  data.version = 2;
+  data.version = 3;
   return data;
 }
 function saveState() {
@@ -1295,6 +1384,33 @@ function uid() {
 function activeVehicle() {
   if (!state.activeVehicleId) return null;
   return state.vehicles.find(v => v.id === state.activeVehicleId) || null;
+}
+
+/* =========================================================
+   PROJECT TYPES — registry of supported build projects
+   Each entry: id (used as URL param), title shown in lists,
+   target URL (where the project opens), and helper for counts.
+   ========================================================= */
+const PROJECT_TYPES = {
+  'v8-swap': {
+    label: 'V8 SWAP',
+    tool: 'v8-swap-parts-checklist.html',
+    // Maps pathId → display name (must match V8 checklist ENGINE_PATHS_JK ids)
+    paths: {
+      'hemi-57-diy':   '5.7L Hemi · DIY build',
+      'hemi-64-diy':   '6.4L Hemi · DIY build',
+      'ls-53-diy':     'DIY 5.3L LS · Junkyard build',
+      'motech-lt-diy': 'MoTech LT · DIY kit build',
+      'bruiser-lx3':   'Bruiser LX3 6.6L · Turnkey kit'
+    }
+  }
+};
+
+function countProjectProgress(proj) {
+  const prog = proj.progress || {};
+  const purchased = Object.values(prog.purchased || {}).filter(Boolean).length;
+  const installed = Object.values(prog.installed || {}).filter(Boolean).length;
+  return { purchased, installed };
 }
 
 /* =========================================================
@@ -1373,6 +1489,8 @@ function renderContent() {
   if (activeTab === 'overview') {
     tabBody.appendChild(renderIntervals(v));
     tabBody.appendChild(renderLog(v));
+  } else if (activeTab === 'projects') {
+    tabBody.appendChild(renderProjects(v));
   } else if (activeTab === 'fuel') {
     tabBody.appendChild(renderFuelLog(v));
   } else if (activeTab === 'reminders') {
@@ -1389,8 +1507,10 @@ function renderTabs(v) {
   const intervals = computeIntervalStatus(v);
   const overdueCount = intervals.filter(i => i.status === 'overdue').length;
   const reminderCounts = countOverdueReminders(v);
+  const projects = (v.projects || []);
   const tabDefs = [
     { id: 'overview',  label: 'Overview',  count: overdueCount,                  alert: overdueCount > 0 },
+    { id: 'projects',  label: 'Projects',  count: projects.length,               alert: false },
     { id: 'fuel',      label: 'Fuel',      count: (v.fuelLog || []).length,      alert: false },
     { id: 'reminders', label: 'Reminders', count: reminderCounts.overdue + reminderCounts.dueSoon, alert: reminderCounts.overdue > 0 },
     { id: 'costs',     label: 'Costs',     count: null,                          alert: false },
@@ -1548,6 +1668,101 @@ function renderLog(v) {
   table.appendChild(tbody);
   section.appendChild(table);
   return section;
+}
+
+/* =========================================================
+   PROJECTS RENDER
+   ========================================================= */
+function renderProjects(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Build projects'));
+  const projects = v.projects || [];
+  head.appendChild(el('div', { class: 'section-help' },
+    projects.length === 0
+      ? 'No projects yet. Start one from the V8 Swap Decision tool.'
+      : projects.length + ' project' + (projects.length === 1 ? '' : 's')
+  ));
+  section.appendChild(head);
+
+  if (projects.length === 0) {
+    const empty = el('div', { class: 'empty-card' });
+    empty.appendChild(el('div', { style: 'margin-bottom:8px' }, 'No projects on this rig yet.'));
+    empty.appendChild(el('div', { style: 'color:var(--text-faint);font-size:12px' }, 'Open the V8 Swap Decision tool, pick an engine path, and click "Start My Build" to attach a parts checklist to this rig.'));
+    const link = el('a', { href: '/jk-wrangler-engine-swap-tool.html', style: 'display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--clay-light)' }, 'Open V8 Swap Decision tool →');
+    empty.appendChild(link);
+    section.appendChild(empty);
+    return section;
+  }
+
+  const grid = el('div', { class: 'proj-grid' });
+  // Newest first
+  const sorted = [...projects].sort((a, b) => (b.startedAt || '').localeCompare(a.startedAt || ''));
+  sorted.forEach(proj => {
+    const type = PROJECT_TYPES[proj.type] || { label: proj.type.toUpperCase(), tool: '#', paths: {} };
+    const pathName = type.paths[proj.pathId] || proj.title || proj.pathId;
+    const counts = countProjectProgress(proj);
+    const card = el('div', { class: 'proj-card' });
+
+    const top = el('div', { class: 'proj-top' });
+    top.appendChild(el('span', { class: 'proj-badge' }, type.label));
+    top.appendChild(el('span', { class: 'proj-date' }, proj.startedAt ? 'Started ' + prettyDate(proj.startedAt) : ''));
+    card.appendChild(top);
+
+    card.appendChild(el('div', { class: 'proj-title' }, pathName));
+    if (proj.notes) card.appendChild(el('div', { class: 'proj-notes' }, proj.notes));
+
+    const stats = el('div', { class: 'proj-stats' });
+    stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Purchased</span><span class="val">' + counts.purchased + '</span>' }));
+    stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Installed</span><span class="val">' + counts.installed + '</span>' }));
+    card.appendChild(stats);
+
+    const actions = el('div', { class: 'proj-actions' });
+    const openUrl = '/' + type.tool + '?project=' + encodeURIComponent(proj.id) + '&vehicle=' + encodeURIComponent(v.id);
+    const openBtn = el('a', { class: 'btn btn-primary', href: openUrl }, 'Open checklist →');
+    actions.appendChild(openBtn);
+    const editNotes = el('button', { class: 'btn btn-ghost btn-sm', on: { click: () => openProjectNotes(proj.id) } }, 'Edit notes');
+    actions.appendChild(editNotes);
+    const del = el('button', { class: 'btn btn-danger btn-sm', on: { click: () => confirmDeleteProject(v.id, proj.id) } }, 'Delete');
+    actions.appendChild(del);
+    card.appendChild(actions);
+
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+function confirmDeleteProject(vid, pid) {
+  const v = state.vehicles.find(x => x.id === vid);
+  if (!v) return;
+  const proj = (v.projects || []).find(p => p.id === pid);
+  if (!proj) return;
+  const type = PROJECT_TYPES[proj.type] || {};
+  const pathName = (type.paths || {})[proj.pathId] || proj.title || proj.pathId;
+  askConfirm(
+    'Delete ' + pathName + ' project?',
+    'This removes the project and every purchased/installed mark on its checklist. The maintenance log on this rig is untouched.',
+    () => {
+      v.projects = (v.projects || []).filter(p => p.id !== pid);
+      saveState();
+      renderContent();
+    }
+  );
+}
+
+// Notes editor for a project. Reuses the confirm modal pattern.
+let editingProjectNotesId = null;
+function openProjectNotes(pid) {
+  const v = activeVehicle();
+  if (!v) return;
+  const proj = (v.projects || []).find(p => p.id === pid);
+  if (!proj) return;
+  const next = prompt('Project notes (optional):', proj.notes || '');
+  if (next === null) return;
+  proj.notes = next.trim();
+  saveState();
+  renderContent();
 }
 
 /* =========================================================

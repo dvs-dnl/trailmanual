@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeep Wrangler 4XE Common Problems | Trail Manual</title>
+  <meta name="description" content="All known 4XE recurring issues — HV battery fire risk, FORM mode, oil cooler leaks, 12V drain, water intrusion, EVIC glitches, and corrosion. What to look for and what to do.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-family: var(--sans); font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-family: var(--sans); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .issue-block { border: 1px solid var(--bone); border-radius: 4px; margin: 32px 0; overflow: hidden; }
+    .issue-header { padding: 18px 24px; background: var(--bone); display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 12px; }
+    .issue-title { font-family: var(--sans); font-weight: 600; font-size: 18px; letter-spacing: -0.01em; color: var(--slate); }
+    .issue-badge { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 3px; border: 1px solid; white-space: nowrap; }
+    .issue-badge.critical { background: rgba(178,59,47,0.1); color: var(--safety); border-color: rgba(178,59,47,0.3); }
+    .issue-badge.moderate { background: rgba(216,144,53,0.1); color: var(--warn); border-color: rgba(216,144,53,0.3); }
+    .issue-badge.manageable { background: rgba(91,107,126,0.08); color: var(--slate-l); border-color: rgba(91,107,126,0.25); }
+    .issue-body { padding: 24px; }
+    .issue-body h3 { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin: 0 0 8px; }
+    .issue-body p { font-size: 15px; line-height: 1.65; color: var(--slate); margin-bottom: 20px; }
+    .issue-body p:last-child { margin-bottom: 0; }
+    .issue-section { margin-bottom: 20px; }
+    .issue-section:last-child { margin-bottom: 0; }
+    .affected { font-family: var(--mono); font-size: 12px; color: var(--slate-l); letter-spacing: 0.04em; margin-bottom: 16px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .issue-header { grid-template-columns: 1fr; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/jl/" class="active">JL Wrangler</a>
+      <a href="/db/">Database</a>
+      <a href="https://trailmanual.com">Home</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">Common Problems · Wrangler 4XE</div>
+  <h1>Known 4XE Issues</h1>
+  <p class="masthead-subhead">The 4XE's problem list is longer than a standard Wrangler's, and some items on it are more consequential. Here's what's documented, who it affects, and what to do about it.</p>
+  <div class="masthead-meta">JL Generation<span>·</span>2021–Present</div>
+</div>
+
+<article class="article">
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">1. HV Battery Fire Risk</div>
+      <div class="issue-badge critical">Critical — Non-Negotiable</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2021–2025 · 320,000+ vehicles</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>The most serious documented issue on the 4XE. HV battery cells with internal separator damage can experience thermal runaway — a self-sustaining heat reaction that leads to fire. This can occur while driving or while parked and charging. Stellantis confirmed nine fires in vehicles that had already received the original Recall 95B software fix, which was later confirmed ineffective in certain cases.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>The vehicle may show HV battery warning lights before a thermal event — or it may not. Stellantis has confirmed fires with no prior warning indicators. This is why recall compliance is the only reliable mitigation. There's no routine inspection that replaces verifying the latest remedy.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Verify the latest recall remedy has been applied — not just the original 95B fix. Ask a Stellantis dealer to confirm the current remedy status via VIN. Until the latest remedy is confirmed: park outside, avoid overnight charging in enclosed spaces, and do not leave the vehicle charging unattended indoors.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">2. Loss of Motive Power</div>
+      <div class="issue-badge critical">Critical</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2021–2024 · ~94,000 vehicles</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>The vehicle shuts off unexpectedly while driving. Multiple root causes have been identified across the affected population — both software and hardware contributors. NHTSA opened a formal investigation. Recall 22V-865 addressed one variant; complaints were filed for vehicles that had already received that fix, indicating the issue was not fully resolved across the fleet.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>The vehicle simply cuts power. The event may log as a DTC in the vehicle's memory, or it may leave no trace. Ask the seller directly and specifically whether the vehicle has ever shut off while driving. Also check for any service history entries related to unexpected shutdowns or loss of propulsion.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Verify Recall 22V-865 is complete via NHTSA VIN lookup. An OBD-II scan before purchase may surface related fault codes. Any history of unexpected shutdowns warrants a full dealer diagnostic before proceeding.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">3. Oil Cooler Leaks</div>
+      <div class="issue-badge moderate">Moderate — Fixable</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2021–2023 disproportionately</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>The 2.0T engine's oil cooler seal fails, allowing oil to enter the coolant circuit or coolant to enter the oil circuit. Contaminated coolant appears milky or brownish. Contaminated oil appears frothy or grayish under the oil cap.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>Check the coolant overflow tank — any oil film, sheen, or discoloration indicates contamination. Check the underside of the oil filler cap — white or cream-colored buildup indicates coolant intrusion into the oil. A coolant smell from the engine bay without an obvious external leak is another indicator.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>The repair is warranty-covered when within the warranty period. Out of warranty, a seal replacement and cooling system flush runs approximately $600–$1,200 at a dealer. The repair has recurred on some vehicles after initial completion — if a seller says it's been done, ask for documentation and ask directly whether it recurred. A TSB addresses this on 2021–2023 examples.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">4. FORM Mode Entrapment</div>
+      <div class="issue-badge moderate">Moderate — Post-Recall Complication</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2022–2025 vehicles that received the fire recall fix</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>FORM (Fuel and Oil Refresh Mode) forces the gasoline engine to run in order to circulate and refresh the engine oil — a legitimate solution for PHEVs driven primarily on electricity. After the fire recall remedy was applied to some vehicles, the FORM mode trigger became stuck. Affected vehicles default to FORM mode permanently, disabling EV capability entirely. This is not a pre-existing condition — it's a complication of how the recall fix interacted with the vehicle's software on some units.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>In a stuck FORM mode vehicle, pressing the EV button does nothing — the vehicle runs on gasoline only. The dash may display a FORM mode indicator. Fuel economy drops to standard Wrangler levels (approximately 17–20 mpg combined) rather than PHEV combined figures. The EV range display may show 0 or not update normally.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Dealer reprogramming is required. If a vehicle you're evaluating is currently stuck in FORM mode, this indicates the recall fix was not applied cleanly. Require dealer resolution and a verified test drive confirming EV mode operation before completing the purchase.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">5. EVIC / Infotainment Glitches</div>
+      <div class="issue-badge manageable">Manageable</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2021–Present</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>The Uconnect-based system on the 4XE manages hybrid-specific data and displays charge state, EV range, and battery status alongside standard navigation and media functions. Glitches range from minor nuisances (screen freezes, incorrect charge state display) to more disruptive events (system reboots while driving, phantom warning messages that don't correspond to actual faults).</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>During your inspection, cycle through all infotainment screens including the hybrid-specific displays. Verify that charge state and EV range show correct values for the current battery state. Reboot the system (hold power button) and confirm it recovers cleanly. Ask the seller whether phantom warnings have appeared.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Stellantis software updates have addressed many specific glitch patterns — ensure the infotainment software is current via dealer update. Persistent phantom warnings that don't resolve after a software update warrant further investigation, as they can indicate an underlying sensor or module issue rather than a pure software bug.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">6. 12V Auxiliary Battery Drain</div>
+      <div class="issue-badge manageable">Manageable</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2021–Present</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>The 4XE's power management can accelerate drain on the conventional 12V auxiliary battery, particularly when the vehicle is parked for extended periods without HV charging. A dead 12V battery prevents the vehicle from starting — even if the HV pack is fully charged, because the 12V battery manages the start sequence and conventional accessories.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>Ask when the 12V battery was last replaced. On a 2021–2023 vehicle, a 12V battery replaced once is unremarkable. A 12V replaced twice before 50,000 miles suggests the HV management system is stressing it abnormally — worth investigating further. Any history of failing to start despite a charged HV pack is a direct indicator.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Keep the vehicle connected to a 12V trickle charger (not the HV charging cable — a separate conventional battery maintainer) if storing for a week or more. The 12V battery is a standard automotive battery and inexpensive to replace ($100–$200). Software updates have partially addressed the underlying HV management behavior, but the issue has not been fully eliminated.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">7. Water Intrusion</div>
+      <div class="issue-badge moderate">Moderate — Amplified by 4XE Architecture</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: 2021–Present · Any 4XE with soft-top or regularly removed doors</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>A longstanding Wrangler issue amplified by the 4XE's battery architecture. Door seals — especially after soft-top or door removal and reinstallation — can allow water into the cabin. On a standard Wrangler, interior water intrusion is an inconvenience. On the 4XE, water reaching the rear floor area (where the HV battery tray sits) is a more serious concern.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>Inspect the rear cargo area floor carefully. Water staining on the carpet, any dampness in the carpet padding, or rust blooms on the battery cover panel are flags. Check the condition of door seals, particularly at the lower corners where water channels. If the vehicle has had its doors off repeatedly, inspect the seal contact surfaces.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Keep door seals in good condition and replace them if cracked or deformed. After reinstalling doors, inspect the seal contact points before rain exposure. If water has reached the battery cover panel, have the tray inspected for rust and moisture intrusion before continued use — the tray is the barrier between road splash and the HV components.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-block">
+    <div class="issue-header">
+      <div class="issue-title">8. Frame &amp; Battery Tray Corrosion</div>
+      <div class="issue-badge moderate">Moderate — Worse in Salt-Belt States</div>
+    </div>
+    <div class="issue-body">
+      <div class="affected">Affected: All years · Significantly worse in Northeast, Midwest, mountain states with winter road treatment</div>
+      <div class="issue-section">
+        <h3>What It Is</h3>
+        <p>Standard Wrangler frame corrosion is well-documented — the JL is not immune. The 4XE adds the battery tray to the list of corrosion concerns. The tray is exposed to road splash and salt under the rear floor, and penetrating rust on the tray creates moisture pathways toward the HV battery components.</p>
+      </div>
+      <div class="issue-section">
+        <h3>How to Identify</h3>
+        <p>Get the vehicle on a lift. Battery tray underside: surface oxidation (light rust on the surface of the metal) is common and acceptable. Scaling or penetrating rust — where the metal is pitting or showing through-corrosion — is a flag requiring professional assessment. Frame rails: inspect the rear section and the area around body mounts where water pools. Door hinges: look for galvanic corrosion at the aluminum-to-steel contact points.</p>
+      </div>
+      <div class="issue-section">
+        <h3>What to Do</h3>
+        <p>Surface rust on the tray: wire brush, treat with a rust converter (POR-15 or equivalent), and coat. Penetrating rust on the battery tray requires professional assessment before driving — the structural integrity of the tray affects the battery mounting. A vehicle from a salt-belt state with no undercoating history and meaningful mileage deserves extra scrutiny on this item.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Verdict</h2>
+  <div class="verdict">
+    <div class="verdict-label">Bottom Line</div>
+    <p>The 4XE's problem list is long but not uniformly serious. The fire recall is the only item that's genuinely non-negotiable — resolve it or walk away. FORM mode entrapment, EVIC glitches, and 12V drain are frustrating but manageable. Oil cooler leaks are warranty-covered and fixable. Water intrusion is a maintenance issue, not a design failure. Corrosion is a region-specific risk that a lift inspection surfaces cleanly. Buy a clean example with all recalls resolved, document what's been addressed, and the remaining issues are the known cost of owning a platform that's still maturing.</p>
+  </div>
+
+  <div class="article-footer-nav">
+    <p>Continue reading</p>
+    <div class="footer-nav-links">
+      <a class="footer-nav-link" href="/jl/4xe/buyers-guide.html">Buyer's Guide</a>
+      <a class="footer-nav-link" href="/jl/4xe/reliability-guide.html">Reliability Guide</a>
+      <a class="footer-nav-link" href="/jl/4xe/recall-guide.html">Recall History</a>
+      <a class="footer-nav-link" href="/jl/4xe/">← All 4XE Guides</a>
+    </div>
+  </div>
+
+</article>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; Free reference for off-road owners. No ads, no affiliate links.</p>
+</footer>
+
+</body>
+</html>

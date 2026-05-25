@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ford Bronco II Engine Guide — 2.8L, 2.9L Cologne V6, and Swap Options | Trail Manual</title>
+  <meta name="description" content="The 2.8L vs. 2.9L Cologne V6 — what the reliability difference actually is, how to identify which engine you have, and the best swap options if you want more power or reliability.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--slate);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Site header ─────────────────────────────────────────── */
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+
+    /* ── Masthead ────────────────────────────────────────────── */
+    .masthead {
+      border-bottom: 1px solid var(--bone);
+      padding: 56px 32px 44px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 16px;
+    }
+    .masthead h1 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(34px, 5vw, 52px);
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+    .masthead .subhead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--slate-l);
+      max-width: 640px;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+    .meta-line {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--bone-d);
+    }
+
+    /* ── Article body ────────────────────────────────────────── */
+    .article {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+    .article h2 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 26px;
+      letter-spacing: -0.01em;
+      color: var(--slate);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+    .article h3 {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 19px;
+      color: var(--slate);
+      margin: 32px 0 12px;
+    }
+    .article p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+
+    /* ── Engine comparison cards ─────────────────────────────── */
+    .engine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--bone);
+      border: 1px solid var(--bone);
+      margin: 24px 0;
+    }
+    .engine-card { background: var(--paper); padding: 24px; }
+    .engine-name {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--clay);
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+    .engine-years {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--slate-l);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .engine-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      border: 1px solid;
+      margin-bottom: 14px;
+    }
+    .engine-badge.avoid { background: rgba(178,59,47,0.06); color: var(--safety); border-color: rgba(178,59,47,0.25); }
+    .engine-badge.preferred { background: rgba(94,140,90,0.08); color: #5E8C5A; border-color: rgba(94,140,90,0.3); }
+    .engine-card p { font-size: 14px; color: var(--slate-l); line-height: 1.55; margin-bottom: 10px; }
+    .engine-card p:last-child { margin-bottom: 0; }
+    .engine-stat { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--bone); font-size: 14px; }
+    .engine-stat:last-of-type { border-bottom: none; }
+    .engine-stat-label { color: var(--slate-l); }
+    .engine-stat-value { font-weight: 500; color: var(--slate); }
+
+    /* ── Swap grid ───────────────────────────────────────────── */
+    .swap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--bone);
+      border: 1px solid var(--bone);
+      margin: 24px 0;
+    }
+    .swap-card { background: var(--paper); padding: 22px 24px; }
+    .swap-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--clay);
+      margin-bottom: 6px;
+    }
+    .swap-badge {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 3px;
+      border: 1px solid;
+      margin-bottom: 12px;
+    }
+    .swap-badge.popular { background: rgba(94,140,90,0.08); color: #5E8C5A; border-color: rgba(94,140,90,0.3); }
+    .swap-badge.moderate { background: rgba(216,144,53,0.08); color: #D89035; border-color: rgba(216,144,53,0.3); }
+    .swap-badge.involved { background: rgba(91,107,126,0.08); color: var(--slate-l); border-color: rgba(91,107,126,0.3); }
+    .swap-card p { font-size: 13px; color: var(--slate-l); line-height: 1.55; margin: 0; }
+
+    /* ── Verdict block ───────────────────────────────────────── */
+    .verdict {
+      border-left: 3px solid var(--clay);
+      padding: 18px 20px 18px 24px;
+      background: var(--bone);
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .verdict-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 8px;
+    }
+    .verdict p {
+      font-weight: 500;
+      font-size: 17px;
+      color: var(--slate);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── VIN ID block ────────────────────────────────────────── */
+    .vin-block {
+      background: var(--bone);
+      border: 1px solid var(--bone-d);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin: 24px 0;
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .vin-item { display: flex; flex-direction: column; gap: 4px; }
+    .vin-digit {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--clay);
+      line-height: 1;
+    }
+    .vin-engine { font-weight: 500; color: var(--slate); font-size: 15px; }
+    .vin-years { font-size: 13px; color: var(--slate-l); font-family: var(--mono); }
+
+    /* ── Footer nav ──────────────────────────────────────────── */
+    .article-footer-nav {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--bone);
+    }
+    .footer-nav-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      margin-bottom: 16px;
+    }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      background: var(--bone);
+      border: 1px solid var(--bone-d);
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: 14px;
+      color: var(--slate);
+      text-decoration: none;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .footer-nav-link.back::after { content: none; }
+    .footer-nav-link.back::before { content: '←'; color: var(--clay); }
+
+    /* ── Site footer ─────────────────────────────────────────── */
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 40px 20px 32px; }
+      .article { padding: 36px 20px 60px; }
+      .engine-grid { grid-template-columns: 1fr; }
+      .swap-grid { grid-template-columns: 1fr; }
+      .tm-topbar-inner { padding: 12px 16px; }
+      .tm-nav { gap: 14px; }
+      .footer-nav-links { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/bronco-ii/" class="active">Bronco II</a>
+      <a href="/bronco/">Early Bronco</a>
+      <a href="/bronco6g/">New Bronco</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="masthead">
+    <p class="eyebrow">Ford Bronco II · Engine Guide</p>
+    <h1>Cologne V6 — 2.8L, 2.9L, and Swaps</h1>
+    <p class="subhead">The Bronco II came with two versions of Ford's Cologne V6 — the 2.8L and the 2.9L. They are different engines in the ways that matter. Knowing which one is in the truck you're looking at changes everything about the purchase.</p>
+    <p class="meta-line">1984–1990 · 2.8L (VIN digit: C) · 2.9L (VIN digit: T)</p>
+  </div>
+
+  <article class="article">
+
+    <h2>Identify Your Engine First</h2>
+    <p>Before anything else: check the VIN. The 8th character identifies the engine. Don't rely on what the seller says — go to the door jamb sticker or the dash VIN plate and read it yourself.</p>
+
+    <div class="vin-block">
+      <div class="vin-item">
+        <span class="vin-digit">C</span>
+        <span class="vin-engine">2.8L Cologne V6</span>
+        <span class="vin-years">1984–1985</span>
+      </div>
+      <div class="vin-item">
+        <span class="vin-digit">T</span>
+        <span class="vin-engine">2.9L Cologne V6</span>
+        <span class="vin-years">1986–1990</span>
+      </div>
+    </div>
+
+    <p>The 2.8 and 2.9 look similar under the hood, especially if someone has swapped parts. Confirm via VIN.</p>
+
+    <h2>Side by Side</h2>
+
+    <div class="engine-grid">
+      <div class="engine-card">
+        <p class="engine-name">2.8L Cologne V6</p>
+        <p class="engine-years">1984–1985 · VIN digit: C</p>
+        <span class="engine-badge avoid">Avoid if possible</span>
+        <div class="engine-stat"><span class="engine-stat-label">Output</span><span class="engine-stat-value">115 hp</span></div>
+        <div class="engine-stat"><span class="engine-stat-label">Fuel delivery</span><span class="engine-stat-value">Carburetor</span></div>
+        <div class="engine-stat"><span class="engine-stat-label">Known problems</span><span class="engine-stat-value">Multiple</span></div>
+        <p>The problem engine. Carbureted, temperamental, and prone to specific mechanical failures that make it frustrating to live with. If you're buying a truck to use, avoid the 2.8L unless the swap is already done or you're committed to doing it.</p>
+      </div>
+      <div class="engine-card">
+        <p class="engine-name">2.9L Cologne V6</p>
+        <p class="engine-years">1986–1990 · VIN digit: T</p>
+        <span class="engine-badge preferred">Target this one</span>
+        <div class="engine-stat"><span class="engine-stat-label">Output</span><span class="engine-stat-value">140 hp</span></div>
+        <div class="engine-stat"><span class="engine-stat-label">Fuel delivery</span><span class="engine-stat-value">EFI (Bosch-based)</span></div>
+        <div class="engine-stat"><span class="engine-stat-label">Known problems</span><span class="engine-stat-value">Manageable</span></div>
+        <p>The better engine. EFI is a genuine upgrade. Reliability is meaningfully improved. High-mileage examples have their own issues, but the failure modes are predictable and the parts are available.</p>
+      </div>
+    </div>
+
+    <h2>The 2.8L Cologne V6 (1984–1985)</h2>
+    <p>The 2.8L is carbureted, and that carburetor is a large part of the problem. Ford used a Motorcraft 2150 two-barrel that's prone to flooding, vapor lock under sustained load, and general misbehavior when the fuel system gets hot. In a tight engine bay with a hot V6, it gets hot.</p>
+
+    <h3>Known failure points</h3>
+    <p><strong>Mechanical fuel pump:</strong> The pump mounts on the block and runs hot. It's a common failure point — not dangerous, just inconvenient and a sign that the cooling system needs attention too. Budget $40–$80 for a quality replacement pump.</p>
+    <p><strong>Cam follower wear:</strong> The 2.8L has a known cam follower (lifter) wear issue. The followers can wear unevenly and damage the camshaft lobe, which is a much more expensive repair. Check for tick or clatter at idle when cold — some tick is normal, persistent tapping that doesn't quiet down is not.</p>
+    <p><strong>Cooling system design:</strong> The intake manifold has a coolant passage design that creates hot spots. Combined with the mechanical fuel pump running hot and a carburetor that doesn't like heat, the 2.8L runs poorly when the cooling system isn't in excellent shape. Keep the coolant fresh, the thermostat functional, and the radiator clean.</p>
+    <p><strong>Head gaskets:</strong> Head gasket failures on the 2.8L are common, especially on engines with any overheating history. The aluminum heads warp. This is an expensive repair relative to the engine's value — on a 2.8L truck, factor in $500–$1,500 if you don't have documented cooling history.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">2.8L verdict</p>
+      <p>If you're looking at a 2.8L truck, assume it will need cooling system work and factor $500–$1,500 into your budget for engine attention. Many 2.8 owners ultimately swap engines rather than continue fighting it — price the truck accordingly.</p>
+    </div>
+
+    <h2>The 2.9L Cologne V6 (1986–1990)</h2>
+    <p>The 2.9L arrived with electronic fuel injection and is genuinely better than the 2.8. The Bosch EFI system is relatively straightforward to diagnose with a basic OBD-I scan tool, and the EFI eliminates the carburetor's heat sensitivity. At 140 hp it's not a powerhouse, but it's adequate for trail use and moves the truck on the highway without drama.</p>
+
+    <h3>Common issues on high-mileage examples</h3>
+    <p><strong>Valve cover gaskets:</strong> They leak. This is expected on a 30+ year old engine. New gaskets run $20–$30 and the job takes about 45 minutes. If you see oil residue along the top of the engine, this is likely the source — not a big deal unless you've been ignoring it and it's dripping onto the exhaust.</p>
+    <p><strong>Injector O-rings:</strong> The injector O-rings dry out and crack over time. Symptoms are a fuel smell at idle and rough idle as air enters the fuel rail. This is a $30–$60 parts job if you do it yourself. It's one of the first things to check on a high-mileage 2.9.</p>
+    <p><strong>Distributor wear:</strong> The distributor cap and rotor should be inspected and replaced if crusty or carbon-tracked. While you're in there, check the distributor shaft for play. Worn distributor shafts cause timing scatter and a rough idle that chases you in circles if you're not looking in the right place.</p>
+    <p><strong>Cooling sensitivity:</strong> The 2.9 is better than the 2.8 in the heat department, but it still has aluminum heads. Overheating history will warp them. Check the coolant condition and look for the signs — milky coolant, steam from the exhaust when cold, or the heater performance that varies with engine load.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">2.9L verdict</p>
+      <p>A sorted 2.9L EFI is a reliable, tractable engine for trail use. The issues on high-mileage examples are predictable and inexpensive to address. Target one with clean coolant, no fuel smell, and a fresh tune-up and you have a workable foundation.</p>
+    </div>
+
+    <h2>Engine Swap Options</h2>
+    <p>The Bronco II's light weight (under 3,000 lbs) makes it responsive to engine swaps. The most popular options stay within the Ford platform family, which simplifies sourcing and wiring.</p>
+
+    <div class="swap-grid">
+      <div class="swap-card">
+        <p class="swap-name">2.3L Lima Four-Cylinder</p>
+        <span class="swap-badge moderate">Weight savings play</span>
+        <p>Lighter and simpler than the V6. The base Ranger engine and well-understood. Not more powerful, but more reliable and easier to maintain. Makes sense if you want simplicity or are building a dedicated trail truck where weight matters more than power. Not the typical choice for street driving.</p>
+      </div>
+      <div class="swap-card">
+        <p class="swap-name">4.0L OHV V6 (1991+ Explorer / Ranger)</p>
+        <span class="swap-badge popular">Most popular swap</span>
+        <p>The logical upgrade. Same Ford platform family, fits with moderate modification to the motor mounts. Produces 155–160 hp and significantly better torque than the 2.9. Donor engines are easy to source from wrecked Explorers and Rangers. Use the factory EFI from the donor. This is the most proven, cost-effective path to a meaningful power gain.</p>
+      </div>
+      <div class="swap-card">
+        <p class="swap-name">302 / 5.0L Windsor V8</p>
+        <span class="swap-badge moderate">Committed build</span>
+        <p>Requires new motor mounts, transmission consideration, and cooling upgrades. Done well, 200+ hp in a sub-3,000 lb truck is genuinely fast on the trail. Done poorly, it creates a thermal management problem you'll never finish solving. Use factory EFI from a donor vehicle. Budget $2,000–$4,000 all-in for a clean swap.</p>
+      </div>
+      <div class="swap-card">
+        <p class="swap-name">Coyote 5.0L V8</p>
+        <span class="swap-badge involved">Expensive overkill</span>
+        <p>Technically possible. The cost approaches or exceeds the vehicle's value on anything but the cleanest example, and the complexity is significant. Worth knowing it exists — but for most Bronco II builds, the 4.0 or 302 achieves the goal at a fraction of the cost and effort.</p>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <p class="verdict-label">Engine verdict</p>
+      <p>Target a 2.9L EFI truck. The 2.8L is manageable if you know what you're getting into, but the 2.9L is the better foundation. If you're planning a swap, the 4.0L OHV is the most proven and affordable path to meaningful power gain — and plenty of them are sitting in salvage yards right now.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p class="footer-nav-label">More Bronco II guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/bronco-ii/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/bronco-ii/suspension-guide.html">Suspension Guide</a>
+        <a class="footer-nav-link back" href="/bronco-ii/">All Bronco II Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual · Free reference for off-road vehicle owners · No ads, no affiliate links</p>
+</footer>
+
+</body>
+</html>

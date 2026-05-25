@@ -161,6 +161,61 @@ main {
   padding: 32px 24px 80px;
 }
 
+/* ── Project banner (project mode only) ────────────────── */
+.project-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 20px;
+  background: linear-gradient(180deg, rgba(201,126,80,0.12), rgba(201,126,80,0.02));
+  border: 1px solid rgba(201,126,80,0.4);
+  border-left: 3px solid var(--clay);
+  border-radius: var(--radius-lg);
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.project-banner .pb-kicker {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--clay-light);
+  margin-bottom: 4px;
+}
+.project-banner .pb-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.project-banner .pb-sub {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.project-banner .pb-back {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--clay-light);
+  text-decoration: none;
+  padding: 6px 10px;
+  border: 1px solid rgba(201,126,80,0.35);
+  border-radius: 4px;
+  transition: all .12s;
+}
+.project-banner .pb-back:hover {
+  border-color: var(--clay);
+  background: rgba(201,126,80,0.1);
+  text-decoration: none;
+}
+
 .section {
   margin-bottom: 36px;
 }
@@ -1922,6 +1977,19 @@ const ENGINE_PATHS_JK = [
    STATE MANAGEMENT
    ========================================================= */
 
+const GARAGE_STORAGE_KEY = 'tm.garage.v1';
+
+// ── Project mode ────────────────────────────────────────────────
+// If launched with ?project=X&vehicle=Y, we operate as a project
+// attached to a rig in My Garage. Progress lives inside the garage
+// state, not in the standalone tm.v8swap.v1 store.
+const urlParams = new URLSearchParams(location.search);
+const PROJECT_MODE = !!(urlParams.get('project') && urlParams.get('vehicle'));
+const PROJECT_CTX = PROJECT_MODE ? {
+  projectId: urlParams.get('project'),
+  vehicleId: urlParams.get('vehicle')
+} : null;
+
 const initialState = {
   vehicle: null,
   path: null,
@@ -1932,9 +2000,51 @@ const initialState = {
   filter: 'all'
 };
 
+let projectVehicle = null;   // in project mode, the garage vehicle record
+let projectRecord  = null;   // in project mode, the project record itself
+
 let state = loadState();
 
+function loadGarage() {
+  try {
+    const raw = localStorage.getItem(GARAGE_STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) { console.warn('Could not load garage', e); }
+  return { vehicles: [], activeVehicleId: null, version: 3 };
+}
+function saveGarage(g) {
+  try { localStorage.setItem(GARAGE_STORAGE_KEY, JSON.stringify(g)); }
+  catch (e) { console.warn('Could not save garage', e); }
+}
+
 function loadState() {
+  if (PROJECT_MODE) {
+    const g = loadGarage();
+    const v = (g.vehicles || []).find(x => x.id === PROJECT_CTX.vehicleId);
+    if (!v) {
+      alert('Could not find that rig in your garage. Returning to garage page.');
+      location.href = '/my-garage.html';
+      return Object.assign({}, initialState);
+    }
+    const proj = (v.projects || []).find(p => p.id === PROJECT_CTX.projectId);
+    if (!proj) {
+      alert('Could not find that project on this rig. Returning to garage page.');
+      location.href = '/my-garage.html';
+      return Object.assign({}, initialState);
+    }
+    projectVehicle = v;
+    projectRecord  = proj;
+    const prog = proj.progress || {};
+    return Object.assign({}, initialState, {
+      vehicle: 'jk',  // project mode is JK-only today
+      path: proj.pathId,
+      expanded: prog.expanded || { engine: true, trans: true, harness: true },
+      partExp: prog.partExp || {},
+      purchased: prog.purchased || {},
+      installed: prog.installed || {},
+      filter: prog.filter || 'all'
+    });
+  }
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return Object.assign({}, initialState, JSON.parse(raw));
@@ -1942,12 +2052,34 @@ function loadState() {
   return Object.assign({}, initialState);
 }
 function saveState() {
+  if (PROJECT_MODE) {
+    // Read garage fresh in case another tab updated it, find the project,
+    // overwrite its progress, and write back.
+    const g = loadGarage();
+    const v = (g.vehicles || []).find(x => x.id === PROJECT_CTX.vehicleId);
+    if (!v) return;
+    const proj = (v.projects || []).find(p => p.id === PROJECT_CTX.projectId);
+    if (!proj) return;
+    proj.progress = {
+      purchased: state.purchased,
+      installed: state.installed,
+      expanded:  state.expanded,
+      partExp:   state.partExp,
+      filter:    state.filter
+    };
+    proj.lastUpdated = new Date().toISOString();
+    saveGarage(g);
+    return;
+  }
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch (e) { console.warn('Could not save state', e); }
 }
 function resetProgress() {
-  if (!confirm('Reset all purchased / installed / expanded state for this build? Vehicle and engine path selection stay.')) return;
+  const msg = PROJECT_MODE
+    ? 'Reset all purchased / installed marks on this project? The project itself stays in your garage.'
+    : 'Reset all purchased / installed / expanded state for this build? Vehicle and engine path selection stay.';
+  if (!confirm(msg)) return;
   state.purchased = {};
   state.installed = {};
   state.expanded = {};
@@ -1977,6 +2109,11 @@ const el = (tag, attrs, ...children) => {
 };
 
 function renderVehicles() {
+  // In project mode, hide the platform picker — vehicle is locked.
+  if (PROJECT_MODE) {
+    document.getElementById('step-vehicle').style.display = 'none';
+    return;
+  }
   const grid = document.getElementById('vehicleGrid');
   grid.innerHTML = '';
   PLATFORMS.forEach(v => {
@@ -2004,6 +2141,11 @@ function selectVehicle(vid) {
 }
 
 function renderPaths() {
+  // In project mode, hide the path picker — path is locked.
+  if (PROJECT_MODE) {
+    document.getElementById('step-path').style.display = 'none';
+    return;
+  }
   const wrap = document.getElementById('step-path');
   const grid = document.getElementById('pathGrid');
   grid.innerHTML = '';
@@ -2075,6 +2217,30 @@ function renderBuild() {
     return;
   }
   wrap.style.display = 'block';
+
+  // Project banner (visible only in project mode)
+  let banner = document.getElementById('projectBanner');
+  if (PROJECT_MODE && projectVehicle && projectRecord) {
+    if (!banner) {
+      banner = document.createElement('div');
+      banner.id = 'projectBanner';
+      banner.className = 'project-banner';
+      wrap.insertBefore(banner, wrap.firstChild);
+    }
+    const v = projectVehicle;
+    const nick = v.nickname || [v.year, v.make, v.model].filter(Boolean).join(' ') || 'Your rig';
+    const sub = [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+    banner.innerHTML = `
+      <div class="pb-left">
+        <div class="pb-kicker">Project · attached to garage</div>
+        <div class="pb-title">${escapeHtml(nick)} — ${escapeHtml(path.name)}</div>
+        ${sub && sub !== nick ? `<div class="pb-sub">${escapeHtml(sub)}</div>` : ''}
+      </div>
+      <a class="pb-back" href="/my-garage.html">← Back to My Garage</a>
+    `;
+  } else if (banner) {
+    banner.remove();
+  }
 
   document.getElementById('sumPath').textContent = path.name;
 
@@ -2266,6 +2432,10 @@ function toggleInstalled(pid) {
   if (state.installed[pid]) state.purchased[pid] = true;
   saveState();
   renderBuild();
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
 }
 
 function fmt(n) {
