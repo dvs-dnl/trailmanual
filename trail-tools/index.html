@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trail Tool Packing Guides — TrailManual</title>
+  <meta name="description" content="One shared base kit every rig carries. Then vehicle-specific additions based on known failure points. No generic lists — real tools for real trails.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-X00YY58X2R');</script>
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+
+    /* Topbar */
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover { color: #E8E2D2; }
+
+    /* Masthead */
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 660px; line-height: 1.5; }
+
+    /* Article */
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+
+    /* Verdict block */
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+
+    /* Vehicle card grid */
+    .vehicle-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; background: var(--bone); border: 1px solid var(--bone); margin: 28px 0; }
+    .vehicle-card { background: var(--paper); padding: 22px 24px; }
+    .vehicle-card-make { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 4px; }
+    .vehicle-card h3 { font-weight: 500; font-size: 18px; color: var(--slate); margin: 0 0 4px; }
+    .vehicle-card-years { font-family: var(--mono); font-size: 11px; color: var(--slate-l); margin-bottom: 16px; }
+    .vehicle-card-links { display: flex; flex-direction: column; gap: 8px; }
+    .vehicle-card-link { display: flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 3px; font-size: 13px; font-weight: 500; text-decoration: none; transition: background 0.15s; }
+    .vehicle-card-link.tools { background: var(--slate-d); color: var(--bone); }
+    .vehicle-card-link.tools:hover { background: var(--slate); }
+    .vehicle-card-link.spares { background: var(--bone); color: var(--slate); border: 1px solid var(--bone-d); }
+    .vehicle-card-link.spares:hover { border-color: var(--clay); }
+    .vehicle-card-link-icon { font-size: 14px; }
+
+    /* Checklist */
+    .kit-section { margin: 24px 0; }
+    .kit-category { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); padding: 8px 0 6px; border-bottom: 1px solid var(--bone); margin-bottom: 0; }
+    .kit-list { list-style: none; border: 1px solid var(--bone); border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; margin-bottom: 20px; }
+    .kit-list li { padding: 11px 16px; border-bottom: 1px solid var(--bone); font-size: 14px; line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; }
+    .kit-list li:last-child { border-bottom: none; }
+    .kit-list li:nth-child(odd) { background: var(--paper); }
+    .kit-list li:nth-child(even) { background: rgba(232,226,210,0.35); }
+    .kit-check { width: 16px; height: 16px; border: 1.5px solid var(--bone-d); border-radius: 2px; flex-shrink: 0; margin-top: 1px; cursor: pointer; appearance: none; -webkit-appearance: none; }
+    .kit-check:checked { background: var(--clay); border-color: var(--clay-d); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpolyline points='2,6 5,9 10,3' stroke='white' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; }
+    .kit-item-text { color: var(--slate); flex: 1; }
+    .kit-item-text strong { color: var(--slate); }
+
+    /* Print hint */
+    .print-hint { display: flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-l); padding: 10px 16px; background: var(--bone); border-radius: 3px; margin-bottom: 24px; }
+    .print-btn { margin-left: auto; padding: 5px 12px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--slate-d); color: var(--bone); border: none; border-radius: 2px; cursor: pointer; }
+    .print-btn:hover { background: var(--slate); }
+
+    /* Site footer */
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-l); }
+    .site-footer a { color: var(--clay); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .masthead { padding: 36px 20px 32px; }
+      .article { padding: 32px 20px 56px; }
+      .vehicle-grid { grid-template-columns: 1fr; }
+      .tm-topbar-inner { padding: 12px 16px; }
+    }
+
+    @media print {
+      .tm-topbar, .site-footer, .print-hint { display: none; }
+      .masthead { padding: 20px 0; }
+      .article { padding: 20px 0; }
+      .kit-check { display: inline-block; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="https://trailmanual.com">
+      <svg width="24" height="24" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="10" fill="#1A2330"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></svg>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="https://trailmanual.com">Home</a>
+      <a href="https://trailmanual.com/db/">Database</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">Trail Tools</div>
+  <h1>Trail Tool Packing Guides</h1>
+  <p class="masthead-subhead">One shared base kit. Then vehicle-specific additions based on known failure points. Not a generic list — tools matched to what actually breaks on each rig.</p>
+</div>
+
+<div class="article">
+
+  <div class="verdict">
+    <div class="verdict-label">The philosophy</div>
+    <p>Every rig shares a universal base kit — the tools that handle the problems any 4x4 can throw at you on a trail. What differs is what you add on top: an XJ driver needs extra cooling system parts; a TJ driver needs to think about the NP231 and specific front axle hardware. The vehicle guides cover those additions. This page covers the foundation.</p>
+  </div>
+
+  <h2>Choose Your Vehicle</h2>
+  <p>Select your rig to see the base kit plus vehicle-specific tool and spare parts recommendations.</p>
+
+  <div class="vehicle-grid">
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Jeep</div>
+      <h3>Cherokee XJ</h3>
+      <div class="vehicle-card-years">1984–2001</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../xj/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../xj/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Jeep</div>
+      <h3>Wrangler TJ</h3>
+      <div class="vehicle-card-years">1997–2006</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../tj/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../tj/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Jeep</div>
+      <h3>Wrangler JK</h3>
+      <div class="vehicle-card-years">2007–2018</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../jk/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../jk/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Jeep</div>
+      <h3>Wrangler JL</h3>
+      <div class="vehicle-card-years">2018–present</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../jl/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../jl/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Toyota</div>
+      <h3>4Runner</h3>
+      <div class="vehicle-card-years">3rd &amp; 4th gen focus</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../4runner/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../4runner/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Toyota</div>
+      <h3>Tacoma</h3>
+      <div class="vehicle-card-years">1st &amp; 2nd gen focus</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../tacoma/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../tacoma/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Ford</div>
+      <h3>Early Bronco</h3>
+      <div class="vehicle-card-years">1966–1977</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../bronco/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../bronco/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Ford</div>
+      <h3>Bronco II</h3>
+      <div class="vehicle-card-years">1984–1990</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../bronco-ii/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../bronco-ii/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Ford</div>
+      <h3>Bronco Full-Size</h3>
+      <div class="vehicle-card-years">1978–1996</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../full-size-bronco/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../full-size-bronco/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vehicle-card-make">Ford</div>
+      <h3>Bronco 6th Gen</h3>
+      <div class="vehicle-card-years">2021–present</div>
+      <div class="vehicle-card-links">
+        <a class="vehicle-card-link tools" href="../bronco6g/trail-tools-guide.html">
+          <span class="vehicle-card-link-icon">🔧</span> Trail Tools Guide
+        </a>
+        <a class="vehicle-card-link spares" href="../bronco6g/trail-spare-parts-guide.html">
+          <span class="vehicle-card-link-icon">📦</span> Trail Spare Parts Guide
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Universal Base Kit</h2>
+  <p>This is the floor. Every rig, every trail — this kit covers the problems that don't care what you're driving. Print it, pack it, check it before the trip. Vehicle-specific additions are listed in each vehicle's dedicated guide.</p>
+
+  <div class="print-hint">
+    <span>Checkboxes are interactive — check items as you pack</span>
+    <button class="print-btn" onclick="window.print()">Print List</button>
+  </div>
+
+  <div class="kit-section">
+    <div class="kit-category">Drive Tools</div>
+    <ul class="kit-list">
+      <li>
+        <input type="checkbox" class="kit-check" id="dt1">
+        <label class="kit-item-text" for="dt1"><strong>3/8" drive socket set</strong> — 8mm–19mm metric + 5/16"–3/4" SAE</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="dt2">
+        <label class="kit-item-text" for="dt2"><strong>1/2" drive socket set</strong> — 17mm–36mm metric (lug nuts, axle bolts) + 1/2"–1-1/4" SAE</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="dt3">
+        <label class="kit-item-text" for="dt3"><strong>Breaker bar (18" or 24")</strong> — lug nuts and stubborn fasteners</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="dt4">
+        <label class="kit-item-text" for="dt4"><strong>3/8" drive ratchet + extensions</strong> — 3" and 6"</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="dt5">
+        <label class="kit-item-text" for="dt5"><strong>Torque wrench, 1/2" drive</strong> — 20–150 ft-lb range</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="dt6">
+        <label class="kit-item-text" for="dt6"><strong>Combination wrenches</strong> — 8–19mm metric + 3/8"–3/4" SAE</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="dt7">
+        <label class="kit-item-text" for="dt7"><strong>Allen/hex key set</strong> — metric + SAE, both L-key and T-handle</label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="kit-section">
+    <div class="kit-category">Hand Tools</div>
+    <ul class="kit-list">
+      <li>
+        <input type="checkbox" class="kit-check" id="ht1">
+        <label class="kit-item-text" for="ht1"><strong>Flathead and Phillips screwdrivers</strong> — multiple sizes</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="ht2">
+        <label class="kit-item-text" for="ht2"><strong>Needle-nose pliers, standard pliers, channel-lock pliers</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="ht3">
+        <label class="kit-item-text" for="ht3"><strong>Diagonal cutters</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="ht4">
+        <label class="kit-item-text" for="ht4"><strong>Pry bar (18")</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="ht5">
+        <label class="kit-item-text" for="ht5"><strong>Dead-blow hammer</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="ht6">
+        <label class="kit-item-text" for="ht6"><strong>Utility knife + extra blades</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="ht7">
+        <label class="kit-item-text" for="ht7"><strong>Wire strippers/crimpers</strong></label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="kit-section">
+    <div class="kit-category">Electrical &amp; Repair</div>
+    <ul class="kit-list">
+      <li>
+        <input type="checkbox" class="kit-check" id="er1">
+        <label class="kit-item-text" for="er1"><strong>Multimeter</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er2">
+        <label class="kit-item-text" for="er2"><strong>Assorted fuses</strong> — blade style, 5A–40A</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er3">
+        <label class="kit-item-text" for="er3"><strong>Electrical tape + self-fusing silicone tape</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er4">
+        <label class="kit-item-text" for="er4"><strong>Crimp connectors assortment + spare wire</strong> — 14 AWG and 12 AWG</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er5">
+        <label class="kit-item-text" for="er5"><strong>Zip ties</strong> — assorted sizes</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er6">
+        <label class="kit-item-text" for="er6"><strong>JB Weld (two-part epoxy)</strong> — for radiator cracks, threaded boss repairs</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er7">
+        <label class="kit-item-text" for="er7"><strong>Hose clamps</strong> — assorted sizes, 4–8 pack</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="er8">
+        <label class="kit-item-text" for="er8"><strong>Duct tape</strong></label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="kit-section">
+    <div class="kit-category">Recovery &amp; Safety</div>
+    <ul class="kit-list">
+      <li>
+        <input type="checkbox" class="kit-check" id="rs1">
+        <label class="kit-item-text" for="rs1"><strong>Hi-Lift jack (48" minimum) + Hi-Lift base plate</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs2">
+        <label class="kit-item-text" for="rs2"><strong>Tow strap (20', 20,000 lb rated)</strong> — not a snatch strap unless you carry both</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs3">
+        <label class="kit-item-text" for="rs3"><strong>D-shackles (2x, 3/4" rated)</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs4">
+        <label class="kit-item-text" for="rs4"><strong>Tire plug kit</strong> — string plugs + insertion tool + rasp</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs5">
+        <label class="kit-item-text" for="rs5"><strong>Portable air compressor (12V)</strong> — capable of 35+ PSI</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs6">
+        <label class="kit-item-text" for="rs6"><strong>Tire pressure gauge</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs7">
+        <label class="kit-item-text" for="rs7"><strong>Jumper cables (20') or lithium jump starter pack</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs8">
+        <label class="kit-item-text" for="rs8"><strong>Fire extinguisher (ABC, 2.5 lb minimum, vehicle-mounted)</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs9">
+        <label class="kit-item-text" for="rs9"><strong>Headlamp + spare batteries</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs10">
+        <label class="kit-item-text" for="rs10"><strong>Gloves</strong> — work gloves + nitrile disposable</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="rs11">
+        <label class="kit-item-text" for="rs11"><strong>First aid kit</strong></label>
+      </li>
+    </ul>
+  </div>
+
+  <div class="kit-section">
+    <div class="kit-category">Consumables Always in the Rig</div>
+    <ul class="kit-list">
+      <li>
+        <input type="checkbox" class="kit-check" id="co1">
+        <label class="kit-item-text" for="co1"><strong>Penetrating oil</strong> — PB Blaster</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="co2">
+        <label class="kit-item-text" for="co2"><strong>Anti-seize compound</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="co3">
+        <label class="kit-item-text" for="co3"><strong>Blue Loctite (#243)</strong></label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="co4">
+        <label class="kit-item-text" for="co4"><strong>RTV silicone sealant</strong> — Permatex Ultra Blue or Black</label>
+      </li>
+      <li>
+        <input type="checkbox" class="kit-check" id="co5">
+        <label class="kit-item-text" for="co5"><strong>Shop rags / blue shop towels</strong></label>
+      </li>
+    </ul>
+  </div>
+
+  <p>Vehicle-specific tools and spare parts — things an XJ driver needs that a JL driver doesn't, and vice versa — are covered in each vehicle's dedicated guides above.</p>
+
+</div>
+
+<footer class="site-footer">
+  <p>Trail Manual — <a href="https://trailmanual.com">trailmanual.com</a> — No ads, no affiliate links, no sponsored content.</p>
+</footer>
+
+</body>
+</html>

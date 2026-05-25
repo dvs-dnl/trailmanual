@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeep Wrangler TJ Trail Spare Parts Guide | Trail Manual</title>
+  <meta name="description" content="What spare parts to carry for Jeep Wrangler TJ trail runs. Covers the 4.0L CPS failure, Dana 30/35 axle vulnerabilities, and TJ-specific spares.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-X00YY58X2R');</script>
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; }
+    .tm-nav a:hover { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-weight: 500; font-size: clamp(30px, 5vw, 46px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 17px); color: var(--slate-l); max-width: 660px; line-height: 1.5; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 16px; color: var(--slate); line-height: 1.6; margin: 0 0 10px; }
+    .verdict p:last-child { margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .kit-category { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); padding: 10px 0 8px; border-bottom: 1px solid var(--bone); margin: 28px 0 0; font-weight: 500; }
+    .kit-list { list-style: none; border: 1px solid var(--bone); border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; margin-bottom: 8px; }
+    .kit-list li { padding: 11px 16px; border-bottom: 1px solid var(--bone); font-size: 14px; line-height: 1.55; color: var(--slate); }
+    .kit-list li:last-child { border-bottom: none; }
+    .kit-list li:nth-child(odd) { background: var(--paper); }
+    .kit-list li:nth-child(even) { background: rgba(232,226,210,0.4); }
+    .kit-list li strong { font-weight: 500; }
+    .vehicle-additions { background: rgba(201,126,80,0.06); border: 1px solid rgba(201,126,80,0.25); border-radius: 4px; padding: 24px 28px; margin: 28px 0; }
+    .vehicle-additions .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .vehicle-additions .add-list { list-style: none; }
+    .vehicle-additions .add-list li { font-size: 15px; line-height: 1.6; color: var(--slate); padding: 9px 0; border-bottom: 1px solid rgba(201,126,80,0.15); }
+    .vehicle-additions .add-list li:last-child { border-bottom: none; }
+    .vehicle-additions .add-list li strong { font-weight: 500; }
+    .failure-item { padding: 16px 18px; border-left: 3px solid var(--warn); background: rgba(216,144,53,0.06); border-radius: 0 4px 4px 0; margin-bottom: 10px; }
+    .failure-item strong { display: block; font-size: 15px; font-weight: 500; color: var(--slate); margin-bottom: 4px; }
+    .failure-item span { font-size: 14px; color: var(--slate-l); line-height: 1.55; display: block; }
+    .safety-item { border-left-color: var(--safety) !important; background: rgba(178,59,47,0.05) !important; }
+    .footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .footer-nav-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; width: 100%; }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-l); }
+    .site-footer a { color: var(--clay); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="https://trailmanual.com">
+      <svg width="24" height="24" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="10" fill="#1A2330"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></svg>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="https://trailmanual.com">Home</a>
+      <a href="https://trailmanual.com/db/">Database</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">Jeep Wrangler TJ &middot; 1997&ndash;2006</div>
+  <h1>TJ Trail Spare Parts Guide</h1>
+  <p class="masthead-subhead">The TJ shares the XJ&rsquo;s 4.0L engine and its failure signature. Add the Dana 30/35 axle vulnerabilities and you have a complete picture of what to carry.</p>
+</div>
+
+<article class="article">
+
+  <h2>Universal Spares &mdash; All Vehicles</h2>
+
+  <p>These items belong in every rig regardless of year or platform. The TJ-specific failures follow below.</p>
+
+  <div class="kit-category">Driveline</div>
+  <ul class="kit-list">
+    <li><strong>U-joint set</strong> &mdash; matched to your driveshaft (front and rear)</li>
+    <li><strong>Slip yoke eliminator hardware</strong> &mdash; if you&rsquo;ve lifted more than 3&quot;</li>
+    <li><strong>Differential cover gasket</strong> &mdash; carry one per axle</li>
+  </ul>
+
+  <div class="kit-category">Cooling</div>
+  <ul class="kit-list">
+    <li><strong>Thermostat + gasket</strong></li>
+    <li><strong>Upper and lower radiator hoses</strong></li>
+    <li><strong>Coolant (premixed)</strong> &mdash; 1 gallon minimum</li>
+    <li><strong>Radiator stop-leak</strong> &mdash; field emergency only, not a repair</li>
+  </ul>
+
+  <div class="kit-category">Belts &amp; Hoses</div>
+  <ul class="kit-list">
+    <li><strong>Serpentine belt</strong> &mdash; exact match to your year</li>
+    <li><strong>Heater hose sections</strong> &mdash; 3/4&quot; and 5/8&quot; ID, 12&quot; lengths</li>
+  </ul>
+
+  <div class="kit-category">Electrical</div>
+  <ul class="kit-list">
+    <li><strong>Full fuse assortment</strong> &mdash; blade type, 5A through 40A</li>
+    <li><strong>Spare relay set</strong> &mdash; 30A and 40A, SPDT</li>
+    <li><strong>Crank and cam sensor</strong> &mdash; if your rig is over 100k miles</li>
+  </ul>
+
+  <div class="kit-category">Fluids</div>
+  <ul class="kit-list">
+    <li><strong>Engine oil</strong> &mdash; 1 quart, matched to your viscosity</li>
+    <li><strong>Gear oil 80W-90</strong> &mdash; 1 quart for axle emergencies</li>
+    <li><strong>Brake fluid DOT 3</strong> &mdash; 8 oz</li>
+    <li><strong>Power steering fluid</strong> &mdash; if equipped</li>
+  </ul>
+
+  <div class="kit-category">Fasteners</div>
+  <ul class="kit-list">
+    <li><strong>Assorted M8, M10, M12 bolts and nuts</strong></li>
+    <li><strong>Grade 8 hardware assortment</strong> &mdash; 3/8&quot; and 1/2&quot;</li>
+    <li><strong>Cotter pins, various sizes</strong></li>
+  </ul>
+
+  <h2>TJ-Specific Spares</h2>
+
+  <p>These items address failure modes that are specific to &mdash; or significantly more likely on &mdash; the TJ platform. Build and tire size affect which of these you actually need to carry.</p>
+
+  <div class="failure-item safety-item">
+    <strong>Crankshaft position sensor (CPS)</strong>
+    <span>Same failure mode as the XJ. The CPS dies in heat, the engine stops, and it won&rsquo;t restart. Under $20, part varies by year &mdash; write the part number on the bag before you go. This is the TJ&rsquo;s highest-probability strand.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Upper radiator hose + thermostat</strong>
+    <span>Same 4.0L engine as the XJ. Same cooling habits. Carry both.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Front axle U-joint set (Spicer 5-760X)</strong>
+    <span>Dana 30 front joints wear fast with larger tires. If running 33&quot;+ and pushing the front axle hard, carry a U-joint set.</span>
+  </div>
+
+  <div class="failure-item safety-item">
+    <strong>Rear axle shaft (Dana 35)</strong>
+    <span>Dana 35 rear shafts snap under aggressive locker use or with 33&quot;+ tires. If you&rsquo;re running a locker and bigger tires, carry a spare shaft. Write the part number on it before you leave. This is the TJ&rsquo;s second-most-likely mechanical strand.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>ASD relay</strong>
+    <span>Same relay, same failure mode as the XJ. Carry one. It&rsquo;s the same part.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Body Control Module (BCM) awareness</strong>
+    <span>TJ BCM issues are documented and can cause intermittent electrical gremlins. If your TJ has had unexplained electrical issues, carry a spare BCM programmed to your truck or at least know the reset procedure.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Contact cement + zipper repair kit</strong>
+    <span>If running a soft top on dusty or brush-heavy terrain, the zipper teeth are the first casualty. Contact cement handles seam repairs.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Correct drivetrain fluids</strong>
+    <span>Auto: ATF+4. Manual: check your transmission type. NP231 transfer case: ATF+4. Dana 30 and 35: 80W-90 GL-5.</span>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">TJ Field Verdict</div>
+    <p>The Dana 35 rear under load is the TJ&rsquo;s most common trail failure once you add a locker and 33&quot;+ tires. It&rsquo;s not a matter of if &mdash; it&rsquo;s when. If your build qualifies, carry the spare shaft. The CPS costs $20 and prevents the most common strand. Those two items define the TJ trail parts list.</p>
+  </div>
+
+  <nav class="footer-nav">
+    <div class="footer-nav-label">Related Guides</div>
+    <a class="footer-nav-link" href="trail-tools-guide.html">TJ Trail Tools Guide</a>
+    <a class="footer-nav-link" href="../trail-tools/index.html">Trail Tools Hub</a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <p>Trail Manual &middot; <a href="https://trailmanual.com">trailmanual.com</a> &middot; No ads. No affiliate links. No sponsored content.</p>
+</footer>
+
+</body>
+</html>

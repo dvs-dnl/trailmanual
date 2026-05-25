@@ -179,9 +179,14 @@ main {
 
 /* ── Sidebar (Garage list) ─────────────────────────────── */
 .sidebar {
+  align-self: start;
+}
+/* The rig list stays in view as you scroll the service log.
+   Utility buttons (Export / Import / Print / Clear) sit below
+   the sticky block so they scroll away with the page. */
+.sidebar-sticky {
   position: sticky;
   top: 80px;
-  align-self: start;
 }
 .sidebar-title {
   font-family: var(--mono);
@@ -584,14 +589,288 @@ main {
   border: 1px dashed var(--border-strong);
 }
 
+/* ── Tabs ──────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.tab-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all .12s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tab-btn:hover { color: var(--clay-light); }
+.tab-btn[data-active="true"] {
+  color: var(--clay);
+  border-bottom-color: var(--clay);
+}
+.tab-btn .pill-count {
+  background: var(--surface-2);
+  color: var(--text-dim);
+  font-size: 10px;
+  border-radius: 999px;
+  padding: 1px 6px;
+  min-width: 18px;
+  text-align: center;
+}
+.tab-btn[data-active="true"] .pill-count {
+  background: var(--clay);
+  color: var(--slate-deep);
+}
+.tab-btn .pill-count.alert {
+  background: var(--safety);
+  color: var(--bone);
+}
+
+/* ── Fuel log ──────────────────────────────────────────── */
+.fuel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.fuel-table th, .fuel-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+.fuel-table th {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  background: var(--slate-deeper);
+}
+.fuel-table tr:hover td { background: rgba(201,126,80,0.04); }
+.fuel-table td.numeric { font-family: var(--mono); white-space: nowrap; }
+.fuel-table td.actions { text-align: right; white-space: nowrap; }
+.fuel-table .mpg-good { color: #8FB48A; }
+.fuel-table .mpg-bad { color: var(--warn); }
+.fuel-table .fuel-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid var(--border-strong);
+  color: var(--text-dim);
+  margin-left: 6px;
+}
+
+/* ── Reminders ─────────────────────────────────────────── */
+.reminder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+.reminder-card {
+  background: var(--slate-deeper);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--good);
+  border-radius: var(--radius);
+  padding: 14px;
+  position: relative;
+}
+.reminder-card[data-status="overdue"]  { border-left-color: var(--safety); }
+.reminder-card[data-status="due-soon"] { border-left-color: var(--warn); }
+.reminder-card[data-status="ok"]       { border-left-color: var(--good); }
+.reminder-card[data-status="none"]     { border-left-color: var(--info); }
+.reminder-type {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.reminder-label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 3px;
+}
+.reminder-date {
+  font-family: var(--mono);
+  font-size: 12px;
+  margin-top: 6px;
+}
+.reminder-status {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+.reminder-card[data-status="overdue"]  .reminder-status { color: #DC7770; }
+.reminder-card[data-status="due-soon"] .reminder-status { color: var(--warn); }
+.reminder-card[data-status="ok"]       .reminder-status { color: #8FB48A; }
+.reminder-card .reminder-actions {
+  position: absolute;
+  top: 10px; right: 10px;
+  display: flex; gap: 4px;
+}
+.reminder-card .reminder-actions button {
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  cursor: pointer;
+}
+.reminder-card .reminder-actions button:hover { color: var(--clay); border-color: var(--clay); }
+
+/* ── Cost breakdown ────────────────────────────────────── */
+.cost-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cost-row {
+  display: grid;
+  grid-template-columns: 140px 1fr 100px;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+}
+.cost-row .cost-label { color: var(--text); font-weight: 500; }
+.cost-row .cost-amount {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--clay-light);
+  text-align: right;
+}
+.cost-bar {
+  height: 18px;
+  background: var(--slate-deeper);
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.cost-bar-diy {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  background: linear-gradient(90deg, #5E8C5A, #8FB48A);
+}
+.cost-bar-shop {
+  position: absolute;
+  top: 0; bottom: 0;
+  background: linear-gradient(90deg, #4F7795, #7BA3C4);
+}
+.cost-legend {
+  display: flex;
+  gap: 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.cost-legend-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+.cost-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.cost-summary .cs-card {
+  background: var(--slate-deeper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.cost-summary .cs-lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.cost-summary .cs-val {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--bone);
+}
+
+/* ── Custom services list ──────────────────────────────── */
+.cs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.cs-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  background: var(--slate-deeper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.cs-row .cs-row-name { font-weight: 500; }
+.cs-row .cs-row-spec {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.cs-row button {
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+.cs-row button:hover { color: var(--clay); border-color: var(--clay); }
+
 /* ── Print ─────────────────────────────────────────────── */
 @media print {
-  .site-header, .sidebar, .v-actions, .section-head .btn, .interval-log-btn, .modal-bg, .form-actions { display: none !important; }
+  .site-header, .sidebar, .v-actions, .section-head .btn, .interval-log-btn, .modal-bg, .form-actions, .tabs, .reminder-actions, .cs-row button { display: none !important; }
   body { background: white; color: black; }
-  .v-header, .section, .v-stat, .interval-card { background: white !important; border-color: #ccc; }
-  .v-name, .section-title, .interval-name, .log-table th, .log-table td, .log-table .svc-name { color: black !important; }
-  .log-table { font-size: 11px; }
+  .v-header, .section, .v-stat, .interval-card, .reminder-card, .cs-row, .cost-summary .cs-card { background: white !important; border-color: #ccc; }
+  .v-name, .section-title, .interval-name, .log-table th, .log-table td, .log-table .svc-name,
+  .fuel-table th, .fuel-table td, .reminder-label, .reminder-date, .cost-label { color: black !important; }
+  .log-table, .fuel-table { font-size: 11px; }
   .layout { grid-template-columns: 1fr; }
+  /* Force show every tab section in print */
+  .tab-section { display: block !important; page-break-inside: avoid; }
 }
 
 /* ── Footer ────────────────────────────────────────────── */
@@ -642,9 +921,11 @@ footer a { color: var(--clay-light); }
 
     <!-- ── Sidebar ─────────────────────────────────────────── -->
     <aside class="sidebar">
-      <div class="sidebar-title">Your Garage</div>
-      <div class="veh-list" id="vehList"></div>
-      <button class="sb-btn" id="btnAddVeh">+ Add a vehicle</button>
+      <div class="sidebar-sticky">
+        <div class="sidebar-title">Your Garage</div>
+        <div class="veh-list" id="vehList"></div>
+        <button class="sb-btn" id="btnAddVeh">+ Add a vehicle</button>
+      </div>
 
       <div class="sb-utils">
         <button id="btnExport">Export garage (JSON)</button>
@@ -763,6 +1044,128 @@ footer a { color: var(--clay-light); }
   </div>
 </div>
 
+<!-- ── Modal: Fuel entry ──────────────────────────────── -->
+<div class="modal-bg" id="fuelModal">
+  <div class="modal">
+    <button class="modal-close" id="fuelModalClose">&times;</button>
+    <h2 id="fuelModalTitle">Log a fill-up</h2>
+    <div class="form-grid">
+      <div>
+        <label>Date</label>
+        <input id="fu-date" type="date">
+      </div>
+      <div>
+        <label>Odometer</label>
+        <input id="fu-mileage" type="number" placeholder="125300">
+      </div>
+      <div>
+        <label>Gallons</label>
+        <input id="fu-gallons" type="number" step="0.001" placeholder="13.482">
+      </div>
+      <div>
+        <label>$ / gallon</label>
+        <input id="fu-ppg" type="number" step="0.001" placeholder="3.799">
+      </div>
+      <div>
+        <label>Total cost</label>
+        <input id="fu-total" type="number" step="0.01" placeholder="51.22">
+        <div class="field-help">Auto-fills from gallons × $/gal — override if needed.</div>
+      </div>
+      <div>
+        <label>Fill type</label>
+        <select id="fu-fill">
+          <option value="full">Full tank</option>
+          <option value="partial">Partial fill</option>
+        </select>
+        <div class="field-help">MPG only computed between full fills.</div>
+      </div>
+      <div class="full">
+        <label>Station (optional)</label>
+        <input id="fu-station" placeholder="Costco · Chevron · etc.">
+      </div>
+      <div class="full">
+        <label>Notes</label>
+        <textarea id="fu-notes" rows="2" placeholder="91 octane · towing trailer · etc."></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-danger" id="fuelDelete" style="display:none">Delete</button>
+      <button class="btn btn-ghost" id="fuelCancel">Cancel</button>
+      <button class="btn btn-primary" id="fuelSave">Save fill-up</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal: Reminder ────────────────────────────────── -->
+<div class="modal-bg" id="reminderModal">
+  <div class="modal">
+    <button class="modal-close" id="reminderModalClose">&times;</button>
+    <h2 id="reminderModalTitle">Add a reminder</h2>
+    <div class="form-grid">
+      <div>
+        <label>Type</label>
+        <select id="rm-type">
+          <option value="registration">Registration</option>
+          <option value="smog">Smog / Emissions</option>
+          <option value="inspection">Safety inspection</option>
+          <option value="insurance">Insurance renewal</option>
+          <option value="warranty">Warranty</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div>
+        <label>Expiration date</label>
+        <input id="rm-date" type="date">
+      </div>
+      <div class="full">
+        <label>Label</label>
+        <input id="rm-label" placeholder="e.g. AZ MVD registration">
+      </div>
+      <div class="full">
+        <label>Notes</label>
+        <textarea id="rm-notes" rows="2" placeholder="Plate number, policy number, anything you want to remember"></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-danger" id="reminderDelete" style="display:none">Delete</button>
+      <button class="btn btn-ghost" id="reminderCancel">Cancel</button>
+      <button class="btn btn-primary" id="reminderSave">Save reminder</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal: Custom service type ─────────────────────── -->
+<div class="modal-bg" id="csModal">
+  <div class="modal">
+    <button class="modal-close" id="csModalClose">&times;</button>
+    <h2 id="csModalTitle">Add a custom service</h2>
+    <p style="color:var(--text-dim);margin-bottom:14px;font-size:13px">
+      Custom services show up on your intervals dashboard and in the log dropdown alongside the standard ones.
+    </p>
+    <div class="form-grid">
+      <div class="full">
+        <label>Name</label>
+        <input id="cs-name" placeholder="e.g. Hub re-grease · Power steering flush">
+      </div>
+      <div>
+        <label>Every X miles</label>
+        <input id="cs-mi" type="number" placeholder="20000">
+        <div class="field-help">Leave blank for time-only.</div>
+      </div>
+      <div>
+        <label>Or every X months</label>
+        <input id="cs-mo" type="number" placeholder="24">
+        <div class="field-help">Leave blank for miles-only.</div>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-danger" id="csDelete" style="display:none">Delete</button>
+      <button class="btn btn-ghost" id="csCancel">Cancel</button>
+      <button class="btn btn-primary" id="csSave">Save</button>
+    </div>
+  </div>
+</div>
+
 <!-- ── Modal: Confirm action ───────────────────────────── -->
 <div class="modal-bg" id="confirmModal">
   <div class="modal" style="max-width:420px">
@@ -795,34 +1198,56 @@ const STORAGE_KEY = 'tm.garage.v1';
 // Intervals are conservative DIY recommendations. Phoenix users
 // should shorten oil + cooling intervals.
 const SERVICES = [
-  { id: 'oil-change',         name: 'Engine oil + filter',     miInt: 5000,  monthsInt: 6 },
-  { id: 'tire-rotation',      name: 'Tire rotation',           miInt: 7500,  monthsInt: 6 },
-  { id: 'engine-air-filter',  name: 'Engine air filter',       miInt: 20000, monthsInt: 24 },
-  { id: 'cabin-air-filter',   name: 'Cabin air filter',        miInt: 15000, monthsInt: 12 },
-  { id: 'brake-fluid',        name: 'Brake fluid flush',       miInt: 30000, monthsInt: 24 },
-  { id: 'brake-pads',         name: 'Brake pads (inspect)',    miInt: 15000, monthsInt: 12 },
-  { id: 'trans-fluid',        name: 'Transmission fluid',      miInt: 30000, monthsInt: 36 },
-  { id: 'diff-fluid-front',   name: 'Front diff fluid',        miInt: 30000, monthsInt: 36 },
-  { id: 'diff-fluid-rear',    name: 'Rear diff fluid',         miInt: 30000, monthsInt: 36 },
-  { id: 'tcase-fluid',        name: 'Transfer case fluid',     miInt: 30000, monthsInt: 36 },
-  { id: 'coolant',            name: 'Coolant flush',           miInt: 60000, monthsInt: 60 },
-  { id: 'spark-plugs',        name: 'Spark plugs',             miInt: 60000, monthsInt: 60 },
-  { id: 'fuel-filter',        name: 'Fuel filter',             miInt: 30000, monthsInt: 36 },
-  { id: 'serpentine-belt',    name: 'Serpentine belt',         miInt: 60000, monthsInt: 60 },
-  { id: 'wiper-blades',       name: 'Wiper blades',            miInt: 999999, monthsInt: 12 },
-  { id: 'inspection',         name: 'Underbody inspection',    miInt: 10000, monthsInt: 6 },
-  { id: 'alignment',          name: 'Alignment',               miInt: 25000, monthsInt: 24 },
-  { id: 'battery',            name: 'Battery replacement',     miInt: 999999, monthsInt: 60 },
+  { id: 'oil-change',         name: 'Engine oil + filter',     miInt: 5000,  monthsInt: 6,  cat: 'fluids' },
+  { id: 'tire-rotation',      name: 'Tire rotation',           miInt: 7500,  monthsInt: 6,  cat: 'tires' },
+  { id: 'engine-air-filter',  name: 'Engine air filter',       miInt: 20000, monthsInt: 24, cat: 'filters' },
+  { id: 'cabin-air-filter',   name: 'Cabin air filter',        miInt: 15000, monthsInt: 12, cat: 'filters' },
+  { id: 'brake-fluid',        name: 'Brake fluid flush',       miInt: 30000, monthsInt: 24, cat: 'brakes' },
+  { id: 'brake-pads',         name: 'Brake pads (inspect)',    miInt: 15000, monthsInt: 12, cat: 'brakes' },
+  { id: 'trans-fluid',        name: 'Transmission fluid',      miInt: 30000, monthsInt: 36, cat: 'fluids' },
+  { id: 'diff-fluid-front',   name: 'Front diff fluid',        miInt: 30000, monthsInt: 36, cat: 'fluids' },
+  { id: 'diff-fluid-rear',    name: 'Rear diff fluid',         miInt: 30000, monthsInt: 36, cat: 'fluids' },
+  { id: 'tcase-fluid',        name: 'Transfer case fluid',     miInt: 30000, monthsInt: 36, cat: 'fluids' },
+  { id: 'coolant',            name: 'Coolant flush',           miInt: 60000, monthsInt: 60, cat: 'fluids' },
+  { id: 'spark-plugs',        name: 'Spark plugs',             miInt: 60000, monthsInt: 60, cat: 'ignition' },
+  { id: 'fuel-filter',        name: 'Fuel filter',             miInt: 30000, monthsInt: 36, cat: 'filters' },
+  { id: 'serpentine-belt',    name: 'Serpentine belt',         miInt: 60000, monthsInt: 60, cat: 'belts-elec' },
+  { id: 'wiper-blades',       name: 'Wiper blades',            miInt: 999999, monthsInt: 12, cat: 'misc' },
+  { id: 'inspection',         name: 'Underbody inspection',    miInt: 10000, monthsInt: 6,  cat: 'inspect' },
+  { id: 'alignment',          name: 'Alignment',               miInt: 25000, monthsInt: 24, cat: 'tires' },
+  { id: 'battery',            name: 'Battery replacement',     miInt: 999999, monthsInt: 60, cat: 'belts-elec' },
   // Off-road / trail specific
-  { id: 'wheel-bearings',     name: 'Wheel bearing inspect',   miInt: 30000, monthsInt: 24 },
-  { id: 'u-joints',           name: 'U-joint inspect/grease',  miInt: 15000, monthsInt: 12 },
-  { id: 'ball-joints',        name: 'Ball joint inspect',      miInt: 30000, monthsInt: 24 },
-  { id: 'shock-inspect',      name: 'Shock inspect',           miInt: 30000, monthsInt: 24 },
-  { id: 'steering-stab',      name: 'Steering stabilizer',     miInt: 30000, monthsInt: 36 },
-  { id: 'lift-retorque',      name: 'Lift retorque',           miInt: 1000,  monthsInt: 3, oneTime: true },
+  { id: 'wheel-bearings',     name: 'Wheel bearing inspect',   miInt: 30000, monthsInt: 24, cat: 'driveline' },
+  { id: 'u-joints',           name: 'U-joint inspect/grease',  miInt: 15000, monthsInt: 12, cat: 'driveline' },
+  { id: 'ball-joints',        name: 'Ball joint inspect',      miInt: 30000, monthsInt: 24, cat: 'suspension' },
+  { id: 'shock-inspect',      name: 'Shock inspect',           miInt: 30000, monthsInt: 24, cat: 'suspension' },
+  { id: 'steering-stab',      name: 'Steering stabilizer',     miInt: 30000, monthsInt: 36, cat: 'suspension' },
+  { id: 'lift-retorque',      name: 'Lift retorque',           miInt: 1000,  monthsInt: 3, oneTime: true, cat: 'suspension' },
   // Generic catch-all
-  { id: 'other',              name: 'Other / custom service',  miInt: 0, monthsInt: 0 }
+  { id: 'other',              name: 'Other / custom service',  miInt: 0, monthsInt: 0,     cat: 'misc' }
 ];
+
+const CATEGORIES = [
+  { id: 'fluids',     name: 'Oil & fluids' },
+  { id: 'filters',    name: 'Filters' },
+  { id: 'brakes',     name: 'Brakes' },
+  { id: 'tires',      name: 'Tires & alignment' },
+  { id: 'ignition',   name: 'Ignition' },
+  { id: 'suspension', name: 'Suspension & steering' },
+  { id: 'driveline',  name: 'Driveline' },
+  { id: 'belts-elec', name: 'Belts & electrical' },
+  { id: 'inspect',    name: 'Inspection' },
+  { id: 'misc',       name: 'Misc / custom' }
+];
+
+const REMINDER_LABELS = {
+  registration: 'Registration',
+  smog: 'Smog / Emissions',
+  inspection: 'Safety inspection',
+  insurance: 'Insurance renewal',
+  warranty: 'Warranty',
+  custom: 'Reminder'
+};
 
 /* =========================================================
    STATE
@@ -830,14 +1255,33 @@ const SERVICES = [
 let state = loadState();
 let editingVehicleId = null;
 let editingLogId = null;
+let editingFuelId = null;
+let editingReminderId = null;
+let editingCsId = null;
 let confirmCallback = null;
+let activeTab = 'overview'; // overview | fuel | reminders | costs | settings
 
 function loadState() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const data = JSON.parse(raw);
+      return migrateState(data);
+    }
   } catch (e) { console.warn('Could not load state', e); }
-  return { vehicles: [], activeVehicleId: null, version: 1 };
+  return { vehicles: [], activeVehicleId: null, version: 2 };
+}
+
+// Migration to v2: add fuelLog, reminders, customServices to every vehicle.
+function migrateState(data) {
+  data.vehicles = (data.vehicles || []).map(v => ({
+    fuelLog: [],
+    reminders: [],
+    customServices: [],
+    ...v
+  }));
+  data.version = 2;
+  return data;
 }
 function saveState() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
@@ -920,10 +1364,50 @@ function renderContent() {
 
   // Header
   host.appendChild(renderVehicleHeader(v));
-  // Service intervals
-  host.appendChild(renderIntervals(v));
-  // Service log
-  host.appendChild(renderLog(v));
+  // Tab nav
+  host.appendChild(renderTabs(v));
+  // Active tab body
+  const tabBody = el('div', { class: 'tab-section' });
+  host.appendChild(tabBody);
+
+  if (activeTab === 'overview') {
+    tabBody.appendChild(renderIntervals(v));
+    tabBody.appendChild(renderLog(v));
+  } else if (activeTab === 'fuel') {
+    tabBody.appendChild(renderFuelLog(v));
+  } else if (activeTab === 'reminders') {
+    tabBody.appendChild(renderReminders(v));
+  } else if (activeTab === 'costs') {
+    tabBody.appendChild(renderCosts(v));
+  } else if (activeTab === 'settings') {
+    tabBody.appendChild(renderCustomServices(v));
+  }
+}
+
+function renderTabs(v) {
+  const wrap = el('div', { class: 'tabs' });
+  const intervals = computeIntervalStatus(v);
+  const overdueCount = intervals.filter(i => i.status === 'overdue').length;
+  const reminderCounts = countOverdueReminders(v);
+  const tabDefs = [
+    { id: 'overview',  label: 'Overview',  count: overdueCount,                  alert: overdueCount > 0 },
+    { id: 'fuel',      label: 'Fuel',      count: (v.fuelLog || []).length,      alert: false },
+    { id: 'reminders', label: 'Reminders', count: reminderCounts.overdue + reminderCounts.dueSoon, alert: reminderCounts.overdue > 0 },
+    { id: 'costs',     label: 'Costs',     count: null,                          alert: false },
+    { id: 'settings',  label: 'Settings',  count: null,                          alert: false }
+  ];
+  tabDefs.forEach(t => {
+    const b = el('button', {
+      class: 'tab-btn',
+      data: { active: String(activeTab === t.id) },
+      on: { click: () => { activeTab = t.id; renderContent(); } }
+    }, t.label);
+    if (t.count != null && t.count > 0) {
+      b.appendChild(el('span', { class: 'pill-count' + (t.alert ? ' alert' : '') }, String(t.count)));
+    }
+    wrap.appendChild(b);
+  });
+  return wrap;
 }
 
 function renderVehicleHeader(v) {
@@ -1034,10 +1518,18 @@ function renderLog(v) {
 
     const svcCell = el('td');
     const svcName = el('div', { class: 'svc-name' });
-    const svcDef = SERVICES.find(s => s.id === entry.serviceId);
-    svcName.textContent = entry.serviceId === 'other' && entry.customName
-      ? entry.customName
-      : (svcDef ? svcDef.name : entry.serviceId);
+    let displayName;
+    if (entry.serviceId === 'other' && entry.customName) {
+      displayName = entry.customName;
+    } else if (typeof entry.serviceId === 'string' && entry.serviceId.startsWith('custom:')) {
+      const cid = entry.serviceId.slice('custom:'.length);
+      const cdef = (v.customServices || []).find(c => c.id === cid);
+      displayName = cdef ? cdef.name : (entry.customName || 'Custom service');
+    } else {
+      const svcDef = SERVICES.find(s => s.id === entry.serviceId);
+      displayName = svcDef ? svcDef.name : entry.serviceId;
+    }
+    svcName.textContent = displayName;
     // tags
     const tag = el('span', { class: 'tag ' + entry.who, style: 'margin-left:6px' }, entry.who === 'diy' ? 'DIY' : 'Shop');
     svcName.appendChild(tag);
@@ -1059,13 +1551,333 @@ function renderLog(v) {
 }
 
 /* =========================================================
+   FUEL LOG RENDER
+   ========================================================= */
+function renderFuelLog(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Fuel log'));
+  const fuelLog = v.fuelLog || [];
+  const help = el('div', { class: 'section-help' });
+  help.appendChild(document.createTextNode(fuelLog.length + ' fill-up' + (fuelLog.length === 1 ? '' : 's')));
+  head.appendChild(help);
+  const addBtn = el('button', { class: 'btn btn-primary btn-sm', on: { click: () => openFuelEntry(null) } }, '+ Log fill-up');
+  head.appendChild(addBtn);
+  section.appendChild(head);
+
+  const stats = computeFuelStats(v);
+  const statRow = el('div', { class: 'v-stats', style: 'margin-bottom:18px' });
+  function stat(lbl, val, cls) {
+    const c = el('div', { class: 'v-stat ' + (cls || '') });
+    c.appendChild(el('div', { class: 'lbl' }, lbl));
+    c.appendChild(el('div', { class: 'val' }, val));
+    return c;
+  }
+  statRow.appendChild(stat('Lifetime MPG', stats.lifetimeMpg ? stats.lifetimeMpg.toFixed(1) : '—'));
+  statRow.appendChild(stat('Last 5-fill MPG', stats.recentMpg ? stats.recentMpg.toFixed(1) : '—'));
+  statRow.appendChild(stat('Gallons total', stats.totalGallons ? fmt(stats.totalGallons.toFixed(1)) : '—'));
+  statRow.appendChild(stat('Fuel spent', stats.totalSpent ? '$' + fmt(stats.totalSpent.toFixed(0)) : '—'));
+  statRow.appendChild(stat('$ / mile', stats.costPerMile ? '$' + stats.costPerMile.toFixed(3) : '—'));
+  statRow.appendChild(stat('$ / month avg', stats.monthlyAvg ? '$' + fmt(stats.monthlyAvg.toFixed(0)) : '—'));
+  section.appendChild(statRow);
+
+  if (fuelLog.length === 0) {
+    section.appendChild(el('div', { class: 'empty-card' }, 'No fill-ups logged yet. MPG is computed between two full fills, so log a couple to get rolling.'));
+    return section;
+  }
+
+  const table = el('table', { class: 'fuel-table' });
+  const thead = el('thead');
+  const trh = el('tr');
+  ['Date', 'Odometer', 'Gallons', '$/gal', 'Total', 'MPG', 'Notes', ''].forEach(h => trh.appendChild(el('th', {}, h)));
+  thead.appendChild(trh);
+  table.appendChild(thead);
+  const tbody = el('tbody');
+  // Sort by mileage asc to compute MPG, but display desc
+  const byMileage = [...fuelLog].sort((a, b) => (Number(a.mileage) || 0) - (Number(b.mileage) || 0));
+  const mpgMap = computeFuelMpg(byMileage);
+  const sorted = [...fuelLog].sort((a, b) => (b.date || '').localeCompare(a.date || '') || (Number(b.mileage) || 0) - (Number(a.mileage) || 0));
+  sorted.forEach(entry => {
+    const tr = el('tr');
+    tr.appendChild(el('td', { class: 'numeric' }, prettyDate(entry.date)));
+    tr.appendChild(el('td', { class: 'numeric' }, entry.mileage ? fmt(entry.mileage) + ' mi' : '—'));
+    tr.appendChild(el('td', { class: 'numeric' }, entry.gallons ? Number(entry.gallons).toFixed(2) : '—'));
+    tr.appendChild(el('td', { class: 'numeric' }, entry.ppg ? '$' + Number(entry.ppg).toFixed(3) : '—'));
+    tr.appendChild(el('td', { class: 'numeric' }, entry.total ? '$' + Number(entry.total).toFixed(2) : '—'));
+    const mpg = mpgMap[entry.id];
+    const mpgTd = el('td', { class: 'numeric' });
+    if (mpg != null) {
+      mpgTd.textContent = mpg.toFixed(1);
+      mpgTd.classList.add(mpg >= 15 ? 'mpg-good' : 'mpg-bad');
+    } else mpgTd.textContent = '—';
+    tr.appendChild(mpgTd);
+    const notesCell = el('td');
+    if (entry.station) notesCell.appendChild(el('div', {}, entry.station));
+    if (entry.notes) notesCell.appendChild(el('div', { style: 'font-size:12px;color:var(--text-dim);margin-top:2px' }, entry.notes));
+    if (entry.fill === 'partial') notesCell.appendChild(el('span', { class: 'fuel-tag' }, 'Partial'));
+    tr.appendChild(notesCell);
+    const actions = el('td', { class: 'actions' });
+    actions.appendChild(el('button', { class: 'btn btn-sm btn-ghost', on: { click: () => openFuelEntry(entry.id) } }, 'edit'));
+    tr.appendChild(actions);
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  section.appendChild(table);
+  return section;
+}
+
+function computeFuelMpg(byMileageAsc) {
+  // MPG of fill[i] = (mileage[i] - mileage[lastFullFill]) / sum(gallons between, including fill[i])
+  // Only computed if fill[i] is a 'full' fill AND there's a prior 'full' fill.
+  const out = {};
+  let lastFullIdx = -1;
+  let gallonsAccum = 0;
+  for (let i = 0; i < byMileageAsc.length; i++) {
+    const e = byMileageAsc[i];
+    const g = Number(e.gallons) || 0;
+    if (lastFullIdx === -1) {
+      if (e.fill === 'full') lastFullIdx = i;
+      continue;
+    }
+    gallonsAccum += g;
+    if (e.fill === 'full') {
+      const miles = (Number(e.mileage) || 0) - (Number(byMileageAsc[lastFullIdx].mileage) || 0);
+      if (miles > 0 && gallonsAccum > 0) out[e.id] = miles / gallonsAccum;
+      lastFullIdx = i;
+      gallonsAccum = 0;
+    }
+  }
+  return out;
+}
+
+function computeFuelStats(v) {
+  const log = (v.fuelLog || []);
+  if (!log.length) return {};
+  const totalGallons = log.reduce((s, e) => s + (Number(e.gallons) || 0), 0);
+  const totalSpent = log.reduce((s, e) => s + (Number(e.total) || (Number(e.gallons) || 0) * (Number(e.ppg) || 0)), 0);
+  const byMileage = [...log].sort((a, b) => (Number(a.mileage) || 0) - (Number(b.mileage) || 0));
+  // Lifetime MPG = miles between first full and last full / gallons in between (exclusive of first)
+  const fullFills = byMileage.filter(e => e.fill !== 'partial');
+  let lifetimeMpg = null;
+  if (fullFills.length >= 2) {
+    const first = fullFills[0];
+    const last = fullFills[fullFills.length - 1];
+    const miles = (Number(last.mileage) || 0) - (Number(first.mileage) || 0);
+    // gallons between is all entries after first index, up to and including last
+    const firstIdx = byMileage.indexOf(first);
+    const lastIdx = byMileage.indexOf(last);
+    let g = 0;
+    for (let i = firstIdx + 1; i <= lastIdx; i++) g += Number(byMileage[i].gallons) || 0;
+    if (miles > 0 && g > 0) lifetimeMpg = miles / g;
+  }
+  // Recent MPG = average of last 5 entries' computed MPG
+  const mpgMap = computeFuelMpg(byMileage);
+  const recentMpgs = byMileage.slice(-5).map(e => mpgMap[e.id]).filter(x => x != null);
+  const recentMpg = recentMpgs.length ? recentMpgs.reduce((a, b) => a + b, 0) / recentMpgs.length : null;
+  // Cost/mile
+  let costPerMile = null;
+  if (fullFills.length >= 2 && totalSpent > 0) {
+    const miles = (Number(fullFills[fullFills.length - 1].mileage) || 0) - (Number(fullFills[0].mileage) || 0);
+    if (miles > 0) costPerMile = totalSpent / miles;
+  }
+  // Monthly avg
+  const dates = log.map(e => new Date(e.date)).filter(d => !isNaN(d));
+  let monthlyAvg = null;
+  if (dates.length >= 2 && totalSpent > 0) {
+    dates.sort((a, b) => a - b);
+    const months = Math.max(1, (dates[dates.length - 1] - dates[0]) / (1000 * 60 * 60 * 24 * 30.44));
+    monthlyAvg = totalSpent / months;
+  }
+  return { totalGallons, totalSpent, lifetimeMpg, recentMpg, costPerMile, monthlyAvg };
+}
+
+/* =========================================================
+   REMINDERS RENDER
+   ========================================================= */
+function countOverdueReminders(v) {
+  const out = { overdue: 0, dueSoon: 0 };
+  (v.reminders || []).forEach(r => {
+    const s = reminderStatus(r);
+    if (s.status === 'overdue') out.overdue++;
+    else if (s.status === 'due-soon') out.dueSoon++;
+  });
+  return out;
+}
+
+function reminderStatus(r) {
+  if (!r.date) return { status: 'none', text: 'No date set' };
+  const now = new Date();
+  const exp = new Date(r.date + 'T00:00:00');
+  const days = Math.floor((exp - now) / (1000 * 60 * 60 * 24));
+  if (days < 0) return { status: 'overdue', text: 'Expired ' + (-days) + ' day' + (days === -1 ? '' : 's') + ' ago' };
+  if (days <= 30) return { status: 'due-soon', text: 'Due in ' + days + ' day' + (days === 1 ? '' : 's') };
+  return { status: 'ok', text: 'Due in ' + days + ' days' };
+}
+
+function renderReminders(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Reminders'));
+  head.appendChild(el('div', { class: 'section-help' }, 'Registration, smog, insurance — anything with an expiration date.'));
+  head.appendChild(el('button', { class: 'btn btn-primary btn-sm', on: { click: () => openReminder(null) } }, '+ Add reminder'));
+  section.appendChild(head);
+  const reminders = v.reminders || [];
+  if (reminders.length === 0) {
+    section.appendChild(el('div', { class: 'empty-card' }, 'No reminders set. Add one to get a heads-up before something expires.'));
+    return section;
+  }
+  // Sort: overdue first, then by date ascending
+  const rank = { 'overdue': 0, 'due-soon': 1, 'ok': 2, 'none': 3 };
+  const sorted = [...reminders].sort((a, b) => {
+    const sa = reminderStatus(a).status;
+    const sb = reminderStatus(b).status;
+    if (rank[sa] !== rank[sb]) return rank[sa] - rank[sb];
+    return (a.date || '').localeCompare(b.date || '');
+  });
+  const grid = el('div', { class: 'reminder-grid' });
+  sorted.forEach(r => {
+    const st = reminderStatus(r);
+    const card = el('div', { class: 'reminder-card', data: { status: st.status } });
+    card.appendChild(el('div', { class: 'reminder-type' }, REMINDER_LABELS[r.type] || 'Reminder'));
+    card.appendChild(el('div', { class: 'reminder-label' }, r.label || REMINDER_LABELS[r.type] || 'Reminder'));
+    card.appendChild(el('div', { class: 'reminder-date' }, r.date ? prettyDate(r.date) : 'No date set'));
+    card.appendChild(el('div', { class: 'reminder-status' }, st.text));
+    if (r.notes) card.appendChild(el('div', { style: 'font-size:12px;color:var(--text-dim);margin-top:6px' }, r.notes));
+    const actions = el('div', { class: 'reminder-actions' });
+    actions.appendChild(el('button', { on: { click: () => openReminder(r.id) } }, 'edit'));
+    card.appendChild(actions);
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+/* =========================================================
+   COSTS RENDER
+   ========================================================= */
+function renderCosts(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Cost breakdown'));
+  head.appendChild(el('div', { class: 'section-help' }, 'Where your money has actually gone. DIY vs shop split per category.'));
+  section.appendChild(head);
+  const log = v.log || [];
+  if (log.length === 0) {
+    section.appendChild(el('div', { class: 'empty-card' }, 'Log a few services to see your spending breakdown.'));
+    return section;
+  }
+  // Compute by category
+  const byCat = {};
+  CATEGORIES.forEach(c => byCat[c.id] = { name: c.name, diy: 0, shop: 0, total: 0 });
+  let totalDiy = 0, totalShop = 0;
+  log.forEach(e => {
+    const svc = SERVICES.find(s => s.id === e.serviceId);
+    const cat = svc ? svc.cat : 'misc';
+    const cost = Number(e.cost) || 0;
+    if (!byCat[cat]) byCat[cat] = { name: cat, diy: 0, shop: 0, total: 0 };
+    if (e.who === 'shop') { byCat[cat].shop += cost; totalShop += cost; }
+    else { byCat[cat].diy += cost; totalDiy += cost; }
+    byCat[cat].total += cost;
+  });
+  const overallTotal = totalDiy + totalShop;
+  const maxCat = Math.max(1, ...Object.values(byCat).map(c => c.total));
+  // Legend
+  const legend = el('div', { class: 'cost-legend' });
+  const ld = el('div', {});
+  ld.appendChild(el('span', { class: 'cost-legend-dot', style: 'background:#5E8C5A' }));
+  ld.appendChild(document.createTextNode('DIY'));
+  legend.appendChild(ld);
+  const ls = el('div', {});
+  ls.appendChild(el('span', { class: 'cost-legend-dot', style: 'background:#4F7795' }));
+  ls.appendChild(document.createTextNode('Shop'));
+  legend.appendChild(ls);
+  section.appendChild(legend);
+  // Bars
+  const chart = el('div', { class: 'cost-chart' });
+  const sortedCats = Object.entries(byCat).sort((a, b) => b[1].total - a[1].total);
+  sortedCats.forEach(([cid, c]) => {
+    if (c.total === 0) return;
+    const row = el('div', { class: 'cost-row' });
+    row.appendChild(el('div', { class: 'cost-label' }, c.name));
+    const bar = el('div', { class: 'cost-bar' });
+    const diyW = (c.diy / maxCat) * 100;
+    const shopW = (c.shop / maxCat) * 100;
+    if (c.diy > 0)  bar.appendChild(el('div', { class: 'cost-bar-diy',  style: 'width:' + diyW + '%' }));
+    if (c.shop > 0) bar.appendChild(el('div', { class: 'cost-bar-shop', style: 'left:' + diyW + '%;width:' + shopW + '%' }));
+    row.appendChild(bar);
+    row.appendChild(el('div', { class: 'cost-amount' }, '$' + fmt(Math.round(c.total))));
+    chart.appendChild(row);
+  });
+  section.appendChild(chart);
+  // Summary
+  const sum = el('div', { class: 'cost-summary' });
+  function csCard(lbl, val) {
+    const c = el('div', { class: 'cs-card' });
+    c.appendChild(el('div', { class: 'cs-lbl' }, lbl));
+    c.appendChild(el('div', { class: 'cs-val' }, val));
+    return c;
+  }
+  const diyPct = overallTotal > 0 ? Math.round((totalDiy / overallTotal) * 100) : 0;
+  sum.appendChild(csCard('DIY total', '$' + fmt(Math.round(totalDiy))));
+  sum.appendChild(csCard('Shop total', '$' + fmt(Math.round(totalShop))));
+  sum.appendChild(csCard('DIY share', diyPct + '%'));
+  sum.appendChild(csCard('Total spent', '$' + fmt(Math.round(overallTotal))));
+  section.appendChild(sum);
+  return section;
+}
+
+/* =========================================================
+   CUSTOM SERVICES RENDER (Settings tab)
+   ========================================================= */
+function renderCustomServices(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Custom service types'));
+  head.appendChild(el('div', { class: 'section-help' }, 'Define your own recurring maintenance items for this rig.'));
+  head.appendChild(el('button', { class: 'btn btn-primary btn-sm', on: { click: () => openCs(null) } }, '+ Add custom service'));
+  section.appendChild(head);
+  const cs = v.customServices || [];
+  if (cs.length === 0) {
+    section.appendChild(el('div', { class: 'empty-card' }, 'No custom service types yet. The 25 built-in items cover most rigs — add custom ones for anything unique to your build.'));
+    return section;
+  }
+  const list = el('div', { class: 'cs-list' });
+  cs.forEach(c => {
+    const row = el('div', { class: 'cs-row' });
+    row.appendChild(el('div', { class: 'cs-row-name' }, c.name));
+    const spec = [];
+    if (c.miInt) spec.push('every ' + fmt(c.miInt) + ' mi');
+    if (c.monthsInt) spec.push(c.monthsInt + ' mo');
+    row.appendChild(el('div', { class: 'cs-row-spec' }, spec.join(' · ') || 'no interval set'));
+    row.appendChild(el('button', { on: { click: () => openCs(c.id) } }, 'edit'));
+    list.appendChild(row);
+  });
+  section.appendChild(list);
+  return section;
+}
+
+/* =========================================================
    INTERVAL CALCULATION
    ========================================================= */
+function getAllServicesFor(v) {
+  // Standard services (excluding 'other') + this vehicle's custom services
+  const std = SERVICES.filter(s => s.id !== 'other');
+  const custom = (v.customServices || []).map(c => ({
+    id: 'custom:' + c.id,
+    name: c.name,
+    miInt: c.miInt || 999999,
+    monthsInt: c.monthsInt || 0,
+    cat: 'misc',
+    isCustom: true
+  }));
+  return std.concat(custom);
+}
+
 function computeIntervalStatus(v) {
   const log = v.log || [];
   const currentMileage = v.mileage || 0;
   const now = new Date();
-  return SERVICES.filter(s => s.id !== 'other').map(s => {
+  return getAllServicesFor(v).map(s => {
     const matching = log.filter(e => e.serviceId === s.id);
     matching.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
     const last = matching[0] || null;
@@ -1167,7 +1979,14 @@ document.getElementById('vehSave').addEventListener('click', () => {
     const v = state.vehicles.find(x => x.id === editingVehicleId);
     Object.assign(v, data);
   } else {
-    const v = Object.assign({ id: uid(), createdAt: new Date().toISOString(), log: [] }, data);
+    const v = Object.assign({
+      id: uid(),
+      createdAt: new Date().toISOString(),
+      log: [],
+      fuelLog: [],
+      reminders: [],
+      customServices: []
+    }, data);
     state.vehicles.push(v);
     state.activeVehicleId = v.id;
   }
@@ -1188,17 +2007,21 @@ function setActive(vid) {
 function populateServiceSelect(preselectId) {
   const sel = document.getElementById('l-service');
   sel.innerHTML = '';
+  const v = activeVehicle();
+  const customSvcs = v ? (v.customServices || []) : [];
   const groups = [
-    { label: 'Regular maintenance', ids: ['oil-change','tire-rotation','engine-air-filter','cabin-air-filter','brake-fluid','brake-pads','trans-fluid','diff-fluid-front','diff-fluid-rear','tcase-fluid','coolant','spark-plugs','fuel-filter','serpentine-belt','wiper-blades','battery','alignment','inspection'] },
-    { label: 'Off-road / lifted-rig items', ids: ['wheel-bearings','u-joints','ball-joints','shock-inspect','steering-stab','lift-retorque'] },
-    { label: 'Custom', ids: ['other'] }
+    { label: 'Regular maintenance', ids: ['oil-change','tire-rotation','engine-air-filter','cabin-air-filter','brake-fluid','brake-pads','trans-fluid','diff-fluid-front','diff-fluid-rear','tcase-fluid','coolant','spark-plugs','fuel-filter','serpentine-belt','wiper-blades','battery','alignment','inspection'], svcs: null },
+    { label: 'Off-road / lifted-rig items', ids: ['wheel-bearings','u-joints','ball-joints','shock-inspect','steering-stab','lift-retorque'], svcs: null }
   ];
+  if (customSvcs.length > 0) {
+    groups.push({ label: 'Your custom services', ids: null, svcs: customSvcs.map(c => ({ id: 'custom:' + c.id, name: c.name })) });
+  }
+  groups.push({ label: 'Other', ids: ['other'], svcs: null });
   groups.forEach(g => {
     const og = document.createElement('optgroup');
     og.label = g.label;
-    g.ids.forEach(id => {
-      const s = SERVICES.find(x => x.id === id);
-      if (!s) return;
+    const items = g.svcs || g.ids.map(id => SERVICES.find(x => x.id === id)).filter(Boolean);
+    items.forEach(s => {
       const op = document.createElement('option');
       op.value = s.id;
       op.textContent = s.name;
@@ -1312,6 +2135,210 @@ document.getElementById('logDelete').addEventListener('click', () => {
   });
 });
 
+/* ── Fuel entry modal ────────────────────────────────── */
+function openFuelEntry(entryId) {
+  const v = activeVehicle();
+  if (!v) return;
+  editingFuelId = entryId;
+  document.getElementById('fuelModalTitle').textContent = entryId ? 'Edit fill-up' : 'Log a fill-up';
+  const log = v.fuelLog || [];
+  if (entryId) {
+    const e = log.find(x => x.id === entryId);
+    if (!e) return;
+    document.getElementById('fu-date').value = e.date || todayISO();
+    document.getElementById('fu-mileage').value = e.mileage || '';
+    document.getElementById('fu-gallons').value = e.gallons || '';
+    document.getElementById('fu-ppg').value = e.ppg || '';
+    document.getElementById('fu-total').value = e.total || '';
+    document.getElementById('fu-fill').value = e.fill || 'full';
+    document.getElementById('fu-station').value = e.station || '';
+    document.getElementById('fu-notes').value = e.notes || '';
+    document.getElementById('fuelDelete').style.display = 'inline-block';
+  } else {
+    document.getElementById('fu-date').value = todayISO();
+    document.getElementById('fu-mileage').value = v.mileage || '';
+    document.getElementById('fu-gallons').value = '';
+    document.getElementById('fu-ppg').value = '';
+    document.getElementById('fu-total').value = '';
+    document.getElementById('fu-fill').value = 'full';
+    document.getElementById('fu-station').value = '';
+    document.getElementById('fu-notes').value = '';
+    document.getElementById('fuelDelete').style.display = 'none';
+  }
+  openModal('fuelModal');
+}
+// Auto-compute total when gallons + ppg are entered
+['fu-gallons','fu-ppg'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    const g = parseFloat(document.getElementById('fu-gallons').value);
+    const p = parseFloat(document.getElementById('fu-ppg').value);
+    const t = document.getElementById('fu-total');
+    if (!isNaN(g) && !isNaN(p) && !t.dataset.userTouched) {
+      t.value = (g * p).toFixed(2);
+    }
+  });
+});
+document.getElementById('fu-total').addEventListener('input', (e) => {
+  e.target.dataset.userTouched = 'true';
+});
+document.getElementById('fuelModalClose').addEventListener('click', () => closeModal('fuelModal'));
+document.getElementById('fuelCancel').addEventListener('click', () => closeModal('fuelModal'));
+document.getElementById('fuelSave').addEventListener('click', () => {
+  const v = activeVehicle();
+  if (!v) return;
+  const f = (id) => document.getElementById(id).value.trim();
+  const num = (id) => f(id) ? Number(f(id)) : 0;
+  const data = {
+    date: f('fu-date') || todayISO(),
+    mileage: num('fu-mileage'),
+    gallons: num('fu-gallons'),
+    ppg: num('fu-ppg'),
+    total: num('fu-total') || (num('fu-gallons') * num('fu-ppg')),
+    fill: f('fu-fill') || 'full',
+    station: f('fu-station'),
+    notes: f('fu-notes')
+  };
+  if (!data.gallons && !data.total) {
+    alert('Enter gallons or total cost.');
+    return;
+  }
+  v.fuelLog = v.fuelLog || [];
+  if (editingFuelId) {
+    const e = v.fuelLog.find(x => x.id === editingFuelId);
+    Object.assign(e, data);
+  } else {
+    v.fuelLog.push(Object.assign({ id: uid() }, data));
+  }
+  if (data.mileage && data.mileage > (v.mileage || 0)) v.mileage = data.mileage;
+  // Reset total touched flag for next session
+  document.getElementById('fu-total').dataset.userTouched = '';
+  saveState();
+  closeModal('fuelModal');
+  renderSidebar();
+  renderContent();
+});
+document.getElementById('fuelDelete').addEventListener('click', () => {
+  if (!editingFuelId) return;
+  askConfirm('Delete this fill-up?', 'This cannot be undone.', () => {
+    const v = activeVehicle();
+    v.fuelLog = (v.fuelLog || []).filter(x => x.id !== editingFuelId);
+    saveState();
+    closeModal('fuelModal');
+    renderContent();
+  });
+});
+
+/* ── Reminder modal ──────────────────────────────────── */
+function openReminder(reminderId) {
+  const v = activeVehicle();
+  if (!v) return;
+  editingReminderId = reminderId;
+  document.getElementById('reminderModalTitle').textContent = reminderId ? 'Edit reminder' : 'Add a reminder';
+  if (reminderId) {
+    const r = (v.reminders || []).find(x => x.id === reminderId);
+    if (!r) return;
+    document.getElementById('rm-type').value = r.type || 'registration';
+    document.getElementById('rm-date').value = r.date || '';
+    document.getElementById('rm-label').value = r.label || '';
+    document.getElementById('rm-notes').value = r.notes || '';
+    document.getElementById('reminderDelete').style.display = 'inline-block';
+  } else {
+    document.getElementById('rm-type').value = 'registration';
+    document.getElementById('rm-date').value = '';
+    document.getElementById('rm-label').value = '';
+    document.getElementById('rm-notes').value = '';
+    document.getElementById('reminderDelete').style.display = 'none';
+  }
+  openModal('reminderModal');
+}
+document.getElementById('reminderModalClose').addEventListener('click', () => closeModal('reminderModal'));
+document.getElementById('reminderCancel').addEventListener('click', () => closeModal('reminderModal'));
+document.getElementById('reminderSave').addEventListener('click', () => {
+  const v = activeVehicle();
+  if (!v) return;
+  const f = (id) => document.getElementById(id).value.trim();
+  const data = {
+    type: f('rm-type') || 'custom',
+    date: f('rm-date'),
+    label: f('rm-label'),
+    notes: f('rm-notes')
+  };
+  v.reminders = v.reminders || [];
+  if (editingReminderId) {
+    const r = v.reminders.find(x => x.id === editingReminderId);
+    Object.assign(r, data);
+  } else {
+    v.reminders.push(Object.assign({ id: uid() }, data));
+  }
+  saveState();
+  closeModal('reminderModal');
+  renderContent();
+});
+document.getElementById('reminderDelete').addEventListener('click', () => {
+  if (!editingReminderId) return;
+  askConfirm('Delete this reminder?', 'This cannot be undone.', () => {
+    const v = activeVehicle();
+    v.reminders = (v.reminders || []).filter(x => x.id !== editingReminderId);
+    saveState();
+    closeModal('reminderModal');
+    renderContent();
+  });
+});
+
+/* ── Custom service modal ────────────────────────────── */
+function openCs(csId) {
+  const v = activeVehicle();
+  if (!v) return;
+  editingCsId = csId;
+  document.getElementById('csModalTitle').textContent = csId ? 'Edit custom service' : 'Add a custom service';
+  if (csId) {
+    const c = (v.customServices || []).find(x => x.id === csId);
+    if (!c) return;
+    document.getElementById('cs-name').value = c.name || '';
+    document.getElementById('cs-mi').value = c.miInt || '';
+    document.getElementById('cs-mo').value = c.monthsInt || '';
+    document.getElementById('csDelete').style.display = 'inline-block';
+  } else {
+    document.getElementById('cs-name').value = '';
+    document.getElementById('cs-mi').value = '';
+    document.getElementById('cs-mo').value = '';
+    document.getElementById('csDelete').style.display = 'none';
+  }
+  openModal('csModal');
+}
+document.getElementById('csModalClose').addEventListener('click', () => closeModal('csModal'));
+document.getElementById('csCancel').addEventListener('click', () => closeModal('csModal'));
+document.getElementById('csSave').addEventListener('click', () => {
+  const v = activeVehicle();
+  if (!v) return;
+  const f = (id) => document.getElementById(id).value.trim();
+  const name = f('cs-name');
+  const miInt = f('cs-mi') ? Number(f('cs-mi')) : 0;
+  const monthsInt = f('cs-mo') ? Number(f('cs-mo')) : 0;
+  if (!name) { alert('Give the service a name.'); return; }
+  if (!miInt && !monthsInt) { alert('Set either a mile interval or a month interval.'); return; }
+  v.customServices = v.customServices || [];
+  if (editingCsId) {
+    const c = v.customServices.find(x => x.id === editingCsId);
+    Object.assign(c, { name, miInt, monthsInt });
+  } else {
+    v.customServices.push({ id: uid(), name, miInt, monthsInt });
+  }
+  saveState();
+  closeModal('csModal');
+  renderContent();
+});
+document.getElementById('csDelete').addEventListener('click', () => {
+  if (!editingCsId) return;
+  askConfirm('Delete this custom service?', 'Existing log entries for it will still show but will be unlinked from the intervals dashboard.', () => {
+    const v = activeVehicle();
+    v.customServices = (v.customServices || []).filter(x => x.id !== editingCsId);
+    saveState();
+    closeModal('csModal');
+    renderContent();
+  });
+});
+
 /* ── Confirm modal ───────────────────────────────────── */
 function askConfirm(title, body, cb) {
   document.getElementById('confirmTitle').textContent = title;
@@ -1370,7 +2397,7 @@ document.getElementById('importFile').addEventListener('change', (ev) => {
         'Replace current garage?',
         'Importing will overwrite your current ' + state.vehicles.length + ' rig(s) with ' + data.vehicles.length + ' from the file.',
         () => {
-          state = data;
+          state = migrateState(data);
           saveState();
           renderSidebar();
           renderContent();
