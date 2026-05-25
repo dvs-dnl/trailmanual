@@ -1,0 +1,1426 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>My Garage — Maintenance Log · Trail Manual</title>
+<meta name="description" content="Build your garage and track maintenance. Add every rig, log every service, see what's coming up. Everything saves to this device. No account, no signup, no ads." />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X00YY58X2R');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%231A2330'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23E8E2D2' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+
+<style>
+:root {
+  --slate: #2B3A4A;
+  --slate-deep: #1A2330;
+  --slate-deeper: #11171F;
+  --slate-light: #5B6B7E;
+  --slate-lighter: #8898A8;
+  --clay: #C97E50;
+  --clay-deep: #A85D33;
+  --clay-light: #E8AB85;
+  --bone: #E8E2D2;
+  --bone-deep: #C9C1AC;
+  --paper: #F7F4ED;
+  --moss: #3D5B47;
+  --rust: #8A4E2C;
+  --safety: #B23B2F;
+  --warn: #D89035;
+  --good: #5E8C5A;
+  --info: #4F7795;
+
+  --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --bg: var(--slate-deeper);
+  --surface: var(--slate-deep);
+  --surface-2: #1F2937;
+  --border: #2A3441;
+  --border-strong: #3A4554;
+  --text: var(--bone);
+  --text-dim: var(--slate-lighter);
+  --text-faint: #6B7886;
+
+  --radius: 6px;
+  --radius-lg: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.55;
+  font-size: 15px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--clay-light); text-decoration: none; }
+a:hover { color: var(--clay); text-decoration: underline; }
+button { font: inherit; cursor: pointer; }
+input, select, textarea {
+  font: inherit;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  color: var(--text);
+  padding: 8px 10px;
+  width: 100%;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--clay);
+}
+label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+
+/* ── Site header ───────────────────────────────────────── */
+.site-header {
+  background: var(--slate-deep);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex; align-items: center; gap: 12px;
+  color: var(--bone); text-decoration: none;
+  font-weight: 500; font-size: 14px;
+  text-transform: uppercase; letter-spacing: 0.18em;
+}
+.brand:hover { text-decoration: none; }
+.brand-mark { width: 28px; height: 28px; flex: 0 0 28px; }
+.brand-dot {
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--clay);
+  margin: 0 4px;
+  vertical-align: 3px;
+}
+.site-nav {
+  display: flex; gap: 18px;
+  font-family: var(--mono); font-size: 11px;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.site-nav a { color: var(--text-dim); }
+.site-nav a:hover { color: var(--bone); text-decoration: none; }
+
+/* ── Masthead ──────────────────────────────────────────── */
+.masthead {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+}
+h1 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 880px;
+  margin-bottom: 14px;
+}
+.lede {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 720px;
+}
+
+/* ── Layout ────────────────────────────────────────────── */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 28px;
+}
+@media (max-width: 880px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+/* ── Sidebar (Garage list) ─────────────────────────────── */
+.sidebar {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+}
+.sidebar-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 10px;
+}
+.veh-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.veh-pill {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all .12s;
+  text-align: left;
+  color: var(--text);
+}
+.veh-pill:hover { border-color: var(--clay-light); }
+.veh-pill[data-active="true"] {
+  border-color: var(--clay);
+  background: linear-gradient(180deg, rgba(201,126,80,0.12), rgba(201,126,80,0.02));
+}
+.veh-pill .vp-nick {
+  font-size: 14px;
+  font-weight: 500;
+}
+.veh-pill .vp-vehicle {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.veh-pill .vp-mileage {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--clay-light);
+  margin-top: 4px;
+}
+
+/* ── Sidebar buttons ───────────────────────────────────── */
+.sb-btn {
+  width: 100%;
+  background: transparent;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  color: var(--text-dim);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .12s;
+  text-align: center;
+}
+.sb-btn:hover { border-color: var(--clay); color: var(--clay-light); }
+
+/* ── Sidebar utility links ─────────────────────────────── */
+.sb-utils {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sb-utils a, .sb-utils button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  text-align: left;
+  padding: 4px 0;
+}
+.sb-utils a:hover, .sb-utils button:hover { color: var(--clay-light); }
+
+/* ── Content area ──────────────────────────────────────── */
+.content {
+  min-width: 0;
+}
+.content-empty {
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 60px 30px;
+  text-align: center;
+  color: var(--text-dim);
+}
+.content-empty .ce-title {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--bone);
+  margin-bottom: 10px;
+}
+.content-empty .ce-help {
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── Vehicle header ────────────────────────────────────── */
+.v-header {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.v-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.v-name {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.v-sub {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+.v-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .12s;
+}
+.btn:hover { border-color: var(--clay); color: var(--clay-light); }
+.btn-primary {
+  background: var(--clay);
+  color: var(--slate-deep);
+  border-color: var(--clay);
+}
+.btn-primary:hover { background: var(--clay-light); color: var(--slate-deep); border-color: var(--clay-light); }
+.btn-ghost { background: transparent; }
+.btn-danger { color: #DC7770; border-color: rgba(178,59,47,0.4); }
+.btn-danger:hover { background: rgba(178,59,47,0.1); color: #DC7770; border-color: #DC7770; }
+.btn-sm { font-size: 10px; padding: 5px 10px; }
+
+/* ── Stat tiles ────────────────────────────────────────── */
+.v-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+.v-stat {
+  background: var(--slate-deeper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.v-stat .lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.v-stat .val {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+}
+.v-stat.alert .val { color: var(--warn); }
+.v-stat.good .val { color: #8FB48A; }
+
+/* ── Section ───────────────────────────────────────────── */
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+  margin-bottom: 20px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.section-title {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.section-help {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ── Service intervals ─────────────────────────────────── */
+.interval-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+}
+.interval-card {
+  background: var(--slate-deeper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  position: relative;
+}
+.interval-card[data-status="overdue"]   { border-left: 3px solid var(--safety); }
+.interval-card[data-status="due-soon"]  { border-left: 3px solid var(--warn); }
+.interval-card[data-status="ok"]        { border-left: 3px solid var(--good); }
+.interval-card[data-status="never"]     { border-left: 3px solid var(--info); }
+.interval-name {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.interval-spec {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.interval-status {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+.interval-card[data-status="overdue"] .interval-status   { color: #DC7770; }
+.interval-card[data-status="due-soon"] .interval-status  { color: var(--warn); }
+.interval-card[data-status="ok"] .interval-status        { color: #8FB48A; }
+.interval-card[data-status="never"] .interval-status     { color: #7BA3C4; }
+.interval-last {
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 6px;
+}
+.interval-log-btn {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 3px;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  cursor: pointer;
+}
+.interval-log-btn:hover { color: var(--clay); border-color: var(--clay); }
+
+/* ── Log table ─────────────────────────────────────────── */
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.log-table th, .log-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+.log-table th {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  background: var(--slate-deeper);
+}
+.log-table tr:hover td { background: rgba(201,126,80,0.04); }
+.log-table td.numeric { font-family: var(--mono); white-space: nowrap; }
+.log-table td.actions { text-align: right; white-space: nowrap; }
+.log-table .svc-name { font-weight: 500; color: var(--bone); }
+.log-table .svc-notes { font-size: 12px; color: var(--text-dim); margin-top: 3px; }
+.log-table .svc-parts { font-family: var(--mono); font-size: 11px; color: var(--clay-light); margin-top: 3px; }
+.log-table .tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+  margin-right: 4px;
+}
+.tag.diy   { color: #8FB48A; border-color: rgba(94,140,90,0.4); background: rgba(94,140,90,0.08); }
+.tag.shop  { color: #7BA3C4; border-color: rgba(79,119,149,0.4); background: rgba(79,119,149,0.08); }
+
+/* ── Modal ─────────────────────────────────────────────── */
+.modal-bg {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow-y: auto;
+}
+.modal-bg[data-open="true"] { display: flex; }
+.modal {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 560px;
+  padding: 28px;
+  position: relative;
+}
+.modal h2 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.modal-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-size: 22px;
+  cursor: pointer;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 4px;
+}
+.modal-close:hover { background: var(--surface-2); color: var(--bone); }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 12px;
+}
+.form-grid .full { grid-column: 1 / -1; }
+.form-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  justify-content: flex-end;
+}
+.field-help {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 4px;
+}
+
+/* ── Empty card ────────────────────────────────────────── */
+.empty-card {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--text-dim);
+  background: var(--slate-deeper);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border-strong);
+}
+
+/* ── Print ─────────────────────────────────────────────── */
+@media print {
+  .site-header, .sidebar, .v-actions, .section-head .btn, .interval-log-btn, .modal-bg, .form-actions { display: none !important; }
+  body { background: white; color: black; }
+  .v-header, .section, .v-stat, .interval-card { background: white !important; border-color: #ccc; }
+  .v-name, .section-title, .interval-name, .log-table th, .log-table td, .log-table .svc-name { color: black !important; }
+  .log-table { font-size: 11px; }
+  .layout { grid-template-columns: 1fr; }
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+footer a { color: var(--clay-light); }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#1A2330"/>
+      <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".9"/>
+    </svg>
+    <span>TRAIL<span class="brand-dot"></span>MANUAL</span>
+  </a>
+  <nav class="site-nav">
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+    <a href="/my-garage.html" style="color:var(--bone)">My Garage</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">My Garage · Maintenance log</div>
+  <h1>Every rig, every service, in one place.</h1>
+  <p class="lede">Add your vehicles. Log every oil change, fluid swap, brake job, and trail repair. The tool flags what's coming due and what's overdue based on standard intervals. Everything lives on this device — no account, no cloud.</p>
+</div>
+
+<main>
+  <div class="layout">
+
+    <!-- ── Sidebar ─────────────────────────────────────────── -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Your Garage</div>
+      <div class="veh-list" id="vehList"></div>
+      <button class="sb-btn" id="btnAddVeh">+ Add a vehicle</button>
+
+      <div class="sb-utils">
+        <button id="btnExport">Export garage (JSON)</button>
+        <button id="btnImport">Import garage</button>
+        <button id="btnPrint">Print / PDF</button>
+        <button id="btnNuke">Clear all data</button>
+      </div>
+
+      <input type="file" id="importFile" accept="application/json" style="display:none">
+    </aside>
+
+    <!-- ── Content ─────────────────────────────────────────── -->
+    <section class="content" id="content"></section>
+
+  </div>
+</main>
+
+<!-- ── Modal: Add/Edit vehicle ─────────────────────────────────────── -->
+<div class="modal-bg" id="vehModal">
+  <div class="modal">
+    <button class="modal-close" id="vehModalClose">&times;</button>
+    <h2 id="vehModalTitle">Add a vehicle</h2>
+    <div class="form-grid">
+      <div class="full">
+        <label>Nickname</label>
+        <input id="f-nick" placeholder="e.g. 'White Whale' or 'Daily Rig'">
+        <div class="field-help">Optional but useful if you own more than one.</div>
+      </div>
+      <div>
+        <label>Year</label>
+        <input id="f-year" type="number" placeholder="2002" min="1970" max="2030">
+      </div>
+      <div>
+        <label>Make</label>
+        <input id="f-make" placeholder="Jeep">
+      </div>
+      <div>
+        <label>Model</label>
+        <input id="f-model" placeholder="Wrangler">
+      </div>
+      <div>
+        <label>Trim / submodel</label>
+        <input id="f-trim" placeholder="Rubicon Unlimited">
+      </div>
+      <div>
+        <label>Current mileage</label>
+        <input id="f-mileage" type="number" placeholder="125000">
+      </div>
+      <div>
+        <label>VIN (optional)</label>
+        <input id="f-vin" placeholder="1J4FA24...">
+      </div>
+      <div class="full">
+        <label>Notes (engine, mods, anything you want to remember)</label>
+        <textarea id="f-notes" rows="3" placeholder="3.6L Pentastar · 3.5&quot; lift · 35s · re-geared 4.88"></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-ghost" id="vehCancel">Cancel</button>
+      <button class="btn btn-primary" id="vehSave">Save vehicle</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal: Add/Edit service entry ─────────────────────────────── -->
+<div class="modal-bg" id="logModal">
+  <div class="modal">
+    <button class="modal-close" id="logModalClose">&times;</button>
+    <h2 id="logModalTitle">Log a service</h2>
+    <div class="form-grid">
+      <div>
+        <label>Date</label>
+        <input id="l-date" type="date">
+      </div>
+      <div>
+        <label>Mileage at service</label>
+        <input id="l-mileage" type="number" placeholder="125300">
+      </div>
+      <div class="full">
+        <label>Service type</label>
+        <select id="l-service"></select>
+      </div>
+      <div class="full" id="l-custom-wrap" style="display:none">
+        <label>Custom service name</label>
+        <input id="l-custom" placeholder="e.g. 'Replaced steering box'">
+      </div>
+      <div>
+        <label>Performed by</label>
+        <select id="l-who">
+          <option value="diy">DIY</option>
+          <option value="shop">Shop</option>
+        </select>
+      </div>
+      <div>
+        <label>Cost ($)</label>
+        <input id="l-cost" type="number" step="0.01" placeholder="65.50">
+      </div>
+      <div class="full">
+        <label>Parts / brand used</label>
+        <input id="l-parts" placeholder="Mobil 1 5W-20 · Mopar MO-090 filter">
+      </div>
+      <div class="full">
+        <label>Shop name (if applicable)</label>
+        <input id="l-shop" placeholder="Big O Tires – Phoenix">
+      </div>
+      <div class="full">
+        <label>Notes</label>
+        <textarea id="l-notes" rows="2" placeholder="Anything you want to remember about this service"></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-danger" id="logDelete" style="display:none">Delete</button>
+      <button class="btn btn-ghost" id="logCancel">Cancel</button>
+      <button class="btn btn-primary" id="logSave">Save entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal: Confirm action ───────────────────────────── -->
+<div class="modal-bg" id="confirmModal">
+  <div class="modal" style="max-width:420px">
+    <button class="modal-close" id="confirmClose">&times;</button>
+    <h2 id="confirmTitle">Are you sure?</h2>
+    <p id="confirmBody" style="color:var(--text-dim);margin-bottom:18px"></p>
+    <div class="form-actions">
+      <button class="btn btn-ghost" id="confirmCancel">Cancel</button>
+      <button class="btn btn-danger" id="confirmOk">Yes, do it</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>Trail Manual · Free, no affiliate links, no ads · Your garage data stays on this device.</div>
+  <div><a href="/">trailmanual.com</a></div>
+</footer>
+
+<script>
+/* =========================================================
+   MY GARAGE — Maintenance Log · Trail Manual
+   Single-file static tool. State in localStorage.
+   ========================================================= */
+
+const STORAGE_KEY = 'tm.garage.v1';
+
+/* =========================================================
+   SERVICE TYPES + STANDARD INTERVALS
+   ========================================================= */
+// Intervals are conservative DIY recommendations. Phoenix users
+// should shorten oil + cooling intervals.
+const SERVICES = [
+  { id: 'oil-change',         name: 'Engine oil + filter',     miInt: 5000,  monthsInt: 6 },
+  { id: 'tire-rotation',      name: 'Tire rotation',           miInt: 7500,  monthsInt: 6 },
+  { id: 'engine-air-filter',  name: 'Engine air filter',       miInt: 20000, monthsInt: 24 },
+  { id: 'cabin-air-filter',   name: 'Cabin air filter',        miInt: 15000, monthsInt: 12 },
+  { id: 'brake-fluid',        name: 'Brake fluid flush',       miInt: 30000, monthsInt: 24 },
+  { id: 'brake-pads',         name: 'Brake pads (inspect)',    miInt: 15000, monthsInt: 12 },
+  { id: 'trans-fluid',        name: 'Transmission fluid',      miInt: 30000, monthsInt: 36 },
+  { id: 'diff-fluid-front',   name: 'Front diff fluid',        miInt: 30000, monthsInt: 36 },
+  { id: 'diff-fluid-rear',    name: 'Rear diff fluid',         miInt: 30000, monthsInt: 36 },
+  { id: 'tcase-fluid',        name: 'Transfer case fluid',     miInt: 30000, monthsInt: 36 },
+  { id: 'coolant',            name: 'Coolant flush',           miInt: 60000, monthsInt: 60 },
+  { id: 'spark-plugs',        name: 'Spark plugs',             miInt: 60000, monthsInt: 60 },
+  { id: 'fuel-filter',        name: 'Fuel filter',             miInt: 30000, monthsInt: 36 },
+  { id: 'serpentine-belt',    name: 'Serpentine belt',         miInt: 60000, monthsInt: 60 },
+  { id: 'wiper-blades',       name: 'Wiper blades',            miInt: 999999, monthsInt: 12 },
+  { id: 'inspection',         name: 'Underbody inspection',    miInt: 10000, monthsInt: 6 },
+  { id: 'alignment',          name: 'Alignment',               miInt: 25000, monthsInt: 24 },
+  { id: 'battery',            name: 'Battery replacement',     miInt: 999999, monthsInt: 60 },
+  // Off-road / trail specific
+  { id: 'wheel-bearings',     name: 'Wheel bearing inspect',   miInt: 30000, monthsInt: 24 },
+  { id: 'u-joints',           name: 'U-joint inspect/grease',  miInt: 15000, monthsInt: 12 },
+  { id: 'ball-joints',        name: 'Ball joint inspect',      miInt: 30000, monthsInt: 24 },
+  { id: 'shock-inspect',      name: 'Shock inspect',           miInt: 30000, monthsInt: 24 },
+  { id: 'steering-stab',      name: 'Steering stabilizer',     miInt: 30000, monthsInt: 36 },
+  { id: 'lift-retorque',      name: 'Lift retorque',           miInt: 1000,  monthsInt: 3, oneTime: true },
+  // Generic catch-all
+  { id: 'other',              name: 'Other / custom service',  miInt: 0, monthsInt: 0 }
+];
+
+/* =========================================================
+   STATE
+   ========================================================= */
+let state = loadState();
+let editingVehicleId = null;
+let editingLogId = null;
+let confirmCallback = null;
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return JSON.parse(raw);
+  } catch (e) { console.warn('Could not load state', e); }
+  return { vehicles: [], activeVehicleId: null, version: 1 };
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+  catch (e) { console.warn('Could not save state', e); }
+}
+
+function uid() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function activeVehicle() {
+  if (!state.activeVehicleId) return null;
+  return state.vehicles.find(v => v.id === state.activeVehicleId) || null;
+}
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+const el = (tag, attrs, ...children) => {
+  const e = document.createElement(tag);
+  if (attrs) Object.keys(attrs).forEach(k => {
+    if (k === 'class') e.className = attrs[k];
+    else if (k === 'html') e.innerHTML = attrs[k];
+    else if (k === 'on') Object.keys(attrs.on).forEach(ev => e.addEventListener(ev, attrs.on[ev]));
+    else if (k === 'data') Object.keys(attrs.data).forEach(d => e.dataset[d] = attrs.data[d]);
+    else if (k === 'style') e.style.cssText = attrs[k];
+    else e.setAttribute(k, attrs[k]);
+  });
+  children.forEach(c => {
+    if (c == null || c === false) return;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  });
+  return e;
+};
+
+function renderSidebar() {
+  const list = document.getElementById('vehList');
+  list.innerHTML = '';
+  state.vehicles.forEach(v => {
+    const pill = el('button', {
+      class: 'veh-pill',
+      data: { active: String(v.id === state.activeVehicleId) },
+      on: { click: () => setActive(v.id) }
+    });
+    pill.appendChild(el('div', { class: 'vp-nick' }, v.nickname || vehicleTitle(v)));
+    if (v.nickname) pill.appendChild(el('div', { class: 'vp-vehicle' }, vehicleTitle(v)));
+    pill.appendChild(el('div', { class: 'vp-mileage' }, v.mileage ? fmt(v.mileage) + ' mi' : 'no mileage yet'));
+    list.appendChild(pill);
+  });
+}
+
+function vehicleTitle(v) {
+  return [v.year, v.make, v.model, v.trim].filter(Boolean).join(' ');
+}
+
+function renderContent() {
+  const host = document.getElementById('content');
+  host.innerHTML = '';
+  const v = activeVehicle();
+  if (!v) {
+    if (state.vehicles.length === 0) {
+      host.appendChild(el('div', { class: 'content-empty' },
+        el('div', { class: 'ce-title' }, 'Start by adding your first rig.'),
+        el('div', { class: 'ce-help' }, 'A vehicle takes about 20 seconds. From there you log services as you do them — and the tool flags what\'s coming due.'),
+        el('div', { style: 'margin-top:20px' },
+          (() => {
+            const b = el('button', { class: 'btn btn-primary', on: { click: openAddVehicle } }, '+ Add your first rig');
+            return b;
+          })()
+        )
+      ));
+    } else {
+      host.appendChild(el('div', { class: 'content-empty' },
+        el('div', { class: 'ce-title' }, 'Pick a rig from your garage.'),
+        el('div', { class: 'ce-help' }, 'Use the list on the left to switch between vehicles.')
+      ));
+    }
+    return;
+  }
+
+  // Header
+  host.appendChild(renderVehicleHeader(v));
+  // Service intervals
+  host.appendChild(renderIntervals(v));
+  // Service log
+  host.appendChild(renderLog(v));
+}
+
+function renderVehicleHeader(v) {
+  const wrap = el('div', { class: 'v-header' });
+  const top = el('div', { class: 'v-header-top' });
+  const titleBox = el('div');
+  titleBox.appendChild(el('div', { class: 'v-name' }, v.nickname || vehicleTitle(v)));
+  if (v.nickname) titleBox.appendChild(el('div', { class: 'v-sub' }, vehicleTitle(v)));
+  if (v.notes) titleBox.appendChild(el('div', { style: 'font-size:13px;color:var(--text-dim);margin-top:10px;max-width:540px' }, v.notes));
+  top.appendChild(titleBox);
+
+  const actions = el('div', { class: 'v-actions' });
+  actions.appendChild(el('button', { class: 'btn btn-primary', on: { click: () => openLogEntry(null) } }, '+ Log a service'));
+  actions.appendChild(el('button', { class: 'btn', on: { click: () => openEditVehicle(v.id) } }, 'Edit rig'));
+  actions.appendChild(el('button', { class: 'btn btn-danger btn-sm', on: { click: () => confirmDelete(v.id) } }, 'Delete rig'));
+  top.appendChild(actions);
+  wrap.appendChild(top);
+
+  // Stats
+  const stats = el('div', { class: 'v-stats' });
+  const log = v.log || [];
+  const lastEntry = log.length ? log[log.length - 1] : null;
+  // Total cost (lifetime)
+  const totalCost = log.reduce((s, e) => s + (Number(e.cost) || 0), 0);
+  // YTD cost
+  const yearStart = new Date(new Date().getFullYear(), 0, 1);
+  const ytdCost = log
+    .filter(e => new Date(e.date) >= yearStart)
+    .reduce((s, e) => s + (Number(e.cost) || 0), 0);
+
+  const intervals = computeIntervalStatus(v);
+  const overdueCount = intervals.filter(i => i.status === 'overdue').length;
+  const dueSoonCount = intervals.filter(i => i.status === 'due-soon').length;
+
+  function stat(lbl, val, cls) {
+    const c = el('div', { class: 'v-stat ' + (cls || '') });
+    c.appendChild(el('div', { class: 'lbl' }, lbl));
+    c.appendChild(el('div', { class: 'val' }, val));
+    return c;
+  }
+  stats.appendChild(stat('Mileage', v.mileage ? fmt(v.mileage) + ' mi' : '—'));
+  stats.appendChild(stat('Log entries', String(log.length)));
+  stats.appendChild(stat('Spent (lifetime)', '$' + fmt(Math.round(totalCost))));
+  stats.appendChild(stat('Spent (YTD)', '$' + fmt(Math.round(ytdCost))));
+  stats.appendChild(stat('Overdue', String(overdueCount), overdueCount > 0 ? 'alert' : 'good'));
+  stats.appendChild(stat('Due soon', String(dueSoonCount), dueSoonCount > 0 ? 'alert' : 'good'));
+  wrap.appendChild(stats);
+  return wrap;
+}
+
+function renderIntervals(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Service intervals'));
+  head.appendChild(el('div', { class: 'section-help' }, 'Status is based on the last logged service vs. standard intervals.'));
+  section.appendChild(head);
+
+  const intervals = computeIntervalStatus(v);
+  // Sort: overdue → due-soon → never → ok
+  const rank = { 'overdue': 0, 'due-soon': 1, 'never': 2, 'ok': 3 };
+  intervals.sort((a, b) => rank[a.status] - rank[b.status]);
+
+  const grid = el('div', { class: 'interval-grid' });
+  intervals.forEach(itv => {
+    const card = el('div', { class: 'interval-card', data: { status: itv.status } });
+    card.appendChild(el('div', { class: 'interval-name' }, itv.service.name));
+    const spec = el('div', { class: 'interval-spec' });
+    if (itv.service.miInt && itv.service.miInt < 999999) spec.appendChild(document.createTextNode('every ' + fmt(itv.service.miInt) + ' mi'));
+    if (itv.service.miInt < 999999 && itv.service.monthsInt) spec.appendChild(document.createTextNode(' · '));
+    if (itv.service.monthsInt) spec.appendChild(document.createTextNode(itv.service.monthsInt + ' mo'));
+    card.appendChild(spec);
+    card.appendChild(el('div', { class: 'interval-status' }, itv.statusText));
+    if (itv.lastText) card.appendChild(el('div', { class: 'interval-last' }, itv.lastText));
+    card.appendChild(el('button', { class: 'interval-log-btn', on: { click: () => openLogEntryForService(itv.service.id) } }, '+ log'));
+    grid.appendChild(card);
+  });
+  section.appendChild(grid);
+  return section;
+}
+
+function renderLog(v) {
+  const section = el('div', { class: 'section' });
+  const head = el('div', { class: 'section-head' });
+  head.appendChild(el('div', { class: 'section-title' }, 'Service log'));
+  const log = v.log || [];
+  head.appendChild(el('div', { class: 'section-help' }, log.length + ' entr' + (log.length === 1 ? 'y' : 'ies')));
+  section.appendChild(head);
+
+  if (log.length === 0) {
+    section.appendChild(el('div', { class: 'empty-card' }, 'No service entries yet. Click "+ Log a service" to start.'));
+    return section;
+  }
+
+  const table = el('table', { class: 'log-table' });
+  const thead = el('thead');
+  const trh = el('tr');
+  ['Date', 'Mileage', 'Service', 'Cost', ''].forEach(h => trh.appendChild(el('th', {}, h)));
+  thead.appendChild(trh);
+  table.appendChild(thead);
+
+  const tbody = el('tbody');
+  // Sort by date desc
+  const sorted = [...log].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  sorted.forEach(entry => {
+    const tr = el('tr');
+    tr.appendChild(el('td', { class: 'numeric' }, prettyDate(entry.date)));
+    tr.appendChild(el('td', { class: 'numeric' }, entry.mileage ? fmt(entry.mileage) + ' mi' : '—'));
+
+    const svcCell = el('td');
+    const svcName = el('div', { class: 'svc-name' });
+    const svcDef = SERVICES.find(s => s.id === entry.serviceId);
+    svcName.textContent = entry.serviceId === 'other' && entry.customName
+      ? entry.customName
+      : (svcDef ? svcDef.name : entry.serviceId);
+    // tags
+    const tag = el('span', { class: 'tag ' + entry.who, style: 'margin-left:6px' }, entry.who === 'diy' ? 'DIY' : 'Shop');
+    svcName.appendChild(tag);
+    svcCell.appendChild(svcName);
+    if (entry.parts) svcCell.appendChild(el('div', { class: 'svc-parts' }, entry.parts));
+    if (entry.shop) svcCell.appendChild(el('div', { class: 'svc-notes' }, '@ ' + entry.shop));
+    if (entry.notes) svcCell.appendChild(el('div', { class: 'svc-notes' }, entry.notes));
+    tr.appendChild(svcCell);
+
+    tr.appendChild(el('td', { class: 'numeric' }, entry.cost ? '$' + fmt(Number(entry.cost).toFixed(2)) : '—'));
+    const actions = el('td', { class: 'actions' });
+    actions.appendChild(el('button', { class: 'btn btn-sm btn-ghost', on: { click: () => openLogEntry(entry.id) } }, 'edit'));
+    tr.appendChild(actions);
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+  section.appendChild(table);
+  return section;
+}
+
+/* =========================================================
+   INTERVAL CALCULATION
+   ========================================================= */
+function computeIntervalStatus(v) {
+  const log = v.log || [];
+  const currentMileage = v.mileage || 0;
+  const now = new Date();
+  return SERVICES.filter(s => s.id !== 'other').map(s => {
+    const matching = log.filter(e => e.serviceId === s.id);
+    matching.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+    const last = matching[0] || null;
+    let status, statusText, lastText;
+    if (!last) {
+      status = 'never';
+      statusText = 'Not yet logged';
+      lastText = '';
+    } else {
+      const lastMi = Number(last.mileage) || 0;
+      const lastDate = new Date(last.date);
+      const milesSince = currentMileage - lastMi;
+      const monthsSince = Math.floor((now - lastDate) / (1000 * 60 * 60 * 24 * 30.44));
+      const miOver = s.miInt ? milesSince - s.miInt : -Infinity;
+      const monthsOver = s.monthsInt ? monthsSince - s.monthsInt : -Infinity;
+      const worst = Math.max(miOver, monthsOver);
+      // For one-time services, status is just "ok" once logged.
+      if (s.oneTime) {
+        status = 'ok';
+        statusText = 'Done';
+      } else if (s.miInt < 999999 && milesSince >= s.miInt) {
+        status = 'overdue';
+        statusText = 'Overdue by ' + fmt(milesSince - s.miInt) + ' mi';
+      } else if (s.monthsInt && monthsSince >= s.monthsInt) {
+        status = 'overdue';
+        statusText = 'Overdue by ' + (monthsSince - s.monthsInt) + ' mo';
+      } else if (s.miInt < 999999 && milesSince >= s.miInt * 0.85) {
+        status = 'due-soon';
+        statusText = 'Due in ~' + fmt(s.miInt - milesSince) + ' mi';
+      } else if (s.monthsInt && monthsSince >= s.monthsInt * 0.85) {
+        status = 'due-soon';
+        statusText = 'Due in ~' + (s.monthsInt - monthsSince) + ' mo';
+      } else {
+        status = 'ok';
+        const milesLeft = s.miInt < 999999 ? (s.miInt - milesSince) : null;
+        const monthsLeft = s.monthsInt ? (s.monthsInt - monthsSince) : null;
+        statusText = 'OK';
+        if (milesLeft != null) statusText += ' · ' + fmt(milesLeft) + ' mi left';
+        else if (monthsLeft != null) statusText += ' · ' + monthsLeft + ' mo left';
+      }
+      lastText = 'Last: ' + prettyDate(last.date) + (lastMi ? ' @ ' + fmt(lastMi) + ' mi' : '');
+    }
+    return { service: s, status, statusText, lastText };
+  });
+}
+
+/* =========================================================
+   MODAL HANDLERS
+   ========================================================= */
+function openModal(id) {
+  document.getElementById(id).dataset.open = 'true';
+}
+function closeModal(id) {
+  document.getElementById(id).dataset.open = 'false';
+}
+
+function openAddVehicle() {
+  editingVehicleId = null;
+  document.getElementById('vehModalTitle').textContent = 'Add a vehicle';
+  ['f-nick', 'f-year', 'f-make', 'f-model', 'f-trim', 'f-mileage', 'f-vin', 'f-notes'].forEach(id => document.getElementById(id).value = '');
+  openModal('vehModal');
+}
+function openEditVehicle(vid) {
+  editingVehicleId = vid;
+  const v = state.vehicles.find(x => x.id === vid);
+  if (!v) return;
+  document.getElementById('vehModalTitle').textContent = 'Edit ' + (v.nickname || vehicleTitle(v));
+  document.getElementById('f-nick').value = v.nickname || '';
+  document.getElementById('f-year').value = v.year || '';
+  document.getElementById('f-make').value = v.make || '';
+  document.getElementById('f-model').value = v.model || '';
+  document.getElementById('f-trim').value = v.trim || '';
+  document.getElementById('f-mileage').value = v.mileage || '';
+  document.getElementById('f-vin').value = v.vin || '';
+  document.getElementById('f-notes').value = v.notes || '';
+  openModal('vehModal');
+}
+document.getElementById('btnAddVeh').addEventListener('click', openAddVehicle);
+document.getElementById('vehModalClose').addEventListener('click', () => closeModal('vehModal'));
+document.getElementById('vehCancel').addEventListener('click', () => closeModal('vehModal'));
+document.getElementById('vehSave').addEventListener('click', () => {
+  const f = (id) => document.getElementById(id).value.trim();
+  const data = {
+    nickname: f('f-nick'),
+    year: f('f-year'),
+    make: f('f-make'),
+    model: f('f-model'),
+    trim: f('f-trim'),
+    mileage: f('f-mileage') ? Number(f('f-mileage')) : 0,
+    vin: f('f-vin'),
+    notes: f('f-notes')
+  };
+  // Minimal validation
+  if (!data.make && !data.model && !data.nickname) {
+    alert('Add at least a make + model, or a nickname.');
+    return;
+  }
+  if (editingVehicleId) {
+    const v = state.vehicles.find(x => x.id === editingVehicleId);
+    Object.assign(v, data);
+  } else {
+    const v = Object.assign({ id: uid(), createdAt: new Date().toISOString(), log: [] }, data);
+    state.vehicles.push(v);
+    state.activeVehicleId = v.id;
+  }
+  saveState();
+  closeModal('vehModal');
+  renderSidebar();
+  renderContent();
+});
+
+function setActive(vid) {
+  state.activeVehicleId = vid;
+  saveState();
+  renderSidebar();
+  renderContent();
+}
+
+/* ── Log entry modal ─────────────────────────────────── */
+function populateServiceSelect(preselectId) {
+  const sel = document.getElementById('l-service');
+  sel.innerHTML = '';
+  const groups = [
+    { label: 'Regular maintenance', ids: ['oil-change','tire-rotation','engine-air-filter','cabin-air-filter','brake-fluid','brake-pads','trans-fluid','diff-fluid-front','diff-fluid-rear','tcase-fluid','coolant','spark-plugs','fuel-filter','serpentine-belt','wiper-blades','battery','alignment','inspection'] },
+    { label: 'Off-road / lifted-rig items', ids: ['wheel-bearings','u-joints','ball-joints','shock-inspect','steering-stab','lift-retorque'] },
+    { label: 'Custom', ids: ['other'] }
+  ];
+  groups.forEach(g => {
+    const og = document.createElement('optgroup');
+    og.label = g.label;
+    g.ids.forEach(id => {
+      const s = SERVICES.find(x => x.id === id);
+      if (!s) return;
+      const op = document.createElement('option');
+      op.value = s.id;
+      op.textContent = s.name;
+      og.appendChild(op);
+    });
+    sel.appendChild(og);
+  });
+  if (preselectId) sel.value = preselectId;
+  toggleCustomField();
+}
+function toggleCustomField() {
+  const sel = document.getElementById('l-service');
+  document.getElementById('l-custom-wrap').style.display = sel.value === 'other' ? 'block' : 'none';
+}
+document.getElementById('l-service').addEventListener('change', toggleCustomField);
+
+function openLogEntry(entryId) {
+  const v = activeVehicle();
+  if (!v) return;
+  editingLogId = entryId;
+  document.getElementById('logModalTitle').textContent = entryId ? 'Edit service entry' : 'Log a service';
+  populateServiceSelect();
+  if (entryId) {
+    const e = (v.log || []).find(x => x.id === entryId);
+    if (!e) return;
+    document.getElementById('l-date').value = e.date || todayISO();
+    document.getElementById('l-mileage').value = e.mileage || '';
+    document.getElementById('l-service').value = e.serviceId || 'oil-change';
+    toggleCustomField();
+    document.getElementById('l-custom').value = e.customName || '';
+    document.getElementById('l-who').value = e.who || 'diy';
+    document.getElementById('l-cost').value = e.cost || '';
+    document.getElementById('l-parts').value = e.parts || '';
+    document.getElementById('l-shop').value = e.shop || '';
+    document.getElementById('l-notes').value = e.notes || '';
+    document.getElementById('logDelete').style.display = 'inline-block';
+  } else {
+    document.getElementById('l-date').value = todayISO();
+    document.getElementById('l-mileage').value = v.mileage || '';
+    document.getElementById('l-custom').value = '';
+    document.getElementById('l-who').value = 'diy';
+    document.getElementById('l-cost').value = '';
+    document.getElementById('l-parts').value = '';
+    document.getElementById('l-shop').value = '';
+    document.getElementById('l-notes').value = '';
+    document.getElementById('logDelete').style.display = 'none';
+  }
+  openModal('logModal');
+}
+function openLogEntryForService(svcId) {
+  const v = activeVehicle();
+  if (!v) return;
+  editingLogId = null;
+  document.getElementById('logModalTitle').textContent = 'Log a service';
+  populateServiceSelect(svcId);
+  document.getElementById('l-date').value = todayISO();
+  document.getElementById('l-mileage').value = v.mileage || '';
+  document.getElementById('l-custom').value = '';
+  document.getElementById('l-who').value = 'diy';
+  document.getElementById('l-cost').value = '';
+  document.getElementById('l-parts').value = '';
+  document.getElementById('l-shop').value = '';
+  document.getElementById('l-notes').value = '';
+  document.getElementById('logDelete').style.display = 'none';
+  openModal('logModal');
+}
+
+document.getElementById('logModalClose').addEventListener('click', () => closeModal('logModal'));
+document.getElementById('logCancel').addEventListener('click', () => closeModal('logModal'));
+document.getElementById('logSave').addEventListener('click', () => {
+  const v = activeVehicle();
+  if (!v) return;
+  const f = (id) => document.getElementById(id).value.trim();
+  const data = {
+    date: f('l-date') || todayISO(),
+    mileage: f('l-mileage') ? Number(f('l-mileage')) : 0,
+    serviceId: f('l-service'),
+    customName: f('l-custom'),
+    who: f('l-who'),
+    cost: f('l-cost') ? Number(f('l-cost')) : 0,
+    parts: f('l-parts'),
+    shop: f('l-shop'),
+    notes: f('l-notes')
+  };
+  if (!data.serviceId) {
+    alert('Pick a service type.');
+    return;
+  }
+  v.log = v.log || [];
+  if (editingLogId) {
+    const e = v.log.find(x => x.id === editingLogId);
+    Object.assign(e, data);
+  } else {
+    v.log.push(Object.assign({ id: uid() }, data));
+  }
+  // If new mileage logged is higher than vehicle mileage, update.
+  if (data.mileage && data.mileage > (v.mileage || 0)) v.mileage = data.mileage;
+  saveState();
+  closeModal('logModal');
+  renderSidebar();
+  renderContent();
+});
+document.getElementById('logDelete').addEventListener('click', () => {
+  if (!editingLogId) return;
+  askConfirm('Delete this service entry?', 'This cannot be undone.', () => {
+    const v = activeVehicle();
+    v.log = (v.log || []).filter(x => x.id !== editingLogId);
+    saveState();
+    closeModal('logModal');
+    renderContent();
+  });
+});
+
+/* ── Confirm modal ───────────────────────────────────── */
+function askConfirm(title, body, cb) {
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmBody').textContent = body || '';
+  confirmCallback = cb;
+  openModal('confirmModal');
+}
+document.getElementById('confirmClose').addEventListener('click', () => closeModal('confirmModal'));
+document.getElementById('confirmCancel').addEventListener('click', () => closeModal('confirmModal'));
+document.getElementById('confirmOk').addEventListener('click', () => {
+  closeModal('confirmModal');
+  if (confirmCallback) confirmCallback();
+  confirmCallback = null;
+});
+
+function confirmDelete(vid) {
+  const v = state.vehicles.find(x => x.id === vid);
+  if (!v) return;
+  askConfirm(
+    'Delete ' + (v.nickname || vehicleTitle(v)) + '?',
+    'This permanently removes the rig and its entire service log. There is no undo.',
+    () => {
+      state.vehicles = state.vehicles.filter(x => x.id !== vid);
+      if (state.activeVehicleId === vid) state.activeVehicleId = state.vehicles[0]?.id || null;
+      saveState();
+      renderSidebar();
+      renderContent();
+    }
+  );
+}
+
+/* ── Utility actions ─────────────────────────────────── */
+document.getElementById('btnExport').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'trailmanual-garage-' + new Date().toISOString().slice(0, 10) + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+document.getElementById('btnImport').addEventListener('click', () => {
+  document.getElementById('importFile').click();
+});
+document.getElementById('importFile').addEventListener('change', (ev) => {
+  const file = ev.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.vehicles || !Array.isArray(data.vehicles)) throw new Error('Invalid format');
+      askConfirm(
+        'Replace current garage?',
+        'Importing will overwrite your current ' + state.vehicles.length + ' rig(s) with ' + data.vehicles.length + ' from the file.',
+        () => {
+          state = data;
+          saveState();
+          renderSidebar();
+          renderContent();
+        }
+      );
+    } catch (err) {
+      alert('Could not parse file: ' + err.message);
+    }
+  };
+  reader.readAsText(file);
+  ev.target.value = '';
+});
+document.getElementById('btnPrint').addEventListener('click', () => window.print());
+document.getElementById('btnNuke').addEventListener('click', () => {
+  askConfirm(
+    'Clear ALL garage data?',
+    'This deletes every rig and every service entry on this device. Export first if you want a backup.',
+    () => {
+      state = { vehicles: [], activeVehicleId: null, version: 1 };
+      saveState();
+      renderSidebar();
+      renderContent();
+    }
+  );
+});
+
+/* ── Close modals on backdrop click ──────────────────── */
+document.querySelectorAll('.modal-bg').forEach(bg => {
+  bg.addEventListener('click', (e) => {
+    if (e.target === bg) bg.dataset.open = 'false';
+  });
+});
+
+/* ── Helpers ─────────────────────────────────────────── */
+function fmt(n) { return Number(n).toLocaleString(); }
+function todayISO() {
+  const d = new Date();
+  return d.toISOString().slice(0, 10);
+}
+function prettyDate(iso) {
+  if (!iso) return '—';
+  const d = new Date(iso + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+/* ── Init ────────────────────────────────────────────── */
+renderSidebar();
+renderContent();
+
+</script>
+
+</body>
+</html>

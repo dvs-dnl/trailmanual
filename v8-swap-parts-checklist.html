@@ -1,0 +1,2316 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>V8 Swap Parts Checklist — Trail Manual</title>
+<meta name="description" content="Pick your engine path, get the full V8 swap parts checklist. Parts auto-filter to your build, costs total live, and your progress saves to this device. JK Wrangler 2007–2018." />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X00YY58X2R');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%231A2330'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23E8E2D2' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+
+<style>
+:root {
+  --slate: #2B3A4A;
+  --slate-deep: #1A2330;
+  --slate-deeper: #11171F;
+  --slate-light: #5B6B7E;
+  --slate-lighter: #8898A8;
+  --clay: #C97E50;
+  --clay-deep: #A85D33;
+  --clay-light: #E8AB85;
+  --bone: #E8E2D2;
+  --bone-deep: #C9C1AC;
+  --paper: #F7F4ED;
+  --moss: #3D5B47;
+  --rust: #8A4E2C;
+  --safety: #B23B2F;
+  --warn: #D89035;
+  --good: #5E8C5A;
+  --info: #4F7795;
+
+  --sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  --bg: var(--slate-deeper);
+  --surface: var(--slate-deep);
+  --surface-2: #1F2937;
+  --border: #2A3441;
+  --border-strong: #3A4554;
+  --text: var(--bone);
+  --text-dim: var(--slate-lighter);
+  --text-faint: #6B7886;
+
+  --radius: 6px;
+  --radius-lg: 10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 400;
+  line-height: 1.55;
+  font-size: 15px;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--clay-light); text-decoration: none; }
+a:hover { color: var(--clay); text-decoration: underline; }
+button { font: inherit; cursor: pointer; }
+input, select, textarea { font: inherit; }
+
+/* ── Site header ───────────────────────────────────────── */
+.site-header {
+  background: var(--slate-deep);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--bone);
+  text-decoration: none;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+.brand:hover { text-decoration: none; }
+.brand-mark { width: 28px; height: 28px; flex: 0 0 28px; }
+.brand-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--clay);
+  margin: 0 4px;
+  vertical-align: 3px;
+}
+.site-nav {
+  display: flex;
+  gap: 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.site-nav a { color: var(--text-dim); }
+.site-nav a:hover { color: var(--bone); text-decoration: none; }
+
+/* ── Masthead ──────────────────────────────────────────── */
+.masthead {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 14px;
+}
+h1 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  max-width: 880px;
+  margin-bottom: 14px;
+}
+.lede {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 720px;
+  line-height: 1.55;
+}
+.lede strong { color: var(--bone); font-weight: 500; }
+
+/* ── Main container ────────────────────────────────────── */
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.section-title {
+  font-size: 13px;
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--clay);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+.section-help {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+/* ── Vehicle picker ────────────────────────────────────── */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px;
+}
+.vehicle-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 14px;
+  text-align: left;
+  color: var(--text);
+  transition: all .12s;
+  position: relative;
+}
+.vehicle-card.active {
+  border-color: var(--clay);
+  background: linear-gradient(180deg, rgba(201,126,80,0.10), rgba(201,126,80,0.02));
+  cursor: pointer;
+}
+.vehicle-card.active:hover { border-color: var(--clay-light); }
+.vehicle-card.inactive {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.vehicle-card .v-name {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.vehicle-card .v-years {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.vehicle-card .v-status {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.vehicle-card[data-state="selected"] {
+  border-color: var(--clay);
+  background: linear-gradient(180deg, rgba(201,126,80,0.18), rgba(201,126,80,0.04));
+}
+.vehicle-card[data-state="selected"] .v-status {
+  color: var(--clay);
+}
+
+/* ── Engine path picker ────────────────────────────────── */
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+.path-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  text-align: left;
+  color: var(--text);
+  cursor: pointer;
+  transition: all .12s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.path-card:hover { border-color: var(--clay-light); }
+.path-card[data-state="selected"] {
+  border-color: var(--clay);
+  background: linear-gradient(180deg, rgba(201,126,80,0.12), rgba(201,126,80,0.02));
+}
+.path-tier {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 2px 7px;
+  border-radius: 3px;
+  align-self: flex-start;
+}
+.path-tier.budget { background: rgba(94,140,90,0.18); color: #8FB48A; }
+.path-tier.mid    { background: rgba(216,144,53,0.18); color: var(--warn); }
+.path-tier.premium { background: rgba(201,126,80,0.18); color: var(--clay-light); }
+.path-tier.turnkey { background: rgba(178,59,47,0.18); color: #DC7770; }
+
+.path-name {
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 2px;
+}
+.path-tagline {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.path-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--text-dim);
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.path-specs .lbl { color: var(--text-faint); text-transform: uppercase; font-size: 10px; letter-spacing: 0.08em; }
+.path-specs .val { color: var(--bone); }
+
+.path-flags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.flag {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+}
+.flag.good   { color: #8FB48A; border-color: rgba(94,140,90,0.4); background: rgba(94,140,90,0.08); }
+.flag.warn   { color: var(--warn); border-color: rgba(216,144,53,0.4); background: rgba(216,144,53,0.08); }
+.flag.bad    { color: #DC7770; border-color: rgba(178,59,47,0.4); background: rgba(178,59,47,0.08); }
+.flag.info   { color: #7BA3C4; border-color: rgba(79,119,149,0.4); background: rgba(79,119,149,0.08); }
+
+/* ── Summary bar ───────────────────────────────────────── */
+.summary-bar {
+  position: sticky;
+  top: 56px;
+  z-index: 40;
+  background: linear-gradient(180deg, var(--slate-deeper), rgba(17,23,31,0.96));
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+.summary-bar .summary-title {
+  font-size: 13px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  margin-bottom: 2px;
+}
+.summary-bar .summary-value {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--bone);
+}
+.summary-bar .summary-stat {
+  text-align: center;
+}
+.summary-bar .summary-stat .val {
+  font-family: var(--mono);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--bone);
+  letter-spacing: -0.01em;
+}
+.summary-bar .summary-stat .lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+.summary-bar .summary-stat.purchased .val { color: var(--clay-light); }
+.summary-bar .summary-stat.installed .val { color: #8FB48A; }
+.summary-bar .summary-stat.cost .val { color: var(--bone); }
+
+.summary-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 8px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .12s;
+}
+.btn:hover { border-color: var(--clay); color: var(--clay-light); }
+.btn-primary {
+  background: var(--clay);
+  color: var(--slate-deep);
+  border-color: var(--clay);
+}
+.btn-primary:hover { background: var(--clay-light); color: var(--slate-deep); border-color: var(--clay-light); }
+.btn-ghost {
+  background: transparent;
+}
+
+/* ── Categories ────────────────────────────────────────── */
+.category {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.cat-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  background: var(--surface);
+  transition: background .12s;
+}
+.cat-head:hover { background: var(--surface-2); }
+.cat-head-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+}
+.cat-chev {
+  width: 14px; height: 14px;
+  display: inline-block;
+  transition: transform .15s ease;
+  color: var(--text-dim);
+}
+.category[data-open="false"] .cat-chev { transform: rotate(-90deg); }
+.cat-name {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.cat-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+.cat-progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cat-progress-bar {
+  width: 80px;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cat-progress-fill {
+  height: 100%;
+  background: var(--clay);
+  transition: width .25s ease;
+  width: 0%;
+}
+.cat-cost {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--bone);
+}
+.cat-body {
+  border-top: 1px solid var(--border);
+  background: var(--slate-deeper);
+}
+.category[data-open="false"] .cat-body { display: none; }
+
+/* ── Part rows ─────────────────────────────────────────── */
+.part {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  gap: 14px;
+  align-items: start;
+}
+.part:last-child { border-bottom: 0; }
+.part.purchased { background: rgba(201,126,80,0.04); }
+.part.installed { background: rgba(94,140,90,0.06); }
+.part.installed .part-name { color: var(--text-dim); }
+
+.part-check {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+.check {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 3px;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all .12s;
+  padding: 0;
+}
+.check:hover { border-color: var(--clay); }
+.check[data-state="on"] {
+  background: var(--clay);
+  border-color: var(--clay);
+}
+.check[data-state="on"]::before {
+  content: '✓';
+  color: var(--slate-deep);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+.check.install[data-state="on"] {
+  background: var(--good);
+  border-color: var(--good);
+}
+.check-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.part-main {
+  min-width: 0;
+}
+.part-name {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.35;
+}
+.part-meta {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  margin-bottom: 4px;
+}
+.part-meta .lbl { color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.08em; }
+.part-notes {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-top: 8px;
+}
+.part-notes strong { color: var(--bone); font-weight: 500; }
+.part-tips {
+  margin-top: 10px;
+  padding: 10px 12px;
+  background: rgba(79,119,149,0.08);
+  border-left: 2px solid var(--info);
+  border-radius: 0 4px 4px 0;
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.part-tips .tips-head {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #7BA3C4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+.part-tips ul { margin: 0 0 0 16px; padding: 0; }
+.part-tips li { margin-bottom: 4px; }
+.part-tips li:last-child { margin-bottom: 0; }
+
+.part-cost {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--bone);
+  text-align: right;
+  white-space: nowrap;
+  min-width: 110px;
+}
+.part-cost .cost-low { color: var(--text-dim); font-size: 11px; }
+
+.part-status {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+  min-width: 80px;
+}
+.pill {
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.pill.required { color: var(--warn); border-color: rgba(216,144,53,0.4); background: rgba(216,144,53,0.08); }
+.pill.optional { color: var(--text-dim); border-color: var(--border-strong); background: transparent; }
+.pill.recommended { color: #7BA3C4; border-color: rgba(79,119,149,0.4); background: rgba(79,119,149,0.08); }
+
+.part-expand {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 8px;
+}
+.part-expand:hover { color: var(--clay-light); }
+.part-detail { display: none; }
+.part[data-expanded="true"] .part-detail { display: block; }
+.part[data-expanded="true"] .part-expand .show { display: none; }
+.part[data-expanded="false"] .part-expand .hide { display: none; }
+
+/* ── Empty + helpful states ────────────────────────────── */
+.empty {
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-dim);
+}
+.empty .empty-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--bone);
+  margin-bottom: 8px;
+}
+
+.callout {
+  background: rgba(216,144,53,0.08);
+  border: 1px solid rgba(216,144,53,0.25);
+  border-left: 3px solid var(--warn);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: var(--bone);
+}
+.callout strong { color: var(--warn); font-weight: 500; }
+.callout.info {
+  background: rgba(79,119,149,0.08);
+  border-color: rgba(79,119,149,0.3);
+  border-left-color: var(--info);
+}
+.callout.info strong { color: #7BA3C4; }
+.callout.safety {
+  background: rgba(178,59,47,0.08);
+  border-color: rgba(178,59,47,0.3);
+  border-left-color: var(--safety);
+}
+.callout.safety strong { color: #DC7770; }
+
+/* ── Filters ───────────────────────────────────────────── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.filter-btn:hover { color: var(--bone); border-color: var(--clay-light); }
+.filter-btn[data-active="true"] {
+  background: var(--surface-2);
+  color: var(--bone);
+  border-color: var(--clay);
+}
+
+/* ── Footer ────────────────────────────────────────────── */
+footer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+footer a { color: var(--clay-light); }
+
+@media (max-width: 720px) {
+  .summary-bar { grid-template-columns: 1fr 1fr; }
+  .part { grid-template-columns: auto 1fr auto; }
+  .part-check { flex-direction: row; gap: 8px; }
+  .part-check .check-label { display: none; }
+  .part-cost { grid-column: 2 / 4; text-align: left; min-width: 0; margin-top: 4px; }
+  .part-status { grid-column: 2 / 4; flex-direction: row; align-items: center; margin-top: 4px; }
+}
+
+@media print {
+  .site-header, .site-nav, .summary-actions, .filter-bar, .part-expand, .vehicle-grid, .path-grid, footer { display: none !important; }
+  body { background: white; color: black; }
+  .category[data-open] .cat-body { display: block !important; }
+  .part[data-expanded] .part-detail { display: block !important; }
+  .category, .summary-bar, .callout { border-color: #ccc; background: white; }
+  .part { background: white !important; color: black; }
+  .part-name, .cat-name { color: black; }
+  .check { border-color: #333; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/">
+    <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="2" y="2" width="60" height="60" rx="12" fill="#1A2330"/>
+      <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity=".9"/>
+    </svg>
+    <span>TRAIL<span class="brand-dot"></span>MANUAL</span>
+  </a>
+  <nav class="site-nav">
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+    <a href="/my-garage.html">My Garage</a>
+    <a href="/about/">About</a>
+  </nav>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">Tool · V8 swap parts checklist</div>
+  <h1>Every part you need, sorted by your engine path.</h1>
+  <p class="lede">Pick a vehicle, pick an engine swap path, and the checklist auto-fills with only the parts that are compatible. Check parts off as you buy them and again as you install. Costs total live. Your progress saves to this device — no account, no signup.</p>
+</div>
+
+<main>
+
+  <!-- ── 1. Vehicle picker ───────────────────────────────── -->
+  <section class="section" id="step-vehicle">
+    <div class="section-head">
+      <div class="section-title">1 · Pick your platform</div>
+      <div class="section-help">Only JK Wrangler is live today. Other platforms coming.</div>
+    </div>
+    <div class="vehicle-grid" id="vehicleGrid"></div>
+  </section>
+
+  <!-- ── 2. Engine path picker ───────────────────────────── -->
+  <section class="section" id="step-path">
+    <div class="section-head">
+      <div class="section-title">2 · Pick your engine path</div>
+      <div class="section-help">Each path has its own complete parts checklist.</div>
+    </div>
+    <div class="path-grid" id="pathGrid"></div>
+  </section>
+
+  <!-- ── 3. Build dashboard ──────────────────────────────── -->
+  <section class="section" id="step-build" style="display:none">
+    <div class="summary-bar">
+      <div>
+        <div class="summary-title">Build path</div>
+        <div class="summary-value" id="sumPath">—</div>
+        <div class="summary-actions">
+          <button class="btn btn-primary" id="btnExpandAll">Expand all</button>
+          <button class="btn btn-ghost" id="btnCollapseAll">Collapse all</button>
+          <button class="btn btn-ghost" id="btnPrint">Print / PDF</button>
+          <button class="btn btn-ghost" id="btnReset">Reset progress</button>
+        </div>
+      </div>
+      <div class="summary-stat purchased">
+        <div class="val" id="sumPurchased">0/0</div>
+        <div class="lbl">Purchased</div>
+      </div>
+      <div class="summary-stat installed">
+        <div class="val" id="sumInstalled">0/0</div>
+        <div class="lbl">Installed</div>
+      </div>
+      <div class="summary-stat cost">
+        <div class="val" id="sumCost">$0</div>
+        <div class="lbl">Est. parts cost</div>
+      </div>
+    </div>
+
+    <div id="pathCallouts"></div>
+
+    <div class="filter-bar">
+      <span style="font-family:var(--mono);font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.08em;">Show</span>
+      <button class="filter-btn" data-filter="all" data-active="true">All parts</button>
+      <button class="filter-btn" data-filter="required">Required only</button>
+      <button class="filter-btn" data-filter="not-purchased">Not yet purchased</button>
+      <button class="filter-btn" data-filter="not-installed">Not yet installed</button>
+    </div>
+
+    <div id="categoryList"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div>Trail Manual · Free, no affiliate links, no ads · Progress stored locally on this device.</div>
+  <div><a href="/">trailmanual.com</a></div>
+</footer>
+
+<script>
+/* =========================================================
+   V8 SWAP PARTS CHECKLIST — Trail Manual
+   Single-file static tool. State in localStorage.
+   ========================================================= */
+
+const STORAGE_KEY = 'tm.v8swap.v1';
+
+// Platforms — only JK is active for now
+const PLATFORMS = [
+  { id: 'jk',    name: 'JK Wrangler',      years: '2007–2018', active: true },
+  { id: 'xj',    name: 'Cherokee XJ',      years: '1984–2001', active: false },
+  { id: 'tj',    name: 'TJ Wrangler',      years: '1997–2006', active: false },
+  { id: 'jl',    name: 'JL Wrangler',      years: '2018–',     active: false },
+  { id: 'bronco',name: 'Bronco (modern)',  years: '2021–',     active: false },
+  { id: '4runner',name:'4Runner',          years: '1996–',     active: false },
+  { id: 'tacoma',name:'Tacoma',            years: '1995–',     active: false }
+];
+
+/* =========================================================
+   ENGINE PATHS — JK
+   Each path has: id, name, tier, tagline, engine, hp/tq, costRange,
+   phx (emissions), flags, callouts[], and parts grouped by category.
+   ========================================================= */
+
+const CATEGORIES = [
+  { id: 'engine',     name: 'Engine & accessories' },
+  { id: 'trans',      name: 'Transmission & adapter' },
+  { id: 'harness',    name: 'Harness, ECU & tune' },
+  { id: 'mounts',     name: 'Mounts & body integration' },
+  { id: 'cooling',    name: 'Cooling system' },
+  { id: 'fuel',       name: 'Fuel system' },
+  { id: 'exhaust',    name: 'Exhaust' },
+  { id: 'ac',         name: 'A/C & climate' },
+  { id: 'electrical', name: 'Electrical extras' },
+  { id: 'drivetrain', name: 'Axles, gears & t-case' },
+  { id: 'misc',       name: 'Misc, fluids & shop supplies' }
+];
+
+function p(id, name, opts) {
+  return Object.assign({
+    id, name,
+    partNum: '', vendor: '',
+    priceLow: 0, priceHigh: 0,
+    required: 'required',  // 'required' | 'recommended' | 'optional'
+    notes: '',
+    tips: []
+  }, opts || {});
+}
+
+const ENGINE_PATHS_JK = [
+  // ────────────────────────────────────────────────────────
+  // 5.7L HEMI · DIY
+  // ────────────────────────────────────────────────────────
+  {
+    id: 'hemi-57-diy',
+    name: '5.7L Hemi · DIY build',
+    tagline: 'Mopar-in-Mopar. Best emissions case of any V8.',
+    tier: 'mid',
+    engine: '5.7L Eagle Hemi (2009–2018)',
+    hp: 360, tq: 390,
+    costRange: '$13,000 – $20,000',
+    time: '80 – 150 hrs',
+    skill: 'High',
+    flags: [
+      { label: 'Phoenix: BEST V8 SHOT', kind: 'good' },
+      { label: 'A/C retained', kind: 'good' },
+      { label: 'Reversible', kind: 'info' }
+    ],
+    callouts: [
+      { kind: 'info', html: '<strong>Donor strategy.</strong> Pull a complete drivetrain from a 2009–2012 Grand Cherokee 5.7 or 2009–2010 Commander. You want engine, 545RFE trans, ECU, accelerator pedal, and harness pigtails. A complete pullout runs $3,500–$5,500.' },
+      { kind: 'info', html: '<strong>Year matters.</strong> Use a 2009+ "Eagle" 5.7 with VVT and the better roller cam. The 2003–2008 first-gen 5.7s had MDS lifter issues and a different timing system. Don\'t cheap out on the donor year.' }
+    ],
+    parts: {
+      engine: [
+        p('engine','2009–2018 5.7L Eagle Hemi long-block (used drivetrain pullout)',{
+          partNum:'53022263AA / 68164502AA (block)', vendor:'Car-Part.com, eBay, local Pull-A-Part',
+          priceLow:2800, priceHigh:4500,
+          notes:'<strong>Buy with the trans, accessories, harness, and ECU as one pullout</strong> from a wrecked Grand Cherokee or Commander. Saves $2K vs piecing it together. Always verify compression on all 8 cylinders before paying — a tired 5.7 looks identical to a fresh one until you scope it.',
+          tips:[
+            'Cylinder leakdown < 10% is acceptable for a used long-block',
+            'Confirm donor was 2009+ (VVT cam, better roller lifters) — earlier years have MDS lifter ticks',
+            'Reject any donor with intermittent ticking on idle video — that\'s lifter wear'
+          ]
+        }),
+        p('crate-engine','OR: New 5.7L Mopar crate engine (alternative to used)',{
+          partNum:'68303090AA', vendor:'Mopar Performance, Mancini Racing',
+          priceLow:5400, priceHigh:7500, required:'optional',
+          notes:'Replaces the used long-block above. Get the warranty, skip the donor-history paranoia, pay $3K more. Good move if you can find a complete used trans + ECU separately.',
+          tips:['2-year/24K mile factory warranty','Comes long-block only — you still need accessories from a donor or aftermarket']
+        }),
+        p('accessories','Donor accessories (alternator, P/S pump, A/C compressor, tensioners, idler)',{
+          vendor:'Comes with pullout, OR Mopar/Cardone if buying crate',
+          priceLow:0, priceHigh:600,
+          notes:'If you bought a complete pullout, these come with it. If buying crate, source separately from a junkyard 5.7. Test the alternator before bolt-in.',
+          tips:['Bench-test alternator output before installing (13.8–14.5V at idle)','Replace tensioner if you have any doubt — $40 part, hours of swearing if it fails']
+        }),
+        p('serp-belt','Serpentine belt (Hemi spec, fits Jeep accessory layout)',{
+          partNum:'Gates K060923 (typical)', vendor:'RockAuto, NAPA',
+          priceLow:25, priceHigh:55,
+          notes:'Length depends on your A/C compressor choice (Jeep vs Hemi). Confirm routing diagram before ordering.'
+        }),
+        p('plugs-coils','NGK spark plugs (16x) + Mopar coil packs (8x) — refresh',{
+          partNum:'Plugs: NGK LZTR5AGP · Coils: 56028394AB', vendor:'RockAuto, Summit',
+          priceLow:160, priceHigh:280, required:'recommended',
+          notes:'<strong>Always refresh on a used donor.</strong> 8 plugs and 8 coils. Hemi runs two plugs per cylinder (16 total). Failing coils are the most common no-start cause after a swap.',
+          tips:['Gap NGKs to .043"','Replace any coil with a cracked boot — non-negotiable']
+        })
+      ],
+      trans: [
+        p('trans-545rfe','545RFE 5-speed automatic (from same donor)',{
+          vendor:'Car-Part.com, ATS Diesel reman',
+          priceLow:800, priceHigh:2200,
+          notes:'<strong>Comes with the donor pullout if you bought the complete drivetrain.</strong> Standalone reman is $1,800–$2,500. Keep the donor TCM — the harness conversion needs it.',
+          tips:['Pre-fill with fresh ATF+4 before first start','Check for metallic debris in the pan when filter is changed']
+        }),
+        p('trans-nag1','OR: NAG1 5-speed auto (alternative to 545RFE)',{
+          vendor:'Car-Part.com',
+          priceLow:900, priceHigh:1800, required:'optional',
+          notes:'Mercedes-sourced auto used in some 2009+ Grand Cherokee 5.7s. Slightly slower shifts than the 545RFE but more robust at the torque level. Either works.',
+          tips:['Decide before buying donor — drivelines differ slightly']
+        }),
+        p('flexplate','Hemi flexplate (matched to trans)',{
+          partNum:'53022246AB', vendor:'Mopar', priceLow:60, priceHigh:120,
+          notes:'Donor flexplate may be worn. New is cheap insurance.'
+        }),
+        p('trans-cooler','External transmission cooler + lines',{
+          partNum:'B&M 70264 SuperCooler (typical)', vendor:'Summit, Jegs',
+          priceLow:160, priceHigh:300, required:'recommended',
+          notes:'JK factory radiator-integrated cooler is undersized for the Hemi + 545RFE combo, especially in Phoenix. Mount a B&M or Hayden in front of the condenser. Use the radiator cooler as a pre-cool stage.',
+          tips:['Use AN-6 line + AN fittings, not the OE crimp clamps','Mount with the fittings UP so air can purge']
+        }),
+        p('trans-mount','545RFE / NAG1 trans crossmember + mount',{
+          vendor:'AEV (when in stock), Genright, custom fab', priceLow:250, priceHigh:600,
+          notes:'AEV\'s 5.7 kit included a fitted crossmember. If you\'re building without a kit, a Genright fab piece or a fabricated tube crossmember does the job. Stock JK crossmember does not fit.'
+        }),
+        p('transfer-case-adapter','NP241 to 545RFE/NAG1 adapter',{
+          vendor:'Advance Adapters, Novak', priceLow:380, priceHigh:650,
+          notes:'Mates your existing NP241 t-case to the new trans output. Required regardless of whether you\'re keeping the JK\'s factory t-case (which you usually are).',
+          tips:['Check input shaft length — donor trans shaft may need clocking','Buy new — used adapters are rarely worth the gamble']
+        }),
+        p('driveshaft-front','Front driveshaft (lengthened or new)',{
+          vendor:'Tom Wood\'s, Adams Driveshaft', priceLow:300, priceHigh:550, required:'recommended',
+          notes:'Engine + trans sits ~1.5" forward of stock. Front driveshaft length needs verification once everything is mounted. Plan to either get a custom shaft or have your factory shaft lengthened.'
+        }),
+        p('driveshaft-rear','Rear driveshaft (may need lengthening)',{
+          vendor:'Tom Wood\'s, Adams Driveshaft', priceLow:350, priceHigh:600, required:'recommended',
+          notes:'Rear shaft length changes with trans swap. Measure with everything bolted up before ordering.'
+        })
+      ],
+      harness: [
+        p('harness-conv','Hotwire Auto JK Hemi conversion harness',{
+          partNum:'JK-Hemi (Hotwire Auto)', vendor:'Hotwire Auto Harness Co. (hotwireauto.com)',
+          priceLow:1200, priceHigh:2000,
+          notes:'<strong>The single most important part of the swap.</strong> Hotwire builds a plug-and-play harness that ties the Hemi PCM to the Jeep TIPM/CANbus, retains factory A/C control, gauges, cruise, and hill-descent. Skipping this means hand-pinning a hundred connections.',
+          tips:['Specify donor year and trans type when ordering — Hotwire builds it to spec','Lead time can be 4–8 weeks; order early','Comes with detailed wiring diagrams']
+        }),
+        p('ecm','Donor Hemi PCM (matched to engine)',{
+          partNum:'05150500AC / similar', vendor:'Comes with donor pullout',
+          priceLow:0, priceHigh:300,
+          notes:'PCM must match the engine year and trans type. If the donor PCM was damaged or missing, source one from the same donor year specifically.'
+        }),
+        p('tcm','Donor TCM (Transmission Control Module)',{
+          vendor:'Comes with donor pullout', priceLow:0, priceHigh:250,
+          notes:'Required for 545RFE/NAG1 shift logic. Hotwire harness integrates this with the Jeep TIPM.'
+        }),
+        p('aev-kit','AEV 5.7L Hemi conversion kit (if available)',{
+          partNum:'AEV Brute / Hemi kit', vendor:'Fortec, Northridge4x4, Exploration Outfitters',
+          priceLow:4500, priceHigh:7000, required:'optional',
+          notes:'<strong>Alternative to Hotwire DIY path.</strong> AEV\'s factory-engineered kit is the gold-standard install — but availability has been spotty since the JL launched. Includes mounts, harness, exhaust, and emissions hardware. If you can find one used or NOS, this is the cleanest route.',
+          tips:['Verify the kit is JK-spec (not JL)','Some sellers list early Wrangler Unlimited kits as JK — confirm year compatibility']
+        }),
+        p('tune','Dealer-equivalent flash / tune for donor PCM',{
+          vendor:'Diablo Sport, local Mopar shop', priceLow:300, priceHigh:600, required:'recommended',
+          notes:'Donor PCM was VIN-matched to the donor vehicle. A custom flash sets up the PCM for the Jeep environment — tells it the trans behavior, disables anti-theft codes, sets speedometer correction for your tire size.'
+        }),
+        p('obd-port','Single OBD-II port retention (no dual-port hack)',{
+          vendor:'Hotwire harness handles this', priceLow:0, priceHigh:0,
+          notes:'Unlike LS swaps, the Hemi-into-Jeep keeps a single OBD-II port — the Hotwire harness routes the Hemi PCM through the original Jeep diagnostic connector. This is the cornerstone of the Hemi swap\'s emissions advantage.'
+        })
+      ],
+      mounts: [
+        p('motor-mounts','Hemi-to-JK motor mount adapter plates',{
+          vendor:'AEV (if using kit), Hotwire, Jeepspeed Performance', priceLow:300, priceHigh:600,
+          notes:'JK frame mounts are not in the right location for a Hemi. Adapter plates relocate the mount points. AEV plates are the engineered baseline; Jeepspeed and Hotwire offer plate sets as well.'
+        }),
+        p('headers-clearance','Hood clearance verification (no spacer typically required)',{
+          vendor:'N/A — measure', priceLow:0, priceHigh:100, required:'optional',
+          notes:'5.7 Hemi clears the JK hood without a body lift in most cases. Verify with engine on mounts before declaring victory.'
+        }),
+        p('skid-mod','Skid plate modification (clearance for oil pan)',{
+          vendor:'Local fab, or AEV', priceLow:0, priceHigh:300,
+          notes:'JK trans skid often needs clearancing for the new trans pan. Plan to cut and reweld, or buy AEV\'s replacement skid.'
+        })
+      ],
+      cooling: [
+        p('radiator','Heavy-duty radiator (Mishimoto, Ron Davis, or Griffin)',{
+          partNum:'Mishimoto MMRAD-WRA-07', vendor:'Mishimoto direct, Summit',
+          priceLow:550, priceHigh:900, required:'recommended',
+          notes:'<strong>Phoenix non-negotiable.</strong> The factory JK radiator is barely adequate for the 3.8 — it will not keep up with the Hemi in 110°F traffic. Mishimoto\'s all-aluminum dual-row is the popular pick.',
+          tips:['Order with the JK mounting tabs (not Wrangler TJ)','Match A/C condenser bracket placement if you\'re using the Jeep A/C']
+        }),
+        p('fan','High-flow electric fan (or stock with shroud mod)',{
+          partNum:'Mishimoto MMFS-WRA-07', vendor:'Mishimoto, Spal',
+          priceLow:280, priceHigh:550, required:'recommended',
+          notes:'Stock JK fan can be retained with a Hayden 3651 controller, but most builders upgrade to a Spal dual or Mishimoto fan kit. Critical for low-speed cooling in heat.'
+        }),
+        p('hoses','Silicone radiator hose kit (upper + lower)',{
+          partNum:'Mishimoto MMHOSE-WRA-07 (Hemi specific)', vendor:'Mishimoto',
+          priceLow:120, priceHigh:220,
+          notes:'Hemi inlet/outlet locations differ from 3.8 — you cannot reuse the factory hoses. Silicone kit handles temp swings better than parts-store rubber.'
+        }),
+        p('thermostat','Hemi thermostat + housing',{
+          partNum:'Mopar 5184651AE', vendor:'Mopar, Stant', priceLow:25, priceHigh:60,
+          notes:'New on any swap. The thermostat housing on the donor is plastic and ages out.'
+        }),
+        p('coolant','Mopar OAT (orange) coolant — 2 gallons + concentrate',{
+          partNum:'68163848AB', vendor:'Mopar dealer', priceLow:35, priceHigh:65,
+          notes:'5.7 Hemi requires OAT coolant. Do not mix with the green ethylene glycol the JK shipped with.'
+        }),
+        p('aux-cooler','Power steering cooler upgrade',{
+          vendor:'Hayden, B&M', priceLow:60, priceHigh:140, required:'recommended',
+          notes:'Hemi load + Phoenix heat will cook stock P/S fluid. $80 to fix it permanently.'
+        })
+      ],
+      fuel: [
+        p('fuel-pump','High-flow fuel pump (Walbro 450 or AEM 380)',{
+          partNum:'Walbro F90000267 / TI Auto', vendor:'Summit, Holley',
+          priceLow:160, priceHigh:280, required:'required',
+          notes:'<strong>Hemi needs 58 psi at higher flow than the 3.8 returnless system delivers.</strong> Drop-in 450 lph pump into the factory fuel basket. Required, not optional.',
+          tips:['Buy genuine Walbro from Holley/Summit — counterfeit 450s are everywhere on Amazon','Replace the pickup sock at the same time']
+        }),
+        p('fuel-rail','Hemi fuel rail (from donor) + injectors',{
+          vendor:'Comes with donor', priceLow:0, priceHigh:200,
+          notes:'Donor rail and injectors come with the pullout. Bench-test injectors for spray pattern if engine sat for >1 year.'
+        }),
+        p('fuel-lines','Fuel feed line adapter (JK 3/8" to Hemi rail)',{
+          vendor:'Earl\'s, Fragola, Russell', priceLow:30, priceHigh:80,
+          notes:'JK fuel line is a quick-connect; Hemi rail takes a different fitting. Adapter set bridges them.'
+        }),
+        p('fpr','Fuel pressure regulator check (existing JK is adequate)',{
+          vendor:'N/A — verify', priceLow:0, priceHigh:80, required:'optional',
+          notes:'Factory JK FPR works with the Walbro pump. If you see < 55 psi at WOT, swap to an adjustable Aeromotive.'
+        })
+      ],
+      exhaust: [
+        p('headers','Hemi shorty headers (Hooker, JBA, or factory manifolds)',{
+          partNum:'Hooker BlackHeart 8503HKR (typical)', vendor:'Summit, Holley',
+          priceLow:280, priceHigh:550, required:'recommended',
+          notes:'Donor exhaust manifolds work but limit clearance with JK frame. Shorty headers tuck up better. Skip long-tubes — they don\'t clear the JK frame rails.'
+        }),
+        p('mid-pipe','Custom Y-pipe / mid-pipe',{
+          vendor:'Local muffler shop, or Magnaflow universal kit', priceLow:200, priceHigh:450,
+          notes:'No bolt-on Y-pipe exists for this swap. Have a local muffler shop fab a 2.5" Y-pipe from the headers into your chosen cat-back. Plan for a $250 shop bill.'
+        }),
+        p('cats','High-flow catalytic converters (OBD-II compliant)',{
+          partNum:'Magnaflow 99206HM (typical)', vendor:'Summit, RockAuto',
+          priceLow:280, priceHigh:550, required:'required',
+          notes:'<strong>Required for emissions — both legally and for the PCM not to throw codes.</strong> Two cats. Use OBD-II compliant high-flow (not test-pipes). Magnaflow Direct-Fit when available.'
+        }),
+        p('exhaust-cat-back','Cat-back exhaust (or modified factory)',{
+          partNum:'Magnaflow 19403, Borla, MBRP', vendor:'Summit', priceLow:350, priceHigh:800, required:'optional',
+          notes:'Pick your sound preference. Magnaflow is the boring-reliable pick; Borla is louder; MBRP is in the middle.'
+        }),
+        p('o2-sensors','Upstream + downstream O2 sensors (4 total)',{
+          vendor:'Bosch, Denso (RockAuto)', priceLow:140, priceHigh:280, required:'required',
+          notes:'PCM monitors all 4. Use OEM equivalents (Bosch or Denso). Universal O2s with crimp connectors throw intermittent codes — do not cheap out here.'
+        })
+      ],
+      ac: [
+        p('ac-compressor','Retain Jeep A/C compressor (Hotwire harness keeps it)',{
+          vendor:'Existing — verify operation', priceLow:0, priceHigh:280,
+          notes:'<strong>Major advantage of the Hemi swap.</strong> Hotwire harness routes the Jeep A/C clutch control to the Hemi PCM. Pre-charge with R-134a before first start; verify clutch engages.'
+        }),
+        p('ac-bracket','A/C compressor relocation bracket (if needed)',{
+          vendor:'Hotwire, custom fab', priceLow:80, priceHigh:200, required:'optional',
+          notes:'Some 5.7 accessory layouts need a small bracket adapter to position the Jeep compressor in the Hemi belt path. Hotwire offers a piece; otherwise local fab.'
+        }),
+        p('ac-lines','A/C line modification (high-side + low-side may need relocation)',{
+          vendor:'Local A/C shop', priceLow:120, priceHigh:280, required:'optional',
+          notes:'Lines may bind on the relocated compressor. A/C shop can re-crimp ends or fab new lines. Plan for 1–2 hours of shop time.'
+        }),
+        p('ac-recharge','R-134a recharge after install',{
+          vendor:'Local A/C shop, or DIY gauge set', priceLow:60, priceHigh:160,
+          notes:'Always pull a vacuum and recharge — never just top off. Phoenix summer is brutal on a half-charged system.'
+        })
+      ],
+      electrical: [
+        p('alternator','Higher-output alternator (160A+) if winching/lights',{
+          partNum:'Mechman, DC Power', vendor:'DC Power Engineering', priceLow:280, priceHigh:550, required:'optional',
+          notes:'Stock Hemi alternator (~140A) is fine for most. Upgrade only if you run a winch + light bar + fridge.'
+        }),
+        p('battery','New AGM battery (Group 65 or H8)',{
+          partNum:'Odyssey 65-PC1750T', vendor:'Battery Plus, Summit', priceLow:240, priceHigh:380, required:'recommended',
+          notes:'Hemi cranks harder than 3.8. AGM handles deep cycles + heat better than flooded. Phoenix lifecycle on a flooded is ~2 yrs; AGM is ~5.'
+        }),
+        p('grounds','Battery + engine + chassis ground kit',{
+          vendor:'Painless Performance, NAPA', priceLow:30, priceHigh:80, required:'required',
+          notes:'<strong>Top-3 cause of mystery codes after a swap.</strong> Run new 4-gauge from battery to block, block to chassis, and engine to firewall. Cheap insurance.'
+        }),
+        p('fuses','Inline maxi-fuse + holder for harness',{
+          vendor:'Cooper Bussmann (Summit, NAPA)', priceLow:25, priceHigh:60,
+          notes:'Hotwire harness specifies fuse rating. Do not skip.'
+        })
+      ],
+      drivetrain: [
+        p('axle-rear','Rear axle decision (stock D44, upgrade D60, or new)',{
+          vendor:'Solid Axle Industries, GenRight, Yukon', priceLow:0, priceHigh:8000, required:'recommended',
+          notes:'<strong>Stock Dana 44 rear survives Hemi power on stock-size tires.</strong> Add 35"+ tires and rock crawling and you\'ll start breaking shafts. Budget for a Yukon shaft upgrade ($500) or full Dana 60 swap ($3,500–$8K) if you wheel hard.',
+          tips:['Rear D44 is okay until you go > 37" tires','Re-gear at the same time as the swap — saves a second labor bill']
+        }),
+        p('axle-front','Front axle decision (stock D30 is the weak link)',{
+          vendor:'Rubicon Express, Currie, Dynatrac', priceLow:0, priceHigh:10000, required:'recommended',
+          notes:'<strong>D30 front will not survive long behind a Hemi on big tires.</strong> Upgrade options: chromoly D30 shaft kit ($400), Currie/RCV chromoly ($1,200), or full Dana 44 / ProRock 44 swap ($5K–$10K). Most Hemi-swapped JKs eventually need this.'
+        }),
+        p('gears','Re-gear to 4.56 or 4.88 (matched to tire size)',{
+          partNum:'Yukon 4.88 ring & pinion (typical)', vendor:'Yukon, Nitro Gear', priceLow:550, priceHigh:1100, required:'recommended',
+          notes:'5.7 Hemi + bigger tires needs deeper gears. 4.56 for 33–35"; 4.88 for 35–37"; 5.13 for 37"+. Re-gear both axles or get a wandering build.',
+          tips:['Always re-gear in matched pairs','Pro install $400/axle is worth it — pinion depth is finicky']
+        }),
+        p('tcase-sye','SYE kit (slip-yoke eliminator) for rear driveshaft',{
+          vendor:'JB Conversions, Advance Adapters', priceLow:280, priceHigh:550, required:'optional',
+          notes:'Required only if running > 3" of lift. Not Hemi-specific but often done in the same window.'
+        })
+      ],
+      misc: [
+        p('fluids','Fluids package (ATF+4, OAT coolant, engine oil, gear oil)',{
+          vendor:'Mopar dealer, RockAuto', priceLow:160, priceHigh:280, required:'required',
+          notes:'Full fluid fill on a fresh swap. ATF+4 for the 545RFE, OAT coolant for the engine, 5W-20 for the Hemi, 75W-90 for the axles. Don\'t mix coolant types.'
+        }),
+        p('gaskets','Gasket / sealant kit (intake, valve covers, exhaust)',{
+          vendor:'Fel-Pro, RockAuto', priceLow:80, priceHigh:180, required:'recommended',
+          notes:'Donor engine gaskets are old. Refresh intake, valve cover, and exhaust manifold gaskets at minimum.'
+        }),
+        p('fasteners','ARP fasteners — exhaust studs, oil pan bolts, manifolds',{
+          vendor:'ARP, Summit', priceLow:60, priceHigh:160, required:'optional',
+          notes:'Donor fasteners are at least 10 years old. Refresh the exhaust manifold studs and oil pan bolts at minimum.'
+        }),
+        p('shop','Shop supplies (rags, RTV, anti-seize, dielectric grease)',{
+          vendor:'Local auto parts', priceLow:40, priceHigh:90,
+          notes:'You will use more than you think. Buy in advance to avoid mid-job runs.'
+        }),
+        p('tuner','Tuner / scanner (Diablo, AutoCal, or shop time)',{
+          vendor:'Diablo Sport, HP Tuners', priceLow:280, priceHigh:600, required:'recommended',
+          notes:'Custom tune for tire size, gear ratio, and your specific drivetrain. Diablo Trinity 2 is the most popular DIY path. Local shop tune is $300–$500.'
+        })
+      ]
+    }
+  },
+
+  // ────────────────────────────────────────────────────────
+  // 6.4L HEMI · DIY
+  // ────────────────────────────────────────────────────────
+  {
+    id: 'hemi-64-diy',
+    name: '6.4L Hemi · DIY build',
+    tagline: '470 hp Mopar 392. Premium Hemi tier.',
+    tier: 'premium',
+    engine: '6.4L Hemi 392 SRT',
+    hp: 470, tq: 470,
+    costRange: '$22,000 – $32,000',
+    time: '100 – 200 hrs',
+    skill: 'Very High',
+    flags: [
+      { label: 'Phoenix: POSSIBLE', kind: 'warn' },
+      { label: 'A/C retained', kind: 'good' },
+      { label: 'Premium fuel only', kind: 'warn' }
+    ],
+    callouts: [
+      { kind: 'info', html: '<strong>Most parts overlap with the 5.7L Hemi path.</strong> The data model here calls out only what differs — bigger fuel pump, 8HP70 transmission instead of 545RFE, more aggressive cooling.' },
+      { kind: 'safety', html: '<strong>Stock axles will not survive.</strong> 470 hp + 470 lb-ft into a Dana 30 front breaks shafts within months. Budget axle work as part of this swap, not a future project.' }
+    ],
+    parts: {
+      engine: [
+        p('engine','6.4L Hemi 392 long-block (used crate or salvage)',{
+          partNum:'68303090AB (Mopar crate)', vendor:'Mopar Performance, Mancini Racing, Car-Part.com',
+          priceLow:6000, priceHigh:12000,
+          notes:'<strong>Buy new if budget allows — used 6.4s with abuse history are landmines.</strong> 392 crate engine is $9–12K new. Salvage 6.4 from a Charger/Challenger SRT is $6–8K but verify cylinder leakdown and oil consumption history.',
+          tips:[
+            'New crate gets a 2-year/24K mile warranty — worth the premium',
+            '2015+ donors had improved cam phasers — preferred over earlier',
+            'Salvage 392s often have track abuse — paperwork or pass'
+          ]
+        }),
+        p('accessories','6.4 accessory drive (alternator, P/S, A/C, tensioners)',{
+          vendor:'With donor, or Mopar', priceLow:200, priceHigh:600,
+          notes:'Crate engine arrives long-block only. Source accessories from a 6.4 donor or buy individually.'
+        }),
+        p('plugs-coils','NGK plugs (16) + Mopar coil packs (8)',{
+          partNum:'NGK LZTR5AGP / 56029129AB', vendor:'NGK, Mopar', priceLow:200, priceHigh:340, required:'recommended',
+          notes:'392 coil packs are different P/N than 5.7. Order specifically.'
+        }),
+        p('intake-cai','Cold air intake (Mopar OEM or Mishimoto)',{
+          vendor:'Mopar, Mishimoto, K&N', priceLow:200, priceHigh:380, required:'optional',
+          notes:'Factory 392 intake is restrictive in the Jeep engine bay. Mishimoto MMAI-WRA-07 (when made for 6.4) breathes better and fits.'
+        })
+      ],
+      trans: [
+        p('trans-8hp70','8HP70 / 8HP75 8-speed automatic',{
+          partNum:'68227887AC', vendor:'Mopar crate, salvage', priceLow:1500, priceHigh:5500,
+          notes:'<strong>Mandatory upgrade for 6.4.</strong> 545RFE will not survive 470 lb-ft. 8HP70 is the right answer — used $1.5–3K; new ~$5K.',
+          tips:['Donor 8HP70 needs the TCM and shifter — pull as a set','Re-flash the TCM with a 6.4 tune for proper shift logic']
+        }),
+        p('flexplate','392 flexplate (8HP70 spec)',{
+          partNum:'68044345AB', vendor:'Mopar', priceLow:140, priceHigh:240
+        }),
+        p('trans-cooler','Heavy-duty external trans cooler (LARGE)',{
+          partNum:'B&M 70274 SuperCooler Large', vendor:'Summit', priceLow:240, priceHigh:400, required:'required',
+          notes:'<strong>Required, not optional, for 6.4 + Phoenix.</strong> Run the biggest cooler that fits. Some builders run a stacked-plate Setrab in addition.'
+        }),
+        p('trans-mount','Custom 8HP70 trans crossmember + mount',{
+          vendor:'Genright, custom fab', priceLow:300, priceHigh:700,
+          notes:'8HP70 sits differently than 545RFE. Plan for a fabricated crossmember.'
+        }),
+        p('tcase-adapter','NP241 to 8HP70 adapter',{
+          vendor:'Advance Adapters', priceLow:450, priceHigh:750
+        }),
+        p('driveshafts','Custom front + rear driveshafts',{
+          vendor:'Tom Wood\'s, Adams', priceLow:700, priceHigh:1200, required:'recommended'
+        })
+      ],
+      harness: [
+        p('harness-conv','Hotwire Auto JK 6.4 conversion harness',{
+          vendor:'Hotwire Auto', priceLow:1500, priceHigh:2400,
+          notes:'Hotwire 6.4 harness is more complex than the 5.7 version because of the 8HP70 + cylinder-deactivation control. Lead time can be 6–10 weeks.'
+        }),
+        p('ecm','392 PCM (donor or crate)',{
+          vendor:'With donor, or Mopar', priceLow:0, priceHigh:600,
+          notes:'Crate 6.4 may not include PCM — confirm with seller.'
+        }),
+        p('tcm','8HP70 TCM',{
+          vendor:'With donor trans', priceLow:0, priceHigh:400
+        }),
+        p('tune','392 tune (Diablo, HP Tuners, or shop)',{
+          vendor:'Diablo Sport, HP Tuners', priceLow:400, priceHigh:800, required:'required',
+          notes:'392 tune is harder than 5.7 because of cylinder deactivation and the 8-speed shift logic. Use a tuner who has done a 6.4 Jeep specifically.'
+        })
+      ],
+      mounts: [
+        p('motor-mounts','Hemi motor mount plates (6.4 spec)',{
+          vendor:'AEV (if available), Jeepspeed', priceLow:350, priceHigh:650,
+          notes:'6.4 block has slightly different mount geometry than 5.7. Use 6.4-specific plates, not 5.7 plates.'
+        }),
+        p('skid-mod','Trans skid + oil pan clearance work',{
+          vendor:'Local fab', priceLow:100, priceHigh:400
+        })
+      ],
+      cooling: [
+        p('radiator','Triple-pass aluminum radiator (Ron Davis, Mishimoto HD)',{
+          vendor:'Ron Davis, Mishimoto', priceLow:700, priceHigh:1100, required:'required',
+          notes:'<strong>Stock radiator dies in Phoenix on a 6.4.</strong> Triple-pass aluminum, dual-row, with the largest core that fits.'
+        }),
+        p('fan','Dual Spal high-flow fans + controller',{
+          vendor:'Spal, Mishimoto', priceLow:380, priceHigh:650, required:'required'
+        }),
+        p('hoses','Silicone radiator hose kit',{
+          vendor:'Mishimoto', priceLow:140, priceHigh:240
+        }),
+        p('thermostat','392 thermostat + housing',{
+          vendor:'Mopar', priceLow:35, priceHigh:80
+        }),
+        p('coolant','Mopar OAT coolant (2 gallons + concentrate)',{
+          vendor:'Mopar', priceLow:40, priceHigh:80
+        }),
+        p('aux-cooler','Power steering cooler upgrade',{
+          vendor:'Hayden, B&M', priceLow:80, priceHigh:160, required:'required'
+        }),
+        p('oil-cooler','Engine oil cooler add-on',{
+          vendor:'Setrab, Mishimoto', priceLow:280, priceHigh:480, required:'recommended',
+          notes:'6.4 generates more oil heat than 5.7. Stacked-plate cooler with thermostat is the right answer.'
+        })
+      ],
+      fuel: [
+        p('fuel-pump','Dual Walbro 450 lph fuel pumps (in tank)',{
+          partNum:'2× Walbro F90000267', vendor:'Holley, Summit', priceLow:320, priceHigh:480, required:'required',
+          notes:'<strong>Single pump is not enough for 470 hp.</strong> Run a Y\'d dual-pump setup in the factory tank, or upgrade to an Aeromotive Phantom 340.'
+        }),
+        p('fuel-lines','-8AN fuel feed line upgrade',{
+          vendor:'Earl\'s, Fragola', priceLow:140, priceHigh:280, required:'required',
+          notes:'Factory 3/8" line is borderline at 470 hp. Run -8AN from tank to rail.'
+        }),
+        p('fpr','Adjustable fuel pressure regulator',{
+          vendor:'Aeromotive, Holley', priceLow:140, priceHigh:240, required:'recommended'
+        }),
+        p('injectors','392 injectors (from donor) or refreshed',{
+          vendor:'With engine, or Bosch reman', priceLow:0, priceHigh:600
+        })
+      ],
+      exhaust: [
+        p('headers','Long-tube headers (clearance check required)',{
+          vendor:'Kooks, JBA, American Racing Headers', priceLow:550, priceHigh:1200, required:'recommended',
+          notes:'6.4 makes its power with proper exhaust. Long-tubes need careful frame clearance — confirm with installer.'
+        }),
+        p('mid-pipe','Custom Y-pipe with cats',{
+          vendor:'Local muffler', priceLow:300, priceHigh:550
+        }),
+        p('cats','High-flow OBD-II catalysts (2x)',{
+          vendor:'Magnaflow, MagnaFlow OEM', priceLow:380, priceHigh:650, required:'required'
+        }),
+        p('exhaust-cat-back','Cat-back exhaust',{
+          vendor:'Borla, MBRP, Corsa', priceLow:550, priceHigh:1100, required:'optional'
+        }),
+        p('o2-sensors','O2 sensors (4 total)',{
+          vendor:'Bosch, Denso', priceLow:160, priceHigh:300, required:'required'
+        })
+      ],
+      ac: [
+        p('ac-compressor','Retain Jeep A/C compressor (Hotwire harness keeps it)',{
+          vendor:'Existing', priceLow:0, priceHigh:280,
+          notes:'Same advantage as the 5.7 — Hotwire harness retains Jeep A/C control.'
+        }),
+        p('ac-bracket','392 accessory bracket adapter',{
+          vendor:'Hotwire, custom', priceLow:120, priceHigh:280, required:'optional'
+        }),
+        p('ac-recharge','R-134a recharge',{
+          vendor:'A/C shop', priceLow:60, priceHigh:160
+        })
+      ],
+      electrical: [
+        p('alternator','220A high-output alternator',{
+          vendor:'Mechman, DC Power', priceLow:380, priceHigh:650, required:'recommended',
+          notes:'470 hp + winch + lights + fridge needs more than the stock 392 alt.'
+        }),
+        p('battery','Dual AGM batteries (or one Odyssey 1750T)',{
+          vendor:'Odyssey, Optima', priceLow:280, priceHigh:600, required:'recommended'
+        }),
+        p('grounds','Big-3 ground upgrade (4-gauge or 2-gauge)',{
+          vendor:'Knu Konceptz, custom', priceLow:40, priceHigh:100, required:'required'
+        })
+      ],
+      drivetrain: [
+        p('axle-rear','Rear Dana 60 (or ProRock 60)',{
+          vendor:'Dynatrac, Currie, Solid Axle', priceLow:4000, priceHigh:9000, required:'required',
+          notes:'<strong>D44 rear breaks under 6.4 abuse.</strong> ProRock 60 is the engineered answer; used Ford D60 is the budget answer.'
+        }),
+        p('axle-front','Front Dana 44 or ProRock 44',{
+          vendor:'Dynatrac, AEV', priceLow:3500, priceHigh:7500, required:'required'
+        }),
+        p('gears','4.88 or 5.13 ring & pinion (matched to tires)',{
+          vendor:'Yukon, Nitro Gear', priceLow:550, priceHigh:1100, required:'required'
+        }),
+        p('lockers','Front + rear lockers (ARB Air or Eaton ELocker)',{
+          vendor:'ARB, Eaton', priceLow:1400, priceHigh:2800, required:'optional'
+        })
+      ],
+      misc: [
+        p('fluids','Premium fluids package (ATF, OAT coolant, 0W-40, gear oil)',{
+          vendor:'Mopar, Pennzoil Ultra Platinum', priceLow:240, priceHigh:400, required:'required',
+          notes:'392 calls for Pennzoil Ultra Platinum 0W-40 (Hellcat spec). Don\'t cheap out.'
+        }),
+        p('gaskets','Gasket / sealant kit',{
+          vendor:'Fel-Pro, Mopar', priceLow:100, priceHigh:220, required:'recommended'
+        }),
+        p('fasteners','ARP fasteners (long-tube headers especially)',{
+          vendor:'ARP', priceLow:100, priceHigh:240, required:'recommended'
+        }),
+        p('tuner','HP Tuners or Diablo Sport tuner',{
+          vendor:'HP Tuners, Diablo', priceLow:400, priceHigh:800, required:'required'
+        })
+      ]
+    }
+  },
+
+  // ────────────────────────────────────────────────────────
+  // DIY BUDGET 5.3L LS
+  // ────────────────────────────────────────────────────────
+  {
+    id: 'ls-53-diy',
+    name: 'DIY 5.3L LS · Junkyard build',
+    tagline: 'Cheapest V8 path. Phoenix emissions risk.',
+    tier: 'budget',
+    engine: '5.3L GM LS (LM7, LMG, LH8, LC9)',
+    hp: 295, tq: 335,
+    costRange: '$6,000 – $12,000',
+    time: '100 – 200 hrs',
+    skill: 'Very High',
+    flags: [
+      { label: 'Phoenix: HIGH RISK', kind: 'bad' },
+      { label: 'A/C needs work', kind: 'warn' },
+      { label: 'Cheapest V8', kind: 'good' }
+    ],
+    callouts: [
+      { kind: 'safety', html: '<strong>Phoenix readers, read the verdict tool first.</strong> This swap leaves two OBD-II ports visible (GM + Jeep) and is the worst V8 path for Maricopa County registration. <a href="/jk-wrangler-engine-swap-tool.html">See the decision tool</a> before committing.' },
+      { kind: 'info', html: '<strong>2007+ donor required.</strong> EPA same-or-newer rule means a 1999–2006 LM7 is illegal in a 2007+ JK. Use a 2007–2014 LMG/LC9/LH8 instead. Costs $1,000 more but is the only legal choice.' }
+    ],
+    parts: {
+      engine: [
+        p('engine','5.3L LS long-block (2007+ LMG/LC9/LH8 from full-size truck)',{
+          vendor:'Car-Part.com, LKQ, Pull-A-Part',
+          priceLow:1200, priceHigh:3500,
+          notes:'<strong>Use a 2007+ donor.</strong> LMG (2007–2014 Silverado/Sierra) is the most common. Cylinder leakdown < 8%; oil consumption history matters more than mileage.',
+          tips:[
+            'LM7 (1999–2006) is illegal in a 2007+ JK',
+            'Iron block (LMG, LM7) is heavier than aluminum (LH8) but cheaper',
+            'Avoid AFM/DoD lifters or have them locked out — they fail'
+          ]
+        }),
+        p('accessories','LS accessory drive (alt, P/S, A/C, tensioner)',{
+          vendor:'With donor', priceLow:0, priceHigh:400,
+          notes:'Comes with the engine pullout. Test alternator on the bench.'
+        }),
+        p('intake','LS intake manifold (truck or car style)',{
+          vendor:'With donor, or Holley Hi-Ram', priceLow:0, priceHigh:550, required:'optional',
+          notes:'Truck intake clears JK hood. Car-style needs hood clearance check.'
+        }),
+        p('plugs','NGK Iridium plugs (8x)',{
+          partNum:'NGK 5316 (TR55IX)', vendor:'NGK', priceLow:50, priceHigh:90, required:'recommended'
+        })
+      ],
+      trans: [
+        p('trans','4L60E or 4L80E automatic',{
+          vendor:'Car-Part.com, ATS Diesel',
+          priceLow:800, priceHigh:2500,
+          notes:'4L60E for stock-ish builds; 4L80E for any future power add or 35+ tires. 4L80E weighs more and needs a different crossmember.',
+          tips:['4L60E < 350 lb-ft is the rule of thumb','4L80E is the long-term right answer; pay the extra $800']
+        }),
+        p('flexplate','LS flexplate (matched to trans)',{
+          vendor:'GM, B&M', priceLow:60, priceHigh:120
+        }),
+        p('trans-cooler','External trans cooler',{
+          vendor:'B&M, Hayden', priceLow:160, priceHigh:280, required:'required'
+        }),
+        p('trans-mount','Custom trans crossmember',{
+          vendor:'Local fab, Advance Adapters', priceLow:200, priceHigh:500
+        }),
+        p('tcase-adapter','NP241 to 4L60E/4L80E adapter',{
+          partNum:'Advance Adapters 50-0420', vendor:'Advance Adapters, Novak', priceLow:380, priceHigh:650, required:'required'
+        }),
+        p('driveshafts','Custom front + rear driveshafts',{
+          vendor:'Tom Wood\'s', priceLow:600, priceHigh:1100, required:'required'
+        })
+      ],
+      harness: [
+        p('harness','Standalone LS swap harness (PSI, BP Automotive, or Howell)',{
+          partNum:'PSI Conversion Harness LS', vendor:'PSI Conversion, BP Automotive',
+          priceLow:700, priceHigh:1200, required:'required',
+          notes:'<strong>Plan on a standalone harness — do not try to hack the donor truck harness.</strong> PSI ships in 2–4 weeks; specify ECM and trans type.',
+          tips:[
+            'PSI builds with delete options for VATS, EGR, AIR — get them all',
+            'Confirm trans output is configured for your specific 4L60E vs 4L80E'
+          ]
+        }),
+        p('ecm','GM ECM (E38 or E92) — from donor or remanned',{
+          vendor:'With donor, or Cardone', priceLow:0, priceHigh:400,
+          notes:'PCM ships with the harness in many cases. Make sure it\'s VATS-deleted.'
+        }),
+        p('tune','LS tune (HP Tuners or local LS shop)',{
+          vendor:'HP Tuners, local shop', priceLow:300, priceHigh:600, required:'required',
+          notes:'PSI ships a starter tune; you still need a final dyno tune for tire size + drivetrain.'
+        }),
+        p('obd-port','<strong>Second OBD-II port (Phoenix tampering flag)</strong>',{
+          vendor:'N/A — design choice', priceLow:0, priceHigh:0,
+          notes:'<strong>Read this carefully.</strong> The LS PCM uses a separate OBD-II port from the Jeep TIPM. Hiding it under the dash is considered concealing tampering. There is no clean fix — this is the structural emissions weakness of the LS swap.'
+        })
+      ],
+      mounts: [
+        p('motor-mounts','LS-to-JK motor mount adapter plates',{
+          partNum:'Advance Adapters 713071-CG', vendor:'Advance Adapters, Hooker (BlackHeart)',
+          priceLow:280, priceHigh:480, required:'required',
+          notes:'Hooker BlackHeart kit is the most popular; Advance Adapters is the long-time choice.'
+        }),
+        p('headers-clearance','Hood clearance / body mod check',{
+          vendor:'N/A', priceLow:0, priceHigh:200,
+          notes:'5.3 truck intake clears the hood; car-style intake may not.'
+        })
+      ],
+      cooling: [
+        p('radiator','Heavy-duty radiator (Mishimoto, Champion)',{
+          vendor:'Mishimoto, Champion', priceLow:480, priceHigh:850, required:'required'
+        }),
+        p('fan','LS electric fan + controller',{
+          vendor:'Spal, Mishimoto', priceLow:280, priceHigh:550, required:'required'
+        }),
+        p('hoses','Custom radiator hoses (LS inlet/outlet)',{
+          vendor:'Universal hose kit', priceLow:80, priceHigh:160
+        }),
+        p('thermostat','LS thermostat housing + sensor adapter',{
+          vendor:'GM, Holley', priceLow:60, priceHigh:140
+        }),
+        p('coolant','GM Dex-Cool (not Mopar OAT)',{
+          vendor:'GM dealer, NAPA', priceLow:35, priceHigh:65
+        })
+      ],
+      fuel: [
+        p('fuel-pump','Walbro 450 lph in-tank pump',{
+          vendor:'Holley, Summit', priceLow:160, priceHigh:280, required:'required'
+        }),
+        p('fuel-rail','LS fuel rail (from donor)',{
+          vendor:'With engine', priceLow:0, priceHigh:140
+        }),
+        p('fuel-lines','Quick-connect adapter (JK to LS rail)',{
+          vendor:'Earl\'s', priceLow:30, priceHigh:80
+        }),
+        p('fpr','LS-style fuel pressure regulator',{
+          vendor:'With rail, or Aeromotive', priceLow:0, priceHigh:180
+        })
+      ],
+      exhaust: [
+        p('headers','LS swap headers (Hooker, Hedman, or Sanderson)',{
+          partNum:'Hooker BlackHeart 8501HKR', vendor:'Summit, Hooker',
+          priceLow:380, priceHigh:700, required:'required',
+          notes:'JK frame is tight — Hooker BlackHeart is the engineered option.'
+        }),
+        p('mid-pipe','Custom Y-pipe (local muffler shop)',{
+          vendor:'Local muffler', priceLow:200, priceHigh:450
+        }),
+        p('cats','High-flow cats (OBD-II compliant)',{
+          vendor:'Magnaflow', priceLow:280, priceHigh:550, required:'required'
+        }),
+        p('o2','O2 sensors (4 total, LS spec)',{
+          vendor:'Bosch, Denso', priceLow:140, priceHigh:280, required:'required'
+        })
+      ],
+      ac: [
+        p('ac-decision','<strong>A/C system decision: GM compressor or Jeep compressor</strong>',{
+          vendor:'See notes', priceLow:0, priceHigh:0, required:'required',
+          notes:'<strong>This is the single most painful part of the LS swap.</strong> Three options: (1) keep the Jeep compressor on an adapter bracket (MoTech sells one), (2) use the LS compressor and re-plumb the Jeep dash lines, (3) skip A/C entirely (not viable in Phoenix).'
+        }),
+        p('ac-bracket','LS-to-Jeep A/C adapter bracket (if keeping Jeep compressor)',{
+          vendor:'MoTech, custom fab', priceLow:200, priceHigh:450
+        }),
+        p('ac-lines','Custom A/C line set',{
+          vendor:'Local A/C shop', priceLow:280, priceHigh:550, required:'required'
+        }),
+        p('ac-can-bridge','CAN bridge module (if using GM compressor with Jeep TIPM)',{
+          vendor:'Specialty integrators', priceLow:160, priceHigh:340, required:'optional',
+          notes:'GM compressor expects CAN signal that Jeep TIPM doesn\'t send. Manual switch is the cheap workaround; CAN bridge is the clean fix.'
+        })
+      ],
+      electrical: [
+        p('alternator','LS alternator (CS130D from donor)',{
+          vendor:'With donor', priceLow:0, priceHigh:200
+        }),
+        p('battery','AGM battery',{
+          vendor:'Odyssey, Optima', priceLow:240, priceHigh:400, required:'recommended'
+        }),
+        p('grounds','Big-3 ground kit',{
+          vendor:'Knu Konceptz', priceLow:30, priceHigh:80, required:'required'
+        }),
+        p('gauges','LS gauge interface (if running standalone)',{
+          vendor:'AutoMeter, Dakota Digital', priceLow:200, priceHigh:550, required:'optional',
+          notes:'Standalone harness doesn\'t feed Jeep instrument cluster cleanly. Aftermarket gauge cluster or harness signal-converter solves it.'
+        })
+      ],
+      drivetrain: [
+        p('axle-rear','Rear axle decision (D44 stock or upgrade)',{
+          vendor:'Stock or Yukon shaft kit', priceLow:0, priceHigh:5000, required:'recommended'
+        }),
+        p('axle-front','D30 chromoly shafts or D44 conversion',{
+          vendor:'Yukon, RCV', priceLow:400, priceHigh:8000, required:'recommended'
+        }),
+        p('gears','Re-gear 4.56 or 4.88',{
+          vendor:'Yukon, Nitro', priceLow:550, priceHigh:1100, required:'recommended'
+        })
+      ],
+      misc: [
+        p('fluids','Fluids package (Dexron VI, Dex-Cool, 5W-30, gear oil)',{
+          vendor:'GM dealer, RockAuto', priceLow:160, priceHigh:280, required:'required'
+        }),
+        p('gaskets','Gasket / sealant kit',{
+          vendor:'Fel-Pro', priceLow:80, priceHigh:180, required:'recommended'
+        }),
+        p('fasteners','ARP fasteners + LS-specific bolts',{
+          vendor:'ARP', priceLow:80, priceHigh:200, required:'optional'
+        }),
+        p('tuner','HP Tuners MPVI + license',{
+          vendor:'HP Tuners', priceLow:400, priceHigh:700, required:'required'
+        })
+      ]
+    }
+  },
+
+  // ────────────────────────────────────────────────────────
+  // MOTECH LT DIY KIT
+  // ────────────────────────────────────────────────────────
+  {
+    id: 'motech-lt-diy',
+    name: 'MoTech LT · DIY kit build',
+    tagline: 'Gen V direct-injection LS with engineered kit.',
+    tier: 'mid',
+    engine: '5.3L L83 or 6.2L LT1',
+    hp: 355, tq: 383,
+    costRange: '$16,000 – $26,000',
+    time: '80 – 140 hrs',
+    skill: 'High',
+    flags: [
+      { label: 'Phoenix: CASE-BY-CASE', kind: 'warn' },
+      { label: 'A/C retained', kind: 'good' },
+      { label: 'Single OBD path', kind: 'good' }
+    ],
+    callouts: [
+      { kind: 'info', html: '<strong>The MoTech kit is the engineered DIY LS path.</strong> Many of the painful integration items in the budget LS list are solved here — Jeep A/C compressor bracket, ECM VIN flash, emissions hardware (EVAP, fuel tank pressure sensor) are all included.' },
+      { kind: 'warn', html: '<strong>Phoenix risk: still has the second OBD-II port.</strong> MoTech\'s VIN flash and emissions kit improve outcomes but don\'t change the fact that an inspector who looks for it can find the GM ECM port. Outcomes are mixed in Maricopa.' }
+    ],
+    parts: {
+      engine: [
+        p('engine','5.3L L83 crate (or 6.2L LT1 if upgrading)',{
+          partNum:'GM 19420410 (L83) / 19432005 (LT1)', vendor:'GM Performance, Pace Performance',
+          priceLow:4500, priceHigh:9000,
+          notes:'<strong>MoTech kit is engine-agnostic between L83 and LT1.</strong> L83 5.3 ~$4,500 new; LT1 6.2 ~$8,000 new. Used pricing is lower but verify donor cylinder condition.'
+        }),
+        p('accessories','LT accessory drive (with engine)',{
+          vendor:'GM crate or donor', priceLow:0, priceHigh:600
+        }),
+        p('plugs','NGK Iridium for LT',{
+          vendor:'NGK', priceLow:60, priceHigh:100
+        })
+      ],
+      trans: [
+        p('trans-6l80','6L80E 6-speed (L83 builds) or 10L80 10-speed (LT1)',{
+          partNum:'6L80E (24251790) or 10L80 (24279661)', vendor:'GM, salvage',
+          priceLow:1500, priceHigh:5000, required:'required',
+          notes:'L83 + 6L80E is the budget path. LT1 + 10L80 is the premium combo — significantly faster than the 8-speed offerings of the era.'
+        }),
+        p('flexplate','LT flexplate',{
+          vendor:'GM', priceLow:80, priceHigh:160
+        }),
+        p('trans-cooler','HD external trans cooler',{
+          vendor:'B&M, Setrab', priceLow:200, priceHigh:400, required:'required'
+        }),
+        p('trans-mount','MoTech kit trans crossmember (INCLUDED)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0,
+          notes:'Comes in the MoTech kit. Listed for visibility.'
+        }),
+        p('tcase-adapter','NP241 to 6L80E/10L80 adapter (INCLUDED in kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0
+        }),
+        p('driveshafts','Custom front + rear driveshafts',{
+          vendor:'Tom Wood\'s', priceLow:700, priceHigh:1100, required:'recommended'
+        })
+      ],
+      harness: [
+        p('kit','MoTech LT JK Premium Kit',{
+          partNum:'MoTech LT Premium', vendor:'MoTech Performance (LSwrangler.com)',
+          priceLow:8499, priceHigh:10499, required:'required',
+          notes:'<strong>The cornerstone of this build.</strong> Includes: mounts, harness, A/C compressor bracket (Jeep compressor retained), ECM with VIN flash, emissions hardware (EVAP canister, fuel tank pressure sensor, vent solenoid), CAN bridge for Jeep TIPM integration.',
+          tips:[
+            'Specify your year (2007–2011 vs 2012–2018) when ordering',
+            'Premium kit is required for emissions states — the base kit omits the emissions hardware',
+            'Confirm trans choice (6L80E vs 10L80) for harness routing'
+          ]
+        }),
+        p('vin-flash','ECM VIN flash service (INCLUDED in Premium kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0,
+          notes:'MoTech flashes your Jeep VIN into the GM ECM. Mitigates (does not eliminate) the dual-port tampering flag.'
+        }),
+        p('tune','Tune for tire size / drivetrain',{
+          vendor:'MoTech or local LS shop', priceLow:400, priceHigh:700, required:'required'
+        })
+      ],
+      mounts: [
+        p('motor-mounts','MoTech motor mounts (INCLUDED in kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0
+        })
+      ],
+      cooling: [
+        p('radiator','HD radiator (Mishimoto or MoTech recommended spec)',{
+          vendor:'Mishimoto', priceLow:550, priceHigh:900, required:'required'
+        }),
+        p('fan','Electric fan upgrade',{
+          vendor:'Spal, Mishimoto', priceLow:280, priceHigh:550, required:'recommended'
+        }),
+        p('hoses','Silicone hose kit',{
+          vendor:'Mishimoto', priceLow:120, priceHigh:240
+        }),
+        p('coolant','GM Dex-Cool',{
+          vendor:'GM', priceLow:35, priceHigh:65
+        })
+      ],
+      fuel: [
+        p('fuel-pump','Walbro 450 lph in-tank pump',{
+          vendor:'Holley', priceLow:160, priceHigh:280, required:'required'
+        }),
+        p('fuel-lines','LT fuel line adapter (INCLUDED in MoTech kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0
+        }),
+        p('fuel-tank-sensor','Fuel tank pressure sensor (INCLUDED in Premium kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0,
+          notes:'Required for emissions compliance. Premium kit includes it.'
+        })
+      ],
+      exhaust: [
+        p('headers','LT swap headers (MoTech or Hooker)',{
+          vendor:'MoTech, Hooker BlackHeart', priceLow:480, priceHigh:850, required:'required'
+        }),
+        p('mid-pipe','Y-pipe + cats (custom or MoTech)',{
+          vendor:'Local muffler or MoTech', priceLow:380, priceHigh:700
+        }),
+        p('cats','High-flow OBD-II cats',{
+          vendor:'Magnaflow', priceLow:280, priceHigh:550, required:'required'
+        }),
+        p('o2','O2 sensors',{
+          vendor:'Bosch, Denso', priceLow:160, priceHigh:280, required:'required'
+        })
+      ],
+      ac: [
+        p('ac-bracket','Jeep A/C compressor bracket (INCLUDED in kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0,
+          notes:'<strong>The reason to choose MoTech over budget DIY LS.</strong> Bracket keeps the Jeep R-134a compressor in the LT accessory layout. Jeep dash lines and evaporator unchanged.'
+        }),
+        p('can-bridge','CAN bridge (INCLUDED in Premium kit)',{
+          vendor:'MoTech', priceLow:0, priceHigh:0
+        }),
+        p('ac-recharge','R-134a recharge',{
+          vendor:'A/C shop', priceLow:60, priceHigh:160
+        })
+      ],
+      electrical: [
+        p('alternator','Stock LT alternator (with engine)',{
+          vendor:'With engine', priceLow:0, priceHigh:200
+        }),
+        p('battery','AGM battery',{
+          vendor:'Odyssey', priceLow:240, priceHigh:400, required:'recommended'
+        }),
+        p('grounds','Big-3 ground kit',{
+          vendor:'Knu Konceptz', priceLow:30, priceHigh:80, required:'required'
+        })
+      ],
+      drivetrain: [
+        p('axle-rear','Rear axle reinforcement (chromoly shafts or D60)',{
+          vendor:'Yukon, Solid Axle', priceLow:500, priceHigh:6000, required:'recommended'
+        }),
+        p('axle-front','D30 chromoly shafts or D44 conversion',{
+          vendor:'RCV, Yukon', priceLow:400, priceHigh:7500, required:'recommended'
+        }),
+        p('gears','Re-gear 4.56 or 4.88',{
+          vendor:'Yukon, Nitro', priceLow:550, priceHigh:1100, required:'required'
+        })
+      ],
+      misc: [
+        p('fluids','Fluids package (Dexron VI, Dex-Cool, 5W-30)',{
+          vendor:'GM, RockAuto', priceLow:160, priceHigh:280, required:'required'
+        }),
+        p('gaskets','Gasket kit',{
+          vendor:'Fel-Pro', priceLow:80, priceHigh:180
+        }),
+        p('tuner','HP Tuners or MoTech tune coupon',{
+          vendor:'HP Tuners', priceLow:400, priceHigh:700, required:'required'
+        })
+      ]
+    }
+  },
+
+  // ────────────────────────────────────────────────────────
+  // BRUISER LX3
+  // ────────────────────────────────────────────────────────
+  {
+    id: 'bruiser-lx3',
+    name: 'Bruiser LX3 6.6L · Turnkey kit',
+    tagline: '500 hp engineered turnkey. Off-road only.',
+    tier: 'turnkey',
+    engine: '6.6L LX3 (LT-based, port-injected)',
+    hp: 500, tq: 510,
+    costRange: '$34,500 – $48,000',
+    time: 'DIY 80–120 hrs · Shop 4–8 wks',
+    skill: 'High (or pay CIF)',
+    flags: [
+      { label: 'Phoenix: OFF-ROAD ONLY', kind: 'bad' },
+      { label: 'A/C retained', kind: 'good' },
+      { label: 'Premium resale', kind: 'good' }
+    ],
+    callouts: [
+      { kind: 'safety', html: '<strong>Bruiser explicitly labels this kit "off-road use only."</strong> That label is product disqualification at any tampering inspection. If you live in Maricopa County and need to register the Jeep, this is not the right kit.' },
+      { kind: 'info', html: '<strong>This is one of the cleanest-engineered V8 conversions ever made for the JK.</strong> If you have the budget and a non-emissions registration address, this is the build to aspire to.' }
+    ],
+    parts: {
+      engine: [
+        p('kit','Bruiser JK LX3 Complete Conversion Kit',{
+          partNum:'Bruiser 2007–2011 JK LX3 Kit', vendor:'Bruiser Conversions (bruiserconversions.com)',
+          priceLow:34499, priceHigh:34499, required:'required',
+          notes:'<strong>This is the entire build.</strong> Kit includes 6.6L LX3 long-block, 8HP70 8-speed transmission, motor mounts, transmission crossmember, custom radiator, headers, exhaust to mid-pipe, full conversion wiring (single OBD-II via dual-protocol logic), fuel system upgrades, A/C bracket retaining Jeep compressor, cooling lines.',
+          tips:[
+            'Bruiser also offers a 2012–2018 JK kit — confirm year fit before ordering',
+            'Lead time 8–14 weeks',
+            'Cancel/return policy is restrictive — be sure of your purchase'
+          ]
+        }),
+        p('install','Certified Installation Facility (CIF) labor',{
+          vendor:'Bruiser-certified installer', priceLow:8000, priceHigh:13000, required:'optional',
+          notes:'Pro install if you don\'t want a DIY adventure. Most CIFs require 4–6 weeks of shop time.'
+        })
+      ],
+      trans: [
+        p('trans-8hp70','8HP70 8-speed automatic (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('flexplate','Flexplate (INCLUDED)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('trans-cooler','Trans cooler (INCLUDED)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('tcase-adapter','Tcase adapter (INCLUDED)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('driveshafts','Driveshafts — verify or order custom',{
+          vendor:'Tom Wood\'s', priceLow:700, priceHigh:1200, required:'recommended',
+          notes:'Confirm with Bruiser whether driveshafts are in your specific kit version.'
+        })
+      ],
+      harness: [
+        p('harness-kit','Wiring harness + ECM (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0,
+          notes:'<strong>Bruiser\'s dual-protocol single OBD-II port is the key engineering feature.</strong> Both GM ECM and Jeep TIPM responses come from one diagnostic port. This is the reason a Bruiser-converted Jeep dealer-scans cleanly.'
+        }),
+        p('tune','Tune (INCLUDED via VIN flash)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        })
+      ],
+      mounts: [
+        p('motor-mounts','Motor mounts (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('skid','Skid plate clearance work',{
+          vendor:'Local fab if needed', priceLow:0, priceHigh:400
+        })
+      ],
+      cooling: [
+        p('radiator','Bruiser-spec radiator (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('fan','Fan setup (INCLUDED)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('coolant','GM Dex-Cool (2 gallons)',{
+          vendor:'GM', priceLow:40, priceHigh:70
+        })
+      ],
+      fuel: [
+        p('fuel-system','Fuel system upgrade (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        })
+      ],
+      exhaust: [
+        p('headers','Headers + downpipes (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('cat-back','Cat-back exhaust',{
+          vendor:'Borla, Magnaflow', priceLow:550, priceHigh:1100, required:'optional',
+          notes:'Bruiser kit goes to mid-pipe. Cat-back is your choice of sound and price.'
+        }),
+        p('cats','High-flow cats',{
+          vendor:'Magnaflow', priceLow:380, priceHigh:650, required:'required'
+        })
+      ],
+      ac: [
+        p('ac-bracket','Jeep A/C compressor bracket (INCLUDED in kit)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('ac-recharge','R-134a recharge after install',{
+          vendor:'A/C shop', priceLow:60, priceHigh:160
+        })
+      ],
+      electrical: [
+        p('alternator','High-output alternator (INCLUDED)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        }),
+        p('battery','AGM battery (HD spec)',{
+          vendor:'Odyssey 1750T', priceLow:280, priceHigh:480, required:'recommended'
+        }),
+        p('grounds','Ground kit (INCLUDED)',{
+          vendor:'Bruiser', priceLow:0, priceHigh:0
+        })
+      ],
+      drivetrain: [
+        p('axle-rear','Rear Dana 60 (Bruiser-recommended)',{
+          vendor:'Dynatrac, Solid Axle, Currie', priceLow:4000, priceHigh:9000, required:'recommended',
+          notes:'<strong>500 hp / 510 lb-ft will twist a D44 rear off the trail.</strong> Plan on a D60.'
+        }),
+        p('axle-front','Front Dana 44 or ProRock 44',{
+          vendor:'Dynatrac', priceLow:3500, priceHigh:7500, required:'required'
+        }),
+        p('gears','5.13 ring & pinion (for 37"+ tires)',{
+          vendor:'Yukon, Nitro', priceLow:600, priceHigh:1200, required:'required'
+        }),
+        p('lockers','Front + rear lockers',{
+          vendor:'ARB, Eaton', priceLow:1400, priceHigh:2800, required:'recommended'
+        })
+      ],
+      misc: [
+        p('fluids','Fluids package',{
+          vendor:'Mopar / GM', priceLow:200, priceHigh:380, required:'required'
+        }),
+        p('shop','Shop supplies',{
+          vendor:'Local', priceLow:60, priceHigh:120
+        })
+      ]
+    }
+  }
+];
+
+/* =========================================================
+   STATE MANAGEMENT
+   ========================================================= */
+
+const initialState = {
+  vehicle: null,
+  path: null,
+  expanded: {},      // categoryId -> bool
+  partExp: {},       // partId -> bool
+  purchased: {},     // partId -> bool
+  installed: {},     // partId -> bool
+  filter: 'all'
+};
+
+let state = loadState();
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) return Object.assign({}, initialState, JSON.parse(raw));
+  } catch (e) { console.warn('Could not load saved state', e); }
+  return Object.assign({}, initialState);
+}
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) { console.warn('Could not save state', e); }
+}
+function resetProgress() {
+  if (!confirm('Reset all purchased / installed / expanded state for this build? Vehicle and engine path selection stay.')) return;
+  state.purchased = {};
+  state.installed = {};
+  state.expanded = {};
+  state.partExp = {};
+  saveState();
+  renderBuild();
+}
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+const el = (tag, attrs, ...children) => {
+  const e = document.createElement(tag);
+  if (attrs) Object.keys(attrs).forEach(k => {
+    if (k === 'class') e.className = attrs[k];
+    else if (k === 'html') e.innerHTML = attrs[k];
+    else if (k === 'on') Object.keys(attrs.on).forEach(ev => e.addEventListener(ev, attrs.on[ev]));
+    else if (k === 'data') Object.keys(attrs.data).forEach(d => e.dataset[d] = attrs.data[d]);
+    else e.setAttribute(k, attrs[k]);
+  });
+  children.forEach(c => {
+    if (c == null || c === false) return;
+    e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  });
+  return e;
+};
+
+function renderVehicles() {
+  const grid = document.getElementById('vehicleGrid');
+  grid.innerHTML = '';
+  PLATFORMS.forEach(v => {
+    const isSelected = state.vehicle === v.id;
+    const card = el('button', {
+      class: 'vehicle-card ' + (v.active ? 'active' : 'inactive'),
+      data: { state: isSelected ? 'selected' : '' },
+      on: v.active ? { click: () => selectVehicle(v.id) } : {}
+    });
+    card.appendChild(el('div', { class: 'v-name' }, v.name));
+    card.appendChild(el('div', { class: 'v-years' }, v.years));
+    card.appendChild(el('div', { class: 'v-status' }, v.active ? (isSelected ? '✓ Selected' : 'Active') : 'Soon'));
+    grid.appendChild(card);
+  });
+}
+
+function selectVehicle(vid) {
+  state.vehicle = vid;
+  // Reset path if changing vehicle
+  state.path = null;
+  saveState();
+  renderVehicles();
+  renderPaths();
+  renderBuild();
+}
+
+function renderPaths() {
+  const wrap = document.getElementById('step-path');
+  const grid = document.getElementById('pathGrid');
+  grid.innerHTML = '';
+  if (state.vehicle !== 'jk') {
+    wrap.style.display = state.vehicle ? 'block' : 'none';
+    grid.appendChild(el('div', { class: 'empty' },
+      el('div', { class: 'empty-title' }, 'No paths defined for this platform yet'),
+      el('div', {}, 'JK Wrangler is the only live platform today. Others coming.')
+    ));
+    return;
+  }
+  wrap.style.display = 'block';
+  ENGINE_PATHS_JK.forEach(path => {
+    const isSelected = state.path === path.id;
+    const card = el('button', {
+      class: 'path-card',
+      data: { state: isSelected ? 'selected' : '' },
+      on: { click: () => selectPath(path.id) }
+    });
+    card.appendChild(el('span', { class: 'path-tier ' + path.tier }, tierLabel(path.tier)));
+    card.appendChild(el('div', { class: 'path-name' }, path.name));
+    card.appendChild(el('div', { class: 'path-tagline' }, path.tagline));
+
+    const flags = el('div', { class: 'path-flags' });
+    path.flags.forEach(f => flags.appendChild(el('span', { class: 'flag ' + f.kind }, f.label)));
+    card.appendChild(flags);
+
+    const specs = el('div', { class: 'path-specs' });
+    specs.innerHTML = `
+      <div><span class="lbl">Engine</span><br><span class="val">${path.engine}</span></div>
+      <div><span class="lbl">Power</span><br><span class="val">${path.hp} hp · ${path.tq} lb-ft</span></div>
+      <div><span class="lbl">Cost</span><br><span class="val">${path.costRange}</span></div>
+      <div><span class="lbl">Time</span><br><span class="val">${path.time}</span></div>
+    `;
+    card.appendChild(specs);
+    grid.appendChild(card);
+  });
+}
+
+function tierLabel(t) {
+  return { budget:'BUDGET', mid:'MID-TIER', premium:'PREMIUM', turnkey:'TURNKEY' }[t] || t.toUpperCase();
+}
+
+function selectPath(pid) {
+  state.path = pid;
+  // Default-open the first three categories on first pick
+  if (Object.keys(state.expanded).length === 0) {
+    state.expanded = { engine: true, trans: true, harness: true };
+  }
+  saveState();
+  renderPaths();
+  renderBuild();
+  // Scroll into view smoothly
+  setTimeout(() => {
+    document.getElementById('step-build').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+function currentPath() {
+  if (!state.path) return null;
+  return ENGINE_PATHS_JK.find(p => p.id === state.path);
+}
+
+function renderBuild() {
+  const wrap = document.getElementById('step-build');
+  const path = currentPath();
+  if (!path) {
+    wrap.style.display = 'none';
+    return;
+  }
+  wrap.style.display = 'block';
+
+  document.getElementById('sumPath').textContent = path.name;
+
+  // Callouts
+  const calloutsHost = document.getElementById('pathCallouts');
+  calloutsHost.innerHTML = '';
+  (path.callouts || []).forEach(c => {
+    calloutsHost.appendChild(el('div', { class: 'callout ' + (c.kind || ''), html: c.html }));
+  });
+
+  // Render categories
+  const list = document.getElementById('categoryList');
+  list.innerHTML = '';
+  let totalCount = 0, purchasedCount = 0, installedCount = 0, costLow = 0, costHigh = 0;
+
+  CATEGORIES.forEach(cat => {
+    const parts = (path.parts[cat.id] || []).filter(matchesFilter);
+    if (parts.length === 0) return;
+
+    const catOpen = state.expanded[cat.id] !== false;
+    const catNode = el('div', { class: 'category', data: { open: String(catOpen) } });
+
+    let catLow = 0, catHigh = 0, catDone = 0, catTotal = parts.length;
+
+    parts.forEach(part => {
+      const pid = key(cat.id, part.id);
+      const isPurchased = !!state.purchased[pid];
+      const isInstalled = !!state.installed[pid];
+      const isExp = !!state.partExp[pid];
+      if (isInstalled || isPurchased) catDone++;
+      catLow += part.priceLow; catHigh += part.priceHigh;
+      totalCount++;
+      if (isPurchased || isInstalled) purchasedCount++;
+      if (isInstalled) installedCount++;
+      if (isPurchased) { costLow += part.priceLow; costHigh += part.priceHigh; }
+      else if (isInstalled) { costLow += part.priceLow; costHigh += part.priceHigh; }
+    });
+
+    const head = el('div', { class: 'cat-head', on: { click: () => toggleCategory(cat.id) } });
+    const left = el('div', { class: 'cat-head-left' });
+    left.innerHTML = `
+      <svg class="cat-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg>
+      <div class="cat-name">${cat.name}</div>
+    `;
+    head.appendChild(left);
+    const meta = el('div', { class: 'cat-meta' });
+    const pct = catTotal === 0 ? 0 : Math.round(100 * catDone / catTotal);
+    meta.innerHTML = `
+      <div class="cat-progress">
+        <span>${catDone}/${catTotal}</span>
+        <div class="cat-progress-bar"><div class="cat-progress-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="cat-cost">$${fmt(catLow)} – $${fmt(catHigh)}</div>
+    `;
+    head.appendChild(meta);
+    catNode.appendChild(head);
+
+    const body = el('div', { class: 'cat-body' });
+    parts.forEach(part => {
+      const pid = key(cat.id, part.id);
+      const isPurchased = !!state.purchased[pid];
+      const isInstalled = !!state.installed[pid];
+      const isExp = !!state.partExp[pid];
+
+      const row = el('div', {
+        class: 'part ' + (isInstalled ? 'installed' : isPurchased ? 'purchased' : ''),
+        data: { expanded: String(isExp) }
+      });
+
+      // Checks
+      const checkBox = el('div', { class: 'part-check' });
+      const pCheck = el('button', {
+        class: 'check buy',
+        data: { state: isPurchased ? 'on' : 'off' },
+        on: { click: () => togglePurchased(pid) },
+        'aria-label': 'Toggle purchased'
+      });
+      const pLabel = el('span', { class: 'check-label' }, 'BUY');
+      const iCheck = el('button', {
+        class: 'check install',
+        data: { state: isInstalled ? 'on' : 'off' },
+        on: { click: () => toggleInstalled(pid) },
+        'aria-label': 'Toggle installed'
+      });
+      const iLabel = el('span', { class: 'check-label' }, 'INST');
+      const checkBox2 = el('div', { class: 'part-check' });
+      checkBox.appendChild(pCheck); checkBox.appendChild(pLabel);
+      checkBox2.appendChild(iCheck); checkBox2.appendChild(iLabel);
+      row.appendChild(checkBox);
+      row.appendChild(checkBox2);
+
+      // Main
+      const main = el('div', { class: 'part-main' });
+      main.appendChild(el('div', { class: 'part-name', html: part.name }));
+      const metaRow = el('div', { class: 'part-meta' });
+      if (part.partNum) metaRow.innerHTML += `<span><span class="lbl">P/N</span> ${part.partNum}</span>`;
+      if (part.vendor) metaRow.innerHTML += `<span><span class="lbl">Vendor</span> ${part.vendor}</span>`;
+      if (metaRow.innerHTML) main.appendChild(metaRow);
+
+      const detail = el('div', { class: 'part-detail' });
+      if (part.notes) detail.appendChild(el('div', { class: 'part-notes', html: part.notes }));
+      if (part.tips && part.tips.length) {
+        const tips = el('div', { class: 'part-tips' });
+        tips.appendChild(el('div', { class: 'tips-head' }, 'Pro tips'));
+        const ul = el('ul');
+        part.tips.forEach(t => ul.appendChild(el('li', { html: t })));
+        tips.appendChild(ul);
+        detail.appendChild(tips);
+      }
+      main.appendChild(detail);
+
+      if (part.notes || (part.tips && part.tips.length)) {
+        const expand = el('button', { class: 'part-expand', on: { click: () => togglePartExpand(pid) } });
+        expand.innerHTML = '<span class="show">Show details ▾</span><span class="hide">Hide details ▴</span>';
+        main.appendChild(expand);
+      }
+      row.appendChild(main);
+
+      // Cost
+      const cost = el('div', { class: 'part-cost' });
+      if (part.priceLow === 0 && part.priceHigh === 0) {
+        cost.innerHTML = '<span style="color:var(--text-faint)">included / N/A</span>';
+      } else if (part.priceLow === part.priceHigh) {
+        cost.innerHTML = `$${fmt(part.priceLow)}`;
+      } else {
+        cost.innerHTML = `<span class="cost-low">$${fmt(part.priceLow)} –</span><br>$${fmt(part.priceHigh)}`;
+      }
+      row.appendChild(cost);
+
+      // Status
+      const status = el('div', { class: 'part-status' });
+      status.appendChild(el('span', { class: 'pill ' + part.required }, part.required.toUpperCase()));
+      row.appendChild(status);
+
+      body.appendChild(row);
+    });
+    catNode.appendChild(body);
+    list.appendChild(catNode);
+  });
+
+  // Summary stats
+  document.getElementById('sumPurchased').textContent = `${purchasedCount}/${totalCount}`;
+  document.getElementById('sumInstalled').textContent = `${installedCount}/${totalCount}`;
+  // Total path cost (always full estimate, not just selected)
+  let pathLow = 0, pathHigh = 0;
+  CATEGORIES.forEach(c => (path.parts[c.id] || []).forEach(pt => { pathLow += pt.priceLow; pathHigh += pt.priceHigh; }));
+  document.getElementById('sumCost').textContent = `$${fmt(pathLow)} – $${fmt(pathHigh)}`;
+}
+
+function matchesFilter(part) {
+  // part filtering by required + status
+  if (state.filter === 'all') return true;
+  if (state.filter === 'required') return part.required === 'required';
+  const pid = key(currentCategoryFor(part), part.id);
+  if (state.filter === 'not-purchased') return !state.purchased[pid];
+  if (state.filter === 'not-installed') return !state.installed[pid];
+  return true;
+}
+
+function currentCategoryFor(part) {
+  const path = currentPath();
+  if (!path) return '';
+  for (const cat of CATEGORIES) {
+    if ((path.parts[cat.id] || []).some(p => p === part)) return cat.id;
+  }
+  return '';
+}
+
+function key(catId, partId) { return state.vehicle + '/' + state.path + '/' + catId + '/' + partId; }
+
+function toggleCategory(cid) {
+  state.expanded[cid] = !(state.expanded[cid] !== false);
+  saveState();
+  renderBuild();
+}
+function togglePartExpand(pid) {
+  state.partExp[pid] = !state.partExp[pid];
+  saveState();
+  renderBuild();
+}
+function togglePurchased(pid) {
+  state.purchased[pid] = !state.purchased[pid];
+  saveState();
+  renderBuild();
+}
+function toggleInstalled(pid) {
+  state.installed[pid] = !state.installed[pid];
+  // Installing implies purchased
+  if (state.installed[pid]) state.purchased[pid] = true;
+  saveState();
+  renderBuild();
+}
+
+function fmt(n) {
+  return Number(n).toLocaleString();
+}
+
+/* Filter buttons */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    state.filter = btn.dataset.filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.dataset.active = String(b === btn));
+    saveState();
+    renderBuild();
+  });
+});
+
+/* Action buttons */
+document.getElementById('btnExpandAll').addEventListener('click', () => {
+  CATEGORIES.forEach(c => state.expanded[c.id] = true);
+  saveState(); renderBuild();
+});
+document.getElementById('btnCollapseAll').addEventListener('click', () => {
+  CATEGORIES.forEach(c => state.expanded[c.id] = false);
+  saveState(); renderBuild();
+});
+document.getElementById('btnPrint').addEventListener('click', () => {
+  // expand all + all part details for print
+  CATEGORIES.forEach(c => state.expanded[c.id] = true);
+  const path = currentPath();
+  if (path) {
+    CATEGORIES.forEach(c => (path.parts[c.id] || []).forEach(pt => state.partExp[key(c.id, pt.id)] = true));
+  }
+  saveState(); renderBuild();
+  setTimeout(() => window.print(), 200);
+});
+document.getElementById('btnReset').addEventListener('click', resetProgress);
+
+/* Init */
+renderVehicles();
+renderPaths();
+renderBuild();
+// Set the active filter button state on load
+document.querySelectorAll('.filter-btn').forEach(b => b.dataset.active = String(b.dataset.filter === state.filter));
+
+</script>
+
+</body>
+</html>
