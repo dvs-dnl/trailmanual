@@ -422,7 +422,12 @@
       const grid = el('div', {class:'grid-vehicles'});
       active.forEach(v => {
         grid.appendChild(el('div', {class:'vehicle-card', on:{click:()=>go('#/'+v.id+'/home')}},
-          el('div', {class:'cat-icon', style:'background:rgba(197,165,114,.15);color:var(--accent);font-weight:900'}, (v.id||'').toUpperCase().slice(0,3)),
+          (function(){
+            var icons={'xj':'/images/icon-xj.png','tj':'/images/icon-tj.png','jk':'/images/icon-jk.png','jl':'/images/icon-jl.png','gladiator':'/images/icon-gladiator.png','4runner':'/images/icon-4runner.png','tacoma':'/images/icon-tacoma.png','bronco':'/images/icon-bronco.png','raptor':'/images/icon-raptor.png','power-wagon':'/images/icon-power-wagon.png'};
+            var src=icons[v.id]; var d=el('div',{class:'v-icon-art',style:'width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center'});
+            d.innerHTML=src?"<img src='"+src+"' alt='"+v.id+"' style='width:100%;height:100%;object-fit:contain'>":"<div style='background:rgba(201,126,80,.15);color:var(--accent);font-weight:900;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px'>"+( v.id||'').toUpperCase().slice(0,3)+"</div>";
+            return d;
+          })(),
           el('div', {style:'flex:1'},
             el('div', {class:'v-name'}, v.label || v.id),
             el('div', {class:'v-meta'},
@@ -441,7 +446,12 @@
       const grid = el('div', {class:'grid-vehicles'});
       inactive.forEach(v => {
         grid.appendChild(el('div', {class:'vehicle-card inactive'},
-          el('div', {class:'cat-icon', style:'background:var(--bg-3);color:var(--text-mute);font-weight:900'}, (v.id||'').toUpperCase().slice(0,3)),
+          (function(){
+            var icons={'xj':'/images/icon-xj.png','tj':'/images/icon-tj.png','jk':'/images/icon-jk.png','jl':'/images/icon-jl.png','gladiator':'/images/icon-gladiator.png','4runner':'/images/icon-4runner.png','tacoma':'/images/icon-tacoma.png','bronco':'/images/icon-bronco.png','raptor':'/images/icon-raptor.png','power-wagon':'/images/icon-power-wagon.png'};
+            var src=icons[v.id]; var d=el('div',{class:'v-icon-art',style:'width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:.5'});
+            d.innerHTML=src?"<img src='"+src+"' alt='"+v.id+"' style='width:100%;height:100%;object-fit:contain'>":"<div style='background:var(--bg-3);color:var(--text-mute);font-weight:900;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px'>"+( v.id||'').toUpperCase().slice(0,3)+"</div>";
+            return d;
+          })(),
           el('div', {style:'flex:1'},
             el('div', {class:'v-name'}, v.label || v.id),
             el('div', {class:'v-meta'},

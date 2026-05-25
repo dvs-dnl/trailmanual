@@ -1076,6 +1076,59 @@
   .autovet-band-inner { grid-template-columns: 1fr; gap: 40px; }
   .autovet-text h2 { font-size: 26px; }
 }
+
+/* ── VEHICLE ICON STRIP ─────────────────────────────── */
+.v-strip {
+  background: var(--bg-page, #f4f1ec);
+  border-bottom: 1px solid var(--border, rgba(0,0,0,.08));
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.v-strip::-webkit-scrollbar { display: none; }
+.v-strip-inner {
+  display: flex;
+  gap: 0;
+  width: max-content;
+  margin: 0 auto;
+  padding: 0 max(24px, calc((100vw - 1100px) / 2));
+}
+.v-strip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 22px 18px;
+  text-decoration: none;
+  border-right: 1px solid var(--border, rgba(0,0,0,.08));
+  transition: background .18s;
+  flex-shrink: 0;
+}
+.v-strip-item:first-child { border-left: 1px solid var(--border, rgba(0,0,0,.08)); }
+.v-strip-item:hover { background: rgba(201,126,80,.07); }
+.v-strip-item img {
+  width: 72px;
+  height: 58px;
+  object-fit: contain;
+  opacity: .85;
+  transition: opacity .18s, transform .18s;
+}
+.v-strip-item:hover img { opacity: 1; transform: translateY(-2px); }
+.v-strip-item span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--text-mute, #888);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color .18s;
+}
+.v-strip-item:hover span { color: #C97E50; }
+@media (max-width: 600px) {
+  .v-strip-inner { padding: 0 16px; }
+  .v-strip-item { padding: 16px 16px 14px; }
+  .v-strip-item img { width: 58px; height: 46px; }
+}
 </style>
 <script>
 (function(){
@@ -1156,6 +1209,53 @@
       </div>
     </div>
   </section>
+
+
+  <!-- ── VEHICLE ICON STRIP ──────────────────────────────────────────── -->
+  <div class="v-strip">
+    <div class="v-strip-inner">
+      <a class="v-strip-item" href="/db/?v=xj">
+        <img src="/images/icon-xj.png" alt="Jeep Cherokee XJ" loading="lazy">
+        <span>XJ Cherokee</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=tj">
+        <img src="/images/icon-tj.png" alt="Jeep Wrangler TJ" loading="lazy">
+        <span>Wrangler TJ</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=jk">
+        <img src="/images/icon-jk.png" alt="Jeep Wrangler JK" loading="lazy">
+        <span>Wrangler JK</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=jl">
+        <img src="/images/icon-jl.png" alt="Jeep Wrangler JL" loading="lazy">
+        <span>Wrangler JL</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=gladiator">
+        <img src="/images/icon-gladiator.png" alt="Jeep Gladiator JT" loading="lazy">
+        <span>Gladiator JT</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=4runner">
+        <img src="/images/icon-4runner.png" alt="Toyota 4Runner" loading="lazy">
+        <span>4Runner</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=tacoma">
+        <img src="/images/icon-tacoma.png" alt="Toyota Tacoma" loading="lazy">
+        <span>Tacoma</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=bronco">
+        <img src="/images/icon-bronco.png" alt="Ford Bronco (Early)" loading="lazy">
+        <span>Bronco Early</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=raptor">
+        <img src="/images/icon-raptor.png" alt="Ford F-150 Raptor" loading="lazy">
+        <span>F-150 Raptor</span>
+      </a>
+      <a class="v-strip-item" href="/db/?v=power-wagon">
+        <img src="/images/icon-power-wagon.png" alt="Ram Power Wagon" loading="lazy">
+        <span>Power Wagon</span>
+      </a>
+    </div>
+  </div>
 
   <!-- ── PHOTO STRIP ─────────────────────────────────────────────────── -->
   <div class="photo-strip">
