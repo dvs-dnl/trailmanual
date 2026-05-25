@@ -937,9 +937,9 @@ const CHECKLISTS = {
     engine: '2.4L K24W I4 (185hp) or 3.5L V6 (278hp)',
     overallRisk: 'low',
     overallRiskLabel: 'Low Risk',
-    summary: "The 2014 Accord is a benchmark used-car pick — well-built, durable, with documented common issues that are easy to inspect for. The CVT (4-cylinder models) is the single most important thing to check; everything else is standard wear.",
+    summary: "The 2014 Accord is a benchmark used-car pick — well-built, durable, with documented common issues that are easy to inspect for. The CVT (4-cylinder models) and the VSA/ABS modulator are the two things most generic mechanics will miss. V6 buyers should know the VCM motor-mount story before signing.",
     stats: {
-      itemsToCheck: 11,
+      itemsToCheck: 23,
       recalls: 4,
       ownerComplaints: 967,
       topComplaintArea: 'Electrical System'
@@ -952,25 +952,49 @@ const CHECKLISTS = {
             title: 'CVT transmission shudder (4-cyl models)',
             risk: 'high', riskLabel: 'High Attention',
             desc: 'The 2014 4-cylinder Accord uses a CVT that can develop a low-speed shudder, especially above 90,000 miles or if the fluid has never been changed.',
-            check: '<strong>Drive at 25-40 mph in light throttle, then ease off and re-apply gently.</strong> Listen and feel for a rough vibration. Confirm the CVT fluid has been changed (Honda recommends every 30,000 miles; many owners skip this).',
+            check: '<strong>Drive at 25-40 mph in light throttle, then ease off and re-apply gently.</strong> Listen and feel for a rough vibration. Confirm the CVT fluid has been changed (Honda recommends every 30,000 miles; many owners skip this). Genuine Honda HCF-2 fluid only — universal CVT fluid causes this shudder.',
             cost: '$300 fluid service / $3,500-$5,000 if replacement needed',
             source: 'Owner reports + Honda TSB 14-027'
           },
           {
+            title: 'CVT Hill Start Assist software glitch (TSB 16-049)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Some 2014 CVT Accords have a Hill Start Assist software glitch that can briefly release the brake on hills. Honda issued a software update under TSB 16-049 — not a recall, so many cars never got it.',
+            check: '<strong>Ask if TSB 16-049 software update has been applied.</strong> If unknown, a Honda dealer can check via VIN in seconds. Free if the dealer applies the update during another service visit.',
+            cost: 'Free under TSB / $120 dealer diagnostic if you have to ask cold',
+            source: 'Honda TSB 16-049'
+          },
+          {
             title: 'Carbon buildup on direct-injection 2.4L',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'The K24W direct-injection 4-cylinder can develop intake valve carbon buildup at 80,000+ miles, causing rough idle and slight power loss.',
-            check: '<strong>Watch idle quality at startup and during long idles.</strong> A borescope inspection of intake valves is the definitive check. Ask the seller about any "induction service" history.',
+            desc: 'The K24W direct-injection 4-cylinder can develop intake valve carbon buildup at 80,000+ miles, causing rough idle and slight power loss. Generic mechanics often misdiagnose this as ignition.',
+            check: '<strong>Watch idle quality at cold startup and during long idles in traffic.</strong> A borescope inspection of intake valves is the definitive check. Ask whether any "induction service" or walnut-blast cleaning has been done.',
             cost: '$400-$700 walnut blast service if needed',
             source: 'Common to all DI engines; widely documented'
           },
           {
+            title: 'Oil dilution from short-trip use (DI engines)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Direct-injection 2.4L engines can develop oil dilution (raw fuel in the oil) if driven primarily on short trips under 15 minutes. Less common in warm climates, more in cold-belt cars.',
+            check: '<strong>Pull the dipstick and smell the oil.</strong> Strong gasoline smell = dilution. Ask the seller about driving patterns: if it\'s been a short-trip commuter and oil changes are stretched, walk away or budget for a near-term overhaul.',
+            cost: '$0 if caught early (oil change) / bearing wear if chronic',
+            source: 'Honda DI engine pattern'
+          },
+          {
             title: 'V6 timing chain (if equipped)',
             risk: 'low', riskLabel: 'Low Risk',
-            desc: 'The 3.5L V6 uses a timing chain — no scheduled belt service required. Generally bulletproof.',
+            desc: 'The 3.5L J35Y V6 uses a timing chain — no scheduled belt service required. Generally bulletproof.',
             check: '<strong>Listen for any rattling at cold start.</strong> If chain stretches (rare on this engine), you may hear a brief rattle for 1-2 seconds before oil pressure builds.',
             cost: '$1,500-$2,500 if chain replacement needed (uncommon)',
             source: 'Honda J35Y engine documentation'
+          },
+          {
+            title: 'V6 VCM motor mount wear (the V6\'s Achilles heel)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The V6\'s Variable Cylinder Management (VCM) system runs on 3, 4, or 6 cylinders depending on load. The cylinder transitions create vibration that prematurely destroys the right rear motor mount — often by 80,000 miles — causing noticeable shake at idle. Enthusiasts install a "VCM Muzzler" device to disable VCM and extend mount life.',
+            check: '<strong>Idle the car in Drive with the brake pressed, hood up.</strong> Watch the engine — minor shake is normal; significant rocking or visible movement at the right rear mount means it\'s failing. A shop on a lift can confirm by checking mount integrity. Ask if a VCM Muzzler or similar has been installed.',
+            cost: '$400-$700 right rear motor mount / $1,200+ all mounts',
+            source: 'Honda V6 VCM widely documented (drive accord forum, NHTSA)'
           }
         ]
       },
@@ -978,20 +1002,73 @@ const CHECKLISTS = {
         title: 'Electrical',
         items: [
           {
-            title: 'Battery drain / starter motor (top complaint)',
+            title: 'Battery drain / starter motor (top NHTSA complaint)',
             risk: 'high', riskLabel: 'High Attention',
-            desc: 'Electrical issues are the #1 owner complaint for this generation Accord, with 376 reports to NHTSA — primarily battery drain, weak starters, and intermittent no-start conditions.',
-            check: '<strong>Test the battery age (sticker on battery) and confirm it has been replaced if older than 4 years.</strong> Have the seller cold-start the car after it has sat overnight. Listen for slow crank.',
+            desc: 'Electrical issues are the #1 owner complaint for this generation Accord — 376 NHTSA reports, primarily battery drain, weak starters, and intermittent no-start.',
+            check: '<strong>Test the battery age (sticker on battery) and confirm replacement if older than 4 years.</strong> Have the seller cold-start the car after it has sat overnight. Listen for slow crank. If keyless entry feels unresponsive, parasitic drain may be present.',
             cost: '$200-$400 battery / $400-$700 starter',
             source: 'NHTSA: 376 electrical complaints (top issue category)'
           },
           {
+            title: 'VSA / ABS modulator failure (2013-15 chronic issue)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'A pattern across 2013-15 Accords: the ABS modulator (the brain that controls anti-lock + stability) fails internally, often triggered or accelerated by neglected brake fluid changes. This is the single most expensive surprise on this car if missed.',
+            check: '<strong>Look for VSA, ABS, or Brake warning lights on the dashboard.</strong> Ask whether brake fluid has been changed (Honda interval is 3 years). Hard-brake from 30 mph on loose gravel — pedal should pulse if ABS engages. No pulse can mean the system has been disabled by stored faults.',
+            cost: '$1,800-$2,400 modulator replacement',
+            source: 'NHTSA reports + Honda service bulletins'
+          },
+          {
+            title: 'Bluetooth / HandsFreeLink (HFL) module',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The HFL module that powers Bluetooth can fail independently of the rest of the infotainment, killing all phone connectivity while the rest of the system works.',
+            check: '<strong>Pair a phone via Bluetooth and test BOTH call audio (incoming and outgoing) AND music streaming.</strong> Try a second phone if possible. Intermittent connection = HFL going.',
+            cost: '$400-$800 module replacement',
+            source: 'Honda forum-documented (driveaccord.net)'
+          },
+          {
+            title: 'LaneWatch camera (EX, EX-L, Touring)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The passenger-side LaneWatch camera (mounted to the right mirror) can lose signal or display interference. Cheap to test, expensive to replace.',
+            check: '<strong>Activate the right turn signal.</strong> Image should appear immediately on the infotainment screen, clear and stable. No image, static, or flicker = camera or wiring fault.',
+            cost: '$300-$500 camera / $800+ if wiring damaged',
+            source: 'Honda forum-documented'
+          },
+          {
             title: 'Display screen / infotainment',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'The dual-screen infotainment can develop ghost touches, freezes, or screen failure, especially on EX-L and Touring trims.',
-            check: '<strong>Test every touch input on the lower screen, and toggle through every menu on the upper screen.</strong> Ask if the system has ever been replaced under warranty.',
+            desc: 'The dual-screen infotainment can develop ghost touches, freezes, or full screen failure — most common on EX-L and Touring with the upper navigation display.',
+            check: '<strong>Test every touch input on the lower screen.</strong> Toggle through every menu on the upper screen. Watch for sluggish response or random taps registering on their own. Ask if the unit has ever been replaced under warranty.',
             cost: '$800-$1,500 replacement (out of warranty)',
             source: 'NHTSA complaints + Honda TSB 15-091'
+          }
+        ]
+      },
+      {
+        title: 'HVAC & Climate',
+        items: [
+          {
+            title: 'A/C condenser (front-mounted, road debris vulnerable)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Honda mounts the A/C condenser at the very front of the vehicle with minimal protection. A single stone strike can pierce a fin and cause refrigerant loss. A surprisingly common warranty claim on this generation.',
+            check: '<strong>A/C should blow cold within 30 seconds at idle on a warm day.</strong> Inspect the condenser through the grille for visible damage — bent fins, oily residue, or refrigerant dye stains. If blowing warm, the leak is often the condenser, not the compressor.',
+            cost: '$700-$1,200 condenser replacement',
+            source: 'Honda warranty claim pattern'
+          },
+          {
+            title: 'A/C compressor clutch noise',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Honda A/C compressors are known for a slight clutch engagement "tick" at cold start with A/C on. Light noise is normal Honda quirk; loud noise or constant on/off cycling is a failing clutch or low refrigerant.',
+            check: '<strong>Cold start engine with A/C set to MAX.</strong> Listen at engine bay for engagement tick. Constant cycling on/off within 30 seconds of running = low refrigerant (cheap fix) or failing clutch (expensive).',
+            cost: '$600-$1,000 compressor / $80 refrigerant recharge if just low',
+            source: 'Honda compressor pattern'
+          },
+          {
+            title: 'HVAC blend door actuator',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The actuator controlling driver-side temperature mix can develop a repetitive clicking sound or stop responding, leaving cabin stuck hot or cold.',
+            check: '<strong>Test temperature dial across full range and verify air actually changes.</strong> Listen for ticking from behind dashboard center. Driver and passenger zones independently.',
+            cost: '$250-$450 actuator + labor',
+            source: 'Common across Honda/Acura'
           }
         ]
       },
@@ -1002,20 +1079,28 @@ const CHECKLISTS = {
             title: 'Electric Power Steering (EPS) intermittent assist',
             risk: 'monitor', riskLabel: 'Monitor',
             desc: 'Some 2014 Accords report intermittent EPS warning lights and brief loss of power-steering assist (138 NHTSA complaints).',
-            check: '<strong>Check for any steering warning lights on the dash.</strong> During the test drive, make sure steering effort is consistent and the wheel doesn\'t feel notchy. Ask if EPS has ever been replaced.',
+            check: '<strong>Check for any steering warning lights on the dash.</strong> During the test drive, steering effort should be even and consistent. Notchy or vague feel can indicate an EPS column with hours left. Ask if EPS has ever been replaced.',
             cost: '$1,200-$1,800 EPS column replacement',
             source: 'NHTSA: 138 steering complaints'
           },
           {
+            title: 'Brake judder from undersized front rotors (2013-15)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: '2013-15 Accords shipped with marginal front rotors that warp prematurely — often by 40,000 miles — causing steering wheel shimmy when braking from highway speed. Honda quietly upsized the rotors in later years.',
+            check: '<strong>Brake firmly from 60 mph on a clear stretch of road.</strong> Steering wheel vibration = warped rotors. Replace with upgraded thicker aftermarket rotors to break the cycle.',
+            cost: '$300-$500 rotors + pads (aftermarket recommended)',
+            source: 'Drive Accord forum + Honda quiet redesign in 2016'
+          },
+          {
             title: 'Parking brake recall (electric)',
             risk: 'high', riskLabel: 'High Attention',
-            desc: 'Some 2014 Accords were subject to a recall for electric parking brake software that could fail to engage. Verify the recall has been performed.',
-            check: '<strong>Engage and release the electric parking brake several times.</strong> Verify no warning lights. Check NHTSA recall lookup using the VIN to confirm completion.',
-            cost: 'No cost if recall was performed (free service)',
+            desc: 'Some 2014 Accords were subject to recall 14V-595 for electric parking brake software. Verify completion via VIN.',
+            check: '<strong>Engage and release the electric parking brake several times.</strong> Verify no warning lights. Check NHTSA recall lookup at nhtsa.gov/recalls using the VIN to confirm completion.',
+            cost: 'Free if recall was performed',
             source: 'NHTSA recall campaign 14V-595'
           },
           {
-            title: 'Front brake pads / rotors',
+            title: 'Front brake pads & rotors (standard wear)',
             risk: 'low', riskLabel: 'Low Risk',
             desc: 'Standard wear. Most 2014 Accords need front pads and possibly rotors by 70,000-90,000 miles.',
             check: '<strong>Ask for service records showing brake history.</strong> Look at pad thickness through the wheel spokes if possible. Listen for grinding or squealing.',
@@ -1028,18 +1113,34 @@ const CHECKLISTS = {
         title: 'Body & Interior',
         items: [
           {
-            title: 'Paint quality (modern thin clearcoat)',
+            title: 'Paint quality (thin clearcoat)',
             risk: 'low', riskLabel: 'Low Risk',
             desc: 'Honda\'s clearcoat is thinner than European brands. Minor chips and stone bruises common; major peeling is not.',
-            check: '<strong>Inspect the hood, roof, and bumper edges in good light.</strong> Look for clearcoat haze or peeling. Minor wear is normal at this mileage.',
+            check: '<strong>Inspect hood, roof, and bumper edges in good light.</strong> Look for clearcoat haze or peeling. Minor wear is normal at this mileage.',
             cost: '$500-$2,000 for major repaint (cosmetic)',
             source: 'Common to all Hondas of this era'
+          },
+          {
+            title: 'Sunroof drain tube clogging',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Sunroof drain channels at all four corners can clog with debris, backing water up into the headliner or down the A-pillar into the floor pan. Mold + electrical damage if undetected.',
+            check: '<strong>Open the sunroof and pour ~1 cup of water into the front-of-sunroof drain channel.</strong> Water should exit at the fender behind the front wheels within 10 seconds. Pooling = clogged. Check carpet for damp spots.',
+            cost: '$100-$300 drain cleaning / $$$ if interior water damage exists',
+            source: 'Common across all sunroof-equipped vehicles'
+          },
+          {
+            title: 'Sport trim 18" rim damage',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Sport trim 18" wheels are softer alloy than standard 17" and bend or crack from pothole impacts more easily. Check carefully on Sport-trim cars.',
+            check: '<strong>Run a hand around the inside lip of each wheel feeling for bends or cracks.</strong> Steering wheel pull at 65+ mph can indicate a bent rim. A shop balance will reveal weight imbalance from cracks.',
+            cost: '$250-$500 per wheel repair or replacement',
+            source: 'Honda Sport trim pattern'
           },
           {
             title: 'Driver seat bolster wear',
             risk: 'low', riskLabel: 'Low Risk',
             desc: 'The leather (EX-L, Touring) on the outer bolster of the driver seat is the most common interior wear point.',
-            check: '<strong>Look at the outer left edge of the driver seat for cracking, wear, or color loss.</strong> This is purely cosmetic but indicates how the car was used.',
+            check: '<strong>Look at the outer left edge of the driver seat for cracking, wear, or color loss.</strong> Purely cosmetic but indicates how the car was used.',
             cost: '$150-$400 for re-bolstering',
             source: 'Standard wear pattern'
           }
@@ -1049,12 +1150,20 @@ const CHECKLISTS = {
         title: 'Suspension & Underbody',
         items: [
           {
-            title: 'Compliance bushings (front lower control arm)',
+            title: 'Front compliance bushings (lower control arm)',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'At 80,000+ miles, the front compliance bushings can develop play, causing a clunk over bumps and uneven tire wear.',
-            check: '<strong>Drive over rough pavement and listen for clunks from the front.</strong> Check front tire inner edges for unusual wear. Ask shop to inspect bushings visually.',
+            desc: 'At 80,000+ miles, the front compliance bushings can develop play, causing a clunk over bumps and uneven tire wear. Often dismissed by general mechanics as "just struts."',
+            check: '<strong>Drive over rough pavement and listen for clunks from the front.</strong> Check front tire inner edges for uneven wear. Ask a shop to inspect bushings visually on a lift — the rubber should be intact, not torn or oozing.',
             cost: '$400-$700 per side (parts + labor)',
             source: 'Common Honda wear item'
+          },
+          {
+            title: 'Rear trailing arm bushing wear (high mileage)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'At 100,000+ miles, rear trailing arm bushings can soften, causing slight rear-end wallow in cornering. Less common than front but worth checking on high-mileage cars.',
+            check: '<strong>Drive at 35-45 mph through a sharp corner.</strong> Rear should track cleanly. Floaty or vague rear feel suggests bushing wear. A shop on a lift can confirm visually.',
+            cost: '$400-$700 per side',
+            source: 'High-mileage Accord pattern'
           }
         ]
       }
@@ -1075,9 +1184,9 @@ const CHECKLISTS = {
     engine: '2.4L K24Z3 I4 (201hp) or 3.5L V6 (280hp)',
     overallRisk: 'low',
     overallRiskLabel: 'Low Risk',
-    summary: "The 2014 TSX is the swan-song year for one of Honda's most reliable platforms — the K24 four-cylinder regularly hits 250,000+ miles with basic maintenance. This is one of the lowest-risk used cars in the segment, but a few inspection points still matter.",
+    summary: "The 2014 TSX is the swan-song year for one of Honda's most reliable platforms — the K24Z3 four-cylinder regularly hits 250,000+ miles with basic maintenance. This is one of the lowest-risk used cars in the segment, but the K24's VTC startup rattle, Tech trim's HID and Bose failures, and the EPS relearn quirk are things general mechanics routinely miss.",
     stats: {
-      itemsToCheck: 9,
+      itemsToCheck: 21,
       recalls: 2,
       ownerComplaints: 142,
       topComplaintArea: 'Electrical System'
@@ -1095,28 +1204,102 @@ const CHECKLISTS = {
             source: 'Engine reliability data + owner reports'
           },
           {
-            title: 'Oil consumption (2009-2010 issue — verify NOT present)',
+            title: 'VTC actuator startup rattle (K24-specific)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The K24Z3\'s Variable Timing Control (VTC) actuator can develop a sticky engagement, producing a distinct 1-3 second rattle on cold startup as the actuator engages and oil pressure builds. Honda issued an updated actuator design under TSB. Often misdiagnosed as timing chain noise by non-Honda shops.',
+            check: '<strong>Cold start the car after it has sat overnight or 6+ hours.</strong> Listen at the front of the engine for a distinct rattle that disappears within 1-3 seconds as oil pressure comes up. Persistent rattle = failed VTC actuator. NOT the timing chain.',
+            cost: '$400-$700 VTC actuator replacement (NOT a $2,500 timing chain job)',
+            source: 'Honda TSB + K-series engine community'
+          },
+          {
+            title: 'Oil consumption (2009-2010 issue — verify NOT present on 2014)',
             risk: 'monitor', riskLabel: 'Monitor',
             desc: 'The 2009-2010 TSXes had documented oil consumption issues. By 2014, Honda had largely resolved this, but verify with the seller.',
-            check: '<strong>Ask: "Does the car burn oil between changes?"</strong> Pull the dipstick before and after a 10-minute drive. Check for blue smoke at startup.',
+            check: '<strong>Ask: "Does the car burn oil between changes?"</strong> Pull the dipstick before and after a 10-minute drive. Check for blue smoke at startup or hard acceleration.',
             cost: '$2,500-$4,500 piston ring service if affected (rare on 2014)',
             source: 'Honda service campaign + TSB history'
           },
           {
-            title: 'Automatic transmission (5-speed) — first-year history',
+            title: '5-speed automatic transmission',
             risk: 'low', riskLabel: 'Low Risk',
-            desc: 'The 5-speed automatic in the TSX is bulletproof when maintained. The 2004-2005 generation had transmission issues; the 2014 5-speed is a different and reliable unit.',
-            check: '<strong>Confirm transmission fluid has been changed at least once</strong> (Honda recommends 60k intervals using genuine Honda ATF DW-1 only). Test all shift points during a 15-minute drive — smooth, no flares, no hard 1-2 shift.',
+            desc: 'The 5-speed automatic in the 2014 TSX is well-engineered when maintained. (Don\'t confuse with 2004-2005 first-gen transmission troubles — different unit entirely.)',
+            check: '<strong>Confirm transmission fluid has been changed at least once</strong> (Honda recommends 60k intervals using genuine Honda ATF DW-1 only — universal ATF causes shudder). Test all shift points during a 15-minute drive — smooth, no flares, no hard 1-2 shift.',
             cost: '$180 fluid service / $3,000+ rebuild if neglected',
             source: 'Honda service intervals + TSB history'
           },
           {
-            title: '6-speed manual (if equipped) — verify clutch',
+            title: '6-speed manual clutch (if equipped)',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'The 6-speed manual is sought-after and well-built, but a worn or abused clutch is expensive to replace. Many manual TSXes were enthusiast-owned.',
-            check: '<strong>Engage 1st gear from a stop on a slight incline.</strong> Listen for chatter. Drive in 4th at 30 mph and gradually accelerate; if RPM rises faster than speed, clutch is slipping. Check for service records.',
-            cost: '$1,200-$1,800 clutch replacement',
-            source: 'Standard manual wear pattern'
+            desc: 'The 6-speed manual is sought-after and well-built, but a worn or abused clutch is expensive to replace. Many manual TSXes were enthusiast-owned and pushed hard. Third-gear synchro wear is a known weak point.',
+            check: '<strong>Engage 1st gear from a stop on a slight incline.</strong> Listen for chatter. Drive in 4th at 30 mph and gradually accelerate — if RPM rises faster than speed, clutch is slipping. Test 3rd gear engagement at low RPM (1500-2000) for any synchro grind.',
+            cost: '$1,200-$1,800 clutch / $1,500+ synchro repair',
+            source: 'TSX manual wear pattern'
+          },
+          {
+            title: 'V6 knock sensor (P0325, 3.5L only)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'V6 TSXes commonly throw P0325 knock sensor codes by 100,000 miles. Inexpensive fix, but a frequent unexplained CEL trigger if the owner doesn\'t know.',
+            check: '<strong>Plug in an OBD2 scanner and check for stored or pending codes.</strong> Ask if the CEL has ever lit and what the diagnosis was. P0325 = knock sensor (cheap); P0420 = catalyst efficiency (expensive).',
+            cost: '$200-$400 knock sensor + labor',
+            source: 'V6 TSX forum-documented'
+          }
+        ]
+      },
+      {
+        title: 'Electrical',
+        items: [
+          {
+            title: 'HID xenon ballast failure (Tech & V6 Tech)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'HID xenon ballasts on Tech and V6 Tech trims start failing by 100,000+ miles, causing flickering, dim, or completely dark headlights. OEM replacements are pricey but used-market parts are plentiful.',
+            check: '<strong>Cycle headlights on and off three times.</strong> Both sides should light immediately and at consistent brightness. Flicker, delayed startup, or color shift = ballast going.',
+            cost: '$300-$500 OEM ballast new / $100-$200 used',
+            source: 'TSX Tech trim forum pattern'
+          },
+          {
+            title: 'Bose amplifier failure (Tech models)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The Bose-amplified sound system in Technology trim has a known amplifier failure that causes cutting out, distortion, or one-channel-dead behavior. Often progressive over months.',
+            check: '<strong>Play music at moderate volume across multiple genres.</strong> Use balance/fader to verify each individual speaker plays clearly. Static, dropouts, or muffled speakers = amp going.',
+            cost: '$400-$800 OEM amp / $200-$400 used',
+            source: 'TSX Tech forum pattern'
+          },
+          {
+            title: 'AcuraLink DVD navigation drive failure',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The Tech navigation system runs on a constantly-spinning DVD drive. The drive mechanism itself fails — not just the disc — rendering navigation unusable. Out-of-warranty replacement from Acura is very expensive.',
+            check: '<strong>Boot the car and confirm navigation loads within 60 seconds.</strong> Try plotting a route. Slow boot, freezing, or no response = the drive is failing or dead.',
+            cost: '$400-$800 used unit / $1,800+ new from Acura',
+            source: 'Acura forum-documented'
+          },
+          {
+            title: 'Driver seat heated element burnout',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The driver seat\'s heated element (Tech and V6 trims) fails earlier than passenger side because of more frequent use. Often a broken wire under the outer bolster.',
+            check: '<strong>Test heated seat on both driver and passenger at max setting for 5 minutes.</strong> Both should feel warm across the entire cushion and back. Cold spots = broken element.',
+            cost: '$200-$400 element / $400+ labor (seat must come out)',
+            source: 'Acura interior wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'HVAC & Climate',
+        items: [
+          {
+            title: 'A/C compressor clutch noise (Honda/Acura quirk)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Common to Honda/Acura — light "tick" at cold start with A/C engaged is normal. Loud, constant cycling on/off, or persistent buzz = failing clutch or low refrigerant.',
+            check: '<strong>Cold start with A/C on max.</strong> Listen for engagement tick at engine bay. Constant on/off cycling within 30 seconds = low refrigerant (cheap fix) or failing clutch.',
+            cost: '$600-$1,000 compressor / $80 refrigerant recharge',
+            source: 'Honda/Acura compressor pattern'
+          },
+          {
+            title: 'Climate control display dimming/burnout',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The climate control panel display can develop dim segments or dead pixels by 100,000+ miles. Cosmetic but annoying.',
+            check: '<strong>Cycle through all HVAC modes and fan speeds.</strong> Verify display is fully readable in both bright (sunlight) and dim (night) conditions.',
+            cost: '$200-$400 used replacement panel',
+            source: 'Acura interior pattern'
           }
         ]
       },
@@ -1124,52 +1307,39 @@ const CHECKLISTS = {
         title: 'Steering & Suspension',
         items: [
           {
-            title: 'Power steering (2012 issue — verify NOT present)',
+            title: 'EPS rack relearn after battery disconnect (mechanics often miss this)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Many shops do not know this: the TSX\'s electric power steering requires a steering angle sensor relearn after any battery disconnection or EPS-related repair. Without the relearn, the EPS may feel uneven or store a fault code that turns into a warning light weeks later.',
+            check: '<strong>Ask if any recent battery, alternator, or steering work has been done.</strong> If yes, the relearn procedure should have been performed — confirm with the shop. Test drive should feel even, consistent effort lock to lock with no warning lights.',
+            cost: '$50-$120 if shop has to do relearn',
+            source: 'Acura service procedure + commonly skipped'
+          },
+          {
+            title: 'Power steering (2012 issue — verify NOT present on 2014)',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: '2012 TSXes had documented power steering issues. 2014 should be clean, but verify.',
-            check: '<strong>Check for any steering warning lights on the dash.</strong> Test steering feel at parking-lot speeds for any unusual effort or noise. Listen for whining when turning.',
+            desc: '2012 TSXes had documented power steering rack issues. 2014 should be clean, but verify.',
+            check: '<strong>Check for any steering warning lights on the dash.</strong> Test steering feel at parking-lot speeds for unusual effort. Listen for whining or moaning when turning.',
             cost: '$1,500-$2,500 power steering rack if affected',
             source: 'TSB history'
           },
           {
-            title: 'Front struts and bushings',
+            title: 'Front struts and lower control arm bushings',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'At the typical TSX age (10-12 years), front struts and lower control arm bushings show wear, causing clunks over bumps and slightly degraded handling.',
-            check: '<strong>Drive over speed bumps and rough pavement.</strong> Listen for clunks. Push down hard on each corner — car should rebound once and settle, not bounce.',
+            desc: 'At 10-12 years old, front struts and lower control arm bushings show wear, causing clunks over bumps and slightly degraded handling.',
+            check: '<strong>Drive over speed bumps and rough pavement.</strong> Listen for clunks. Push down hard on each corner — car should rebound once and settle, not bounce repeatedly.',
             cost: '$600-$1,000 struts (pair) / $200-$400 per bushing',
             source: 'Standard wear pattern'
           }
         ]
       },
       {
-        title: 'Electrical & Interior',
-        items: [
-          {
-            title: 'Navigation system reliability',
-            risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'On Technology trim cars, the navigation unit can develop ghost touches, slow boot, or DVD drive failure (navigation runs on a DVD).',
-            check: '<strong>If equipped with nav, test every function and menu.</strong> Try loading a destination. Ask if the nav DVD has ever been updated.',
-            cost: '$400 used unit / $1,800+ new from Acura',
-            source: 'Common Honda/Acura wear item'
-          },
-          {
-            title: 'Leather seats — driver bolster',
-            risk: 'low', riskLabel: 'Low Risk',
-            desc: 'Standard leather wear. Driver outer bolster is the first to show cracks or color loss.',
-            check: '<strong>Inspect driver seat outer-left bolster.</strong> Cracking is cosmetic only but suggests the car has been driven heavily.',
-            cost: '$200-$500 re-bolstering',
-            source: 'Standard wear'
-          }
-        ]
-      },
-      {
-        title: 'Body',
+        title: 'Body & Interior',
         items: [
           {
             title: 'Paint condition (2010-2014 thin clearcoat)',
             risk: 'low', riskLabel: 'Low Risk',
-            desc: 'Acura\'s clearcoat from this era is thinner than the brand\'s reputation suggests. Minor stone chips are common, especially on hood and bumper.',
-            check: '<strong>Inspect hood, roof, and bumper edges in good light.</strong> Look for clearcoat haze, peeling, or repainted panels (mismatched orange-peel texture).',
+            desc: 'Acura\'s clearcoat from this era is thinner than the brand\'s premium reputation suggests. Minor stone chips and edge wear common.',
+            check: '<strong>Inspect hood, roof, and bumper edges in good light.</strong> Look for clearcoat haze, peeling, or repainted panels (mismatched orange-peel texture is the giveaway).',
             cost: '$400-$1,500 for spot repaint or detail',
             source: 'Common to Honda/Acura era'
           },
@@ -1177,9 +1347,54 @@ const CHECKLISTS = {
             title: 'Rust (salt-belt states only)',
             risk: 'monitor', riskLabel: 'Monitor',
             desc: 'TSXes in salt-belt states can show rear quarter panel rust at the wheel arches by 10+ years.',
-            check: '<strong>Inspect rear wheel arches and rocker panels for rust bubbling.</strong> Use a magnet — won\'t stick to a body-filler repair. Surface rust on undercarriage is normal; structural rust is not.',
+            check: '<strong>Inspect rear wheel arches and rocker panels for rust bubbling.</strong> Use a magnet — won\'t stick to body-filler repair. Surface rust on undercarriage is normal; structural rust is not.',
             cost: '$800-$3,000+ for body repair',
             source: 'Salt-belt vehicle pattern'
+          },
+          {
+            title: 'Sunroof drain tube clogging',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Sunroof drain channels at all four corners clog with debris over years, backing water up into the headliner or down A-pillars into the floor pan. Causes mold and electrical damage if undetected.',
+            check: '<strong>Open the sunroof and pour ~1 cup of water into the front drain channel.</strong> Water should exit at the fender behind the front wheels within 10 seconds. Pooling = clogged. Check carpet for damp spots.',
+            cost: '$100-$300 cleaning / $$$ if interior damage exists',
+            source: 'Common across all sunroof vehicles'
+          },
+          {
+            title: 'Headlight projector lens haze',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The plastic projector lens on TSX headlights has a clearcoat that fades and hazes by 100,000+ miles, dramatically reducing nighttime light output. Easy DIY restoration; full replacement is expensive on Tech trims (HID housing).',
+            check: '<strong>Inspect headlight lenses in daylight.</strong> Haziness, yellow tinge, or oxidation visible. Night drive will show poor illumination if affected.',
+            cost: '$20-$60 DIY restoration kit / $500+ HID housing replacement',
+            source: 'Plastic lens UV degradation pattern'
+          },
+          {
+            title: 'Driver seat bolster wear (leather trims)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Standard leather wear. Driver outer bolster is first to show cracks or color loss.',
+            check: '<strong>Inspect driver seat outer-left bolster.</strong> Cracking is cosmetic but suggests the car has been driven heavily.',
+            cost: '$200-$500 re-bolstering',
+            source: 'Standard wear'
+          }
+        ]
+      },
+      {
+        title: 'Brakes & Wheels',
+        items: [
+          {
+            title: 'Front brake judder (warped rotors)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'TSX has adequate but not heroic front rotors. Hard-driven examples can warp by 50,000-70,000 miles, causing steering wheel shimmy under braking.',
+            check: '<strong>Brake firmly from 60 mph on a clear road.</strong> Steering wheel vibration during braking = warped rotors.',
+            cost: '$350-$550 rotors + pads',
+            source: 'TSX brake wear pattern'
+          },
+          {
+            title: '18" wheel cracking (Tech trims)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The optional 18" wheels on Tech trim are softer alloy than the 17"s and susceptible to crack damage from potholes.',
+            check: '<strong>Inspect inside wheel lip and around spoke roots for cracks.</strong> Steering pull or vibration at highway speed can indicate damage even when not visible.',
+            cost: '$300-$600 per wheel repair / replacement',
+            source: 'Tech trim wheel pattern'
           }
         ]
       }
@@ -1198,10 +1413,10 @@ const CHECKLISTS = {
     engine: '3.5L 2GR-FE V6 (270hp), 6-speed automatic',
     overallRisk: 'low',
     overallRiskLabel: 'Low Risk',
-    summary: "The 2010-2012 RX 350 sits on the same mechanical platform as the Toyota Highlander but with Lexus refinement. The 2GR-FE V6 is one of Toyota's most reliable engines — owners regularly report 280,000+ miles. Most inspection points are about verifying maintenance, not catching failures.",
+    summary: "The 2010-2012 RX 350 sits on the same mechanical platform as the Toyota Highlander but with Lexus refinement. The 2GR-FE V6 is one of Toyota's most reliable engines — owners regularly report 280,000+ miles. ONE critical check matters above all: the VVT-i oil line on 2010 cars (rubber version can rupture and destroy the engine in minutes). Phoenix-area cars also need a careful dashboard inspection — the leather peeling issue is severe in hot climates.",
     stats: {
-      itemsToCheck: 9,
-      recalls: 3,
+      itemsToCheck: 19,
+      recalls: 4,
       ownerComplaints: 248,
       topComplaintArea: 'Power Train'
     },
@@ -1209,6 +1424,14 @@ const CHECKLISTS = {
       {
         title: 'Powertrain',
         items: [
+          {
+            title: 'VVT-i OIL HOSE — CRITICAL on 2010 (engine killer if not recalled)',
+            risk: 'critical', riskLabel: 'Critical Risk',
+            desc: 'Early 2010 RX 350s — and many 2007-2010 Toyota/Lexus 2GR-FE vehicles — used a RUBBER VVT-i oil line that can rupture without warning, causing rapid total oil loss and catastrophic engine failure within minutes. Toyota issued LSC 90G (a limited service campaign, not a full recall) to replace the rubber line with a steel-braided one. Many cars never got it.',
+            check: '<strong>This is the single most important check on a 2010 RX 350. Open the hood and locate the VVT-i oil line at the front of the engine — a steel braided sleeve covering the line means the recall was performed. Bare rubber hose with crimped fittings means it WAS NOT.</strong> Verify completion via VIN lookup at lexus.com/recalls or NHTSA.gov/recalls. If unrecalled, do not buy until the work is done.',
+            cost: 'Free if recall performed (LSC 90G) / $8,000+ engine replacement if it ruptures',
+            source: 'Toyota Limited Service Campaign 90G + widely documented engine failures'
+          },
           {
             title: '2GR-FE V6 — the "unkillable" engine',
             risk: 'clear', riskLabel: 'No Known Issues',
@@ -1220,15 +1443,23 @@ const CHECKLISTS = {
           {
             title: 'Water pump (preventive replacement zone)',
             risk: 'high', riskLabel: 'High Attention',
-            desc: 'The 2GR-FE water pump typically needs replacement between 90,000 and 130,000 miles. If overdue, this is the single most important thing to address before purchase.',
-            check: '<strong>Look for coolant weeping at the front of the engine.</strong> Ask the seller if the water pump has been replaced (request the invoice). Check coolant level and color.',
+            desc: 'The 2GR-FE water pump typically needs replacement between 90,000 and 130,000 miles. If overdue, this is the single most important non-recall thing to address before purchase.',
+            check: '<strong>Look for coolant weeping at the front of the engine.</strong> Ask the seller if the water pump has been replaced (request the invoice). Check coolant level and color in reservoir.',
             cost: '$600-$900 (parts + labor at independent shop)',
             source: 'Toyota service interval + common failure'
           },
           {
-            title: 'Timing chain (NOT a belt — no scheduled service)',
+            title: 'VVT-i actuator startup rattle (separate from oil line)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Similar to other 2GR-FE applications, the VVT-i actuator can develop a brief startup rattle as it engages. NOT to be confused with the critical oil-line item above — this is a much smaller issue.',
+            check: '<strong>Cold start the car after sitting 6+ hours.</strong> Listen for 1-3 second rattle from front of engine that disappears as oil pressure builds. Persistent rattle = actuator going.',
+            cost: '$400-$700 actuator if persistent',
+            source: 'Toyota 2GR-FE common pattern'
+          },
+          {
+            title: 'Timing chain (NOT a belt — confirms no $1,000+ scheduled service)',
             risk: 'low', riskLabel: 'Low Risk',
-            desc: 'The 2GR-FE uses a timing chain, not a belt. No scheduled replacement is required. Confirm with the seller — some buyers mistakenly think this engine has a belt and pay for unnecessary "service."',
+            desc: 'The 2GR-FE uses a timing chain, not a belt. No scheduled replacement is required. Confirm with the seller — some buyers and even some shops mistakenly think this engine has a belt and pay for unnecessary "service."',
             check: '<strong>Listen for any chain rattle at cold start.</strong> If a few seconds of rattle before oil pressure builds, the chain tensioner may be weakening (uncommon).',
             cost: '$1,800-$2,500 if tensioner replacement needed (rare)',
             source: 'Toyota 2GR-FE engine specs'
@@ -1237,9 +1468,30 @@ const CHECKLISTS = {
             title: '6-speed automatic transmission',
             risk: 'low', riskLabel: 'Low Risk',
             desc: 'Reliable when fluid is changed periodically. Some 2010-2011 units developed minor lurching on the 1-2 shift when fluid was neglected (24 NHTSA reports — fluid service usually resolves).',
-            check: '<strong>Confirm transmission fluid has been changed at least once (60k interval recommended).</strong> Test all shift points during a 20-minute drive — smooth, no flares, no harsh 1-2 shift.',
+            check: '<strong>Confirm transmission fluid has been changed at least once (60k interval recommended, Toyota WS fluid only).</strong> Test all shift points during a 20-minute drive — smooth, no flares, no harsh 1-2 shift.',
             cost: '$250 fluid service / $3,500-$5,000 rebuild',
             source: 'Toyota service intervals + NHTSA reports'
+          }
+        ]
+      },
+      {
+        title: 'Brakes & Wheels',
+        items: [
+          {
+            title: 'Brake actuator / master cylinder failure (2010-12 specific)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Some 2010-12 RX 350s have a documented brake actuator (master cylinder assembly) failure that triggers brake warnings and a stiff pedal. Toyota issued related campaigns. Generic shops often misdiagnose as ABS.',
+            check: '<strong>Brake feel should be firm and consistent from light to firm application.</strong> Pedal going slowly to floor, or any brake warning lights, indicates the assembly is failing. Verify any related recalls completed via VIN.',
+            cost: '$1,200-$2,000 actuator replacement (if not under recall)',
+            source: 'NHTSA recall + owner reports'
+          },
+          {
+            title: 'Front brake judder (heavy SUV on stock rotors)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The RX 350\'s significant curb weight causes stock rotors to warp by 60,000-80,000 miles, especially if used for occasional towing or aggressive driving.',
+            check: '<strong>Brake firmly from 60 mph on a clear stretch.</strong> Steering wheel shimmy = warped rotors. Inspect rotor surface visually through wheel spokes.',
+            cost: '$500-$800 rotors + pads (use premium parts)',
+            source: 'RX 350 brake wear pattern'
           }
         ]
       },
@@ -1247,54 +1499,121 @@ const CHECKLISTS = {
         title: 'Suspension & Steering',
         items: [
           {
-            title: 'Front struts and rear shocks',
+            title: 'Front struts and rear shocks (age-related)',
             risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'At typical RX 350 age (12-14 years), front struts and rear shocks are usually due for replacement, causing a slightly floaty ride.',
-            check: '<strong>Push down on each corner — should rebound once and settle, not bounce.</strong> Listen for clunks over bumps. The ride should feel composed, not "boaty."',
+            desc: 'At typical RX 350 age (14-16 years now), front struts and rear shocks are due for replacement, causing a floaty or "boaty" ride.',
+            check: '<strong>Push down hard on each corner.</strong> Car should rebound once and settle, not bounce repeatedly. Listen for clunks over bumps. Ride should feel composed.',
             cost: '$800-$1,400 struts (pair) / $400-$700 rear shocks',
             source: 'Standard wear pattern'
           },
           {
-            title: 'Rack-and-pinion — minor leaks possible',
+            title: 'Rack-and-pinion minor seal leaks',
             risk: 'low', riskLabel: 'Low Risk',
-            desc: 'Some 2010-2011 units develop slow rack seal leaks. Generally not urgent unless the fluid level drops.',
-            check: '<strong>Check power steering fluid level (engine off).</strong> Inspect ground beneath car after parked overnight for fluid spots.',
+            desc: 'Some 2010-2011 units develop slow rack seal leaks. Not urgent unless the fluid level drops noticeably.',
+            check: '<strong>Check power steering fluid level (engine off, cold).</strong> Inspect ground beneath car after parked overnight for fluid spots. Listen for whining when turning.',
             cost: '$1,200-$1,800 rack replacement if leak is significant',
             source: 'Owner reports'
           }
         ]
       },
       {
-        title: 'Body & Electrical',
+        title: 'Electrical',
         items: [
+          {
+            title: 'Remote Touch joystick controller (2010-12 only)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 2010-12 Lexus Remote Touch joystick-style controller (replaced by a trackpad in 2013+) develops sticky directional input or completely fails. Common 100k+ wear point.',
+            check: '<strong>Cycle through every nav and audio menu using the joystick.</strong> Test all four directions and the click action. Sticky direction = failing controller.',
+            cost: '$400 used / $1,500+ new from Lexus',
+            source: 'Lexus forum-documented'
+          },
+          {
+            title: 'Ventilated seat fan failure',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'On equipped trims, the small DC fans under the seat cushion that drive cooled-seat function fail with use, usually in one seat first.',
+            check: '<strong>Activate cooled seat function for both driver and passenger.</strong> Cool air should be felt through perforations within 30 seconds. Listen for fan noise — silence with cooling active = dead fan.',
+            cost: '$200-$400 per fan (parts; labor varies)',
+            source: 'Lexus interior wear pattern'
+          },
+          {
+            title: 'Mark Levinson amplifier (premium audio trims)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'On ML-equipped cars, the trunk-mounted subwoofer amplifier can develop dropouts or fail entirely. Common high-mileage issue.',
+            check: '<strong>Play bass-heavy music at moderate volume.</strong> Listen for dropouts, distortion, or audible "click" sounds. Use balance/fader to verify each speaker plays cleanly.',
+            cost: '$300-$600 used amp / $1,200+ new',
+            source: 'Mark Levinson amp pattern'
+          }
+        ]
+      },
+      {
+        title: 'HVAC & Climate',
+        items: [
+          {
+            title: 'HVAC blend door actuator clicking',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Behind-dash blend door actuators develop a repetitive clicking sound at 80,000+ miles. Common across Toyota/Lexus of this era. Multiple actuators in the dash.',
+            check: '<strong>Cycle all HVAC mode buttons (face, foot, defrost).</strong> Listen for repeated clicking from behind dash. Verify air actually changes direction with each mode.',
+            cost: '$300-$500 per actuator',
+            source: 'Toyota/Lexus HVAC pattern'
+          },
+          {
+            title: 'Rear climate panel (3-zone climate trims)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The rear-passenger climate panel (3-zone climate trims) can fail to respond, leaving rear at front\'s temperature setting.',
+            check: '<strong>Adjust rear climate from rear panel.</strong> Verify temperature and fan respond independently from front.',
+            cost: '$200-$400 panel',
+            source: 'Lexus 3-zone HVAC pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body & Interior',
+        items: [
+          {
+            title: 'Dashboard leather peeling (Phoenix-area cars especially)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: '2010-13 RX 350s have a notorious dashboard top leather peeling/cracking issue, particularly in hot climates like Arizona and Texas. Lexus extended the warranty for this in some regions; many owners had dashes replaced free under TSB. Check Lexus dealer for warranty coverage before paying out of pocket.',
+            check: '<strong>Inspect the top of the dashboard near the windshield and HVAC vents in good light.</strong> Cracking, bubbling, peeling, or sticky tackiness = the known defect. Phoenix-area cars are especially affected.',
+            cost: '$0-$2,500 (free under extended warranty / $1,500-$2,500 if out of warranty)',
+            source: 'Lexus TSB + Phoenix/Texas market pattern'
+          },
           {
             title: 'Sunroof drain channels (clog risk)',
             risk: 'monitor', riskLabel: 'Monitor',
             desc: 'Sunroof drain tubes can clog with debris over time, causing water leaks into the headliner or floor pan.',
-            check: '<strong>Open the sunroof and pour a small cup of water into the front drain channel.</strong> Confirm water exits from the fender area underneath (front) or bumper (rear). If water pools — drains are clogged.',
+            check: '<strong>Open the sunroof and pour ~1 cup of water into the front drain channel.</strong> Water should exit at the fender area within 10 seconds. Pooling = clogged drains. Check headliner and carpet for water stains or damp spots.',
             cost: '$100-$250 drain cleaning (DIY: free)',
             source: 'Common across all sunroof-equipped vehicles'
           },
           {
-            title: 'Navigation / Remote Touch interface',
-            risk: 'monitor', riskLabel: 'Monitor',
-            desc: 'The 2010-2012 Lexus Remote Touch (joystick-style controller) can develop sticky behavior or screen ghosting over time.',
-            check: '<strong>Cycle through every nav menu.</strong> Test the joystick controller for sticking or unresponsive directions. Boot and ensure the GPS locks within 30 seconds.',
-            cost: '$400 used screen / $1,500+ new from Lexus',
-            source: 'Owner reports'
+            title: 'Sliding sun visor breakage',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The sun visor\'s sliding extension mechanism is plastic and notoriously fragile on the RX 350. Common to find at least one broken visor.',
+            check: '<strong>Test both visors fully — pull down, swing to side, extend the slider.</strong> Cracks, wobble, or refusal to extend = broken.',
+            cost: '$150-$300 per visor',
+            source: 'RX 350 known issue'
           },
           {
-            title: 'Tailgate / power liftgate motor',
+            title: 'Power liftgate motor and struts',
             risk: 'low', riskLabel: 'Low Risk',
-            desc: 'On power-liftgate equipped trims, the motor and gas struts can weaken over time, causing the liftgate to fall or refuse to lift.',
-            check: '<strong>Operate the power liftgate three times.</strong> It should open smoothly to full height. With the gate at half-open and motor off, it should hold position (gas struts).',
+            desc: 'On power-liftgate equipped trims, the motor and gas struts weaken with use, causing the liftgate to fall or refuse to lift.',
+            check: '<strong>Operate the power liftgate three times.</strong> Should open smoothly to full height. With gate half-open and motor off, gas struts should hold position; if it slowly falls, struts are weak.',
             cost: '$150-$300 gas struts / $600+ motor',
             source: 'Standard wear pattern'
+          },
+          {
+            title: 'Fuel filler door release jam',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The internal fuel door release mechanism can stick or fail, leaving you unable to open the fuel door at the pump.',
+            check: '<strong>Press the fuel door release inside the car.</strong> Door should pop open immediately. Sticky or unresponsive = plan for replacement.',
+            cost: '$100-$250 mechanism + labor',
+            source: 'RX 350 known issue'
           }
         ]
       }
     ],
     recalls: [
+      { number: 'LSC 90G', title: 'VVT-i Oil Hose (rubber to steel)', desc: 'CRITICAL — rubber oil line can rupture, causing engine destruction. Must verify completion via VIN at lexus.com.' },
       { number: '12V-491', title: 'Power Window Master Switch', desc: 'Switch can overheat, causing smoke or fire. Verify recall completed.' },
       { number: '13V-561', title: 'Brake Vacuum Pump', desc: 'Pump bolt may loosen, reducing braking assist. Verify recall completed.' },
       { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — confirm completion.' }

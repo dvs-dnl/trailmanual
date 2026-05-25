@@ -1201,6 +1201,58 @@
     </div>
   </footer>
 </div>
+
+<!-- ── Start My Build modal ───────────────────────────── -->
+<div class="sb-modal-bg" id="sbModalBg">
+  <div class="sb-modal">
+    <button class="sb-close" id="sbClose" aria-label="Close">&times;</button>
+    <h3 id="sbModalTitle">Start build</h3>
+    <div class="sb-modal-sub" id="sbModalSub">Start build · attach to a rig</div>
+    <div class="sb-help">
+      Attach this engine path as a project to one of your rigs in My Garage. The parts checklist
+      opens preloaded with your selection, and your progress (purchased / installed) saves to that
+      rig's garage record — so you can track this build alongside maintenance for the same vehicle.
+    </div>
+
+    <div class="sb-modal-section-title">Choose a rig</div>
+    <div class="sb-vehicle-list" id="sbVehicleList"></div>
+
+    <div style="margin-top:14px">
+      <button class="sb-add-toggle" id="sbAddToggle">+ Or add a new rig</button>
+      <div class="sb-form" id="sbForm">
+        <div class="sb-full">
+          <label>Nickname (optional)</label>
+          <input id="sb-nick" placeholder="e.g. 'White Whale'">
+        </div>
+        <div>
+          <label>Year</label>
+          <input id="sb-year" type="number" placeholder="2008">
+        </div>
+        <div>
+          <label>Make</label>
+          <input id="sb-make" placeholder="Jeep" value="Jeep">
+        </div>
+        <div>
+          <label>Model</label>
+          <input id="sb-model" placeholder="Wrangler" value="Wrangler">
+        </div>
+        <div>
+          <label>Trim</label>
+          <input id="sb-trim" placeholder="Rubicon Unlimited">
+        </div>
+        <div class="sb-full">
+          <label>Current mileage</label>
+          <input id="sb-mileage" type="number" placeholder="125000">
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-actions">
+      <button class="sb-btn" id="sbCancel">Cancel</button>
+      <button class="sb-btn sb-btn-primary" id="sbStart" disabled>Start build →</button>
+    </div>
+  </div>
+</div>
 <script>
 /* ============================================================
    DATA — swap options
@@ -1932,57 +1984,7 @@ function applyFilters() {
 }
 </script>
 
-<!-- ── Start My Build modal ───────────────────────────── -->
-<div class="sb-modal-bg" id="sbModalBg">
-  <div class="sb-modal">
-    <button class="sb-close" id="sbClose" aria-label="Close">&times;</button>
-    <h3 id="sbModalTitle">Start build</h3>
-    <div class="sb-modal-sub" id="sbModalSub">Start build · attach to a rig</div>
-    <div class="sb-help">
-      Attach this engine path as a project to one of your rigs in My Garage. The parts checklist
-      opens preloaded with your selection, and your progress (purchased / installed) saves to that
-      rig's garage record — so you can track this build alongside maintenance for the same vehicle.
-    </div>
 
-    <div class="sb-modal-section-title">Choose a rig</div>
-    <div class="sb-vehicle-list" id="sbVehicleList"></div>
-
-    <div style="margin-top:14px">
-      <button class="sb-add-toggle" id="sbAddToggle">+ Or add a new rig</button>
-      <div class="sb-form" id="sbForm">
-        <div class="sb-full">
-          <label>Nickname (optional)</label>
-          <input id="sb-nick" placeholder="e.g. 'White Whale'">
-        </div>
-        <div>
-          <label>Year</label>
-          <input id="sb-year" type="number" placeholder="2008">
-        </div>
-        <div>
-          <label>Make</label>
-          <input id="sb-make" placeholder="Jeep" value="Jeep">
-        </div>
-        <div>
-          <label>Model</label>
-          <input id="sb-model" placeholder="Wrangler" value="Wrangler">
-        </div>
-        <div>
-          <label>Trim</label>
-          <input id="sb-trim" placeholder="Rubicon Unlimited">
-        </div>
-        <div class="sb-full">
-          <label>Current mileage</label>
-          <input id="sb-mileage" type="number" placeholder="125000">
-        </div>
-      </div>
-    </div>
-
-    <div class="sb-actions">
-      <button class="sb-btn" id="sbCancel">Cancel</button>
-      <button class="sb-btn sb-btn-primary" id="sbStart" disabled>Start build →</button>
-    </div>
-  </div>
-</div>
 
 <script>
 (function(){

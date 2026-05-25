@@ -97,6 +97,47 @@
       margin-bottom: 40px;
     }
 
+    /* Brand-grouped layout */
+    .brand-section { margin-bottom: 72px; }
+    .brand-section:last-child { margin-bottom: 0; }
+    .brand-header {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: clamp(28px, 3.6vw, 36px);
+      letter-spacing: -0.02em;
+      color: var(--slate);
+      margin: 0 0 32px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--slate);
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+    }
+    .brand-header .brand-count {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+    }
+    .family-block { margin-top: 28px; }
+    .family-block:first-of-type { margin-top: 0; }
+    .family-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--clay);
+      margin-bottom: 16px;
+    }
+    .family-label .family-meta {
+      color: var(--slate-l);
+      margin-left: 8px;
+      letter-spacing: 0.12em;
+    }
+
     .vehicle-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -249,159 +290,210 @@
 
   <section class="selector-section">
 
-    <p class="section-label">Jeep Wranglers</p>
-    <div class="vehicle-grid">
+    <!-- ── JEEP ──────────────────────────────────────────────── -->
+    <div class="brand-section">
+      <h2 class="brand-header">Jeep <span class="brand-count">6 platforms</span></h2>
 
-      <a class="vehicle-card" href="/tj/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-tj.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">Wrangler <span class="family-meta">TJ · JK · JL</span></p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/tj/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-tj.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1997–2006</p>
+            <h3 class="vehicle-name">Wrangler TJ</h3>
+            <p class="vehicle-desc">Coil-sprung, short wheelbase, the last small Wrangler. 20 guides covering axles, lift, and lockers.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
+          <a class="vehicle-card" href="/jk/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-jk.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">2007–2018</p>
+            <h3 class="vehicle-name">Wrangler JK</h3>
+            <p class="vehicle-desc">Four-door era, Dana 44 Rubicon, massive aftermarket. 20 guides on swaps, suspension, and recovery.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
+          <a class="vehicle-card" href="/jl/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-jl.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">2018–Present</p>
+            <h3 class="vehicle-name">Wrangler JL</h3>
+            <p class="vehicle-desc">Modern Wrangler — 4xe plug-in hybrid, factory sway-bar disconnect, Rubicon lockers.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">1997–2006</p>
-        <h2 class="vehicle-name">Wrangler TJ</h2>
-        <p class="vehicle-desc">Coil-sprung, short wheelbase, the last small Wrangler. 20 guides covering axles, lift, and lockers.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
+      </div>
 
-      <a class="vehicle-card" href="/jk/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-jk.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">Cherokee <span class="family-meta">XJ</span></p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/xj/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-xj.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1984–2001</p>
+            <h3 class="vehicle-name">Cherokee XJ</h3>
+            <p class="vehicle-desc">312 guides. The most complete off-road reference for the best value 4x4 ever built.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">2007–2018</p>
-        <h2 class="vehicle-name">Wrangler JK</h2>
-        <p class="vehicle-desc">Four-door era, Dana 44 Rubicon, massive aftermarket. 20 guides on swaps, suspension, and recovery.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
+      </div>
 
-      <a class="vehicle-card" href="/jl/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-jl.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">Gladiator <span class="family-meta">JT</span></p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/gladiator/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-gladiator.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">2020–Present</p>
+            <h3 class="vehicle-name">Gladiator JT</h3>
+            <p class="vehicle-desc">Wrangler with a bed. Solid Dana 44 axles, Rubicon dual lockers, 7,650 lb tow rating.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">2018–Present</p>
-        <h2 class="vehicle-name">Wrangler JL</h2>
-        <p class="vehicle-desc">Modern Wrangler — 4xe plug-in hybrid, factory sway-bar disconnect, Rubicon lockers.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
-
+      </div>
     </div>
 
-    <p class="section-label" style="margin-top: 48px;">Jeep</p>
-    <div class="vehicle-grid">
+    <!-- ── FORD ──────────────────────────────────────────────── -->
+    <div class="brand-section">
+      <h2 class="brand-header">Ford <span class="brand-count">5 platforms</span></h2>
 
-      <a class="vehicle-card" href="/xj/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-xj.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">Bronco <span class="family-meta">Early · II · Full-Size · 6G</span></p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/bronco/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1966–1977</p>
+            <h3 class="vehicle-name">Early Bronco</h3>
+            <p class="vehicle-desc">The original. Dana 44 front, solid axles, open-wheel fenders — 16 guides live.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
+          <a class="vehicle-card" href="/bronco-ii/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1984–1990</p>
+            <h3 class="vehicle-name">Bronco II</h3>
+            <p class="vehicle-desc">Compact, Ranger-based, TTB front suspension. Underrated budget off-roader.</p>
+            <span class="coming-label">Coming soon</span>
+          </a>
+
+          <a class="vehicle-card" href="/full-size-bronco/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1978–1996</p>
+            <h3 class="vehicle-name">Full-Size Bronco</h3>
+            <p class="vehicle-desc">V8, full-size, five generations. The SUV Ford forgot to keep making.</p>
+            <span class="coming-label">Coming soon</span>
+          </a>
+
+          <a class="vehicle-card" href="/bronco6g/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">2021–Present</p>
+            <h3 class="vehicle-name">6th Gen Bronco</h3>
+            <p class="vehicle-desc">The return — solid axles, factory lockers, Sasquatch, massive aftermarket.</p>
+            <span class="coming-label">Coming soon</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">1984–2001</p>
-        <h2 class="vehicle-name">Cherokee XJ</h2>
-        <p class="vehicle-desc">312 guides. The most complete off-road reference for the best value 4x4 ever built.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
+      </div>
 
-      <a class="vehicle-card" href="/gladiator/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-gladiator.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">F-150 <span class="family-meta">Raptor</span></p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/raptor/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-raptor.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">2010–Present</p>
+            <h3 class="vehicle-name">F-150 Raptor</h3>
+            <p class="vehicle-desc">Desert running. Fox Live Valve shocks, twin-turbo EcoBoost, factory beadlock-capable wheels.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">2020–Present</p>
-        <h2 class="vehicle-name">Gladiator JT</h2>
-        <p class="vehicle-desc">Wrangler with a bed. Solid Dana 44 axles, Rubicon dual lockers, 7,650 lb tow rating.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
-
+      </div>
     </div>
 
-    <p class="section-label" style="margin-top: 48px;">Ford Broncos</p>
-    <div class="vehicle-grid">
+    <!-- ── TOYOTA ────────────────────────────────────────────── -->
+    <div class="brand-section">
+      <h2 class="brand-header">Toyota <span class="brand-count">2 platforms</span></h2>
 
-      <a class="vehicle-card" href="/bronco/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">4Runner</p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/4runner/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-4runner.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1984–Present</p>
+            <h3 class="vehicle-name">4Runner</h3>
+            <p class="vehicle-desc">Five generations of body-on-frame SUV. 20 guides covering KDSS, A-TRAC, and the rear locker.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">1966–1977</p>
-        <h2 class="vehicle-name">Early Bronco</h2>
-        <p class="vehicle-desc">The original. Dana 44 front, solid axles, open-wheel fenders — 16 guides live.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
+      </div>
 
-      <a class="vehicle-card" href="/bronco-ii/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">Tacoma</p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/tacoma/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-tacoma.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">1995–Present</p>
+            <h3 class="vehicle-name">Tacoma</h3>
+            <p class="vehicle-desc">Mid-size truck that holds its value forever. 20 guides on TRD Pro suspension, lift, and reliability.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">1984–1990</p>
-        <h2 class="vehicle-name">Bronco II</h2>
-        <p class="vehicle-desc">Compact, Ranger-based, TTB front suspension. Underrated budget off-roader.</p>
-        <span class="coming-label">Coming soon</span>
-      </a>
-
-      <a class="vehicle-card" href="/full-size-bronco/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
-        </div>
-        <p class="vehicle-badge">1978–1996</p>
-        <h2 class="vehicle-name">Full-Size Bronco</h2>
-        <p class="vehicle-desc">V8, full-size, five generations. The SUV Ford forgot to keep making.</p>
-        <span class="coming-label">Coming soon</span>
-      </a>
-
-      <a class="vehicle-card" href="/bronco6g/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-bronco-early.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
-        </div>
-        <p class="vehicle-badge">2021–Present</p>
-        <h2 class="vehicle-name">6th Gen Bronco</h2>
-        <p class="vehicle-desc">The return — solid axles, factory lockers, Sasquatch, massive aftermarket.</p>
-        <span class="coming-label">Coming soon</span>
-      </a>
-
+      </div>
     </div>
 
-    <p class="section-label" style="margin-top: 48px;">Toyotas</p>
-    <div class="vehicle-grid">
+    <!-- ── RAM ───────────────────────────────────────────────── -->
+    <div class="brand-section">
+      <h2 class="brand-header">Ram <span class="brand-count">1 platform</span></h2>
 
-      <a class="vehicle-card" href="/4runner/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-4runner.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+      <div class="family-block">
+        <p class="family-label">Power Wagon</p>
+        <div class="vehicle-grid">
+
+          <a class="vehicle-card" href="/power-wagon/">
+            <div class="vehicle-icon" aria-hidden="true">
+              <img src="/images/icon-power-wagon.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
+            </div>
+            <p class="vehicle-badge">2005–Present</p>
+            <h3 class="vehicle-name">Power Wagon</h3>
+            <p class="vehicle-desc">The only factory-locked 3/4-ton. Front + rear lockers, Articulink suspension, factory Warn winch.</p>
+            <span class="vehicle-arrow">Browse guides</span>
+          </a>
+
         </div>
-        <p class="vehicle-badge">1984–Present</p>
-        <h2 class="vehicle-name">4Runner</h2>
-        <p class="vehicle-desc">Five generations of body-on-frame SUV. 20 guides covering KDSS, A-TRAC, and the rear locker.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
-
-      <a class="vehicle-card" href="/tacoma/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-tacoma.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
-        </div>
-        <p class="vehicle-badge">1995–Present</p>
-        <h2 class="vehicle-name">Tacoma</h2>
-        <p class="vehicle-desc">Mid-size truck that holds its value forever. 20 guides on TRD Pro suspension, lift, and reliability.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
-
-    </div>
-
-    <p class="section-label" style="margin-top: 48px;">Full-Size Trucks</p>
-    <div class="vehicle-grid">
-
-      <a class="vehicle-card" href="/raptor/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-raptor.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
-        </div>
-        <p class="vehicle-badge">2010–Present</p>
-        <h2 class="vehicle-name">F-150 Raptor</h2>
-        <p class="vehicle-desc">Desert running. Fox Live Valve shocks, twin-turbo EcoBoost, factory beadlock-capable wheels.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
-
-      <a class="vehicle-card" href="/power-wagon/">
-        <div class="vehicle-icon" aria-hidden="true">
-          <img src="/images/icon-power-wagon.png" width="140" height="110" loading="lazy" style="max-height:110px;width:auto;">
-        </div>
-        <p class="vehicle-badge">2005–Present</p>
-        <h2 class="vehicle-name">Power Wagon</h2>
-        <p class="vehicle-desc">The only factory-locked 3/4-ton. Front + rear lockers, Articulink suspension, factory Warn winch.</p>
-        <span class="vehicle-arrow">Browse guides</span>
-      </a>
-
+      </div>
     </div>
 
   </section>
