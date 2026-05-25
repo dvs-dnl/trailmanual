@@ -1688,12 +1688,15 @@ function openStartBuildModal(optionId) {
 
   document.getElementById('sbModalTitle').textContent = mapping.title;
   document.getElementById('sbModalSub').textContent = 'Start build · attach to a rig';
-  // Reset new-rig form
+  // Reset new-rig form to sensible defaults — Jeep/Wrangler so the button
+  // is immediately actionable when the form auto-opens for an empty garage.
   document.getElementById('sbForm').dataset.open = 'false';
-  ['sb-nick','sb-year','sb-make','sb-model','sb-trim','sb-mileage'].forEach(id => {
+  ['sb-nick','sb-year','sb-trim','sb-mileage'].forEach(id => {
     document.getElementById(id).value = '';
   });
-  // Render vehicle list
+  document.getElementById('sb-make').value  = 'Jeep';
+  document.getElementById('sb-model').value = 'Wrangler';
+  // Render vehicle list (auto-opens the form if garage is empty)
   renderSbVehicleList();
   updateSbSubmit();
   document.getElementById('sbModalBg').dataset.open = 'true';

@@ -373,7 +373,7 @@
     jl:            { icon:'/images/icon-jl.png',          hero:null, tagline:'The current Wrangler. Solid axles, removable doors, and now a plug-in hybrid.' },
     '4runner':     { icon:'/images/icon-4runner.png',     hero:null, tagline:'Five generations of body-on-frame Toyota. The long-haul SUV.' },
     tacoma:        { icon:'/images/icon-tacoma.png',      hero:null, tagline:'Three decades of mid-size Toyota pickup. The trail truck.' },
-    bronco:        { icon:'/images/icon-bronco.png',      hero:null, tagline:'Before Wranglers, before Tacomas. The first go-anywhere short-wheelbase 4x4.' },
+    bronco:        { icon:'/images/icon-bronco-early.png',      hero:null, tagline:'Before Wranglers, before Tacomas. The first go-anywhere short-wheelbase 4x4.' },
     raptor:        { icon:'/images/icon-raptor.png',      hero:null, tagline:'Half-ton off-road truck. Long-travel suspension, factory bypass shocks.' },
     'power-wagon': { icon:'/images/icon-power-wagon.png', hero:null, tagline:'The factory-built crawler. Disconnecting sway bar, lockers, 12,000lb winch.' },
     gladiator:     { icon:'/images/icon-gladiator.png',   hero:null, tagline:'Wrangler running gear, truck bed. The crawler that\'ll haul lumber too.' },
@@ -579,16 +579,17 @@
     }
   }
 
-  // ---- VEHICLE HOME (Twin Grids §11.1) ----
+  // ---- VEHICLE HOME (Twin Grids §11.1 — full) ----
   function renderVehicleHome(app, vid) {
     const v = vehicleMeta(vid);
     const entries = getEntries(vid);
     const counts = {};
     for (const e of entries) counts[e.category] = (counts[e.category]||0) + 1;
     const totalCit = entries.reduce((s,e)=>s+(e.citations||[]).length, 0);
+    const numCats = Object.keys(counts).length;
     const visual = vehicleVisual(vid);
 
-    // --- HERO with photo or gradient + silhouette icon ---
+    // --- HERO ---
     const photoStyle = visual.hero
       ? "background-image:url('" + visual.hero + "')"
       : "background:" + vehicleGradient(vid);
@@ -607,14 +608,14 @@
                      : (v.description ? el('p', {class:'tagline'}, v.description) : null),
       el('div', {class:'hero-stats'},
         el('div', {class:'hero-stat'}, el('div',{class:'n'},String(entries.length)), el('div',{class:'l'},'Entries')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(Object.keys(counts).length)), el('div',{class:'l'},'Categories')),
+        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(numCats)), el('div',{class:'l'},'Categories')),
         el('div', {class:'hero-stat'}, el('div',{class:'n'},String(Object.keys(TIER_META).length)), el('div',{class:'l'},'Build tiers')),
         el('div', {class:'hero-stat'}, el('div',{class:'n'},String(totalCit)), el('div',{class:'l'},'Citations'))
       )
     ));
     app.appendChild(hero);
 
-    // --- TOOLS section (canonical 4-up) ---
+    // --- death-wobble routing (only on solid front axles) ---
     const SOLID_AXLE = {xj:1,jk:1,jl:1,tj:1,bronco:1,'full-size-bronco':1,gladiator:1,'power-wagon':1};
     const DW_HREF = {
       xj: '/xj-death-wobble-guide.html',
@@ -628,16 +629,9 @@
     const dwLive = !!SOLID_AXLE[vid];
     const dwHref = DW_HREF[vid] || '/db/death-wobble-guide.html';
 
-    const toolsHead = el('div', {class:'tg-section-head'},
-      el('div', {class:'left'},
-        el('span', {class:'tg-label'}, '01 / Tools'),
-        el('h2', {class:'tg-title'}, 'Built for your rig')
-      ),
-      el('span', {class:'tg-sub'}, '4 tools')
-    );
-
     function makeTool(opts) {
-      const wrap = el(opts.href ? 'a' : 'div', Object.assign({class:'tg-tool' + (opts.soon ? ' soon':'')}, opts.href ? {href:opts.href} : {}));
+      const wrap = el(opts.href ? 'a' : 'div',
+        Object.assign({class:'tg-tool' + (opts.soon ? ' soon':'')}, opts.href ? {href:opts.href} : {}));
       if (opts.onclick && !opts.href) wrap.addEventListener('click', opts.onclick);
       wrap.appendChild(el('div', {class:'tg-icon ' + (opts.iconClass||'')}, opts.iconChar || '•'));
       wrap.appendChild(el('h3', {}, opts.title));
@@ -649,16 +643,33 @@
       return wrap;
     }
 
+    // --- TOOLS (canonical 4-up) ---
+    const toolsHead = el('div', {class:'tg-section-head'},
+      el('div', {class:'left'},
+        el('span', {class:'tg-label'}, '01 / Tools'),
+        el('h2', {class:'tg-title'}, 'Built for your rig')
+      ),
+      el('span', {class:'tg-sub'}, '4 tools')
+    );
     const toolsGrid = el('div', {class:'grid-tools'});
-    // 1. Rig Builder (live — internal route)
+
+    // 1. Rig Builder — interactive (replaces "Pick your build goal" inline grid)
     toolsGrid.appendChild(makeTool({
       title: 'Rig Builder', tag: 'Interactive', tagClass: 'clay',
       iconChar: '🛠', iconClass: 'good',
-      desc: 'Pick a build goal and pull together the matching parts, costs, and procedures.',
+      desc: 'Pick a build goal (daily, mild, moderate, crawler, overland) and pull the matching parts, costs, and procedures.',
       cta: 'Build',
       onclick: () => go('#/'+vid+'/builder')
     }));
-    // 2. Death Wobble — live for solid-axle vehicles
+    // 2. Browse Database — replaces inline category grid
+    toolsGrid.appendChild(makeTool({
+      title: 'Browse Database', tag: String(entries.length) + ' entries', tagClass: 'new',
+      iconChar: '≡', iconClass: 'good',
+      desc: 'Every DIY procedure for this platform — ' + numCats + ' categories, filterable by part, system, or tier.',
+      cta: 'Browse',
+      onclick: () => go('#/'+vid+'/browse')
+    }));
+    // 3. Death Wobble (or Steering Diagnostic placeholder for IFS)
     if (dwLive) {
       toolsGrid.appendChild(makeTool({
         title: 'Death Wobble', tag: 'Safety', tagClass: 'safety',
@@ -674,49 +685,57 @@
         desc: 'IFS-front diagnostic for steering wander, vibration, and pull. Different physics, different fix.',
       }));
     }
-    // 3. Maintenance — coming soon for all
+    // 4. Maintenance — coming soon for all
     toolsGrid.appendChild(makeTool({
       title: 'Maintenance', tag: 'Coming soon', soon: true,
       iconChar: '⟳', iconClass: 'neutral',
       desc: 'Mileage-driven service schedule. Oil, diffs, transfer case, and trim-specific intervals.',
     }));
-    // 4. Build List — coming soon for all
-    toolsGrid.appendChild(makeTool({
-      title: 'Build List', tag: 'Coming soon', soon: true,
-      iconChar: '☰', iconClass: 'neutral',
-      desc: 'Stack lift, tires, armor, and recovery. Save, share, and price-check your build.',
-    }));
-
     app.appendChild(el('section', {class:'tg-section'}, toolsHead, toolsGrid));
 
-    // --- BUILD TIERS (existing) ---
-    app.appendChild(el('h2', {style:'margin-top:32px'}, 'Pick your build goal'));
-    const tg = el('div', {class:'grid-tiers'});
-    Object.entries(TIER_META).forEach(([id, t]) => {
-      tg.appendChild(el('div', {class:'tier-card', on:{click:()=>go('#/'+vid+'/tier/'+id)}},
-        el('div', {class:'icon'}, t.icon),
-        el('div', {class:'name'}, t.label),
-        el('div', {class:'desc'}, t.desc)
-      ));
-    });
-    app.appendChild(tg);
-
-    // --- CATEGORIES (existing) ---
-    app.appendChild(el('h2', {style:'margin-top:32px'}, 'Browse by category'));
-    const cg = el('div', {class:'grid-cats'});
-    Object.entries(counts)
-      .sort((a,b)=>b[1]-a[1])
-      .forEach(([cat, n]) => {
-        const m = catMeta(cat);
-        cg.appendChild(el('div', {class:'cat-card', on:{click:()=>go('#/'+vid+'/category/'+cat)}},
-          el('div', {class:'cat-icon', style:`background:${m.color}22;color:${m.color}`}, m.icon),
-          el('div', {},
-            el('div', {class:'name'}, m.label),
-            el('div', {class:'count'}, n + ' entries')
-          )
-        ));
-      });
-    app.appendChild(cg);
+    // --- LEARN (canonical 4-up) ---
+    const learnHead = el('div', {class:'tg-section-head'},
+      el('div', {class:'left'},
+        el('span', {class:'tg-label'}, '02 / Learn'),
+        el('h2', {class:'tg-title'}, 'Read and watch')
+      ),
+      el('span', {class:'tg-sub'}, 'Latest · All posts · Workshop · Channels')
+    );
+    const learnGrid = el('div', {class:'grid-tools'});
+    function makeLearn(opts) {
+      const wrap = el('a', {class:'tg-tool', href:opts.href});
+      wrap.appendChild(el('div', {class:'tg-icon ' + (opts.iconClass||'')}, opts.iconChar || '•'));
+      wrap.appendChild(el('span', {style:'font-family:var(--mono,monospace);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500'}, opts.eye));
+      wrap.appendChild(el('h3', {}, opts.title));
+      wrap.appendChild(el('p', {}, opts.desc));
+      wrap.appendChild(el('div', {class:'tg-foot'}, el('span', {}, ''), el('span', {class:'tg-arrow'}, opts.cta)));
+      return wrap;
+    }
+    learnGrid.appendChild(makeLearn({
+      eye:'Latest blog', iconChar:'✎', iconClass:'good',
+      title:'When to re-gear your axles',
+      desc:'The math behind the change — and the feeling that tells you it’s time.',
+      cta:'Read', href:'/blog/when-to-re-gear-axles/'
+    }));
+    learnGrid.appendChild(makeLearn({
+      eye:'All posts', iconChar:'▤', iconClass:'good',
+      title:'Read the blog',
+      desc:'Every post — tools, mod tests, trail reports. Sorted by date, filterable.',
+      cta:'Browse', href:'/blog/'
+    }));
+    learnGrid.appendChild(makeLearn({
+      eye:'Workshop', iconChar:'⚒', iconClass:'good',
+      title:'Shop technique',
+      desc:'Torque, seized bolts, brake bleed — the foundations every DIYer needs.',
+      cta:'Enter', href:'/workshop/'
+    }));
+    learnGrid.appendChild(makeLearn({
+      eye:'Channels', iconChar:'▶', iconClass:'good',
+      title:'YouTubers we trust',
+      desc:'Honest builders, working trucks. No sponsored fluff, no thumbnail screaming.',
+      cta:'See list', href:'/channels/'
+    }));
+    app.appendChild(el('section', {class:'tg-section'}, learnHead, learnGrid));
   }
 
   // ---- BROWSE / CATEGORY / TIER ----
