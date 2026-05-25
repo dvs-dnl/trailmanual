@@ -1,15 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<script>
-  (function(){
-    try{
-      var t=localStorage.getItem('tm-theme');
-      if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
-      document.documentElement.setAttribute('data-theme',t);
-    }catch(e){document.documentElement.setAttribute('data-theme','light');}
-  })();
-</script>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
   <script>
@@ -40,7 +32,7 @@
 
   /* Legacy aliases — light-theme values mapped from canon */
   --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
-  --panel:var(--panel-canon); --panel-2:var(--bone); --border:#DDD7C7;
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
   --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
   --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
   --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
@@ -88,6 +80,11 @@
   .panel.good{background:var(--good-bg);border-color:var(--good-border)}
   .panel.info{background:var(--info-bg);border-color:var(--info-border)}
   .panel .panel-icon{font-size:24px;margin-bottom:6px}
+  /* Defensive: explicit color so legacy cascade can't break the hero */
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
 
   .hero{padding:36px 28px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);margin-bottom:24px;position:relative;overflow:hidden}
   .hero::before{content:'';position:absolute;top:-30%;right:-10%;width:280px;height:280px;background:radial-gradient(circle,rgba(178,59,47,.08) 0%,transparent 70%)}

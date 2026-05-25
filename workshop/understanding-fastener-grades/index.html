@@ -29,7 +29,7 @@
 
   /* Legacy aliases — light-theme values mapped from canon */
   --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
-  --panel:var(--panel-canon); --panel-2:var(--bone); --border:#DDD7C7;
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
   --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
   --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
   --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
@@ -57,6 +57,11 @@ a:hover{text-decoration:underline}
 .back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
 .back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
 .page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+  /* Defensive: explicit color so legacy cascade can't break the hero */
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
 .hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
 .hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
