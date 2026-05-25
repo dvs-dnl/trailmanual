@@ -1,0 +1,2928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoVet — Pre-Purchase Inspection Checklist | Know before you buy.</title>
+<meta name="description" content="Enter a VIN or pick a vehicle. Get a model-specific pre-purchase inspection checklist built from real failure data, NHTSA recalls, and owner-reported issues.">
+<link rel="canonical" href="https://trailmanual.com/buying/inspection/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #0F172A;
+    --navy-2: #1E3A5F;
+    --electric: #3B82F6;
+    --electric-hover: #1D4ED8;
+    --slate-white: #F8FAFC;
+    --white: #FFFFFF;
+    --slate-500: #64748B;
+    --slate-400: #94A3B8;
+    --slate-300: #CBD5E1;
+    --slate-200: #E2E8F0;
+    --slate-100: #F1F5F9;
+    --blue-50: #EFF6FF;
+    --critical: #EF4444;
+    --warning: #F59E0B;
+    --caution: #EAB308;
+    --clear: #10B981;
+    --info: #60A5FA;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --radius: 8px;
+    --radius-lg: 12px;
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+    --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--navy);
+    background: var(--slate-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  a { color: var(--electric); text-decoration: none; }
+  a:hover { color: var(--electric-hover); text-decoration: underline; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    color: var(--white);
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+  }
+  .brand:hover { text-decoration: none; }
+  .brand .vet { color: var(--electric); }
+  .brand .by {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate-400);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .brand .by a { color: var(--slate-300); }
+  .brand .by a:hover { color: var(--white); text-decoration: underline; }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    font-size: 14px;
+  }
+  .nav-links a {
+    color: var(--slate-300);
+    font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--white); text-decoration: none; }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: var(--white);
+    padding: 64px 24px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--electric);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+  h1.hero-title {
+    font-size: clamp(40px, 6vw, 56px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--slate-300);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ===== VEHICLE ENTRY ===== */
+  .entry-section {
+    max-width: 960px;
+    margin: -40px auto 0;
+    padding: 0 24px 64px;
+    position: relative;
+    z-index: 2;
+  }
+  .entry-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+  .entry-tabs {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+  }
+  .entry-tab {
+    padding: 36px 32px;
+  }
+  .entry-tab h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .entry-tab .lead {
+    font-size: 15px;
+    color: var(--slate-500);
+    margin-bottom: 20px;
+  }
+  .vin-input-row {
+    display: flex;
+    gap: 8px;
+  }
+  .vin-input {
+    flex: 1;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 14px;
+    border: 1.5px solid var(--slate-200);
+    border-radius: var(--radius);
+    background: var(--slate-100);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .vin-input:focus {
+    outline: none;
+    border-color: var(--electric);
+    background: var(--white);
+  }
+  .vin-input.invalid {
+    border-color: var(--critical);
+  }
+  .ymmt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .ymmt-select {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 14px;
+    border: 1.5px solid var(--slate-200);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--navy);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%2364748B' d='M2 4l4 4 4-4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+  }
+  .ymmt-select:focus {
+    outline: none;
+    border-color: var(--electric);
+  }
+  .ymmt-select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn {
+    background: var(--electric);
+    color: var(--white);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--radius);
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--electric-hover); }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-block {
+    width: 100%;
+    margin-top: 8px;
+  }
+  .divider {
+    background: var(--slate-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    border-left: 1px solid var(--slate-200);
+    border-right: 1px solid var(--slate-200);
+  }
+  .divider-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  .vin-status {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--slate-500);
+    margin-top: 8px;
+    min-height: 18px;
+  }
+  .vin-status.ok { color: var(--clear); }
+  .vin-status.error { color: var(--critical); }
+
+  /* ===== CHECKLIST DISPLAY ===== */
+  .checklist-section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+  .checklist-hidden { display: none; }
+  .checklist-meta-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--slate-200);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+  .checklist-meta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .checklist-vehicle-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+  }
+  .checklist-vin {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--slate-500);
+    letter-spacing: 0.05em;
+  }
+  .risk-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .risk-badge .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .risk-low { background: rgba(16, 185, 129, 0.1); color: #047857; }
+  .risk-low .dot { background: var(--clear); }
+  .risk-monitor { background: rgba(234, 179, 8, 0.12); color: #854D0E; }
+  .risk-monitor .dot { background: var(--caution); }
+  .risk-high { background: rgba(245, 158, 11, 0.12); color: #92400E; }
+  .risk-high .dot { background: var(--warning); }
+  .risk-critical { background: rgba(239, 68, 68, 0.1); color: #991B1B; }
+  .risk-critical .dot { background: var(--critical); }
+  .risk-clear { background: rgba(16, 185, 129, 0.1); color: #047857; }
+  .risk-clear .dot { background: var(--clear); }
+  .checklist-summary {
+    color: var(--slate-500);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .checklist-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1px;
+    background: var(--slate-200);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius);
+    margin-top: 24px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--white);
+    padding: 16px 20px;
+  }
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* Inspection items */
+  .checklist-section-block {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--slate-200);
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .checklist-section-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--slate-200);
+    background: var(--slate-100);
+  }
+  .checklist-section-title {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+  }
+  .checklist-items { padding: 8px 0; }
+  .checklist-item {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--slate-100);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .checklist-item:last-child { border-bottom: none; }
+  .item-risk-marker {
+    width: 4px;
+    height: 100%;
+    min-height: 60px;
+    border-radius: 2px;
+    align-self: stretch;
+  }
+  .item-risk-critical { background: var(--critical); }
+  .item-risk-high { background: var(--warning); }
+  .item-risk-monitor { background: var(--caution); }
+  .item-risk-low { background: var(--clear); }
+  .item-risk-clear { background: var(--clear); }
+  .item-content { min-width: 0; }
+  .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .item-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .item-risk-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .item-risk-label.critical { color: var(--critical); }
+  .item-risk-label.high { color: #B45309; }
+  .item-risk-label.monitor { color: #A16207; }
+  .item-risk-label.low { color: #047857; }
+  .item-risk-label.clear { color: #047857; }
+  .item-desc {
+    color: var(--navy);
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.55;
+  }
+  .item-check {
+    background: var(--blue-50);
+    border-left: 3px solid var(--electric);
+    padding: 10px 14px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-size: 13px;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .item-check strong { color: var(--electric); }
+  .item-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--slate-500);
+    flex-wrap: wrap;
+  }
+  .item-meta span strong { color: var(--navy); font-weight: 600; }
+
+  /* Recalls section */
+  .recalls-list {
+    padding: 16px 24px;
+  }
+  .recall-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--slate-100);
+    font-size: 14px;
+  }
+  .recall-item:last-child { border-bottom: none; }
+  .recall-number {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--slate-500);
+    margin-bottom: 4px;
+  }
+  .recall-title {
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .recall-desc {
+    color: var(--slate-500);
+    font-size: 13px;
+  }
+
+  /* ===== COMING SOON STATE ===== */
+  .coming-soon {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--slate-200);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .coming-soon h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .coming-soon p {
+    color: var(--slate-500);
+    max-width: 460px;
+    margin: 0 auto 16px;
+  }
+
+  /* ===== BOOKING CTA ===== */
+  .booking-section {
+    background: var(--navy);
+    color: var(--white);
+    padding: 64px 24px;
+    text-align: center;
+  }
+  .booking-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .booking-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .booking-section p {
+    color: var(--slate-300);
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .booking-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(59, 130, 246, 0.12);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: var(--electric);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 24px;
+  }
+  .booking-pill .pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--electric);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(59, 130, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+  }
+
+  /* ===== FOR MECHANICS / SHOPS ===== */
+  .for-shops {
+    background: var(--slate-100);
+    border-top: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+    padding: 64px 24px;
+  }
+  .for-shops-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .for-shops .eyebrow {
+    color: var(--electric);
+    margin-bottom: 12px;
+  }
+  .for-shops h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .for-shops p {
+    font-size: 16px;
+    color: var(--slate-500);
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .for-shops p.lead {
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .shop-benefits {
+    background: var(--white);
+    border: 1px solid var(--slate-200);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin: 20px 0 28px;
+  }
+  .shop-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .shop-benefits li {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    color: var(--navy);
+    font-size: 15px;
+    line-height: 1.55;
+    border-bottom: 1px solid var(--slate-100);
+  }
+  .shop-benefits li:last-child { border-bottom: none; }
+  .shop-benefits li::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--electric);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='white' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M3 6l2 2 4-4'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 1px;
+  }
+  .shops-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 14px 24px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 15px;
+    transition: background 0.15s;
+  }
+  .shops-cta:hover {
+    background: var(--electric);
+    color: var(--white);
+    text-decoration: none;
+  }
+  .shops-note {
+    font-size: 13px;
+    color: var(--slate-500);
+    margin-top: 14px;
+  }
+
+  /* In-checklist mechanic callout (appears after recalls when checklist renders) */
+  .mechanic-callout {
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+  }
+  .mechanic-callout-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: rgba(59, 130, 246, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .mechanic-callout-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--electric);
+  }
+  .mechanic-callout-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--slate-300);
+  }
+  .mechanic-callout-text strong {
+    color: var(--white);
+    display: block;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+  .mechanic-callout-btn {
+    background: var(--electric);
+    color: var(--white);
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .mechanic-callout-btn:hover {
+    background: var(--electric-hover);
+    color: var(--white);
+    text-decoration: none;
+  }
+  @media (max-width: 640px) {
+    .mechanic-callout {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .mechanic-callout-icon { margin: 0 auto; }
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    background: var(--navy);
+    color: var(--slate-400);
+    padding: 32px 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 13px;
+    text-align: center;
+  }
+  .site-footer a { color: var(--slate-300); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 720px) {
+    .entry-tabs {
+      grid-template-columns: 1fr;
+    }
+    .divider {
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 12px;
+    }
+    .vin-input-row {
+      flex-direction: column;
+    }
+    .btn { width: 100%; }
+    .checklist-meta-header { flex-direction: column; align-items: flex-start; }
+    .checklist-item { grid-template-columns: 1fr; }
+    .item-risk-marker { width: 100%; height: 4px; min-height: 0; }
+  }
+
+  /* ===== CHECKLIST ACTIONS BAR (print / save / share) ===== */
+  .checklist-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 18px;
+    background: var(--blue-50);
+    border: 1px solid var(--slate-200);
+    border-radius: 10px;
+    margin-bottom: 18px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .checklist-actions .actions-label {
+    font-size: 12px;
+    color: var(--slate-500);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .checklist-actions .actions-buttons { display: flex; gap: 6px; flex-wrap: wrap; }
+  .checklist-action-btn {
+    background: var(--white);
+    border: 1px solid var(--slate-300);
+    border-radius: 6px;
+    padding: 7px 13px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--navy);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: inherit;
+  }
+  .checklist-action-btn:hover { border-color: var(--electric); color: var(--electric); }
+  .checklist-action-btn.primary {
+    background: var(--electric);
+    color: var(--white);
+    border-color: var(--electric);
+  }
+  .checklist-action-btn.primary:hover {
+    background: var(--electric-hover);
+    border-color: var(--electric-hover);
+    color: var(--white);
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .site-header, .hero, .entry-section, .booking-section, .for-shops,
+    .site-footer, .checklist-actions, .mechanic-callout { display: none !important; }
+    body { background: white !important; }
+    .checklist-section { padding: 0 !important; max-width: none !important; }
+    .checklist-meta-card { box-shadow: none !important; border: 1px solid #ccc !important; }
+    .checklist-section-block { box-shadow: none !important; border: 1px solid #ccc !important; page-break-inside: avoid; }
+    .checklist-item { page-break-inside: avoid; }
+    .recall-item { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="/" class="brand">
+      Auto<span class="vet">Vet</span>
+      <span class="by">by <a href="https://trailmanual.com">TrailManual</a></span>
+    </a>
+    <div class="nav-links">
+      <a href="/used-garage.html">Used Garage</a>
+      <a href="/buying/inspection/" aria-current="page">Inspection</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Pre-Purchase Inspection Checklist</p>
+    <h1 class="hero-title">Know before you buy.</h1>
+    <p class="hero-sub">Enter a VIN or pick a vehicle. Get a model-specific inspection checklist built from NHTSA recall data, real owner-reported failures, and decades of mechanic intel.</p>
+  </div>
+</section>
+
+<section class="entry-section">
+  <div class="entry-card">
+    <div class="entry-tabs">
+
+      <div class="entry-tab">
+        <h2>Have a VIN?</h2>
+        <p class="lead">17 characters. We'll decode the year, make, model, and trim, then pull the right checklist.</p>
+        <div class="vin-input-row">
+          <input type="text" class="vin-input" id="vin-input" maxlength="17" placeholder="Enter VIN (e.g., 1HGCR2F37EA000123)" autocomplete="off" spellcheck="false">
+          <button class="btn" id="decode-btn">Decode</button>
+        </div>
+        <div class="vin-status" id="vin-status"></div>
+      </div>
+
+      <div class="divider">
+        <span class="divider-label">OR</span>
+      </div>
+
+      <div class="entry-tab">
+        <h2>No VIN handy?</h2>
+        <p class="lead">Pick by year, make, and model. Trim is optional.</p>
+        <div class="ymmt-grid">
+          <select class="ymmt-select" id="year-select">
+            <option value="">Year</option>
+          </select>
+          <select class="ymmt-select" id="make-select" disabled>
+            <option value="">Make</option>
+          </select>
+          <select class="ymmt-select" id="model-select" disabled>
+            <option value="">Model</option>
+          </select>
+          <select class="ymmt-select" id="trim-select" disabled>
+            <option value="">Trim (optional)</option>
+          </select>
+        </div>
+        <button class="btn btn-block" id="lookup-btn" disabled>Get checklist</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="checklist-section checklist-hidden" id="checklist-section">
+  <div id="checklist-content"></div>
+</section>
+
+<section class="booking-section">
+  <div class="booking-inner">
+    <div class="booking-pill">
+      <span class="pulse"></span>
+      Launching Phoenix Summer 2026
+    </div>
+    <h2>Book a vetted Phoenix mechanic</h2>
+    <p>AutoVet's local mechanic network is being assembled now. When we launch, you'll be able to book a pre-purchase inspection in your area in two clicks — with a shop we've personally vetted.</p>
+    <p style="margin-bottom: 0;">In the meantime: take this checklist to your trusted local shop. It's the same one our network will be using.</p>
+  </div>
+</section>
+
+<section class="for-shops">
+  <div class="for-shops-inner">
+    <p class="eyebrow">For mechanics &amp; shop owners</p>
+    <h2>Your next pre-purchase inspection customer is reading this.</h2>
+    <p class="lead">AutoVet is building a vetted network of independent Phoenix-area shops to handle the inspections our buyers request — and we'd rather send that work to good shops than to chain dealers.</p>
+    <div class="shop-benefits">
+      <ul>
+        <li>Every referred customer has already decided a pre-purchase inspection is worth the money — no convincing needed.</li>
+        <li>They walk in with a vehicle-specific checklist, not vague concerns. Less explaining, more inspecting.</li>
+        <li>They expect to pay your standard PPI rate. AutoVet takes nothing from the inspection fee in Phase 1.</li>
+        <li>Network membership signals quality. We're vetting carefully and starting small — Phoenix shops get first access.</li>
+      </ul>
+    </div>
+    <p>If you're the kind of shop that does PPIs the right way — on a lift, taking real time, finding real issues — we want you in the network. The application is brief.</p>
+    <a href="mailto:dvs.dnl@gmail.com?subject=AutoVet%20Phoenix%20mechanic%20network%20%E2%80%94%20application&amp;body=Shop%20name%3A%0AShop%20address%3A%0APhone%3A%0AWebsite%2FYelp%3A%0AYears%20in%20business%3A%0AYour%20standard%20PPI%20rate%3A%0AVehicles%20you%20specialize%20in%3A%0AAnything%20else%20we%20should%20know%3A%0A" class="shops-cta">Apply for the Phoenix network →</a>
+    <p class="shops-note">Outside Phoenix? Email anyway — we're keeping a list of shops in metros we'll expand to next.</p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>AutoVet — Know before you buy.</p>
+  <p style="margin-top: 8px;">Built by the team behind <a href="https://trailmanual.com">TrailManual</a>.</p>
+</footer>
+
+<script>
+/* ============================================================
+   AutoVet Inspection Checklist
+   - VIN decoder via NHTSA vPIC API (client-side)
+   - YMMT dropdowns for non-VIN flow
+   - Inline checklist data for sample vehicles
+   ============================================================ */
+
+// ---------- CHECKLIST DATA ----------
+// Three drafted samples; more vehicles surface "Coming Soon" placeholder.
+const CHECKLISTS = {
+  'honda-accord-2014': {
+    year: 2014,
+    make: 'Honda',
+    model: 'Accord',
+    trim: 'LX / Sport / EX / EX-L / Touring',
+    engine: '2.4L K24W I4 (185hp) or 3.5L V6 (278hp)',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 2014 Accord is a benchmark used-car pick — well-built, durable, with documented common issues that are easy to inspect for. The CVT (4-cylinder models) is the single most important thing to check; everything else is standard wear.",
+    stats: {
+      itemsToCheck: 11,
+      recalls: 4,
+      ownerComplaints: 967,
+      topComplaintArea: 'Electrical System'
+    },
+    sections: [
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: 'CVT transmission shudder (4-cyl models)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The 2014 4-cylinder Accord uses a CVT that can develop a low-speed shudder, especially above 90,000 miles or if the fluid has never been changed.',
+            check: '<strong>Drive at 25-40 mph in light throttle, then ease off and re-apply gently.</strong> Listen and feel for a rough vibration. Confirm the CVT fluid has been changed (Honda recommends every 30,000 miles; many owners skip this).',
+            cost: '$300 fluid service / $3,500-$5,000 if replacement needed',
+            source: 'Owner reports + Honda TSB 14-027'
+          },
+          {
+            title: 'Carbon buildup on direct-injection 2.4L',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The K24W direct-injection 4-cylinder can develop intake valve carbon buildup at 80,000+ miles, causing rough idle and slight power loss.',
+            check: '<strong>Watch idle quality at startup and during long idles.</strong> A borescope inspection of intake valves is the definitive check. Ask the seller about any "induction service" history.',
+            cost: '$400-$700 walnut blast service if needed',
+            source: 'Common to all DI engines; widely documented'
+          },
+          {
+            title: 'V6 timing chain (if equipped)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 3.5L V6 uses a timing chain — no scheduled belt service required. Generally bulletproof.',
+            check: '<strong>Listen for any rattling at cold start.</strong> If chain stretches (rare on this engine), you may hear a brief rattle for 1-2 seconds before oil pressure builds.',
+            cost: '$1,500-$2,500 if chain replacement needed (uncommon)',
+            source: 'Honda J35Y engine documentation'
+          }
+        ]
+      },
+      {
+        title: 'Electrical',
+        items: [
+          {
+            title: 'Battery drain / starter motor (top complaint)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Electrical issues are the #1 owner complaint for this generation Accord, with 376 reports to NHTSA — primarily battery drain, weak starters, and intermittent no-start conditions.',
+            check: '<strong>Test the battery age (sticker on battery) and confirm it has been replaced if older than 4 years.</strong> Have the seller cold-start the car after it has sat overnight. Listen for slow crank.',
+            cost: '$200-$400 battery / $400-$700 starter',
+            source: 'NHTSA: 376 electrical complaints (top issue category)'
+          },
+          {
+            title: 'Display screen / infotainment',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The dual-screen infotainment can develop ghost touches, freezes, or screen failure, especially on EX-L and Touring trims.',
+            check: '<strong>Test every touch input on the lower screen, and toggle through every menu on the upper screen.</strong> Ask if the system has ever been replaced under warranty.',
+            cost: '$800-$1,500 replacement (out of warranty)',
+            source: 'NHTSA complaints + Honda TSB 15-091'
+          }
+        ]
+      },
+      {
+        title: 'Steering & Brakes',
+        items: [
+          {
+            title: 'Electric Power Steering (EPS) intermittent assist',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Some 2014 Accords report intermittent EPS warning lights and brief loss of power-steering assist (138 NHTSA complaints).',
+            check: '<strong>Check for any steering warning lights on the dash.</strong> During the test drive, make sure steering effort is consistent and the wheel doesn\'t feel notchy. Ask if EPS has ever been replaced.',
+            cost: '$1,200-$1,800 EPS column replacement',
+            source: 'NHTSA: 138 steering complaints'
+          },
+          {
+            title: 'Parking brake recall (electric)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Some 2014 Accords were subject to a recall for electric parking brake software that could fail to engage. Verify the recall has been performed.',
+            check: '<strong>Engage and release the electric parking brake several times.</strong> Verify no warning lights. Check NHTSA recall lookup using the VIN to confirm completion.',
+            cost: 'No cost if recall was performed (free service)',
+            source: 'NHTSA recall campaign 14V-595'
+          },
+          {
+            title: 'Front brake pads / rotors',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Standard wear. Most 2014 Accords need front pads and possibly rotors by 70,000-90,000 miles.',
+            check: '<strong>Ask for service records showing brake history.</strong> Look at pad thickness through the wheel spokes if possible. Listen for grinding or squealing.',
+            cost: '$250-$450 pads + rotors front',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body & Interior',
+        items: [
+          {
+            title: 'Paint quality (modern thin clearcoat)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Honda\'s clearcoat is thinner than European brands. Minor chips and stone bruises common; major peeling is not.',
+            check: '<strong>Inspect the hood, roof, and bumper edges in good light.</strong> Look for clearcoat haze or peeling. Minor wear is normal at this mileage.',
+            cost: '$500-$2,000 for major repaint (cosmetic)',
+            source: 'Common to all Hondas of this era'
+          },
+          {
+            title: 'Driver seat bolster wear',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The leather (EX-L, Touring) on the outer bolster of the driver seat is the most common interior wear point.',
+            check: '<strong>Look at the outer left edge of the driver seat for cracking, wear, or color loss.</strong> This is purely cosmetic but indicates how the car was used.',
+            cost: '$150-$400 for re-bolstering',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Suspension & Underbody',
+        items: [
+          {
+            title: 'Compliance bushings (front lower control arm)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'At 80,000+ miles, the front compliance bushings can develop play, causing a clunk over bumps and uneven tire wear.',
+            check: '<strong>Drive over rough pavement and listen for clunks from the front.</strong> Check front tire inner edges for unusual wear. Ask shop to inspect bushings visually.',
+            cost: '$400-$700 per side (parts + labor)',
+            source: 'Common Honda wear item'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '14V-595', title: 'Electric Parking Brake Software', desc: 'EPB may not engage as commanded. Software update.' },
+      { number: '15V-128', title: 'Hood Latch Inspection', desc: 'Secondary latch may corrode in salt-belt states.' },
+      { number: '16V-061', title: 'Takata Airbag (Passenger)', desc: 'Critical safety recall — must verify completion.' },
+      { number: '18V-307', title: 'Fuel Pump Module', desc: 'Possible fuel leak from pump module seal.' }
+    ]
+  },
+
+  'acura-tsx-2014': {
+    year: 2014,
+    make: 'Acura',
+    model: 'TSX',
+    trim: 'Base / Technology / V6 / V6 Technology',
+    engine: '2.4L K24Z3 I4 (201hp) or 3.5L V6 (280hp)',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 2014 TSX is the swan-song year for one of Honda's most reliable platforms — the K24 four-cylinder regularly hits 250,000+ miles with basic maintenance. This is one of the lowest-risk used cars in the segment, but a few inspection points still matter.",
+    stats: {
+      itemsToCheck: 9,
+      recalls: 2,
+      ownerComplaints: 142,
+      topComplaintArea: 'Electrical System'
+    },
+    sections: [
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: 'K24Z3 engine condition (the headline)',
+            risk: 'clear', riskLabel: 'No Known Issues',
+            desc: 'The K24Z3 is one of the most reliable 4-cylinder engines ever produced. Many owners report 250,000-300,000 mile lifespans with only basic maintenance.',
+            check: '<strong>Verify oil change history (5,000-7,500 mile intervals).</strong> Pull dipstick — oil should be golden to medium brown, not black or thick. Listen at idle for any tapping (valve adjustment may be needed at 100k+).',
+            cost: '$200-$400 for valve adjustment if needed',
+            source: 'Engine reliability data + owner reports'
+          },
+          {
+            title: 'Oil consumption (2009-2010 issue — verify NOT present)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 2009-2010 TSXes had documented oil consumption issues. By 2014, Honda had largely resolved this, but verify with the seller.',
+            check: '<strong>Ask: "Does the car burn oil between changes?"</strong> Pull the dipstick before and after a 10-minute drive. Check for blue smoke at startup.',
+            cost: '$2,500-$4,500 piston ring service if affected (rare on 2014)',
+            source: 'Honda service campaign + TSB history'
+          },
+          {
+            title: 'Automatic transmission (5-speed) — first-year history',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 5-speed automatic in the TSX is bulletproof when maintained. The 2004-2005 generation had transmission issues; the 2014 5-speed is a different and reliable unit.',
+            check: '<strong>Confirm transmission fluid has been changed at least once</strong> (Honda recommends 60k intervals using genuine Honda ATF DW-1 only). Test all shift points during a 15-minute drive — smooth, no flares, no hard 1-2 shift.',
+            cost: '$180 fluid service / $3,000+ rebuild if neglected',
+            source: 'Honda service intervals + TSB history'
+          },
+          {
+            title: '6-speed manual (if equipped) — verify clutch',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 6-speed manual is sought-after and well-built, but a worn or abused clutch is expensive to replace. Many manual TSXes were enthusiast-owned.',
+            check: '<strong>Engage 1st gear from a stop on a slight incline.</strong> Listen for chatter. Drive in 4th at 30 mph and gradually accelerate; if RPM rises faster than speed, clutch is slipping. Check for service records.',
+            cost: '$1,200-$1,800 clutch replacement',
+            source: 'Standard manual wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Steering & Suspension',
+        items: [
+          {
+            title: 'Power steering (2012 issue — verify NOT present)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: '2012 TSXes had documented power steering issues. 2014 should be clean, but verify.',
+            check: '<strong>Check for any steering warning lights on the dash.</strong> Test steering feel at parking-lot speeds for any unusual effort or noise. Listen for whining when turning.',
+            cost: '$1,500-$2,500 power steering rack if affected',
+            source: 'TSB history'
+          },
+          {
+            title: 'Front struts and bushings',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'At the typical TSX age (10-12 years), front struts and lower control arm bushings show wear, causing clunks over bumps and slightly degraded handling.',
+            check: '<strong>Drive over speed bumps and rough pavement.</strong> Listen for clunks. Push down hard on each corner — car should rebound once and settle, not bounce.',
+            cost: '$600-$1,000 struts (pair) / $200-$400 per bushing',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Electrical & Interior',
+        items: [
+          {
+            title: 'Navigation system reliability',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'On Technology trim cars, the navigation unit can develop ghost touches, slow boot, or DVD drive failure (navigation runs on a DVD).',
+            check: '<strong>If equipped with nav, test every function and menu.</strong> Try loading a destination. Ask if the nav DVD has ever been updated.',
+            cost: '$400 used unit / $1,800+ new from Acura',
+            source: 'Common Honda/Acura wear item'
+          },
+          {
+            title: 'Leather seats — driver bolster',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Standard leather wear. Driver outer bolster is the first to show cracks or color loss.',
+            check: '<strong>Inspect driver seat outer-left bolster.</strong> Cracking is cosmetic only but suggests the car has been driven heavily.',
+            cost: '$200-$500 re-bolstering',
+            source: 'Standard wear'
+          }
+        ]
+      },
+      {
+        title: 'Body',
+        items: [
+          {
+            title: 'Paint condition (2010-2014 thin clearcoat)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Acura\'s clearcoat from this era is thinner than the brand\'s reputation suggests. Minor stone chips are common, especially on hood and bumper.',
+            check: '<strong>Inspect hood, roof, and bumper edges in good light.</strong> Look for clearcoat haze, peeling, or repainted panels (mismatched orange-peel texture).',
+            cost: '$400-$1,500 for spot repaint or detail',
+            source: 'Common to Honda/Acura era'
+          },
+          {
+            title: 'Rust (salt-belt states only)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'TSXes in salt-belt states can show rear quarter panel rust at the wheel arches by 10+ years.',
+            check: '<strong>Inspect rear wheel arches and rocker panels for rust bubbling.</strong> Use a magnet — won\'t stick to a body-filler repair. Surface rust on undercarriage is normal; structural rust is not.',
+            cost: '$800-$3,000+ for body repair',
+            source: 'Salt-belt vehicle pattern'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '15V-128', title: 'Hood Latch Inspection', desc: 'Secondary latch may corrode in salt-belt states.' },
+      { number: '16V-061', title: 'Takata Airbag (Passenger)', desc: 'Critical safety recall — must verify completion.' }
+    ]
+  },
+
+  'lexus-rx350-2011': {
+    year: 2011,
+    make: 'Lexus',
+    model: 'RX 350',
+    trim: 'Base / Premium / Navigation',
+    engine: '3.5L 2GR-FE V6 (270hp), 6-speed automatic',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 2010-2012 RX 350 sits on the same mechanical platform as the Toyota Highlander but with Lexus refinement. The 2GR-FE V6 is one of Toyota's most reliable engines — owners regularly report 280,000+ miles. Most inspection points are about verifying maintenance, not catching failures.",
+    stats: {
+      itemsToCheck: 9,
+      recalls: 3,
+      ownerComplaints: 248,
+      topComplaintArea: 'Power Train'
+    },
+    sections: [
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: '2GR-FE V6 — the "unkillable" engine',
+            risk: 'clear', riskLabel: 'No Known Issues',
+            desc: 'The 3.5L 2GR-FE is one of the most reliable V6s Toyota ever built. With basic oil-change maintenance, 250,000-300,000 miles is normal.',
+            check: '<strong>Verify oil change history.</strong> Pull dipstick: oil should be amber to brown, not black. Check for any oil leaks at the front and rear of the engine. Listen for unusual rattles at startup.',
+            cost: '$0 if maintained / $400 valve service if rare ticking',
+            source: 'Toyota 2GR-FE reliability data'
+          },
+          {
+            title: 'Water pump (preventive replacement zone)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The 2GR-FE water pump typically needs replacement between 90,000 and 130,000 miles. If overdue, this is the single most important thing to address before purchase.',
+            check: '<strong>Look for coolant weeping at the front of the engine.</strong> Ask the seller if the water pump has been replaced (request the invoice). Check coolant level and color.',
+            cost: '$600-$900 (parts + labor at independent shop)',
+            source: 'Toyota service interval + common failure'
+          },
+          {
+            title: 'Timing chain (NOT a belt — no scheduled service)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 2GR-FE uses a timing chain, not a belt. No scheduled replacement is required. Confirm with the seller — some buyers mistakenly think this engine has a belt and pay for unnecessary "service."',
+            check: '<strong>Listen for any chain rattle at cold start.</strong> If a few seconds of rattle before oil pressure builds, the chain tensioner may be weakening (uncommon).',
+            cost: '$1,800-$2,500 if tensioner replacement needed (rare)',
+            source: 'Toyota 2GR-FE engine specs'
+          },
+          {
+            title: '6-speed automatic transmission',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Reliable when fluid is changed periodically. Some 2010-2011 units developed minor lurching on the 1-2 shift when fluid was neglected (24 NHTSA reports — fluid service usually resolves).',
+            check: '<strong>Confirm transmission fluid has been changed at least once (60k interval recommended).</strong> Test all shift points during a 20-minute drive — smooth, no flares, no harsh 1-2 shift.',
+            cost: '$250 fluid service / $3,500-$5,000 rebuild',
+            source: 'Toyota service intervals + NHTSA reports'
+          }
+        ]
+      },
+      {
+        title: 'Suspension & Steering',
+        items: [
+          {
+            title: 'Front struts and rear shocks',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'At typical RX 350 age (12-14 years), front struts and rear shocks are usually due for replacement, causing a slightly floaty ride.',
+            check: '<strong>Push down on each corner — should rebound once and settle, not bounce.</strong> Listen for clunks over bumps. The ride should feel composed, not "boaty."',
+            cost: '$800-$1,400 struts (pair) / $400-$700 rear shocks',
+            source: 'Standard wear pattern'
+          },
+          {
+            title: 'Rack-and-pinion — minor leaks possible',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Some 2010-2011 units develop slow rack seal leaks. Generally not urgent unless the fluid level drops.',
+            check: '<strong>Check power steering fluid level (engine off).</strong> Inspect ground beneath car after parked overnight for fluid spots.',
+            cost: '$1,200-$1,800 rack replacement if leak is significant',
+            source: 'Owner reports'
+          }
+        ]
+      },
+      {
+        title: 'Body & Electrical',
+        items: [
+          {
+            title: 'Sunroof drain channels (clog risk)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Sunroof drain tubes can clog with debris over time, causing water leaks into the headliner or floor pan.',
+            check: '<strong>Open the sunroof and pour a small cup of water into the front drain channel.</strong> Confirm water exits from the fender area underneath (front) or bumper (rear). If water pools — drains are clogged.',
+            cost: '$100-$250 drain cleaning (DIY: free)',
+            source: 'Common across all sunroof-equipped vehicles'
+          },
+          {
+            title: 'Navigation / Remote Touch interface',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 2010-2012 Lexus Remote Touch (joystick-style controller) can develop sticky behavior or screen ghosting over time.',
+            check: '<strong>Cycle through every nav menu.</strong> Test the joystick controller for sticking or unresponsive directions. Boot and ensure the GPS locks within 30 seconds.',
+            cost: '$400 used screen / $1,500+ new from Lexus',
+            source: 'Owner reports'
+          },
+          {
+            title: 'Tailgate / power liftgate motor',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'On power-liftgate equipped trims, the motor and gas struts can weaken over time, causing the liftgate to fall or refuse to lift.',
+            check: '<strong>Operate the power liftgate three times.</strong> It should open smoothly to full height. With the gate at half-open and motor off, it should hold position (gas struts).',
+            cost: '$150-$300 gas struts / $600+ motor',
+            source: 'Standard wear pattern'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '12V-491', title: 'Power Window Master Switch', desc: 'Switch can overheat, causing smoke or fire. Verify recall completed.' },
+      { number: '13V-561', title: 'Brake Vacuum Pump', desc: 'Pump bolt may loosen, reducing braking assist. Verify recall completed.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — confirm completion.' }
+    ]
+  },
+
+  'jeep-wrangler-2012': {
+    year: 2012,
+    make: 'Jeep',
+    model: 'Wrangler',
+    trim: 'Sport / Sahara / Rubicon (2-door & Unlimited)',
+    engine: '3.6L Pentastar V6 (285hp), 6-speed manual or 5-speed auto',
+    overallRisk: 'monitor',
+    overallRiskLabel: 'Monitor',
+    summary: "The 2012-2017 JK Wrangler is the most-modified and most-abused vehicle on the used market. The 3.6L Pentastar replaced the 3.8L in 2012 — a big upgrade — but introduced its own issues. The single most important inspection is the front axle and the death wobble triangle (track bar, steering damper, control arm bushings). Body and frame are largely bulletproof.",
+    stats: {
+      itemsToCheck: 14,
+      recalls: 6,
+      ownerComplaints: 1850,
+      topComplaintArea: 'Engine'
+    },
+    sections: [
+      {
+        title: 'Powertrain — Pentastar V6',
+        items: [
+          {
+            title: 'Cylinder 2 (or 4) head failure — 2011-2013 (the headline)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Early Pentastar V6s built before late 2013 have a documented left-bank cylinder head defect: a partially blocked oil passage causes the cylinder 2 exhaust valve guide to wear, then drop, then destroy the engine. Misfire codes on cylinder 2 with no obvious cause = walk away or budget $3,500.',
+            check: '<strong>Pull scan codes — P0302 (cylinder 2 misfire) is the smoking gun.</strong> Listen for a ticking that worsens with heat. Check for any history of head replacement — replacement heads have the redesigned oil passage and the issue is permanently resolved.',
+            cost: '$3,500-$5,000 left head replacement at independent shop',
+            source: 'Chrysler TSB 09-005-12, NHTSA: 412 complaints in this category'
+          },
+          {
+            title: 'Oil cooler housing leak (plastic housing)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The Pentastar uses a plastic oil cooler housing that warps and cracks, leaking oil down the back of the engine onto the transmission. By 80,000-120,000 miles most JKs need this addressed.',
+            check: '<strong>Look at the rear of the engine valley for oil residue.</strong> Pull the dipstick — oil level low for stated change interval is suspicious. Ask if the housing has been replaced (Dorman aluminum upgrade is the common fix).',
+            cost: '$350 DIY parts / $900-$1,400 at a shop',
+            source: 'Documented across hundreds of Pentastar applications'
+          },
+          {
+            title: 'Manual transmission grind into 2nd (cold)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The NSG370 6-speed manual has a known cold-shift grind into 2nd gear. Considered "normal" by Jeep but bothers owners. Worse if synchros are wearing.',
+            check: '<strong>Cold-start the vehicle and shift 1-2 at 15 mph.</strong> Light grind is the JK quirk; loud or persistent grind = synchro wear. Test reverse on cold (should engage without grinding).',
+            cost: '$2,500+ if transmission rebuild needed (uncommon below 150k)',
+            source: 'Jeep TSB 21-004-13'
+          },
+          {
+            title: 'Automatic (W5A580) — fluid history',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 5-speed auto is generally robust if fluid is changed. Modified Jeeps running larger tires without re-gearing put extreme stress on it.',
+            check: '<strong>Check service records for ATF+4 fluid changes (every 30k recommended on lifted/modified rigs).</strong> Test all shifts in a 20-min drive. Listen for shudder at converter lockup (~45 mph light throttle).',
+            cost: '$220 fluid service / $3,000+ rebuild',
+            source: 'Chrysler service intervals + community data'
+          }
+        ]
+      },
+      {
+        title: 'Death Wobble Triangle (mandatory inspection)',
+        items: [
+          {
+            title: 'Front track bar (the #1 death wobble cause)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'A worn track bar bushing or loose bracket is the most common cause of JK death wobble. Lifted Jeeps amplify this — the OEM bar is too short and the geometry changes.',
+            check: '<strong>With the Jeep on the ground, have a helper rock the wheel left-right while you watch the track bar at both ends.</strong> Any visible movement at the bushings or bracket = worn out. Lifted Jeeps should have an adjustable aftermarket track bar.',
+            cost: '$200-$450 OEM-style / $400-$700 adjustable upgrade',
+            source: 'TrailManual death wobble guide + Jeep forums'
+          },
+          {
+            title: 'Steering stabilizer (cheap but masks real issues)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'A new steering stabilizer is the cheapest "fix" sellers apply before listing. It hides — but does not resolve — death wobble. A great stabilizer cannot save a bad track bar.',
+            check: '<strong>Note whether the stabilizer is brand-new (clean, shiny).</strong> If yes, ask why. Verify track bar, control arm bushings, and ball joints are good — the stabilizer should be a last-line damper, not a band-aid.',
+            cost: '$45-$200 stabilizer (almost always a band-aid if installed alone)',
+            source: 'TrailManual death wobble guide'
+          },
+          {
+            title: 'Lower control arm bushings (front, both sides)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'JK lower control arm bushings tear and collapse with age and off-road use. Worn LCA bushings = death wobble, premature tire wear, vague steering.',
+            check: '<strong>Pry under the front of the LCA with a long bar — there should be no vertical movement at the bushing.</strong> Visually inspect for cracked or missing rubber. On lifted Jeeps with 3"+ lift, OEM-length arms are wrong; verify aftermarket arms installed.',
+            cost: '$120-$220 bushings per side / $300-$600 full arms aftermarket',
+            source: 'Standard JK wear pattern'
+          },
+          {
+            title: 'Ball joints (Dana 30/44 front axle)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'JK ball joints are a known weak point, especially on Rubicons running 35"+ tires. Worn ball joints contribute to death wobble and unsafe steering. Most JKs need aftermarket ball joints by 80k.',
+            check: '<strong>Jack the front wheel off the ground and rock it top-to-bottom (12 and 6 o\'clock positions).</strong> Any clunk = worn ball joints. The bottom-to-top movement should be zero. While there, also check tie rod end play.',
+            cost: '$140 OEM rebuilders / $400-$600 Synergy/Dynatrac per side',
+            source: 'Jeep forums + TrailManual axle guide'
+          }
+        ]
+      },
+      {
+        title: 'Body, Frame & Underbody',
+        items: [
+          {
+            title: 'Frame rust — rear shackle and cross-members (salt belt)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'JKs in salt-state climates (Northeast, Midwest, Canada) develop critical frame rust at the rear shackle mount and rear cross-member by 8-10 years. This can be a frame-write-off issue.',
+            check: '<strong>Crawl under and inspect the rear frame around the shackle mount, rear cross-member, and fuel tank skid mount.</strong> Use a screwdriver to probe rust — surface scale is OK, perforated steel is fatal. AZ/CA/TX Jeeps are usually clean.',
+            cost: '$500 cosmetic / $2,500+ structural / write-off if perforated',
+            source: 'NHTSA reports + community frame inspections'
+          },
+          {
+            title: 'Soft top and hard top condition',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Soft tops degrade faster than the rest of the Jeep, especially in AZ sun. Hard tops are durable but the rear window seal can leak. Freedom Top panels can have minor warping.',
+            check: '<strong>Test all top operations — windows zip smoothly, headliner seams intact.</strong> On hard tops, look for water staining inside rear corners. Verify all 4 latches and all Freedom Top torx bolts present.',
+            cost: '$800-$2,000 new soft top / $200-$400 seal replacement',
+            source: 'AZ-specific wear pattern'
+          },
+          {
+            title: 'Aftermarket lift installation quality',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Most used JKs have some form of lift. Quality of installation matters more than brand: improperly-installed lifts cause early death wobble, broken track bars, and snapped sway bar links.',
+            check: '<strong>Ask: who installed the lift, and is there an alignment receipt afterward?</strong> Look for: proper track bar geometry, dropped pitman arm or adjustable drag link on 3"+ lifts, sway bar links not snapped or maxed out, no zip ties holding things together.',
+            cost: '$0 if installed right / $1,500+ to fix bad installation',
+            source: 'TrailManual lift kit guide'
+          }
+        ]
+      },
+      {
+        title: 'Electrical & Interior',
+        items: [
+          {
+            title: 'TIPM (Totally Integrated Power Module) failures',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The TIPM is the body computer that controls fuel pump, headlights, and accessories. 2011-2013 TIPMs have higher failure rates. Symptoms: random no-start, fuel pump running continuously, accessories failing.',
+            check: '<strong>Ask if the TIPM has been replaced or if there are any electrical gremlins.</strong> Test start 3-4 times. Verify all power features (windows, locks, headlights, wipers) work first time, every time.',
+            cost: '$600-$1,200 TIPM replacement',
+            source: 'NHTSA: 287 electrical complaints, multiple TIPM-related TSBs'
+          },
+          {
+            title: 'Window regulator failure (door panels)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Driver window regulator is a known wear item, especially on JKs with frequent door-open/close cycles.',
+            check: '<strong>Operate all power windows several times.</strong> Listen for grinding from the door. Slow or jerky operation = regulator wearing.',
+            cost: '$70-$150 regulator (DIY)',
+            source: 'Standard wear pattern'
+          },
+          {
+            title: 'Heater core leak (driver footwell wet)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'High-mileage JKs can develop heater core leaks, often noticed by sweet smell or coolant-stained passenger footwell carpet.',
+            check: '<strong>Press carpet on passenger footwell — wet or sticky = coolant leak.</strong> Check coolant level and look for residue around heater hoses at the firewall.',
+            cost: '$700-$1,200 heater core replacement (labor-intensive)',
+            source: 'Standard wear pattern'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '13V-252', title: 'Pentastar Cylinder Head', desc: 'Left bank head replacement program for early Pentastars. Verify head was inspected/replaced.' },
+      { number: '14V-373', title: 'Active Headrests', desc: 'Headrest may not deploy correctly in rear crash.' },
+      { number: '15V-340', title: 'Power Steering Hose', desc: 'Hose may rupture, loss of power steering.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety — verify completion.' },
+      { number: '17V-525', title: 'Steering Wheel Detachment', desc: 'Inadequate torque on steering wheel bolt — must be checked.' },
+      { number: '18V-079', title: 'Brake Calipers (front)', desc: 'Some calipers improperly assembled.' }
+    ]
+  },
+
+  'toyota-tacoma-2012': {
+    year: 2012,
+    make: 'Toyota',
+    model: 'Tacoma',
+    trim: 'Access Cab / Double Cab — SR5 / TRD Sport / TRD Off-Road',
+    engine: '4.0L 1GR-FE V6 (236hp) or 2.7L 2TR-FE I4 — 5-spd auto or 6-spd manual',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 2010-2014 Tacoma (second-gen, MY-K refresh) is one of the longest-lived used trucks money can buy. Frame rust is the single most important inspection point — Toyota's salt-belt buyback program already covered the worst trucks, but rust is still possible on neglected examples. The 4.0L V6 routinely hits 300,000 miles.",
+    stats: {
+      itemsToCheck: 11,
+      recalls: 7,
+      ownerComplaints: 524,
+      topComplaintArea: 'Structure / Frame'
+    },
+    sections: [
+      {
+        title: 'Frame & Structure (mandatory first stop)',
+        items: [
+          {
+            title: 'Frame rust (the inspection that decides everything else)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Pre-2016 Tacomas in salt-belt states have well-documented frame corrosion. Toyota ran a buyback program through 2018 that absorbed the worst trucks. Any frame rust beyond surface scale = walk away.',
+            check: '<strong>Crawl under and inspect the entire frame, especially around the rear leaf spring shackles and rear cross-member.</strong> Tap with a screwdriver — solid thunk = OK, soft or flaking = bad. AZ/TX/SoCal trucks are almost always clean; verify via Carfax if the truck has lived east of the Rockies.',
+            cost: '$0 to walk away / $5,000+ for new frame (rare these days)',
+            source: 'Toyota frame inspection campaign + NHTSA'
+          },
+          {
+            title: 'Rear leaf springs (sag and rust)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Tacoma leafs sag and rust over time, especially on trucks that towed or hauled. Sagging rear = poor ride and bottoming out.',
+            check: '<strong>Measure the gap between the bump stop and axle — should be 2.5-3" empty.</strong> Inspect leaf packs for broken leaves or rust pitting. Listen for clunks while reversing — broken leaf pin is common.',
+            cost: '$200-$400 add-a-leaf / $600-$1,200 new pack',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Powertrain — 4.0L V6 (1GR-FE)',
+        items: [
+          {
+            title: 'Lower ball joints (early-recall era)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Early second-gen Tacomas (2005-2008) had a lower ball joint recall. By 2010+ most issues are resolved, but ball joints remain a wear item — failure can cause loss of steering.',
+            check: '<strong>Jack the front wheel and rock top-bottom (12-6).</strong> Any movement = worn. Look for the round inspection mark on the lower BJ confirming recall completion (if applicable).',
+            cost: '$300-$500 per side parts + labor',
+            source: 'Toyota recall 05V-449 + standard wear'
+          },
+          {
+            title: 'Carbon buildup (port-injected, less common)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 1GR-FE is port-injected (not direct-injected) — meaning carbon buildup is minor compared to modern DI engines.',
+            check: '<strong>Verify smooth idle and clean throttle response.</strong> Compression test if you want to confirm — should be even across all 6 cylinders.',
+            cost: '$200 throttle body cleaning if needed',
+            source: 'Engine design'
+          },
+          {
+            title: 'Timing chain (no scheduled replacement)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 1GR-FE uses a timing chain — no scheduled belt service required. Generally bulletproof to 300,000+ miles.',
+            check: '<strong>Listen for chain rattle at cold start — should be brief or absent.</strong> Inspect chain tensioner area for oil weeping.',
+            cost: '$1,500+ if tensioner replacement needed (rare)',
+            source: 'Toyota 1GR-FE engine docs'
+          },
+          {
+            title: 'Automatic transmission (A750F 5-speed)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 5-speed automatic is rock-solid. Toyota called the fluid "lifetime" — owner consensus is to change it at 60k and 120k anyway.',
+            check: '<strong>Confirm fluid history.</strong> Test all shift points in a 20-min drive. Listen for any clunk into reverse or harsh 1-2 shift.',
+            cost: '$250-$350 fluid service',
+            source: 'Toyota service docs + community consensus'
+          }
+        ]
+      },
+      {
+        title: 'Suspension & Steering',
+        items: [
+          {
+            title: 'Front shocks and bilstein conversion popular',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'OEM shocks are worn by 100k. Many owners install Bilstein 5100s or 6112s as a popular upgrade.',
+            check: '<strong>Push down on each front corner — should rebound once and settle.</strong> Bouncing = blown shocks. Aftermarket shocks are usually an upgrade, not a downgrade — verify the brand.',
+            cost: '$400-$800 Bilstein conversion (DIY)',
+            source: 'Tacoma community consensus'
+          },
+          {
+            title: 'Steering rack — minor leaks possible',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Power steering rack can develop slow seal leaks at high mileage. Hydraulic steering = no electric assist failures.',
+            check: '<strong>Check PS fluid level.</strong> Inspect rack boots for tears or fluid weeping. Listen for whine when turning.',
+            cost: '$1,000-$1,500 rack rebuild (uncommon below 200k)',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body & Electrical',
+        items: [
+          {
+            title: 'Bed corrosion (composite bed = no rust)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Tacoma uses a composite bed — no rust issues. Inspect bed mounting points to the frame, however.',
+            check: '<strong>Inspect bed-to-frame mounting brackets for rust or cracking.</strong> Composite itself can crack at high stress points (tie-down anchors).',
+            cost: '$200-$500 bracket replacement',
+            source: 'Truck-specific design'
+          },
+          {
+            title: 'Door rust (lower edges)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Lower door edges can rust through, especially on salt-belt trucks. Common Tacoma issue.',
+            check: '<strong>Run a finger along the bottom edge of each door — feel for rust scale or bubbling paint.</strong> Inside the door, the lower drain holes may be plugged.',
+            cost: '$200-$400 per door panel repair / $600+ replacement',
+            source: 'NHTSA reports'
+          },
+          {
+            title: 'Backup camera reliability (Limited and TRD trims)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Higher trims have a backup camera that can fog, flicker, or fail. Easy aftermarket replacement.',
+            check: '<strong>Test the backup camera — should produce a clear image immediately.</strong> Foggy = moisture intrusion, may need replacement.',
+            cost: '$60-$200 aftermarket camera (DIY)',
+            source: 'Standard wear'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '05V-449', title: 'Lower Ball Joint', desc: 'Major Tacoma recall — front lower ball joints. Verify completion via VIN.' },
+      { number: '12V-491', title: 'Power Window Switch', desc: 'Same Toyota recall as other models.' },
+      { number: '14V-053', title: 'Center Console Trim', desc: 'May come loose — minor.' },
+      { number: '14V-657', title: 'Tire Information Label', desc: 'Tire pressure label may be incorrect.' },
+      { number: '15V-394', title: 'Seat Belt Pretensioner', desc: 'Pretensioner may fail in collision.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — verify completion.' },
+      { number: '20V-697', title: 'Air Bag Module', desc: 'Replacement program — verify completion.' }
+    ]
+  },
+
+  'toyota-4runner-2008': {
+    year: 2008,
+    make: 'Toyota',
+    model: '4Runner',
+    trim: 'SR5 / Sport / Limited / Trail (V6 4.0L)',
+    engine: '4.0L 1GR-FE V6 (236hp) or 4.7L 2UZ-FE V8 (260hp) — 5-spd auto',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 4th-gen 4Runner (2003-2009) sits on the same legendary platform as the Lexus GX 470 and the Prado. Bulletproof drivetrains in both V6 and V8 trims. The four areas that matter: frame rust (Northeast trucks), the X-REAS suspension on Sport models (very expensive when it leaks), KDSS on Trail Editions, and the cracking dashboard.",
+    stats: {
+      itemsToCheck: 10,
+      recalls: 5,
+      ownerComplaints: 312,
+      topComplaintArea: 'Steering / Power Train'
+    },
+    sections: [
+      {
+        title: 'Frame & Underbody',
+        items: [
+          {
+            title: 'Frame rust (Northeast / Midwest trucks)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Like the Tacoma, 4th-gen 4Runners in salt-belt states can have frame corrosion. The 2003-2009 generation was NOT covered by Toyota\'s buyback program — owners are on their own.',
+            check: '<strong>Inspect the rear frame rails, leaf hangers (if equipped), and cross-members.</strong> Scale and surface rust = normal. Flaking, perforation, or "swiss cheese" pattern = walk away. Use a small hammer or screwdriver to test.',
+            cost: '$0 to walk / $4,000+ frame work / write-off',
+            source: 'NHTSA frame complaints'
+          },
+          {
+            title: 'KDSS sway-bar system (Trail Edition only)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'KDSS is Toyota\'s hydraulically-linked sway bar — exceptional off-road but expensive when it leaks. Failed KDSS = stiff, unbalanced ride.',
+            check: '<strong>Inspect KDSS accumulator and lines under the truck for hydraulic fluid leaks.</strong> Drive on uneven ground — body should remain composed. Lifted KDSS trucks need KDSS-specific lift kits.',
+            cost: '$1,500-$3,000 if KDSS rebuild needed',
+            source: 'Trail Edition specific'
+          },
+          {
+            title: 'X-REAS suspension (Sport Edition — verify carefully)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'X-REAS is the cross-linked hydraulic shock system on Sport trims. When it fails (and it eventually does), replacement is over $2,000 in OEM parts. Most owners convert to conventional shocks.',
+            check: '<strong>Look under the truck for hydraulic shock leaks at the corners and at the center accumulator.</strong> If the seller has already converted to standard shocks (Bilstein or KYB), that\'s actually a plus.',
+            cost: '$2,200+ OEM X-REAS / $600-$1,000 conversion to conventional',
+            source: 'Sport Edition specific'
+          }
+        ]
+      },
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: '4.0L V6 (1GR-FE) — same legendary engine as Tacoma',
+            risk: 'clear', riskLabel: 'No Known Issues',
+            desc: 'The 1GR-FE V6 has the same bulletproof reputation in the 4Runner as in the Tacoma. 300,000+ miles is normal with basic maintenance.',
+            check: '<strong>Verify oil change history.</strong> Listen for clean idle and acceleration. Pull dipstick — golden to brown oil.',
+            cost: '$0 if maintained',
+            source: 'Toyota engine reliability data'
+          },
+          {
+            title: '4.7L V8 (2UZ-FE) — secondary air injection codes',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'V8 4Runners (2005-2009) can throw secondary air injection codes (P2440-P2443), often around 100k miles. The system itself is rarely fully broken — usually a faulty switching valve or pump.',
+            check: '<strong>Scan for any stored codes.</strong> Listen for the secondary air pump at cold start (should run for ~30 seconds). Any check engine light = ask which code.',
+            cost: '$400-$900 valve / $1,500+ pump replacement',
+            source: 'Toyota TSB EG062-08'
+          },
+          {
+            title: '5-speed automatic — fluid history',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The 5-speed automatic is reliable when fluid is maintained. Toyota called it "lifetime fill" — community consensus is change at 60k.',
+            check: '<strong>Verify fluid was changed.</strong> Test all shift points. Smooth 1-2-3 upshifts, firm but smooth.',
+            cost: '$250 fluid service',
+            source: 'Toyota service docs'
+          }
+        ]
+      },
+      {
+        title: 'Interior & Electrical',
+        items: [
+          {
+            title: 'Dashboard cracking (sun-belt issue)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 4th-gen 4Runner dashboard cracks badly in sun-belt states (Arizona, Texas, Florida). A documented issue Toyota did not address. Replacement is expensive.',
+            check: '<strong>Inspect the dashboard for cracks, especially on the passenger side and at corners.</strong> Surface cracks are cosmetic but indicate AZ/TX truck. A dash cover may hide damage — lift it.',
+            cost: '$1,000+ dash replacement / $50-$150 dash cover',
+            source: 'AZ/TX-specific wear pattern'
+          },
+          {
+            title: 'Rear hatch window / wiper motor failure',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The rear hatch power window and wiper motors are known wear items. Some owners report sticky window operation.',
+            check: '<strong>Test rear hatch window up and down 3 times.</strong> Test rear wiper. Listen for grinding from the hatch.',
+            cost: '$200-$400 motor replacement',
+            source: 'Standard wear'
+          },
+          {
+            title: 'Third-row seat condition (if equipped)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The optional third-row seat folds flat — verify it still folds, latches, and the seat-belt buckles work.',
+            check: '<strong>Fold the third row up and down. Test all latches and seat belts.</strong> Stuck mechanisms can be lubricated.',
+            cost: '$50-$200 latch repair',
+            source: 'Standard wear'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '08V-528', title: 'Floor Mat / Accelerator', desc: 'Large Toyota recall — verify floor mats not stacked, accelerator pedal not blocked.' },
+      { number: '12V-491', title: 'Power Window Switch', desc: 'Same Toyota recall as other models.' },
+      { number: '14V-312', title: 'Differential Pinion Nut', desc: 'Loose nut may cause rear differential failure.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — verify completion.' },
+      { number: '20V-012', title: 'Brake Booster Pump', desc: 'Pump motor may fail under low-temperature conditions.' }
+    ]
+  },
+
+  'honda-ridgeline-2012': {
+    year: 2012,
+    make: 'Honda',
+    model: 'Ridgeline',
+    trim: 'RT / RTS / RTL / Sport (1st gen, 2009-2014)',
+    engine: '3.5L J35 V6 (250hp), 5-speed automatic, AWD standard',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 1st-gen Ridgeline is the sleeper pick of midsize trucks — unibody, AWD, Honda V6, and the unique in-bed trunk. Tow rating is only 5,000 lbs, but reliability matches or beats the Tacoma at a lower price. Main concerns: motor mounts, paint, and 2007-2009 transmission torque converter issues (less concerning on the 2012 refresh).",
+    stats: {
+      itemsToCheck: 9,
+      recalls: 3,
+      ownerComplaints: 198,
+      topComplaintArea: 'Power Train'
+    },
+    sections: [
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: 'Motor mounts (the #1 Ridgeline issue)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The Ridgeline\'s active hydraulic motor mounts have a high failure rate, especially the rear mount. Symptom: vibration at idle, clunk on shifts, harsh acceleration.',
+            check: '<strong>At idle in Drive (foot on brake), feel the steering wheel and shifter for excessive vibration.</strong> Listen for a clunk going from Reverse to Drive. Pop the hood and inspect mounts for oily leaks (hydraulic fluid).',
+            cost: '$400-$700 per mount at independent shop (3 mounts total)',
+            source: 'Honda TSB 11-061 + community consensus'
+          },
+          {
+            title: 'J35 V6 — VCM cylinder deactivation issues',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The J35 V6 with Variable Cylinder Management (VCM) can develop oil consumption and spark plug fouling on the deactivated cylinders. Aftermarket "VCM Muzzler" device permanently disables the system.',
+            check: '<strong>Check oil level and consumption rate.</strong> Pull plugs (#1, #4, #6) to check for fouling. Ask if a VCM Muzzler is installed — that\'s a positive sign of awareness.',
+            cost: '$30 VCM Muzzler / $500-$1,500 spark plug + cleaning service if fouled',
+            source: 'Honda Pilot/Ridgeline community'
+          },
+          {
+            title: '5-speed automatic transmission (post-2007 fix)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Early Ridgelines (2006-2007) had torque converter judder issues — largely resolved by the 2009 refresh. 2009+ trucks rarely have transmission problems if fluid is changed.',
+            check: '<strong>Verify Honda ATF DW-1 fluid change at 60k intervals.</strong> Test all shifts. Pay attention to converter lockup around 45-55 mph — any shudder = converter starting to go.',
+            cost: '$180 fluid service / $3,500+ rebuild if neglected',
+            source: 'Honda service intervals'
+          }
+        ]
+      },
+      {
+        title: 'Suspension & AWD',
+        items: [
+          {
+            title: 'Rear differential fluid (VTM-4 AWD)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The VTM-4 rear differential uses a specific Honda fluid (DPSF). Owners often skip the change, causing rear-end clunk and eventual failure.',
+            check: '<strong>Ask when the rear diff fluid was last changed (Honda says 30k, owners do every 15-20k).</strong> Drive in tight turns at low speed — clunk or judder = neglect.',
+            cost: '$100 fluid service / $2,500+ diff rebuild if failed',
+            source: 'Honda service docs'
+          },
+          {
+            title: 'Front lower control arm bushings',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'At 100k+ miles, front compliance bushings start to develop play.',
+            check: '<strong>Drive over speed bumps and listen for clunks from the front.</strong> Visually inspect bushings for cracking.',
+            cost: '$400-$700 per side',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body, Bed & Interior',
+        items: [
+          {
+            title: 'Paint quality (Honda thin clearcoat)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Honda paint of this era is thin — minor chips and peeling are common, especially on hood and roof.',
+            check: '<strong>Inspect hood, roof, and bumper edges.</strong> Stone chips are normal; major peeling = sun damage.',
+            cost: '$500-$2,500 spot repaint',
+            source: 'Honda paint era'
+          },
+          {
+            title: 'In-bed trunk seal',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The unique in-bed trunk uses a rubber seal that can crack and leak water into the trunk.',
+            check: '<strong>Open the in-bed trunk and inspect the seal.</strong> Pour a cup of water on the seal area and verify no leakage into the trunk.',
+            cost: '$30-$80 replacement seal',
+            source: 'Ridgeline-specific'
+          },
+          {
+            title: 'Tailgate operation (dual-hinge unique feature)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'The Ridgeline has a unique tailgate that opens both down (like a normal truck) and sideways. Both hinges and latches need to work.',
+            check: '<strong>Open the tailgate both ways.</strong> Verify the side-hinge mechanism works smoothly.',
+            cost: '$100-$300 hinge replacement',
+            source: 'Ridgeline-specific'
+          }
+        ]
+      },
+      {
+        title: 'Electrical',
+        items: [
+          {
+            title: 'Battery / charging system',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Standard maintenance — battery typically lasts 4-5 years. Charging system is robust.',
+            check: '<strong>Check battery date sticker — replace if older than 4 years.</strong> Verify cold cranking is strong.',
+            cost: '$150-$250 battery',
+            source: 'Standard maintenance'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '12V-499', title: 'Driveshaft Sub-Assembly', desc: 'Front driveshaft may fail.' },
+      { number: '15V-441', title: 'Hood Latch', desc: 'Secondary latch may corrode in salt-belt.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — verify completion.' }
+    ]
+  },
+
+  'subaru-forester-2011': {
+    year: 2011,
+    make: 'Subaru',
+    model: 'Forester',
+    trim: '2.5X / 2.5X Premium / 2.5X Limited / 2.5XT Turbo',
+    engine: '2.5L EJ253 (NA) or 2.5L EJ255 (turbo) — 4 or 5-spd auto / 5-spd manual',
+    overallRisk: 'monitor',
+    overallRiskLabel: 'Monitor',
+    summary: "The 2009-2013 Forester (3rd gen) is the last of the boxer-engine era before Subaru moved to the FB25 in 2014. It\'s capable, practical AWD, but has documented head gasket and oil consumption issues that buyers must verify. Verified-clean examples are excellent; neglected ones are a wallet trap.",
+    stats: {
+      itemsToCheck: 10,
+      recalls: 4,
+      ownerComplaints: 478,
+      topComplaintArea: 'Engine'
+    },
+    sections: [
+      {
+        title: 'Engine — EJ25 boxer concerns',
+        items: [
+          {
+            title: 'Head gasket failure (the headline)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The EJ253 (naturally aspirated 2.5L) is famous for head gasket failures, typically between 90,000 and 150,000 miles. Symptoms: external coolant or oil weeping at the head-block joint, bubbling in radiator, white smoke.',
+            check: '<strong>Look at the lower-back of both heads with a flashlight for coolant or oil seepage.</strong> Pressure-test the cooling system if possible. Ask for any service records showing head gasket replacement — if done, this becomes a non-issue.',
+            cost: '$2,000-$3,500 head gasket service (timing belt typically included)',
+            source: 'Subaru community + multiple TSBs'
+          },
+          {
+            title: 'Oil consumption (1 quart per 1,000 miles common)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'EJ25 engines often consume oil — Subaru\'s own definition of "normal" was 1 quart per 1,200 miles. Excessive consumption can indicate piston ring wear.',
+            check: '<strong>Ask the seller: "How much oil does it use between changes?"</strong> Pull dipstick. Check oil level vs. miles since last change.',
+            cost: '$3,500+ short block if consumption is excessive',
+            source: 'Subaru oil consumption class action'
+          },
+          {
+            title: 'Timing belt (interference engine)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The EJ25 is an interference engine with a timing belt. Subaru\'s recommended interval is 105,000 miles. A snapped belt = bent valves = engine replacement.',
+            check: '<strong>Get the timing belt service history.</strong> If overdue or undocumented, budget the service immediately (water pump and tensioner typically replaced at the same time).',
+            cost: '$700-$1,200 timing belt + water pump service',
+            source: 'Subaru service intervals'
+          },
+          {
+            title: '2.5XT turbo — banjo bolt / oil starvation',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Turbocharged 2.5XT models are known for spinning rod bearings if oil change intervals are stretched. The banjo bolt feed to the turbo can clog. Turbo Foresters with neglected oil = grenade.',
+            check: '<strong>2.5XT only: ask for every oil change record. If there are gaps or extended intervals (>5k), walk.</strong> Pull oil cap and look for sludge. Listen for any rod knock at startup.',
+            cost: '$5,000+ engine rebuild if rod bearing spun',
+            source: 'Subaru turbo community consensus'
+          }
+        ]
+      },
+      {
+        title: 'Drivetrain',
+        items: [
+          {
+            title: '4-speed automatic / CVT (model-dependent)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: '2009-2010 models use a 4-speed automatic (very durable); 2011+ NA models use a CVT. CVTs are reliable when fluid is maintained.',
+            check: '<strong>If CVT: verify fluid was changed (Subaru CVT fluid, not generic).</strong> Test all shifts smoothly. Listen for whine.',
+            cost: '$200 CVT fluid service / $5,000+ CVT replacement if neglected',
+            source: 'Subaru service docs'
+          },
+          {
+            title: 'Front wheel bearings (common wear item)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Front wheel bearings wear at 80,000-120,000 miles. Symptom: humming or roaring sound that changes with speed or turning.',
+            check: '<strong>Drive at 35-50 mph in a straight line, then make gentle S-turns.</strong> If the noise changes pitch or volume with turning = wheel bearing.',
+            cost: '$300-$500 per side at independent shop',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body & Electrical',
+        items: [
+          {
+            title: 'AWD fuse / unequal tire wear',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Subaru AWD requires all 4 tires to be the same brand, model, and within ~2/32" tread depth. Mismatched tires destroy the center differential.',
+            check: '<strong>Verify all 4 tires are the same model and similar wear.</strong> Drive in tight low-speed circles — binding or hopping = drivetrain stress.',
+            cost: '$2,500+ rear diff/transfer case if damaged',
+            source: 'Subaru service requirements'
+          },
+          {
+            title: 'Sunroof drains and leaks',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Forester panoramic sunroofs (Premium/Limited) can leak if drain tubes clog.',
+            check: '<strong>Open sunroof and pour water in drain channels.</strong> Check headliner for staining.',
+            cost: '$100 drain cleaning / $1,000+ if motor damaged by water',
+            source: 'Standard sunroof issue'
+          },
+          {
+            title: 'Rear suspension trailing arm bushings',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Rear bushings wear by 100k+, causing clunks over bumps.',
+            check: '<strong>Drive over bumps and listen for clunks from the rear.</strong> Visual inspection of bushings.',
+            cost: '$300-$500 per side',
+            source: 'Standard wear pattern'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '11V-260', title: 'Brake Line Corrosion (salt belt)', desc: 'Rear brake lines may corrode and leak.' },
+      { number: '14V-668', title: 'Brake Pedal Bracket', desc: 'Bracket may corrode and fail.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — verify completion.' },
+      { number: '18V-114', title: 'Valve Spring Replacement', desc: 'Some EJ engines may have defective valve springs.' }
+    ]
+  },
+
+  'toyota-highlander-2010': {
+    year: 2010,
+    make: 'Toyota',
+    model: 'Highlander',
+    trim: 'Base / SE / Limited (V6 / Hybrid available)',
+    engine: '3.5L 2GR-FE V6 (270hp) — 5-speed automatic',
+    overallRisk: 'low',
+    overallRiskLabel: 'Low Risk',
+    summary: "The 2008-2013 Highlander shares its bulletproof 2GR-FE V6 with the Lexus RX 350. It\'s one of the most boring used SUVs to inspect — meaning it usually checks out. Three-row family hauler with reliable AWD on optional trims. Verify water pump status (same preventive-replacement zone as the RX) and you\'re in good shape.",
+    stats: {
+      itemsToCheck: 9,
+      recalls: 4,
+      ownerComplaints: 215,
+      topComplaintArea: 'Power Train'
+    },
+    sections: [
+      {
+        title: 'Powertrain (shared with Lexus RX)',
+        items: [
+          {
+            title: '2GR-FE V6 — proven workhorse',
+            risk: 'clear', riskLabel: 'No Known Issues',
+            desc: 'Same 3.5L V6 as the Lexus RX 350, Camry, Avalon. Reliably hits 250,000+ miles with basic maintenance.',
+            check: '<strong>Verify oil change history (5k intervals).</strong> Listen at idle — no ticking, no rattles. Pull dipstick.',
+            cost: '$0 if maintained',
+            source: 'Toyota 2GR-FE reliability data'
+          },
+          {
+            title: 'Water pump (preventive replacement zone, 90k-130k)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Same water pump concern as the Lexus RX. Failure between 90,000-130,000 miles is common. If overdue, address before purchase.',
+            check: '<strong>Look for coolant weeping at the front of the engine.</strong> Ask if water pump has been replaced (request invoice).',
+            cost: '$600-$900 at independent shop',
+            source: 'Toyota common wear'
+          },
+          {
+            title: '5-speed automatic — fluid history',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Reliable transmission when fluid is maintained.',
+            check: '<strong>Verify fluid was changed at 60k.</strong> Test all shifts.',
+            cost: '$220 fluid service',
+            source: 'Toyota service docs'
+          }
+        ]
+      },
+      {
+        title: 'Suspension & Steering',
+        items: [
+          {
+            title: 'Front struts and rear shocks',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'At typical Highlander age (13-15 years), struts and shocks are due for replacement.',
+            check: '<strong>Push down on each corner — should rebound once.</strong> Look for visible shock leaks.',
+            cost: '$800-$1,200 struts (pair) / $400-$600 rear shocks',
+            source: 'Standard wear'
+          },
+          {
+            title: 'Steering rack — leaks possible',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Slow rack seal leaks possible at high mileage.',
+            check: '<strong>Check PS fluid level.</strong> Inspect rack boots.',
+            cost: '$1,200-$1,800 rack if leak is severe',
+            source: 'Standard wear'
+          }
+        ]
+      },
+      {
+        title: 'Body, Interior & Electrical',
+        items: [
+          {
+            title: 'Dashboard cracking (sun-belt states)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Same dashboard cracking issue as the 4Runner — common on AZ/TX/FL Highlanders.',
+            check: '<strong>Inspect dash for cracks, especially passenger side.</strong> Lift any dash cover.',
+            cost: '$800+ dash replacement / $50-$150 cover',
+            source: 'Toyota sun-belt pattern'
+          },
+          {
+            title: 'Sunroof drains',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Drain tubes can clog, leaking water into headliner or footwells.',
+            check: '<strong>Pour water in sunroof drain.</strong> Verify it exits underneath. Check carpets for dampness.',
+            cost: '$100 cleaning / $1,500+ if water damage',
+            source: 'Standard sunroof issue'
+          },
+          {
+            title: 'Third-row seat condition (if 7-passenger)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Third-row folds flat — test the mechanism and seat belts.',
+            check: '<strong>Fold up and down. Test all seat belts.</strong>',
+            cost: '$50-$200 latch repair',
+            source: 'Standard wear'
+          },
+          {
+            title: 'Audio / navigation reliability (Limited)',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'JBL audio and nav systems are aging but generally reliable.',
+            check: '<strong>Test all audio sources and nav functions.</strong>',
+            cost: '$200-$500 replacement screen',
+            source: 'Standard wear'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '10V-017', title: 'Accelerator Pedal', desc: 'Pedal may stick — verify floor mat issue addressed.' },
+      { number: '12V-491', title: 'Power Window Switch', desc: 'Same Toyota recall.' },
+      { number: '14V-053', title: 'Hybrid Inverter (Hybrid models only)', desc: 'Inverter may overheat — Hybrid trims only.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Critical safety recall — verify completion.' }
+    ]
+  },
+
+  'subaru-outback-2015': {
+    year: 2015,
+    make: 'Subaru',
+    model: 'Outback',
+    trim: '2.5i / 2.5i Premium / 2.5i Limited / 3.6R Limited',
+    engine: '2.5L FB25 H4 (175hp) or 3.6L EZ36 H6 (256hp), Lineartronic CVT',
+    overallRisk: 'monitor',
+    overallRiskLabel: 'Watchful',
+    summary: "The 2015 Outback launched the 5th generation — substantially more refined than the 4th-gen wagon it replaced. It is a strong used buy with one big asterisk: the FB25 four-cylinder is implicated in Subaru's oil-consumption class-action settlement (Yaeger v. Subaru), and a meaningful share of these cars consume oil at a rate the owner does not notice until the engine is starved. The 3.6L H6 has none of that drama. Both transmissions are the Lineartronic CVT — generally reliable, but a fluid check is non-negotiable at this age.",
+    stats: {
+      itemsToCheck: 13,
+      recalls: 5,
+      ownerComplaints: 612,
+      topComplaintArea: 'Engine (oil consumption)'
+    },
+    sections: [
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: 'FB25 oil consumption (2.5L only)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The 2.5L FB25 is the engine covered by Subaru\'s oil-consumption class-action settlement (Yaeger v. Subaru). Affected cars can burn a quart per 1,000 miles without showing any warning light.',
+            check: '<strong>Check the oil level on the dipstick — a level near or below MIN on a car the seller says was "just changed" is the consumption signature.</strong> Ask whether a dealer oil-consumption test was ever performed (required to access settlement coverage). Smell the oil for fuel dilution.',
+            cost: '$0 if covered by settlement (short-block replacement) / $4,500-$6,500 out of warranty',
+            source: 'Yaeger v. Subaru class action settlement (2016)'
+          },
+          {
+            title: 'CVT fluid condition',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Subaru\'s Lineartronic CVT is generally more reliable than the Nissan Jatco family, but at 10 years old fluid condition is the single best predictor of remaining life.',
+            check: '<strong>Pull the CVT dipstick or fill-plug.</strong> Fluid should be a translucent amber. Brown, opaque, or burnt-smelling means service is overdue and possibly already too late.',
+            cost: '$250-$500 fluid service / $4,000-$7,000 CVT replacement',
+            source: 'Subaru TSB 16-103-15 + owner reports'
+          },
+          {
+            title: 'Timing chain tensioner rattle (FB25)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'A brief 3-5 second rattle on cold start is documented wear on the FB25; sustained rattle past 10 seconds is tensioner failure heading toward chain damage.',
+            check: '<strong>Have the seller cold-start the engine (it must have sat overnight).</strong> Listen for rattle from the front of the engine that persists past 10 seconds.',
+            cost: '$900-$1,800 tensioner + chain service',
+            source: 'Subaru TSB 11-170-16'
+          }
+        ]
+      },
+      {
+        title: 'Driver Assist & Electronics',
+        items: [
+          {
+            title: 'EyeSight camera self-check (if equipped)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'EyeSight on Limited trims has its own software update history. A persistent yellow or red EyeSight icon at startup indicates a camera fault — and the camera lives on the windshield, so any windshield work requires full recalibration.',
+            check: '<strong>Turn the ignition on and watch the cluster.</strong> The EyeSight icon should display momentarily, then clear. Verify the latest software update has been applied via Subaru service records.',
+            cost: '$0 (software update) / $400-$1,400 (camera + recalibration)',
+            source: 'Subaru TSB 07-128-18 + multiple EyeSight software campaigns'
+          },
+          {
+            title: 'Windshield clarity in EyeSight zone',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 2015 Outback windshield is more rigid than most competitors\' and is therefore more crack-prone. Any chip or crack in the area directly behind the rearview mirror disables EyeSight.',
+            check: '<strong>Inspect the top center of the windshield where the rearview mirror mounts.</strong> Even a small chip in that zone requires windshield replacement plus EyeSight recalibration.',
+            cost: '$1,200-$2,400 windshield + recalibration',
+            source: 'Common Outback owner reports'
+          },
+          {
+            title: 'Battery parasitic drain',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Early-build 2015 Outbacks had a known parasitic draw from the infotainment system that would kill the battery if the car sat for more than a week.',
+            check: '<strong>Ask whether the battery has been replaced.</strong> If the car sat on the dealer lot for more than a few weeks, have it load-tested before purchase.',
+            cost: '$200-$350 battery / $0 if TSB software update applied',
+            source: 'Subaru TSB 15-191-14'
+          }
+        ]
+      },
+      {
+        title: 'Wheels, Tires & Drivetrain',
+        items: [
+          {
+            title: 'Tire matching (Symmetrical AWD critical)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'Subaru Symmetrical AWD requires all four tires within 1/32" of tread depth of each other. Mismatched tires will destroy the center differential and viscous coupling within 10,000-20,000 miles — a $3,500+ repair.',
+            check: '<strong>Measure tread depth on all four tires with a tire gauge.</strong> Any tire more than 1/32" different is a walk-away or a price-renegotiation for a full new tire set.',
+            cost: '$600-$1,200 new tire set / $3,500+ center diff replacement if neglected',
+            source: 'Subaru AWD service documentation'
+          },
+          {
+            title: 'Front wheel bearings',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Outback front wheel bearings are a known wear item at 80,000-120,000 miles. Symptom is a low hum that changes pitch with vehicle speed.',
+            check: '<strong>Listen at highway speed.</strong> A worn bearing will get louder when you crown the steering toward the loaded side. Jack each front wheel and rotate by hand to feel for roughness.',
+            cost: '$400-$700 per side',
+            source: 'Common Outback wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body & Underbody',
+        items: [
+          {
+            title: 'Subframe and engine cradle corrosion (salt belt)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Subaru subframes rust from inside the boxed sections in salt-belt cars. By 10 years old, Northeast and Upper Midwest Outbacks can show active scaling.',
+            check: '<strong>Have the underbody inspected.</strong> Probe suspect areas with a flathead screwdriver — if metal gives, it is structural rust, not surface rust.',
+            cost: '$1,800-$3,500 subframe replacement if perforated',
+            source: 'Common salt-belt wear pattern'
+          },
+          {
+            title: 'Rear differential and center diff seal seepage',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Symmetrical AWD has more seals than a FWD wagon. Expect at least a wet film on rear diff and center diff seals at this age.',
+            check: '<strong>Visual inspection of the rear differential housing, axle seals, and the center differential output.</strong> Wet film is acceptable; active dripping is not.',
+            cost: '$200-$500 per seal replacement',
+            source: 'Standard wear pattern'
+          },
+          {
+            title: 'Brake lines and fuel lines (salt belt)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'On a 10-year-old vehicle in any salt-exposed market, brake lines rust from the inside out. A failing line is a sudden brake-failure event, not a gradual one.',
+            check: '<strong>Inspect the brake lines along the frame rail and at the rear axle.</strong> Look for flaking rust or bulging. Mention any concerns to a brake shop before purchase.',
+            cost: '$400-$1,000 full brake line replacement',
+            source: 'Standard 10-year wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Documentation',
+        items: [
+          {
+            title: 'Oil-consumption test on record (FB25 only)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'If the car is eligible for the Yaeger v. Subaru settlement and the seller has no documented dealer oil-consumption test, that is a free dealer visit you should require before purchase.',
+            check: '<strong>Ask the seller for documentation of a dealer oil-consumption test.</strong> If none exists, schedule one at a Subaru dealer (no charge) before closing the sale.',
+            cost: '$0 (dealer goodwill / settlement coverage)',
+            source: 'Yaeger v. Subaru settlement requirements'
+          },
+          {
+            title: 'CARFAX clean for structural damage or airbag deployment',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Outback resale supports cosmetic rebuilds of salvage cars — the price-to-resale ratio makes it economical to rebuild damaged examples.',
+            check: '<strong>Run a CARFAX or AutoCheck report.</strong> Walk away from any airbag-deployment event, structural-damage report, or total-loss buyback.',
+            cost: 'Walk away',
+            source: 'Standard used-car due diligence'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '14V-787', title: 'Takata Airbag (Passenger)', desc: 'Critical — verify replacement on file before purchase.' },
+      { number: '20V-696', title: 'Denso Low-Pressure Fuel Pump', desc: 'Pump may fail and cause stall. Free dealer replacement.' },
+      { number: '15V-117', title: 'Brake Light Switch (Mitsuba)', desc: 'Switch may stick and prevent cruise control / push-button start.' },
+      { number: '17V-148', title: 'PCV Valve (FB25, early build)', desc: 'Limited build dates only; valve could ingest oil.' },
+      { number: '18V-307', title: 'EyeSight ECU Software', desc: 'Multiple software campaigns — verify latest version installed.' }
+    ]
+  },
+
+  'honda-civic-2017': {
+    year: 2017,
+    make: 'Honda',
+    model: 'Civic',
+    trim: 'LX / EX / EX-T / EX-L / Touring / Si / Sport',
+    engine: '2.0L K20C2 I4 (158hp) or 1.5L L15B7 turbo (174-205hp), CVT or 6MT',
+    overallRisk: 'monitor',
+    overallRiskLabel: 'Watchful',
+    summary: "The 2017 Civic is the second model year of the sharp 10th-gen platform — but it is the year that exposed the L15B7 1.5L turbocharged engine\'s oil-dilution problem at scale. In cold weather, unburned gasoline accumulates in the engine oil faster than it can evaporate, raising oil level above max and reducing viscosity. Honda extended powertrain warranty in cold-weather states and pushed software updates. The 2.0L LX/Sport variants are largely free of this and are the safer used buy if you don\'t need the torque.",
+    stats: {
+      itemsToCheck: 12,
+      recalls: 4,
+      ownerComplaints: 893,
+      topComplaintArea: 'Engine (1.5T oil dilution)'
+    },
+    sections: [
+      {
+        title: 'Powertrain',
+        items: [
+          {
+            title: '1.5L turbo oil dilution (L15B7 only)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'In cold-weather conditions, unburned gasoline accumulates in the oil pan. Owners report oil level rising ABOVE max within 1,000-2,000 miles of an oil change. Honda software updates address the cold-start enrichment cycle but do not eliminate the issue.',
+            check: '<strong>Pull the dipstick on the 1.5L only.</strong> Oil level near or above MAX after a recent oil change is the dilution signature. Smell the oil — gasoline odor confirms dilution. Verify the latest PCM software update is on the service record.',
+            cost: '$0 software flash + oil change under extended warranty / $5,500+ engine replacement if severe',
+            source: 'Browning v. American Honda class action (2020) + Honda service bulletin 19-049'
+          },
+          {
+            title: 'VTC actuator rattle on cold start (1.5L and 2.0L)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'A 2-4 second rattle on cold start is documented wear on both engines; sustained rattle past 10 seconds is actuator failure.',
+            check: '<strong>Have the seller cold-start the engine (must have sat overnight).</strong> Brief rattle is expected; persistent rattle past 10 seconds is a replacement.',
+            cost: '$400-$900 VTC actuator replacement',
+            source: 'Honda TSB 18-114'
+          },
+          {
+            title: 'CVT fluid condition',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Honda CVTs are generally reliable but fluid service is non-negotiable at this age. Honda CVT has a dipstick — easy to check.',
+            check: '<strong>Pull the CVT dipstick.</strong> Color should be a translucent reddish-amber. Brown, opaque, or burnt-smelling means service is overdue.',
+            cost: '$250-$450 fluid service / $4,000-$6,500 CVT replacement',
+            source: 'Honda service interval guidance'
+          }
+        ]
+      },
+      {
+        title: 'Electrical & Electronics',
+        items: [
+          {
+            title: 'A/C condenser pinhole leak',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: 'The front-mounted condenser is vulnerable to road debris and develops pinhole leaks early — common enough that Honda extended warranty coverage on it.',
+            check: '<strong>Test A/C at idle for 5+ minutes; vent temperature should hit the low 40s F.</strong> Check the condenser fins through the front grille for damage. Look for green refrigerant dye trace.',
+            cost: '$600-$1,200 condenser replacement / $0 if extended warranty applies',
+            source: 'Honda extended warranty enhancement'
+          },
+          {
+            title: 'Infotainment freeze / reboot',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The 7-inch touchscreen on this generation is known for slow boot, intermittent freezes, and reboot loops. Multiple software revisions issued.',
+            check: '<strong>Turn the ignition on and wait 90 seconds.</strong> Verify Bluetooth, USB, backup camera, and Honda Sensing icons all clear from the cluster. Cycle through audio sources and navigation.',
+            cost: '$0 software update / $1,200-$2,000 head unit replacement',
+            source: 'Honda TSB 18-053 + multiple infotainment campaigns'
+          },
+          {
+            title: 'Electronic parking brake',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'The EPB has been the subject of TSB and recall-adjacent service campaigns for software glitches that can auto-engage at speed.',
+            check: '<strong>Engage and release the EPB three times.</strong> Listen for grinding or rolling without release. Verify the dashboard indicator fully clears.',
+            cost: '$0 software update / $300-$700 motor replacement',
+            source: 'Honda service campaigns'
+          }
+        ]
+      },
+      {
+        title: 'Suspension & Wheels',
+        items: [
+          {
+            title: 'Front wheel bearings',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Common 100k+ wear item on this generation Civic. Symptom is a hum that changes pitch with steering input.',
+            check: '<strong>Listen at highway speed for 15 minutes.</strong> A worn bearing will quiet when you crown the steering toward it. Jack each front wheel and rotate by hand.',
+            cost: '$400-$700 per side',
+            source: 'Common Civic wear pattern'
+          },
+          {
+            title: 'Front strut top mount noise',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Knocking over bumps at the front is often a worn upper strut mount, not the strut itself.',
+            check: '<strong>Drive over rough pavement at low speed.</strong> Knock or clunk from the front is the symptom; visual inspection by a shop confirms.',
+            cost: '$300-$500 per side',
+            source: 'Standard wear pattern'
+          }
+        ]
+      },
+      {
+        title: 'Body & Glass',
+        items: [
+          {
+            title: 'Windshield clarity (Honda Sensing equipped)',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: 'Most 2017 EX and up have Honda Sensing — the windshield houses radar and camera modules that must be recalibrated after any windshield replacement.',
+            check: '<strong>Inspect windshield for cracks, chips, or repair traces — especially in the top-center camera zone.</strong> Even a small chip in that zone disables Honda Sensing.',
+            cost: '$1,000-$2,200 windshield + Honda Sensing recalibration',
+            source: 'Honda Sensing service requirements'
+          },
+          {
+            title: 'Front bumper cover alignment',
+            risk: 'low', riskLabel: 'Low Risk',
+            desc: 'Bumper covers on this generation pop loose at the wheel-arch tabs after curb impacts.',
+            check: '<strong>Check the bumper-to-headlight seam for an uneven gap on both sides.</strong> A misaligned bumper cover is cosmetic but indicates a curb hit that may have damaged the bumper bracket.',
+            cost: '$150-$400 bumper realignment / new clips',
+            source: 'Common owner reports'
+          }
+        ]
+      },
+      {
+        title: 'Documentation',
+        items: [
+          {
+            title: 'Oil dilution software update on record (1.5L cold-weather states)',
+            risk: 'high', riskLabel: 'High Attention',
+            desc: '1.5T cars sold in or transferred from cold-weather states should show the PCM calibration update on the service record. Missing update + cold-weather history = active dilution risk.',
+            check: '<strong>Ask for Honda service history.</strong> Look for the dilution-related software update line item. If the car has spent time in Northeast or Upper Midwest states, this update is essential.',
+            cost: '$0 (Honda performs free under extended warranty enhancement)',
+            source: 'Browning v. American Honda settlement terms'
+          },
+          {
+            title: 'CARFAX clean for damage or salvage',
+            risk: 'monitor', riskLabel: 'Monitor',
+            desc: '2017 Civic is one of the most aggressively rear-ended commuter cars on the road. Verify damage history before paying retail.',
+            check: '<strong>Run CARFAX or AutoCheck.</strong> Walk away from airbag deployment, structural damage, or total-loss events.',
+            cost: 'Walk away',
+            source: 'Standard used-car due diligence'
+          }
+        ]
+      }
+    ],
+    recalls: [
+      { number: '20V-014', title: 'Denso Low-Pressure Fuel Pump', desc: 'Pump may fail and cause stall. Free dealer replacement.' },
+      { number: '19V-237', title: 'A/C Condenser Refrigerant Leak', desc: 'Extended warranty enhancement — verify replacement on file.' },
+      { number: '18V-114', title: 'Driveshaft (manual transmission)', desc: 'Si and Sport 6MT — driveshaft may crack and separate. Verify completion.' },
+      { number: '16V-061', title: 'Takata Airbag', desc: 'Certain build dates received affected inflators. Verify replacement.' }
+    ]
+  }
+
+};
+
+// ---------- AVAILABLE YMMT MENU (drives dropdowns) ----------
+// Includes vehicles we have full content for + Used Garage vehicles
+// that are "coming soon" — gives users a sense of breadth.
+const VEHICLE_MENU = {
+  // [year]: { [make]: [ {model, trim, key} ] }
+  // key matches CHECKLISTS keys for available content; absent = coming soon
+  2017: {
+    'Honda': [
+      { model: 'Civic', trim: 'LX / EX / EX-T / EX-L / Touring / Si / Sport', key: 'honda-civic-2017' }
+    ],
+    'Subaru': [
+      { model: 'Outback', trim: '2.5i / 2.5i Premium / 2.5i Limited / 3.6R Limited', key: 'subaru-outback-2015' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (2DR & Unlimited)', key: 'jeep-wrangler-2012' }
+    ],
+    'Toyota': [
+      { model: 'Tacoma', trim: '3rd gen', key: null }
+    ]
+  },
+  2016: {
+    'Honda': [
+      { model: 'Civic', trim: 'LX / EX / EX-T / EX-L / Touring / Si / Sport', key: 'honda-civic-2017' }
+    ],
+    'Subaru': [
+      { model: 'Outback', trim: '2.5i / 2.5i Premium / 2.5i Limited / 3.6R Limited', key: 'subaru-outback-2015' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (2DR & Unlimited)', key: 'jeep-wrangler-2012' }
+    ],
+    'Toyota': [
+      { model: '4Runner', trim: 'SR5 / Trail / Limited', key: null }
+    ]
+  },
+  2015: {
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (2DR & Unlimited)', key: 'jeep-wrangler-2012' }
+    ],
+    'Subaru': [
+      { model: 'Outback', trim: '2.5i / 2.5i Premium / 2.5i Limited / 3.6R Limited', key: 'subaru-outback-2015' },
+      { model: 'Forester', trim: '4th gen FB25', key: null }
+    ]
+  },
+  2014: {
+    'Honda': [
+      { model: 'Accord', trim: 'LX / Sport / EX / EX-L / Touring', key: 'honda-accord-2014' },
+      { model: 'Ridgeline', trim: 'RT / RTS / RTL / Sport', key: 'honda-ridgeline-2012' }
+    ],
+    'Acura': [
+      { model: 'TSX', trim: 'Base / Technology / V6 / V6 Technology', key: 'acura-tsx-2014' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (JK)', key: 'jeep-wrangler-2012' }
+    ],
+    'Toyota': [
+      { model: 'Tacoma', trim: 'SR5 / TRD Sport / TRD Off-Road', key: 'toyota-tacoma-2012' }
+    ],
+    'Mazda': [
+      { model: 'Mazda3', trim: '', key: null },
+      { model: 'Mazda6', trim: '', key: null }
+    ],
+    'Chevrolet': [
+      { model: 'Volt', trim: '', key: null }
+    ],
+    'Volkswagen': [
+      { model: 'Jetta GLI', trim: '', key: null },
+      { model: 'GTI Mk6', trim: '', key: null }
+    ]
+  },
+  2013: {
+    'Honda': [
+      { model: 'Ridgeline', trim: 'RT / RTS / RTL / Sport', key: 'honda-ridgeline-2012' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (JK)', key: 'jeep-wrangler-2012' }
+    ],
+    'Toyota': [
+      { model: 'Tacoma', trim: 'SR5 / TRD Sport / TRD Off-Road', key: 'toyota-tacoma-2012' }
+    ],
+    'Subaru': [
+      { model: 'Forester', trim: '2.5X / Premium / Limited / XT', key: 'subaru-forester-2011' }
+    ],
+    'Volkswagen': [
+      { model: 'GTI Mk6', trim: '', key: null }
+    ]
+  },
+  2012: {
+    'Honda': [
+      { model: 'Ridgeline', trim: 'RT / RTS / RTL / Sport', key: 'honda-ridgeline-2012' }
+    ],
+    'Lexus': [
+      { model: 'RX 350', trim: 'Base / Premium / Navigation', key: 'lexus-rx350-2011' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (JK)', key: 'jeep-wrangler-2012' }
+    ],
+    'Toyota': [
+      { model: 'Tacoma', trim: 'SR5 / TRD Sport / TRD Off-Road', key: 'toyota-tacoma-2012' },
+      { model: '4Runner', trim: 'V6 SR5 / Trail / Limited', key: 'toyota-4runner-2008' }
+    ],
+    'Subaru': [
+      { model: 'Forester', trim: '2.5X / Premium / Limited / XT', key: 'subaru-forester-2011' }
+    ],
+    'Volkswagen': [
+      { model: 'GTI Mk6', trim: '', key: null }
+    ]
+  },
+  2011: {
+    'Lexus': [
+      { model: 'RX 350', trim: 'Base / Premium / Navigation', key: 'lexus-rx350-2011' }
+    ],
+    'Honda': [
+      { model: 'Ridgeline', trim: 'RT / RTS / RTL / Sport', key: 'honda-ridgeline-2012' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (JK)', key: 'jeep-wrangler-2012' }
+    ],
+    'Toyota': [
+      { model: 'Tacoma', trim: 'SR5 / TRD Sport / TRD Off-Road', key: 'toyota-tacoma-2012' },
+      { model: '4Runner', trim: 'V6 SR5 / Trail / Limited', key: 'toyota-4runner-2008' },
+      { model: 'Highlander', trim: 'Base / SE / Limited', key: 'toyota-highlander-2010' }
+    ],
+    'Subaru': [
+      { model: 'Forester', trim: '2.5X / Premium / Limited / XT', key: 'subaru-forester-2011' }
+    ],
+    'Acura': [
+      { model: 'MDX', trim: '', key: null }
+    ]
+  },
+  2010: {
+    'Lexus': [
+      { model: 'RX 350', trim: 'Base / Premium / Navigation', key: 'lexus-rx350-2011' }
+    ],
+    'Honda': [
+      { model: 'Ridgeline', trim: 'RT / RTS / RTL / Sport', key: 'honda-ridgeline-2012' }
+    ],
+    'Jeep': [
+      { model: 'Wrangler', trim: 'Sport / Sahara / Rubicon (JK 3.8L pre-Pentastar)', key: null }
+    ],
+    'Toyota': [
+      { model: 'Tacoma', trim: 'SR5 / TRD Sport / TRD Off-Road', key: 'toyota-tacoma-2012' },
+      { model: '4Runner', trim: 'V6 SR5 / Trail / Limited', key: 'toyota-4runner-2008' },
+      { model: 'Highlander', trim: 'Base / SE / Limited', key: 'toyota-highlander-2010' }
+    ],
+    'Subaru': [
+      { model: 'Forester', trim: '2.5X / Premium / Limited / XT', key: null }
+    ],
+    'Acura': [
+      { model: 'MDX', trim: '', key: null }
+    ]
+  },
+  2009: {
+    'Toyota': [
+      { model: '4Runner', trim: 'V6 SR5 / Sport / Trail / Limited / V8', key: 'toyota-4runner-2008' },
+      { model: 'Highlander', trim: 'Base / SE / Limited', key: 'toyota-highlander-2010' }
+    ],
+    'Honda': [
+      { model: 'Ridgeline', trim: 'RT / RTS / RTL / Sport', key: 'honda-ridgeline-2012' }
+    ],
+    'Subaru': [
+      { model: 'Forester', trim: '2.5X / Premium / Limited / XT', key: null }
+    ]
+  },
+  2008: {
+    'Toyota': [
+      { model: '4Runner', trim: 'V6 SR5 / Sport / Trail / Limited / V8', key: 'toyota-4runner-2008' },
+      { model: 'Highlander', trim: 'Base / SE / Limited', key: 'toyota-highlander-2010' }
+    ],
+    'Honda': [
+      { model: 'CR-V', trim: '', key: null }
+    ]
+  }
+};
+
+// ---------- DOM ----------
+const $ = (id) => document.getElementById(id);
+const vinInput = $('vin-input');
+const decodeBtn = $('decode-btn');
+const vinStatus = $('vin-status');
+const yearSelect = $('year-select');
+const makeSelect = $('make-select');
+const modelSelect = $('model-select');
+const trimSelect = $('trim-select');
+const lookupBtn = $('lookup-btn');
+const checklistSection = $('checklist-section');
+const checklistContent = $('checklist-content');
+
+// ---------- DROPDOWN INIT ----------
+function initYearDropdown() {
+  const years = Object.keys(VEHICLE_MENU).map(Number).sort((a,b) => b-a);
+  years.forEach(y => {
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    yearSelect.appendChild(opt);
+  });
+}
+initYearDropdown();
+
+yearSelect.addEventListener('change', () => {
+  const year = yearSelect.value;
+  makeSelect.innerHTML = '<option value="">Make</option>';
+  modelSelect.innerHTML = '<option value="">Model</option>';
+  trimSelect.innerHTML = '<option value="">Trim (optional)</option>';
+  makeSelect.disabled = !year;
+  modelSelect.disabled = true;
+  trimSelect.disabled = true;
+  lookupBtn.disabled = true;
+  if (!year) return;
+  const makes = Object.keys(VEHICLE_MENU[year]).sort();
+  makes.forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m;
+    opt.textContent = m;
+    makeSelect.appendChild(opt);
+  });
+});
+
+makeSelect.addEventListener('change', () => {
+  const year = yearSelect.value;
+  const make = makeSelect.value;
+  modelSelect.innerHTML = '<option value="">Model</option>';
+  trimSelect.innerHTML = '<option value="">Trim (optional)</option>';
+  modelSelect.disabled = !make;
+  trimSelect.disabled = true;
+  lookupBtn.disabled = true;
+  if (!make) return;
+  const models = VEHICLE_MENU[year][make];
+  models.forEach((m, i) => {
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = m.model + (m.key ? '' : ' (coming soon)');
+    modelSelect.appendChild(opt);
+  });
+});
+
+modelSelect.addEventListener('change', () => {
+  lookupBtn.disabled = !modelSelect.value;
+});
+
+// ---------- LOOKUP BY YMMT ----------
+lookupBtn.addEventListener('click', () => {
+  const year = yearSelect.value;
+  const make = makeSelect.value;
+  const idx = modelSelect.value;
+  if (year === '' || make === '' || idx === '') return;
+  const vehicle = VEHICLE_MENU[year][make][idx];
+  if (vehicle.key && CHECKLISTS[vehicle.key]) {
+    renderChecklist(CHECKLISTS[vehicle.key], null);
+  } else {
+    renderComingSoon(year, make, vehicle.model);
+  }
+});
+
+// ---------- VIN DECODE (NHTSA vPIC) ----------
+const VIN_REGEX = /^[A-HJ-NPR-Z0-9]{17}$/i;
+
+vinInput.addEventListener('input', () => {
+  const v = vinInput.value.toUpperCase();
+  vinInput.value = v;
+  if (v.length === 0) {
+    vinStatus.textContent = '';
+    vinInput.classList.remove('invalid');
+  } else if (v.length < 17) {
+    vinStatus.textContent = (17 - v.length) + ' characters to go';
+    vinStatus.className = 'vin-status';
+    vinInput.classList.remove('invalid');
+  } else if (!VIN_REGEX.test(v)) {
+    vinStatus.textContent = 'Invalid VIN — check for typos';
+    vinStatus.className = 'vin-status error';
+    vinInput.classList.add('invalid');
+  } else {
+    vinStatus.textContent = 'Ready to decode';
+    vinStatus.className = 'vin-status ok';
+    vinInput.classList.remove('invalid');
+  }
+});
+
+decodeBtn.addEventListener('click', async () => {
+  const vin = vinInput.value.toUpperCase().trim();
+  if (!VIN_REGEX.test(vin)) {
+    vinStatus.textContent = 'Enter a valid 17-character VIN first';
+    vinStatus.className = 'vin-status error';
+    return;
+  }
+  vinStatus.textContent = 'Decoding…';
+  vinStatus.className = 'vin-status';
+  decodeBtn.disabled = true;
+  try {
+    const r = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVinValues/${vin}?format=json`);
+    const j = await r.json();
+    const data = j.Results && j.Results[0];
+    if (!data || !data.ModelYear || !data.Make || !data.Model) {
+      throw new Error('Decode incomplete');
+    }
+    const year = parseInt(data.ModelYear, 10);
+    const make = capitalize(data.Make);
+    const model = data.Model;
+    const trim = data.Trim || data.Series || '';
+    vinStatus.textContent = `${year} ${make} ${model} ${trim}`.trim();
+    vinStatus.className = 'vin-status ok';
+    // Find a matching checklist
+    const checklist = findChecklistByYMMT(year, make, model);
+    if (checklist) {
+      renderChecklist(checklist, vin);
+    } else {
+      renderComingSoon(year, make, model, vin);
+    }
+  } catch (e) {
+    vinStatus.textContent = 'Could not decode VIN — try the dropdowns instead';
+    vinStatus.className = 'vin-status error';
+  } finally {
+    decodeBtn.disabled = false;
+  }
+});
+
+function capitalize(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+}
+
+function findChecklistByYMMT(year, make, model) {
+  // Case-insensitive match across CHECKLISTS
+  const target = `${make}-${model}-${year}`.toLowerCase().replace(/\s+/g, '-');
+  for (const key of Object.keys(CHECKLISTS)) {
+    const c = CHECKLISTS[key];
+    if (c.year === year && c.make.toLowerCase() === make.toLowerCase() && c.model.toLowerCase() === model.toLowerCase()) {
+      return c;
+    }
+  }
+  return null;
+}
+
+// ---------- RENDER ----------
+let currentChecklist = null;
+let currentVin = null;
+
+function renderChecklist(c, vin) {
+  currentChecklist = c;
+  currentVin = vin;
+  const riskClass = `risk-${c.overallRisk}`;
+  const html = `
+    <div class="checklist-actions">
+      <div class="actions-label">Take this to a shop · ${c.year} ${c.make} ${c.model}</div>
+      <div class="actions-buttons">
+        <button class="checklist-action-btn" id="cl-share">Copy link</button>
+        <button class="checklist-action-btn" id="cl-text">Save as text</button>
+        <button class="checklist-action-btn primary" id="cl-print">Print / PDF</button>
+      </div>
+    </div>
+    <div class="checklist-meta-card">
+      <div class="checklist-meta-header">
+        <div>
+          <div class="checklist-vehicle-title">${c.year} ${c.make} ${c.model}</div>
+          <div class="checklist-vin">${vin ? 'VIN ' + vin : c.trim}</div>
+        </div>
+        <div class="risk-badge ${riskClass}">
+          <span class="dot"></span> ${c.overallRiskLabel}
+        </div>
+      </div>
+      <p class="checklist-summary">${c.summary}</p>
+      <div class="checklist-stats">
+        <div class="stat">
+          <div class="stat-label">Items to check</div>
+          <div class="stat-value">${c.stats.itemsToCheck}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Open recalls</div>
+          <div class="stat-value">${c.stats.recalls}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">NHTSA complaints</div>
+          <div class="stat-value">${c.stats.ownerComplaints}</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Top concern</div>
+          <div class="stat-value" style="font-size:14px; line-height:1.3">${c.stats.topComplaintArea}</div>
+        </div>
+      </div>
+    </div>
+    ${c.sections.map(s => `
+      <div class="checklist-section-block">
+        <div class="checklist-section-header">
+          <div class="checklist-section-title">${s.title}</div>
+        </div>
+        <div class="checklist-items">
+          ${s.items.map(item => `
+            <div class="checklist-item">
+              <div class="item-risk-marker item-risk-${item.risk}"></div>
+              <div class="item-content">
+                <div class="item-header">
+                  <div class="item-title">${item.title}</div>
+                  <div class="item-risk-label ${item.risk}">${item.riskLabel}</div>
+                </div>
+                <div class="item-desc">${item.desc}</div>
+                <div class="item-check">${item.check}</div>
+                <div class="item-meta">
+                  <span><strong>Est. cost:</strong> ${item.cost}</span>
+                  <span><strong>Source:</strong> ${item.source}</span>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('')}
+    ${c.recalls && c.recalls.length ? `
+      <div class="checklist-section-block">
+        <div class="checklist-section-header">
+          <div class="checklist-section-title">NHTSA Recalls (verify completion via VIN)</div>
+        </div>
+        <div class="recalls-list">
+          ${c.recalls.map(r => `
+            <div class="recall-item">
+              <div class="recall-number">${r.number}</div>
+              <div class="recall-title">${r.title}</div>
+              <div class="recall-desc">${r.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    ` : ''}
+    <div class="mechanic-callout">
+      <div class="mechanic-callout-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+        </svg>
+      </div>
+      <div class="mechanic-callout-text">
+        <strong>Mechanic reading this for a customer?</strong>
+        AutoVet sends pre-qualified PPI customers to vetted independent Phoenix shops. We'd love to send the next one to you — keep 100% of the inspection fee.
+      </div>
+      <a href="mailto:dvs.dnl@gmail.com?subject=AutoVet%20Phoenix%20mechanic%20network%20%E2%80%94%20application&body=Shop%20name%3A%0AShop%20address%3A%0APhone%3A%0AWebsite%2FYelp%3A%0AYears%20in%20business%3A%0AYour%20standard%20PPI%20rate%3A%0AVehicles%20you%20specialize%20in%3A%0AAnything%20else%20we%20should%20know%3A%0A" class="mechanic-callout-btn">Join the network →</a>
+    </div>
+  `;
+  checklistContent.innerHTML = html;
+  checklistSection.classList.remove('checklist-hidden');
+  checklistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Wire up the action bar
+  const printBtn = document.getElementById('cl-print');
+  const textBtn = document.getElementById('cl-text');
+  const shareBtn = document.getElementById('cl-share');
+  if (printBtn) printBtn.addEventListener('click', () => window.print());
+  if (textBtn) textBtn.addEventListener('click', downloadChecklistAsText);
+  if (shareBtn) shareBtn.addEventListener('click', copyChecklistLink);
+}
+
+function downloadChecklistAsText() {
+  const c = currentChecklist;
+  if (!c) return;
+  const lines = [];
+  lines.push(`AUTOVET PRE-PURCHASE INSPECTION CHECKLIST`);
+  lines.push(`${c.year} ${c.make} ${c.model}`);
+  if (c.trim) lines.push(`Trim: ${c.trim}`);
+  if (c.engine) lines.push(`Engine: ${c.engine}`);
+  if (currentVin) lines.push(`VIN: ${currentVin}`);
+  lines.push(`Overall risk: ${c.overallRiskLabel}`);
+  lines.push('');
+  lines.push('SUMMARY');
+  lines.push(c.summary);
+  lines.push('');
+  c.sections.forEach(s => {
+    lines.push(`========================================`);
+    lines.push(s.title.toUpperCase());
+    lines.push(`========================================`);
+    s.items.forEach(item => {
+      lines.push('');
+      lines.push(`[ ] ${item.title}  —  ${item.riskLabel}`);
+      lines.push(`What it is: ${stripHtml(item.desc)}`);
+      lines.push(`How to check: ${stripHtml(item.check)}`);
+      lines.push(`Estimated cost if found: ${item.cost}`);
+      lines.push(`Source: ${item.source}`);
+    });
+    lines.push('');
+  });
+  if (c.recalls && c.recalls.length) {
+    lines.push(`========================================`);
+    lines.push('NHTSA RECALLS (verify via VIN)');
+    lines.push(`========================================`);
+    c.recalls.forEach(r => {
+      lines.push('');
+      lines.push(`[ ] ${r.number} — ${r.title}`);
+      lines.push(`     ${r.desc}`);
+    });
+    lines.push('');
+  }
+  lines.push('---');
+  lines.push('Generated by AutoVet at trailmanual.com/buying/inspection/');
+  lines.push('Take this to a vetted mechanic before purchase.');
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `autovet-${c.year}-${c.make}-${c.model}.txt`.toLowerCase().replace(/\s+/g, '-');
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function stripHtml(s) {
+  const tmp = document.createElement('div');
+  tmp.innerHTML = s;
+  return tmp.textContent || tmp.innerText || '';
+}
+
+function copyChecklistLink() {
+  const c = currentChecklist;
+  if (!c) return;
+  const url = `${window.location.origin}${window.location.pathname}?year=${c.year}&make=${encodeURIComponent(c.make)}&model=${encodeURIComponent(c.model)}`;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      const btn = document.getElementById('cl-share');
+      if (!btn) return;
+      const t = btn.textContent;
+      btn.textContent = 'Link copied';
+      setTimeout(() => { btn.textContent = t; }, 1800);
+    });
+  } else {
+    prompt('Copy this link:', url);
+  }
+}
+
+function renderComingSoon(year, make, model, vin) {
+  checklistContent.innerHTML = `
+    <div class="coming-soon">
+      <h3>${year} ${make} ${model}</h3>
+      ${vin ? `<p style="font-family: var(--font-mono); font-size: 13px; color: var(--slate-500);">VIN ${vin}</p>` : ''}
+      <p>We don't have a hand-curated AutoVet checklist for this vehicle yet. We're researching new vehicles every week — the most popular requests get prioritized.</p>
+      <p style="font-size: 14px; margin-top: 24px;"><a href="/used-garage.html">Meanwhile, check the TrailManual Used Garage</a> for editorial buying guidance on long-list candidates.</p>
+    </div>
+  `;
+  checklistSection.classList.remove('checklist-hidden');
+  checklistSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ---------- HANDLE INBOUND QUERY PARAMS ----------
+// Wired from Used Garage and other entry points:
+// /buying/inspection/?year=2014&make=Acura&model=TSX
+(function handleQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  const year = params.get('year');
+  const make = params.get('make');
+  const model = params.get('model');
+  if (!year || !make || !model) return;
+
+  // Try to find a checklist
+  const checklist = findChecklistByYMMT(parseInt(year, 10), make, model);
+  if (checklist) {
+    renderChecklist(checklist, null);
+  } else {
+    renderComingSoon(year, capitalize(make), model, null);
+  }
+
+  // Also pre-fill the dropdowns to match
+  if (VEHICLE_MENU[year]) {
+    yearSelect.value = year;
+    yearSelect.dispatchEvent(new Event('change'));
+    if (VEHICLE_MENU[year][make]) {
+      makeSelect.value = make;
+      makeSelect.dispatchEvent(new Event('change'));
+      const idx = VEHICLE_MENU[year][make].findIndex(m =>
+        m.model.toLowerCase() === model.toLowerCase()
+      );
+      if (idx >= 0) {
+        modelSelect.value = idx;
+        modelSelect.dispatchEvent(new Event('change'));
+      }
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -58,6 +58,19 @@
       padding: 64px 32px 56px;
       max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-text { min-width: 0; }
+    .hero-icon {
+      flex-shrink: 0;
+      opacity: 0.92;
+    }
+    .hero-icon svg {
+      display: block;
+      filter: drop-shadow(0 4px 24px rgba(43,58,74,0.12));
     }
     .eyebrow {
       font-family: var(--mono);
@@ -210,8 +223,11 @@
       color: var(--bone-d);
     }
 
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; padding: 40px 20px 36px; }
+      .hero-icon { display: none; }
+    }
     @media (max-width: 600px) {
-      .hero { padding: 40px 20px 36px; }
       .content-section { padding: 40px 20px 60px; }
       .card-grid { grid-template-columns: 1fr; }
       .tm-topbar-inner { padding: 12px 16px; }
@@ -244,13 +260,36 @@
 <main>
 
   <section class="hero">
-    <p class="eyebrow">Early Ford Bronco · 1966–1977</p>
-    <h1>The First Bronco.</h1>
-    <p class="hero-lede">Before Wranglers, before Tacomas — Ford built a go-anywhere open-wheel truck that defined what an off-road vehicle could be. First generation, full stop.</p>
-    <div class="stat-chips">
-      <span class="stat-chip"><span class="stat-chip-dot"></span>11 years of production</span>
-      <span class="stat-chip"><span class="stat-chip-dot"></span>4 body styles</span>
-      <span class="stat-chip"><span class="stat-chip-dot"></span>5 engine options</span>
+    <div class="hero-text">
+      <p class="eyebrow">Early Ford Bronco · 1966–1977</p>
+      <h1>The First Bronco.</h1>
+      <p class="hero-lede">Before Wranglers, before Tacomas — Ford built a go-anywhere open-wheel truck that defined what an off-road vehicle could be. First generation, full stop.</p>
+      <div class="stat-chips">
+        <span class="stat-chip"><span class="stat-chip-dot"></span>11 years of production</span>
+        <span class="stat-chip"><span class="stat-chip-dot"></span>4 body styles</span>
+        <span class="stat-chip"><span class="stat-chip-dot"></span>5 engine options</span>
+      </div>
+    </div>
+    <div class="hero-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 92" width="200" height="184">
+        <rect x="2" y="6" width="96" height="74" rx="3" fill="#1A2330"/>
+        <rect x="4" y="6" width="15" height="7" rx="1" fill="#C97E50"/>
+        <rect x="81" y="6" width="15" height="7" rx="1" fill="#C97E50"/>
+        <rect x="5" y="15" width="22" height="22" rx="1" fill="#C97E50"/>
+        <rect x="73" y="15" width="22" height="22" rx="1" fill="#C97E50"/>
+        <rect x="7" y="17" width="18" height="16" rx="0" fill="#A86038"/>
+        <rect x="75" y="17" width="18" height="16" rx="0" fill="#A86038"/>
+        <rect x="31" y="15" width="38" height="4" rx="1" fill="#F7F4ED"/>
+        <rect x="31" y="22" width="38" height="4" rx="1" fill="#F7F4ED"/>
+        <rect x="31" y="29" width="38" height="4" rx="1" fill="#F7F4ED"/>
+        <rect x="31" y="36" width="38" height="4" rx="1" fill="#F7F4ED"/>
+        <rect x="29" y="13" width="42" height="30" rx="1" fill="none" stroke="#2B3A4A" stroke-width="1.5"/>
+        <rect x="2" y="42" width="96" height="14" rx="0" fill="#0F1820"/>
+        <rect x="0" y="56" width="100" height="9" rx="2" fill="#0F1820"/>
+        <rect x="6" y="55" width="8" height="5" rx="1" fill="#0A1218"/>
+        <rect x="86" y="55" width="8" height="5" rx="1" fill="#0A1218"/>
+        <rect x="2" y="65" width="96" height="15" rx="2" fill="#1A2330"/>
+      </svg>
     </div>
   </section>
 
@@ -298,6 +337,34 @@
         <h2 class="card-title">Parts and Vendors</h2>
         <p class="card-desc">Who makes what, who still stocks what, and who to trust.</p>
         <span class="card-arrow">Read guide</span>
+      </a>
+
+    </div>
+  </section>
+
+  <section class="content-section" style="padding-top: 0;">
+    <p class="section-label">More Bronco Models</p>
+    <div class="card-grid">
+
+      <a class="card" href="/bronco-ii/">
+        <p class="card-eyebrow">Bronco II · 1984–1990</p>
+        <h2 class="card-title">Bronco II</h2>
+        <p class="card-desc">Ford's compact Ranger-based Bronco. TTB front suspension, Cologne V6, budget off-road.</p>
+        <span class="card-arrow">Read guides</span>
+      </a>
+
+      <a class="card" href="/full-size-bronco/">
+        <p class="card-eyebrow">Full-Size Bronco · 1978–1996</p>
+        <h2 class="card-title">Full-Size Bronco</h2>
+        <p class="card-desc">The big one — five generations, V8 power, and the shift from solid axle to TTB in 1980.</p>
+        <span class="card-arrow">Read guides</span>
+      </a>
+
+      <a class="card" href="/bronco6g/">
+        <p class="card-eyebrow">New Bronco · 2021–Present</p>
+        <h2 class="card-title">6th Gen Bronco</h2>
+        <p class="card-desc">The return — solid axles, factory lockers, Sasquatch package, massive aftermarket.</p>
+        <span class="card-arrow">Read guides</span>
       </a>
 
     </div>
