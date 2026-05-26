@@ -390,7 +390,7 @@ main {
   padding: 14px 18px;
   margin-bottom: 28px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 18px;
   align-items: center;
 }
@@ -428,6 +428,32 @@ main {
 .summary-bar .summary-stat.purchased .val { color: var(--clay-light); }
 .summary-bar .summary-stat.installed .val { color: #8FB48A; }
 .summary-bar .summary-stat.cost .val { color: var(--bone); }
+.summary-bar .summary-stat.leftbuy .val { color: var(--warn); }
+
+/* Cost progress bar inside the summary stat */
+.cost-progress-bar { width: 100%; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin-top: 8px; }
+.cost-progress-fill { height: 100%; background: var(--clay); border-radius: 3px; transition: width .3s ease; width: 0%; }
+.cost-progress-of { font-family: var(--mono); font-size: 9px; color: var(--text-faint); margin-top: 5px; text-align: center; letter-spacing: 0.04em; }
+
+/* summary-full: makes its children become direct grid items on desktop */
+.summary-full { display: contents; }
+
+/* collapsed mobile bar */
+.summary-collapsed { display: none; align-items: center; gap: 10px; cursor: pointer; }
+.sc-name { font-size: 15px; font-weight: 500; color: var(--bone); }
+.sc-detail { font-family: var(--mono); font-size: 11px; color: var(--text-dim); flex: 1; }
+.sc-chev { width: 16px; height: 16px; transition: transform .15s; color: var(--text-dim); flex: 0 0 16px; }
+.sc-chev.open { transform: rotate(180deg); }
+
+/* ── Or-group (mutually exclusive part groups) ─────────────── */
+.or-group { border: 1px solid rgba(201,126,80,0.25); border-radius: 6px; overflow: hidden; margin: 0; }
+.or-group-header { font-family: var(--mono); font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; padding: 6px 20px; background: rgba(201,126,80,0.04); border-bottom: 1px solid rgba(201,126,80,0.15); }
+.or-separator { font-family: var(--mono); font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 20px; text-align: center; background: var(--slate-deeper); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.part.or-dim { opacity: 0.45; }
+.part.or-dim .check { pointer-events: none; }
+.part.or-active { cursor: default; }
+.part.or-inactive { cursor: pointer; }
+.part.or-inactive:hover { background: rgba(201,126,80,0.03); }
 
 .summary-actions {
   display: flex;
@@ -769,7 +795,11 @@ footer {
 footer a { color: var(--clay-light); }
 
 @media (max-width: 720px) {
-  .summary-bar { grid-template-columns: 1fr 1fr; }
+  .summary-bar { grid-template-columns: 1fr; }
+  .summary-collapsed { display: flex; }
+  .summary-full { display: none; }
+  .summary-bar.expanded .summary-full { display: contents; }
+  .summary-bar.expanded .summary-collapsed .sc-chev { transform: rotate(180deg); }
   .part { grid-template-columns: auto 1fr auto; }
   .part-check { flex-direction: row; gap: 8px; }
   .part-check .check-label { display: none; }
@@ -778,14 +808,16 @@ footer a { color: var(--clay-light); }
 }
 
 @media print {
-  .site-header, .site-nav, .summary-actions, .filter-bar, .part-expand, .vehicle-grid, .path-grid, footer { display: none !important; }
+  .site-header, .site-nav, .summary-bar .summary-actions, .summary-collapsed, .filter-bar, .part-expand, .vehicle-grid, .path-grid, footer { display: none !important; }
   body { background: white; color: black; }
   .category[data-open] .cat-body { display: block !important; }
   .part[data-expanded] .part-detail { display: block !important; }
   .category, .summary-bar, .callout { border-color: #ccc; background: white; }
-  .part { background: white !important; color: black; }
+  .part { background: white !important; color: black; opacity: 1 !important; }
   .part-name, .cat-name { color: black; }
   .check { border-color: #333; }
+  .or-group { border-color: #ccc; }
+  .or-group-header, .or-separator { background: #f5f5f5; color: #666; }
 }
 </style>
 </head>
@@ -838,27 +870,42 @@ footer a { color: var(--clay-light); }
   <!-- ── 3. Build dashboard ──────────────────────────────── -->
   <section class="section" id="step-build" style="display:none">
     <div class="summary-bar">
-      <div>
-        <div class="summary-title">Build path</div>
-        <div class="summary-value" id="sumPath">—</div>
-        <div class="summary-actions">
-          <button class="btn btn-primary" id="btnExpandAll">Expand all</button>
-          <button class="btn btn-ghost" id="btnCollapseAll">Collapse all</button>
-          <button class="btn btn-ghost" id="btnPrint">Print / PDF</button>
-          <button class="btn btn-ghost" id="btnReset">Reset progress</button>
+      <!-- Mobile collapsed bar (hidden on desktop) -->
+      <div class="summary-collapsed" id="summaryCollapsed">
+        <span class="sc-name" id="scName">—</span>
+        <span class="sc-detail" id="scDetail"></span>
+        <svg class="sc-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4,6 8,10 12,6"/></svg>
+      </div>
+      <!-- Full summary (display:contents makes children direct grid items on desktop) -->
+      <div class="summary-full">
+        <div>
+          <div class="summary-title">Build path</div>
+          <div class="summary-value" id="sumPath">—</div>
+          <div class="summary-actions">
+            <button class="btn btn-primary" id="btnExpandAll">Expand all</button>
+            <button class="btn btn-ghost" id="btnCollapseAll">Collapse all</button>
+            <button class="btn btn-ghost" id="btnPrint">Print / PDF</button>
+            <button class="btn btn-ghost" id="btnReset">Reset progress</button>
+          </div>
         </div>
-      </div>
-      <div class="summary-stat purchased">
-        <div class="val" id="sumPurchased">0/0</div>
-        <div class="lbl">Purchased</div>
-      </div>
-      <div class="summary-stat installed">
-        <div class="val" id="sumInstalled">0/0</div>
-        <div class="lbl">Installed</div>
-      </div>
-      <div class="summary-stat cost">
-        <div class="val" id="sumCost">$0</div>
-        <div class="lbl">Est. parts cost</div>
+        <div class="summary-stat purchased">
+          <div class="val" id="sumPurchased">0/0</div>
+          <div class="lbl">Purchased</div>
+        </div>
+        <div class="summary-stat installed">
+          <div class="val" id="sumInstalled">0/0</div>
+          <div class="lbl">Installed</div>
+        </div>
+        <div class="summary-stat cost">
+          <div class="val" id="sumCost">$0</div>
+          <div class="lbl">Purchased so far</div>
+          <div class="cost-progress-bar"><div class="cost-progress-fill" id="costProgressFill"></div></div>
+          <div class="cost-progress-of" id="costProgressOf"></div>
+        </div>
+        <div class="summary-stat leftbuy">
+          <div class="val" id="sumLeftBuy">$0</div>
+          <div class="lbl">Left to buy</div>
+        </div>
       </div>
     </div>
 
@@ -960,6 +1007,7 @@ const ENGINE_PATHS_JK = [
         p('engine','2009–2018 5.7L Eagle Hemi long-block (used drivetrain pullout)',{
           partNum:'53022263AA / 68164502AA (block)', vendor:'Car-Part.com, eBay, local Pull-A-Part',
           priceLow:2800, priceHigh:4500,
+          orGroup:'engine-source',
           notes:'<strong>Buy with the trans, accessories, harness, and ECU as one pullout</strong> from a wrecked Grand Cherokee or Commander. Saves $2K vs piecing it together. Always verify compression on all 8 cylinders before paying — a tired 5.7 looks identical to a fresh one until you scope it.',
           tips:[
             'Cylinder leakdown < 10% is acceptable for a used long-block',
@@ -970,6 +1018,7 @@ const ENGINE_PATHS_JK = [
         p('crate-engine','OR: New 5.7L Mopar crate engine (alternative to used)',{
           partNum:'68303090AA', vendor:'Mopar Performance, Mancini Racing',
           priceLow:5400, priceHigh:7500, required:'optional',
+          orGroup:'engine-source',
           notes:'Replaces the used long-block above. Get the warranty, skip the donor-history paranoia, pay $3K more. Good move if you can find a complete used trans + ECU separately.',
           tips:['2-year/24K mile factory warranty','Comes long-block only — you still need accessories from a donor or aftermarket']
         }),
@@ -995,12 +1044,14 @@ const ENGINE_PATHS_JK = [
         p('trans-545rfe','545RFE 5-speed automatic (from same donor)',{
           vendor:'Car-Part.com, ATS Diesel reman',
           priceLow:800, priceHigh:2200,
+          orGroup:'trans-choice',
           notes:'<strong>Comes with the donor pullout if you bought the complete drivetrain.</strong> Standalone reman is $1,800–$2,500. Keep the donor TCM — the harness conversion needs it.',
           tips:['Pre-fill with fresh ATF+4 before first start','Check for metallic debris in the pan when filter is changed']
         }),
         p('trans-nag1','OR: NAG1 5-speed auto (alternative to 545RFE)',{
           vendor:'Car-Part.com',
           priceLow:900, priceHigh:1800, required:'optional',
+          orGroup:'trans-choice',
           notes:'Mercedes-sourced auto used in some 2009+ Grand Cherokee 5.7s. Slightly slower shifts than the 545RFE but more robust at the torque level. Either works.',
           tips:['Decide before buying donor — drivelines differ slightly']
         }),
@@ -1036,6 +1087,7 @@ const ENGINE_PATHS_JK = [
         p('harness-conv','Hotwire Auto JK Hemi conversion harness',{
           partNum:'JK-Hemi (Hotwire Auto)', vendor:'Hotwire Auto Harness Co. (hotwireauto.com)',
           priceLow:1200, priceHigh:2000,
+          orGroup:'harness-path',
           notes:'<strong>The single most important part of the swap.</strong> Hotwire builds a plug-and-play harness that ties the Hemi PCM to the Jeep TIPM/CANbus, retains factory A/C control, gauges, cruise, and hill-descent. Skipping this means hand-pinning a hundred connections.',
           tips:['Specify donor year and trans type when ordering — Hotwire builds it to spec','Lead time can be 4–8 weeks; order early','Comes with detailed wiring diagrams']
         }),
@@ -1051,7 +1103,8 @@ const ENGINE_PATHS_JK = [
         p('aev-kit','AEV 5.7L Hemi conversion kit (if available)',{
           partNum:'AEV Brute / Hemi kit', vendor:'Fortec, Northridge4x4, Exploration Outfitters',
           priceLow:4500, priceHigh:7000, required:'optional',
-          notes:'<strong>Alternative to Hotwire DIY path.</strong> AEV\'s factory-engineered kit is the gold-standard install — but availability has been spotty since the JL launched. Includes mounts, harness, exhaust, and emissions hardware. If you can find one used or NOS, this is the cleanest route.',
+          orGroup:'harness-path',
+          notes:'<strong>Alternative to Hotwire DIY path.</strong> AEV\'s factory-engineered kit is the gold-standard install — but availability has been spotty since the JL launched. Includes mounts, harness, exhaust, and emissions hardware. If you can find one used or NOS, this is the cleanest route. <strong>If you use the AEV kit, skip the Hotwire harness, motor mount plates, and skid-mod items in this list — the kit includes them.</strong>',
           tips:['Verify the kit is JK-spec (not JL)','Some sellers list early Wrangler Unlimited kits as JK — confirm year compatibility']
         }),
         p('tune','Dealer-equivalent flash / tune for donor PCM',{
@@ -1997,6 +2050,7 @@ const initialState = {
   partExp: {},       // partId -> bool
   purchased: {},     // partId -> bool
   installed: {},     // partId -> bool
+  orChosen: {},      // 'pathId/catId/groupId' -> chosen partId
   filter: 'all'
 };
 
@@ -2042,6 +2096,7 @@ function loadState() {
       partExp: prog.partExp || {},
       purchased: prog.purchased || {},
       installed: prog.installed || {},
+      orChosen: prog.orChosen || {},
       filter: prog.filter || 'all'
     });
   }
@@ -2065,6 +2120,7 @@ function saveState() {
       installed: state.installed,
       expanded:  state.expanded,
       partExp:   state.partExp,
+      orChosen:  state.orChosen,
       filter:    state.filter
     };
     proj.lastUpdated = new Date().toISOString();
@@ -2084,6 +2140,7 @@ function resetProgress() {
   state.installed = {};
   state.expanded = {};
   state.partExp = {};
+  state.orChosen = {};
   saveState();
   renderBuild();
 }
@@ -2209,6 +2266,151 @@ function currentPath() {
   return ENGINE_PATHS_JK.find(p => p.id === state.path);
 }
 
+/* ─── orGroup helpers ─────────────────────────────────────────── */
+
+function getOrChosenId(catId, groupId, groupParts) {
+  const gk = state.path + '/' + catId + '/' + groupId;
+  const stored = state.orChosen[gk];
+  if (stored && groupParts.some(p => p.id === stored)) return stored;
+  // Default to first part in group
+  const defaultId = groupParts[0].id;
+  state.orChosen[gk] = defaultId;
+  return defaultId;
+}
+
+// Converts a flat parts array into render items, grouping consecutive orGroup parts.
+function buildRenderItems(allParts, catId) {
+  const items = [];
+  let i = 0;
+  while (i < allParts.length) {
+    const part = allParts[i];
+    if (part.orGroup) {
+      const groupId = part.orGroup;
+      const groupParts = [];
+      while (i < allParts.length && allParts[i].orGroup === groupId) {
+        groupParts.push(allParts[i]);
+        i++;
+      }
+      const chosenId = getOrChosenId(catId, groupId, groupParts);
+      items.push({ type: 'group', groupId, parts: groupParts, chosenId });
+    } else {
+      items.push({ type: 'single', part });
+      i++;
+    }
+  }
+  return items;
+}
+
+// Switch the chosen part within an orGroup; clears purchased/installed on the deselected part.
+function selectOrGroupPart(catId, groupId, newPartId) {
+  const gk = state.path + '/' + catId + '/' + groupId;
+  const oldId = state.orChosen[gk];
+  if (oldId === newPartId) return;
+  if (oldId) {
+    const oldPid = key(catId, oldId);
+    delete state.purchased[oldPid];
+    delete state.installed[oldPid];
+  }
+  state.orChosen[gk] = newPartId;
+  saveState();
+  renderBuild();
+}
+
+// Renders a single part row. opts: { isOrGroup, isChosen, groupId }
+function renderPartRow(cat, part, opts) {
+  opts = opts || {};
+  const pid = key(cat.id, part.id);
+  const isPurchased = !!state.purchased[pid];
+  const isInstalled = !!state.installed[pid];
+  const isExp = !!state.partExp[pid];
+  const { isOrGroup, isChosen, groupId } = opts;
+
+  let rowClass = 'part';
+  if (isInstalled) rowClass += ' installed';
+  else if (isPurchased) rowClass += ' purchased';
+  if (isOrGroup) {
+    rowClass += isChosen ? ' or-active' : ' or-inactive or-dim';
+  }
+
+  const rowAttrs = { class: rowClass, data: { expanded: String(isExp) } };
+  // Clicking an unchosen group part selects it
+  if (isOrGroup && !isChosen) {
+    rowAttrs.on = { click: () => selectOrGroupPart(cat.id, groupId, part.id) };
+  }
+
+  const row = el('div', rowAttrs);
+
+  // Checks (stopPropagation so row-click doesn't fire when toggling)
+  const checkBox = el('div', { class: 'part-check' });
+  const pCheck = el('button', {
+    class: 'check buy',
+    data: { state: isPurchased ? 'on' : 'off' },
+    on: { click: (e) => { e.stopPropagation(); togglePurchased(pid); } },
+    'aria-label': 'Toggle purchased'
+  });
+  const pLabel = el('span', { class: 'check-label' }, 'BOUGHT');
+  const iCheck = el('button', {
+    class: 'check install',
+    data: { state: isInstalled ? 'on' : 'off' },
+    on: { click: (e) => { e.stopPropagation(); toggleInstalled(pid); } },
+    'aria-label': 'Toggle installed'
+  });
+  const iLabel = el('span', { class: 'check-label' }, 'INST');
+  const checkBox2 = el('div', { class: 'part-check' });
+  checkBox.appendChild(pCheck); checkBox.appendChild(pLabel);
+  checkBox2.appendChild(iCheck); checkBox2.appendChild(iLabel);
+  row.appendChild(checkBox);
+  row.appendChild(checkBox2);
+
+  // Main content
+  const main = el('div', { class: 'part-main' });
+  main.appendChild(el('div', { class: 'part-name', html: part.name }));
+  const metaRow = el('div', { class: 'part-meta' });
+  if (part.partNum) metaRow.innerHTML += `<span><span class="lbl">P/N</span> ${part.partNum}</span>`;
+  if (part.vendor) metaRow.innerHTML += `<span><span class="lbl">Vendor</span> ${part.vendor}</span>`;
+  if (metaRow.innerHTML) main.appendChild(metaRow);
+
+  const detail = el('div', { class: 'part-detail' });
+  if (part.notes) detail.appendChild(el('div', { class: 'part-notes', html: part.notes }));
+  if (part.tips && part.tips.length) {
+    const tips = el('div', { class: 'part-tips' });
+    tips.appendChild(el('div', { class: 'tips-head' }, 'Pro tips'));
+    const ul = el('ul');
+    part.tips.forEach(t => ul.appendChild(el('li', { html: t })));
+    tips.appendChild(ul);
+    detail.appendChild(tips);
+  }
+  main.appendChild(detail);
+
+  if (part.notes || (part.tips && part.tips.length)) {
+    const expand = el('button', {
+      class: 'part-expand',
+      on: { click: (e) => { e.stopPropagation(); togglePartExpand(pid); } }
+    });
+    expand.innerHTML = '<span class="show">Show details ▾</span><span class="hide">Hide details ▴</span>';
+    main.appendChild(expand);
+  }
+  row.appendChild(main);
+
+  // Cost
+  const cost = el('div', { class: 'part-cost' });
+  if (part.priceLow === 0 && part.priceHigh === 0) {
+    cost.innerHTML = '<span style="color:var(--text-faint)">included / N/A</span>';
+  } else if (part.priceLow === part.priceHigh) {
+    cost.innerHTML = `$${fmt(part.priceLow)}`;
+  } else {
+    cost.innerHTML = `<span class="cost-low">$${fmt(part.priceLow)} –</span><br>$${fmt(part.priceHigh)}`;
+  }
+  row.appendChild(cost);
+
+  // Status pill
+  const status = el('div', { class: 'part-status' });
+  status.appendChild(el('span', { class: 'pill ' + part.required }, part.required.toUpperCase()));
+  row.appendChild(status);
+
+  return row;
+}
+
 function renderBuild() {
   const wrap = document.getElementById('step-build');
   const path = currentPath();
@@ -2254,38 +2456,55 @@ function renderBuild() {
   // Render categories
   const list = document.getElementById('categoryList');
   list.innerHTML = '';
-  let totalCount = 0, purchasedCount = 0, installedCount = 0, costLow = 0, costHigh = 0;
+  let totalCount = 0, purchasedCount = 0, installedCount = 0;
 
   CATEGORIES.forEach(cat => {
-    const parts = (path.parts[cat.id] || []).filter(matchesFilter);
-    if (parts.length === 0) return;
+    const allParts = (path.parts[cat.id] || []);
+    if (allParts.length === 0) return;
+
+    // Group orGroup parts; determine chosen member for each group
+    const renderItems = buildRenderItems(allParts, cat.id);
+
+    // Filter: groups filter by their chosen part; single parts filter normally
+    const filteredItems = renderItems.filter(item => {
+      if (item.type === 'single') return matchesFilter(item.part);
+      const chosenPart = item.parts.find(p => p.id === item.chosenId);
+      return chosenPart ? matchesFilter(chosenPart) : false;
+    });
+
+    if (filteredItems.length === 0) return;
 
     const catOpen = state.expanded[cat.id] !== false;
     const catNode = el('div', { class: 'category', data: { open: String(catOpen) } });
 
-    let catLow = 0, catHigh = 0, catDone = 0, catTotal = parts.length;
+    let catLow = 0, catHigh = 0, catDone = 0, catTotal = 0;
 
-    parts.forEach(part => {
-      const pid = key(cat.id, part.id);
+    // Accumulate stats using only the "effective" (chosen) part per item
+    filteredItems.forEach(item => {
+      const ep = item.type === 'single'
+        ? item.part
+        : item.parts.find(p => p.id === item.chosenId);
+      if (!ep) return;
+      const pid = key(cat.id, ep.id);
       const isPurchased = !!state.purchased[pid];
       const isInstalled = !!state.installed[pid];
-      const isExp = !!state.partExp[pid];
-      if (isInstalled || isPurchased) catDone++;
-      catLow += part.priceLow; catHigh += part.priceHigh;
+      catTotal++;
+      if (isPurchased || isInstalled) catDone++;
+      catLow += ep.priceLow; catHigh += ep.priceHigh;
       totalCount++;
       if (isPurchased || isInstalled) purchasedCount++;
       if (isInstalled) installedCount++;
-      if (isPurchased) { costLow += part.priceLow; costHigh += part.priceHigh; }
-      else if (isInstalled) { costLow += part.priceLow; costHigh += part.priceHigh; }
+      // (spent / left-to-buy tallied below in the unfiltered pass)
     });
 
+    // Category header
     const head = el('div', { class: 'cat-head', on: { click: () => toggleCategory(cat.id) } });
-    const left = el('div', { class: 'cat-head-left' });
-    left.innerHTML = `
+    const headLeft = el('div', { class: 'cat-head-left' });
+    headLeft.innerHTML = `
       <svg class="cat-chev" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,6 8,10 12,6"/></svg>
       <div class="cat-name">${cat.name}</div>
     `;
-    head.appendChild(left);
+    head.appendChild(headLeft);
     const meta = el('div', { class: 'cat-meta' });
     const pct = catTotal === 0 ? 0 : Math.round(100 * catDone / catTotal);
     meta.innerHTML = `
@@ -2298,84 +2517,28 @@ function renderBuild() {
     head.appendChild(meta);
     catNode.appendChild(head);
 
+    // Category body
     const body = el('div', { class: 'cat-body' });
-    parts.forEach(part => {
-      const pid = key(cat.id, part.id);
-      const isPurchased = !!state.purchased[pid];
-      const isInstalled = !!state.installed[pid];
-      const isExp = !!state.partExp[pid];
-
-      const row = el('div', {
-        class: 'part ' + (isInstalled ? 'installed' : isPurchased ? 'purchased' : ''),
-        data: { expanded: String(isExp) }
-      });
-
-      // Checks
-      const checkBox = el('div', { class: 'part-check' });
-      const pCheck = el('button', {
-        class: 'check buy',
-        data: { state: isPurchased ? 'on' : 'off' },
-        on: { click: () => togglePurchased(pid) },
-        'aria-label': 'Toggle purchased'
-      });
-      const pLabel = el('span', { class: 'check-label' }, 'BUY');
-      const iCheck = el('button', {
-        class: 'check install',
-        data: { state: isInstalled ? 'on' : 'off' },
-        on: { click: () => toggleInstalled(pid) },
-        'aria-label': 'Toggle installed'
-      });
-      const iLabel = el('span', { class: 'check-label' }, 'INST');
-      const checkBox2 = el('div', { class: 'part-check' });
-      checkBox.appendChild(pCheck); checkBox.appendChild(pLabel);
-      checkBox2.appendChild(iCheck); checkBox2.appendChild(iLabel);
-      row.appendChild(checkBox);
-      row.appendChild(checkBox2);
-
-      // Main
-      const main = el('div', { class: 'part-main' });
-      main.appendChild(el('div', { class: 'part-name', html: part.name }));
-      const metaRow = el('div', { class: 'part-meta' });
-      if (part.partNum) metaRow.innerHTML += `<span><span class="lbl">P/N</span> ${part.partNum}</span>`;
-      if (part.vendor) metaRow.innerHTML += `<span><span class="lbl">Vendor</span> ${part.vendor}</span>`;
-      if (metaRow.innerHTML) main.appendChild(metaRow);
-
-      const detail = el('div', { class: 'part-detail' });
-      if (part.notes) detail.appendChild(el('div', { class: 'part-notes', html: part.notes }));
-      if (part.tips && part.tips.length) {
-        const tips = el('div', { class: 'part-tips' });
-        tips.appendChild(el('div', { class: 'tips-head' }, 'Pro tips'));
-        const ul = el('ul');
-        part.tips.forEach(t => ul.appendChild(el('li', { html: t })));
-        tips.appendChild(ul);
-        detail.appendChild(tips);
-      }
-      main.appendChild(detail);
-
-      if (part.notes || (part.tips && part.tips.length)) {
-        const expand = el('button', { class: 'part-expand', on: { click: () => togglePartExpand(pid) } });
-        expand.innerHTML = '<span class="show">Show details ▾</span><span class="hide">Hide details ▴</span>';
-        main.appendChild(expand);
-      }
-      row.appendChild(main);
-
-      // Cost
-      const cost = el('div', { class: 'part-cost' });
-      if (part.priceLow === 0 && part.priceHigh === 0) {
-        cost.innerHTML = '<span style="color:var(--text-faint)">included / N/A</span>';
-      } else if (part.priceLow === part.priceHigh) {
-        cost.innerHTML = `$${fmt(part.priceLow)}`;
+    filteredItems.forEach(item => {
+      if (item.type === 'single') {
+        body.appendChild(renderPartRow(cat, item.part));
       } else {
-        cost.innerHTML = `<span class="cost-low">$${fmt(part.priceLow)} –</span><br>$${fmt(part.priceHigh)}`;
+        // Render or-group wrapper with all options
+        const groupDiv = el('div', { class: 'or-group' });
+        groupDiv.appendChild(el('div', { class: 'or-group-header' }, 'Choose one'));
+        item.parts.forEach((part, idx) => {
+          if (idx > 0) {
+            groupDiv.appendChild(el('div', { class: 'or-separator' }, '— or —'));
+          }
+          const isChosen = part.id === item.chosenId;
+          groupDiv.appendChild(renderPartRow(cat, part, {
+            isOrGroup: true,
+            isChosen,
+            groupId: item.groupId
+          }));
+        });
+        body.appendChild(groupDiv);
       }
-      row.appendChild(cost);
-
-      // Status
-      const status = el('div', { class: 'part-status' });
-      status.appendChild(el('span', { class: 'pill ' + part.required }, part.required.toUpperCase()));
-      row.appendChild(status);
-
-      body.appendChild(row);
     });
     catNode.appendChild(body);
     list.appendChild(catNode);
@@ -2384,10 +2547,50 @@ function renderBuild() {
   // Summary stats
   document.getElementById('sumPurchased').textContent = `${purchasedCount}/${totalCount}`;
   document.getElementById('sumInstalled').textContent = `${installedCount}/${totalCount}`;
-  // Total path cost (always full estimate, not just selected)
-  let pathLow = 0, pathHigh = 0;
-  CATEGORIES.forEach(c => (path.parts[c.id] || []).forEach(pt => { pathLow += pt.priceLow; pathHigh += pt.priceHigh; }));
-  document.getElementById('sumCost').textContent = `$${fmt(pathLow)} – $${fmt(pathHigh)}`;
+
+  // Full path totals (unfiltered) — used for cost progress bar, spent, and left-to-buy
+  let pathLow = 0, pathHigh = 0, spentLow = 0, spentHigh = 0;
+  CATEGORIES.forEach(c => {
+    const items = buildRenderItems(path.parts[c.id] || [], c.id);
+    items.forEach(item => {
+      const ep = item.type === 'single' ? item.part : item.parts.find(p => p.id === item.chosenId);
+      if (ep) {
+        pathLow += ep.priceLow; pathHigh += ep.priceHigh;
+        const pid = key(c.id, ep.id);
+        if (state.purchased[pid] || state.installed[pid]) {
+          spentLow += ep.priceLow; spentHigh += ep.priceHigh;
+        }
+      }
+    });
+  });
+
+  const leftLow  = Math.max(0, pathLow  - spentLow);
+  const leftHigh = Math.max(0, pathHigh - spentHigh);
+
+  // Purchased so far
+  const spentText = (spentLow === 0 && spentHigh === 0)
+    ? '$0'
+    : `$${fmt(spentLow)} – $${fmt(spentHigh)}`;
+  document.getElementById('sumCost').textContent = spentText;
+
+  // Cost progress bar (mid-point percentage)
+  const pathMid  = pathLow + pathHigh;
+  const spentMid = spentLow + spentHigh;
+  const costPct  = pathMid > 0 ? Math.min(100, Math.round(spentMid / pathMid * 100)) : 0;
+  document.getElementById('costProgressFill').style.width = costPct + '%';
+  document.getElementById('costProgressOf').textContent =
+    (pathLow === 0 && pathHigh === 0) ? '' : `of $${fmt(pathLow)}–$${fmt(pathHigh)} total`;
+
+  // Left to buy
+  document.getElementById('sumLeftBuy').textContent = (leftLow === 0 && leftHigh === 0)
+    ? '$0'
+    : `$${fmt(leftLow)} – $${fmt(leftHigh)}`;
+
+  // Mobile collapsed bar
+  document.getElementById('scName').textContent = path.name;
+  document.getElementById('scDetail').textContent = (leftLow === 0 && leftHigh === 0)
+    ? `All purchased · ${installedCount}/${totalCount} installed`
+    : `$${fmt(leftLow)} left to buy · ${installedCount}/${totalCount} installed`;
 }
 
 function matchesFilter(part) {
@@ -2472,6 +2675,11 @@ document.getElementById('btnPrint').addEventListener('click', () => {
   setTimeout(() => window.print(), 200);
 });
 document.getElementById('btnReset').addEventListener('click', resetProgress);
+
+/* Mobile summary collapse toggle */
+document.getElementById('summaryCollapsed').addEventListener('click', () => {
+  document.querySelector('.summary-bar').classList.toggle('expanded');
+});
 
 /* Init */
 renderVehicles();
