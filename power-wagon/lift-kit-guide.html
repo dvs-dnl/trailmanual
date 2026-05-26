@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lifting a Ram Power Wagon — Keeping Articulink Intact | Trail Manual</title>
+  <meta name="description" content="How to lift a Ram Power Wagon without destroying the Articulink front suspension. Leveling kits, 2-inch lifts, and why most 3-inch+ options compromise the engineering that makes the Power Wagon worth owning.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(30px, 5vw, 48px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 17px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .article ul, .article ol { margin: 0 0 18px 24px; font-size: 16px; line-height: 1.7; color: var(--slate); }
+    .article li { margin-bottom: 6px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0 0 10px; }
+    .verdict p:last-child { margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .option-card { border: 1px solid var(--bone); border-radius: 4px; padding: 24px; margin: 16px 0; }
+    .option-card + .option-card { margin-top: 12px; }
+    .option-name { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .option-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 10px; }
+    .option-cost { font-family: var(--mono); font-size: 12px; color: var(--slate-l); margin-bottom: 12px; }
+    .option-card p { font-size: 15px; line-height: 1.65; color: var(--slate); margin-bottom: 0; }
+    .option-card.caution { border-left: 3px solid var(--warn); }
+    .option-card.good { border-left: 3px solid var(--good); }
+    .option-card.bad { border-left: 3px solid var(--safety); }
+    .warning-box { background: rgba(178,59,47,0.05); border: 1px solid rgba(178,59,47,0.2); border-radius: 4px; padding: 20px 24px; margin: 28px 0; }
+    .warning-box strong { display: block; color: var(--safety); font-size: 15px; font-weight: 500; margin-bottom: 8px; font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; font-size: 11px; }
+    .warning-box p { font-size: 15px; line-height: 1.65; color: var(--slate); margin: 0; }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '\2192'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    /* TODO: add photo — Power Wagon on trail showing suspension articulation */
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/power-wagon/" class="active">Power Wagon</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="masthead">
+    <p class="eyebrow">Ram Power Wagon &middot; Lift Kit Guide</p>
+    <h1>Lifting a Power Wagon: Keeping Articulink Intact</h1>
+    <p class="masthead-subhead">The Articulink front suspension is the engineering that makes the 2014+ Power Wagon genuinely capable. Most lift kits compromise it. Here's what your options actually do.</p>
+    <p class="masthead-meta">Trail Manual<span style="color:var(--bone-d);margin:0 6px;">&middot;</span>Ram Power Wagon &middot; 2005&ndash;Present</p>
+  </div>
+
+  <article class="article">
+
+    <h2>The Articulink Problem</h2>
+    <p>Articulink is Ram's term for the additional pivot joints on the front control arms that allow greater axle articulation. It exists on 2014+ Power Wagons. When you lift the truck, you change the geometry those joints operate in. Get it wrong and you either bind the joints, overstress them, or push them outside their operating range &mdash; and you've paid for a lift kit that destroyed the capability you already had.</p>
+    <p>Ram's engineering position is that any suspension lift beyond approximately 2 inches requires engineering review to preserve Articulink function. That's not boilerplate liability language &mdash; it reflects a real constraint in the system's joint geometry.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">Honest answer</p>
+      <p>A leveling kit or 2-inch lift is the right call for the vast majority of Power Wagon owners. 35-inch tires fit cleanly on a leveled truck without destroying what you paid for. If you genuinely need more than 2 inches, Carli Suspension is the only widely-validated option that preserves Articulink geometry &mdash; and it costs $3,500&ndash;$5,500 for the suspension system alone. Budget for it or don't do it.</p>
+    </div>
+
+    <h2>Your Options, Honestly Assessed</h2>
+
+    <div class="option-card good">
+      <p class="option-eyebrow">Best for most owners</p>
+      <div class="option-name">Leveling Kit (0.5"&ndash;1.5")</div>
+      <div class="option-cost">$100&ndash;$250 parts + alignment</div>
+      <p>A leveling kit raises the front to match the rear, eliminating the factory rake. Coil spring spacers or extended upper strut mounts achieve this. It does not meaningfully alter Articulink geometry &mdash; the joints operate near their factory range. On 2014+ trucks, this is the safe zone. Result: the truck sits level, 35-inch tires typically clear without trimming, and the Articulink system works as intended. This is also reversible &mdash; you can pull the spacers and return to stock geometry.</p>
+    </div>
+
+    <div class="option-card good">
+      <p class="option-eyebrow">Manageable with the right parts</p>
+      <div class="option-name">2-Inch Lift</div>
+      <div class="option-cost">$400&ndash;$1,200 parts + alignment</div>
+      <p>A quality 2-inch lift on the Power Wagon, using properly designed upper strut extensions and matched rear springs or blocks, stays within a range where Articulink joint operation is acceptable. Not all 2-inch lift kits are created equal for this platform &mdash; cheap spacer-stack kits push the geometry differently than a purpose-designed lift. Use kits from reputable Power Wagon-specific suspension brands (Carli, ReadyLift with Articulink-aware geometry, Rough Country's Power Wagon-specific fitment) that explicitly address the 2014+ geometry. Alignment is mandatory after any lift on this truck.</p>
+    </div>
+
+    <div class="option-card caution">
+      <p class="option-eyebrow">Requires careful vendor selection</p>
+      <div class="option-name">3-Inch Lift</div>
+      <div class="option-cost">$800&ndash;$4,000+ depending on approach</div>
+      <p>3-inch lifts push into territory where Articulink joint geometry is stressed on 2014+ trucks. Some kits in this range relocate the upper control arm mounting to compensate &mdash; this can work, but it adds cost and complexity, and the quality variation is wide. Generic 3-inch kits designed for the Ram 2500 without specific Articulink accommodation are the wrong choice. If you're at the 3-inch decision point, the cost delta to a Carli system is often less than it appears when you factor in what a mediocre kit costs in early joint wear.</p>
+    </div>
+
+    <div class="option-card bad">
+      <p class="option-eyebrow">Requires full engineering solution</p>
+      <div class="option-name">4-Inch+ Lift</div>
+      <div class="option-cost">$4,000&ndash;$8,000+ for a correct solution</div>
+      <p>4-inch and taller lifts on the Power Wagon effectively require an engineered solution that either fully replaces the Articulink control arms or relocates mounting points to preserve joint geometry at the new ride height. The only widely-validated route here is Carli Suspension's Power Wagon system, which keeps Articulink articulation at significant lift height. Expect $3,500&ndash;$5,500 for the Carli suspension system, plus installation labor ($600&ndash;$1,200 at a qualified shop), plus alignment. Total cost exceeds $5,000 routinely. This is the correct engineering answer &mdash; it's not a budget upgrade.</p>
+    </div>
+
+    <h2>Pre-2014 Power Wagons (No Articulink)</h2>
+    <p>The Articulink complication doesn't apply to 2005&ndash;2013 trucks. These use a conventional solid front axle with standard control arm geometry. Lift kit selection follows standard Ram 2500 procedures for those years. Quality shock absorbers and matched coil springs are the right foundation. 2-inch and 3-inch lifts are more straightforward than on Articulink trucks.</p>
+    <p>Even without Articulink, avoid cheap shock-and-spacer combinations that don't properly address control arm geometry correction. Re-centering the axle with adjustable control arms after any significant lift improves handling and tire wear on these trucks too.</p>
+
+    <h2>What About Tires?</h2>
+    <p>The lift kit decision and the tire decision are connected. Most Power Wagon owners lifting are trying to fit larger tires &mdash; typically 35s, occasionally 37s.</p>
+    <ul>
+      <li><strong>35s:</strong> Fit on a leveled truck with minimal or no trimming. A 2-inch lift clears them with room. The tire chapter is effectively closed at 35s for leveled or modestly lifted trucks.</li>
+      <li><strong>37s:</strong> Require a 3-inch+ lift, Articulink-aware engineering, fender trimming or flares, and re-gearing (the stock 3.92 ratio is undersized for 37s on a 7,000 lb truck). The total project cost exceeds $8,000 before regearing.</li>
+    </ul>
+
+    <div class="warning-box">
+      <strong>Alignment after any lift</strong>
+      <p>Any suspension modification on the Power Wagon requires a proper alignment afterward &mdash; not a "we'll check it" at the tire shop, but a full four-wheel alignment at a shop that has experience with HD truck lifted geometry. The Articulink system's geometry sensitivity means alignment error accelerates tire and joint wear faster than on conventional trucks. Budget $150&ndash;$200 for the alignment and don't skip it.</p>
+    </div>
+
+    <h2>The Carli Option</h2>
+    <p>Carli Suspension's Power Wagon system is the only broadly-validated lift solution that explicitly maintains Articulink geometry at 3+ inch heights. It's expensive because it's engineered correctly: the upper control arms are replaced with purpose-built units designed around the Articulink pivot range at the new ride height, the shocks are matched to the intended use case, and the system is tested on the specific platform.</p>
+    <p>If you're at the decision point of spending $1,500 on a "good enough" 3-inch kit that will likely stress your Articulink joints prematurely, the math often points toward spending more on the Carli system once you factor in joint replacement cost at 30,000 miles. That's not a sales pitch for Carli &mdash; it's the honest engineering calculus.</p>
+
+    <div class="article-footer-nav">
+      <p>More Power Wagon guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/power-wagon/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/power-wagon/death-wobble-guide.html">Death Wobble Guide</a>
+        <a class="footer-nav-link" href="/power-wagon/trail-tools-guide.html">Trail Tools Guide</a>
+        <a class="footer-nav-link" href="/power-wagon/">All Power Wagon Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
