@@ -734,7 +734,52 @@
     return 0;
   }
 
+  function liftLevel(e) {
+    if (slotKey(e) !== 'lift') return 0;
+    const title = (e.title||'').toLowerCase();
+    const tags = (e.tags||[]).map(t => (t||'').toLowerCase());
+    const sub = (e.subcategory||'').toLowerCase();
+    const id = (e.id||'').toLowerCase();
+    const has = t => tags.includes(t);
+    const txt = title + ' ' + id;
+    // 7 — long-arm conversion or SOA
+    if (sub === 'long_arm' || has('long-arm') || /long.?arm|rock.?link/.test(txt) || /\bsoa\b|spring.over/.test(txt)) return 7;
+    // 6 — full short-arm kit (LCAs + UCAs included)
+    if (/short.?arm|mid.?arm|x.?factor|advanced|stage\s*[23]/.test(txt)) return 6;
+    // 5 — coils + shocks + adjustable LCAs (no UCAs)
+    if (has('lower-control-arm') || /\blcas?\b.*lift|lift.*\blcas?\b/.test(txt)) return 5;
+    // 1 — Budget Booster Lite (spacers + extenders only)
+    if (has('booster-lite') || /booster.?lite|spacer.*extender|lift.?lite/.test(txt)) return 1;
+    // 2 — Budget Boost (spacers + new shocks or AAL)
+    if (has('budget-boost') || /budget.?boost|spacer.*aal|aal.*spacer/.test(txt)) return 2;
+    // 4 — Coils + shocks + correction brackets (3-3.5" geometry-corrected)
+    if (has('correction-bracket') || has('track-bar-bracket') || /correction.?bracket|geometry.?correction|bracket.?kit|3\.?5/.test(txt)) return 4;
+    // 3 — Coils + shocks baseline (3" lift, no arms, no brackets)
+    if (/spring pack|x.?series|3"|3-inch|3 inch/.test(txt)) return 3;
+    // Cost-based fallback when no pattern matches
+    const cost = moneyMid(e.cost_usd);
+    if (cost < 250) return 1;
+    if (cost < 600) return 2;
+    if (cost < 1200) return 3;
+    if (cost < 1900) return 4;
+    if (cost < 2800) return 6;
+    return 7;
+  }
+
+  const LIFT_TARGET = {
+    daily_driver:   { budget: 0, balanced: 0, premium: 0 },
+    mild_trail:     { budget: 1, balanced: 2, premium: 3 },
+    moderate_trail: { budget: 3, balanced: 4, premium: 6 },
+    rock_crawler:   { budget: 5, balanced: 6, premium: 7 },
+    overland:       { budget: 2, balanced: 3, premium: 5 }
+  };
+
+
   function styleScore(e, slot, style) {
+    // The 'lift' slot has its own tier+style target (LIFT_TARGET); skip style-tag
+    // bias here or it overrides the level targeting (e.g., a budget-tagged 4.5" lift
+    // would outscore a level-matched 3" kit at moderate_trail/budget).
+    if (slot === 'lift') return 0;
     const tags = (e.tags||[]).map(t => (t||'').toLowerCase());
     const has = t => tags.includes(t);
     let s = 0;
@@ -762,15 +807,23 @@
     let s = base + styleScore(e, slot, style) + tireBonus(e, tier);
     const tags = (e.tags||[]).map(t => (t||'').toLowerCase());
     const title = (e.title||'').toLowerCase();
-    // Prefer real install types over the ambiguous 'task' type when both compete in a slot
     if (INSTALL_TYPES.has(e.type)) s += 5;
-    // build-planning / catalog entries are explicitly curated build picks
     if (tags.includes('build-planning')) s += 6;
     if (/lift\s+(kit|option|overview)/.test(title)) s += 5;
     if (tags.includes('essential') || tags.includes('must-do')) s += 10;
     if (tags.includes('death-wobble') && tier !== 'daily_driver') s += 6;
     if (tags.includes('overland') && tier === 'overland') s += 8;
     if (tags.includes('rock-crawl') && tier === 'rock_crawler') s += 8;
+    // Lift-level targeting: when competing in the lift slot, prefer entries
+    // close to the tier+style target on the 7-step Booster-Lite→Long-Arm scale.
+    if (slot === 'lift') {
+      const tgt = (LIFT_TARGET[tier]||{})[style];
+      const lvl = liftLevel(e);
+      if (tgt !== undefined && tgt > 0 && lvl > 0) {
+        const dist = Math.abs(lvl - tgt);
+        s += Math.max(0, 25 - dist * 6);
+      }
+    }
     const mid = moneyMid(e.cost_usd);
     if (style !== 'premium' && mid > 2000) s -= 5;
     return s;
