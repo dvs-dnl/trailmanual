@@ -389,6 +389,15 @@
     const hasTag = t => tagsL.includes(t);
     // Fender / flare always lands in the fenders slot, regardless of category
     if (/fender|flare/.test(title) || tagsL.some(t => /fender|flare/.test(t))) return 'fenders';
+    // Overland-only items — detected before the category branch so they always
+    // land in overland_* slots and only ever appear when the overland augment is on.
+    if (hasTag('rooftop-tent') || hasTag('rtt') || /\brooftop\s+tent\b|\brtt\b/.test(title)) return 'overland_tent';
+    if (hasTag('sleep-platform') || hasTag('cargo-mattress') || /sleep platform|cargo.area sleep/.test(title)) return 'overland_sleep';
+    if (hasTag('awning') || /\bawning\b/.test(title)) return 'overland_awning';
+    if (hasTag('water-system') || hasTag('overland-shower') || /\b(roadshower|pressurized water|portable shower|geyser systems)\b/.test(title)) return 'overland_water';
+    if (hasTag('fridge') || hasTag('12v-cooler') || /\b(12v fridge|12v cooler|portable fridge|fridge \()/.test(title)) return 'overland_fridge';
+    if (hasTag('camp-kitchen') || hasTag('camp-stove') || /\b(camp kitchen|slide.out kitchen|camp stove)\b/.test(title)) return 'overland_kitchen';
+    if (hasTag('drawer-system') || /\b(drawer system|cargo drawer)\b/.test(title)) return 'overland_drawer';
     if (cat === 'suspension') {
       if (sub.includes('lift') || sub === 'long_arm' || hasTag('long-arm')) return 'lift';
       if (sub === 'leaf_spring' || sub === 'leaf_springs') {
@@ -532,6 +541,27 @@
     }
   };
 
+  // Slot weights that apply ON TOP OF the base-tier weights when state.overland is true.
+  // Slots already in TIER_SLOT_WEIGHTS use Math.max(base, overland) so overland never
+  // weakens the base build — it only adds.
+  const OVERLAND_AUGMENT_WEIGHTS = {
+    overland_tent: 100,
+    overland_sleep: 60,    // budget alternative to a roof tent
+    overland_awning: 80,
+    overland_water: 70,
+    overland_fridge: 90,
+    overland_kitchen: 55,
+    overland_drawer: 75,
+    // Existing slots that get a boost when overland gear is on
+    tire_carrier: 95,
+    aux_power: 95,
+    onboard_air: 80,
+    airdown: 70,
+    armor_rack: 85,
+    recovery_gear: 75,
+    charging: 75
+  };
+
   const SLOT_LABELS = {
     lift:'Lift', shocks:'Shocks', control_arms:'Control arms', track_bar:'Track bar',
     sway_bar:'Sway-bar disco', springs_supporting:'Springs', sye:'SYE',
@@ -565,6 +595,7 @@
     lighting:3, aux_power:3, gauges:3, audio:3, seats:3, interior_storage:3,
     engine_breathing:3, engine_perf:3, engine_ignition:3,
     fuel_upgrade:3, aux_fuel:3,
+    overland_tent:4, overland_sleep:4, overland_awning:4, overland_water:4, overland_fridge:4, overland_kitchen:4, overland_drawer:4,
     cooling_radiator:3, cooling_fan:3, cooling_trans:3
   };
 
@@ -652,10 +683,12 @@
     return s;
   }
 
-  function builderScore(e, tier, style) {
+  function builderScore(e, tier, style, overland) {
     const slot = slotKey(e);
-    const base = (TIER_SLOT_WEIGHTS[tier]||{})[slot];
-    if (base === undefined || base <= 0) return -1;
+    const baseW = (TIER_SLOT_WEIGHTS[tier]||{})[slot] || 0;
+    const augW = overland ? (OVERLAND_AUGMENT_WEIGHTS[slot] || 0) : 0;
+    const base = Math.max(baseW, augW);
+    if (base <= 0) return -1;
     let s = base + styleScore(e, slot, style) + tireBonus(e, tier);
     const tags = (e.tags||[]).map(t => (t||'').toLowerCase());
     const title = (e.title||'').toLowerCase();
@@ -1111,7 +1144,10 @@
   function renderBuilder(app, vid) {
     const entries = getEntries(vid);
     const urlTier = (new URLSearchParams((location.hash.split('?')[1])||'')).get('tier') || '';
-    const state = { tier: urlTier, budget: 5000, experience: 2, style: 'balanced', overrides: {} };
+    const VALID_TIERS = new Set(['daily_driver','mild_trail','moderate_trail','rock_crawler']);
+    const initialTier = VALID_TIERS.has(urlTier) ? urlTier : '';
+    const initialOverland = urlTier === 'overland';
+    const state = { tier: initialTier, budget: 5000, experience: 2, style: 'balanced', overrides: {}, overland: initialOverland };
 
     const wrap = el('div', {});
     wrap.appendChild(el('h2', {}, 'Rig Builder'));
@@ -1121,6 +1157,7 @@
     const step1 = el('div', {class:'builder-step'}, el('h3',{},'Step 1 — Pick your build goal'));
     const tg = el('div', {class:'grid-tiers'});
     Object.entries(TIER_META).forEach(([id, t]) => {
+      if (id === 'overland') return; // overland is now an augmentation toggle (Step 5), not a base tier
       const card = el('div', {class:'tier-card'+(state.tier===id?' selected':''), on:{click:()=>{ state.tier=id; state.overrides={}; reflect(); compute(); }}},
         el('div',{class:'icon'},t.icon), el('div',{class:'name'},t.label), el('div',{class:'desc'},t.desc));
       card.dataset.tier = id; tg.appendChild(card);
@@ -1149,6 +1186,15 @@
       expRow.appendChild(chip);
     });
     step4.appendChild(expRow); wrap.appendChild(step4);
+
+    const step5 = el('div', {class:'builder-step'}, el('h3',{},'Step 5 — Add overland gear?'),
+      el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:10px'}, 'Layers camping & touring upgrades (rooftop tent, awning, fridge, water, drawer system) on top of your base build. Overland is an augmentation — every build still needs one of the four base goals above.'));
+    const overlandRow = el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'});
+    [[false,'No'],[true,'Yes — add overland gear']].forEach(([val,lbl]) => {
+      const chip = el('div', {class:'filter-chip'+(state.overland===val?' active':''), on:{click:()=>{ state.overland=val; state.overrides={}; overlandRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
+      overlandRow.appendChild(chip);
+    });
+    step5.appendChild(overlandRow); wrap.appendChild(step5);
 
     const output = el('div', {class:'build-output'});
     const summary = el('div', {class:'build-summary'});
@@ -1204,11 +1250,21 @@
         return;
       }
       const diffCap = state.experience === 1 ? 2 : (state.experience === 2 ? 4 : 5);
-      const pool = entries.filter(e => isInstallEntry(e, state.tier, diffCap));
+      // Base pool — entries that qualify for the chosen tier.
+      // When overland is on, also include entries qualified for 'overland' tier IF
+      // their slot is in OVERLAND_AUGMENT_WEIGHTS (tent/awning/fridge/tire-carrier/etc.).
+      // This prevents overland from bleeding moderate-tier shocks/lifts into a daily build.
+      const basePool = entries.filter(e => isInstallEntry(e, state.tier, diffCap));
+      let pool = basePool;
+      if (state.overland) {
+        const baseIds = new Set(basePool.map(e => e.id));
+        const augPool = entries.filter(e => isInstallEntry(e, 'overland', diffCap) && OVERLAND_AUGMENT_WEIGHTS[slotKey(e)] !== undefined && !baseIds.has(e.id));
+        pool = basePool.concat(augPool);
+      }
       const slots = new Map();
       for (const e of pool) {
         const sk = slotKey(e);
-        const sc = builderScore(e, state.tier, state.style);
+        const sc = builderScore(e, state.tier, state.style, state.overland);
         if (sc < 0) continue;
         if (!slots.has(sk)) slots.set(sk, []);
         slots.get(sk).push({entry:e, score:sc});
@@ -1238,19 +1294,20 @@
         }
       });
 
-      const phaseBuckets = {1:[], 2:[], 3:[]};
+      const phaseBuckets = {1:[], 2:[], 3:[], 4:[]};
       chosen.forEach(se => { (phaseBuckets[PHASE_FOR_SLOT[se.slot]||3]).push(se); });
       const PHASE_TITLES = {
         1: 'Phase 1 — Foundation & safety',
         2: 'Phase 2 — Lift, tires, capability',
-        3: 'Phase 3 — Protection, recovery & comfort'
+        3: 'Phase 3 — Protection, recovery & comfort',
+        4: 'Phase 4 — Overland gear'
       };
 
       const recipe = entries.find(e => e.category === 'build_recipe' && (e.build_tiers||[]).includes(state.tier));
       summary.innerHTML = '';
       summary.appendChild(el('h3',{},'Build Summary'));
       summary.appendChild(el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:6px'}, (TIER_META[state.tier]||{}).label));
-      summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px'}, chosen.length + ' parts · ' + state.style + ' · ≤' + diffCap + '★ work'));
+      summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px'}, chosen.length + ' parts · ' + state.style + ' · ≤' + diffCap + '★ work' + (state.overland ? ' · +overland' : '')));
       summary.appendChild(el('div', {class:'total-cost'}, '$' + Math.round(total).toLocaleString()));
       summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px;margin-bottom:14px'}, 'of $' + state.budget.toLocaleString() + ' budget'));
       const progressFill = Math.min(100, total/state.budget*100);
@@ -1273,7 +1330,7 @@
       }
 
       list.innerHTML = '';
-      for (const ph of [1,2,3]) {
+      for (const ph of [1,2,3,4]) {
         const items = phaseBuckets[ph];
         if (!items.length) continue;
         const phaseTotal = items.reduce((s,se)=>s+moneyMid(se.winner.cost_usd),0);
