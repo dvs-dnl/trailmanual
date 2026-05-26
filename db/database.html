@@ -162,6 +162,20 @@
   .phase-list li{padding:6px 0;border-bottom:1px dashed var(--border);font-size:13px;display:flex;justify-content:space-between;gap:8px;cursor:pointer}
   .phase-list li:hover{color:var(--accent)}
   .phase-list .cost{color:var(--text-mute);font-size:12px;flex-shrink:0}
+  .item-row{display:flex;flex-direction:column;gap:4px;padding:8px 0;border-bottom:1px dashed var(--border);font-size:13px}
+  .item-head{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .item-title{flex:1;cursor:pointer}
+  .item-title:hover{color:var(--accent)}
+  .item-meta{display:flex;gap:8px;font-size:11px;color:var(--text-mute);align-items:center;flex-wrap:wrap;margin-top:2px}
+  .item-slot{text-transform:uppercase;letter-spacing:.4px;font-size:10px;color:var(--text-mute);background:var(--bg-3);padding:1px 7px;border-radius:8px}
+  .swap-btn{font-size:11px;color:var(--accent);background:transparent;border:1px solid var(--border);border-radius:10px;padding:1px 9px;cursor:pointer;letter-spacing:.3px}
+  .swap-btn:hover{border-color:var(--accent)}
+  .swap-panel{display:none;background:var(--bg-3);border-radius:6px;padding:8px;margin-top:6px;font-size:12px}
+  .swap-panel.open{display:block}
+  .swap-opt{display:flex;justify-content:space-between;gap:8px;padding:5px 6px;border-radius:4px;cursor:pointer}
+  .swap-opt:hover{background:var(--panel)}
+  .swap-opt.current{background:rgba(197,165,114,.12);color:var(--accent);font-weight:600}
+  .swap-opt-cost{color:var(--text-mute);font-size:11px;flex-shrink:0}
 
   .empty{text-align:center;padding:60px 20px;color:var(--text-mute)}
   .empty h3{margin:0 0 6px;color:var(--text-dim)}
@@ -296,6 +310,257 @@
   const diffStars = d => '★'.repeat(d||0) + '☆'.repeat(5-(d||0));
   const tierLabel = t => (TIER_META[t]||{}).label || t;
   const catMeta = c => CAT_META[c] || {label:(c||'').replace(/_/g,' '), icon:'•', color:'#888'};
+
+  // ---- builder taxonomy ----
+  const INSTALL_TYPES = new Set(['part','kit','upgrade_path','swap']);
+  const EXCLUDED_CATEGORIES = new Set(['maintenance','build_recipe','tools_diagnostic','body']);
+  const EXCLUDED_SUBCATEGORIES = new Set([
+    'diagnostics','fluids','service','sensors','rust','rust_repair','paint',
+    'belts_hoses','cabin_filter','timing','seals','head','identification',
+    'hydraulics','lines_hoses','specs','axle_spec','reference','factory',
+    'oil system','HVAC','frame','frame integrity','weatherstripping','floor',
+    'noise','headliner','windows','dash','emissions','filter','fuel pump','fuel_pump',
+    'pads_rotors','clutch','tire fitment','tire_fitment','fitment','steering shaft',
+    'shaft','ball_joints','death_wobble','axle','springs',
+    'pitman','platform comparison','rear suspension','front_suspension',
+    'connectors','fundamentals','ac_power','factory_options','trim comparison',
+    'comparison','restoration','build_planning','buyers_guide','payload and towing'
+  ]);
+  const EXCLUDED_TAGS = new Set([
+    'routine','common-failure','wear-item','must-check','reference','spec','diagnostic',
+    'must-do-before-purchase','axle-spec','no-start','dead-battery'
+  ]);
+
+  function isInstallEntry(e, tier, diffCap) {
+    if (!e || !INSTALL_TYPES.has(e.type)) return false;
+    if (EXCLUDED_CATEGORIES.has(e.category)) return false;
+    if (EXCLUDED_SUBCATEGORIES.has(e.subcategory||'')) return false;
+    if ((e.id||'').startsWith('maint-')) return false;
+    const tags = e.tags || [];
+    for (const t of tags) if (EXCLUDED_TAGS.has(t)) return false;
+    if (!e.cost_usd || !((e.cost_usd.low||0) > 0 || (e.cost_usd.high||0) > 0)) return false;
+    if (!(e.build_tiers||[]).includes(tier)) return false;
+    if ((e.difficulty||1) > diffCap) return false;
+    return true;
+  }
+
+  function slotKey(e) {
+    const cat = e.category || '';
+    const sub = (e.subcategory || '').toLowerCase();
+    const tagsL = (e.tags || []).map(t => (t||'').toLowerCase());
+    const id = (e.id || '').toLowerCase();
+    const title = (e.title || '').toLowerCase();
+    const hasTag = t => tagsL.includes(t);
+    if (cat === 'suspension') {
+      if (sub.includes('lift') || sub === 'long_arm' || hasTag('long-arm')) return 'lift';
+      if (sub === 'leaf_spring' || sub === 'leaf_springs') {
+        if (hasTag('weld-required') || /soa|spring.over/.test(id+' '+title)) return 'lift';
+        return 'springs_supporting';
+      }
+      if (sub.includes('shock') || sub === 'coilovers') return 'shocks';
+      if (sub === 'control_arms') return 'control_arms';
+      if (sub === 'track_bar') return 'track_bar';
+      if (sub === 'sway_bar') return 'sway_bar';
+      if (sub === 'coils' || sub === 'springs') return 'springs_supporting';
+      return 'suspension_other';
+    }
+    if (cat === 'wheels_tires') {
+      if (/spacer/.test(title+' '+id) || hasTag('spacer')) return 'wheel_spacers';
+      if (sub === 'wheels' || sub === 'beadlock_wheels' || /\bwheel|\brim/.test(title)) return 'wheels';
+      if (sub === 'tires_at' || sub === 'tires_mt' || /\btire/.test(title)) return 'tires';
+      if (sub === 'spare_carrier') return 'tire_carrier';
+      if (sub === 'airdown') return 'airdown';
+      return 'wheels_tires_other';
+    }
+    if (cat === 'drivetrain') {
+      if (sub === 'transfer_case' || /sye/.test(id) || hasTag('sye')) return 'sye';
+      if (sub === 'gearing') return 'regear';
+      if (sub === 'driveshaft' || sub === 'driveshafts') return 'driveshaft';
+      if (sub === 'transmission') return 'transmission';
+      return 'drivetrain_other';
+    }
+    if (cat === 'axles') {
+      if (sub === 'lockers' || sub === 'differential_lockers' || hasTag('locker')) return 'locker';
+      if (sub === 'gearing') return 'regear';
+      if (sub === 'axle_swap' || /swap/.test(id) || hasTag('swap')) return 'axle_upgrade';
+      return 'axle_other';
+    }
+    if (cat === 'armor') {
+      if (sub === 'skid_plates' || /\bskid/.test(title)) return 'armor_skid';
+      if (sub === 'sliders' || /slider|rocker/.test(title)) return 'armor_sliders';
+      if (sub === 'bumpers' || /bumper/.test(title)) {
+        if (/rear/.test(title) || /rear/.test(id) || /tire.carrier/.test(title)) return 'armor_bumper_rear';
+        return 'armor_bumper_front';
+      }
+      if (sub === 'armor_diff') return 'armor_diff';
+      if (sub === 'rack') return 'armor_rack';
+      return 'armor_other';
+    }
+    if (cat === 'recovery') {
+      if (sub === 'winch' || /\bwinch\b/.test(title)) return 'winch';
+      if (sub === 'winch_line' || /\bline\b/.test(title)) return 'winch_line';
+      if (sub === 'recovery_points' || /\b(point|shackle)/.test(title)) return 'recovery_points';
+      if (sub === 'onboard_air' || /\bair\b/.test(title)) return 'onboard_air';
+      return 'recovery_gear';
+    }
+    if (cat === 'steering') return 'steering_upgrade';
+    if (cat === 'brakes')   return 'brakes_upgrade';
+    if (cat === 'engine') {
+      if (sub === 'exhaust' || sub === 'intake' || sub === 'air_intake') return 'engine_breathing';
+      if (sub === 'stroker' || sub === 'swap' || sub === 'valvetrain') return 'engine_perf';
+      if (sub === 'ignition') return 'engine_ignition';
+      return 'engine_other';
+    }
+    if (cat === 'fuel') {
+      if (sub === 'tank' || sub === 'aux_tank') return 'aux_fuel';
+      if (sub === 'injectors' || sub === 'fuel_rail' || sub === 'intake' || sub === 'skid') return 'fuel_upgrade';
+      return 'fuel_other';
+    }
+    if (cat === 'cooling') {
+      if (sub === 'radiator' || /radiator/.test(title)) return 'cooling_radiator';
+      if (sub === 'fan')   return 'cooling_fan';
+      if (sub === 'trans_cooler' || /trans.*cool/.test(title)) return 'cooling_trans';
+      return 'cooling_other';
+    }
+    if (cat === 'electrical') {
+      if (sub === 'lighting') return 'lighting';
+      if (sub === 'dual_battery' || sub === 'solar' || sub === 'power_distribution' || sub === 'battery') return 'aux_power';
+      if (sub === 'instrumentation') return 'gauges';
+      if (sub === 'charging_system' || sub === 'charging' || /alternator/.test(title)) return 'charging';
+      return 'electrical_other';
+    }
+    if (cat === 'interior') {
+      if (sub === 'audio') return 'audio';
+      if (sub === 'seats') return 'seats';
+      if (sub === 'storage') return 'interior_storage';
+      return 'interior_other';
+    }
+    return (cat||'misc') + '_other';
+  }
+
+  const TIER_SLOT_WEIGHTS = {
+    daily_driver: {
+      shocks: 55, brakes_upgrade: 70, steering_upgrade: 50, lighting: 30,
+      gauges: 25, audio: 18, charging: 30, engine_breathing: 18, springs_supporting: 25
+    },
+    mild_trail: {
+      lift: 95, tires: 90, shocks: 70, sway_bar: 65, track_bar: 65,
+      armor_skid: 55, armor_sliders: 65, winch: 55, recovery_points: 70,
+      lighting: 40, steering_upgrade: 50, control_arms: 50, sye: 55,
+      wheel_spacers: 55, wheels: 40, springs_supporting: 35, charging: 25
+    },
+    moderate_trail: {
+      lift: 100, tires: 100, sye: 85, shocks: 80,
+      control_arms: 75, track_bar: 80, sway_bar: 70,
+      regear: 80, locker: 70,
+      wheel_spacers: 65, wheels: 65,
+      armor_sliders: 90, armor_bumper_front: 80, armor_skid: 75,
+      armor_bumper_rear: 60, armor_diff: 50,
+      winch: 75, recovery_points: 85, onboard_air: 45,
+      steering_upgrade: 60, lighting: 40,
+      engine_breathing: 25, engine_perf: 18, cooling_trans: 35,
+      fuel_upgrade: 20, gauges: 30, charging: 45, aux_power: 40,
+      springs_supporting: 30, axle_upgrade: 55, driveshaft: 50,
+      brakes_upgrade: 45
+    },
+    rock_crawler: {
+      lift: 100, tires: 100, sye: 95, shocks: 90,
+      control_arms: 85, track_bar: 90, sway_bar: 85,
+      regear: 95, locker: 100, axle_upgrade: 85,
+      wheels: 80, wheel_spacers: 45,
+      armor_sliders: 100, armor_bumper_front: 85, armor_skid: 100,
+      armor_diff: 85, armor_bumper_rear: 70,
+      winch: 95, recovery_points: 95, onboard_air: 65,
+      steering_upgrade: 80, brakes_upgrade: 60,
+      driveshaft: 75, springs_supporting: 35, lighting: 45,
+      charging: 45, aux_power: 35
+    },
+    overland: {
+      lift: 80, tires: 95, shocks: 75,
+      armor_skid: 75, armor_sliders: 65,
+      armor_bumper_front: 85, armor_bumper_rear: 85,
+      tire_carrier: 95, airdown: 60,
+      winch: 80, recovery_points: 85, onboard_air: 80,
+      aux_power: 95, charging: 80, lighting: 75, gauges: 60,
+      audio: 35, interior_storage: 90, seats: 35,
+      sye: 60, regear: 60, cooling_trans: 65,
+      aux_fuel: 75, fuel_upgrade: 30, engine_breathing: 22,
+      wheel_spacers: 35, wheels: 60, springs_supporting: 30,
+      armor_rack: 75
+    }
+  };
+
+  const SLOT_LABELS = {
+    lift:'Lift', shocks:'Shocks', control_arms:'Control arms', track_bar:'Track bar',
+    sway_bar:'Sway-bar disco', springs_supporting:'Springs', sye:'SYE',
+    regear:'Re-gear', locker:'Locker', axle_upgrade:'Axle upgrade', driveshaft:'Driveshaft',
+    transmission:'Transmission', wheels:'Wheels', wheel_spacers:'Wheel spacers',
+    tires:'Tires', tire_carrier:'Tire carrier', airdown:'Airdown',
+    armor_skid:'Skid plate', armor_sliders:'Rock sliders',
+    armor_bumper_front:'Front bumper', armor_bumper_rear:'Rear bumper / carrier',
+    armor_diff:'Diff guards', armor_rack:'Roof rack',
+    winch:'Winch', winch_line:'Winch line', recovery_points:'Recovery points',
+    onboard_air:'Onboard air', recovery_gear:'Recovery gear',
+    steering_upgrade:'Steering', brakes_upgrade:'Brakes',
+    engine_breathing:'Intake / exhaust', engine_perf:'Engine performance',
+    engine_ignition:'Ignition',
+    fuel_upgrade:'Fuel system', aux_fuel:'Aux fuel',
+    cooling_radiator:'Radiator', cooling_fan:'Cooling fan', cooling_trans:'Trans cooler',
+    lighting:'Lighting', aux_power:'Aux power', gauges:'Gauges', charging:'Charging',
+    audio:'Audio', seats:'Seats', interior_storage:'Storage'
+  };
+
+  const PHASE_FOR_SLOT = {
+    track_bar:1, control_arms:1, sway_bar:1, steering_upgrade:1, brakes_upgrade:1,
+    sye:1, charging:1,
+    lift:2, springs_supporting:2, shocks:2, tires:2, wheels:2, wheel_spacers:2,
+    regear:2, locker:2, axle_upgrade:2, driveshaft:2, transmission:2,
+    armor_skid:3, armor_sliders:3, armor_bumper_front:3, armor_bumper_rear:3,
+    armor_diff:3, armor_rack:3,
+    winch:3, winch_line:3, recovery_points:3, onboard_air:3, recovery_gear:3,
+    tire_carrier:3, airdown:3,
+    lighting:3, aux_power:3, gauges:3, audio:3, seats:3, interior_storage:3,
+    engine_breathing:3, engine_perf:3, engine_ignition:3,
+    fuel_upgrade:3, aux_fuel:3,
+    cooling_radiator:3, cooling_fan:3, cooling_trans:3
+  };
+
+  function styleScore(e, slot, style) {
+    const tags = (e.tags||[]).map(t => (t||'').toLowerCase());
+    const has = t => tags.includes(t);
+    let s = 0;
+    if (style === 'budget') {
+      if (has('budget') || has('free')) s += 22;
+      if (has('premium')) s -= 18;
+      if (slot === 'wheel_spacers') s += 25;
+      if (slot === 'wheels') s -= 28;
+    } else if (style === 'premium') {
+      if (has('premium')) s += 26;
+      if (has('budget')) s -= 18;
+      if (slot === 'wheels') s += 20;
+      if (slot === 'wheel_spacers') s -= 28;
+    } else {
+      if (has('midgrade')) s += 18;
+      if (has('premium') || has('budget')) s += 5;
+    }
+    return s;
+  }
+
+  function builderScore(e, tier, style) {
+    const slot = slotKey(e);
+    const base = (TIER_SLOT_WEIGHTS[tier]||{})[slot];
+    if (base === undefined || base <= 0) return -1;
+    let s = base + styleScore(e, slot, style);
+    const tags = (e.tags||[]).map(t => (t||'').toLowerCase());
+    if (tags.includes('essential') || tags.includes('must-do')) s += 10;
+    if (tags.includes('death-wobble') && tier !== 'daily_driver') s += 6;
+    if (tags.includes('overland') && tier === 'overland') s += 8;
+    if (tags.includes('rock-crawl') && tier === 'rock_crawler') s += 8;
+    const mid = moneyMid(e.cost_usd);
+    if (style !== 'premium' && mid > 2000) s -= 5;
+    return s;
+  }
+
 
   // ---- vehicle data lazy loader ----
   // Maps vehicle id → array of entries (cached once loaded)
@@ -726,16 +991,17 @@
   function renderBuilder(app, vid) {
     const entries = getEntries(vid);
     const urlTier = (new URLSearchParams((location.hash.split('?')[1])||'')).get('tier') || '';
-    const state = { tier: urlTier, budget: 5000, experience: 2, style: 'balanced' };
+    const state = { tier: urlTier, budget: 5000, experience: 2, style: 'balanced', overrides: {} };
 
     const wrap = el('div', {});
     wrap.appendChild(el('h2', {}, 'Rig Builder'));
-    wrap.appendChild(el('p', {style:'color:var(--text-dim);margin:0 0 18px;max-width:680px'}, 'Pick your goal, set a budget, and the builder will sequence a phased build plan from the database.'));
+    wrap.appendChild(el('p', {style:'color:var(--text-dim);margin:0 0 18px;max-width:680px'},
+      'Pick your goal, set a budget, and the builder sequences an install plan from the database. Only new parts are recommended — routine service and repair work lives in the maintenance section.'));
 
     const step1 = el('div', {class:'builder-step'}, el('h3',{},'Step 1 — Pick your build goal'));
     const tg = el('div', {class:'grid-tiers'});
     Object.entries(TIER_META).forEach(([id, t]) => {
-      const card = el('div', {class:'tier-card'+(state.tier===id?' selected':''), on:{click:()=>{ state.tier=id; reflect(); compute(); }}},
+      const card = el('div', {class:'tier-card'+(state.tier===id?' selected':''), on:{click:()=>{ state.tier=id; state.overrides={}; reflect(); compute(); }}},
         el('div',{class:'icon'},t.icon), el('div',{class:'name'},t.label), el('div',{class:'desc'},t.desc));
       card.dataset.tier = id; tg.appendChild(card);
     });
@@ -749,8 +1015,8 @@
 
     const step3 = el('div', {class:'builder-step'}, el('h3',{},'Step 3 — Spend style'));
     const styleRow = el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'});
-    [['budget','Budget'],['balanced','Balanced'],['premium','Premium']].forEach(([id,lbl]) => {
-      const chip = el('div', {class:'filter-chip'+(state.style===id?' active':''), on:{click:()=>{ state.style=id; styleRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
+    [['budget','Budget — spacers, value picks'],['balanced','Balanced — midgrade'],['premium','Premium — wheels, Fox/King, top-shelf']].forEach(([id,lbl]) => {
+      const chip = el('div', {class:'filter-chip'+(state.style===id?' active':''), on:{click:()=>{ state.style=id; state.overrides={}; styleRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
       styleRow.appendChild(chip);
     });
     step3.appendChild(styleRow); wrap.appendChild(step3);
@@ -759,7 +1025,7 @@
       el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:10px'}, 'Caps difficulty of recommended work.'));
     const expRow = el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'});
     [[1,'Novice — ≤2★ only'],[2,'Intermediate — ≤4★'],[3,'Experienced — any']].forEach(([id,lbl]) => {
-      const chip = el('div', {class:'filter-chip'+(state.experience===id?' active':''), on:{click:()=>{ state.experience=id; expRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
+      const chip = el('div', {class:'filter-chip'+(state.experience===id?' active':''), on:{click:()=>{ state.experience=id; state.overrides={}; expRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
       expRow.appendChild(chip);
     });
     step4.appendChild(expRow); wrap.appendChild(step4);
@@ -773,88 +1039,131 @@
     function reflect() { $$('.tier-card', tg).forEach(c => c.classList.toggle('selected', c.dataset.tier === state.tier)); }
     reflect();
 
+    function renderSlotRow(se) {
+      const e = se.winner;
+      const m = catMeta(e.category);
+      const row = el('div', {class:'item-row'});
+      const head = el('div', {class:'item-head'},
+        el('span', {class:'item-title', on:{click:()=>go('#/'+vid+'/entry/'+encodeURIComponent(e.id))}}, m.icon + ' ' + e.title),
+        el('span', {class:'cost'}, moneyRange(e.cost_usd))
+      );
+      row.appendChild(head);
+      const meta = el('div', {class:'item-meta'},
+        el('span', {class:'item-slot'}, SLOT_LABELS[se.slot] || se.slot.replace(/_/g,' '))
+      );
+      if (se.alternatives && se.alternatives.length > 1) {
+        const panel = el('div', {class:'swap-panel'});
+        se.alternatives.forEach(alt => {
+          const isCurrent = alt.id === e.id;
+          panel.appendChild(el('div', {
+            class:'swap-opt'+(isCurrent?' current':''),
+            on:{click:(ev)=>{ ev.stopPropagation(); state.overrides[se.slot] = alt.id; compute(); }}
+          },
+            el('span', {}, (isCurrent ? '● ' : '○ ') + alt.title),
+            el('span', {class:'swap-opt-cost'}, moneyRange(alt.cost_usd))
+          ));
+        });
+        const btn = el('button', {class:'swap-btn',
+          on:{click:(ev)=>{ ev.stopPropagation(); panel.classList.toggle('open'); btn.textContent = panel.classList.contains('open') ? 'Hide options ▲' : 'Swap (' + se.alternatives.length + ' options) ▾'; }}
+        }, 'Swap (' + se.alternatives.length + ' options) ▾');
+        meta.appendChild(btn);
+        row.appendChild(meta);
+        row.appendChild(panel);
+      } else {
+        row.appendChild(meta);
+      }
+      return row;
+    }
+
     function compute() {
       if (!state.tier) {
-        summary.innerHTML = ''; summary.appendChild(el('h3',{},'Build Summary')); summary.appendChild(el('div',{style:'color:var(--text-mute)'},'Pick a build goal to begin.'));
-        list.innerHTML = ''; return;
+        summary.innerHTML = '';
+        summary.appendChild(el('h3',{},'Build Summary'));
+        summary.appendChild(el('div',{style:'color:var(--text-mute)'},'Pick a build goal to begin.'));
+        list.innerHTML = '';
+        return;
       }
       const diffCap = state.experience === 1 ? 2 : (state.experience === 2 ? 4 : 5);
-      const pool = entries.filter(e => (e.build_tiers||[]).includes(state.tier) && (e.difficulty||1) <= diffCap && e.category !== 'build_recipe' && e.category !== 'maintenance' && e.cost_usd && (e.cost_usd.low > 0 || e.cost_usd.high > 0));
-      const tierPriority = {
-        daily_driver: ['cooling','brakes','steering','engine','electrical'],
-        mild_trail:   ['suspension','wheels_tires','recovery','armor','steering','electrical'],
-        moderate_trail:['suspension','axles','drivetrain','wheels_tires','armor','recovery','steering','engine','electrical'],
-        rock_crawler:  ['suspension','axles','drivetrain','steering','armor','wheels_tires','recovery','engine','cooling','electrical'],
-        overland:      ['suspension','wheels_tires','electrical','interior','recovery','armor','engine','cooling']
-      }[state.tier] || [];
-      const score = (e) => {
-        const tags = (e.tags||[]).join(' ');
-        let s = 0;
-        if (/must-do|must-read|safety-critical/.test(tags)) s += 50;
-        const idx = tierPriority.indexOf(e.category);
-        if (idx >= 0) s += (10 - idx) * 4;
-        const mid = moneyMid(e.cost_usd);
-        if (state.style === 'budget' && mid > 0) s += Math.max(0, 20 - mid/50);
-        if (state.style === 'premium') s += Math.min(20, mid/100);
-        if (state.style === 'balanced') s += Math.max(0, 12 - Math.abs(mid - 400) / 80);
-        if (['upgrade_path','part','kit','how_to'].includes(e.type)) s += 5;
-        return s;
-      };
-      const grouped = new Map();
+      const pool = entries.filter(e => isInstallEntry(e, state.tier, diffCap));
+      const slots = new Map();
       for (const e of pool) {
-        const key = (e.category||'') + '/' + (e.subcategory||'');
-        if (!grouped.has(key)) grouped.set(key, []);
-        grouped.get(key).push(e);
+        const sk = slotKey(e);
+        const sc = builderScore(e, state.tier, state.style);
+        if (sc < 0) continue;
+        if (!slots.has(sk)) slots.set(sk, []);
+        slots.get(sk).push({entry:e, score:sc});
       }
-      const picks = [];
-      for (const [, arr] of grouped) { arr.sort((a,b)=> score(b) - score(a)); picks.push(arr[0]); }
-      picks.sort((a,b)=> score(b) - score(a));
+      for (const arr of slots.values()) arr.sort((a,b)=> b.score - a.score);
+
+      const slotEntries = [];
+      for (const [sk, arr] of slots.entries()) {
+        const slotWeight = (TIER_SLOT_WEIGHTS[state.tier]||{})[sk] || 0;
+        const overrideId = state.overrides[sk];
+        let winner = arr[0];
+        if (overrideId) {
+          const match = arr.find(c => c.entry.id === overrideId);
+          if (match) winner = match;
+        }
+        slotEntries.push({slot:sk, winner:winner.entry, alternatives:arr.map(c=>c.entry), slotWeight});
+      }
+      slotEntries.sort((a,b) => b.slotWeight - a.slotWeight);
+
+      const HARD_KEEP = Math.min(3, slotEntries.length);
       const chosen = []; let total = 0;
-      for (const e of picks) {
-        const c = moneyMid(e.cost_usd);
-        if (total + c <= state.budget * 1.05) { chosen.push(e); total += c; }
-      }
-      const phases = {
-        'Phase 1 — Foundation & safety': [],
-        'Phase 2 — Capability & protection': [],
-        'Phase 3 — Performance & comfort': []
+      const budgetCap = state.budget * 1.05;
+      slotEntries.forEach((se, idx) => {
+        const cost = moneyMid(se.winner.cost_usd);
+        if (idx < HARD_KEEP || total + cost <= budgetCap) {
+          chosen.push(se); total += cost;
+        }
+      });
+
+      const phaseBuckets = {1:[], 2:[], 3:[]};
+      chosen.forEach(se => { (phaseBuckets[PHASE_FOR_SLOT[se.slot]||3]).push(se); });
+      const PHASE_TITLES = {
+        1: 'Phase 1 — Foundation & safety',
+        2: 'Phase 2 — Lift, tires, capability',
+        3: 'Phase 3 — Protection, recovery & comfort'
       };
-      for (const e of chosen) {
-        const tags = (e.tags||[]).join(' ');
-        if (/must-do|must-read|safety-critical|common-failure/.test(tags) || e.category==='brakes' || e.category==='steering') phases['Phase 1 — Foundation & safety'].push(e);
-        else if (['suspension','axles','wheels_tires','armor','recovery','drivetrain'].includes(e.category)) phases['Phase 2 — Capability & protection'].push(e);
-        else phases['Phase 3 — Performance & comfort'].push(e);
-      }
+
       const recipe = entries.find(e => e.category === 'build_recipe' && (e.build_tiers||[]).includes(state.tier));
       summary.innerHTML = '';
       summary.appendChild(el('h3',{},'Build Summary'));
       summary.appendChild(el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:6px'}, (TIER_META[state.tier]||{}).label));
-      summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px'}, chosen.length + ' items · ' + state.style + ' · ≤' + diffCap + '★ work'));
+      summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px'}, chosen.length + ' parts · ' + state.style + ' · ≤' + diffCap + '★ work'));
       summary.appendChild(el('div', {class:'total-cost'}, '$' + Math.round(total).toLocaleString()));
       summary.appendChild(el('div', {style:'color:var(--text-mute);font-size:12px;margin-bottom:14px'}, 'of $' + state.budget.toLocaleString() + ' budget'));
       const progressFill = Math.min(100, total/state.budget*100);
       summary.appendChild(el('div', {style:'height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden'},
-        el('div', {style:`width:${progressFill}%;height:100%;background:${progressFill > 100 ? 'var(--danger)' : 'var(--accent)'};transition:width .2s`})));
+        el('div', {style:`width:${progressFill}%;height:100%;background:${total > state.budget ? 'var(--danger)' : 'var(--accent)'};transition:width .2s`})));
+      if (total > state.budget) {
+        summary.appendChild(el('div', {style:'color:var(--danger);font-size:11px;margin-top:8px'}, 'Foundation slots kept — over budget by $' + Math.round(total - state.budget).toLocaleString()));
+      }
+      if (Object.keys(state.overrides).length) {
+        summary.appendChild(el('hr', {class:'sep'}));
+        summary.appendChild(el('button', {
+          style:'background:transparent;border:1px solid var(--border);border-radius:6px;color:var(--text-dim);padding:6px 10px;font-size:11px;cursor:pointer;width:100%',
+          on:{click:()=>{ state.overrides = {}; compute(); }}
+        }, 'Reset swaps'));
+      }
       if (recipe) {
         summary.appendChild(el('hr', {class:'sep'}));
         summary.appendChild(el('div', {style:'font-size:12px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px'}, 'Featured recipe'));
         summary.appendChild(el('a', {href:'#/'+vid+'/entry/'+encodeURIComponent(recipe.id), style:'font-weight:600;display:block'}, recipe.title + ' →'));
       }
+
       list.innerHTML = '';
-      for (const [pname, items] of Object.entries(phases)) {
+      for (const ph of [1,2,3]) {
+        const items = phaseBuckets[ph];
         if (!items.length) continue;
-        const phaseTotal = items.reduce((s,e)=>s+moneyMid(e.cost_usd),0);
-        const phaseEl = el('div', {class:'phase'}, el('h4',{}, pname + ' · $' + Math.round(phaseTotal).toLocaleString()));
-        const ul = el('ul', {class:'phase-list'});
-        items.forEach(e => {
-          const m = catMeta(e.category);
-          ul.appendChild(el('li', {on:{click:()=>go('#/'+vid+'/entry/'+encodeURIComponent(e.id))}},
-            el('span', {}, m.icon + ' ' + e.title),
-            el('span', {class:'cost'}, moneyRange(e.cost_usd))));
-        });
-        phaseEl.appendChild(ul); list.appendChild(phaseEl);
+        const phaseTotal = items.reduce((s,se)=>s+moneyMid(se.winner.cost_usd),0);
+        const phaseEl = el('div', {class:'phase'},
+          el('h4', {}, PHASE_TITLES[ph] + ' · $' + Math.round(phaseTotal).toLocaleString()));
+        items.forEach(se => phaseEl.appendChild(renderSlotRow(se)));
+        list.appendChild(phaseEl);
       }
-      if (!chosen.length) list.appendChild(el('div', {class:'empty'}, el('h3',{},'No matches'), 'Try raising your budget or DIY skill cap.'));
+      if (!chosen.length) list.appendChild(el('div', {class:'empty'}, el('h3',{},'No matches'),
+        'No install-ready parts match this tier yet — try a different goal, raise your budget, or lift the DIY skill cap. Most launch-tier vehicles only have a handful of build-ready entries today.'));
     }
     compute();
   }
