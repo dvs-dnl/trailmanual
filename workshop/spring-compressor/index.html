@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spring Compressor — Safe Use and What Not to Do — The Workshop · Trail Manual</title>
+<meta name="description" content="A compressed coil spring stores enough energy to kill. Here's which spring compressor to use, which to avoid, and the rules that keep struts from launching across the garage.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  /* Legacy aliases — light-theme values mapped from canon */
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:1200px;
+
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--paper) 0%, rgba(247,244,237,.96) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+  /* Defensive: explicit color so legacy cascade can't break the hero */
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
+.video-section h2{margin-top:0}
+.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
+.video-embed{margin:18px 0 0}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-mute)}
+.video-credit a{color:var(--text-dim);border-bottom:1px dotted var(--text-mute)}
+.video-credit a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">The Workshop</div></div>
+    </a>
+    <a class="back-link" href="/workshop/">← All guides</a>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Spring Compressor — Safe Use and What Not to Do</h1>
+    <p class="lede">A compressed coil spring on a passenger-car strut stores roughly 1,500–3,000 pounds of force in a part you can pick up with one hand. Released uncontrolled, that energy doesn't make a loud bang and stop — it sends a hardened steel spring through drywall, through tools, and through the people standing next to it. This guide covers which compressor to use, which to avoid, and the rules that keep that energy in the spring until you say otherwise.</p>
+    <div class="safety-badge">⚠ Safety critical</div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p>For most home shops, the right tool is a <strong>wall-mounted strut spring compressor</strong> borrowed from a parts-store loan-tool program (AutoZone, O'Reilly, Advance Auto Parts) or rented from a tool rental yard. It captures the entire spring inside a steel cage and uses a single screw to compress it — geometry that physically prevents the spring from escaping sideways. The hook-style "claw" compressors that come in $30 kits and parts-store rental boxes <strong>work, but they are the most injury-prone version of this tool</strong> and demand more attention than most DIYers give them.</p>
+    <p>The honest alternative: for most strut jobs on daily-driver vehicles, buy <strong>pre-assembled "quick struts"</strong> (also called loaded struts) for $80–$200 per corner and skip the spring compression entirely. A new strut assembly bolts in as a unit — no compressed spring, no tool rental, no rebound risk. Unless you're rebuilding a coilover, off-road shock, or a strut where the spring rate is non-standard, a loaded strut is the right call.</p>
+  </div>
+
+  <h2>Why this tool kills people</h2>
+  <p>A coil spring under preload stores energy as elastic deformation across every coil. When you release one end abruptly — or when a clamp loses grip — that energy converts to kinetic energy in milliseconds. A typical MacPherson strut spring is compressed roughly 4–6 inches from its free length to fit inside the strut assembly. That compression is holding back enough force to drive the spring through the operator at speeds that can fracture bone and pierce soft tissue.</p>
+
+  <p>This is not theoretical. There are documented fatalities every year from spring compressor failures, almost always involving the same scenario: a worn or undersized hook-claw compressor, applied to one or two coils, releases with the strut nut still partially threaded. The strut shaft and bearing assembly become a projectile. Search the OSHA and ANSI shop-injury records — spring compressor accidents are a category, not an outlier.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">The first rule</div>
+    <p>Never put any part of your body in the line of release. Stand to the side of the spring's compression axis — not above it, not in front of it, not crouched over it tightening the screw. If the spring escapes, it travels along its own axis. The single most important habit is keeping that line clear of you and anything you'd rather not lose.</p>
+  </div>
+
+  <h2>Types of spring compressors, in order of how much trust they deserve</h2>
+
+  <h3>1. Wall-mount or floor-mount strut spring compressors (safest)</h3>
+  <p>These are heavy steel cages — typically bolted to a wall stud or floor — with two plates that capture the spring top and bottom and a single threaded rod that pulls them together. The spring is fully enclosed inside the frame; if any component fails, the spring is contained.</p>
+  <p>Branico, Branick, OTC, and several import brands make wall-mount units in the $400–$1,200 range. For a home shop doing one strut job every few years, <strong>rent or borrow this tool instead of buying it.</strong> Every AutoZone and O'Reilly in the country has a loan-tool program with a strut compressor kit — usually a refundable deposit of $80–$200 that comes back when you return the tool. Even the rental versions are typically of the hook-claw style; ask whether they have a true cage-type compressor and accept the wall-mount only if available locally at a rental yard.</p>
+
+  <h3>2. MacPherson strut "cassette" compressors</h3>
+  <p>A vertical bench-mount cage version of the wall-mount design — smaller, portable, with the same cage principle. Less containment than a wall-mount but still far safer than hook-style. Common at parts stores in the rental program. Acceptable for home use with care.</p>
+
+  <h3>3. Hook-style ("claw" or "valve spring") compressors — the dangerous one</h3>
+  <p>Two opposing hooks clamp two or three coils of the spring, with a center threaded rod that pulls the hooks together. These are the compressors in most $30 sets, in every parts-store rental kit, and in countless garage drawers. <strong>They work — but they are the most common mode of spring compressor injury</strong>, because:</p>
+  <ul>
+    <li><strong>The hooks can slip off coils</strong> if alignment is off by even a few degrees, or if the spring's coil spacing is uneven near its ends.</li>
+    <li><strong>The threaded rod can bind or strip</strong> under heavy load, especially on cheap imports.</li>
+    <li><strong>The spring is fully exposed</strong> — there is no cage. If a hook slips, the spring has nothing constraining it.</li>
+    <li><strong>Two hooks isn't symmetric</strong>. Most strut springs are six or seven coils; two hooks engage two or three coils. That leaves the spring free to bow sideways if loaded unevenly.</li>
+  </ul>
+  <p>If a hook-style compressor is the only tool available, the rules below are not optional.</p>
+
+  <h3>4. Internal (inside-the-spring) compressors</h3>
+  <p>A variant of hook-style where the hooks engage from the inside of the coil instead of the outside. Used on tightly-packaged struts where external hooks won't fit. Same risks as external hook-style with one addition: you cannot see the hook engagement clearly once it's seated. Reserve for jobs where nothing else fits, and verify hook contact through the spring gap before pressurizing.</p>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">A note on the parts-store rental tools</div>
+    <p>The loaner kits at AutoZone, O'Reilly, and Advance are almost always the hook-claw style. They are not the same as a wall-mount cage compressor. If the parts store is your tool source, ask which type they have. If it's claws-only, the rules in the next section apply with no exceptions, and consider whether a loaded strut assembly is the better answer.</p>
+  </div>
+
+  <h2>The rules — what not to do</h2>
+
+  <h3>Use two compressors on a coil spring, never one</h3>
+  <p>For hook-style compressors, <strong>always use a matched pair, positioned 180° opposite each other</strong> on the spring. One compressor on one side loads the spring unevenly, lets it bow, and dramatically increases the chance of a hook slipping or the spring exploding sideways. Two compressors share the load and keep the spring axis aligned. Tighten them evenly — a half-turn on one, a half-turn on the other, alternating — never run one all the way down before starting the other.</p>
+
+  <h3>Inspect both compressors before each job</h3>
+  <p>Look at the hooks for wear, cracks, or deformation. Look at the threads for galling, paint chips, or stripped sections. If the rod doesn't spin freely by hand for its full length, the compressor is compromised. Used and abused hook compressors are common at parts stores and in tool boxes that have been around a while — assume nothing about a tool you didn't put in the box.</p>
+
+  <h3>Engage at least three coils per hook, and seat the hook flat against the coil</h3>
+  <p>A hook gripping just the lip of a single coil concentrates all the load on a fingertip-sized contact patch. The hook should sit cleanly on the coil with the spring wire fully captured in the hook profile. If the hook is rocking, sitting on a bend, or only partially engaged, reposition before applying load.</p>
+
+  <h3>Never compress more than you need to</h3>
+  <p>The goal is to take preload off the spring perch so the strut nut can be removed — not to crush the spring solid. Compress only enough to allow the upper mount to free from the spring with maybe 1/4 inch of additional play. Over-compression increases stored energy, increases hook strain, and increases the consequences of any failure.</p>
+
+  <h3>Never use impact tools on a spring compressor</h3>
+  <p>Use a hand wrench or socket-and-ratchet on the threaded rod. An impact gun on the compressor rod loads the threads erratically, can over-rotate before you sense binding, and is how strip-outs and projectile events happen. Hand-tighten, slowly. Pause when the spring starts to load and visually verify that both compressors are still seated correctly before continuing.</p>
+
+  <h3>Never leave a spring compressed</h3>
+  <p>Once a spring is compressed, finish the disassembly that day. A compressed spring left overnight is a hazard waiting for the next person who walks past the bench — whether that's you tomorrow or a family member who doesn't know what they're looking at. If you have to stop, release the compression first.</p>
+
+  <h3>Keep the assembly aimed away from people</h3>
+  <p>Even on the bench, point the strut so that if something fails, the spring goes toward a wall or open space — not toward the door, the workbench you sit at, or the house wall. This is the cheapest safety measure in the shop. Use it.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Stop — when to walk away</div>
+    <p>If you can't get the hooks to seat cleanly, if the rod feels rough on the threads, if the spring is bowing visibly as you compress, or if you find yourself trying to "make it work" with mismatched tools — stop. Release the compressor. Get a different tool or take the strut to a shop. The cost of a shop pressing one spring is $30–$80. The cost of a hook slip in your garage starts at "trip to the ER" and goes up from there.</p>
+  </div>
+
+  <h2>The honest alternative — loaded strut assemblies</h2>
+  <p>Manufacturers like Monroe (Quick-Strut), KYB (Strut-Plus), Gabriel (ReadyMount), and FCS sell complete strut assemblies — strut body, spring, upper mount, bearing, dust boot, all pre-assembled and pre-compressed at the factory. You unbolt the old assembly and bolt the new one in. The spring is never compressed in your garage.</p>
+  <p>Prices typically run $80–$200 per corner depending on vehicle. That's a premium of roughly $40–$80 over buying a bare strut and reusing the original spring — and for that premium you get:</p>
+  <ul>
+    <li>No spring compressor needed, no rental, no risk.</li>
+    <li>A new spring instead of a 100,000-mile old one (the spring fatigues too — replacing struts without replacing springs leaves half the suspension worn out).</li>
+    <li>A new upper mount and bearing, which are the typical culprits behind front-end clunks and creaks on aging vehicles.</li>
+    <li>A factory-aligned and -torqued top hat, so ride height and alignment land where engineers intended.</li>
+  </ul>
+  <p>Loaded struts are the right answer for the vast majority of daily-driver strut replacements. Reach for a spring compressor only when you have a real reason to: rebuilding a coilover, doing a lifted setup with non-standard spring rates, restoring a vehicle where loaded units aren't available, or working on solid-axle coil springs that don't ship as assemblies.</p>
+
+  <h2>Coil springs on solid axles — a different problem</h2>
+  <p>On solid-axle vehicles — Jeep XJ, TJ, JK, JL, Ram HD, full-size Bronco — the rear (and front, in many cases) uses coil springs seated between the axle and the frame perches, with no strut to compress against. Removing these springs usually doesn't require a spring compressor at all. The procedure is to disconnect the shock, the track bar, and the sway bar end link, then drop the axle on a floor jack until the spring height exceeds its installed compressed height — at which point the spring lifts out by hand.</p>
+  <p>The spring compressor only enters the picture if you're installing a lift kit with a taller spring that won't fit between the perches without compression, or if you're working with progressive-rate springs that don't decompress fully when the axle drops. In those cases, ratchet straps or chain-and-clamp setups are used to pre-compress the spring before insertion — and the same rules apply: keep yourself out of the release line, never trust a single point of compression, and never use impact tools.</p>
+
+  <div class="panel panel-good">
+    <div class="panel-label">If you decide to do strut work yourself</div>
+    <p>The right starter approach: rent a wall-mount strut compressor from a local rental yard ($30–$60/day), or borrow the cassette-style compressor from a parts-store loan program. Set the strut on the bench, pointed at a wall away from the work area. Use two compressors, 180° opposite, three coils each. Tighten by hand alternately. Crack the strut nut with the spring still bearing on the upper mount before compression — this lets you verify the nut moves before adding stored energy. Then compress just enough to clear the upper mount, remove the nut, and disassemble. Reverse for assembly. Wear safety glasses. Keep a clear path out of the work area.</p>
+  </div>
+
+  <h2>PPE — non-negotiable</h2>
+  <ul>
+    <li><strong>Safety glasses or a face shield.</strong> If a spring releases, fragments and the spring itself travel along the strut axis — but secondary projectiles (the compressor hooks, broken paint chips, rust scale) go everywhere. A face shield is preferable to safety glasses for this work.</li>
+    <li><strong>Closed footwear.</strong> If something drops, you want a boot or shoe between it and your foot.</li>
+    <li><strong>Hearing protection isn't typically needed</strong> for spring compression itself, but if you're impacting the strut nut after the spring is captured, treat it like any impact work.</li>
+    <li><strong>No bystanders.</strong> Clear the workspace. This isn't a job to demonstrate to anyone — especially not children. If someone wants to learn, have them stand well outside the line of release and watch through the doorway.</li>
+  </ul>
+
+  <h2>One more honest take</h2>
+  <p>Spring compressor work is one of the only DIY repairs where the cost-benefit math leans hard toward paying someone else. A shop will press a spring for $30–$80, with the right tool, in five minutes. If you don't already own a wall-mount compressor and you're not building a track car or rock crawler that needs custom spring assemblies, that's the most rational option. There's no shame in it. The Workshop exists to help DIYers do work safely and well — and sometimes "safely and well" means handing off the one step that needs a $1,000 tool you'll use once a decade.</p>
+
+  <div class="video-section">
+    <h2>Watch It Done</h2>
+    <p class="video-context">Seeing the technique once is worth more than reading about it twice. Pay attention to hook placement, the alternating tighten pattern, and how the strut is positioned on the bench.</p>
+    <div class="video-embed">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/kZX78ccC_jc?rel=0"
+                title="How to Compress a Strut Spring (and Also Change a Strut!) — ChrisFix"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <p class="video-credit">Video: <a href="https://www.youtube.com/channel/UCes1EvRjcKU4sY_UEavndBw" target="_blank" rel="noopener">ChrisFix</a></p>
+    </div>
+  </div>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/working-under-a-vehicle/">Working Under a Vehicle Safely</a>
+      <a class="related-card" href="/workshop/floor-jack-and-stands/">Floor Jacks and Jack Stands</a>
+      <a class="related-card" href="/workshop/breaking-rusty-bolts/">Breaking Rusty and Seized Bolts</a>
+      <a class="related-card" href="/workshop/reading-torque-specs/">How to Read a Torque Specification</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/channels/">Recommended Channels</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+</body>
+</html>
