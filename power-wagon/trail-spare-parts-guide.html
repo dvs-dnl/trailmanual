@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ram Power Wagon Trail Spare Parts Guide | Trail Manual</title>
+  <meta name="description" content="What spare parts to carry in a Ram Power Wagon on the trail. Locker solenoid fuses, winch fairlead, serpentine belt, lug nut caps, and the power wagon-specific failure points to plan for.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-weight: 500; font-size: clamp(30px, 5vw, 46px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 17px); color: var(--slate-l); max-width: 660px; line-height: 1.5; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 16px; color: var(--slate); line-height: 1.6; margin: 0 0 10px; }
+    .verdict p:last-child { margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .kit-category { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); padding: 10px 0 8px; border-bottom: 1px solid var(--bone); margin: 28px 0 0; font-weight: 500; }
+    .kit-list { list-style: none; border: 1px solid var(--bone); border-top: none; border-radius: 0 0 4px 4px; overflow: hidden; margin-bottom: 8px; }
+    .kit-list li { padding: 11px 16px; border-bottom: 1px solid var(--bone); font-size: 14px; line-height: 1.55; color: var(--slate); }
+    .kit-list li:last-child { border-bottom: none; }
+    .kit-list li:nth-child(odd) { background: var(--paper); }
+    .kit-list li:nth-child(even) { background: rgba(232,226,210,0.4); }
+    .kit-list li strong { color: var(--slate); font-weight: 500; }
+    .failure-item { padding: 16px 18px; border-left: 3px solid var(--warn); background: rgba(216,144,53,0.06); border-radius: 0 4px 4px 0; margin-bottom: 10px; }
+    .failure-item strong { display: block; font-size: 15px; font-weight: 500; color: var(--slate); margin-bottom: 4px; }
+    .failure-item span { font-size: 14px; color: var(--slate-l); line-height: 1.55; display: block; }
+    .safety-item { border-left-color: var(--safety) !important; background: rgba(178,59,47,0.05) !important; }
+    .footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '\2192'; color: var(--clay); }
+    .footer-nav-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; width: 100%; }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate-l); }
+    .site-footer a { color: var(--clay); text-decoration: none; }
+    /* TODO: add photo — Power Wagon bed with recovery gear and spare parts kit */
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <svg width="24" height="24" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="10" fill="#1A2330"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/></svg>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/power-wagon/">Power Wagon</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <div class="eyebrow">Ram Power Wagon &middot; 2005&ndash;Present</div>
+  <h1>Power Wagon Trail Spare Parts Guide</h1>
+  <p class="masthead-subhead">The Power Wagon's failure signature on the trail is short but specific. Locker solenoids, winch components, and a few hardware items that most kits miss. Carry the universal spares, then add the Power Wagon layer.</p>
+</div>
+
+<article class="article">
+
+  <h2>Universal Spares &mdash; All Vehicles</h2>
+  <p>These spares belong in every rig. Carry them regardless of platform.</p>
+
+  <div class="kit-category">Driveline</div>
+  <ul class="kit-list">
+    <li><strong>U-joints</strong> &mdash; 1&ndash;2 that match your front and rear driveshafts; both sizes if front and rear differ</li>
+    <li><strong>Driveshaft slip yoke grease</strong> &mdash; heavy grease for the slip joint spline</li>
+  </ul>
+
+  <div class="kit-category">Cooling</div>
+  <ul class="kit-list">
+    <li><strong>Radiator stop-leak tablets</strong> &mdash; Bar's Leaks or equivalent</li>
+    <li><strong>Upper radiator hose</strong> &mdash; OEM equivalent, labeled with your year</li>
+    <li><strong>Thermostat + gasket</strong></li>
+    <li><strong>1 gallon premixed 50/50 coolant</strong> &mdash; Mopar-spec coolant for the 5.7L Hemi</li>
+  </ul>
+
+  <div class="kit-category">Belts and Hoses</div>
+  <ul class="kit-list">
+    <li><strong>Serpentine belt</strong> &mdash; write the exact OEM part number on the bag; the 5.7L Hemi belt routing varies by year and options</li>
+    <li><strong>Lower radiator hose</strong></li>
+  </ul>
+
+  <div class="kit-category">Electrical</div>
+  <ul class="kit-list">
+    <li><strong>Fuse assortment</strong> &mdash; blade style, 5A&ndash;40A; include the specific locker solenoid fuse amperage for your truck</li>
+    <li><strong>Spare relay</strong> &mdash; 87/30/85/86 style</li>
+    <li><strong>Spare bulbs</strong> &mdash; headlight fitment, brake light, turn signal</li>
+  </ul>
+
+  <div class="kit-category">Fluids</div>
+  <ul class="kit-list">
+    <li><strong>Engine oil</strong> &mdash; 2 quarts 5W-20 or 0W-20 (check your year's spec and label it)</li>
+    <li><strong>Brake fluid</strong> &mdash; 1 small bottle DOT 3</li>
+    <li><strong>ATF</strong> &mdash; 1 qt Mopar ATF+4 for the 68RFE automatic; label the spec</li>
+    <li><strong>Gear oil</strong> &mdash; 1 qt 75W-90 synthetic for the front and rear axles</li>
+    <li><strong>Transfer case fluid</strong> &mdash; 1 qt per the NV271/NV273 spec for your year</li>
+  </ul>
+
+  <div class="kit-category">Fasteners</div>
+  <ul class="kit-list">
+    <li><strong>Grade 8 bolt assortment</strong> &mdash; M10, M12, M14 in common lengths</li>
+    <li><strong>Nylock nuts to match</strong></li>
+    <li><strong>Cotter pins</strong> &mdash; assorted; front axle tie rod ends use them</li>
+  </ul>
+
+  <h2>Power Wagon-Specific Spares</h2>
+  <p>These are the parts that distinguish a prepared Power Wagon from an unprepared one.</p>
+
+  <div class="failure-item">
+    <strong>Locker solenoid fuses (2&times; correct amperage) &mdash; carry in the cab</strong>
+    <span>A blown locker solenoid fuse kills engagement entirely. The symptom is a switch press that does nothing &mdash; no indicator flash, no sound. The fix is two minutes with the correct fuse. Without it, you're running unlocked. Check the PDC cover or owner's manual for the exact fuse rating for your generation &mdash; it varies. Mark them clearly and keep them in the cab.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Locker solenoid (one spare, either front or rear)</strong>
+    <span>The locker solenoids fail more often than most owners expect &mdash; particularly on trucks that have seen repeated water crossings. The symptom is a fuse that's fine but 12V doesn't produce engagement. A Mopar solenoid is $85&ndash;$100. It's a bolt-in replacement you can do on the trail if you have the right socket. Decide which axle you'd rather have locked in an emergency and carry that solenoid.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Winch synthetic rope section (3&apos;&ndash;5&apos;) + clevis</strong>
+    <span>If the rope frays or takes damage near the hook end during a recovery, cutting the damaged section is faster than trying to work around it. Carry a short length of spare 3/8" synthetic rope and a soft shackle so you can rig the shortened rope back to the hook. This also covers a fairlead groove damage scenario where the rope cuts on the lip.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Hawse fairlead spare (or spare rollers if wire rope)</strong>
+    <span>The aluminum hawse fairlead that guides synthetic rope wears over time &mdash; particularly in sandy conditions. If the fairlead develops a groove or burr, it accelerates rope wear and can cut the rope under load. A spare hawse weighs almost nothing and is a 10-minute swap.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Factory lug nuts (4&times;) &mdash; the cap style corrodes</strong>
+    <span>The factory Power Wagon lug nuts use a chrome cap over a hex body. That cap corrodes at the joint between cap and body, especially in winter environments or trucks that see trail dust regularly. The cap loosens from the body so the socket spins on the cap rather than turning the nut. A cheap bag of spare OEM-style lug nuts prevents stranding yourself over a tire change. Carry four minimum.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Sway bar disconnect actuator fuse (correct amperage)</strong>
+    <span>The Smart Bar hydraulic pump has a dedicated fuse. If the bar won't disconnect and the switch is pressed, the first check is this fuse. A blown fuse on the trail means a manual reconnect procedure to get the bar locked before highway driving. Carry two spares.</span>
+  </div>
+
+  <div class="failure-item safety-item">
+    <strong>Winch remote backup (wired remote) &mdash; always in the cab</strong>
+    <span>The factory wireless remote fails from water exposure, battery death, and impact damage. A wired remote is not optional for serious trail use &mdash; it's the backup that guarantees you can operate the winch regardless of what happened to the wireless unit. Keep it in the cab, not in a bag buried under gear.</span>
+  </div>
+
+  <div class="failure-item">
+    <strong>Correct fluids &mdash; double-check your powertrain spec</strong>
+    <span>5.7L Hemi (pre-2019): 5W-20. 5.7L Hemi (check 2019+ spec &mdash; same but confirm). Dana 44 front and rear: synthetic 75W-90 with friction modifier if your truck's service history shows it was used. NV271/NV273 transfer case: confirm exact fluid spec in the service manual for your generation &mdash; specs changed between model years. Carrying the wrong fluid is not better than carrying nothing.</span>
+  </div>
+
+  <h2>Power Wagon Field Verdict</h2>
+
+  <div class="verdict">
+    <div class="verdict-label">Field Verdict</div>
+    <p>The two items that strand Power Wagon owners most often are a blown locker fuse and a dead winch remote. Both cost under $20 to carry. The lug nut cap problem is the other common surprise &mdash; inspect yours before a trip and replace any that show corrosion at the cap-to-body seam. The rest of the list is standard off-road prep, sized for a 7,000-pound truck.</p>
+  </div>
+
+  <nav class="footer-nav">
+    <div class="footer-nav-label">Related Guides</div>
+    <a class="footer-nav-link" href="/power-wagon/trail-tools-guide.html">Trail Tools Guide</a>
+    <a class="footer-nav-link" href="/power-wagon/buyers-guide.html">Buyer's Guide</a>
+    <a class="footer-nav-link" href="/power-wagon/">All Power Wagon Guides</a>
+  </nav>
+
+</article>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; <a href="https://trailmanual.com">trailmanual.com</a> &mdash; Free off-road DIY reference</p>
+</footer>
+
+</body>
+</html>
