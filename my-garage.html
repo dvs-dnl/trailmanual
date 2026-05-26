@@ -1393,7 +1393,7 @@ function activeVehicle() {
    ========================================================= */
 const PROJECT_TYPES = {
   'v8-swap': {
-    label: 'V8 SWAP',
+    label: 'ENGINE SWAP',
     tool: 'v8-swap-parts-checklist.html',
     // Maps pathId → display name (must match V8 checklist ENGINE_PATHS_JK ids)
     paths: {
@@ -1680,7 +1680,7 @@ function renderProjects(v) {
   const projects = v.projects || [];
   head.appendChild(el('div', { class: 'section-help' },
     projects.length === 0
-      ? 'No projects yet. Start one from the V8 Swap Decision tool.'
+      ? 'No projects yet. Start one from the Engine Swap Decision tool.'
       : projects.length + ' project' + (projects.length === 1 ? '' : 's')
   ));
   section.appendChild(head);
@@ -1688,8 +1688,8 @@ function renderProjects(v) {
   if (projects.length === 0) {
     const empty = el('div', { class: 'empty-card' });
     empty.appendChild(el('div', { style: 'margin-bottom:8px' }, 'No projects on this rig yet.'));
-    empty.appendChild(el('div', { style: 'color:var(--text-faint);font-size:12px' }, 'Open the V8 Swap Decision tool, pick an engine path, and click "Start My Build" to attach a parts checklist to this rig.'));
-    const link = el('a', { href: '/jk-wrangler-engine-swap-tool.html', style: 'display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--clay-light)' }, 'Open V8 Swap Decision tool →');
+    empty.appendChild(el('div', { style: 'color:var(--text-faint);font-size:12px' }, 'Open the Engine Swap Decision tool, pick an engine path, and click "Start My Build" to attach a parts checklist to this rig.'));
+    const link = el('a', { href: '/jk-wrangler-engine-swap-tool.html', style: 'display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--clay-light)' }, 'Open Engine Swap Decision tool →');
     empty.appendChild(link);
     section.appendChild(empty);
     return section;
