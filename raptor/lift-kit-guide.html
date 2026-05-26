@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lifting a Raptor: Why Most Kits Make It Worse | Trail Manual</title>
+  <meta name="description" content="The Raptor's factory suspension is already long-travel and tuned. Most lift kits ruin the Fox shock tune and geometry. Here's what leveling kits do, when a lift is justified, and what to avoid.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-family: var(--sans); font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-family: var(--sans); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .warn-block { border-left: 3px solid var(--warn); padding: 18px 20px 18px 24px; background: rgba(216,144,53,0.06); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .warn-block p { font-size: 16px; color: var(--slate); line-height: 1.65; margin: 0; }
+    .warn-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warn); margin-bottom: 8px; }
+    .year-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1px; background: var(--bone); border: 1px solid var(--bone); margin: 24px 0; }
+    .year-card { background: var(--paper); padding: 22px 24px; }
+    .year-range { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--clay); letter-spacing: 0.06em; margin-bottom: 6px; }
+    .year-card h3 { font-family: var(--sans); font-weight: 500; font-size: 15px; color: var(--slate); margin: 0 0 8px; }
+    .year-card p { font-size: 14px; line-height: 1.6; color: var(--slate-l); margin: 0; }
+    .year-badge { display: inline-block; margin-bottom: 10px; padding: 3px 9px; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 3px; border: 1px solid; }
+    .year-badge.sweet { background: rgba(94,140,90,0.08); color: #5E8C5A; border-color: rgba(94,140,90,0.3); }
+    .year-badge.neutral { background: rgba(91,107,126,0.08); color: var(--slate-l); border-color: rgba(91,107,126,0.3); }
+    .year-badge.warn { background: rgba(216,144,53,0.08); color: #D89035; border-color: rgba(216,144,53,0.3); }
+    .year-badge.bad { background: rgba(178,59,47,0.08); color: var(--safety); border-color: rgba(178,59,47,0.3); }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .year-grid { grid-template-columns: 1fr; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/raptor/" class="active">Raptor</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- TODO: add photo — Raptor at stock ride height next to lifted truck, or undercarriage shot showing Fox shock position -->
+
+  <div class="masthead">
+    <p class="eyebrow">Ford F-150 Raptor &middot; Suspension Upgrades</p>
+    <h1>Lifting a Raptor:<br>Why Most Kits Make It Worse</h1>
+    <p class="masthead-subhead">The Raptor's factory suspension was engineered by Ford's performance team around the Fox Racing Shox tune. A random 2" lift kit cannot account for what the Raptor already is. Here's what actually works — and what ruins a truck that was already right.</p>
+    <p class="masthead-meta">Trail Manual<span>&middot;</span>F-150 Raptor &middot; Gen 2 &amp; Gen 3</p>
+  </div>
+
+  <article class="article">
+
+    <h2>The Starting Point Most Buyers Miss</h2>
+
+    <p>The factory Raptor is not a standard F-150 with bigger shocks. The front suspension travel on a Gen 2 Raptor is 13.0 inches. A lifted Jeep Wrangler with aftermarket long-travel suspension typically achieves 10–12 inches. The Raptor is already there, from the factory, with a purpose-built Fox Racing Shox tune developed in Baja.</p>
+
+    <p>The Fox internal-bypass shock on the Gen 2 and Gen 3 is not a generic shock body. The internal bypass circuit — the technology that lets the shock be plush at low speeds and stiffen dramatically under hard compression — is tuned for a specific range of suspension travel at a specific ride height. When you add a leveling kit or lift that changes the resting position of the suspension, you change where in the shock's travel range the bypass circuits engage.</p>
+
+    <p>A 2" lift on a standard truck moves the suspension to a better position. A 2" lift on a Raptor moves the suspension out of the position the Fox tune was built around. The result can be a truck that feels worse at speed than stock — which is the opposite of what most people installing a lift intend.</p>
+
+    <h2>What Leveling Kits Actually Do</h2>
+
+    <div class="verdict">
+      <p class="verdict-label">Honest answer</p>
+      <p>A 1–1.5" leveling kit on a stock-height Raptor is the one modification in this category that makes sense for most owners. It corrects the factory rake, clears 35" tires more comfortably, and makes a smaller change to the Fox tune position than a full lift. This is the right move if you want a visually level truck without compromising what the Fox shocks were built to do.</p>
+    </div>
+
+    <p>The Raptor from the factory sits with the rear higher than the front — factory rake. This is intentional: under load, the rear settles and the truck levels out. But an unloaded Raptor looks tail-high to many owners, and the front can also sit slightly lower than ideal for some tire sizes.</p>
+
+    <p>A 1" or 1.5" leveling kit (front only, using a quality coil spacer or replacement UCAs) raises the front to match the rear. This is a modest change that doesn't take the Fox bypass circuits far from their tuned position. The ride quality difference is present but not dramatic. This is the leveling kit done correctly.</p>
+
+    <p>Do not use a cheap coil spacer for this. The Raptor's front suspension geometry is tighter than a standard F-150 — a budget spacer that introduces play or misalignment will show up in steering feel immediately. Use quality hardware from companies that have specifically engineered the fitment for the Raptor: Fox, Bilstein, and a few specialty Raptor-focused shops.</p>
+
+    <h2>Lift Options: What Works and What Doesn't</h2>
+
+    <div class="year-grid">
+      <div class="year-card">
+        <span class="year-badge sweet">Recommended</span>
+        <div class="year-range">1"–1.5" Front Leveling</div>
+        <h3>Leveling Kit</h3>
+        <p>Quality front coil spacer or UCA-based leveling. Corrects factory rake, marginal impact on Fox tune. Budget: $200–$600. The only lift modification most Raptor owners need.</p>
+      </div>
+      <div class="year-card">
+        <span class="year-badge warn">Proceed with care</span>
+        <div class="year-range">2" Lift</div>
+        <h3>Full 2" Lift</h3>
+        <p>Moves the suspension meaningfully from stock. Requires Fox recalibration if you want the shocks to perform correctly. Valid for clearing 37s on Gen 2 if done with a qualified shop that handles the shock recalibration. Budget: $800–$2,000 plus Fox recal.</p>
+      </div>
+      <div class="year-card">
+        <span class="year-badge warn">Specific use only</span>
+        <div class="year-range">3"+ Lift</div>
+        <h3>Full Lift</h3>
+        <p>Requires upper control arm replacement, shock repositioning, Fox recalibration, and alignment work. This is a full suspension build, not a bolt-on kit. Valid if you're committed to a custom suspension setup. Budget: $3,000–$8,000+ installed. The Fox tune is a rebuild project at this height.</p>
+      </div>
+      <div class="year-card">
+        <span class="year-badge bad">Avoid</span>
+        <div class="year-range">Generic Lift Kits</div>
+        <h3>Budget Kits</h3>
+        <p>Rough Country, MaxTrac, and similar budget kits designed generically for F-150 application are not built around the Raptor's suspension travel or Fox tune. Installing them degrades what the truck already does. The savings are real. The capability loss is also real.</p>
+      </div>
+    </div>
+
+    <h2>The Fox Shock Tune Problem</h2>
+
+    <p>The Fox internal-bypass shock has multiple compression zones. As the shock compresses, it transitions between soft, medium, and firm zones based on how quickly and how far the shock is compressed. These zones are calibrated for the Raptor's factory ride height — the position where the shock sits at rest puts the bypass circuits in the right part of their range.</p>
+
+    <p>A lift changes where the shock sits at rest and, more importantly, where it sits when the suspension is loaded. If the leveling is significant enough, the shock may be operating in the wrong compression zone for the terrain the truck is crossing. The result is either too soft (shock bottoming in situations where it shouldn't) or too firm (shock not absorbing the initial hit before transitioning to the firmer zone).</p>
+
+    <p>This is why a Raptor that has been lifted with a generic kit and no shock work can feel worse than stock. The shocks themselves haven't changed — their relationship to the suspension travel has.</p>
+
+    <div class="warn-block">
+      <div class="warn-label">If you lift more than 1.5"</div>
+      <p>Contact a Fox-authorized service shop before or immediately after installation. Fox offers shock recalibration for modified-ride-height Raptors. The recalibration adjusts the bypass circuit position to match the new ride height. It costs money ($400–$800 for a recalibration visit) and it's worth it. Skipping it means running a $50,000 truck on shocks that are no longer tuned for how it sits.</p>
+    </div>
+
+    <h2>When a Lift Is Justified</h2>
+
+    <p>There are valid reasons to lift a Raptor beyond a leveling kit. The most common legitimate case: running 37-inch tires on a Gen 2 without the factory 37 Package. The Gen 2 has 3.73 axle gears, which are not ideal with 37s — but if you're committed to the tire size, a 1.5"–2" lift clears them properly. The lift still requires Fox recalibration to perform well.</p>
+
+    <p>A second valid case: a truck that has seen significant suspension travel changes due to modifications to the front axle, upper control arms, or other geometry components. If you're rebuilding the suspension anyway, a coordinated lift with proper Fox recalibration is part of the build plan — not an afterthought.</p>
+
+    <h2>The Verdict</h2>
+
+    <div class="verdict">
+      <p class="verdict-label">Bottom line</p>
+      <p>A 1–1.5" leveling kit is the right move for most Raptor owners who want more clearance or a level stance. Beyond that, any lift requires Fox shock recalibration to preserve what the truck was built to do. Generic lift kits designed for standard F-150s will degrade the Raptor's handling at speed — that's not a knock on the kit makers, it's physics. The Raptor is a specifically engineered truck. Modifications that don't account for what it already is make it worse.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p>More Raptor guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/raptor/handling-diagnostic-guide.html">Handling Diagnostic</a>
+        <a class="footer-nav-link" href="/raptor/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/raptor/">All Raptor Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
