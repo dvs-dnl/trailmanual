@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raptor Handling Problems: Bump Steer, Wandering, Soft Front End | Trail Manual</title>
+  <meta name="description" content="IFS-specific handling diagnostics for the Ford F-150 Raptor — bump steer, front-end wander, alignment drift, worn ball joints, blown shocks, and broken sway bar links.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A;
+      --slate-d: #1A2330;
+      --slate-l: #5B6B7E;
+      --clay: #C97E50;
+      --clay-d: #A85D33;
+      --clay-l: #E8AB85;
+      --bone: #E8E2D2;
+      --bone-d: #C9C1AC;
+      --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035;
+      --safety: #B23B2F;
+      --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(30px, 5vw, 48px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-family: var(--sans); font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-family: var(--sans); font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-family: var(--sans); font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .diag-item { padding: 20px 22px; border: 1px solid var(--bone); border-radius: 4px; margin-bottom: 12px; background: var(--paper); }
+    .diag-symptom { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; font-weight: 500; }
+    .diag-item h3 { font-family: var(--sans); font-weight: 600; font-size: 17px; color: var(--slate); margin: 0 0 10px; }
+    .diag-item p { font-size: 15px; line-height: 1.65; color: var(--slate); margin-bottom: 10px; }
+    .diag-item p:last-child { margin: 0; }
+    .diag-cause { font-size: 14px; color: var(--slate-l); font-style: italic; }
+    .safety-note { border-left: 3px solid var(--safety); padding: 16px 20px 16px 22px; background: rgba(178,59,47,0.05); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .safety-note p { font-size: 15px; line-height: 1.65; color: var(--slate); margin: 0; }
+    .safety-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--safety); margin-bottom: 8px; font-weight: 500; }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-family: var(--sans); font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s, background 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); background: var(--paper); }
+    .footer-nav-link::after { content: '→'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span class="tm-brand-mark" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/raptor/" class="active">Raptor</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- TODO: add photo — front wheel and suspension of Raptor at articulation, or close shot of ball joint / sway bar link area -->
+
+  <div class="masthead">
+    <p class="eyebrow">Ford F-150 Raptor &middot; Handling Diagnostic</p>
+    <h1>Raptor Handling Problems:<br>Bump Steer, Wandering, Soft Front End</h1>
+    <p class="masthead-subhead">The Raptor runs independent front suspension — it does not get death wobble like a solid-axle Jeep. But IFS has its own failure modes. This is the walkthrough for steering wander, bump steer, alignment drift, and worn front-end components.</p>
+    <p class="masthead-meta">Trail Manual<span>&middot;</span>F-150 Raptor &middot; Gen 2 &amp; Gen 3 IFS</p>
+  </div>
+
+  <article class="article">
+
+    <h2>IFS vs. Solid Axle: Why the Symptoms Are Different</h2>
+
+    <p>The Raptor's independent front suspension (IFS) eliminates the geometry that causes death wobble on solid-axle vehicles. Death wobble is a resonance phenomenon specific to solid front axles — a combination of worn steering components, ball joints, and tire imbalance that creates a self-amplifying oscillation once triggered. IFS cannot death wobble because each front wheel moves independently, preventing that feedback loop.</p>
+
+    <p>What IFS can do: it can wander, pull, exhibit bump steer, develop clunking from failed sway bar links, produce a soft vague feel from blown shocks, and drift in alignment after significant impact. These are the actual failure modes on a Raptor. They are serious handling issues that deserve systematic diagnosis — they're just different from what solid-axle owners deal with.</p>
+
+    <div class="safety-note">
+      <div class="safety-label">Safety note</div>
+      <p>The Raptor's design speed envelope is genuinely high — Baja mode at speed across desert terrain. Any front suspension issue that manifests as wander, vagueness, or unpredictability should be addressed before running the truck hard off-road. A handling problem that's manageable on the highway becomes dangerous at 70+ mph across whoops.</p>
+    </div>
+
+    <h2>Symptom-by-Symptom Diagnosis</h2>
+
+    <div class="diag-item">
+      <div class="diag-symptom">Symptom 01</div>
+      <h3>Steering Wander — Constant Correction at Highway Speed</h3>
+      <p>The truck requires constant minor steering input to hold a straight line. It doesn't pull consistently to one side — it wanders, requiring active steering effort to maintain course.</p>
+      <p class="diag-cause">Primary causes: alignment out of spec (caster or toe), worn tie rod ends, worn upper ball joints, over-inflated tires on rough pavement.</p>
+      <p>Start with alignment. If the Raptor has been run hard off-road, the caster setting can drift after impacts that don't cause obvious structural damage. A full 4-wheel alignment with caster verification is the first diagnostic step. If alignment is within spec, inspect tie rod ends for play — grab the tie rod and attempt to move it; there should be zero play. Then inspect upper ball joints with the wheel in the air.</p>
+    </div>
+
+    <div class="diag-item">
+      <div class="diag-symptom">Symptom 02</div>
+      <h3>Bump Steer — Steering Input on Rough Pavement or Whoops</h3>
+      <p>The truck steers itself when hitting bumps, dips, or rough terrain at speed. The steering wheel kicks or jerks without driver input.</p>
+      <p class="diag-cause">Primary causes: suspension geometry out of spec after lift or impact, worn tie rod ends, inner tie rod wear, or aftermarket lift that changed steering geometry without a bump steer correction kit.</p>
+      <p>Bump steer happens when the steering tie rods and suspension arms don't arc at the same rate as the suspension compresses and rebounds. On a stock-height Raptor, this is engineered out. After a lift — especially one that wasn't designed with bump steer correction — the tie rod angle changes relative to the control arm arc, causing the tire to steer itself as the suspension moves. If the truck was running correctly before a lift and exhibits bump steer after, the lift geometry is the cause. A bump steer correction kit (available from Raptor-specific suspension companies) adjusts the outer tie rod attachment point to restore proper arc alignment.</p>
+    </div>
+
+    <div class="diag-item">
+      <div class="diag-symptom">Symptom 03</div>
+      <h3>Soft or Vague Front End — Loss of Precision</h3>
+      <p>The front end feels disconnected. Turn-in response is delayed. The truck feels like it's floating over terrain rather than tracking it. Noticeable since the truck was new or after a specific number of miles.</p>
+      <p class="diag-cause">Primary causes: Fox shocks past rebuild interval, worn strut mounts, worn upper ball joints, insufficient tire pressure.</p>
+      <p>The Fox internal-bypass shocks are the first place to look. Worn shocks lose their low-speed damping first — the truck feels floaty over small bumps and loses the precise feel it had when the shocks were new. Check the shock bodies for oil weeping. If the truck has hard-use miles and no shock service history, that's your answer. A full Fox rebuild restores the feel. Also check tire pressure — at the wrong pressure for the terrain, the Raptor's wide tires will give a misleadingly vague feel on road.</p>
+    </div>
+
+    <div class="diag-item">
+      <div class="diag-symptom">Symptom 04</div>
+      <h3>Clunking Over Bumps — Front End Noise at Low Speed</h3>
+      <p>A clunk, knock, or thunk from the front suspension over bumps, dips, or rough pavement. Can be single-click or repetitive.</p>
+      <p class="diag-cause">Primary causes: broken or disconnected front sway bar end links, loose shock mount hardware, worn control arm bushings.</p>
+      <p>The front sway bar end links are the most common source of this symptom on the Raptor. The end links connect the sway bar to the lower control arm, and they take significant loading during hard suspension travel. A broken or cracked end link will clunk clearly over any bump that causes one side of the suspension to move while the other doesn't. Jack the front, grab the sway bar end link, and attempt to move it — a broken link will have obvious free play or will be visibly disconnected. Replacement is a 30–45 minute job. Also inspect shock mount bolts — loose upper or lower shock mount hardware produces a similar clunk under different loading conditions.</p>
+    </div>
+
+    <div class="diag-item">
+      <div class="diag-symptom">Symptom 05</div>
+      <h3>Alignment Drift After Hard Off-Road Use</h3>
+      <p>The truck has developed a consistent pull, or the tire wear pattern has changed, after a significant off-road run. No single identifiable impact — just accumulated hard use.</p>
+      <p class="diag-cause">Primary causes: control arm bushing wear, caster change from hard impacts, upper ball joint wear.</p>
+      <p>Hard desert running — particularly sustained high-speed whoop impacts — loads the front suspension at angles and forces it wasn't designed to handle repeatedly. Over time, control arm bushings wear and allow the geometry to shift. This shows up as a slow drift in alignment without any obvious single impact to blame. A shop inspection with a 4-wheel alignment check and a visual inspection of all suspension bushings is the diagnostic step. On trucks with significant hard-use miles, proactive bushing replacement is worth considering — polyurethane bushing kits for the Raptor are available and handle the loading better than OEM rubber at high miles.</p>
+    </div>
+
+    <div class="diag-item">
+      <div class="diag-symptom">Symptom 06</div>
+      <h3>One-Side Pull — Consistent Pull to Left or Right</h3>
+      <p>The truck pulls consistently to one side under acceleration, or requires constant steering correction in one direction at highway speed.</p>
+      <p class="diag-cause">Primary causes: alignment out of spec (uneven camber or toe side-to-side), one worn tire, one blown shock, brake caliper dragging.</p>
+      <p>The quickest test: rotate the front tires side-to-side and drive again. If the pull switches sides, the tire is the cause — replace it. If the pull stays consistent, the alignment or suspension is the source. Have alignment measured at a shop with the equipment to check the Raptor's specific geometry. Check that both front brakes are releasing cleanly — a dragging caliper causes a consistent pull under light throttle that decreases under hard acceleration. Grab each front rotor with the truck on stands and check for resistance to rotation; a dragging caliper will resist.</p>
+    </div>
+
+    <h2>What to Do Next</h2>
+
+    <div class="verdict">
+      <p class="verdict-label">Diagnostic order</p>
+      <p>Start with alignment and tires — they're the lowest-cost checks and solve the majority of handling complaints. Then inspect shocks for oil weeping. Then sway bar end links (common, cheap, fast). Then ball joints and tie rods with the wheel in the air. Any handling issue that manifests at high speed warrants a shop inspection before the next hard off-road run — the Raptor's performance envelope at speed makes handling precision a safety issue, not just a comfort one.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p>More Raptor guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/raptor/lift-kit-guide.html">Lift Kit Guide</a>
+        <a class="footer-nav-link" href="/raptor/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/raptor/trail-tools-guide.html">Trail Tools</a>
+        <a class="footer-nav-link" href="/raptor/">All Raptor Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
