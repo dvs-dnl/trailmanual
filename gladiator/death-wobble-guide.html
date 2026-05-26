@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gladiator Death Wobble: Causes, Fixes, and How It Differs from JL | Trail Manual</title>
+  <meta name="description" content="Gladiator JT death wobble guide: the JT inherited JL death wobble susceptibility, partially addressed by TSB 08-074-19. Track bar, ball joints, lug torque, alignment — the cumulative cause reality.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-weight: 500; font-size: clamp(32px, 5vw, 50px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 680px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .safety-alert { border-left: 3px solid var(--safety); padding: 18px 20px 18px 24px; background: rgba(178,59,47,0.05); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .safety-alert-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--safety); margin-bottom: 8px; }
+    .safety-alert p { font-weight: 500; font-size: 16px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .cause-list { list-style: none; margin: 20px 0; }
+    .cause-item { margin-bottom: 16px; border: 1px solid var(--bone); border-radius: 4px; overflow: hidden; }
+    .cause-head { padding: 14px 18px; background: var(--bone); display: flex; align-items: baseline; gap: 12px; }
+    .cause-rank { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--clay); min-width: 28px; }
+    .cause-name { font-weight: 600; font-size: 16px; color: var(--slate); }
+    .cause-body { padding: 14px 18px; background: var(--paper); font-size: 15px; line-height: 1.65; color: var(--slate); }
+    .fix-steps { list-style: none; margin: 20px 0; counter-reset: fix-counter; }
+    .fix-step { counter-increment: fix-counter; padding: 14px 18px; border-bottom: 1px solid var(--bone); font-size: 15px; line-height: 1.6; color: var(--slate); display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: flex-start; }
+    .fix-step:first-child { border-top: 1px solid var(--bone); }
+    .fix-step-num { width: 28px; height: 28px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--slate-l); flex-shrink: 0; }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '\2192'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/gladiator/" class="active">Gladiator</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- TODO: add photo — close-up of JT front suspension: track bar, ball joint area, tie rod — ideally from under the truck showing the steering geometry -->
+
+  <div class="masthead">
+    <p class="eyebrow">Jeep Gladiator JT &middot; Safety Guide</p>
+    <h1>Gladiator death wobble: causes, fixes, and how it differs from JL</h1>
+    <p class="masthead-subhead">Death wobble is violent, sudden, and dangerous. It is not a vibration. The front end shakes so severely the truck can veer or become difficult to control. The Gladiator inherited it from the JL, and Stellantis partially addressed it with a steering damper TSB. The fix is almost always a combination of worn components, not a single part.</p>
+    <p class="masthead-meta">Trail Manual<span>&middot;</span>Gladiator JT &middot; 2020&ndash;Present</p>
+  </div>
+
+  <article class="article">
+
+    <div class="safety-alert">
+      <p class="safety-alert-label">Safety — Read This First</p>
+      <p>If your truck is experiencing death wobble, do not drive it at highway speed until you have diagnosed and addressed the cause. Death wobble is not a nuisance vibration — it is a steering control emergency. Slow down immediately if it occurs. Drive at low speed to a shop or your garage.</p>
+    </div>
+
+    <h2>What Death Wobble Actually Is</h2>
+    <p>Death wobble is a resonant oscillation in the solid front axle steering system. It typically triggers at highway speed (45–75 mph) when the front wheels encounter a bump or road irregularity. The wheels begin oscillating left and right; the oscillation feeds itself and amplifies rather than damping out. The steering wheel shakes violently. The truck can move across lanes.</p>
+    <p>This is fundamentally different from highway shimmy (a lower-frequency, more manageable vibration usually from tire balance issues) or steering wander (off-center steering without the violent oscillation). Death wobble, when it happens, is unmistakable.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">The honest answer</p>
+      <p>Death wobble on the JT is rarely caused by a single failed component. It is almost always the cumulative result of multiple worn components — each individually within tolerance, but together creating enough play for the resonance to start and sustain. Fix the whole system, not just the part that looks worst.</p>
+    </div>
+
+    <h2>The JT vs JL Difference</h2>
+    <p>The JL Wrangler had significant death wobble complaints from launch. Stellantis issued TSB 08-074-19, which addressed the steering damper specification and replacement procedure. The TSB calls for an upgraded steering damper with revised mounting and tuning.</p>
+    <p>The JT Gladiator shares the JL's front suspension architecture — same track bar, same ball joint design, same steering geometry. It inherited both the capability and the susceptibility. However, the JT benefits from post-JL-launch manufacturing improvements — later production trucks (2021+) received the updated steering damper at the factory in response to the JL warranty experience.</p>
+    <p>If you own a 2020 or early 2021 Gladiator and have not verified the TSB status, check with a Stellantis dealer. The updated damper is the TSB remedy and represents an improvement over the original specification.</p>
+    <p>The JT also has a longer wheelbase than the JL, which changes its resonant frequency characteristics slightly. In practice, JT death wobble presents the same as JL death wobble — the triggers and fixes are the same.</p>
+
+    <h2>What Causes It</h2>
+
+    <ul class="cause-list">
+      <li class="cause-item">
+        <div class="cause-head">
+          <span class="cause-rank">01</span>
+          <span class="cause-name">Track bar bushing / mounting</span>
+        </div>
+        <div class="cause-body">
+          The front track bar is the single most important component in the death wobble equation. It keeps the front axle centered under the truck. When the track bar bushing wears — or the mounting bolts are under-torqued — the axle can walk side to side. The factory track bar on the JT/JL platform has been subject to criticism for bushing quality. Inspect the track bar end bushings for cracking, compression, and play. Torque the mounting bolts to spec (the axle-side bolt is critical — check your service manual for the torque spec and use a quality torque wrench). An aftermarket heavy-duty track bar with solid-steel ends eliminates the bushing wear mode.
+        </div>
+      </li>
+      <li class="cause-item">
+        <div class="cause-head">
+          <span class="cause-rank">02</span>
+          <span class="cause-name">Ball joints</span>
+        </div>
+        <div class="cause-body">
+          The upper and lower ball joints connect the steering knuckle to the axle housing. Worn ball joints create play in the knuckle — the knuckle moves in ways it shouldn't during steering inputs and over bumps. Ball joint wear on the JT shows up as clunking over dips, steering wander, and eventually as a contributor to death wobble. Check ball joints by placing a floor jack under the axle tube near the wheel, lifting the wheel off the ground, and checking for vertical play. Any measurable vertical play indicates worn ball joints. Replacement is a press-in job; most owners take it to a shop.
+        </div>
+      </li>
+      <li class="cause-item">
+        <div class="cause-head">
+          <span class="cause-rank">03</span>
+          <span class="cause-name">Steering damper</span>
+        </div>
+        <div class="cause-body">
+          The steering damper (also called a steering stabilizer) is a hydraulic shock absorber mounted between the front axle and the tie rod. Its job is to absorb small steering oscillations before they can amplify into death wobble. A worn or under-spec damper loses this function. The TSB 08-074-19 addresses a specific steering damper specification issue on early JL/JT trucks. Check whether your truck has had the TSB completed. If not, the updated damper is the starting point for addressing wobble on an otherwise healthy truck.
+        </div>
+      </li>
+      <li class="cause-item">
+        <div class="cause-head">
+          <span class="cause-rank">04</span>
+          <span class="cause-name">Lug nut torque</span>
+        </div>
+        <div class="cause-body">
+          Loose or improperly torqued lug nuts are a frequent and overlooked contributor to vibration that triggers death wobble. The proper torque spec for JT lug nuts is 130 ft-lb. Many shops use impact wrenches without torque verification; many owners don't re-torque after airing back up. Loose lug nuts create wheel movement at the hub that doesn't look like a problem until a wheel hits a bump at speed. Before chasing steering components, verify lug nut torque with a calibrated torque wrench.
+        </div>
+      </li>
+      <li class="cause-item">
+        <div class="cause-head">
+          <span class="cause-rank">05</span>
+          <span class="cause-name">Tie rod ends</span>
+        </div>
+        <div class="cause-body">
+          The tie rods translate steering wheel movement to the front wheels. The tie rod ends are ball-socket joints that wear over time. Worn tie rod ends create play in the steering — the wheels can move without the corresponding steering input. Check tie rod ends by having someone move the steering wheel back and forth while you watch the joints with a flashlight. Any delay between wheel movement and joint movement indicates wear.
+        </div>
+      </li>
+      <li class="cause-item">
+        <div class="cause-head">
+          <span class="cause-rank">06</span>
+          <span class="cause-name">Alignment after lift</span>
+        </div>
+        <div class="cause-body">
+          A lift changes every angle in the front suspension — caster, camber, and toe are all affected. Incorrect caster is a well-documented death wobble trigger. The JT needs positive caster in the front suspension for steering stability; lifting without correcting caster (via adjustable upper control arms or cam bolts) reduces caster below the threshold for stable high-speed driving. If you've lifted the truck and haven't had a proper alignment with caster correction, this is a high-probability cause.
+        </div>
+      </li>
+    </ul>
+
+    <h2>The Fix Protocol — In Order</h2>
+
+    <ul class="fix-steps">
+      <li class="fix-step">
+        <div class="fix-step-num">1</div>
+        <div>Verify lug nut torque with a calibrated torque wrench — 130 ft-lb on all five lug nuts, all four wheels.</div>
+      </li>
+      <li class="fix-step">
+        <div class="fix-step-num">2</div>
+        <div>Check the VIN at nhtsa.gov for TSB 08-074-19 status. If the steering damper TSB hasn't been done on your 2020 or early 2021, start there.</div>
+      </li>
+      <li class="fix-step">
+        <div class="fix-step-num">3</div>
+        <div>Inspect the front track bar — check both end bushings for cracking and play. Torque the mounting bolts to spec (the axle-side bolt in particular). Replace the track bar if the bushings show significant wear.</div>
+      </li>
+      <li class="fix-step">
+        <div class="fix-step-num">4</div>
+        <div>Check ball joints for vertical play using the floor jack method. Replace if any play is present.</div>
+      </li>
+      <li class="fix-step">
+        <div class="fix-step-num">5</div>
+        <div>Check tie rod ends for play. Replace worn ends as a set.</div>
+      </li>
+      <li class="fix-step">
+        <div class="fix-step-num">6</div>
+        <div>Get a full alignment with caster correction. For a lifted truck, verify caster is within the factory spec (approximately 4–5 degrees positive caster). Adjustable upper control arms allow caster correction if it's out of range.</div>
+      </li>
+      <li class="fix-step">
+        <div class="fix-step-num">7</div>
+        <div>Verify tire balance and wheel runout. An out-of-balance tire provides the initial trigger. Rebalance if any doubt.</div>
+      </li>
+    </ul>
+
+    <h2>What Not to Do</h2>
+    <p>The most common mistake: replacing the steering damper as the only fix and declaring the problem solved. A steering damper masks death wobble — it does not cure it. If the underlying cause (worn track bar, worn ball joints, misaligned caster) remains, the damper will allow wobble to occur once it absorbs enough road energy. Fix the system first, then install a quality damper to handle the margin.</p>
+    <p>A bigger steering damper is not a cure. It is a bandage. An oversized damper makes the steering feel heavy and removes road feedback. Fix the wear items.</p>
+
+    <h2>Prevention</h2>
+    <p>After any suspension work or tire change: verify lug torque, re-torque after 50 miles. After any lift: get an alignment with caster verification. After trail use with significant rock crawling: inspect the track bar bolts and ball joints — articulation stress at full flex can reveal pre-existing play.</p>
+    <p>The JT is not a fragile vehicle. Death wobble is preventable through normal maintenance and correct lift-kit installation. Owners who keep the steering components in good shape and the lug nuts torqued rarely experience it.</p>
+
+    <div class="article-footer-nav">
+      <p>More Gladiator guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/gladiator/lift-kit-guide.html">Lift Kit Guide</a>
+        <a class="footer-nav-link" href="/gladiator/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/gladiator/trail-tools-guide.html">Trail Tools Guide</a>
+        <a class="footer-nav-link" href="/gladiator/">All Gladiator Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
