@@ -75,8 +75,8 @@
   .hero.with-image{padding:0;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--panel)}
   .hero-photo{width:100%;height:280px;background-size:cover;background-position:center;position:relative}
   .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(26,35,48,.78) 100%)}
-  .hero-photo .hero-photo-icon{position:absolute;left:24px;bottom:24px;width:60px;height:60px;z-index:2}
-  .hero-photo .hero-photo-icon svg{width:100%;height:100%;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
+  .hero-photo .hero-photo-icon{position:absolute;left:24px;bottom:24px;width:60px;height:60px;z-index:2;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .hero-photo .hero-photo-icon img,.hero-photo .hero-photo-icon svg{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
   .hero-photo .hero-photo-label{position:absolute;right:24px;bottom:24px;font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.4);padding:6px 12px;border-radius:3px;backdrop-filter:blur(4px);z-index:2}
   .hero-body{padding:28px 32px 32px}
   .hero-body h1{margin:0 0 10px;font-size:36px;letter-spacing:-.02em;line-height:1.06;font-weight:500}
@@ -92,6 +92,7 @@
   .tg-label{font-family:var(--mono,'JetBrains Mono',monospace);font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--text-dim)}
   .tg-title{font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0}
   .tg-sub{font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;color:var(--text-dim);letter-spacing:.06em;text-transform:uppercase}
+  .grid-tools.grid-tools--3{grid-template-columns:repeat(3,1fr)}
   .grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius)}
   .tg-tool{background:var(--panel);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:170px;text-decoration:none;color:var(--text);cursor:pointer;transition:background .15s;border:0}
   .tg-tool:hover{background:var(--bone-deep,#C9C1AC)}
@@ -393,6 +394,28 @@
   function vehicleVisual(vid) { return VEHICLE_VISUALS[vid] || {}; }
   function vehicleGradient(vid) { return HERO_GRADIENTS[vid] || HERO_GRADIENTS.xj; }
 
+  // ---- per-vehicle extra tools (surfaced after the canonical 4 in Twin Grids) ----
+  // When a vehicle has extras, Maintenance (coming soon) is dropped to keep the
+  // grid balanced per design system §11.1B (5–6 → repeat(3,1fr)).
+  const EXTRA_TOOLS = {
+    jk: [
+      { title:'V8 Engine Swap',
+        desc:'Compare every JK V8 path — AEV Hemi, MoTech LT, Bruiser LX3, DIY LS. Honest Phoenix-emissions verdicts and real cost ranges.',
+        href:'/jk-wrangler-engine-swap-tool.html',
+        tag:'Decision tool', tagClass:'clay', iconChar:'⚙', cta:'Compare' },
+      { title:'V8 Swap Parts Checklist',
+        desc:'Pick an engine path, get the parts list — engine, trans, harness, cooling, fuel, A/C, axles. Costs total live.',
+        href:'/v8-swap-parts-checklist.html',
+        tag:'New', tagClass:'new', iconChar:'✓', cta:'Build' },
+      { title:'My Garage',
+        desc:'Log every service and build project for this rig. Mileage tracking and per-vehicle history that stays on your device.',
+        href:'/my-garage.html',
+        tag:'Personal', tagClass:'new', iconChar:'⏷', cta:'Open' },
+    ],
+  };
+  function vehicleExtraTools(vid) { return EXTRA_TOOLS[vid] || []; }
+
+
 
   // ---- helpers ----
   const $ = (s, el=document) => el.querySelector(s);
@@ -644,53 +667,52 @@
     }
 
     // --- TOOLS (canonical 4-up) ---
+    const extras = vehicleExtraTools(vid);
+    // Canonical 4. If we have extras, drop "Maintenance (soon)" to keep the grid tight.
+    const canonical = [];
+    canonical.push({
+      title:'Rig Builder', tag:'Interactive', tagClass:'clay',
+      iconChar:'🛠', iconClass:'good',
+      desc:'Pick a build goal (daily, mild, moderate, crawler, overland) and pull the matching parts, costs, and procedures.',
+      cta:'Build', onclick:()=>go('#/'+vid+'/builder')
+    });
+    canonical.push({
+      title:'Browse Database', tag: String(entries.length) + ' entries', tagClass:'new',
+      iconChar:'≡', iconClass:'good',
+      desc:'Every DIY procedure for this platform — ' + numCats + ' categories, filterable by part, system, or tier.',
+      cta:'Browse', onclick:()=>go('#/'+vid+'/browse')
+    });
+    canonical.push(dwLive
+      ? { title:'Death Wobble', tag:'Safety', tagClass:'safety',
+          iconChar:'⚠', iconClass:'safety',
+          desc:'Diagnose the cause in 8 questions. Track-bar, ball joints, balance — find it before it finds you.',
+          cta:'Diagnose', href:dwHref }
+      : { title:'Steering Diagnostic', tag:'Coming soon', soon:true,
+          iconChar:'⚠', iconClass:'neutral',
+          desc:'IFS-front diagnostic for steering wander, vibration, and pull. Different physics, different fix.' }
+    );
+    if (extras.length === 0) {
+      canonical.push({
+        title:'Maintenance', tag:'Coming soon', soon:true,
+        iconChar:'⟳', iconClass:'neutral',
+        desc:'Mileage-driven service schedule. Oil, diffs, transfer case, and trim-specific intervals.',
+      });
+    }
+    const allTools = canonical.concat(extras);
+
+    // Grid layout per §11.1B
+    const gridClass = allTools.length <= 4 ? 'grid-tools' :
+                      allTools.length <= 6 ? 'grid-tools grid-tools--3' :
+                                             'grid-tools';
     const toolsHead = el('div', {class:'tg-section-head'},
       el('div', {class:'left'},
         el('span', {class:'tg-label'}, '01 / Tools'),
         el('h2', {class:'tg-title'}, 'Built for your rig')
       ),
-      el('span', {class:'tg-sub'}, '4 tools')
+      el('span', {class:'tg-sub'}, String(allTools.length) + ' tools')
     );
-    const toolsGrid = el('div', {class:'grid-tools'});
-
-    // 1. Rig Builder — interactive (replaces "Pick your build goal" inline grid)
-    toolsGrid.appendChild(makeTool({
-      title: 'Rig Builder', tag: 'Interactive', tagClass: 'clay',
-      iconChar: '🛠', iconClass: 'good',
-      desc: 'Pick a build goal (daily, mild, moderate, crawler, overland) and pull the matching parts, costs, and procedures.',
-      cta: 'Build',
-      onclick: () => go('#/'+vid+'/builder')
-    }));
-    // 2. Browse Database — replaces inline category grid
-    toolsGrid.appendChild(makeTool({
-      title: 'Browse Database', tag: String(entries.length) + ' entries', tagClass: 'new',
-      iconChar: '≡', iconClass: 'good',
-      desc: 'Every DIY procedure for this platform — ' + numCats + ' categories, filterable by part, system, or tier.',
-      cta: 'Browse',
-      onclick: () => go('#/'+vid+'/browse')
-    }));
-    // 3. Death Wobble (or Steering Diagnostic placeholder for IFS)
-    if (dwLive) {
-      toolsGrid.appendChild(makeTool({
-        title: 'Death Wobble', tag: 'Safety', tagClass: 'safety',
-        iconChar: '⚠', iconClass: 'safety',
-        desc: 'Diagnose the cause in 8 questions. Track-bar, ball joints, balance — find it before it finds you.',
-        cta: 'Diagnose',
-        href: dwHref,
-      }));
-    } else {
-      toolsGrid.appendChild(makeTool({
-        title: 'Steering Diagnostic', tag: 'Coming soon', soon: true,
-        iconChar: '⚠', iconClass: 'neutral',
-        desc: 'IFS-front diagnostic for steering wander, vibration, and pull. Different physics, different fix.',
-      }));
-    }
-    // 4. Maintenance — coming soon for all
-    toolsGrid.appendChild(makeTool({
-      title: 'Maintenance', tag: 'Coming soon', soon: true,
-      iconChar: '⟳', iconClass: 'neutral',
-      desc: 'Mileage-driven service schedule. Oil, diffs, transfer case, and trim-specific intervals.',
-    }));
+    const toolsGrid = el('div', {class:gridClass});
+    allTools.forEach(t => toolsGrid.appendChild(makeTool(t)));
     app.appendChild(el('section', {class:'tg-section'}, toolsHead, toolsGrid));
 
     // --- LEARN (canonical 4-up) ---
