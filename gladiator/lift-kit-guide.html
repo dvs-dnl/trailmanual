@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lifting a Jeep Gladiator JT — Lift Kit Guide | Trail Manual</title>
+  <meta name="description" content="Gladiator JT lift kit guide: the front shares JL parts, but the rear is leaf-sprung and longer. Buy JT-specific kits in the rear. Includes leveling, 2.5\", and 3.5\"+ lift guides with tire and gear math.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover, .tm-nav a.active { color: #E8E2D2; }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-weight: 500; font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 18px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .masthead-meta span { color: var(--bone-d); margin: 0 6px; }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .lift-tier { border: 1px solid var(--bone); border-radius: 4px; overflow: hidden; margin: 24px 0; }
+    .lift-tier-head { background: var(--bone); padding: 16px 20px; display: flex; align-items: baseline; gap: 14px; }
+    .lift-tier-name { font-weight: 600; font-size: 18px; letter-spacing: -0.01em; color: var(--slate); }
+    .lift-tier-badge { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1px solid; }
+    .lift-tier-badge.bolt-on { background: rgba(94,140,90,0.08); color: #5E8C5A; border-color: rgba(94,140,90,0.3); }
+    .lift-tier-badge.committed { background: rgba(216,144,53,0.08); color: #D89035; border-color: rgba(216,144,53,0.3); }
+    .lift-tier-badge.full { background: rgba(201,126,80,0.1); color: var(--clay); border-color: rgba(201,126,80,0.3); }
+    .lift-tier-body { padding: 20px 24px; }
+    .lift-tier-body p { font-size: 15px; line-height: 1.7; margin-bottom: 14px; }
+    .lift-tier-body p:last-child { margin: 0; }
+    .spec-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--bone); border: 1px solid var(--bone); margin: 20px 0; }
+    .spec-cell { background: var(--paper); padding: 16px 18px; }
+    .spec-cell-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 6px; }
+    .spec-cell-value { font-size: 15px; font-weight: 500; color: var(--slate); line-height: 1.4; }
+    .warn-block { padding: 16px 20px; border-left: 3px solid var(--warn); background: rgba(216,144,53,0.06); border-radius: 0 4px 4px 0; margin: 24px 0; }
+    .warn-block strong { display: block; font-size: 15px; font-weight: 500; color: var(--slate); margin-bottom: 6px; }
+    .warn-block span { font-size: 14px; color: var(--slate-l); line-height: 1.55; display: block; }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '\2192'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .spec-row { grid-template-columns: 1fr; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/gladiator/" class="active">Gladiator</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- TODO: add photo — lifted JT Rubicon, side view showing stance and tire clearance, ideally on a mild trail -->
+
+  <div class="masthead">
+    <p class="eyebrow">Jeep Gladiator JT &middot; Lift Guide</p>
+    <h1>Lifting a Gladiator: the JT-specific rear matters</h1>
+    <p class="masthead-subhead">The Gladiator's front end shares JL Wrangler geometry — most JL front suspension parts cross directly. The rear is different: longer wheelbase, leaf springs, not coils. Any rear lift work requires JT-specific components. Buying the wrong kit costs you money and leaves you with parts that don't fit.</p>
+    <p class="masthead-meta">Trail Manual<span>&middot;</span>Gladiator JT &middot; 2020&ndash;Present</p>
+  </div>
+
+  <article class="article">
+
+    <h2>The Platform Fundamentals</h2>
+    <p>The JT Gladiator and the JL Wrangler share the same front suspension architecture: coil springs, front track bar, upper and lower control arms, and the front Dana 44 axle with the same mounting geometry. For front suspension work, the JL parts pool is essentially the JT parts pool. This is a significant advantage — the JL aftermarket is enormous.</p>
+    <p>The rear is a completely different vehicle. The JT runs a 137-inch wheelbase (vs. 118 inches on the JL two-door). The rear suspension is leaf-spring, not coil-over. There is no JL-to-JT rear suspension crossover. If a kit is marketed as "fits JL/JT" and the rear components are JL coil-spec, those rear parts will not fit your truck.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">The central rule</p>
+      <p>Front lift: JL parts are largely compatible. Rear lift: buy JT-specific. Do not let a vendor tell you JL rear components will work on the Gladiator — they won't.</p>
+    </div>
+
+    <h2>Lift Tiers</h2>
+
+    <div class="lift-tier">
+      <div class="lift-tier-head">
+        <span class="lift-tier-name">Leveling Kit</span>
+        <span class="lift-tier-badge bolt-on">Bolt-on</span>
+      </div>
+      <div class="lift-tier-body">
+        <p>The Gladiator sits slightly nose-down from the factory — the front is lower than the rear when unloaded. A leveling kit raises the front to match the rear's natural ride height. This is a front-only modification: front coil spacers or replacement coil springs that add 1–1.5 inches at the front.</p>
+        <p>A leveling kit does not add meaningful lift for tire clearance — it corrects stance. It does not require rear suspension changes. 32-inch all-terrain tires fit without modification. 33-inch tires may need a small amount of fender liner trimming at full lock. A leveling kit alone is not enough to run 35s.</p>
+        <div class="spec-row">
+          <div class="spec-cell"><div class="spec-cell-label">Front lift</div><div class="spec-cell-value">1&ndash;1.5&quot;</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Rear lift</div><div class="spec-cell-value">None</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Max tire (stock gears)</div><div class="spec-cell-value">33&quot; (borderline)</div></div>
+        </div>
+        <p><strong>What's required:</strong> Front coil spacers or replacement front coils. Alignment after installation. No rear work needed for a leveling kit alone.</p>
+      </div>
+    </div>
+
+    <div class="lift-tier">
+      <div class="lift-tier-head">
+        <span class="lift-tier-name">2.5&quot; Lift</span>
+        <span class="lift-tier-badge bolt-on">Moderate bolt-on</span>
+      </div>
+      <div class="lift-tier-body">
+        <p>The standard step up for Gladiator owners who want to run 35-inch tires. A proper 2.5-inch JT lift kit includes front coils or spacers, rear lift shackles or replacement leaf springs, and usually replacement front and rear shocks matched to the new ride height. The front uses JL-compatible components; the rear must be JT-specific.</p>
+        <p>With a 2.5-inch lift, 35-inch tires (315/60R17 or 35x11.5R17) clear the front fenders without trimming on most builds. Verify fitment at full lock and full articulation before committing. Some builds require minor fender liner trimming depending on offset.</p>
+        <p>The 3.73 axle gears on non-Rubicon trims are borderline with 35s at highway speed. The 4.10 gears on the Rubicon are adequate for 35s. For any Sport or Willys build running 35s, budget for a re-gear to 4.56 alongside the lift for the best result.</p>
+        <div class="spec-row">
+          <div class="spec-cell"><div class="spec-cell-label">Front lift</div><div class="spec-cell-value">2.5&quot;</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Rear lift</div><div class="spec-cell-value">2.5&quot; (JT-specific)</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Max tire</div><div class="spec-cell-value">35&quot;</div></div>
+        </div>
+        <p><strong>What's required:</strong> JT-specific lift kit (front and rear). Alignment after installation. Driveshaft inspection — the JT's rear driveshaft angle changes with lift and may need a slip yoke correction. Get an alignment.</p>
+      </div>
+    </div>
+
+    <div class="lift-tier">
+      <div class="lift-tier-head">
+        <span class="lift-tier-name">3&ndash;3.5&quot; Lift</span>
+        <span class="lift-tier-badge committed">Committed build</span>
+      </div>
+      <div class="lift-tier-body">
+        <p>Moving into this range for 37-inch tires. At 3&ndash;3.5 inches of lift, the factory control arm angles are beyond their ideal range. Upper control arm replacements (JL-compatible in the front, JT-specific in the rear) restore geometry and reduce bind through the suspension travel. Long-arm kits improve the geometry further.</p>
+        <p>The rear driveshaft angle at 3+ inches of lift often requires a rear driveshaft with a slip yoke or a double-cardan joint to prevent vibration. The JT's rear driveshaft is longer than the JL's and more sensitive to angle changes. Most quality lift kits at this height specify whether a driveshaft upgrade is required for your application — ask before ordering.</p>
+        <p>At 3.5 inches, some fender flare trimming is required for 37-inch tire clearance on most builds. The inner fender liner comes out first; the plastic flare itself may need trimming at full lock. This is a permanent modification — confirm fitment test before cutting.</p>
+        <div class="spec-row">
+          <div class="spec-cell"><div class="spec-cell-label">Front lift</div><div class="spec-cell-value">3&ndash;3.5&quot;</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Rear lift</div><div class="spec-cell-value">3&ndash;3.5&quot; (JT-specific)</div></div>
+          <div class="spec-cell"><div class="spec-cell-label">Max tire</div><div class="spec-cell-value">37&quot;</div></div>
+        </div>
+        <p><strong>What's required:</strong> JT-specific long-arm or comp-arm kit. Upper control arms (front and rear). Driveshaft upgrade (likely). Fender trimming. Re-gear to 4.88 for 37s. Alignment.</p>
+      </div>
+    </div>
+
+    <h2>Tire and Gear Math</h2>
+    <p>The relationship between tire diameter and axle gear ratio determines how the truck performs. Larger tires effectively raise the final drive ratio — the engine works harder at every speed, throttle response suffers, and fuel economy drops. Re-gearing to a lower ratio (higher number) compensates.</p>
+
+    <div class="spec-row">
+      <div class="spec-cell"><div class="spec-cell-label">Tire size</div><div class="spec-cell-value">33&quot; (factory Rubicon)</div></div>
+      <div class="spec-cell"><div class="spec-cell-label">Stock gears</div><div class="spec-cell-value">4.10 (Rubicon) / 3.73 (Sport)</div></div>
+      <div class="spec-cell"><div class="spec-cell-label">Verdict</div><div class="spec-cell-value">Matched from factory</div></div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-cell"><div class="spec-cell-label">Tire size</div><div class="spec-cell-value">35&quot;</div></div>
+      <div class="spec-cell"><div class="spec-cell-label">Recommended gears</div><div class="spec-cell-value">4.56 minimum</div></div>
+      <div class="spec-cell"><div class="spec-cell-label">Verdict</div><div class="spec-cell-value">Re-gear strongly recommended on Sport; OK on Rubicon</div></div>
+    </div>
+    <div class="spec-row">
+      <div class="spec-cell"><div class="spec-cell-label">Tire size</div><div class="spec-cell-value">37&quot;</div></div>
+      <div class="spec-cell"><div class="spec-cell-label">Recommended gears</div><div class="spec-cell-value">4.88</div></div>
+      <div class="spec-cell"><div class="spec-cell-label">Verdict</div><div class="spec-cell-value">Re-gear mandatory for any trim</div></div>
+    </div>
+
+    <h2>The Driveshaft Consideration</h2>
+    <p>This is where JT-specific engineering matters. The JT's rear driveshaft is longer than the JL's. At lift heights above 2.5 inches, the driveshaft angle increases enough to cause vibration at highway speed. Most quality JT-specific lift kits address this by either including a slip yoke correction or specifying a driveshaft upgrade.</p>
+    <p>Do not assume a JL-specific note about driveshaft angle applies to the JT. The geometry is different. When ordering a lift kit, ask the manufacturer specifically about the JT rear driveshaft compatibility for your target lift height.</p>
+
+    <div class="warn-block">
+      <strong>Alignment after every lift — no exceptions</strong>
+      <span>Every lift installation requires a 4-wheel alignment. Even a leveling kit changes the caster angle at the front. Without alignment after the lift, tire wear accelerates, the truck pulls, and steering feel is degraded. Factor the alignment cost into the lift budget from the start.</span>
+    </div>
+
+    <h2>Kit Recommendations by Category</h2>
+    <p>These manufacturers have documented JT-specific lift kits tested on the Gladiator platform:</p>
+    <ul style="margin: 0 0 18px 24px; font-size: 16px; line-height: 1.8; color: var(--slate);">
+      <li><strong>Teraflex</strong> — Well-regarded JT kits from 2.5&quot; to long-arm; clear JT documentation</li>
+      <li><strong>Metalcloak</strong> — Duroflex arm kits; JT-specific geometry engineering</li>
+      <li><strong>Skyjacker</strong> — Affordable to mid-range JT options; leaf spring packs available</li>
+      <li><strong>AEV (American Expedition Vehicles)</strong> — Premium JT-specific kits; deep platform knowledge</li>
+      <li><strong>Rough Country</strong> — Budget-friendly; adequate for mild builds; call their tech line to confirm JT rear fitment before ordering</li>
+    </ul>
+
+    <div class="article-footer-nav">
+      <p>More Gladiator guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/gladiator/death-wobble-guide.html">Death Wobble Guide</a>
+        <a class="footer-nav-link" href="/gladiator/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/gladiator/trail-tools-guide.html">Trail Tools Guide</a>
+        <a class="footer-nav-link" href="/gladiator/">All Gladiator Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
