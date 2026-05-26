@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X00YY58X2R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ram Power Wagon Death Wobble — Causes and Fix | Trail Manual</title>
+  <meta name="description" content="The Power Wagon has a solid front axle, so death wobble is possible. Here's how to diagnose it: track bar bushings, steering damper, ball joints, alignment after lift, and lug torque.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+    :root {
+      --slate: #2B3A4A; --slate-d: #1A2330; --slate-l: #5B6B7E;
+      --clay: #C97E50; --clay-d: #A85D33; --clay-l: #E8AB85;
+      --bone: #E8E2D2; --bone-d: #C9C1AC; --paper: #F7F4ED;
+      --sans: "DM Sans", -apple-system, sans-serif;
+      --mono: "JetBrains Mono", monospace;
+      --warn: #D89035; --safety: #B23B2F; --good: #5E8C5A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--slate); font-family: var(--sans); font-weight: 400; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    .tm-topbar { background: #1A2330; border-bottom: 1px solid #2B3A4A; position: sticky; top: 0; z-index: 100; }
+    .tm-topbar-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; }
+    .tm-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .tm-brand-text { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: #E8E2D2; display: flex; align-items: center; gap: 4px; }
+    .tm-brand-dot { width: 5px; height: 5px; border-radius: 50%; background: #C97E50; margin-bottom: 2px; display: inline-block; }
+    .tm-nav { display: flex; gap: 20px; }
+    .tm-nav a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(232,226,210,0.65); text-decoration: none; transition: color 0.15s; }
+    .tm-nav a:hover { color: #E8E2D2; }
+    .safety-banner { background: rgba(178,59,47,0.08); border-bottom: 1px solid rgba(178,59,47,0.2); padding: 14px 24px; text-align: center; }
+    .safety-banner p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--safety); }
+    .masthead { border-bottom: 1px solid var(--bone); padding: 56px 32px 44px; max-width: 860px; margin: 0 auto; }
+    .eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 16px; }
+    .masthead h1 { font-family: var(--sans); font-weight: 500; font-size: clamp(30px, 5vw, 48px); letter-spacing: -0.02em; line-height: 1.05; color: var(--slate); margin-bottom: 16px; }
+    .masthead-subhead { font-size: clamp(15px, 2vw, 17px); color: var(--slate-l); max-width: 660px; line-height: 1.5; margin-bottom: 20px; }
+    .masthead-meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate-l); }
+    .article { max-width: 860px; margin: 0 auto; padding: 48px 32px 80px; }
+    .article h2 { font-weight: 600; font-size: 22px; letter-spacing: -0.015em; color: var(--slate); margin: 44px 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--bone); }
+    .article h3 { font-weight: 500; font-size: 17px; letter-spacing: -0.01em; color: var(--slate); margin: 28px 0 10px; }
+    .article p { font-size: 16px; line-height: 1.7; color: var(--slate); margin-bottom: 18px; }
+    .article ol, .article ul { margin: 0 0 18px 24px; font-size: 16px; line-height: 1.7; color: var(--slate); }
+    .article li { margin-bottom: 8px; }
+    .verdict { border-left: 3px solid var(--clay); padding: 18px 20px 18px 24px; background: var(--bone); margin: 28px 0; border-radius: 0 4px 4px 0; }
+    .verdict p { font-weight: 500; font-size: 17px; color: var(--slate); line-height: 1.6; margin: 0 0 10px; }
+    .verdict p:last-child { margin: 0; }
+    .verdict-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--clay); margin-bottom: 8px; }
+    .safety-verdict { border-left-color: var(--safety) !important; }
+    .safety-verdict .verdict-label { color: var(--safety) !important; }
+    .cause-item { border: 1px solid var(--bone); border-radius: 4px; padding: 22px 24px; margin: 14px 0; }
+    .cause-item.primary { border-left: 3px solid var(--safety); }
+    .cause-item.secondary { border-left: 3px solid var(--warn); }
+    .cause-item.tertiary { border-left: 3px solid var(--bone-d); }
+    .cause-rank { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 8px; }
+    .cause-rank.primary { color: var(--safety); }
+    .cause-rank.secondary { color: var(--warn); }
+    .cause-rank.tertiary { color: var(--slate-l); }
+    .cause-name { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; margin-bottom: 10px; }
+    .cause-item p { font-size: 15px; line-height: 1.65; color: var(--slate); margin-bottom: 0; }
+    .diag-steps { list-style: none; margin: 20px 0; border: 1px solid var(--bone); border-radius: 4px; overflow: hidden; }
+    .diag-steps li { padding: 14px 18px; border-bottom: 1px solid var(--bone); font-size: 15px; line-height: 1.55; display: grid; grid-template-columns: 28px 1fr; gap: 12px; align-items: flex-start; }
+    .diag-steps li:last-child { border-bottom: none; }
+    .diag-steps li:nth-child(odd) { background: var(--paper); }
+    .diag-steps li:nth-child(even) { background: var(--bone); }
+    .step-num { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--clay); padding-top: 2px; }
+    .step-title { font-weight: 500; display: block; margin-bottom: 3px; }
+    .step-note { font-size: 13px; color: var(--slate-l); }
+    .article-footer-nav { margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--bone); }
+    .article-footer-nav p { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate-l); margin-bottom: 14px; }
+    .footer-nav-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .footer-nav-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--bone); border: 1px solid var(--bone-d); border-radius: 4px; font-weight: 500; font-size: 14px; color: var(--slate); text-decoration: none; transition: border-color 0.15s; }
+    .footer-nav-link:hover { border-color: var(--clay); }
+    .footer-nav-link::after { content: '\2192'; color: var(--clay); }
+    .site-footer { border-top: 1px solid var(--bone); padding: 28px 32px; text-align: center; }
+    .site-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--bone-d); }
+    /* TODO: add photo — undercarriage photo of Power Wagon front axle / track bar area */
+    @media (max-width: 640px) { .masthead { padding: 36px 20px 28px; } .article { padding: 32px 20px 60px; } .tm-topbar-inner { padding: 12px 16px; } .tm-nav { gap: 14px; } }
+  </style>
+</head>
+<body>
+
+<header class="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <span aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 64 64" fill="none">
+          <rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/>
+          <polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+        </svg>
+      </span>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <nav class="tm-nav">
+      <a href="/power-wagon/">Power Wagon</a>
+      <a href="/db/">Database</a>
+      <a href="/">Home</a>
+    </nav>
+  </div>
+</header>
+
+<div class="safety-banner">
+  <p>Safety critical &mdash; death wobble is a vehicle control hazard. Do not drive at highway speed with a confirmed wobble. Fix the cause before the next on-road trip.</p>
+</div>
+
+<main>
+
+  <div class="masthead">
+    <p class="eyebrow">Ram Power Wagon &middot; Steering Diagnostic</p>
+    <h1>Power Wagon Death Wobble: It's Rare But Real</h1>
+    <p class="masthead-subhead">The Power Wagon has a solid front axle, which means death wobble is mechanically possible. It's less common than on an XJ or JK because the truck's mass dampens high-frequency oscillation &mdash; but when it happens, it's serious. Here's how to find the cause and fix it.</p>
+    <p class="masthead-meta">Trail Manual<span style="color:var(--bone-d);margin:0 6px;">&middot;</span>Ram Power Wagon &middot; 2005&ndash;Present</p>
+  </div>
+
+  <article class="article">
+
+    <h2>What Death Wobble Actually Is</h2>
+    <p>Death wobble is a resonant oscillation of the solid front axle. The axle begins rotating around the kingpin axis &mdash; left-right, left-right &mdash; at a frequency that builds on itself. The steering wheel shakes violently, the front of the vehicle vibrates at high amplitude, and it feels like the front wheels are trying to leave the truck. It typically starts at a specific speed (usually 55&ndash;75 mph) and is often triggered by a bump or ripple in the pavement.</p>
+    <p>It is not a normal vibration. It is not tire balance. It is not driveshaft imbalance. Those cause steady vibration at a specific RPM. Death wobble is a sudden, violent, high-amplitude shake that often arrives without warning and stops when you slow below the trigger speed.</p>
+
+    <div class="verdict safety-verdict">
+      <p class="verdict-label">If it happens while driving</p>
+      <p>Do not overcorrect the steering. Ease off the throttle. Let the speed drop below the oscillation threshold (usually below 45 mph). Pull over safely. Do not return to highway speed until the cause is diagnosed and fixed. A loose grip on the wheel and gradually decreasing speed is safer than a violent steering correction.</p>
+    </div>
+
+    <h2>Why the Power Wagon Is Less Susceptible (But Not Immune)</h2>
+    <p>The Power Wagon weighs approximately 7,000 lbs. That mass is an inherent damping factor &mdash; the axle needs more energy to enter oscillation than on a lighter rig. Death wobble is far more common on XJ Cherokees (3,200 lbs) and JK Wranglers (4,200 lbs). On the Power Wagon, the wobble typically requires a more significant initial input (a larger bump or more severe wear) to start.</p>
+    <p>The Articulink system (2014+) also changes the front end kinematics. The additional pivot joints allow controlled articulation but don't eliminate the lateral stability concern that enables death wobble &mdash; they change which components are most likely to be the initiating wear point.</p>
+
+    <h2>Causes by Probability</h2>
+
+    <div class="cause-item primary">
+      <div class="cause-rank primary">Primary cause</div>
+      <div class="cause-name">Track Bar Bushings and Track Bar-to-Frame Connection</div>
+      <p>The track bar (also called the Panhard rod) locates the front axle laterally under the frame. It pivots at both ends on rubber or polyurethane bushings. When those bushings wear, they allow lateral movement of the axle &mdash; exactly the movement that initiates death wobble. On a 7,000 lb truck, bushing wear happens faster than on lighter vehicles because the lateral loads are higher. On 2014+ trucks, inspect the track bar mount at the axle bracket (the Articulink side) carefully &mdash; the geometry change of the Articulink system puts different loads on the track bar mount than pre-2014 trucks.</p>
+    </div>
+
+    <div class="cause-item secondary">
+      <div class="cause-rank secondary">Secondary cause</div>
+      <div class="cause-name">Steering Damper (Stabilizer) Failure or Wear</div>
+      <p>The steering damper is a shock absorber mounted inline with the steering linkage that damps high-frequency oscillation. When it fails, the system has no damping against wobble. The steering damper is not the cause of death wobble &mdash; worn bushings or ball joints are the root cause &mdash; but a failed damper allows wobble to initiate at a lower trigger energy. Replacing only the steering damper without fixing the root cause is a temporary band-aid, but it can confirm whether the damper is contributing. A new Mopar or Bilstein damper costs $60&ndash;$120.</p>
+    </div>
+
+    <div class="cause-item secondary">
+      <div class="cause-rank secondary">Secondary cause</div>
+      <div class="cause-name">Ball Joints (Upper and Lower)</div>
+      <p>Worn ball joints allow the knuckle to wobble on the axle end. On the Power Wagon, ball joint replacement is a significant job &mdash; the Dana axles use pressed ball joints that require a press for removal and installation. On 2014+ trucks, the Articulink joints change the load path at the axle end, but the kingpin ball joints are still present and wear. Inspect with the truck on jack stands by trying to move the wheel at 6 and 12 o'clock (vertical play indicates ball joint wear) and 9 and 3 o'clock (lateral play indicates other issues).</p>
+    </div>
+
+    <div class="cause-item tertiary">
+      <div class="cause-rank tertiary">Contributing factor</div>
+      <div class="cause-name">Alignment After a Lift</div>
+      <p>Improper alignment after a lift &mdash; particularly caster correction &mdash; creates a geometry condition that promotes death wobble. Positive caster provides self-centering force on a solid-axle truck. After a lift, if caster isn't corrected, the system is more susceptible to oscillation. On Power Wagon trucks that have been lifted, verify that caster was adjusted (adjustable upper control arms or cam bolts) as part of the lift installation.</p>
+    </div>
+
+    <div class="cause-item tertiary">
+      <div class="cause-rank tertiary">Contributing factor</div>
+      <div class="cause-name">Lug Nut Torque and Wheel Balance</div>
+      <p>Loose lug nuts and out-of-balance tires won't cause death wobble on their own, but they can be the trigger event that initiates wobble in a steering system that's already near the threshold. Check lug torque (factory spec is 130 ft-lb on most Power Wagon years &mdash; confirm for your year) before diagnosing further. A tire balance check is also worth doing before committing to more involved component work.</p>
+    </div>
+
+    <h2>Diagnostic Sequence</h2>
+
+    <ul class="diag-steps">
+      <li>
+        <span class="step-num">01</span>
+        <div>
+          <span class="step-title">Check lug torque and tire balance</span>
+          <span class="step-note">Torque to spec (typically 130 ft-lb). Balance all four tires. These are cheap and confirm that a simple trigger isn't causing wobble in an otherwise acceptable suspension.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">02</span>
+        <div>
+          <span class="step-title">Lift front axle and inspect track bar bushings</span>
+          <span class="step-note">With wheels off the ground, grip the track bar and try to move it laterally at both ends. Any perceptible slop in the bushings means they need replacement. Also inspect the track bar frame bracket for cracking or elongated holes.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">03</span>
+        <div>
+          <span class="step-title">Inspect steering damper</span>
+          <span class="step-note">Press the damper shaft by hand. It should resist in both directions with consistent resistance. If it moves freely or with uneven resistance, replace it. This costs $80&ndash;$150 and confirms whether damper fade is a contributing factor.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">04</span>
+        <div>
+          <span class="step-title">Check ball joints (vertical play)</span>
+          <span class="step-note">With the wheel hanging, grip the tire at 12 and 6 and push/pull. Vertical play beyond factory spec indicates ball joint wear. Any visible movement at the ball joint itself (not the bushing) confirms worn joints.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">05</span>
+        <div>
+          <span class="step-title">Inspect Articulink joints for lateral play (2014+ only)</span>
+          <span class="step-note">Lateral movement at the axle end of the control arms indicates worn Articulink joints. Worn Articulink joints change the load path into the steering system and can be a contributing factor to wobble even if they're not the primary cause.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">06</span>
+        <div>
+          <span class="step-title">Verify alignment caster after any lift</span>
+          <span class="step-note">If the truck has been lifted, confirm that caster was corrected. A shop alignment printout showing caster at or near factory spec is the verification. Low caster on a lifted solid-axle truck is a systemic wobble risk.</span>
+        </div>
+      </li>
+    </ul>
+
+    <h2>Fixing It</h2>
+    <p>Replace the most worn component first, then retest before replacing additional components. The most common Power Wagon death wobble fix is track bar bushing replacement combined with steering damper replacement. If worn ball joints are confirmed, that job needs to happen &mdash; it cannot be deferred.</p>
+    <p>On lifted trucks, caster correction with adjustable upper control arms (or the Carli system that includes them) is the geometry fix that removes the systemic risk. A steering damper alone won't permanently resolve wobble caused by wrong caster.</p>
+    <p>After any front suspension work, get a proper four-wheel alignment. This is not optional on the Power Wagon.</p>
+
+    <div class="verdict">
+      <p class="verdict-label">What to do next</p>
+      <p>Start with the track bar bushings &mdash; they're the most common initiator and the most accessible fix. If the bushing inspection is clean, move to the steering damper and ball joints. If the truck has been lifted, caster inspection is mandatory. Fix the root cause; don't replace the steering damper as the only repair and call it done.</p>
+    </div>
+
+    <div class="article-footer-nav">
+      <p>More Power Wagon guides</p>
+      <div class="footer-nav-links">
+        <a class="footer-nav-link" href="/power-wagon/lift-kit-guide.html">Lift Kit Guide</a>
+        <a class="footer-nav-link" href="/power-wagon/buyers-guide.html">Buyer's Guide</a>
+        <a class="footer-nav-link" href="/power-wagon/trail-tools-guide.html">Trail Tools Guide</a>
+        <a class="footer-nav-link" href="/power-wagon/">All Power Wagon Guides</a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+</body>
+</html>
