@@ -893,6 +893,8 @@
 
   function render() {
     const vid = currentVehicleId();
+    // Persist selected vehicle for cross-page features (blog auto-filter, etc.)
+    try { if (vid) localStorage.setItem('tm.vehicle', vid); } catch (e) {}
     renderTopbar(vid);
     const app = $('#app');
     app.innerHTML = '';
@@ -1668,6 +1670,14 @@
     ));
   }
 
+  // Accept ?v=<id> as a vehicle pre-selector (e.g. from homepage strip)
+  try {
+    var qV = new URLSearchParams(location.search).get('v');
+    if (qV && M.vehicles.find(function(v){return v.id===qV && v.active;})) {
+      try { localStorage.setItem('tm.vehicle', qV); } catch(e) {}
+      if (!location.hash || location.hash === '#/') location.hash = '#/' + qV + '/home';
+    }
+  } catch(e){}
   if (!location.hash) location.hash = '#/';
   render();
 })();

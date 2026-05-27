@@ -16,6 +16,35 @@
 <title>Blog — Trail Manual</title>
 <meta name="description" content="Off-road DIY guides, build write-ups, and honest maintenance advice for Jeep Cherokee XJ and Wrangler JK owners. No affiliate links, no sponsored takes.">
 <link rel="stylesheet" href="/_shared.css">
+<style>
+  /* Vehicle-aware blog filter */
+  .tm-blog-filter{
+    max-width:980px;margin:0 auto 28px;padding:0 20px;
+    display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;
+    font-family:var(--mono,"JetBrains Mono",ui-monospace,monospace);font-size:13px;
+  }
+  .tm-blog-filter[hidden]{display:none !important;}
+  .tm-blog-filter-pill{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:8px 14px;border-radius:999px;
+    background:var(--bg-2,#eee9d8);color:var(--text,#1a2330);
+    border:1px solid var(--border,rgba(0,0,0,.1));
+    line-height:1;
+  }
+  .tm-blog-filter-pill strong{font-weight:700;letter-spacing:.01em}
+  .tm-blog-filter-clear{
+    appearance:none;background:transparent;border:0;cursor:pointer;
+    color:var(--accent,#C97E50);font:inherit;text-decoration:underline;
+    padding:6px 4px;
+  }
+  .tm-blog-filter-clear:hover{color:var(--accent-d,#A85D33)}
+  .tm-blog-filter-empty{
+    max-width:980px;margin:0 auto 28px;padding:18px 20px;
+    color:var(--text-mute,#5B6B7E);font-size:14px;text-align:center;
+  }
+  .tm-blog-filter-empty[hidden]{display:none !important;}
+  .tm-blog-card[hidden]{display:none !important;}
+</style>
 </head>
 <body>
 
@@ -47,43 +76,54 @@
     <p>Off-road DIY guides, build write-ups, and honest maintenance advice. No affiliate links, no sponsored takes — just what actually works.</p>
   </section>
 
+  <div class="tm-blog-filter" id="tm-blog-filter" hidden>
+    <span class="tm-blog-filter-pill">
+      Showing posts for <strong id="tm-blog-filter-label">your rig</strong>
+    </span>
+    <button type="button" class="tm-blog-filter-clear" id="tm-blog-filter-clear">Show all posts</button>
+  </div>
+
+  <div class="tm-blog-filter-empty" id="tm-blog-filter-empty" hidden>
+    No vehicle-specific posts here yet for this rig. <button type="button" class="tm-blog-filter-clear" data-clear="1">Show all posts</button>
+  </div>
+
   <div style="max-width:980px;margin:0 auto;padding:0 20px 80px">
     <div class="tm-blog-grid">
 
-      <a class="tm-blog-card" href="/blog/xj-fender-cut-35s/">
+      <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-fender-cut-35s/">
         <span class="tm-blog-tag">XJ Body &amp; Tires</span>
         <h3>How to Cut XJ Fenders to Fit 35-Inch Tires: The Notch and Fold Method</h3>
         <p>Lift alone won't get 35s under an XJ. Here's the full front and rear fender cut process — notch and fold on the rear quarters, what to seal, and flare options after.</p>
         <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read →</span></div>
       </a>
-            <a class="tm-blog-card" href="/blog/xj-death-wobble-causes/">
+            <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-death-wobble-causes/">
         <span class="tm-blog-tag">XJ Steering</span>
         <h3>XJ Death Wobble: Causes, Diagnosis, and the Fix That Actually Works</h3>
         <p>It's almost always the track bar bracket bolt or a worn track bar. Here's how to confirm it and fix it before it damages your steering box.</p>
         <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read →</span></div>
       </a>
 
-      <a class="tm-blog-card" href="/blog/xj-cooling-system-failures/">
+      <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-cooling-system-failures/">
         <span class="tm-blog-tag">XJ Engine</span>
         <h3>XJ Cooling System Failures: What Breaks, When, and What to Do</h3>
         <p>The factory radiator is the most common failure. Here's the full list — radiator, water pump, thermostat, hoses — in order of likelihood.</p>
         <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read →</span></div>
       </a>
 
-      <a class="tm-blog-card" href="/blog/when-to-re-gear-axles/">
+      <a class="tm-blog-card" data-vehicle="general" href="/blog/when-to-re-gear-axles/">
         <span class="tm-blog-tag">Build Foundations</span>
         <h3>When to Re-Gear Your Axles: The Math, the Feel, and When to Leave It Alone</h3>
         <p>On 33s, stock XJ gearing is marginal but livable. On 35s, you need 4.56s. Here's the calculation and what a re-gear actually costs.</p>
         <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read →</span></div>
 
-      <a class="tm-blog-card" href="/blog/xj-lift-kit-guide/">
+      <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-lift-kit-guide/">
         <span class="tm-blog-tag">XJ Build</span>
         <h3>How to Lift a Cherokee XJ: The Right Setup, in the Right Order</h3>
         <p>A 3-inch short-arm kit with 31–33-inch tires is the right first build. Here's what to buy, what to skip, the order that matters, and the one thing people always forget (caster).</p>
         <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read →</span></div>
       </a>
 
-      <a class="tm-blog-card" href="/blog/xj-dana-35/">
+      <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-dana-35/">
         <span class="tm-blog-tag">XJ Axles</span>
         <h3>The XJ Dana 35: When to Keep It, When to Swap It, and What to Replace It With</h3>
         <p>The Dana 35 isn't always a liability. On 31s without a locker it holds up fine — but the C-clip is a real failure mode. Here's when to swap and what the Ford 8.8 actually costs.</p>
@@ -91,7 +131,7 @@
       </a>
       </a>
 
-      <a class="tm-blog-card" href="/db/xj-lift-kit-guide.html">
+      <a class="tm-blog-card" data-vehicle="xj" href="/db/xj-lift-kit-guide.html">
         <span class="tm-blog-tag">XJ Suspension</span>
         <h3>How Much Lift Does a Cherokee XJ Actually Need?</h3>
         <p>Budget boost to long arm — what each costs, what it requires, and which is right for your build. The honest version of this decision.</p>
@@ -102,6 +142,128 @@
   </div>
 
 </main>
+
+<script>
+/* =========================================================
+   Vehicle-aware blog filter
+   Selection priority: ?vehicle=<id> → localStorage 'tm.vehicle'
+   → document.referrer path (e.g. /xj/, /jk/ → xj, jk)
+   Cards with data-vehicle="general" always show.
+   ========================================================= */
+(function(){
+  // Known active vehicle slugs (manifest.json — keep in sync if vehicles added)
+  var VEHICLES = {
+    xj:          'XJ Cherokee',
+    tj:          'Wrangler TJ',
+    jk:          'Wrangler JK',
+    jl:          'Wrangler JL',
+    gladiator:   'Gladiator JT',
+    '4runner':   '4Runner',
+    tacoma:      'Tacoma',
+    bronco:      'Bronco (Early)',
+    bronco6g:    'Bronco (6th Gen)',
+    'bronco-ii': 'Bronco II',
+    'full-size-bronco': 'Full-Size Bronco',
+    raptor:      'F-150 Raptor',
+    'power-wagon':'Power Wagon'
+  };
+  // Map directory slugs that aren't first-class IDs to their canonical ID
+  // (so a visit to /bronco-ii/ still surfaces the closest match).
+  var ALIASES = {
+    'bronco-ii': 'bronco',
+    'full-size-bronco': 'bronco',
+    'bronco6g': 'bronco'
+  };
+
+  var STORAGE_KEY = 'tm.vehicle';
+
+  function canonical(slug){
+    if (!slug) return null;
+    slug = String(slug).toLowerCase();
+    return ALIASES[slug] || (VEHICLES[slug] ? slug : null);
+  }
+  function vehicleFromPath(path){
+    if (!path) return null;
+    var m = path.match(/^\/([a-z0-9-]+)\//i);
+    if (!m) return null;
+    return canonical(m[1]);
+  }
+
+  function readQuery(){
+    try {
+      var p = new URLSearchParams(window.location.search).get('vehicle');
+      return canonical(p);
+    } catch(e){}
+    return null;
+  }
+  function readStorage(){
+    try {
+      return canonical(localStorage.getItem(STORAGE_KEY));
+    } catch(e){}
+    return null;
+  }
+  function readReferrer(){
+    try {
+      if (!document.referrer) return null;
+      var url = new URL(document.referrer);
+      // Only honor referrers from the same origin to avoid surprises.
+      if (url.origin !== window.location.origin) return null;
+      return vehicleFromPath(url.pathname);
+    } catch(e){ return null; }
+  }
+  function persist(v){
+    try { v ? localStorage.setItem(STORAGE_KEY, v) : localStorage.removeItem(STORAGE_KEY); } catch(e){}
+  }
+
+  function pickVehicle(){
+    return readQuery() || readStorage() || readReferrer();
+  }
+
+  function applyFilter(vid){
+    var cards = document.querySelectorAll('.tm-blog-card');
+    var shown = 0, vehicleShown = 0;
+    cards.forEach(function(c){
+      var dv = (c.getAttribute('data-vehicle') || '').toLowerCase();
+      if (!vid) { c.hidden = false; shown++; return; }
+      if (dv === 'general' || dv === vid) {
+        c.hidden = false;
+        shown++;
+        if (dv === vid) vehicleShown++;
+      } else {
+        c.hidden = true;
+      }
+    });
+    var bar = document.getElementById('tm-blog-filter');
+    var lbl = document.getElementById('tm-blog-filter-label');
+    var empty = document.getElementById('tm-blog-filter-empty');
+    if (vid) {
+      lbl.textContent = VEHICLES[vid] || vid;
+      bar.hidden = false;
+      empty.hidden = vehicleShown > 0 || shown > 0;
+    } else {
+      bar.hidden = true;
+      empty.hidden = true;
+    }
+  }
+
+  function clearFilter(){
+    persist(null);
+    applyFilter(null);
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    var vid = pickVehicle();
+    if (vid) persist(vid);
+    applyFilter(vid);
+
+    var clearBtn = document.getElementById('tm-blog-filter-clear');
+    if (clearBtn) clearBtn.addEventListener('click', clearFilter);
+    document.querySelectorAll('[data-clear="1"]').forEach(function(b){
+      b.addEventListener('click', clearFilter);
+    });
+  });
+})();
+</script>
 
 <footer class="tm-footer">
   <div class="tm-footer-inner">
