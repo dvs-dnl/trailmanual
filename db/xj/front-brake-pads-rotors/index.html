@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>XJ Cherokee Front Brake Pads + Rotors — Trail Manual</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Front brake pads and rotors on a 1990–2001 Jeep Cherokee XJ — torque specs, parts list, and a step-by-step walker. Plan on one hour per side and $80–$140 in parts.">
+<link rel="canonical" href="https://trailmanual.com/db/xj/front-brake-pads-rotors/">
+<meta property="og:title" content="XJ Cherokee Front Brake Pads + Rotors">
+<meta property="og:description" content="One hour per side, $80–$140 in parts, the highest-return safety service on a high-mileage XJ.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trailmanual.com/db/xj/front-brake-pads-rotors/">
+
+<link rel="stylesheet" href="/_shared.css">
+
+<!-- Theme initializer — required on every Trail Manual page -->
+<script>
+(function(){
+  try{
+    var s = localStorage.getItem('tm-theme');
+    if (s === 'dark') document.documentElement.setAttribute('data-theme','dark');
+    else if (s !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme','dark');
+    }
+  } catch(e){}
+})();
+</script>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X00YY58X2R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-X00YY58X2R');
+</script>
+
+<!-- HowTo / Article schema for AEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Replace Front Brake Pads and Rotors on a Jeep Cherokee XJ",
+  "description": "Front brake pads on a 1990–2001 XJ are a one-hour-per-side job and the highest-return safety service on a high-mileage Cherokee.",
+  "totalTime": "PT2H",
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "120" },
+  "supply": [
+    {"@type":"HowToSupply","name":"Akebono ProACT Ceramic Pads (front pair)"},
+    {"@type":"HowToSupply","name":"Centric Premium Rotors (qty 2)"},
+    {"@type":"HowToSupply","name":"Silicone caliper slide pin grease"},
+    {"@type":"HowToSupply","name":"Anti-seize compound"},
+    {"@type":"HowToSupply","name":"DOT 3 or DOT 4 brake fluid (top-off)"}
+  ],
+  "tool": [
+    {"@type":"HowToTool","name":"Floor jack and jack stands"},
+    {"@type":"HowToTool","name":"13mm and 18mm sockets"},
+    {"@type":"HowToTool","name":"Torque wrench"},
+    {"@type":"HowToTool","name":"C-clamp"}
+  ]
+}
+</script>
+
+<style>
+  /* ============ Layout (matches prototype, lives in the page for now; promote to _shared.css when build.py extends) ============ */
+  .rg-wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .rg-layout{display:grid;grid-template-columns:240px 1fr;gap:48px;padding:32px 0 64px}
+  @media (max-width: 900px){
+    .rg-layout{grid-template-columns:1fr;gap:24px;padding:16px 0 48px}
+  }
+
+  /* Hero */
+  .rg-hero{padding:32px 0 16px;border-bottom:1px solid var(--border)}
+  .rg-crumbs{font-size:.85rem;color:var(--text-dim);margin-bottom:12px}
+  .rg-crumbs a{color:var(--text-dim)}
+  .rg-crumbs a:hover{color:var(--accent)}
+  .rg-title{font-size:2rem;font-weight:600;line-height:1.2;margin:0 0 8px;color:var(--text)}
+  .rg-summary{font-size:1.05rem;color:var(--text-dim);max-width:62ch;margin:0 0 20px}
+  .rg-meta-strip{display:flex;flex-wrap:wrap;gap:10px;font-size:.88rem}
+  .rg-pill{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;background:var(--bg-2);border:1px solid var(--border);border-radius:99px;color:var(--text)}
+  .rg-pill.safety{background:rgba(178,59,47,.1);border-color:var(--safety);color:var(--safety);font-weight:600}
+  .rg-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .rg-pill.safety .dot{background:var(--safety)}
+
+  /* Honest answer callout */
+  .rg-answer{margin:24px 0;padding:20px 24px;background:var(--panel);border-left:4px solid var(--accent);border-radius:var(--radius)}
+  .rg-answer-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:8px}
+  .rg-answer p{margin:0;color:var(--text);line-height:1.65}
+
+  /* TOC */
+  .rg-toc{position:sticky;top:84px;align-self:start;font-size:.9rem}
+  .rg-toc-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-mute);margin-bottom:10px}
+  .rg-toc ul{list-style:none;padding:0;margin:0;border-left:2px solid var(--border)}
+  .rg-toc li a{display:block;padding:6px 12px;color:var(--text-dim);border-left:2px solid transparent;margin-left:-2px}
+  .rg-toc li a:hover{color:var(--accent)}
+  .rg-toc li a.active{color:var(--accent);border-left-color:var(--accent);font-weight:500}
+  .rg-progress-mini{margin-top:18px;padding:12px;background:var(--panel);border-radius:var(--radius);font-size:.82rem}
+  .rg-progress-mini .bar{height:4px;background:var(--bg-3);border-radius:2px;overflow:hidden;margin-top:6px}
+  .rg-progress-mini .fill{height:100%;background:var(--good);width:0;transition:width .25s}
+  @media (max-width: 900px){
+    .rg-toc{position:static;display:none}
+  }
+
+  /* Sections */
+  .rg-section{padding:32px 0;border-bottom:1px solid var(--border)}
+  .rg-section:last-child{border-bottom:0}
+  .rg-h2{font-size:1.4rem;font-weight:600;margin:0 0 16px;color:var(--text);scroll-margin-top:80px}
+  .rg-section p{margin:0 0 12px;line-height:1.7;color:var(--text)}
+
+  /* Tools */
+  .rg-tools-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media (max-width: 700px){.rg-tools-cols{grid-template-columns:1fr}}
+  .rg-tool-col h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-mute);margin:0 0 10px}
+  .rg-tool-list{list-style:none;padding:0;margin:0}
+  .rg-tool-list li{padding:8px 0;border-bottom:1px dashed var(--border);font-size:.95rem}
+  .rg-tool-list li:last-child{border-bottom:0}
+  .rg-tool-note{display:block;font-size:.82rem;color:var(--text-dim);margin-top:2px}
+
+  /* Parts */
+  .rg-parts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .rg-part{padding:14px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;gap:6px}
+  .rg-part-name{font-weight:600;font-size:.95rem;line-height:1.3;color:var(--text)}
+  .rg-part-meta{font-size:.8rem;color:var(--text-dim);font-family:var(--font-mono)}
+  .rg-part-note{font-size:.82rem;color:var(--text-dim);line-height:1.4}
+  .rg-part-price{font-size:.85rem;color:var(--text);font-weight:500}
+  .rg-part-tier{display:inline-block;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:99px;align-self:flex-start}
+  .rg-part-tier.required{background:rgba(94,140,90,.15);color:var(--good)}
+  .rg-part-tier.recommended{background:rgba(201,126,80,.15);color:var(--accent)}
+  .rg-part-tier.alternative{background:rgba(79,119,149,.15);color:var(--info)}
+  .rg-part-tier.avoid{background:rgba(178,59,47,.15);color:var(--safety)}
+  .rg-part.avoid .rg-part-name{text-decoration:line-through;color:var(--text-mute)}
+  .rg-part-buy{font-size:.85rem;margin-top:4px}
+
+  /* Torque */
+  .rg-torque-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:12px}
+  .rg-unit-toggle{display:inline-flex;background:var(--panel);border:1px solid var(--border);border-radius:99px;padding:2px;font-size:.8rem;font-family:var(--font-mono)}
+  .rg-unit-toggle button{padding:4px 12px;border:0;background:transparent;color:var(--text-dim);border-radius:99px;cursor:pointer}
+  .rg-unit-toggle button.on{background:var(--accent);color:#fff}
+  .rg-torque-table{width:100%;border-collapse:collapse;font-size:.92rem}
+  .rg-torque-table th{text-align:left;padding:8px 12px;border-bottom:2px solid var(--border);font-weight:600;color:var(--text-mute);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+  .rg-torque-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  .rg-torque-value{font-family:var(--font-mono);font-weight:600;color:var(--accent);white-space:nowrap}
+  .rg-torque-notes{font-size:.85rem;color:var(--text-dim)}
+
+  /* Walker */
+  .rg-walker-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+  .rg-progress{flex:1;min-width:200px}
+  .rg-progress-label{font-size:.85rem;color:var(--text-dim);margin-bottom:6px;display:flex;justify-content:space-between}
+  .rg-progress-bar{height:6px;background:var(--bg-3);border-radius:3px;overflow:hidden}
+  .rg-progress-fill{height:100%;background:var(--good);width:0;transition:width .25s ease}
+  .rg-walker-actions{display:flex;gap:8px}
+  .rg-btn{font:inherit;font-size:.85rem;padding:7px 14px;border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:var(--radius);cursor:pointer}
+  .rg-btn:hover{border-color:var(--accent);color:var(--accent)}
+  .rg-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .rg-btn.primary:hover{background:var(--clay-deep);color:#fff}
+
+  .rg-steps{list-style:none;padding:0;margin:0;counter-reset:rgstep}
+  .rg-step{display:grid;grid-template-columns:auto 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);counter-increment:rgstep}
+  .rg-step:last-child{border-bottom:0}
+  .rg-step-num{
+    width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--bg-2);border:2px solid var(--border);
+    font-family:var(--font-mono);font-weight:600;font-size:.95rem;
+    color:var(--text-dim);
+  }
+  .rg-step.done .rg-step-num{background:var(--good);border-color:var(--good);color:#fff}
+  .rg-step.done .rg-step-num::before{content:"✓"}
+  .rg-step.done .rg-step-num .rg-step-num-digit{display:none}
+  .rg-step-body{min-width:0}
+  .rg-step-headline{font-weight:600;font-size:1rem;line-height:1.4;color:var(--text);margin:6px 0 8px;display:flex;align-items:flex-start;gap:10px}
+  .rg-step-checkbox{margin-top:3px;width:18px;height:18px;cursor:pointer;accent-color:var(--good);flex-shrink:0}
+  .rg-step-prose{color:var(--text);line-height:1.65;font-size:.95rem;margin:0}
+  .rg-step.done .rg-step-prose{color:var(--text-dim)}
+  .rg-step.done .rg-step-headline > span{color:var(--text-dim);text-decoration:line-through;text-decoration-thickness:1px}
+  .rg-step-pills{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .rg-step-pill{font-size:.78rem;padding:3px 9px;border-radius:99px;display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono)}
+  .rg-step-pill.torque{background:rgba(201,126,80,.15);color:var(--accent)}
+  .rg-step-pill.warn{background:rgba(216,144,53,.18);color:var(--rust);font-family:var(--font-sans);font-weight:500;line-height:1.35}
+  .rg-step-pill.warn::before{content:"⚠";margin-right:2px}
+
+  /* Verify */
+  .rg-verify-list{list-style:none;padding:0;margin:0}
+  .rg-verify-list li{padding:10px 14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;font-size:.95rem;line-height:1.5}
+  .rg-verify-list li::before{content:"✓";color:var(--good);font-weight:700;flex-shrink:0;margin-top:1px}
+
+  /* Mistakes */
+  .rg-mistakes{list-style:none;padding:0;margin:0}
+  .rg-mistakes li{padding:10px 14px;background:rgba(216,144,53,.08);border-left:3px solid var(--warn);border-radius:var(--radius);margin-bottom:8px;font-size:.95rem;line-height:1.55}
+
+  /* Video */
+  .rg-video{aspect-ratio:16/9;width:100%;background:#000;border-radius:var(--radius-lg);overflow:hidden}
+  .rg-video iframe{width:100%;height:100%;border:0;display:block}
+  .rg-video-credit{font-size:.85rem;color:var(--text-dim);margin-top:10px}
+  .rg-video-credit a{color:var(--accent);font-weight:500}
+
+  /* Related */
+  .rg-related{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+  .rg-related a{padding:12px 14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);display:block;font-size:.92rem}
+  .rg-related a:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* Footer */
+  .rg-foot{padding:32px 0 16px;font-size:.85rem;color:var(--text-dim)}
+  .rg-cites{margin-top:12px}
+  .rg-cites li{margin-bottom:4px;line-height:1.5}
+
+  /* Print mode */
+  body.rg-print .tm-topbar,
+  body.rg-print .rg-toc,
+  body.rg-print .rg-walker-actions,
+  body.rg-print .rg-step-checkbox,
+  body.rg-print .rg-unit-toggle{display:none !important}
+  body.rg-print .rg-layout{grid-template-columns:1fr}
+  body.rg-print .rg-step{break-inside:avoid}
+  @media print{
+    .tm-topbar,.rg-toc,.rg-walker-actions,.rg-step-checkbox,.rg-unit-toggle{display:none !important}
+    .rg-layout{grid-template-columns:1fr}
+    .rg-step,.rg-section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="tm-topbar">
+  <div class="tm-topbar-inner" style="display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:18px 24px">
+    <a href="/" style="font-weight:600;color:var(--text);font-size:1.1rem">Trail Manual</a>
+    <nav style="display:flex;gap:20px;align-items:center;font-size:.92rem">
+      <a href="/db/">Database</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/blog/">Blog</a>
+      <button class="tm-theme-btn rg-btn" id="themeBtn" style="padding:6px 12px">Theme</button>
+    </nav>
+  </div>
+</header>
+
+<div class="rg-wrap">
+
+  <!-- Hero -->
+  <section class="rg-hero">
+    <div class="rg-crumbs"><a href="/db/">Database</a> · <a href="/db/?vehicle=xj">Jeep Cherokee XJ</a> · <a href="/db/?vehicle=xj&category=brakes">Brakes</a></div>
+    <h1 class="rg-title">Front Brake Pads and Rotors — Jeep Cherokee XJ</h1>
+    <p class="rg-summary">Front brake pads and rotors are the highest-return safety job on a high-mileage XJ — one hour of wrench time per side restores stopping distance, kills the squeal, and is the single most-skipped maintenance item on used Cherokees.</p>
+    <div class="rg-meta-strip">
+      <span class="rg-pill safety"><span class="dot"></span>Safety critical</span>
+      <span class="rg-pill"><span class="dot"></span>Difficulty: Confident (2/5)</span>
+      <span class="rg-pill"><span class="dot"></span>Time: 1–2.5 hrs</span>
+      <span class="rg-pill"><span class="dot"></span>Cost: $80–$140</span>
+      <span class="rg-pill"><span class="dot"></span>XJ · 1990–2001</span>
+    </div>
+  </section>
+
+  <!-- Honest answer -->
+  <div class="rg-answer">
+    <div class="rg-answer-label">The honest answer</div>
+    <p>Front brake pads on a 1990–2001 XJ are a one-hour-per-side job and the highest-return safety service on a high-mileage Cherokee. Plan on $80–$140 in parts (quality pads plus a pair of rotors), a 13mm and 18mm socket, a C-clamp, and a torque wrench. Skip the no-name rotors — they warp inside a year. Always replace both sides of an axle as a pair.</p>
+  </div>
+
+  <div class="rg-layout">
+
+    <aside class="rg-toc" id="toc">
+      <div class="rg-toc-label">On this page</div>
+      <ul>
+        <li><a href="#symptoms">Symptoms</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#parts">Parts</a></li>
+        <li><a href="#torque">Torque specs</a></li>
+        <li><a href="#procedure">Procedure</a></li>
+        <li><a href="#verify">Verify</a></li>
+        <li><a href="#mistakes">Common mistakes</a></li>
+        <li><a href="#video">Video</a></li>
+        <li><a href="#related">Related</a></li>
+      </ul>
+      <div class="rg-progress-mini">
+        <div style="display:flex;justify-content:space-between;color:var(--text-dim)">
+          <span>Progress</span>
+          <span id="miniCount">0 / 25</span>
+        </div>
+        <div class="bar"><div class="fill" id="miniFill"></div></div>
+      </div>
+    </aside>
+
+    <main>
+
+      <!-- Symptoms -->
+      <section class="rg-section" id="symptoms">
+        <h2 class="rg-h2">Symptoms</h2>
+        <ul style="margin:0;padding-left:22px;line-height:1.8">
+          <li>Brake pad wear indicator squealing at low speed, going away under firm braking</li>
+          <li>Vibration through the steering wheel during medium-to-hard braking (warped rotor, not pad)</li>
+          <li>Pedal sinks slowly during a long stoplight hold (master cylinder, not pad — but worth knowing)</li>
+          <li>Visible pad material at or below 3mm through the caliper window</li>
+          <li>Deep grooves or a fingernail-catching lip on the rotor face</li>
+          <li>Brake dust accumulating heavily on only one front wheel (sticking slide pin)</li>
+        </ul>
+      </section>
+
+      <!-- Tools -->
+      <section class="rg-section" id="tools">
+        <h2 class="rg-h2">Tools</h2>
+        <div class="rg-tools-cols">
+          <div class="rg-tool-col">
+            <h3>Required</h3>
+            <ul class="rg-tool-list">
+              <li><strong>Floor jack and jack stands</strong><span class="rg-tool-note">Stands under the frame rails — never trust just the jack</span></li>
+              <li><strong>19mm socket or impact</strong><span class="rg-tool-note">Lug nuts</span></li>
+              <li><strong>13mm socket + ratchet</strong><span class="rg-tool-note">Caliper slide pin bolts</span></li>
+              <li><strong>18mm or 11/16" socket</strong><span class="rg-tool-note">Caliper bracket bolts</span></li>
+              <li><strong>Breaker bar</strong><span class="rg-tool-note">Bracket bolts are usually corroded tight</span></li>
+              <li><strong>Torque wrench (10–100 ft-lb range)</strong></li>
+              <li><strong>C-clamp or piston compressor</strong><span class="rg-tool-note">To push the caliper piston back</span></li>
+              <li><strong>Wire coat hanger or bungee</strong><span class="rg-tool-note">Hang the caliper — never let it dangle on the hose</span></li>
+              <li><strong>Brake cleaner (at least one can)</strong></li>
+              <li><strong>Silicone caliper slide pin grease</strong></li>
+              <li><strong>Anti-seize compound</strong></li>
+            </ul>
+          </div>
+          <div class="rg-tool-col">
+            <h3>Nice to have</h3>
+            <ul class="rg-tool-list">
+              <li><strong>Turkey baster</strong><span class="rg-tool-note">Pull old fluid from the reservoir before compressing the piston</span></li>
+              <li><strong>Impact gun</strong><span class="rg-tool-note">Faster on the bracket bolts but a breaker bar works</span></li>
+              <li><strong>Brake hose clamp</strong><span class="rg-tool-note">Optional — keeps fluid in the line if you open a bleeder</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Parts -->
+      <section class="rg-section" id="parts">
+        <h2 class="rg-h2">Parts</h2>
+        <div class="rg-parts">
+
+          <div class="rg-part">
+            <span class="rg-part-tier recommended">recommended</span>
+            <div class="rg-part-name">Akebono ProACT Ceramic Pads (front pair)</div>
+            <div class="rg-part-meta">PN: ACT462 · Rock Auto / Summit Racing</div>
+            <div class="rg-part-price">~$45</div>
+            <div class="rg-part-note">Quiet, long-lived, the default pick for daily-driven XJs.</div>
+            <div class="rg-part-buy"><a href="https://www.amazon.com/dp/B000C9V3BO?tag=trailmanual0b-20&linkCode=ll2&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Buy on Amazon →</a></div>
+          </div>
+
+          <div class="rg-part">
+            <span class="rg-part-tier alternative">alternative</span>
+            <div class="rg-part-name">Hawk LTS Light Truck/SUV Pads (front pair)</div>
+            <div class="rg-part-meta">PN: HB300Y.622 · Summit Racing / Rock Auto</div>
+            <div class="rg-part-price">~$65</div>
+            <div class="rg-part-note">Step up for towing or 33s+.</div>
+            <div class="rg-part-buy"><a href="https://www.amazon.com/dp/B000C7Y58W?tag=trailmanual0b-20&linkCode=ll2&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Buy on Amazon →</a></div>
+          </div>
+
+          <div class="rg-part">
+            <span class="rg-part-tier recommended">recommended</span>
+            <div class="rg-part-name">Centric Premium Rotor (each — qty 2)</div>
+            <div class="rg-part-meta">PN: 120.67039 · Rock Auto</div>
+            <div class="rg-part-price">~$35</div>
+            <div class="rg-part-note">Where most people save money and regret it. Don't.</div>
+            <div class="rg-part-buy"><a href="https://www.amazon.com/dp/B000C5BSCY?tag=trailmanual0b-20&linkCode=ll2&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Buy on Amazon →</a></div>
+          </div>
+
+          <div class="rg-part">
+            <span class="rg-part-tier alternative">alternative</span>
+            <div class="rg-part-name">PowerStop Evolution Rotor (each — qty 2)</div>
+            <div class="rg-part-meta">PN: AR8540 · Rock Auto / Amazon</div>
+            <div class="rg-part-price">~$40</div>
+            <div class="rg-part-note">Zinc-coated — better for wet climates.</div>
+            <div class="rg-part-buy"><a href="https://www.amazon.com/dp/B0033A9BLI?tag=trailmanual0b-20&linkCode=ll2&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Buy on Amazon →</a></div>
+          </div>
+
+          <div class="rg-part">
+            <span class="rg-part-tier required">required</span>
+            <div class="rg-part-name">Permatex Silicone Caliper Grease (4 oz)</div>
+            <div class="rg-part-meta">PN: 24110 · AutoZone / O'Reilly</div>
+            <div class="rg-part-price">~$6</div>
+            <div class="rg-part-buy"><a href="https://www.amazon.com/dp/B000HBM2OM?tag=trailmanual0b-20&linkCode=ll2&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Buy on Amazon →</a></div>
+          </div>
+
+          <div class="rg-part">
+            <span class="rg-part-tier required">required</span>
+            <div class="rg-part-name">Permatex Anti-Seize Lubricant (1 oz)</div>
+            <div class="rg-part-meta">PN: 80078 · AutoZone / O'Reilly</div>
+            <div class="rg-part-price">~$4</div>
+            <div class="rg-part-buy"><a href="https://www.amazon.com/dp/B0002UEN1A?tag=trailmanual0b-20&linkCode=ll2&language=en_US&ref_=as_li_ss_tl" target="_blank" rel="noopener sponsored">Buy on Amazon →</a></div>
+          </div>
+
+          <div class="rg-part avoid">
+            <span class="rg-part-tier avoid">avoid</span>
+            <div class="rg-part-name">No-name parts-house rotors</div>
+            <div class="rg-part-note">Warp under any load. Off the truck inside a year.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Torque -->
+      <section class="rg-section" id="torque">
+        <div class="rg-torque-head">
+          <h2 class="rg-h2" style="margin:0">Torque specs</h2>
+          <div class="rg-unit-toggle" role="tablist" aria-label="Torque units">
+            <button id="unitFtLb" class="on" type="button">ft-lb</button>
+            <button id="unitNm" type="button">Nm</button>
+          </div>
+        </div>
+        <table class="rg-torque-table">
+          <thead><tr><th>Fastener</th><th>Value</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Caliper slide pin bolts</td><td class="rg-torque-value" data-ftlb="30" data-nm="41">30 ft-lb</td><td class="rg-torque-notes">Snug, not gorilla-tight — over-torquing deforms the pins</td></tr>
+            <tr><td>Caliper bracket bolts</td><td class="rg-torque-value" data-ftlb="77" data-nm="104">77 ft-lb</td><td class="rg-torque-notes">Critical — holds full braking force of the axle</td></tr>
+            <tr><td>Lug nuts</td><td class="rg-torque-value" data-ftlb="95" data-nm="129">95 ft-lb</td><td class="rg-torque-notes">Star pattern, in two passes</td></tr>
+            <tr><td>Bleeder screw</td><td class="rg-torque-value" data-ftlb="11" data-nm="15">11 ft-lb</td><td class="rg-torque-notes">Snug only — brass deforms easily</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Procedure -->
+      <section class="rg-section" id="procedure">
+        <div class="rg-walker-head">
+          <h2 class="rg-h2" style="margin:0">Procedure</h2>
+          <div class="rg-walker-actions">
+            <button id="resetBtn" class="rg-btn" type="button">Reset progress</button>
+            <button id="printBtn" class="rg-btn primary" type="button">Print mode</button>
+          </div>
+        </div>
+        <div class="rg-progress">
+          <div class="rg-progress-label">
+            <span>Step <span id="curStep">0</span> of <span id="totalStep">25</span></span>
+            <span id="pctLabel">0%</span>
+          </div>
+          <div class="rg-progress-bar"><div class="rg-progress-fill" id="progressFill"></div></div>
+        </div>
+
+        <ol class="rg-steps" id="steps">
+
+          <li class="rg-step" data-idx="0"><div class="rg-step-num"><span class="rg-step-num-digit">1</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Park on level ground and chock the rear wheels.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill warn">Never work under a vehicle supported only by a jack.</span></div>
+            <p class="rg-step-prose">Set the parking brake. The XJ's rear drums hold the truck even with the front off the ground, but chocks are cheap insurance.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="1"><div class="rg-step-num"><span class="rg-step-num-digit">2</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Break the lug nuts loose before lifting.</span></h3>
+            <p class="rg-step-prose">Crack each lug nut a quarter turn with the truck still on the ground — much easier than fighting a spinning wheel in the air.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="2"><div class="rg-step-num"><span class="rg-step-num-digit">3</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Raise the front of the vehicle and support it on jack stands.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill warn">Stands go under the frame rails, not the suspension. Test the truck's weight on the stands before getting under it.</span></div>
+            <p class="rg-step-prose">Place stands behind the front wheels under the frame rails. Lower the truck onto the stands and remove the jack from under the vehicle if you're not actively using it.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="3"><div class="rg-step-num"><span class="rg-step-num-digit">4</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Remove the front wheels.</span></h3>
+            <p class="rg-step-prose">Set them aside out of the way. Now is a good time to inspect the tire's inner sidewall for wear or cuts you can't see when the wheel is mounted.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="4"><div class="rg-step-num"><span class="rg-step-num-digit">5</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Inspect what you've got.</span></h3>
+            <p class="rg-step-prose">Look at the pad thickness through the caliper window. Check the rotor for scoring, blue heat marks, or a tall outer lip. Spin the rotor and listen for grinding or rough bearing noise — if a wheel bearing is failing, do it before the brakes go back together.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="5"><div class="rg-step-num"><span class="rg-step-num-digit">6</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Remove the two slide pin bolts on the back of the caliper.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill torque" data-ftlb="30" data-nm="41">Caliper slide pin bolts: 30 ft-lb</span></div>
+            <p class="rg-step-prose">Use a 13mm socket. The bolts thread into the slide pins from the inboard side of the caliper. These are usually not tight; if they fight you, hit them with penetrating oil and try again — don't strip the head with a stuck bit.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="6"><div class="rg-step-num"><span class="rg-step-num-digit">7</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Lift the caliper off the rotor.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill warn">Do not let the caliper hang by the brake hose. The hose isn't rated for it and tears are invisible until they fail.</span></div>
+            <p class="rg-step-prose">Slide it straight off the pads, then rotate it upward. Hang the caliper from the coil spring with a wire coat hanger or short bungee.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="7"><div class="rg-step-num"><span class="rg-step-num-digit">8</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Pull the old pads out of the bracket.</span></h3>
+            <p class="rg-step-prose">They sit in retaining clips on the top and bottom of the bracket. Note which way the pad with the wear indicator (the small metal tab) faces — usually inboard.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="8"><div class="rg-step-num"><span class="rg-step-num-digit">9</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Compress the caliper piston.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill warn">Open the master cylinder reservoir cap and watch the fluid level. If it's near full, siphon some out with a turkey baster before compressing.</span></div>
+            <p class="rg-step-prose">Place an old pad against the piston face and use a C-clamp to push the piston back into its bore. Go slowly. Opening the caliper bleeder (catch the displaced fluid in a rag) while you compress is cleaner and avoids pushing old fluid backward through the ABS module on 1996+ trucks.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="9"><div class="rg-step-num"><span class="rg-step-num-digit">10</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Remove the caliper bracket from the steering knuckle.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill torque" data-ftlb="77" data-nm="104">Caliper bracket bolts: 77 ft-lb</span></div>
+            <p class="rg-step-prose">Two large bolts (11/16" or 18mm head) hold the bracket on. They are torqued tight and may need a breaker bar. Once the bracket is off, hang it next to the caliper — do not let it dangle on the brake line either.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="10"><div class="rg-step-num"><span class="rg-step-num-digit">11</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Pull the old rotor off.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill warn">Do not pry against the wheel studs to free a rust-stuck rotor — they'll bend.</span></div>
+            <p class="rg-step-prose">Most rotors are held only by the wheel studs and a small retaining clip on one stud (you can cut the clip off and discard it; it's a factory assembly aid). If the rotor is rust-stuck, hit the rotor face between the studs with a dead-blow hammer.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="11"><div class="rg-step-num"><span class="rg-step-num-digit">12</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Clean the hub face.</span></h3>
+            <p class="rg-step-prose">Wire-brush the mating surface where the new rotor will sit. Any rust scale here causes lateral runout, which feels like warped rotors a month later. Wipe the cleaned surface with brake cleaner.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="12"><div class="rg-step-num"><span class="rg-step-num-digit">13</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Wipe the new rotor with brake cleaner on both faces.</span></h3>
+            <p class="rg-step-prose">New rotors ship with a thin oil coating to prevent rust. That coating will smoke, stink, and contaminate your new pads if you skip this step. Spray both faces and wipe with a clean rag until the rag comes back dry.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="13"><div class="rg-step-num"><span class="rg-step-num-digit">14</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Apply a thin smear of anti-seize to the hub face only.</span></h3>
+            <p class="rg-step-prose">Not the lug studs. Not the rotor's friction surface. Just the small ring of metal where the rotor sits flush against the hub. This stops the rust-weld from re-forming for the next service.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="14"><div class="rg-step-num"><span class="rg-step-num-digit">15</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Hang the new rotor on the studs.</span></h3>
+            <p class="rg-step-prose">Spin a lug nut on by hand to hold it in place while you work.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="15"><div class="rg-step-num"><span class="rg-step-num-digit">16</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Reinstall the caliper bracket.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill torque" data-ftlb="77" data-nm="104">Caliper bracket bolts: 77 ft-lb</span></div>
+            <p class="rg-step-prose">Torque the two large bracket bolts to spec. These bolts hold the entire braking force of the front axle — use a torque wrench.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="16"><div class="rg-step-num"><span class="rg-step-num-digit">17</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Clean and grease the slide pins.</span></h3>
+            <p class="rg-step-prose">Pull each slide pin out of the bracket, wipe it down, inspect the rubber boot for tears, and apply a thin coat of silicone caliper grease before sliding it back in. Dry or seized slide pins cause uneven pad wear and pulling. If a boot is torn, replace it — debris in the pin bore is the most common cause of premature pad wear on the XJ.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="17"><div class="rg-step-num"><span class="rg-step-num-digit">18</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Install the new pads into the bracket.</span></h3>
+            <p class="rg-step-prose">Wear indicator goes inboard (toward the piston). Make sure each pad sits flat against its retaining clip with no rocking.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="18"><div class="rg-step-num"><span class="rg-step-num-digit">19</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Lower the caliper back over the pads and rotor.</span></h3>
+            <p class="rg-step-prose">It should slide on without forcing. If it won't seat, the piston isn't compressed all the way — back it out, compress further, and try again.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="19"><div class="rg-step-num"><span class="rg-step-num-digit">20</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Thread the slide pin bolts back in by hand first, then torque.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill torque" data-ftlb="30" data-nm="41">Caliper slide pin bolts: 30 ft-lb</span></div>
+            <p class="rg-step-prose">Hand-start the threads before bringing the wrench in to avoid cross-threading. Snug, not gorilla-tight. Over-torquing deforms the slide pins.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="20"><div class="rg-step-num"><span class="rg-step-num-digit">21</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Repeat on the other side.</span></h3>
+            <p class="rg-step-prose">Always do both fronts in the same session.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="21"><div class="rg-step-num"><span class="rg-step-num-digit">22</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Top off the brake fluid reservoir.</span></h3>
+            <p class="rg-step-prose">Use DOT 3 (factory spec) or DOT 4. Never mix DOT 5 (silicone) into a DOT 3/4 system. If you opened a bleeder during piston compression, bleed that caliper now using the standard two-person pedal method.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="22"><div class="rg-step-num"><span class="rg-step-num-digit">23</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Mount the wheels and torque the lug nuts in a star pattern.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill torque" data-ftlb="95" data-nm="129">Lug nuts: 95 ft-lb</span></div>
+            <p class="rg-step-prose">Lower the truck. Final torque happens with all four wheels on the ground.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="23"><div class="rg-step-num"><span class="rg-step-num-digit">24</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Pump the brake pedal several times before driving.</span></h3>
+            <div class="rg-step-pills"><span class="rg-step-pill warn">The first pedal stroke after caliper service is long and soft. Do not pull out of the driveway until the pedal is firm and high.</span></div>
+            <p class="rg-step-prose">Pump until the pedal is firm and high. If it never firms up, you have a fluid leak, an unbled caliper, or the piston wasn't compressed evenly.</p>
+          </div></li>
+
+          <li class="rg-step" data-idx="24"><div class="rg-step-num"><span class="rg-step-num-digit">25</span></div><div class="rg-step-body">
+            <h3 class="rg-step-headline"><input type="checkbox" class="rg-step-checkbox"><span>Bed the new pads.</span></h3>
+            <p class="rg-step-prose">Drive to an empty road and do 8–10 medium-pressure stops from 40 mph down to 5 mph (don't fully stop). Then do 2–3 firmer stops from 60 mph down to 15 mph. Drive a few miles to cool the brakes — and do not park with your foot on the brake pedal during this cool-down, or you'll transfer pad material onto the rotor face in a single spot, which feels like a warped rotor forever after. Park with the hand brake instead.</p>
+          </div></li>
+
+        </ol>
+      </section>
+
+      <!-- Verify -->
+      <section class="rg-section" id="verify">
+        <h2 class="rg-h2">Verify it worked</h2>
+        <ul class="rg-verify-list">
+          <li>Pedal is firm and high after 4–5 pumps from cold</li>
+          <li>No fluid weeping at the caliper bleeder, hose fitting, or bracket</li>
+          <li>Truck pulls straight under medium braking from 40 mph</li>
+          <li>No grinding, no squeal during the bedding-in stops</li>
+          <li>No vibration through the steering wheel after the first 100 miles</li>
+          <li>Pad material visible behind the rotor edge looks even left vs. right</li>
+        </ul>
+      </section>
+
+      <!-- Common mistakes -->
+      <section class="rg-section" id="mistakes">
+        <h2 class="rg-h2">Common mistakes</h2>
+        <ul class="rg-mistakes">
+          <li>Letting the caliper hang by the brake hose. The hose isn't rated to carry that weight and internal tears are invisible until the hose fails on a downhill.</li>
+          <li>Skipping the rotor-face wipe-down. New rotors ship with an oil coating that contaminates pads on first heat cycle.</li>
+          <li>Buying the cheapest no-name rotor at the parts counter. They warp within a year, the steering wheel starts shaking, and you're back under the truck doing the job again.</li>
+          <li>Parking with your foot on the brake during the bed-in cool-down. Pad material transfers to the rotor in a single spot and feels like a warped rotor forever after.</li>
+          <li>Mixing pad brands or types across the axle. Causes pull under braking; the front-end alignment shop can't fix it.</li>
+          <li>Not torquing the caliper bracket bolts to spec. The bracket carries the entire braking force of that axle.</li>
+        </ul>
+      </section>
+
+      <!-- Video -->
+      <section class="rg-section" id="video">
+        <h2 class="rg-h2">Video</h2>
+        <div class="rg-video"><iframe src="https://www.youtube-nocookie.com/embed/rJiq-tPqYRY" title="How to do an XJ Front Brake Job — ChrisFix" loading="lazy" allow="encrypted-media" allowfullscreen></iframe></div>
+        <div class="rg-video-credit">Video: How to do an XJ Front Brake Job — <a href="https://www.youtube.com/@ChrisFix" target="_blank" rel="noopener">ChrisFix</a> (link opens YouTube)</div>
+      </section>
+
+      <!-- Related -->
+      <section class="rg-section" id="related">
+        <h2 class="rg-h2">Related guides</h2>
+        <div class="rg-related">
+          <a href="/db/xj/rear-drum-shoes/">Rear drum shoes — do these next</a>
+          <a href="/db/xj/brake-fluid-flush/">Brake fluid flush — every 3 years</a>
+          <a href="/db/xj/wj-zj-brake-upgrade/">WJ/ZJ big brake upgrade — if you're on 33s+</a>
+          <a href="/db/xj/wheel-bearing-service/">Wheel bearing service — do it while you're in there</a>
+        </div>
+      </section>
+
+      <!-- Footer / citations -->
+      <footer class="rg-foot">
+        <div>Last updated: 2026-05-26</div>
+        <div style="margin-top:8px">Sources:</div>
+        <ol class="rg-cites">
+          <li><a href="https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-replace-brake-pads-calipers-and-rotors-397814" target="_blank" rel="noopener">Cherokee Forum How-To — Brake Pads, Calipers, and Rotors (1984–2001)</a></li>
+          <li><a href="https://torkspec.com/torkspecmm.aspx?KI=270" target="_blank" rel="noopener">TorkSpec — Jeep Cherokee Torque Specifications</a></li>
+          <li><a href="https://www.quadratec.com/jeep-replacement-parts/cherokee-xj/xj-front-brakes.php" target="_blank" rel="noopener">Quadratec — XJ Front Brake Parts (1984–2001)</a></li>
+        </ol>
+      </footer>
+
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+  // ----- Theme toggle -----
+  var themeBtn = document.getElementById('themeBtn');
+  if (themeBtn) themeBtn.addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    if (next === 'dark') document.documentElement.setAttribute('data-theme','dark');
+    else document.documentElement.removeAttribute('data-theme');
+    try { localStorage.setItem('tm-theme', next); } catch(e){}
+  });
+
+  // ----- Torque unit toggle -----
+  var unit = 'ftlb';
+  function renderTorqueUnits(){
+    document.querySelectorAll('[data-ftlb]').forEach(function(el){
+      var ftlb = el.getAttribute('data-ftlb');
+      var nm = el.getAttribute('data-nm');
+      if (el.classList.contains('rg-step-pill')) {
+        // Step pill: preserve "Fastener: VALUE UNIT" format
+        var txt = el.textContent;
+        var head = txt.replace(/:\s.*$/, ': ');
+        el.textContent = head + (unit === 'ftlb' ? ftlb + ' ft-lb' : nm + ' Nm');
+      } else {
+        el.textContent = (unit === 'ftlb' ? ftlb + ' ft-lb' : nm + ' Nm');
+      }
+    });
+  }
+  var ftlbBtn = document.getElementById('unitFtLb'), nmBtn = document.getElementById('unitNm');
+  if (ftlbBtn && nmBtn) {
+    ftlbBtn.addEventListener('click', function(){ unit='ftlb'; ftlbBtn.classList.add('on'); nmBtn.classList.remove('on'); renderTorqueUnits(); });
+    nmBtn.addEventListener('click', function(){ unit='nm'; nmBtn.classList.add('on'); ftlbBtn.classList.remove('on'); renderTorqueUnits(); });
+  }
+
+  // ----- Walker: checkbox progress + localStorage -----
+  var storageKey = 'tm_repair_progress_xj_front-brake-pads-rotors';
+  var done = {};
+  try {
+    var raw = localStorage.getItem(storageKey);
+    if (raw) done = JSON.parse(raw);
+  } catch(e){}
+
+  var steps = document.querySelectorAll('.rg-step');
+  var total = steps.length;
+  document.getElementById('totalStep').textContent = total;
+
+  function save(){ try { localStorage.setItem(storageKey, JSON.stringify(done)); } catch(e){} }
+
+  function updateProgress(){
+    var doneCount = Object.keys(done).length;
+    var pct = total ? Math.round(doneCount / total * 100) : 0;
+    document.getElementById('curStep').textContent = doneCount;
+    document.getElementById('pctLabel').textContent = pct + '%';
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('miniCount').textContent = doneCount + ' / ' + total;
+    document.getElementById('miniFill').style.width = pct + '%';
+  }
+
+  steps.forEach(function(step){
+    var idx = step.getAttribute('data-idx');
+    var cb = step.querySelector('.rg-step-checkbox');
+    if (done[idx]) { step.classList.add('done'); cb.checked = true; }
+    cb.addEventListener('change', function(){
+      if (cb.checked) done[idx] = true; else delete done[idx];
+      step.classList.toggle('done', cb.checked);
+      save();
+      updateProgress();
+    });
+  });
+  updateProgress();
+
+  document.getElementById('resetBtn').addEventListener('click', function(){
+    if (!confirm('Reset progress for this guide?')) return;
+    done = {};
+    save();
+    steps.forEach(function(s){
+      s.classList.remove('done');
+      var cb = s.querySelector('.rg-step-checkbox'); if (cb) cb.checked = false;
+    });
+    updateProgress();
+  });
+
+  document.getElementById('printBtn').addEventListener('click', function(){
+    var on = document.body.classList.toggle('rg-print');
+    this.textContent = on ? 'Exit print mode' : 'Print mode';
+  });
+
+  // ----- TOC active-state on scroll -----
+  var tocLinks = document.querySelectorAll('.rg-toc a');
+  var sections = Array.from(tocLinks).map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function onScroll(){
+    var scrollPos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){ if (s.offsetTop <= scrollPos) current = s; });
+    tocLinks.forEach(function(a){
+      a.classList.toggle('active', a.getAttribute('href') === '#' + (current ? current.id : ''));
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
