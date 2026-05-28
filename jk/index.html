@@ -62,7 +62,7 @@ a{color:inherit;text-decoration:none}
 .section-sub{font-family:var(--mono);font-size:11px;color:var(--slate-l);letter-spacing:0.06em;text-transform:uppercase}
 
 /* Tools grid */
-.grid-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
+.grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
 .tool-card{background:var(--paper);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative}
 .tool-card:hover{background:var(--bone)}
 .tool-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
@@ -107,24 +107,6 @@ a{color:inherit;text-decoration:none}
 
 .footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:48px}
 .footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
-/* ── Vehicle icon & hamburger nav ── */
-.vehicle-icon{display:flex;align-items:center}
-.vehicle-icon img{height:30px;width:auto;display:block}
-.vehicle-icon svg{display:block}
-/* Override space-between so brand + icon stay left, nav floats right */
-.topbar-inner{justify-content:flex-start}
-.nav{margin-left:auto;padding-left:18px;border-left:1px solid rgba(232,226,210,0.18)}
-/* Hamburger — hidden on desktop */
-.hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:var(--bone);padding:4px}
-.hamburger svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
-/* Mobile: icon-only header + collapsible nav */
-@media(max-width:720px){
-  .topbar{position:relative}
-  .brand-text{display:none}
-  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d);padding:16px 20px;flex-direction:column;gap:14px;border-left:none;margin-left:0;border-top:1px solid rgba(201,126,80,0.25);z-index:200}
-  .nav.open{display:flex}
-  .hamburger{display:flex;margin-left:auto}
-}
 </style>
 </head>
 <body>
@@ -135,12 +117,17 @@ a{color:inherit;text-decoration:none}
       <span class="brand-mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/></svg></span>
       <span class="brand-text">TRAIL<span class="brand-dot"></span>MANUAL</span>
     </a>
-    <span class="vehicle-icon" aria-hidden="true"><img src="/images/icon-jk.png" alt="Wrangler JK" height="30" style="display:block;opacity:0.9;"></span>
     <nav class="nav">
       <a href="/xj/">Cherokee XJ</a>
       <a href="/tj/">Wrangler TJ</a>
+      <a href="/yj/">Wrangler YJ</a>
       <a href="/jk/" class="active">Wrangler JK</a>
       <a href="/jl/">Wrangler JL</a>
+      <a href="/zj/">Grand Cherokee ZJ</a>
+      <a href="/wj/">Grand Cherokee WJ</a>
+      <a href="/wk/">Grand Cherokee WK</a>
+      <a href="/cj5/">CJ-5</a>
+      <a href="/cj7/">CJ-7</a>
       <a href="/bronco/">Early Bronco</a>
       <a href="/full-size-bronco/">Full-Size</a>
       <a href="/bronco-ii/">Bronco II</a>
@@ -148,7 +135,6 @@ a{color:inherit;text-decoration:none}
       <a href="/4runner/">4Runner</a>
       <a href="/tacoma/">Tacoma</a>
     </nav>
-    <button class="hamburger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
   </div>
 </header>
 
@@ -172,9 +158,16 @@ a{color:inherit;text-decoration:none}
         <span class="section-label">01 / Tools</span>
         <h2 class="section-title">Built for your rig</h2>
       </div>
-      <span class="section-sub">6 tools</span>
+      <span class="section-sub">4 tools</span>
     </div>
     <div class="grid-tools">
+      <a class="tool-card soon" href="#" aria-disabled="true">
+        <div class="tool-icon neutral"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg></div>
+        <div class="tool-title">Build List</div>
+        <div class="tool-desc">Stack lift, tires, armor, and recovery. Save, share, and price-check your build.</div>
+        <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
+      </a>
+
       <a class="tool-card" href="/db/?v=jk">
         <div class="tool-icon good"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg></div>
         <div class="tool-title">Database</div>
@@ -182,11 +175,11 @@ a{color:inherit;text-decoration:none}
         <div class="tool-foot"><span class="tag new">60+ guides</span><span class="arrow">Browse</span></div>
       </a>
 
-      <a class="tool-card" href="/my-garage.html">
-        <div class="tool-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <div class="tool-title">My Garage</div>
-        <div class="tool-desc">Log every service and build project for this rig. Mileage tracking, service intervals, and a per-vehicle history that stays on your device.</div>
-        <div class="tool-foot"><span class="tag new">New</span><span class="arrow">Open</span></div>
+      <a class="tool-card soon" href="#" aria-disabled="true">
+        <div class="tool-icon neutral"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div class="tool-title">Maintenance</div>
+        <div class="tool-desc">Mileage-driven service schedule for your trim. Oil, diffs, transfer case, and more.</div>
+        <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
       </a>
 
       <a class="tool-card" href="/db/jk-death-wobble-guide.html">
@@ -194,27 +187,6 @@ a{color:inherit;text-decoration:none}
         <div class="tool-title">Death Wobble</div>
         <div class="tool-desc">Diagnose the cause in 8 questions. Track-bar, ball joints, tire balance — find it before it finds you.</div>
         <div class="tool-foot"><span class="tag safety">Safety</span><span class="arrow">Diagnose</span></div>
-      </a>
-
-      <a class="tool-card" href="/jk-wrangler-engine-swap-tool.html">
-        <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M4 14V8a2 2 0 0 1 2-2h2l2-2h4l2 2h2a2 2 0 0 1 2 2v6"/><circle cx="7.5" cy="17" r="2"/><circle cx="16.5" cy="17" r="2"/><path d="M9.5 17h5"/></svg></div>
-        <div class="tool-title">Engine Swap</div>
-        <div class="tool-desc">Compare every JK V8 path — AEV Hemi, MoTech LT, Bruiser LX3, DIY LS. Honest Phoenix-emissions verdicts, real cost ranges, and a "Start My Build" button that attaches a parts checklist to your rig.</div>
-        <div class="tool-foot"><span class="tag clay">Decision tool</span><span class="arrow">Compare</span></div>
-      </a>
-
-      <a class="tool-card" href="/v8-swap-parts-checklist.html">
-        <div class="tool-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
-        <div class="tool-title">Engine Swap Parts Checklist</div>
-        <div class="tool-desc">Pick an engine path, get the full parts list — engine, trans, harness, cooling, fuel, A/C, axles. Check parts off as you buy and install. Costs total live, progress saves locally.</div>
-        <div class="tool-foot"><span class="tag new">New</span><span class="arrow">Build</span></div>
-      </a>
-
-      <a class="tool-card soon" href="#" aria-disabled="true">
-        <div class="tool-icon neutral"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg></div>
-        <div class="tool-title">Build List</div>
-        <div class="tool-desc">Stack lift, tires, armor, and recovery. Save, share, and price-check your build.</div>
-        <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
       </a>
     </div>
   </section>
@@ -264,17 +236,5 @@ a{color:inherit;text-decoration:none}
   <p>Trail Manual — honest research for capable vehicles.</p>
 </footer>
 
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger');
-  var nav=document.querySelector('.nav');
-  if(btn&&nav){
-    btn.addEventListener('click',function(){
-      var open=nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded',open?'true':'false');
-    });
-  }
-})();
-</script>
 </body>
 </html>

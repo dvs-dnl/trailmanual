@@ -107,24 +107,6 @@ a{color:inherit;text-decoration:none}
 
 .footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:48px}
 .footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
-/* ── Vehicle icon & hamburger nav ── */
-.vehicle-icon{display:flex;align-items:center}
-.vehicle-icon img{height:30px;width:auto;display:block}
-.vehicle-icon svg{display:block}
-/* Override space-between so brand + icon stay left, nav floats right */
-.topbar-inner{justify-content:flex-start}
-.nav{margin-left:auto;padding-left:18px;border-left:1px solid rgba(232,226,210,0.18)}
-/* Hamburger — hidden on desktop */
-.hamburger{display:none;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:var(--bone);padding:4px}
-.hamburger svg{width:22px;height:22px;stroke:currentColor;stroke-width:2;stroke-linecap:round;fill:none}
-/* Mobile: icon-only header + collapsible nav */
-@media(max-width:720px){
-  .topbar{position:relative}
-  .brand-text{display:none}
-  .nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d);padding:16px 20px;flex-direction:column;gap:14px;border-left:none;margin-left:0;border-top:1px solid rgba(201,126,80,0.25);z-index:200}
-  .nav.open{display:flex}
-  .hamburger{display:flex;margin-left:auto}
-}
 </style>
 </head>
 <body>
@@ -135,12 +117,17 @@ a{color:inherit;text-decoration:none}
       <span class="brand-mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/></svg></span>
       <span class="brand-text">TRAIL<span class="brand-dot"></span>MANUAL</span>
     </a>
-    <span class="vehicle-icon" aria-hidden="true"><img src="/images/icon-jl.png" alt="Wrangler JL" height="30" style="display:block;opacity:0.9;"></span>
     <nav class="nav">
       <a href="/xj/">Cherokee XJ</a>
       <a href="/tj/">Wrangler TJ</a>
+      <a href="/yj/">Wrangler YJ</a>
       <a href="/jk/">Wrangler JK</a>
       <a href="/jl/" class="active">Wrangler JL</a>
+      <a href="/zj/">Grand Cherokee ZJ</a>
+      <a href="/wj/">Grand Cherokee WJ</a>
+      <a href="/wk/">Grand Cherokee WK</a>
+      <a href="/cj5/">CJ-5</a>
+      <a href="/cj7/">CJ-7</a>
       <a href="/bronco/">Early Bronco</a>
       <a href="/full-size-bronco/">Full-Size</a>
       <a href="/bronco-ii/">Bronco II</a>
@@ -148,7 +135,6 @@ a{color:inherit;text-decoration:none}
       <a href="/4runner/">4Runner</a>
       <a href="/tacoma/">Tacoma</a>
     </nav>
-    <button class="hamburger" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
   </div>
 </header>
 
@@ -250,17 +236,5 @@ a{color:inherit;text-decoration:none}
   <p>Trail Manual — honest research for capable vehicles.</p>
 </footer>
 
-<script>
-(function(){
-  var btn=document.querySelector('.hamburger');
-  var nav=document.querySelector('.nav');
-  if(btn&&nav){
-    btn.addEventListener('click',function(){
-      var open=nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded',open?'true':'false');
-    });
-  }
-})();
-</script>
 </body>
 </html>

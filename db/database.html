@@ -238,7 +238,55 @@
     .detail{padding:18px}
     .detail-title{font-size:20px}
   }
-</style>
+
+  /* ── Twin Grids layout (vehicle home) ─────────────────────────────── */
+  .tg-hero{padding:48px 0 36px;border-bottom:1px solid var(--border);margin-bottom:0}
+  .tg-eyebrow{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .tg-hero h1{font-size:clamp(32px,5vw,54px);font-weight:500;letter-spacing:-.02em;line-height:1;margin:0 0 16px}
+  .tg-hero .lede{font-size:16px;color:var(--text-dim);max-width:620px;line-height:1.55;margin-bottom:24px}
+  .tg-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .tg-chip{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:4px 12px;border-radius:4px;border:1px solid var(--border);color:var(--text-dim)}
+  .tg-chip.live{background:rgba(201,126,80,.1);color:var(--accent);border-color:rgba(201,126,80,.3)}
+
+  .tg-section{padding:40px 0 0}
+  .tg-section.last{padding-bottom:60px}
+  .tg-section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:12px;margin-bottom:0;gap:20px;flex-wrap:wrap}
+  .tg-section-head .left{display:flex;align-items:baseline;gap:12px}
+  .tg-section-label{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute)}
+  .tg-section-title{font-size:20px;font-weight:600;letter-spacing:-.01em}
+  .tg-section-sub{font-size:11px;color:var(--text-mute);letter-spacing:.06em;text-transform:uppercase}
+
+  .tg-grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:0}
+  .tg-tool-card{background:var(--panel);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:190px;transition:background .15s;position:relative;text-decoration:none;color:var(--text)}
+  .tg-tool-card:hover{background:var(--bg-2)}
+  .tg-tool-card:hover .tg-arrow{transform:translateX(4px);color:var(--accent)}
+  .tg-tool-card.soon{opacity:.6;pointer-events:none}
+  .tg-tool-icon{width:34px;height:34px;border-radius:6px;background:rgba(201,126,80,.14);color:var(--accent);display:flex;align-items:center;justify-content:center}
+  .tg-tool-icon.safety{background:rgba(178,59,47,.14);color:#c0392b}
+  .tg-tool-icon.good{background:rgba(94,140,90,.14);color:#5E8C5A}
+  .tg-tool-icon.neutral{background:var(--bg-3);color:var(--text-mute)}
+  .tg-tool-icon svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .tg-tool-title{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+  .tg-tool-desc{font-size:13px;color:var(--text-dim);flex:1;line-height:1.5}
+  .tg-tool-foot{display:flex;align-items:center;justify-content:space-between}
+  .tg-tag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:3px;border:1px solid var(--border);color:var(--text-mute)}
+  .tg-tag.safety{background:rgba(178,59,47,.1);color:#c0392b;border-color:rgba(178,59,47,.3)}
+  .tg-tag.live{background:rgba(94,140,90,.12);color:#5E8C5A;border-color:rgba(94,140,90,.3)}
+  .tg-arrow{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mute);display:inline-flex;align-items:center;gap:5px;transition:transform .15s,color .15s}
+  .tg-arrow::after{content:'\2192';font-size:13px}
+
+  .tg-grid-learn{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-top:0}
+  .tg-learn-card{background:var(--panel);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:180px;transition:background .15s;text-decoration:none;color:var(--text)}
+  .tg-learn-card:hover{background:var(--bg-2)}
+  .tg-learn-card:hover .tg-arrow{transform:translateX(4px);color:var(--accent)}
+  .tg-learn-eye{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  .tg-learn-title{font-size:16px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+  .tg-learn-desc{font-size:13px;color:var(--text-dim);flex:1;line-height:1.5}
+
+  @media(max-width:900px){.tg-grid-tools,.tg-grid-learn{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.tg-grid-tools,.tg-grid-learn{grid-template-columns:1fr}}
+
+  </style>
 </head>
 <body>
 
@@ -736,6 +784,14 @@
     return null;
   }
   function vehicleMeta(vid) { return M.vehicles.find(v=>v.id===vid); }
+
+  var VEHICLE_ICONS = {
+    xj:'/images/icon-xj.png', tj:'/images/icon-tj.png', jk:'/images/icon-jk.png',
+    jl:'/images/icon-jl.png', gladiator:'/images/icon-gladiator.png',
+    '4runner':'/images/icon-4runner.png', tacoma:'/images/icon-tacoma.png',
+    bronco:'/images/icon-bronco.png', raptor:'/images/icon-raptor.png',
+    'power-wagon':'/images/icon-power-wagon.png'
+  };
   function getEntries(vid) { return VEHICLES[vid] || []; }
   function byId(vid, id) { return getEntries(vid).find(e => e.id === id); }
 
@@ -885,50 +941,138 @@
   }
 
   // ---- VEHICLE HOME ----
+  // Per-vehicle death wobble / steering diagnostic links
+  var DW_LINKS = {
+    xj:           '/db/death-wobble-guide.html',
+    tj:           '/db/tj-yj-death-wobble-guide.html',
+    jk:           '/db/jk-death-wobble-guide.html',
+    jl:           null,
+    gladiator:    null,
+    bronco:       null,
+    'power-wagon':null,
+    '4runner':    null,
+    tacoma:       null,
+    raptor:       null,
+  };
+
   function renderVehicleHome(app, vid) {
-    const v = vehicleMeta(vid);
+    const v       = vehicleMeta(vid) || {};
     const entries = getEntries(vid);
-    const counts = {};
+    const counts  = {};
     for (const e of entries) counts[e.category] = (counts[e.category]||0) + 1;
-    const totalCit = entries.reduce((s,e)=>s+(e.citations||[]).length, 0);
+    const catCount = Object.keys(counts).length;
+    const dwLink   = DW_LINKS[vid] !== undefined ? DW_LINKS[vid] : null;
+    var solidAxle  = ['xj','tj','jk','jl','gladiator','bronco','power-wagon'].indexOf(vid) >= 0;
 
-    app.appendChild(el('section', {class:'hero'},
-      el('h1', {}, v.label + ' DIY database'),
-      v.description ? el('p', {}, v.description) : null,
-      el('div', {class:'hero-stats'},
-        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(entries.length)), el('div',{class:'l'},'Entries')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(Object.keys(counts).length)), el('div',{class:'l'},'Categories')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'},'5'), el('div',{class:'l'},'Build tiers')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'},String(totalCit)), el('div',{class:'l'},'Citations'))
-      )
-    ));
+    var ic = VEHICLE_ICONS || {};
 
-    app.appendChild(el('h2', {}, 'Pick your build goal'));
-    const tg = el('div', {class:'grid-tiers'});
-    Object.entries(TIER_META).forEach(([id, t]) => {
-      tg.appendChild(el('div', {class:'tier-card', on:{click:()=>go('#/'+vid+'/tier/'+id)}},
-        el('div', {class:'icon'}, t.icon),
-        el('div', {class:'name'}, t.label),
-        el('div', {class:'desc'}, t.desc)
-      ));
+    // ── Hero ──────────────────────────────────────────────────────────
+    var hero = el('div', {class:'tg-hero'});
+    hero.appendChild(el('div', {class:'tg-eyebrow'}, v.years || ''));
+    hero.appendChild(el('h1', {}, (v.label || vid) + ' — Trail Manual'));
+    if (v.description) hero.appendChild(el('p', {class:'lede'}, v.description));
+    var chips = el('div', {class:'tg-chips'});
+    chips.appendChild(el('span', {class:'tg-chip live'}, entries.length + ' guides'));
+    chips.appendChild(el('span', {class:'tg-chip'}, catCount + ' categories'));
+    if (solidAxle) chips.appendChild(el('span', {class:'tg-chip'}, 'Solid axle'));
+    hero.appendChild(chips);
+    app.appendChild(hero);
+
+    // ── Tools section ─────────────────────────────────────────────────
+    var toolSec = el('div', {class:'tg-section'});
+    var toolHead = el('div', {class:'tg-section-head'});
+    var tleft = el('div', {class:'left'});
+    tleft.appendChild(el('span', {class:'tg-section-label'}, '01 / Tools'));
+    tleft.appendChild(el('span', {class:'tg-section-title'}, 'Built for your rig'));
+    toolHead.appendChild(tleft);
+    toolHead.appendChild(el('span', {class:'tg-section-sub'}, '4 tools'));
+    toolSec.appendChild(toolHead);
+
+    var toolGrid = el('div', {class:'tg-grid-tools'});
+
+    // Build List — coming soon
+    var c1 = el('div', {class:'tg-tool-card soon'});
+    var i1 = el('div', {class:'tg-tool-icon neutral'});
+    i1.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg>';
+    c1.appendChild(i1);
+    c1.appendChild(el('div', {class:'tg-tool-title'}, 'Build List'));
+    c1.appendChild(el('div', {class:'tg-tool-desc'}, 'Stack lift, tires, armor, and recovery. Save, share, and price-check your build.'));
+    var f1 = el('div', {class:'tg-tool-foot'}); f1.appendChild(el('span',{class:'tg-tag'},'Coming soon')); f1.appendChild(el('span',{class:'tg-arrow'},'Soon'));
+    c1.appendChild(f1); toolGrid.appendChild(c1);
+
+    // Database — live
+    var c2 = el('a', {class:'tg-tool-card', href:'/db/?v='+vid});
+    var i2 = el('div', {class:'tg-tool-icon good'});
+    i2.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg>';
+    c2.appendChild(i2);
+    c2.appendChild(el('div', {class:'tg-tool-title'}, 'Database'));
+    c2.appendChild(el('div', {class:'tg-tool-desc'}, 'Every DIY procedure for this platform, filtered to your trim, year, and engine.'));
+    var f2 = el('div', {class:'tg-tool-foot'}); f2.appendChild(el('span',{class:'tg-tag live'},entries.length+' guides')); f2.appendChild(el('span',{class:'tg-arrow'},'Browse'));
+    c2.appendChild(f2); toolGrid.appendChild(c2);
+
+    // Maintenance — coming soon
+    var c3 = el('div', {class:'tg-tool-card soon'});
+    var i3 = el('div', {class:'tg-tool-icon neutral'});
+    i3.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+    c3.appendChild(i3);
+    c3.appendChild(el('div', {class:'tg-tool-title'}, 'Maintenance'));
+    c3.appendChild(el('div', {class:'tg-tool-desc'}, 'Mileage-driven service schedule for your trim. Oil, diffs, transfer case, and more.'));
+    var f3 = el('div', {class:'tg-tool-foot'}); f3.appendChild(el('span',{class:'tg-tag'},'Coming soon')); f3.appendChild(el('span',{class:'tg-arrow'},'Soon'));
+    c3.appendChild(f3); toolGrid.appendChild(c3);
+
+    // Death Wobble / Steering Diagnostic
+    if (dwLink) {
+      var c4 = el('a', {class:'tg-tool-card', href:dwLink});
+      var i4 = el('div', {class:'tg-tool-icon safety'});
+      i4.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>';
+      c4.appendChild(i4);
+      c4.appendChild(el('div', {class:'tg-tool-title'}, 'Death Wobble'));
+      c4.appendChild(el('div', {class:'tg-tool-desc'}, 'Diagnose the cause in 8 questions. Track-bar, ball joints, tire balance — find it before it finds you.'));
+      var f4 = el('div', {class:'tg-tool-foot'}); f4.appendChild(el('span',{class:'tg-tag safety'},'Safety')); f4.appendChild(el('span',{class:'tg-arrow'},'Diagnose'));
+      c4.appendChild(f4); toolGrid.appendChild(c4);
+    } else {
+      var c4 = el('div', {class:'tg-tool-card soon'});
+      var i4 = el('div', {class:'tg-tool-icon neutral'});
+      i4.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>';
+      c4.appendChild(i4);
+      c4.appendChild(el('div', {class:'tg-tool-title'}, solidAxle ? 'Death Wobble' : 'Steering Diagnostic'));
+      c4.appendChild(el('div', {class:'tg-tool-desc'}, solidAxle ? 'Diagnosis guide coming soon.' : 'IFS steering diagnostic coming soon.'));
+      var f4b = el('div', {class:'tg-tool-foot'}); f4b.appendChild(el('span',{class:'tg-tag'},'Coming soon')); f4b.appendChild(el('span',{class:'tg-arrow'},'Soon'));
+      c4.appendChild(f4b); toolGrid.appendChild(c4);
+    }
+
+    toolSec.appendChild(toolGrid);
+    app.appendChild(toolSec);
+
+    // ── Learn section ─────────────────────────────────────────────────
+    var learnSec = el('div', {class:'tg-section last'});
+    var learnHead = el('div', {class:'tg-section-head'});
+    var lleft = el('div', {class:'left'});
+    lleft.appendChild(el('span', {class:'tg-section-label'}, '02 / Learn'));
+    lleft.appendChild(el('span', {class:'tg-section-title'}, 'Read and watch'));
+    learnHead.appendChild(lleft);
+    learnHead.appendChild(el('span', {class:'tg-section-sub'}, 'Latest · All posts · Workshop · Channels'));
+    learnSec.appendChild(learnHead);
+
+    var learnGrid = el('div', {class:'tg-grid-learn'});
+
+    var lc = [
+      ['/blog/when-to-re-gear-axles/', 'Latest blog', 'When to re-gear your axles', 'The math behind the change — and the feeling that tells you it's time.', 'Read'],
+      ['/blog/', 'All posts', 'Read the blog', 'Every post — tools, mod tests, trail reports. Sorted by date, filterable.', 'Browse'],
+      ['/workshop/', 'Workshop', 'Shop technique', 'Torque, seized bolts, brake bleed — the foundations every DIYer needs.', 'Enter'],
+      ['/channels/', 'Channels', 'YouTubers we trust', 'Honest builders, working trucks. No sponsored fluff, no thumbnail screaming.', 'See list'],
+    ];
+    lc.forEach(function(item){
+      var card = el('a', {class:'tg-learn-card', href:item[0]});
+      card.appendChild(el('p', {class:'tg-learn-eye'}, item[1]));
+      card.appendChild(el('h3', {class:'tg-learn-title'}, item[2]));
+      card.appendChild(el('p', {class:'tg-learn-desc'}, item[3]));
+      card.appendChild(el('span', {class:'tg-arrow'}, item[4]));
+      learnGrid.appendChild(card);
     });
-    app.appendChild(tg);
 
-    app.appendChild(el('h2', {}, 'Browse by category'));
-    const cg = el('div', {class:'grid-cats'});
-    Object.entries(counts)
-      .sort((a,b)=>b[1]-a[1])
-      .forEach(([cat, n]) => {
-        const m = catMeta(cat);
-        cg.appendChild(el('div', {class:'cat-card', on:{click:()=>go('#/'+vid+'/category/'+cat)}},
-          el('div', {class:'cat-icon', style:`background:${m.color}22;color:${m.color}`}, m.icon),
-          el('div', {},
-            el('div', {class:'name'}, m.label),
-            el('div', {class:'count'}, n + ' entries')
-          )
-        ));
-      });
-    app.appendChild(cg);
+    learnSec.appendChild(learnGrid);
+    app.appendChild(learnSec);
   }
 
   // ---- BROWSE / CATEGORY / TIER ----
