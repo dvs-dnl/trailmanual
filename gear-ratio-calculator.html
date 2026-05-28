@@ -158,27 +158,194 @@
 .calc-formula-note { font-size: 11px; color: var(--text-mute); border-top: var(--calc-border); padding-top: 12px; margin-top: 16px; line-height: 1.6; }
 
 .divider-label { font-size: 11px; text-transform: uppercase; letter-spacing: .5px; color: var(--text-mute); font-weight: 700; margin: 14px 0 8px; }
+/* ═══════════════════════════════════════════════════════
+   TRAIL MANUAL · UNIFIED NAV  v1.0 · May 2026
+   tnav- prefix · self-contained · works with or without _shared.css
+   Reads --paper,--bone,--slate,--slate-l,--clay from page :root.
+   ═══════════════════════════════════════════════════════ */
+.tnav{--nb:var(--paper,#F7F4ED);--nbdr:var(--bone,#E8E2D2);--nt:var(--slate,#2B3A4A);--ntd:var(--slate-light,var(--slate-l,#5B6B7E));--na:var(--clay,#C97E50);--nhov:var(--bone,#E8E2D2);--ndrop:var(--panel,var(--paper,#F7F4ED));--nbdr2:var(--bone,#E8E2D2)}
+.tnav[data-variant=dark]{--nb:var(--slate-d,var(--slate-deep,#1A2330));--nbdr:rgba(43,58,74,.8);--nt:var(--bone,#E8E2D2);--ntd:rgba(232,226,210,.65);--nhov:rgba(255,255,255,.08);--ndrop:#2B3A4A;--nbdr2:rgba(255,255,255,.12)}
+.tnav{position:sticky;top:0;z-index:200;background:var(--nb);border-bottom:1px solid var(--nbdr);font-family:var(--font-sans,'DM Sans',-apple-system,sans-serif);backdrop-filter:blur(8px)}
+.tnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:4px}
+.tnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--nt);flex-shrink:0;margin-right:16px}
+.tnav-brand:hover{text-decoration:none;opacity:.85}
+.tnav-logo{width:28px;height:28px;display:block;flex-shrink:0}
+.tnav-wordmark{font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--nt);line-height:1;white-space:nowrap}
+.tnav-dot{display:inline-block;width:5px;height:5px;background:var(--na);border-radius:50%;margin:0 4px;vertical-align:3px}
+.tnav-center{display:flex;align-items:center;gap:2px;flex:1}
+.tnav-right{margin-left:auto;flex-shrink:0}
+.tnav-link,.tnav-link-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--ntd);background:transparent;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;font-family:inherit;line-height:1}
+.tnav-link:hover,.tnav-link-btn:hover,.tnav-link:focus-visible,.tnav-link-btn:focus-visible{color:var(--nt);background:var(--nhov);text-decoration:none;outline:none}
+.tnav-link.tnav-active,.tnav-link-btn.tnav-active{color:var(--na);background:var(--nhov)}
+.tnav-caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;flex-shrink:0}
+.tnav-item.tnav-open .tnav-caret{transform:rotate(180deg)}
+.tnav-item{position:relative}
+.tnav-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--ndrop);border:1px solid var(--nbdr2);border-radius:8px;box-shadow:0 8px 32px rgba(43,58,74,.16);padding:6px;z-index:300}
+.tnav-drop.tnav-drop-right{left:auto;right:0}
+.tnav-item.tnav-open>.tnav-drop{display:block}
+.tnav-drop-vehicles{min-width:420px;display:none;grid-template-columns:1fr 1fr;gap:0 8px;padding:8px}
+.tnav-item.tnav-open>.tnav-drop-vehicles{display:grid}
+.tnav-drop-section{padding:4px 0 6px}
+.tnav-drop-label{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ntd);padding:6px 10px 4px}
+.tnav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);text-decoration:none;transition:background .12s,color .12s;gap:8px}
+.tnav-drop-link:hover,.tnav-drop-link:focus-visible{background:var(--nhov);color:var(--na);outline:none;text-decoration:none}
+.tnav-drop-years{font-size:11px;color:var(--ntd);flex-shrink:0;font-family:var(--font-mono,'JetBrains Mono',monospace)}
+.tnav-divider{border:none;border-top:1px solid var(--nbdr2);margin:4px 6px}
+.tnav-my-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid var(--nbdr);background:transparent;color:var(--nt);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;transition:border-color .15s,background .15s,color .15s;line-height:1}
+.tnav-my-btn:hover,.tnav-my-btn:focus-visible{border-color:var(--na);background:var(--nhov);outline:none}
+.tnav-item.tnav-open .tnav-my-btn{border-color:var(--na);color:var(--na)}
+.tnav-my-icon{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-vehicle-pill{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:5px;background:var(--nhov);margin-bottom:2px;text-decoration:none;color:var(--nt);transition:filter .12s}
+.tnav-vehicle-pill:hover{filter:brightness(1.05);text-decoration:none}
+.tnav-vehicle-pill img{width:28px;height:28px;object-fit:contain}
+.tnav-vehicle-pill-info{display:flex;flex-direction:column;gap:2px}
+.tnav-vehicle-pill-name{font-size:13px;font-weight:600;color:var(--nt);line-height:1.2}
+.tnav-vehicle-pill-years{font-size:11px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-no-vehicle{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:5px;font-size:13px;color:var(--ntd);text-decoration:none;transition:background .12s}
+.tnav-no-vehicle:hover{background:var(--nhov);color:var(--na);text-decoration:none}
+.tnav-theme-row{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s,color .12s}
+.tnav-theme-row:hover{background:var(--nhov);color:var(--na)}
+.tnav-theme-icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-hamburger{display:none;align-items:center;justify-content:center;width:36px;height:36px;background:transparent;border:1px solid var(--nbdr);border-radius:6px;color:var(--nt);cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color .15s;padding:0}
+.tnav-hamburger:hover,.tnav-hamburger:focus-visible{border-color:var(--na);outline:none}
+.tnav-ham-icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.tnav-drawer{display:none;border-top:1px solid var(--nbdr);background:var(--nb);max-height:calc(100vh - 56px);overflow-y:auto}
+.tnav-drawer.tnav-open{display:block}
+.tnav-drawer-inner{max-width:1200px;margin:0 auto;padding:12px 16px 20px;display:flex;flex-direction:column}
+.tnav-drawer-section{border-bottom:1px solid var(--nbdr);padding:8px 0 12px}
+.tnav-drawer-section:last-child{border-bottom:none}
+.tnav-drawer-label{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ntd);padding:4px 8px 6px}
+.tnav-drawer-vehicles{display:grid;grid-template-columns:1fr 1fr;gap:0 4px}
+@media(max-width:400px){.tnav-drawer-vehicles{grid-template-columns:1fr}}
+.tnav-drawer-link{display:flex;align-items:center;justify-content:space-between;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);text-decoration:none;transition:background .12s;gap:8px}
+.tnav-drawer-link:hover{background:var(--nhov);text-decoration:none;color:var(--na)}
+.tnav-drawer-link.tnav-active{color:var(--na)}
+.tnav-drawer-years{font-size:12px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-drawer-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s}
+.tnav-drawer-btn:hover{background:var(--nhov);color:var(--na)}
+@media(max-width:720px){.tnav-center{display:none}.tnav-right{display:none}.tnav-hamburger{display:flex}.tnav-inner{padding:0 16px}}
 </style>
 </head>
 <body>
 
-<header class="tm-topbar">
-  <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/">
-      <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
-      <div>
-        <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
-        <div class="tm-brand-sub">DIY field manual</div>
-      </div>
+<header class="tnav" id="tnav" data-variant="light">
+  <div class="tnav-inner">
+
+    <a class="tnav-brand" href="/">
+      <svg class="tnav-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="tnav-wordmark">TRAIL<span class="tnav-dot"></span>MANUAL</span>
     </a>
-    <nav class="tm-nav">
-      <a href="/">Home</a>
-      <a href="/tools/" class="active">Tools</a>
-      <a href="/workshop/">Workshop</a>
-      <a href="/blog/">Blog</a>
-      <a href="/about/">About</a>
+
+    <nav class="tnav-center" aria-label="Primary">
+      <div class="tnav-item" id="tnav-vehicles">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-vehicles">Vehicles <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop tnav-drop-vehicles" id="tnav-drop-vehicles" role="menu">
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Jeep</span>
+            <a class="tnav-drop-link" href="/xj/" role="menuitem">Cherokee XJ <span class="tnav-drop-years">1984–2001</span></a>
+            <a class="tnav-drop-link" href="/tj/" role="menuitem">Wrangler TJ <span class="tnav-drop-years">1997–2006</span></a>
+            <a class="tnav-drop-link" href="/jk/" role="menuitem">Wrangler JK <span class="tnav-drop-years">2007–2018</span></a>
+            <a class="tnav-drop-link" href="/jl/" role="menuitem">Wrangler JL <span class="tnav-drop-years">2018–</span></a>
+            <a class="tnav-drop-link" href="/gladiator/" role="menuitem">Gladiator JT <span class="tnav-drop-years">2019–</span></a>
+          </div>
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Ford</span>
+            <a class="tnav-drop-link" href="/bronco/" role="menuitem">Early Bronco <span class="tnav-drop-years">1966–1977</span></a>
+            <a class="tnav-drop-link" href="/bronco-ii/" role="menuitem">Bronco II <span class="tnav-drop-years">1984–1990</span></a>
+            <a class="tnav-drop-link" href="/full-size-bronco/" role="menuitem">Full-Size Bronco <span class="tnav-drop-years">1978–1996</span></a>
+            <a class="tnav-drop-link" href="/bronco6g/" role="menuitem">New Bronco <span class="tnav-drop-years">2021–</span></a>
+            <a class="tnav-drop-link" href="/raptor/" role="menuitem">F-150 Raptor <span class="tnav-drop-years">Gen 2–3</span></a>
+            <span class="tnav-drop-label">Toyota · Ram</span>
+            <a class="tnav-drop-link" href="/4runner/" role="menuitem">4Runner <span class="tnav-drop-years">3rd–5th Gen</span></a>
+            <a class="tnav-drop-link" href="/tacoma/" role="menuitem">Tacoma <span class="tnav-drop-years">1st–3rd Gen</span></a>
+            <a class="tnav-drop-link" href="/power-wagon/" role="menuitem">Power Wagon <span class="tnav-drop-years">2011–</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="tnav-item" id="tnav-tools">
+        <button class="tnav-link-btn tnav-active" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-tools">Tools <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop" id="tnav-drop-tools" role="menu">
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Vehicle Database</a>
+          <a class="tnav-drop-link" href="/gear-ratio-calculator.html" role="menuitem">Gear Ratio Calculator</a>
+          <a class="tnav-drop-link" href="/jk-wrangler-engine-swap-tool.html" role="menuitem">Engine Swap Tool (JK)</a>
+          <a class="tnav-drop-link" href="/v8-swap-parts-checklist.html" role="menuitem">V8 Parts Checklist</a>
+          <a class="tnav-drop-link" href="/vehicle-select.html" role="menuitem">Pick Your Rig</a>
+        </div>
+      </div>
+      <a class="tnav-link" href="/workshop/">Workshop</a>
+      <a class="tnav-link" href="/blog/">Blog</a>
+      <a class="tnav-link" href="/about/">About</a>
     </nav>
-    <button class="tm-nav-toggle" id="tm-nav-toggle" aria-label="Open navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+
+    <div class="tnav-item tnav-right" id="tnav-mymanual">
+      <button class="tnav-my-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-mymanual">
+        <svg class="tnav-my-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        My Manual
+        <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+      </button>
+      <div class="tnav-drop tnav-drop-right" id="tnav-drop-mymanual" role="menu" style="min-width:240px">
+        <div id="tnav-vehicle-slot"></div>
+        <a class="tnav-drop-link" href="/my-garage.html" role="menuitem">
+          <svg style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          My Garage
+        </a>
+        <hr class="tnav-divider">
+        <button class="tnav-theme-row" id="tnav-theme-btn" role="menuitem">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="tnav-hamburger" id="tnav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav-drawer">
+      <svg class="tnav-ham-icon" viewBox="0 0 18 18"><line x1="1" y1="4" x2="17" y2="4"/><line x1="1" y1="9" x2="17" y2="9"/><line x1="1" y1="14" x2="17" y2="14"/></svg>
+    </button>
+  </div>
+
+  <div class="tnav-drawer" id="tnav-drawer" aria-hidden="true">
+    <div class="tnav-drawer-inner">
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Jeep</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/xj/">Cherokee XJ <span class="tnav-drawer-years">1984–2001</span></a>
+          <a class="tnav-drawer-link" href="/tj/">Wrangler TJ <span class="tnav-drawer-years">1997–2006</span></a>
+          <a class="tnav-drawer-link" href="/jk/">Wrangler JK <span class="tnav-drawer-years">2007–2018</span></a>
+          <a class="tnav-drawer-link" href="/jl/">Wrangler JL <span class="tnav-drawer-years">2018–</span></a>
+          <a class="tnav-drawer-link" href="/gladiator/">Gladiator JT <span class="tnav-drawer-years">2019–</span></a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Ford · Toyota · Ram</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/bronco/">Early Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco-ii/">Bronco II</a>
+          <a class="tnav-drawer-link" href="/full-size-bronco/">Full-Size Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco6g/">New Bronco</a>
+          <a class="tnav-drawer-link" href="/raptor/">F-150 Raptor</a>
+          <a class="tnav-drawer-link" href="/4runner/">4Runner</a>
+          <a class="tnav-drawer-link" href="/tacoma/">Tacoma</a>
+          <a class="tnav-drawer-link" href="/power-wagon/">Power Wagon</a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Navigate</span>
+        <a class="tnav-drawer-link" href="/workshop/">Workshop</a>
+        <a class="tnav-drawer-link" href="/blog/">Blog</a>
+        <a class="tnav-drawer-link" href="/db/">Vehicle Database</a>
+        <a class="tnav-drawer-link tnav-active" href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+        <a class="tnav-drawer-link" href="/jk-wrangler-engine-swap-tool.html">Engine Swap Tool</a>
+        <a class="tnav-drawer-link" href="/about/">About</a>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">My Manual</span>
+        <div id="tnav-vehicle-slot-mobile"></div>
+        <a class="tnav-drawer-link" href="/my-garage.html">My Garage</a>
+        <button class="tnav-drawer-btn" id="tnav-theme-btn-mobile">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path-mobile" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label-mobile">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -758,13 +925,109 @@ function crawlNote(r) {
   return 'Extreme — purpose-built crawl';
 }
 
-// Mobile nav toggle
-const navToggle = document.getElementById('tm-nav-toggle');
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    document.querySelector('.tm-nav').classList.toggle('open');
+(function(){
+  /* Trail Manual Unified Nav v1.0 */
+  var THEME_KEY='tm.theme';
+  var VEHICLE_KEY='tm.currentVehicle';
+  var html=document.documentElement;
+
+  /* ── Theme ── */
+  function isDark(){return html.getAttribute('data-theme')==='dark';}
+  function applyTheme(dark){
+    html.setAttribute('data-theme',dark?'dark':'light');
+    try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch(e){}
+    updateThemeUI(dark);
+  }
+  var SUN='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z';
+  var MOON='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  function updateThemeUI(dark){
+    var p=document.getElementById('tnav-theme-path');
+    var pm=document.getElementById('tnav-theme-path-mobile');
+    var l=document.getElementById('tnav-theme-label');
+    var lm=document.getElementById('tnav-theme-label-mobile');
+    var txt=dark?'Switch to Light':'Switch to Dark';
+    var path=dark?SUN:MOON;
+    if(p)p.setAttribute('d',path);
+    if(pm)pm.setAttribute('d',path);
+    if(l)l.textContent=txt;
+    if(lm)lm.textContent=txt;
+  }
+  /* Init theme — check new key then legacy */
+  var savedTheme='';
+  try{savedTheme=localStorage.getItem(THEME_KEY)||localStorage.getItem('tm-theme')||'';}catch(e){}
+  if(savedTheme==='dark'){html.setAttribute('data-theme','dark');}
+  updateThemeUI(isDark());
+  var themeBtn=document.getElementById('tnav-theme-btn');
+  var themeBtnM=document.getElementById('tnav-theme-btn-mobile');
+  if(themeBtn)themeBtn.addEventListener('click',function(){applyTheme(!isDark());closeAll();});
+  if(themeBtnM)themeBtnM.addEventListener('click',function(){applyTheme(!isDark());closeDrawer();});
+
+  /* ── Current vehicle slot ── */
+  function renderVehicleSlots(){
+    var v=null;
+    try{v=JSON.parse(localStorage.getItem(VEHICLE_KEY)||'null');}catch(e){}
+    [['tnav-vehicle-slot',false],['tnav-vehicle-slot-mobile',true]].forEach(function(pair){
+      var slot=document.getElementById(pair[0]);
+      if(!slot)return;
+      slot.innerHTML='';
+      if(v&&v.name){
+        var a=document.createElement('a');
+        a.href=v.path||'/';
+        a.className='tnav-vehicle-pill';
+        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display='none'">':'')+
+          '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
+          (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
+        slot.appendChild(a);
+      }else{
+        var b=document.createElement('a');
+        b.href='/vehicle-select.html';
+        b.className='tnav-no-vehicle';
+        b.textContent='Pick your rig →';
+        slot.appendChild(b);
+      }
+    });
+  }
+  renderVehicleSlots();
+
+  /* ── Dropdowns ── */
+  function closeAll(){
+    document.querySelectorAll('.tnav-item.tnav-open').forEach(function(el){
+      el.classList.remove('tnav-open');
+      var btn=el.querySelector('[aria-haspopup]');
+      if(btn)btn.setAttribute('aria-expanded','false');
+    });
+  }
+  document.querySelectorAll('.tnav-item[id]').forEach(function(item){
+    var btn=item.querySelector('[aria-haspopup]');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var wasOpen=item.classList.contains('tnav-open');
+      closeAll();
+      if(!wasOpen){item.classList.add('tnav-open');btn.setAttribute('aria-expanded','true');}
+    });
   });
-}
+  document.addEventListener('click',function(){closeAll();});
+  var navEl=document.getElementById('tnav');
+  if(navEl)navEl.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();closeDrawer();}});
+
+  /* ── Hamburger / drawer ── */
+  var hamburger=document.getElementById('tnav-hamburger');
+  var drawer=document.getElementById('tnav-drawer');
+  function closeDrawer(){
+    if(drawer){drawer.classList.remove('tnav-open');drawer.setAttribute('aria-hidden','true');}
+    if(hamburger)hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger&&drawer){
+    hamburger.addEventListener('click',function(){
+      var isOpen=drawer.classList.toggle('tnav-open');
+      drawer.setAttribute('aria-hidden',isOpen?'false':'true');
+      hamburger.setAttribute('aria-expanded',isOpen?'true':'false');
+      closeAll();
+    });
+  }
+})();
 </script>
 </body>
 </html>
