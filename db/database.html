@@ -823,11 +823,16 @@
   function vehicleMeta(vid) { return M.vehicles.find(v=>v.id===vid); }
 
   var VEHICLE_ICONS = {
-    xj:'/images/icon-xj.png', tj:'/images/icon-tj.png', jk:'/images/icon-jk.png',
-    jl:'/images/icon-jl.png', gladiator:'/images/icon-gladiator.png',
+    xj:'/images/icon-xj.png', tj:'/images/icon-tj.png', yj:'/images/icon-tj.png',
+    jk:'/images/icon-jk.png', jl:'/images/icon-jl.png',
+    cj5:'/images/icon-cj-5.png', cj7:'/images/icon-cj-5.png',
+    zj:'/images/icon-zj.png', wj:'/images/icon-zj.png', wk:'/images/icon-wk.png',
+    gladiator:'/images/icon-gladiator.png',
     '4runner':'/images/icon-4runner.png', tacoma:'/images/icon-tacoma.png',
-    bronco:'/images/icon-bronco.png', raptor:'/images/icon-raptor.png',
-    'power-wagon':'/images/icon-power-wagon.png'
+    pathfinder:'/images/icon-r50.png',
+    bronco:'/images/icon-bronco-early.png', 'bronco-ii':'/images/icon-bronco-early.png',
+    'full-size-bronco':'/images/icon-bronco-early.png', bronco6g:'/images/icon-bronco.png',
+    raptor:'/images/icon-raptor.png', 'power-wagon':'/images/icon-power-wagon.png'
   };
   function getEntries(vid) { return VEHICLES[vid] || []; }
   function byId(vid, id) { return getEntries(vid).find(e => e.id === id); }
