@@ -13,6 +13,7 @@
   </script>
 
 <meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trail Manual — DIY reference for off-road vehicles</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -335,6 +336,46 @@
     .nav-tabs.open{display:flex}
     .tab{padding:11px 12px;font-size:15px;text-align:left}
   }
+  
+  /* ── Brand/family vehicle picker ─────────────────────────────────────── */
+  .picker-hero{padding:40px 0 28px;border-bottom:1px solid var(--border)}
+  .picker-hero h1{font-size:clamp(28px,4vw,42px);font-weight:500;letter-spacing:-.02em;margin:0 0 10px}
+  .picker-hero p{color:var(--text-dim);max-width:600px;font-size:15px;margin:0 0 18px}
+  .picker-stats{display:flex;gap:24px;flex-wrap:wrap}
+  .picker-stat .n{font-size:20px;font-weight:600;color:var(--accent)}
+  .picker-stat .l{font-size:11px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px}
+
+
+  .picker-jump-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:0;overflow-x:auto;scrollbar-width:none}
+  .picker-jump-nav::-webkit-scrollbar{display:none}
+  .picker-jump-link{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);text-decoration:none;padding:12px 20px;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .15s,border-color .15s}
+  .picker-jump-link:hover{color:var(--text);border-bottom-color:var(--accent)}
+  .brand-block{padding:44px 0 0;border-top:2px solid var(--border)}
+  .brand-block:first-of-type{border-top:none;padding-top:32px}
+  .brand-block+.brand-block{border-top:1px solid var(--border)}
+  .brand-row{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+  .brand-name{font-size:22px;font-weight:600;letter-spacing:-.01em}
+  .brand-count{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute)}
+
+  .family-block{margin-bottom:28px}
+  .family-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .family-meta{color:var(--text-mute);font-weight:400}
+
+  .vp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+  .vp-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s;text-decoration:none;color:var(--text)}
+  .vp-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .vp-card.inactive{opacity:.55;cursor:default}
+  .vp-card.inactive:hover{transform:none;border-color:var(--border)}
+  .vp-icon{width:72px;height:56px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+  .vp-icon img{width:100%;height:100%;object-fit:contain}
+  .vp-years{font-size:11px;color:var(--text-mute);font-weight:500;letter-spacing:.04em}
+  .vp-name{font-weight:600;font-size:15px;line-height:1.2}
+  .vp-count{font-size:12px;color:var(--text-dim)}
+  .vp-badge{display:inline-block;margin-top:auto;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--accent);color:#fff;width:fit-content}
+  .vp-badge.soon{background:var(--bg-3);color:var(--text-mute)}
+
+  @media(max-width:560px){.vp-grid{grid-template-columns:1fr 1fr}}
+
   </style>
 </head>
 <body>
@@ -972,59 +1013,118 @@
 
   // ---- VEHICLE PICKER (home) ----
   function renderVehiclePicker(app) {
-    app.appendChild(el('section', {class:'hero'},
-      el('h1', {}, 'Pick your platform'),
-      el('p', {}, "Trail Manual is a multi-vehicle DIY reference — maintenance procedures, build paths, vendor comparisons, and rig builders that adapt to your goal and budget. Pick a vehicle below to dive in. More platforms coming."),
-      el('div', {class:'hero-stats'},
-        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.total_entries||0)), el('div',{class:'l'},'Entries')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.vehicles.filter(v=>v.active).length)), el('div',{class:'l'},'Active vehicles')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.vehicles.length)), el('div',{class:'l'},'On the roadmap')),
-      )
-    ));
+    // Brand → family → vehicle IDs (canonical order)
+    var BRANDS = [
+      { name:'Jeep', families:[
+        { label:'Wrangler', meta:'YJ · TJ · JK · JL', ids:['yj','tj','jk','jl'] },
+        { label:'Cherokee', meta:'XJ', ids:['xj'] },
+        { label:'CJ',       meta:'CJ-5 · CJ-7', ids:['cj5','cj7'] },
+        { label:'Grand Cherokee', meta:'ZJ · WJ · WK', ids:['zj','wj','wk'] },
+        { label:'Gladiator', meta:'JT', ids:['gladiator'] },
+      ]},
+      { name:'Ford', families:[
+        { label:'Bronco', meta:'Early · II · Full-Size · 6G', ids:['bronco','bronco-ii','full-size-bronco','bronco6g'] },
+        { label:'F-150',  meta:'Raptor', ids:['raptor'] },
+      ]},
+      { name:'Toyota', families:[
+        { label:'4Runner', meta:'', ids:['4runner'] },
+        { label:'Tacoma',  meta:'', ids:['tacoma'] },
+      ]},
+      { name:'Ram', families:[
+        { label:'Power Wagon', meta:'', ids:['power-wagon'] },
+      ]},
+      { name:'Nissan', families:[
+        { label:'Pathfinder', meta:'', ids:['pathfinder'] },
+      ]},
+    ];
 
-    const active = M.vehicles.filter(v=>v.active);
-    const inactive = M.vehicles.filter(v=>!v.active);
+    // Hero
+    var hero = el('div', {class:'picker-hero'});
+    hero.appendChild(el('h1', {}, 'Pick your platform'));
+    hero.appendChild(el('p', {}, 'Trail Manual is a multi-vehicle DIY reference. Select a vehicle to browse guides, build paths, and diagnostic tools.'));
+    var stats = el('div', {class:'picker-stats'});
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.total_entries||0)), el('div',{class:'l'},'Entries')));
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active;}).length)), el('div',{class:'l'},'Active vehicles')));
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.length)), el('div',{class:'l'},'On the roadmap')));
+    hero.appendChild(stats);
+    app.appendChild(hero);
 
-    if (active.length) {
-      app.appendChild(el('h2', {}, 'Available now'));
-      const grid = el('div', {class:'grid-vehicles'});
-      active.forEach(v => {
-        grid.appendChild(el('div', {class:'vehicle-card', on:{click:()=>go('#/'+v.id+'/home')}},
-          (function(){ var w=el('div',{class:'v-icon-art'}); var iv=(VEHICLE_VISUALS[v.id]||{}).icon; w.innerHTML = iv ? "<img src='"+iv+"' alt='"+(v.label||v.id)+"'/>" : "<div class='cat-icon' style='background:rgba(201,126,80,.15);color:var(--accent);font-weight:900'>"+(v.id||'').toUpperCase().slice(0,3)+"</div>"; return w; })(),
-          el('div', {style:'flex:1'},
-            el('div', {class:'v-name'}, v.label || v.id),
-            el('div', {class:'v-meta'},
-              v.platform ? el('span',{class:'v-platform'}, v.platform) : null,
-              (v.years || '') + ' · ' + (v.entry_count||0) + ' entries'
-            )
-          ),
-          el('div', {class:'v-badge'}, 'OPEN')
-        ));
+    var vmap = {};
+    M.vehicles.forEach(function(v){ vmap[v.id] = v; });
+
+    // Brand jump nav
+    var jumpNav = el('nav', {'class':'picker-jump-nav', 'aria-label':'Jump to brand'});
+    var BRAND_ANCHORS = ['Jeep','Ford','Toyota','Ram','Nissan'];
+    BRAND_ANCHORS.forEach(function(b){
+      var a = document.createElement('a');
+      a.className = 'picker-jump-link';
+      a.href = '#brand-'+b.toLowerCase();
+      a.textContent = b;
+      jumpNav.appendChild(a);
+    });
+    app.appendChild(jumpNav);
+
+    BRANDS.forEach(function(brand) {
+      var brandTotal = brand.families.reduce(function(s,f){return s + f.ids.filter(function(id){return vmap[id];}).length;}, 0);
+      if (!brandTotal) return;
+
+      var brandEl = el('div', {class:'brand-block', id:'brand-'+brand.name.toLowerCase()});
+      var brandRow = el('div', {class:'brand-row'});
+      brandRow.appendChild(el('span', {class:'brand-name'}, brand.name));
+      brandRow.appendChild(el('span', {class:'brand-count'}, brandTotal + ' platform' + (brandTotal===1?'':'s')));
+      brandEl.appendChild(brandRow);
+
+      brand.families.forEach(function(family) {
+        var knownIds = family.ids.filter(function(id){ return vmap[id]; });
+        if (!knownIds.length) return;
+
+        var famEl = el('div', {class:'family-block'});
+        var famLabel = el('div', {class:'family-label'});
+        famLabel.appendChild(el('span', {}, family.label));
+        if (family.meta) famLabel.appendChild(el('span', {class:'family-meta'}, family.meta));
+        famEl.appendChild(famLabel);
+
+        var grid = el('div', {class:'vp-grid'});
+        knownIds.forEach(function(id) {
+          var v = vmap[id];
+          var vis = (VEHICLE_VISUALS[id] || {});
+          var active = v.active;
+
+          var card = el(active ? 'div' : 'div', {
+            class: 'vp-card' + (active ? '' : ' inactive'),
+          });
+          if (active) card.addEventListener('click', function(){ go('#/'+id+'/home'); });
+
+          // Icon
+          var iconWrap = el('div', {class:'vp-icon'});
+          if (vis.icon) {
+            var img = document.createElement('img');
+            img.src = vis.icon; img.alt = v.label||id; img.loading = 'lazy';
+            iconWrap.appendChild(img);
+          }
+          card.appendChild(iconWrap);
+
+          card.appendChild(el('div', {class:'vp-years'}, v.years||''));
+          card.appendChild(el('div', {class:'vp-name'}, v.label||id));
+          if (active) {
+            card.appendChild(el('div', {class:'vp-count'}, (v.entry_count||0) + ' guides'));
+            card.appendChild(el('div', {class:'vp-badge'}, 'Open'));
+          } else {
+            card.appendChild(el('div', {class:'vp-badge soon'}, 'Coming soon'));
+          }
+          grid.appendChild(card);
+        });
+
+        famEl.appendChild(grid);
+        brandEl.appendChild(famEl);
       });
-      app.appendChild(grid);
-    }
 
-    if (inactive.length) {
-      app.appendChild(el('h2', {}, 'Coming soon'));
-      const grid = el('div', {class:'grid-vehicles'});
-      inactive.forEach(v => {
-        grid.appendChild(el('div', {class:'vehicle-card inactive'},
-          (function(){ var w=el('div',{class:'v-icon-art', style:'opacity:.55'}); var iv=(VEHICLE_VISUALS[v.id]||{}).icon; w.innerHTML = iv ? "<img src='"+iv+"' alt='"+(v.label||v.id)+"'/>" : "<div class='cat-icon' style='background:var(--bg-3);color:var(--text-mute);font-weight:900'>"+(v.id||'').toUpperCase().slice(0,3)+"</div>"; return w; })(),
-          el('div', {style:'flex:1'},
-            el('div', {class:'v-name'}, v.label || v.id),
-            el('div', {class:'v-meta'},
-              v.platform ? el('span',{class:'v-platform'}, v.platform) : null,
-              (v.years || '')
-            )
-          ),
-          el('div', {class:'v-badge'}, 'SOON')
-        ));
-      });
-      app.appendChild(grid);
-    }
+      app.appendChild(brandEl);
+    });
   }
 
   // ---- VEHICLE HOME (Twin Grids §11.1 — full) ----
+
   function renderVehicleHome(app, vid) {
     const v = vehicleMeta(vid);
     const entries = getEntries(vid);

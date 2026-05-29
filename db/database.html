@@ -13,6 +13,7 @@
   </script>
 
 <meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trail Manual — DIY reference for off-road vehicles</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -285,6 +286,42 @@
 
   @media(max-width:900px){.tg-grid-tools,.tg-grid-learn{grid-template-columns:1fr 1fr}}
   @media(max-width:560px){.tg-grid-tools,.tg-grid-learn{grid-template-columns:1fr}}
+
+  
+  /* ── Brand/family vehicle picker ─────────────────────────────────────── */
+  .picker-hero{padding:32px 0 24px;border-bottom:1px solid var(--border)}
+  .picker-hero h1{font-size:clamp(24px,4vw,36px);font-weight:600;letter-spacing:-.02em;margin:0 0 8px}
+  .picker-hero p{color:var(--text-dim);max-width:600px;font-size:14px;margin:0 0 16px}
+  .picker-stats{display:flex;gap:24px;flex-wrap:wrap}
+  .picker-stat .n{font-size:20px;font-weight:700;color:var(--accent)}
+  .picker-stat .l{font-size:11px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px}
+
+  .picker-jump-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:0;overflow-x:auto;scrollbar-width:none}
+  .picker-jump-nav::-webkit-scrollbar{display:none}
+  .picker-jump-link{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);text-decoration:none;padding:10px 16px;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .15s,border-color .15s}
+  .picker-jump-link:hover{color:var(--text);border-bottom-color:var(--accent)}
+  .brand-block{padding:36px 0 0;border-top:2px solid var(--border)}
+  .brand-block:first-of-type{border-top:none;padding-top:24px}
+  .brand-block+.brand-block{border-top:1px solid var(--border)}
+  .brand-row{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+  .brand-name{font-size:20px;font-weight:700;letter-spacing:-.01em}
+  .brand-count{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute)}
+  .family-block{margin-bottom:20px}
+  .family-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .family-meta{color:var(--text-mute);font-weight:400}
+  .vp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+  .vp-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .15s;color:var(--text)}
+  .vp-card:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .vp-card.inactive{opacity:.5;cursor:default}
+  .vp-card.inactive:hover{transform:none;border-color:var(--border)}
+  .vp-icon{width:60px;height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:2px}
+  .vp-icon img{width:100%;height:100%;object-fit:contain}
+  .vp-years{font-size:11px;color:var(--text-mute);font-weight:500}
+  .vp-name{font-weight:600;font-size:14px;line-height:1.2}
+  .vp-count{font-size:12px;color:var(--text-dim)}
+  .vp-badge{display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--accent);color:var(--panel);width:fit-content}
+  .vp-badge.soon{background:var(--bg-3);color:var(--text-mute);font-weight:500}
+  @media(max-width:560px){.vp-grid{grid-template-columns:1fr 1fr}}
 
   </style>
 </head>
@@ -878,204 +915,97 @@
 
   // ---- VEHICLE PICKER (home) ----
   function renderVehiclePicker(app) {
-    app.appendChild(el('section', {class:'hero'},
-      el('h1', {}, 'Pick your platform'),
-      el('p', {}, "Trail Manual is a multi-vehicle DIY reference — maintenance procedures, build paths, vendor comparisons, and rig builders that adapt to your goal and budget. Pick a vehicle below to dive in. More platforms coming."),
-      el('div', {class:'hero-stats'},
-        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.total_entries||0)), el('div',{class:'l'},'Entries')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.vehicles.filter(v=>v.active).length)), el('div',{class:'l'},'Active vehicles')),
-        el('div', {class:'hero-stat'}, el('div',{class:'n'}, String(M.vehicles.length)), el('div',{class:'l'},'On the roadmap')),
-      )
-    ));
+    var BRANDS = [
+      { name:'Jeep', families:[
+        { label:'Wrangler', meta:'YJ · TJ · JK · JL', ids:['yj','tj','jk','jl'] },
+        { label:'Cherokee', meta:'XJ', ids:['xj'] },
+        { label:'CJ', meta:'CJ-5 · CJ-7', ids:['cj5','cj7'] },
+        { label:'Grand Cherokee', meta:'ZJ · WJ · WK', ids:['zj','wj','wk'] },
+        { label:'Gladiator', meta:'JT', ids:['gladiator'] },
+      ]},
+      { name:'Ford', families:[
+        { label:'Bronco', meta:'Early · II · Full-Size · 6G', ids:['bronco','bronco-ii','full-size-bronco','bronco6g'] },
+        { label:'F-150', meta:'Raptor', ids:['raptor'] },
+      ]},
+      { name:'Toyota', families:[
+        { label:'4Runner', meta:'', ids:['4runner'] },
+        { label:'Tacoma', meta:'', ids:['tacoma'] },
+      ]},
+      { name:'Ram', families:[
+        { label:'Power Wagon', meta:'', ids:['power-wagon'] },
+      ]},
+      { name:'Nissan', families:[
+        { label:'Pathfinder', meta:'', ids:['pathfinder'] },
+      ]},
+    ];
 
-    const active = M.vehicles.filter(v=>v.active);
-    const inactive = M.vehicles.filter(v=>!v.active);
-
-    if (active.length) {
-      app.appendChild(el('h2', {}, 'Available now'));
-      const grid = el('div', {class:'grid-vehicles'});
-      active.forEach(v => {
-        grid.appendChild(el('div', {class:'vehicle-card', on:{click:()=>go('#/'+v.id+'/home')}},
-          (function(){
-            var icons={'xj':'/images/icon-xj.png','tj':'/images/icon-tj.png','jk':'/images/icon-jk.png','jl':'/images/icon-jl.png','gladiator':'/images/icon-gladiator.png','4runner':'/images/icon-4runner.png','tacoma':'/images/icon-tacoma.png','bronco':'/images/icon-bronco.png','raptor':'/images/icon-raptor.png','power-wagon':'/images/icon-power-wagon.png'};
-            var src=icons[v.id]; var d=el('div',{class:'v-icon-art',style:'width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center'});
-            d.innerHTML=src?"<img src='"+src+"' alt='"+v.id+"' style='width:100%;height:100%;object-fit:contain'>":"<div style='background:rgba(201,126,80,.15);color:var(--accent);font-weight:900;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px'>"+( v.id||'').toUpperCase().slice(0,3)+"</div>";
-            return d;
-          })(),
-          el('div', {style:'flex:1'},
-            el('div', {class:'v-name'}, v.label || v.id),
-            el('div', {class:'v-meta'},
-              v.platform ? el('span',{class:'v-platform'}, v.platform) : null,
-              (v.years || '') + ' · ' + (v.entry_count||0) + ' entries'
-            )
-          ),
-          el('div', {class:'v-badge'}, 'OPEN')
-        ));
-      });
-      app.appendChild(grid);
-    }
-
-    if (inactive.length) {
-      app.appendChild(el('h2', {}, 'Coming soon'));
-      const grid = el('div', {class:'grid-vehicles'});
-      inactive.forEach(v => {
-        grid.appendChild(el('div', {class:'vehicle-card inactive'},
-          (function(){
-            var icons={'xj':'/images/icon-xj.png','tj':'/images/icon-tj.png','jk':'/images/icon-jk.png','jl':'/images/icon-jl.png','gladiator':'/images/icon-gladiator.png','4runner':'/images/icon-4runner.png','tacoma':'/images/icon-tacoma.png','bronco':'/images/icon-bronco.png','raptor':'/images/icon-raptor.png','power-wagon':'/images/icon-power-wagon.png'};
-            var src=icons[v.id]; var d=el('div',{class:'v-icon-art',style:'width:56px;height:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;opacity:.5'});
-            d.innerHTML=src?"<img src='"+src+"' alt='"+v.id+"' style='width:100%;height:100%;object-fit:contain'>":"<div style='background:var(--bg-3);color:var(--text-mute);font-weight:900;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:8px'>"+( v.id||'').toUpperCase().slice(0,3)+"</div>";
-            return d;
-          })(),
-          el('div', {style:'flex:1'},
-            el('div', {class:'v-name'}, v.label || v.id),
-            el('div', {class:'v-meta'},
-              v.platform ? el('span',{class:'v-platform'}, v.platform) : null,
-              (v.years || '')
-            )
-          ),
-          el('div', {class:'v-badge'}, 'SOON')
-        ));
-      });
-      app.appendChild(grid);
-    }
-  }
-
-  // ---- VEHICLE HOME ----
-  // Per-vehicle death wobble / steering diagnostic links
-  var DW_LINKS = {
-    xj:           '/db/death-wobble-guide.html',
-    tj:           '/db/tj-yj-death-wobble-guide.html',
-    jk:           '/db/jk-death-wobble-guide.html',
-    jl:           null,
-    gladiator:    null,
-    bronco:       null,
-    'power-wagon':null,
-    '4runner':    null,
-    tacoma:       null,
-    raptor:       null,
-  };
-
-  function renderVehicleHome(app, vid) {
-    const v       = vehicleMeta(vid) || {};
-    const entries = getEntries(vid);
-    const counts  = {};
-    for (const e of entries) counts[e.category] = (counts[e.category]||0) + 1;
-    const catCount = Object.keys(counts).length;
-    const dwLink   = DW_LINKS[vid] !== undefined ? DW_LINKS[vid] : null;
-    var solidAxle  = ['xj','tj','jk','jl','gladiator','bronco','power-wagon'].indexOf(vid) >= 0;
-
-    var ic = VEHICLE_ICONS || {};
-
-    // ── Hero ──────────────────────────────────────────────────────────
-    var hero = el('div', {class:'tg-hero'});
-    hero.appendChild(el('div', {class:'tg-eyebrow'}, v.years || ''));
-    hero.appendChild(el('h1', {}, (v.label || vid) + ' — Trail Manual'));
-    if (v.description) hero.appendChild(el('p', {class:'lede'}, v.description));
-    var chips = el('div', {class:'tg-chips'});
-    chips.appendChild(el('span', {class:'tg-chip live'}, entries.length + ' guides'));
-    chips.appendChild(el('span', {class:'tg-chip'}, catCount + ' categories'));
-    if (solidAxle) chips.appendChild(el('span', {class:'tg-chip'}, 'Solid axle'));
-    hero.appendChild(chips);
+    var hero = el('div', {class:'picker-hero'});
+    hero.appendChild(el('h1', {}, 'Pick your platform'));
+    hero.appendChild(el('p', {}, 'Select a vehicle to browse guides, build paths, and diagnostic tools.'));
+    var stats = el('div', {class:'picker-stats'});
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.total_entries||0)), el('div',{class:'l'},'Entries')));
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active;}).length)), el('div',{class:'l'},'Active vehicles')));
+    hero.appendChild(stats);
     app.appendChild(hero);
 
-    // ── Tools section ─────────────────────────────────────────────────
-    var toolSec = el('div', {class:'tg-section'});
-    var toolHead = el('div', {class:'tg-section-head'});
-    var tleft = el('div', {class:'left'});
-    tleft.appendChild(el('span', {class:'tg-section-label'}, '01 / Tools'));
-    tleft.appendChild(el('span', {class:'tg-section-title'}, 'Built for your rig'));
-    toolHead.appendChild(tleft);
-    toolHead.appendChild(el('span', {class:'tg-section-sub'}, '4 tools'));
-    toolSec.appendChild(toolHead);
+    var vmap = {};
+    M.vehicles.forEach(function(v){ vmap[v.id] = v; });
 
-    var toolGrid = el('div', {class:'tg-grid-tools'});
-
-    // Build List — coming soon
-    var c1 = el('div', {class:'tg-tool-card soon'});
-    var i1 = el('div', {class:'tg-tool-icon neutral'});
-    i1.innerHTML = '<svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg>';
-    c1.appendChild(i1);
-    c1.appendChild(el('div', {class:'tg-tool-title'}, 'Build List'));
-    c1.appendChild(el('div', {class:'tg-tool-desc'}, 'Stack lift, tires, armor, and recovery. Save, share, and price-check your build.'));
-    var f1 = el('div', {class:'tg-tool-foot'}); f1.appendChild(el('span',{class:'tg-tag'},'Coming soon')); f1.appendChild(el('span',{class:'tg-arrow'},'Soon'));
-    c1.appendChild(f1); toolGrid.appendChild(c1);
-
-    // Database — live
-    var c2 = el('a', {class:'tg-tool-card', href:'/db/?v='+vid});
-    var i2 = el('div', {class:'tg-tool-icon good'});
-    i2.innerHTML = '<svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg>';
-    c2.appendChild(i2);
-    c2.appendChild(el('div', {class:'tg-tool-title'}, 'Database'));
-    c2.appendChild(el('div', {class:'tg-tool-desc'}, 'Every DIY procedure for this platform, filtered to your trim, year, and engine.'));
-    var f2 = el('div', {class:'tg-tool-foot'}); f2.appendChild(el('span',{class:'tg-tag live'},entries.length+' guides')); f2.appendChild(el('span',{class:'tg-arrow'},'Browse'));
-    c2.appendChild(f2); toolGrid.appendChild(c2);
-
-    // Maintenance — coming soon
-    var c3 = el('div', {class:'tg-tool-card soon'});
-    var i3 = el('div', {class:'tg-tool-icon neutral'});
-    i3.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
-    c3.appendChild(i3);
-    c3.appendChild(el('div', {class:'tg-tool-title'}, 'Maintenance'));
-    c3.appendChild(el('div', {class:'tg-tool-desc'}, 'Mileage-driven service schedule for your trim. Oil, diffs, transfer case, and more.'));
-    var f3 = el('div', {class:'tg-tool-foot'}); f3.appendChild(el('span',{class:'tg-tag'},'Coming soon')); f3.appendChild(el('span',{class:'tg-arrow'},'Soon'));
-    c3.appendChild(f3); toolGrid.appendChild(c3);
-
-    // Death Wobble / Steering Diagnostic
-    if (dwLink) {
-      var c4 = el('a', {class:'tg-tool-card', href:dwLink});
-      var i4 = el('div', {class:'tg-tool-icon safety'});
-      i4.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg>';
-      c4.appendChild(i4);
-      c4.appendChild(el('div', {class:'tg-tool-title'}, 'Death Wobble'));
-      c4.appendChild(el('div', {class:'tg-tool-desc'}, 'Diagnose the cause in 8 questions. Track-bar, ball joints, tire balance — find it before it finds you.'));
-      var f4 = el('div', {class:'tg-tool-foot'}); f4.appendChild(el('span',{class:'tg-tag safety'},'Safety')); f4.appendChild(el('span',{class:'tg-arrow'},'Diagnose'));
-      c4.appendChild(f4); toolGrid.appendChild(c4);
-    } else {
-      var c4 = el('div', {class:'tg-tool-card soon'});
-      var i4 = el('div', {class:'tg-tool-icon neutral'});
-      i4.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>';
-      c4.appendChild(i4);
-      c4.appendChild(el('div', {class:'tg-tool-title'}, solidAxle ? 'Death Wobble' : 'Steering Diagnostic'));
-      c4.appendChild(el('div', {class:'tg-tool-desc'}, solidAxle ? 'Diagnosis guide coming soon.' : 'IFS steering diagnostic coming soon.'));
-      var f4b = el('div', {class:'tg-tool-foot'}); f4b.appendChild(el('span',{class:'tg-tag'},'Coming soon')); f4b.appendChild(el('span',{class:'tg-arrow'},'Soon'));
-      c4.appendChild(f4b); toolGrid.appendChild(c4);
-    }
-
-    toolSec.appendChild(toolGrid);
-    app.appendChild(toolSec);
-
-    // ── Learn section ─────────────────────────────────────────────────
-    var learnSec = el('div', {class:'tg-section last'});
-    var learnHead = el('div', {class:'tg-section-head'});
-    var lleft = el('div', {class:'left'});
-    lleft.appendChild(el('span', {class:'tg-section-label'}, '02 / Learn'));
-    lleft.appendChild(el('span', {class:'tg-section-title'}, 'Read and watch'));
-    learnHead.appendChild(lleft);
-    learnHead.appendChild(el('span', {class:'tg-section-sub'}, 'Latest · All posts · Workshop · Channels'));
-    learnSec.appendChild(learnHead);
-
-    var learnGrid = el('div', {class:'tg-grid-learn'});
-
-    var lc = [
-      ['/blog/when-to-re-gear-axles/', 'Latest blog', 'When to re-gear your axles', 'The math behind the change — and the feeling that tells you it's time.', 'Read'],
-      ['/blog/', 'All posts', 'Read the blog', 'Every post — tools, mod tests, trail reports. Sorted by date, filterable.', 'Browse'],
-      ['/workshop/', 'Workshop', 'Shop technique', 'Torque, seized bolts, brake bleed — the foundations every DIYer needs.', 'Enter'],
-      ['/channels/', 'Channels', 'YouTubers we trust', 'Honest builders, working trucks. No sponsored fluff, no thumbnail screaming.', 'See list'],
-    ];
-    lc.forEach(function(item){
-      var card = el('a', {class:'tg-learn-card', href:item[0]});
-      card.appendChild(el('p', {class:'tg-learn-eye'}, item[1]));
-      card.appendChild(el('h3', {class:'tg-learn-title'}, item[2]));
-      card.appendChild(el('p', {class:'tg-learn-desc'}, item[3]));
-      card.appendChild(el('span', {class:'tg-arrow'}, item[4]));
-      learnGrid.appendChild(card);
+    var jumpNav2 = el('nav', {'class':'picker-jump-nav', 'aria-label':'Jump to brand'});
+    ['Jeep','Ford','Toyota','Ram','Nissan'].forEach(function(b){
+      var a = document.createElement('a'); a.className='picker-jump-link';
+      a.href='#brand2-'+b.toLowerCase(); a.textContent=b; jumpNav2.appendChild(a);
     });
+    app.appendChild(jumpNav2);
 
-    learnSec.appendChild(learnGrid);
-    app.appendChild(learnSec);
+    BRANDS.forEach(function(brand) {
+      var knownVehicles = brand.families.reduce(function(s,f){return s.concat(f.ids.filter(function(id){return vmap[id];}));}, []);
+      if (!knownVehicles.length) return;
+
+      var brandEl = el('div', {class:'brand-block', id:'brand2-'+brand.name.toLowerCase()});
+      var brandRow = el('div', {class:'brand-row'});
+      brandRow.appendChild(el('span', {class:'brand-name'}, brand.name));
+      brandRow.appendChild(el('span', {class:'brand-count'}, knownVehicles.length + ' platform' + (knownVehicles.length===1?'':'s')));
+      brandEl.appendChild(brandRow);
+
+      brand.families.forEach(function(family) {
+        var ids = family.ids.filter(function(id){ return vmap[id]; });
+        if (!ids.length) return;
+        var famEl = el('div', {class:'family-block'});
+        var famLabel = el('div', {class:'family-label'});
+        famLabel.appendChild(el('span', {}, family.label));
+        if (family.meta) famLabel.appendChild(el('span', {class:'family-meta'}, family.meta));
+        famEl.appendChild(famLabel);
+
+        var grid = el('div', {class:'vp-grid'});
+        ids.forEach(function(id) {
+          var v = vmap[id];
+          var icons = VEHICLE_ICONS || {};
+          var card = el('div', {class:'vp-card'+(v.active?'':' inactive')});
+          if (v.active) card.addEventListener('click', function(){ go('#/'+id+'/home'); });
+
+          var iconWrap = el('div', {class:'vp-icon'});
+          if (icons[id]) { var img = document.createElement('img'); img.src=icons[id]; img.alt=v.label||id; img.loading='lazy'; iconWrap.appendChild(img); }
+          card.appendChild(iconWrap);
+          card.appendChild(el('div', {class:'vp-years'}, v.years||''));
+          card.appendChild(el('div', {class:'vp-name'}, v.label||id));
+          if (v.active) {
+            card.appendChild(el('div', {class:'vp-count'}, (v.entry_count||0)+' guides'));
+            card.appendChild(el('div', {class:'vp-badge'}, 'Open'));
+          } else {
+            card.appendChild(el('div', {class:'vp-badge soon'}, 'Soon'));
+          }
+          grid.appendChild(card);
+        });
+        famEl.appendChild(grid);
+        brandEl.appendChild(famEl);
+      });
+      app.appendChild(brandEl);
+    });
   }
 
   // ---- BROWSE / CATEGORY / TIER ----
+
   function renderBrowse(app, vid) {
     const entries = getEntries(vid);
     const counts = {};

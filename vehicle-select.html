@@ -97,13 +97,44 @@
       margin-bottom: 40px;
     }
 
-    /* Brand-grouped layout */
-    .brand-section { margin-bottom: 72px; }
-    .brand-section:last-child { margin-bottom: 0; }
+    /* Brand jump nav */
+    .brand-jump-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 2px solid var(--bone-d);
+      margin-bottom: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .brand-jump-nav::-webkit-scrollbar { display: none; }
+    .brand-jump-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--slate-l);
+      text-decoration: none;
+      padding: 14px 24px;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .brand-jump-link:hover { color: var(--slate); border-bottom-color: var(--clay); }
+
+    /* Brand-grouped layout — fully split */
+    .brand-section {
+      border-top: 2px solid var(--bone-d);
+      padding-top: 56px;
+      margin-bottom: 0;
+      padding-bottom: 64px;
+    }
+    .brand-section:first-of-type { border-top: none; padding-top: 48px; }
     .brand-header {
       font-family: var(--sans);
       font-weight: 500;
-      font-size: clamp(28px, 3.6vw, 36px);
+      font-size: 32px;
       letter-spacing: -0.02em;
       color: var(--slate);
       margin: 0 0 32px;
@@ -289,10 +320,17 @@
   </div>
 
   <section class="selector-section">
+    <nav class="brand-jump-nav" aria-label="Jump to brand">
+      <a class="brand-jump-link" href="#jeep">Jeep</a>
+      <a class="brand-jump-link" href="#ford">Ford</a>
+      <a class="brand-jump-link" href="#toyota">Toyota</a>
+      <a class="brand-jump-link" href="#ram">Ram</a>
+      <a class="brand-jump-link" href="#nissan">Nissan</a>
+    </nav>
 
     <!-- ── JEEP ──────────────────────────────────────────────── -->
-    <div class="brand-section">
-      <h2 class="brand-header">Jeep <span class="brand-count">9 platforms</span></h2>
+    <div class="brand-section" id="jeep">
+      <h2 class="brand-header">Jeep <span class="brand-count">11 platforms</span></h2>
 
       <div class="family-block">
         <p class="family-label">Wrangler <span class="family-meta">YJ · TJ · JK · JL</span></p>
@@ -441,7 +479,7 @@
     </div>
 
     <!-- ── FORD ──────────────────────────────────────────────── -->
-    <div class="brand-section">
+    <div class="brand-section" id="ford">
       <h2 class="brand-header">Ford <span class="brand-count">5 platforms</span></h2>
 
       <div class="family-block">
@@ -509,7 +547,7 @@
     </div>
 
     <!-- ── TOYOTA ────────────────────────────────────────────── -->
-    <div class="brand-section">
+    <div class="brand-section" id="toyota">
       <h2 class="brand-header">Toyota <span class="brand-count">2 platforms</span></h2>
 
       <div class="family-block">
@@ -548,7 +586,7 @@
     </div>
 
     <!-- ── RAM ───────────────────────────────────────────────── -->
-    <div class="brand-section">
+    <div class="brand-section" id="ram">
       <h2 class="brand-header">Ram <span class="brand-count">1 platform</span></h2>
 
       <div class="family-block">

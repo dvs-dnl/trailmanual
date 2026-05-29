@@ -12,6 +12,7 @@
   </script>
 
 <meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trail Manual — DIY reference for off-road vehicle owners</title>
 <meta name="description" content="Free DIY reference for off-road vehicle owners — XJ, JK, JL, TJ, Gladiator, Raptor, Power Wagon, Bronco, Tacoma, 4Runner. Guides on maintenance, suspension, axles, armor, and recovery. Plus AutoVet: research, inspect, and buy your next used rig with confidence.">
@@ -1004,77 +1005,11 @@
 /* ═══════════════════════════════════════════════════════
    AUTOVET BENTO CARD
    ═══════════════════════════════════════════════════════ */
-.card-autovet::after {
-  background-image: url('/images/adventure-jk-sedona-cathedral.jpeg');
-}
 
 /* ═══════════════════════════════════════════════════════
    AUTOVET BAND
    ═══════════════════════════════════════════════════════ */
-.autovet-band {
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 72px 20px;
-}
-.autovet-band-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-.autovet-text h2 {
-  font-size: 34px;
-  letter-spacing: -.5px;
-  margin: 10px 0 16px;
-  line-height: 1.15;
-  font-weight: 800;
-}
-.autovet-text p {
-  color: var(--text-dim);
-  font-size: 15px;
-  line-height: 1.7;
-  max-width: 420px;
-  margin: 0;
-}
-.autovet-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.autovet-step {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border);
-}
-.autovet-step:last-child { border-bottom: none; }
-.autovet-step-num {
-  font-size: 11px;
-  font-weight: 800;
-  color: var(--accent);
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  min-width: 28px;
-  padding-top: 3px;
-}
-.autovet-step-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 3px;
-}
-.autovet-step-desc {
-  font-size: 13px;
-  color: var(--text-dim);
-  line-height: 1.55;
-}
 @media (max-width: 760px) {
-  .autovet-band-inner { grid-template-columns: 1fr; gap: 40px; }
-  .autovet-text h2 { font-size: 26px; }
 }
 
 /* ── VEHICLE ICON STRIP ─────────────────────────────── */
@@ -1173,7 +1108,7 @@
 
       <div class="hero-eyebrow">
         <span class="live-dot"></span>
-        448 guides across 10 platforms
+        643 guides across 20 platforms
       </div>
 
       <h1>The off-road reference<br>the forums never<br><em>finished building.</em></h1>
@@ -1339,10 +1274,10 @@
       <!-- Featured: XJ Database -->
       <a class="bento-card featured" href="/db/">
         <div class="bento-featured-text">
-          <span class="bento-tag live">● Live — 10 platforms</span>
+          <span class="bento-tag live">● Live — 20 platforms</span>
           <h3 style="font-size:26px;margin-top:6px">Off-Road<br>DIY Database</h3>
           <p style="font-size:15px;max-width:440px">
-            310 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
+            326 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
             wheels &amp; tires, interior, electrical, and body. XJ-first and growing — pick
             your platform, filter by category, get straight answers with real pricing.
           </p>
@@ -1373,19 +1308,6 @@
         </div>
       </a>
 
-      <!-- AutoVet -->
-      <a class="bento-card small card-autovet" href="/buying/inspection/">
-        <span class="bento-tag">Buy a Rig</span>
-        <h3>AutoVet<br>Pre-Purchase Tool</h3>
-        <p>
-          Research the vehicle, decode the VIN, get a model-specific inspection
-          checklist, and book a vetted local shop for a full PPI. Know before you buy.
-        </p>
-        <div class="bento-footer">
-          <span>Research · Inspect · Book</span>
-          <span class="bento-arrow">→</span>
-        </div>
-      </a>
     </div>
   </section>
 
@@ -1444,52 +1366,7 @@
     </div>
   </section>
 
-  <!-- ── AUTOVET BAND ────────────────────────────────────────────────── -->
-  <div class="autovet-band">
-    <div class="autovet-band-inner">
-      <div class="autovet-text">
-        <div class="section-eyebrow">AutoVet — in development</div>
-        <h2>Know what you're<br>buying before you buy it.</h2>
-        <p>Most used-vehicle mistakes are predictable. AutoVet walks you through researching the vehicle, decoding the VIN, and building a model-specific inspection checklist — then connects you with a vetted local shop for a professional PPI if you want one.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
-          <a class="btn-primary" href="/vehicle-research-tool.html">Used vehicle research →</a>
-          <a class="btn-ghost" href="/buying/inspection/">AutoVet — coming soon</a>
-        </div>
-      </div>
-      <div class="autovet-steps">
-        <div class="autovet-step">
-          <div class="autovet-step-num">01</div>
-          <div>
-            <div class="autovet-step-title">Research the vehicle</div>
-            <div class="autovet-step-desc">Known failure points, common issues, best and worst years — before you even go look at it.</div>
-          </div>
-        </div>
-        <div class="autovet-step">
-          <div class="autovet-step-num">02</div>
-          <div>
-            <div class="autovet-step-title">Decode the VIN</div>
-            <div class="autovet-step-desc">Year, trim, factory options, open recalls, and title history pulled from the VIN.</div>
-          </div>
-        </div>
-        <div class="autovet-step">
-          <div class="autovet-step-num">03</div>
-          <div>
-            <div class="autovet-step-title">Inspection checklist</div>
-            <div class="autovet-step-desc">A prioritized list of what to check, in order — specific to the make, model, and year.</div>
-          </div>
-        </div>
-        <div class="autovet-step">
-          <div class="autovet-step-num">04</div>
-          <div>
-            <div class="autovet-step-title">Book a shop PPI</div>
-            <div class="autovet-step-desc">Vetted local shops accept jobs through AutoVet. They inspect, you get the report. Free to book.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ── ADVENTURE BREAK ─────────────────────────────────────────────── -->
+    <!-- ── ADVENTURE BREAK ─────────────────────────────────────────────── -->
   <div class="adventure-break">
     <div class="adventure-photo"></div>
     <div class="adventure-overlay"></div>
@@ -1585,7 +1462,7 @@
     <div class="roadmap">
       <div class="roadmap-row">
         <div class="roadmap-phase">Phase 1</div>
-        <div class="roadmap-desc"><strong>Jeep Cherokee XJ (1984–2001)</strong> — 309 entries across maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, and build recipes.</div>
+        <div class="roadmap-desc"><strong>Jeep Cherokee XJ (1984–2001)</strong> — 326 entries across maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, and build recipes.</div>
         <div class="roadmap-status live">Open now</div>
       </div>
       <div class="roadmap-row">
