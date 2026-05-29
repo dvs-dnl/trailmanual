@@ -111,32 +111,82 @@ a{color:inherit;text-decoration:none}
 </head>
 <body>
 
-<header class="topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="/">
-      <span class="brand-mark" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="12" stroke="#E8E2D2" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="#E8E2D2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/></svg></span>
-      <span class="brand-text">TRAIL<span class="brand-dot"></span>MANUAL</span>
-    </a>
-    <nav class="nav">
-      <a href="/xj/">Cherokee XJ</a>
-      <a href="/tj/">Wrangler TJ</a>
-      <a href="/yj/">Wrangler YJ</a>
-      <a href="/jk/">Wrangler JK</a>
-      <a href="/jl/">Wrangler JL</a>
-      <a href="/zj/">Grand Cherokee ZJ</a>
-      <a href="/wj/">Grand Cherokee WJ</a>
-      <a href="/wk/">Grand Cherokee WK</a>
-      <a href="/cj5/">CJ-5</a>
-      <a href="/cj7/">CJ-7</a>
-      <a href="/bronco/">Early Bronco</a>
-      <a href="/full-size-bronco/" class="active">Full-Size</a>
-      <a href="/bronco-ii/">Bronco II</a>
-      <a href="/bronco6g/">New Bronco</a>
-      <a href="/4runner/">4Runner</a>
-      <a href="/tacoma/">Tacoma</a>
-    </nav>
+<style>
+#tm-topbar{position:sticky;top:0;z-index:100;background:var(--slate-d,#1A2330);border-bottom:1px solid rgba(43,58,74,.8)}
+#tm-topbar .tm-topbar-inner{max-width:var(--max,1200px);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
+#tm-topbar .tm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-mark{width:28px;height:28px;flex-shrink:0}
+#tm-topbar .tm-brand-mark svg{width:100%;height:100%;display:block;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-text{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bone,#E8E2D2);display:flex;align-items:center;gap:4px}
+#tm-topbar .tm-brand-dot{width:4px;height:4px;background:var(--clay,#C97E50);border-radius:50%;display:inline-block}
+#tm-topbar .tm-nav-menu{display:flex;align-items:center;gap:2px;margin-left:auto}
+#tm-topbar .tm-nav-btn{height:40px;padding:0 12px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,226,210,.6);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;transition:color .15s,background .15s;white-space:nowrap}
+#tm-topbar .tm-nav-btn:hover,#tm-topbar .tm-nav-btn.tm-active{color:var(--bone,#E8E2D2);background:rgba(255,255,255,.06)}
+#tm-topbar .tm-chev{font-size:9px;opacity:.5;transition:transform .15s}
+#tm-topbar .tm-nav-btn.tm-active .tm-chev{transform:rotate(180deg);opacity:1}
+#tm-topbar .tm-explore-btn::before{content:'⚄ '}
+#tm-topbar .tm-garage-btn{display:flex;align-items:center;gap:7px}
+#tm-topbar .tm-garage-icon{width:26px;height:26px;border-radius:5px;background:rgba(201,126,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-size:9px;font-weight:700;color:var(--clay,#C97E50)}
+#tm-topbar .tm-garage-icon img{width:100%;height:100%;object-fit:contain}
+#tm-topbar .tm-dd-panel{display:none;position:absolute;left:-24px;right:-24px;top:calc(100% + 1px);background:var(--paper,#F7F4ED);border-top:1px solid var(--bone-d,#C9C1AC);border-bottom:1px solid var(--bone-d,#C9C1AC);z-index:99}
+#tm-topbar .tm-dd-panel.open{display:block}
+#tm-topbar .tm-dd-inner{max-width:var(--max,1200px);margin:0 auto;padding:18px 24px 22px;display:flex;gap:36px}
+#tm-topbar .tm-dd-col{flex:1}
+#tm-topbar .tm-dd-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-l,#5B6B7E);margin-bottom:8px}
+#tm-topbar .tm-dd-link{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;border-radius:6px;color:var(--slate,#2B3A4A);text-decoration:none;transition:background .12s;font-size:13px;line-height:1.3}
+#tm-topbar .tm-dd-link:hover{background:rgba(201,126,80,.1)}
+#tm-topbar .tm-dd-link strong{display:block;font-weight:500;margin-bottom:1px;color:var(--slate,#2B3A4A)}
+#tm-topbar .tm-dd-link span:last-child{font-size:11px;color:var(--slate-l,#5B6B7E)}
+#tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+#tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-hamburger svg{width:16px;height:16px}
+@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}}
+</style>
+<header id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    </div>
+    <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+        <a class="tm-dd-link" href="/vehicle-select.html"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon">⚠</div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
+        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon">🔗</div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
+      </div>
+    </div></div>
+    <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon">🛠</div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">✏</div><div><strong>Blog</strong><span>Guides · dives</span></div></a>
+        <a class="tm-dd-link" href="/channels/"><div class="tm-dd-icon">▶</div><div><strong>Channels</strong><span>Trusted builders</span></div></a>
+        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      </div>
+    </div></div>
+    <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">📋</div><div><strong>My builds</strong><span>Saved configs</span></div></a>
+      </div>
+    </div></div>
   </div>
 </header>
+<script src="/_nav.js"></script>
 
 <main>
 
