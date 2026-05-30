@@ -75,7 +75,7 @@
 [data-theme="light"] a { color: var(--clay-deep); }
 [data-theme="light"] a:hover { color: var(--clay); }
 [data-theme="light"] input, [data-theme="light"] select, [data-theme="light"] textarea {
-  background: #FFFFFF;
+  background: var(--paper, #F7F4ED);
   border-color: var(--border-strong);
   color: var(--slate-deep);
 }
@@ -85,12 +85,12 @@
 [data-theme="light"] .site-nav a:hover { color: var(--slate-deep); }
 [data-theme="light"] .v-stat { background: var(--bone); }
 [data-theme="light"] .log-table th, [data-theme="light"] .fuel-table th { background: var(--bone); }
-[data-theme="light"] .section { background: #FFFFFF; }
-[data-theme="light"] .v-header { background: #FFFFFF; }
+[data-theme="light"] .section { background: var(--paper, #F7F4ED); }
+[data-theme="light"] .v-header { background: var(--paper, #F7F4ED); }
 [data-theme="light"] .interval-card, [data-theme="light"] .reminder-card,
 [data-theme="light"] .cs-row, [data-theme="light"] .empty-card { background: var(--bone); }
-[data-theme="light"] .modal { background: #FFFFFF; }
-[data-theme="light"] .veh-pill { background: #FFFFFF; }
+[data-theme="light"] .modal { background: var(--paper, #F7F4ED); }
+[data-theme="light"] .veh-pill { background: var(--paper, #F7F4ED); }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -1027,7 +1027,7 @@ footer a { color: var(--clay-light); }
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header" id="tm-topbar">
   <a class="brand" href="/">
     <svg class="brand-mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <rect x="2" y="2" width="60" height="60" rx="12" fill="#1A2330"/>
@@ -1036,13 +1036,13 @@ footer a { color: var(--clay-light); }
     </svg>
     <span>TRAIL<span class="brand-dot"></span>MANUAL</span>
   </a>
-  <nav class="site-nav">
+  <nav class="site-nav" aria-label="Menu">
     <a href="/db/">Database</a>
     <a href="/tools/">Tools</a>
     <a href="/workshop/">Workshop</a>
     <a href="/my-garage.html" style="color:var(--bone)">My Garage</a>
     <a href="/about/">About</a>
-    <button class="tm-theme-btn" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">
+    <button class="tm-theme-btn" id="tm-theme-btn" aria-label="Toggle light/dark theme" title="Toggle theme">
       <!-- icon swapped by JS -->
       <svg id="themeIcon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/><line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/><line x1="3.1" y1="3.1" x2="4.2" y2="4.2"/><line x1="11.8" y1="11.8" x2="12.9" y2="12.9"/><line x1="12.9" y1="3.1" x2="11.8" y2="4.2"/><line x1="4.2" y1="11.8" x2="3.1" y2="12.9"/></svg>
     </button>
@@ -2725,7 +2725,7 @@ renderContent();
     icon.innerHTML = theme === 'dark' ? SUN_ICON : MOON_ICON;
     icon.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   }
-  var btn = document.getElementById('themeToggle');
+  var btn = document.getElementById('tm-theme-btn');
   if (btn) {
     updateThemeIcon(document.documentElement.getAttribute('data-theme') || 'dark');
     btn.addEventListener('click', function() {
