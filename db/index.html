@@ -457,6 +457,15 @@
 </header>
 <script src="/_nav.js"></script>
 
+<div class="topbar">
+  <div class="topbar-inner">
+    <div id="vehiclePill"></div>
+    <nav class="nav-tabs" id="tabs"></nav>
+    <button class="nav-toggle" id="db-nav-toggle" aria-label="Open menu" style="display:none">&#9776;</button>
+    <nav class="nav-tabs" id="db-nav-tabs"></nav>
+  </div>
+</div>
+
 <main id="app">
   <div class="loading"><div class="spinner"></div><div style="margin-top:14px">Loading database…</div></div>
 </main>
@@ -1040,7 +1049,7 @@
   // ---- topbar (vehicle pill + tabs) ----
   function renderTopbar(vid) {
     const pillContainer = $('#vehiclePill');
-    pillContainer.innerHTML = '';
+    if (pillContainer) pillContainer.innerHTML = '';
     if (vid) {
       const v = vehicleMeta(vid);
       const pill = el('div', {class:'vehicle-pill', on:{click:()=>go('#/')}},
@@ -1048,11 +1057,11 @@
         el('span', {class:'v-years'}, (v && v.years) || ''),
         el('span', {style:'color:var(--text-mute)'}, '✕')
       );
-      pillContainer.appendChild(pill);
+      if (pillContainer) pillContainer.appendChild(pill);
     }
 
     const tabs = $('#tabs');
-    tabs.innerHTML = '';
+    if (tabs) tabs.innerHTML = '';
     if (vid) {
       const items = [
         {l:'Home',     r:'#/'+vid+'/home'},
@@ -1063,10 +1072,10 @@
       ];
       items.forEach(it => {
         const active = location.hash.startsWith(it.r) || (it.l==='Home' && (location.hash==='#/'+vid || location.hash==='#/'+vid+'/'));
-        tabs.appendChild(el('button', {class:'tab' + (active?' active':''), on:{click:()=>go(it.r)}}, it.l));
+        if (tabs) tabs.appendChild(el('button', {class:'tab' + (active?' active':''), on:{click:()=>go(it.r)}}, it.l));
       });
     } else {
-      tabs.appendChild(el('button', {class:'tab'+(location.hash.startsWith('#/about')?' active':''), on:{click:()=>go('#/about')}}, 'About'));
+      if (tabs) tabs.appendChild(el('button', {class:'tab'+(location.hash.startsWith('#/about')?' active':''), on:{click:()=>go('#/about')}}, 'About'));
     }
   }
 
