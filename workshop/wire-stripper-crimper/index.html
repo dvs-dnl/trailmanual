@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wire Strippers and Crimpers — The Right Tool for Each Joint — Trail Manual Workshop</title>
+<meta name="description" content="How to choose and use wire strippers and crimpers for automotive electrical work — gauge matching, crimp types, connector selection, and the pull test that tells you if the joint will hold.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
+.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
+.back-link:hover { color: var(--accent); }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
+.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
+.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
+.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
+.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
+.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+.callout.warn { border-left-color: #e05555; }
+.callout strong { color: var(--text); }
+.tool-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 14px; }
+.tool-table th { text-align: left; padding: 10px 12px; background: var(--bg-2); border-bottom: 2px solid var(--border); color: var(--text); font-weight: 600; font-size: 13px; }
+.tool-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+.tool-table tr:last-child td { border-bottom: none; }
+footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 500px) {
+  .guide-title { font-size: 26px; }
+  .guide-lede { font-size: 16px; }
+  .brand-sub { display: none; }
+  .back-link { font-size: 12px; }
+  .tool-table { font-size: 13px; }
+  .tool-table th, .tool-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-mark">TM</div>
+    <div>
+      <div class="brand-text">Trail Manual</div>
+      <div class="brand-sub">The Workshop</div>
+    </div>
+  </a>
+  <button class="tm-theme-btn" aria-label="Toggle dark mode" onclick="(function(){var h=document.documentElement,d='data-theme',c=h.getAttribute(d)==='dark';h.setAttribute(d,c?'light':'dark');try{localStorage.setItem('tm-theme',c?'light':'dark');}catch(e){}})()">
+    <svg class="tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="back-link" href="/workshop/">← Workshop</a>
+</header>
+
+<div class="guide-wrap">
+  <div class="guide-eyebrow">Workshop · Shop Tools</div>
+  <h1 class="guide-title">Wire Strippers and Crimpers — The Right Tool for Each Joint</h1>
+
+  <p class="guide-lede">
+    A good strip job leaves the conductor intact — no nicked strands, no fraying, no insulation left behind. A solid crimp holds under a firm tug without cold-flowing the terminal onto a bare wire. Get both right and the joint outlasts the vehicle. Get either wrong and you're building in an intermittent failure that won't reveal itself until you need the circuit most.
+  </p>
+
+  <div class="guide-body">
+
+    <h2>Why these tools matter more than people think</h2>
+    <p>Automotive electrical problems trace back to a short list of root causes: corrosion, vibration fatigue, undersized wire, and bad connections. Bad connections — the ones made with the wrong tool or sloppy technique — account for more electrical gremlins than all the other causes combined. A wire stripped with a knife and twisted into a butt connector by hand might work for six months in a dry climate. On an off-road rig bouncing through washboard and water crossings, that joint won't last a season.</p>
+    <p>The right stripper and the right crimper are cheap insurance. A decent ratcheting crimper runs $25–$40. That's less than the labor to chase down one bad connection after the fact.</p>
+
+    <div class="callout">
+      <strong>The guiding principle:</strong> The insulation comes off cleanly, the conductor stays undamaged, and the terminal mechanically grips both the conductor and the insulation jacket. A joint that meets all three criteria does not fail.
+    </div>
+
+    <h2>Wire strippers — types and when to use them</h2>
+    <p>There are three categories of wire strippers, and they're not interchangeable depending on the work.</p>
+
+    <p><strong>Fixed-notch strippers</strong> are the traditional tool — a set of labeled notches corresponding to wire gauges. You select the notch that matches your wire gauge, clamp, twist, and pull. They're accurate when you pick the right notch, fast once you know your gauge, and the cheapest option in the category. The failure mode is selecting the wrong notch — one size too small and you nick the conductor strands; one size too large and you're pulling insulation by friction instead of cutting it clean.</p>
+
+    <p><strong>Self-adjusting (automatic) strippers</strong> use a mechanism that senses the conductor and adjusts clamping depth automatically. You insert the wire, squeeze, and the tool does the calibration. These are faster for mixed-gauge work and more forgiving — you don't need to know the gauge in advance. They're worth owning if you do a lot of electrical work. They cost more ($20–$60) and have a size range limit; most handle 10–24 AWG, which covers nearly all automotive wiring except heavy battery cables.</p>
+
+    <p><strong>Coax and specialty strippers</strong> are designed for specific cable types — coaxial cable, speaker wire, network cable. These are single-purpose tools. Don't use a coax stripper on primary automotive wire; the blade geometry is wrong for the insulation material.</p>
+
+    <h2>Matching gauge — the one thing you cannot skip</h2>
+    <p>Automotive wiring runs from roughly 18 AWG (instrument lighting, small sensors) up to 4 AWG and beyond for high-amperage circuits like winch feeds and battery cables. The stripper notch or adjustment range must match the wire you're working with. When in doubt, check: the wire gauge is often printed on the insulation jacket. If it isn't, a wire gauge tool ($5) will tell you in seconds.</p>
+
+    <div class="callout">
+      <strong>Nicked conductors fail under vibration.</strong> A conductor that's been partially cut by the wrong notch will look fine on the bench. Under repeated flex and vibration it fractures at the nick — sometimes weeks or months later. This is one of the hardest faults to diagnose because the wire tests fine until it doesn't.
+    </div>
+
+    <h2>Crimpers — what separates the tiers</h2>
+    <p>Crimpers vary widely in quality, and the difference is visible in the finished joint.</p>
+
+    <p><strong>Hardware-store multi-tool crimpers</strong> — the plier-style tool with wire cutters, strippers, and a crimp slot all in one jaw — are fine for occasional use on insulated butt connectors in non-critical circuits. The crimp geometry on these is often inconsistent: the slot crushes the terminal from one side rather than forming it symmetrically, which leaves a weaker joint and can pierce through the insulation into the conductor. They're a starting point, not the right tool for anything load-bearing.</p>
+
+    <p><strong>Ratcheting crimpers</strong> are the step up that actually matters. The ratchet mechanism ensures the tool completes a full crimp cycle before releasing — you cannot half-squeeze and let go. The die geometry is also better: most ratcheting crimpers use a die that wraps the terminal around the conductor from multiple sides, producing a gas-tight crimp that resists both pull-out and corrosion. A ratcheting crimper in the $25–$40 range is the right tool for everyday automotive work with insulated terminals.</p>
+
+    <p><strong>Interchangeable-die crimpers</strong> are what professional shops use. The frame is the same; the dies swap out for different terminal types — open-barrel, pin connectors, weatherproof Deutsch and Metri-Pack connectors, battery lugs. If you're doing late-model vehicle wiring that uses OEM-style connectors, you'll need the right die set. These run $50–$150 for a quality frame, with dies at $15–$40 each.</p>
+
+    <h2>Connector types and which crimper handles them</h2>
+
+    <table class="tool-table">
+      <thead>
+        <tr>
+          <th>Connector type</th>
+          <th>Common use</th>
+          <th>Crimper needed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Insulated butt connectors</strong></td>
+          <td>Splicing two wires mid-run</td>
+          <td>Ratcheting crimper, insulated die</td>
+        </tr>
+        <tr>
+          <td><strong>Ring terminals</strong></td>
+          <td>Grounding points, battery connections</td>
+          <td>Ratcheting crimper; heavy gauge needs 4-in-1 die or battery lug crimper</td>
+        </tr>
+        <tr>
+          <td><strong>Spade (fork) terminals</strong></td>
+          <td>Fuse boxes, relay terminals</td>
+          <td>Ratcheting crimper, insulated die</td>
+        </tr>
+        <tr>
+          <td><strong>Bullet connectors</strong></td>
+          <td>Detachable lighting circuits</td>
+          <td>Ratcheting crimper, insulated die</td>
+        </tr>
+        <tr>
+          <td><strong>Open-barrel (OEM-style)</strong></td>
+          <td>Sensor harness repair, connector pigtails</td>
+          <td>Interchangeable-die crimper with correct die for terminal series</td>
+        </tr>
+        <tr>
+          <td><strong>Weatherproof (Deutsch DT/DTM)</strong></td>
+          <td>Off-road accessories, trailer harness</td>
+          <td>Deutsch-specific crimper or equivalent die set</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Color-coding on insulated terminals tells you the wire gauge range: <strong>red</strong> is 22–18 AWG, <strong>blue</strong> is 16–14 AWG, and <strong>yellow</strong> is 12–10 AWG. This convention is nearly universal across brands. Match the terminal color to the wire gauge before you crimp.</p>
+
+    <h2>Crimping technique — what "correct" actually looks like</h2>
+    <p>Strip the insulation to the depth specified for the terminal. Most insulated butt connectors have a visible depth stop inside — insert the wire until the conductor bottoms out against it, then check that the insulation jacket is inside the barrel of the terminal, not outside it. The crimp needs to grip both the conductor strands and the insulation.</p>
+    <p>On ratcheting crimpers with an open-barrel die, seam orientation matters: place the terminal seam facing toward the anvil (the flat side of the die), not toward the indentor. This orients the fold inward rather than outward, producing a tighter mechanical lock on the conductor.</p>
+    <p>Squeeze until the ratchet releases. Don't force it past release — over-crimping can fracture strands or crack the terminal barrel.</p>
+
+    <h2>The pull test — use it every time</h2>
+    <p>After every crimp, grip the wire and the terminal separately and apply a firm, steady pull — roughly 10–15 pounds of force. If the wire pulls out, the crimp failed: wrong die, wrong gauge terminal, or incomplete crimp cycle. Do this before you route or wrap anything. Finding a bad joint on the bench takes five seconds. Finding it after the dash is reassembled takes a lot longer.</p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Stripping too long.</strong> Bare conductor extending past the terminal barrel is exposed to moisture and shorting. Strip to the depth marked or measured for the terminal — no more.</li>
+      <li><strong>Using the wrong gauge terminal.</strong> An 18 AWG wire in a yellow (10–12 AWG) terminal will never develop a gas-tight crimp. The terminal is too large; the crimp will cold-flow rather than grip.</li>
+      <li><strong>Skipping heat-shrink on outdoor circuits.</strong> Standard insulated butt connectors are not weatherproof. Any connection exposed to moisture — under the hood, on the frame, on lighting circuits — should use heat-shrink lined terminals or be covered with adhesive-lined heat shrink tubing after crimping.</li>
+      <li><strong>Re-crimping a joint.</strong> If a crimp doesn't pass the pull test, cut it off and start over. Re-crimping an already-deformed terminal compounds the damage and produces a joint that looks finished but isn't.</li>
+      <li><strong>Using a knife to strip wire.</strong> A utility knife removes insulation, but it's nearly impossible to avoid running the blade across the conductor strands at the edge of the cut. Even a light nick is enough to create a fatigue point under vibration.</li>
+    </ul>
+
+    <div class="callout">
+      <strong>A note on heat-shrink connectors:</strong> The pre-filled heat-shrink butt connectors (red or clear with a solder ring inside) look attractive as a one-step solution. The solder ring is fine; the built-in heat-shrink is the real value. But these still require a proper crimp of the terminal barrel onto the wire before you apply heat — the solder reinforces a good mechanical joint, it doesn't replace one. If you only heat without crimping, you have a solder joint with no mechanical grip, which is worse than a well-executed crimp alone.
+    </div>
+
+    <h2>What to own vs. what to rent</h2>
+    <p>You don't need an interchangeable-die set on day one. Start with a self-adjusting wire stripper (covers 10–24 AWG) and a ratcheting crimper with a standard insulated die. That combination handles 90% of the electrical work a home shop sees. Add open-barrel dies when you're doing OEM connector repair. Add Deutsch tooling when you're wiring off-road accessories that need to hold up to water and vibration for years.</p>
+    <p>Battery cable lugs in 4 AWG and larger are the one common exception — a standard ratcheting crimper doesn't have enough mechanical advantage for those. A hydraulic cable lug crimper is the right tool; most auto parts stores loan one free.</p>
+
+  </div>
+
+</div>
+
+<footer>
+  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
+  <a href="/channels/">Recommended Channels</a> &nbsp;·&nbsp;
+  <a href="/">Trail Manual</a>
+</footer>
+
+</body>
+</html>
