@@ -12,6 +12,7 @@
   </script>
 
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Multimeter Basics for 12V Automotive Work — The Workshop · Trail Manual</title>
@@ -117,20 +118,28 @@ hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
     .brand-text{font-size:14px}
     .back-link{font-size:12px;padding:6px 9px;white-space:nowrap;flex-shrink:0}
   }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
 </style>
 </head>
 <body>
-<div class="topbar">
+<div class="topbar" id="tm-topbar">
   <div class="topbar-inner">
     <a class="brand" href="/">
-      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+  </div>
       <div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div>
     </a>
-    <a class="back-link" href="/workshop/">← The Workshop</a>
+    <a class="back-link" aria-label="Menu" href="/workshop/">← The Workshop</a>
   </div>
 </div>
 
-<div class="page">
+<div class="page"><article>
   <div class="hero">
     <div class="hero-eyebrow">The Workshop · Shop Tools</div>
     <h1>Multimeter Basics for 12V Automotive Work</h1>
@@ -139,7 +148,7 @@ hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
       <span class="meta-pill"><strong>8 min read</strong></span>
       <span class="meta-pill">Vehicle-agnostic</span>
     </div>
-  </div>
+  </article></div>
 
   <div class="verdict">
     <div class="verdict-label">Bottom line</div>
@@ -246,5 +255,6 @@ hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
   </div>
   <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
 </footer>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
 </body>
 </html>

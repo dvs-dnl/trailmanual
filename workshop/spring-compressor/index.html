@@ -164,6 +164,12 @@ li strong{color:var(--text)}
 .related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
 .footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
 .footer a{color:var(--text-dim)}
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
 </style>
 </head>
 <body>
@@ -289,13 +295,13 @@ li strong{color:var(--text)}
   </div>
 </header>
 
-<div class="page">
+<div class="page"><article>
   <div class="hero">
     <div class="hero-eyebrow">The Workshop · Shop Tools</div>
     <h1>Spring Compressor — Safe Use and What Not to Do</h1>
     <p class="lede">A compressed coil spring on a passenger-car strut stores roughly 1,500–3,000 pounds of force in a part you can pick up with one hand. Released uncontrolled, that energy doesn't make a loud bang and stop — it sends a hardened steel spring through drywall, through tools, and through the people standing next to it. This guide covers which compressor to use, which to avoid, and the rules that keep that energy in the spring until you say otherwise.</p>
     <div class="safety-badge">⚠ Safety critical</div>
-  </div>
+  </article></div>
 
   <div class="verdict">
     <div class="verdict-label">The short answer</div>
@@ -534,5 +540,6 @@ li strong{color:var(--text)}
   }
 })();
 </script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
 </body>
 </html>

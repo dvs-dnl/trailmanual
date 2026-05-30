@@ -192,6 +192,16 @@ h2{font-size:20px;letter-spacing:-.3px;margin:0 0 16px}
   [data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
   [data-theme="dark"] .tm-theme-icon-moon{display:none}
 
+  /* --- mobile hamburger --- */
+  .hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;align-items:center;justify-content:center;color:var(--text-dim);flex-shrink:0}
+  .hamburger svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-linecap:round}
+  .topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+  .topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+  .topbar-mobile-nav a:last-child{border-bottom:none}
+  .topbar-mobile-nav a:hover{color:var(--accent)}
+  .topbar-mobile-nav.open{display:block}
+  @media(max-width:600px){.hamburger{display:flex}}
+
 </style>
 </head>
 <body>
@@ -210,6 +220,14 @@ h2{font-size:20px;letter-spacing:-.3px;margin:0 0 16px}
       <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
       <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
+    <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('topbar-mobile-nav').classList.toggle('open')"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+  </div>
+  <div class="topbar-mobile-nav" id="topbar-mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/workshop/">Workshop</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
   </div>
 </nav>
 

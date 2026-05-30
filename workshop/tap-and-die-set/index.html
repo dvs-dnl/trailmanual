@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tap and Die Set Basics — Trail Manual Workshop</title>
 <meta name="description" content="How taps and dies work, when to cut new threads vs. chase existing ones, the drill sizes and cutting fluid rules that keep taps intact, and the mistakes that break them.">
@@ -40,6 +41,12 @@ footer a { color: var(--accent); text-decoration: none; }
   .brand-sub { display: none; }
   .back-link { font-size: 12px; }
 }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
 </style>
 </head>
 <body>
@@ -52,11 +59,11 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="brand-sub">The Workshop</div>
     </div>
   </a>
-  <a class="back-link" href="/workshop/">← Workshop</a>
+  <a class="back-link" aria-label="Menu" href="/workshop/">← Workshop</a>
 </header>
 
-<div class="guide-wrap">
-  <div class="guide-eyebrow">Workshop · Shop Tools</div>
+<div class="guide-wrap"><article>
+  <div class="guide-eyebrow">Workshop · Shop Tools</article></div>
   <h1 class="guide-title">Tap and Die Set Basics</h1>
 
   <p class="guide-lede">
@@ -164,5 +171,6 @@ footer a { color: var(--accent); text-decoration: none; }
   <a href="/">Trail Manual</a>
 </footer>
 
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
 </body>
 </html>
