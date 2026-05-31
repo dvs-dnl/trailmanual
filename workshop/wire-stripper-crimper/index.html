@@ -66,8 +66,11 @@ footer a { color: var(--accent); text-decoration: none; }
     <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   </button>
   <a class="back-link" href="/workshop/">← Workshop</a>
+  <button class="hamburger" aria-label="Menu" onclick="this.setAttribute('aria-expanded',document.getElementById('ws-nav').classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav id="ws-nav" class="ws-nav" aria-label="Site"><a href="/">Home</a><a href="/db/">Vehicles</a><a href="/workshop/">Workshop</a><a href="/blog/">Blog</a></nav>
 </header>
 
+<article>
 <div class="guide-wrap">
   <div class="guide-eyebrow">Workshop · Shop Tools</div>
   <h1 class="guide-title">Wire Strippers and Crimpers — The Right Tool for Each Joint</h1>
@@ -187,10 +190,10 @@ footer a { color: var(--accent); text-decoration: none; }
 </div>
 
 <footer>
-  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
-  <a href="/channels/">Recommended Channels</a> &nbsp;·&nbsp;
+  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp; &nbsp;·&nbsp;
   <a href="/">Trail Manual</a>
 </footer>
 
+</article>
 </body>
 </html>

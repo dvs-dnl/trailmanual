@@ -1082,22 +1082,22 @@
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
       <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
       <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
       <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
     </div>
   </div>
   <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-      <a class="tm-dd-link" href="/vehicle-select.html"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
       <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
       <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
       <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
       <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
     </div>
@@ -1108,9 +1108,7 @@
       <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
-      <a class="tm-dd-link" href="/channels/"><div class="tm-dd-icon slate">▶</div><div><strong>Trusted Channels</strong><span>Honest builders</span></div></a>
-      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
@@ -1141,9 +1139,12 @@
       </p>
 
       <div class="hero-cta">
-        <a class="btn-primary" href="/db/">Browse by vehicle →</a>
-        <a class="btn-ghost" href="/workshop/">The Workshop →</a>
+        <a class="btn-primary" href="/db/">Pick your rig →</a>
+        <a class="btn-primary" href="/tools/" style="background:transparent;border:2px solid var(--accent);color:var(--accent)">Browse by tool →</a>
       </div>
+      <p class="hero-sub" style="margin-top:14px;font-size:14px;opacity:.75;max-width:560px">
+        Two ways in — start with your vehicle and see every guide built for it, or start with a tool (Rig Builder, repair guides, gear calc) and pick your vehicle inside.
+      </p>
 
       <div class="hero-trust">
         <div class="hero-trust-item">
@@ -1344,16 +1345,16 @@
     <p class="section-lede">New posts weekly. No fluff, no sponsored angles.</p>
 
     <div class="blog-grid">
-      <a class="blog-feature" href="/blog/xj-head-gasket-vs-cracked-0331-head/">
+      <a class="blog-feature" href="/blog/xj-ball-joint-replacement/">
         <div class="blog-feature-photo">
-          <img src="/images/adventure-xj-trailside-repair.jpeg" alt="XJ 4.0 engine diagnostic — head gasket vs cracked head" loading="lazy">
+          <img src="/images/adventure-xj-trailside-repair.jpeg" alt="XJ Cherokee front axle — ball joint and steering knuckle" loading="lazy">
         </div>
         <div class="blog-feature-body">
-          <span class="blog-tag">XJ Diagnostics</span>
-          <h3>Blown Head Gasket or Cracked 0331 Head? How to Tell on a 4.0L XJ</h3>
-          <p>Slow coolant loss with no overheating points to a cracked 0331 head — not a gasket. The block test alone won't catch it. Here's the diagnostic order that separates the two without pulling the head.</p>
+          <span class="blog-tag">XJ Steering &amp; Suspension</span>
+          <h3>XJ Ball Joint Replacement: Symptoms, Diagnosis, and DIY</h3>
+          <p>A clunk from a front corner over bumps is the tell. Here's how to check for play, what to buy (Spicer 706944X), and how to press them yourself with a rented tool — plus the specs and torque numbers you need.</p>
           <div class="blog-meta">
-            <span>11 min read</span>
+            <span>9 min read</span>
             <span class="read-more">Read →</span>
           </div>
         </div>
@@ -1456,24 +1457,6 @@
     </div>
   </section>
 
-  <!-- ── CHANNELS ─────────────────────────────────────────────────────── -->
-  <section class="section" style="padding-bottom:48px">
-    <div class="channels-band">
-      <div class="channels-avatars">
-        <div class="ch-dot" style="background:#5db87a">MW</div>
-        <div class="ch-dot" style="background:#4a9edd">SM</div>
-        <div class="ch-dot" style="background:#d4738a">EH</div>
-        <div class="ch-dot" style="background:#4dbdbd">AM</div>
-        <div class="ch-dot" style="background:var(--accent)">RW</div>
-      </div>
-      <div class="channels-text">
-        <h3>Recommended channels.</h3>
-        <p>Curated for accuracy and depth. Working mechanics, build specialists, and educators who know what they're talking about.</p>
-      </div>
-      <a class="btn-outline" href="/channels/" style="flex-shrink:0">Browse channels →</a>
-    </div>
-  </section>
-
   <!-- ── ROADMAP ──────────────────────────────────────────────────────── -->
   <section class="section">
     <div class="section-eyebrow">Roadmap</div>
@@ -1558,9 +1541,7 @@
     </div>
     <div>
       <h4>Learn</h4>
-      <a href="/workshop/">Workshop</a>
-      <a href="/channels/">Channels</a>
-      <a href="/about/#roadmap">Roadmap</a>
+      <a href="/workshop/">Workshop</a>      <a href="/about/#roadmap">Roadmap</a>
     </div>
     <div>
       <h4>About</h4>

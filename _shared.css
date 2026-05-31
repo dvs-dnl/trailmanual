@@ -857,3 +857,71 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
   .tm-dd-inner{flex-direction:column;gap:0;padding:8px 12px}
   .tm-dd-col{margin-bottom:8px}
 }
+
+/* ============ Blog card grid ============ */
+.tm-blog-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:24px;
+}
+.tm-blog-card{
+  display:flex;
+  flex-direction:column;
+  padding:20px 20px 16px;
+  background:var(--bg,#f7f4ed);
+  border:1.5px solid var(--border,rgba(0,0,0,.1));
+  border-radius:var(--radius-lg,10px);
+  text-decoration:none;
+  color:inherit;
+  transition:border-color .15s,box-shadow .15s;
+}
+.tm-blog-card:hover{
+  border-color:var(--accent,#C97E50);
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  text-decoration:none;
+}
+.tm-blog-tag{
+  display:inline-block;
+  font-family:var(--font-mono,"JetBrains Mono",ui-monospace,monospace);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--accent,#C97E50);
+  margin-bottom:10px;
+  /* Key fix: top padding separates the tag from the Read → link in the card above */
+  padding-top:2px;
+}
+.tm-blog-card h3{
+  font-size:16px;
+  font-weight:700;
+  line-height:1.35;
+  margin:0 0 8px;
+  color:var(--text,#1a2330);
+}
+.tm-blog-card p{
+  font-size:14px;
+  line-height:1.6;
+  color:var(--text-dim,#5B6B7E);
+  margin:0 0 auto;
+  flex:1;
+}
+.tm-blog-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:16px;
+  padding-top:12px;
+  border-top:1px solid var(--border,rgba(0,0,0,.08));
+  font-size:12px;
+  color:var(--text-mute,#8A9BAE);
+  font-family:var(--font-mono,"JetBrains Mono",ui-monospace,monospace);
+}
+.read-more{
+  color:var(--accent,#C97E50);
+  font-weight:600;
+  letter-spacing:.02em;
+}
+@media(max-width:640px){
+  .tm-blog-grid{grid-template-columns:1fr;gap:16px}
+}
