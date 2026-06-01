@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heat Gun Uses — Shrink Tubing, Stubborn Clips, and Vinyl — Trail Manual Workshop</title>
+<meta name="description" content="How to use a heat gun in the shop — heat shrink tubing, releasing stubborn plastic clips, vinyl removal, and sticker adhesive. Temperature settings, technique, and what to keep it away from.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
+.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
+.back-link:hover { color: var(--accent); }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
+.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
+.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
+.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
+.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
+.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+.callout.warn { border-left-color: #e05555; }
+.callout strong { color: var(--text); }
+.temp-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 14px; }
+.temp-table th { text-align: left; padding: 10px 12px; background: var(--bg-2); border-bottom: 2px solid var(--border); color: var(--text); font-weight: 600; font-size: 13px; }
+.temp-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+.temp-table tr:last-child td { border-bottom: none; }
+footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 500px) {
+  .guide-title { font-size: 26px; }
+  .guide-lede { font-size: 16px; }
+  .brand-sub { display: none; }
+  .back-link { font-size: 12px; }
+  .temp-table { font-size: 13px; }
+  .temp-table th, .temp-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-mark">TM</div>
+    <div>
+      <div class="brand-text">Trail Manual</div>
+      <div class="brand-sub">The Workshop</div>
+    </div>
+  </a>
+  <button class="tm-theme-btn" aria-label="Toggle dark mode" onclick="(function(){var h=document.documentElement,d='data-theme',c=h.getAttribute(d)==='dark';h.setAttribute(d,c?'light':'dark');try{localStorage.setItem('tm-theme',c?'light':'dark');}catch(e){}})()">
+    <svg class="tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="back-link" href="/workshop/">← Workshop</a>
+  <button class="hamburger" aria-label="Menu" onclick="this.setAttribute('aria-expanded',document.getElementById('ws-nav').classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav id="ws-nav" class="ws-nav" aria-label="Site"><a href="/">Home</a><a href="/db/">Vehicles</a><a href="/workshop/">Workshop</a><a href="/blog/">Blog</a></nav>
+</header>
+
+<article>
+<div class="guide-wrap">
+  <div class="guide-eyebrow">Workshop · Shop Tools</div>
+  <h1 class="guide-title">Heat Gun Uses — Shrink Tubing, Stubborn Clips, and Vinyl</h1>
+
+  <p class="guide-lede">
+    A heat gun does a handful of things in the shop that no other tool handles as well: shrinking tubing onto repaired wiring, softening plastic so clips release without snapping, and freeing old adhesive-backed trim or stickers without gouging the surface underneath. The technique in all three cases is the same — keep it moving, use the lowest effective temperature, and respect that the tip stays dangerously hot for minutes after you set it down.
+  </p>
+
+  <div class="guide-body">
+
+    <h2>What a heat gun actually is</h2>
+    <p>A heat gun is a forced-air heating element — think of it as a high-powered hair dryer rated for industrial temperatures. Most variable-temperature models reach 120–650°C (250–1200°F) with a high-volume fan moving heated air through a nozzle. What makes it useful in the shop is the ability to direct concentrated heat at a specific small area without an open flame and without contact with the surface.</p>
+    <p>Two settings drive most automotive shop use: a low setting (120–230°C / 250–450°F) covers heat shrink tubing, sticker removal, and clip softening. A high setting (300–400°C / 570–750°F) is for vinyl wrapping and stubborn adhesive-backed trim. Temperatures above that are outside the range of anything you'd do on a vehicle's existing materials.</p>
+
+    <div class="callout">
+      <strong>The one rule that covers everything:</strong> Keep the gun moving. Holding it in one spot concentrates heat beyond what the material can handle. Plastic scorches, adhesive burns into the surface, and heat shrink wrinkles instead of contracting evenly. Continuous motion is what separates a clean result from a damaged one.
+    </div>
+
+    <h2>Heat shrink tubing</h2>
+    <p>Heat shrink tubing is the most common electrical use. You slide it over a repaired or spliced wire, position it so it covers the exposed conductor and overlaps both sides of insulation, then apply heat until it contracts tightly around the wire. A quality joint should show the outline of the conductor and any underlying connector through the tubing — it fits that snugly when done correctly.</p>
+    <p>Use the low setting. Standard PVC heat shrink contracts at around 90°C (195°F), which is well below even the low setting on most guns — the challenge is not burning through the tubing or the wire insulation underneath before the contraction is complete. Keep the nozzle 5–8cm (2–3 inches) from the tubing and move it in slow passes. The tubing will begin visibly shrinking within a second or two; stop moving forward and let the contraction finish before moving on.</p>
+    <p>For adhesive-lined heat shrink (the clear or black tubing with a glue interior), you'll see a small bead of adhesive squeeze out from the ends when the shrink is complete. That's correct — it confirms the adhesive has melted and sealed around the wire. Wipe away the excess while it's still soft.</p>
+
+    <table class="temp-table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Setting</th>
+          <th>Distance from surface</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Standard heat shrink tubing</td>
+          <td>Low (200–300°C / 390–570°F)</td>
+          <td>5–8 cm (2–3 in)</td>
+        </tr>
+        <tr>
+          <td>Adhesive-lined heat shrink</td>
+          <td>Low (250–300°C / 480–570°F)</td>
+          <td>5–8 cm (2–3 in)</td>
+        </tr>
+        <tr>
+          <td>Softening plastic clips and retainers</td>
+          <td>Low (150–200°C / 300–390°F)</td>
+          <td>8–12 cm (3–5 in)</td>
+        </tr>
+        <tr>
+          <td>Sticker and decal adhesive</td>
+          <td>Low (120–180°C / 250–350°F)</td>
+          <td>5–10 cm (2–4 in)</td>
+        </tr>
+        <tr>
+          <td>Adhesive-backed trim removal</td>
+          <td>Medium (250–350°C / 480–660°F)</td>
+          <td>5–8 cm (2–3 in)</td>
+        </tr>
+        <tr>
+          <td>Vinyl wrap application and removal</td>
+          <td>Medium–High (300–400°C / 570–750°F)</td>
+          <td>3–6 cm (1–2.5 in)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Softening stubborn plastic clips and retainers</h2>
+    <p>Interior trim clips, body panel retainers, and wire loom clips are frequently brittle from age, sun exposure, and heat cycling. Trying to release a cold, old clip often snaps it — and a broken clip means tracking down a replacement before you can button the panel back up.</p>
+    <p>A short pass of low heat — 5–10 seconds at low setting, 8–12 cm from the clip — brings the plastic back toward its working flexibility without softening it so much that it deforms. You're not trying to make it pliable; you're removing the brittleness so the clip can flex through its release angle without cracking. Work the release immediately after heating, while the plastic is still warm. If it cools before you get to it, apply heat again rather than forcing it.</p>
+    <p>The same technique applies to molded plastic retainers that are stuck inside a channel — a few seconds of heat lets the plastic relax and release its grip on the mounting point. This comes up frequently when removing door panels, instrument clusters, and any panel that's been in place for a decade or more.</p>
+
+    <h2>Removing stickers, decals, and adhesive-backed trim</h2>
+    <p>Adhesive softens and loses grip when warmed. For stickers and decals, 30–60 seconds of low heat directed at the sticker's surface is enough to soften the adhesive to the point where you can peel from one corner and the rest follows without tearing or leaving chunks behind. Use a plastic trim tool or your fingernail to get under the edge — a metal scraper risks scratching the surface below. Pull back at a low angle (30–45 degrees) rather than straight up, which distributes the peel force across the adhesive layer rather than concentrating it at one point.</p>
+    <p>For adhesive-backed molding and trim strips — the rubber side molding on doors, for example — you'll need more sustained heat at a medium setting. Work slowly along the length, heating 10–15 cm at a time and pulling the trim back from the heated section immediately. Old 3M automotive tape leaves a residue; remove it with a plastic-safe adhesive remover (3M General Purpose Adhesive Remover or equivalent) once the trim is off.</p>
+    <p>Any adhesive residue left on painted surfaces should come off while the surface is still warm — a brief re-application of heat and a clean microfiber cloth can wipe away the softened residue without the need for solvents near fresh or base-clear paint. Don't let the solvent contact fresh paint if you can avoid it.</p>
+
+    <h2>Vinyl wrap work</h2>
+    <p>Vinyl wrap film becomes conformable when warm — it stretches over compound curves and into recesses without air bubbles. For application, a heat gun at medium-high setting is the tool for wrapping tight corners, door handles, mirror caps, and any surface that requires the vinyl to stretch to conform. Keep the gun moving and maintain even tension on the vinyl as you heat it; the film will become noticeably more pliable within a few seconds and should be worked immediately before it cools.</p>
+    <p>For removing old vinyl, the same logic applies in reverse: heat softens the adhesive, and the vinyl peels away cleanly rather than tearing into small strips. Work a corner free first, then heat progressively ahead of the peel as you go. Moving slowly and heating just ahead of the pull is faster overall than working aggressively and leaving adhesive residue that requires additional cleanup.</p>
+
+    <div class="callout warn">
+      <strong>Keep it away from fuel system components.</strong> Never direct a heat gun near fuel lines, the fuel tank, a carburetor, or any component that may hold residual fuel or fuel vapor. The gun produces no flame, but the surface temperatures it generates — and the surfaces it's pointed at — are above the ignition point of gasoline vapor. This is not a theoretical risk. Treat any fuel-adjacent work as incompatible with a heat gun unless the area is thoroughly purged and cleaned of all fuel and vapor.
+    </div>
+
+    <h2>What to keep it away from</h2>
+    <p>A heat gun concentrates more thermal energy in a small area than most people expect. The list of nearby materials that can be damaged or ignited is long: wiring insulation (PVC softens at ~80°C, melts and becomes brittle permanently above ~150°C), rubber hoses, brake fluid reservoirs, coolant overflow tanks, and any plastic bracket or clip that isn't your target. Working near the engine bay or firewall requires care about what's adjacent to what you're actually trying to heat.</p>
+    <p>Paint damage is also a real risk on panels. The clear coat on modern base-clear finishes begins to lose hardness above 60–70°C, and sustained heat gun exposure at close range can cause blistering or delamination. When using a heat gun on or near painted bodywork, keep the gun moving, maintain distance, and stay at the lowest temperature that gets the job done.</p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Holding the gun in one spot.</strong> This is the source of most heat gun damage — scorched plastic, blistered paint, melted wiring. Always move.</li>
+      <li><strong>Setting the temperature too high for heat shrink.</strong> High heat causes heat shrink tubing to shrink unevenly and can melt thin-wall tubing or underlying wire insulation before the contraction finishes. Low setting is the right choice for all heat shrink work.</li>
+      <li><strong>Forgetting the tip temperature after use.</strong> The nozzle of a heat gun stays above 200°C for several minutes after shutting it down. Laying it on its side against anything flammable, or setting it down on a plastic surface, will cause damage or a fire. Many guns have a stand or rest built in — use it, or rest the gun on a metal surface with the nozzle facing away from anything nearby.</li>
+      <li><strong>Working in a poorly ventilated space.</strong> Heating vinyl, adhesive, and old rubber gasket material releases fumes. Open the garage door or run a fan before extended heat gun work. Old adhesive-backed trim in particular can release strong solvent odors as the adhesive warms.</li>
+      <li><strong>Using the gun to "dry" things faster near electrical components.</strong> Blowing hot air into a wet electrical connector or fuse box to dry it out risks heat-damaging the plastic housing and the terminal contacts. Let electrical components air dry or use compressed air at low pressure — not heat.</li>
+    </ul>
+
+    <h2>What to own</h2>
+    <p>A variable-temperature, variable-airflow heat gun in the $30–$60 range covers everything in this guide. Milwaukee, DeWalt, and Makita all make solid corded options with wide temperature ranges and included nozzle attachments. The concentrator nozzle (a narrow flat nozzle that focuses airflow into a slot) is the most useful attachment for automotive work — it lets you heat a single clip or a specific section of wire without blasting everything around it.</p>
+    <p>If you only need it occasionally, this is a tool worth borrowing before buying. If you do any regular electrical work, trim removal, or decal work, the $40 corded version pays for itself the first time you remove a set of door trim clips without snapping them.</p>
+
+  </div>
+
+</div>
+</article>
+
+<footer>
+  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
+  <a href="/channels/">Recommended Channels</a> &nbsp;·&nbsp;
+  <a href="/">Trail Manual</a>
+</footer>
+
+</body>
+</html>
