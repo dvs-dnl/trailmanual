@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -9,10 +10,11 @@
     gtag('config', 'G-639VVRC92N');
   </script>
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TJ Wrangler Lift Kit Guide: Short Arm, Long Arm, and Everything That Goes With It — Trail Manual</title>
-<meta name="description" content="The complete TJ Wrangler lift kit guide — how much lift you need for your tire size, short arm vs. long arm, what else a lift requires, and what it all costs.">
+<title>How to Lift a TJ Wrangler: Springs, Caster, and What You Need Before Tires — Trail Manual</title>
+<meta name="description" content="A 3–3.5-inch short-arm lift fits 33-inch tires without a body lift and doesn't require an SYE — it's the right first build for most TJ Wranglers. Here's what each lift tier costs you and why caster correction isn't optional.">
 <link rel="stylesheet" href="/_shared.css">
 </head>
 <body>
@@ -25,7 +27,9 @@
       <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
       <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
       <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
     </div>
   </div>
   <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
@@ -34,90 +38,94 @@
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
       <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
       <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
       <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
-    </div>
-  </div></div>
-  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
-      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
-      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate">📋</div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
     </div>
   </div></div>
 </header>
-<script src="/_nav.js"></script><main class="tm-main">
+<script src="/_nav.js"></script>
+
+<main class="tm-main">
   <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
 
-    <div style="margin-bottom:32px">
-      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">TJ Wrangler · Suspension</span>
-      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">TJ Wrangler Lift Kit Guide: Short Arm, Long Arm, and Everything That Goes With It</h1>
-      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">The TJ's coil-sprung suspension makes lift kits cleaner than the leaf-sprung generation before it — but lift still has a cascade of requirements. Here's what you need for each tire size, what the geometry tradeoffs actually mean, and how to do it right the first time.</p>
+    <div style="margin-bottom:28px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">TJ Build</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">How to Lift a TJ Wrangler: Springs, Caster, and What You Need Before Tires</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">A 3–3.5-inch short-arm suspension lift is the right first build for most TJ Wranglers. It clears 33&times;12.5-inch tires without a body lift, doesn't require a slip yoke eliminator, and can be completed in a weekend. The catch is caster — ignore it and you'll have wandering steering and a highway shimmy that no amount of alignment will fix.</p>
       <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
-        <span>May 2026</span> · <span>11 min read</span>
+        <span>June 1, 2026</span> &middot; <span>9 min read</span>
       </div>
     </div>
 
-    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:24px 0">
-      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
-      <p style="font-size:14px;color:var(--text-dim);margin:0;line-height:1.6">For 33-inch tires: 3–3.5 inches of lift with a quality short arm kit, adjustable track bars, and a slip yoke eliminator plus CV rear driveshaft. Budget $2,000–$3,500 in parts and 8–12 hours of work. For 35s: 4–4.5 inches with all of the above and ideally a long arm or adjustable-arm kit. Budget $3,500–$5,500. Don't start with the lift — start with the tires you want to run and work backward.</p>
-    </div>
+    <h2>The verdict</h2>
 
-    <h2>Why lift height is about tires, not ground clearance</h2>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Every inch of lift you add exists to create clearance for a larger tire. The TJ on 31-inch tires at stock height has adequate trail ground clearance for most situations — the stock fender openings are the limit, not the suspension. When you go to 32 or 33-inch tires, the tires start rubbing the fenders and the lower control arms under full compression and full lock. Lift creates the space the larger tire needs to move freely.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The relationship is roughly: 2 inches of lift clears 31–32-inch tires. 3–3.5 inches clears 33s. 4–4.5 inches clears 35s. Beyond 4.5 inches with 35s, you're in long arm territory and the geometry demands become significant. Don't lift higher than your tires require — each inch adds weight to the front end, raises the center of gravity, and introduces another set of geometry corrections.</p>
+    <p>Stock TJ Wranglers (1997–2006) ride on coil springs at all four corners, which gives them better articulation than the YJ's leaf-rear setup right out of the box. Lifting them is well-understood territory: the parts are cheap relative to the JK, the geometry behaves predictably, and the community has decades of documented builds to draw from.</p>
 
-    <h2>Short arm vs. long arm: what the difference actually means on trail</h2>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The TJ uses four control arms per axle to locate it — two upper and two lower at the front, two upper and two lower at the rear. These arms are the geometry. As you add lift, the arm angles change: the lower control arms point more steeply downward from the frame to the axle, which rotates the axle forward through the suspension arc and reduces caster (the front axle's steering geometry angle). Drop enough caster and the TJ steers vaguely and is susceptible to death wobble.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Short arm kits</strong> retain the stock control arm pivot location on the frame. To recover lost caster, they use adjustable control arms or offset control arm cam bolts. Good short arm kits (Rubicon Express Super-Flex, Old Man Emu, Metalcloak Game-Changer) do this correctly. Budget coil spacer kits ignore caster entirely — which is why cheap lift kits have a reputation for causing death wobble that good kits don't deserve.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Long arm kits</strong> move the control arm pivot point rearward on the frame, which flattens the arm angle at lift height and brings the geometry much closer to stock. The result is better ride quality, more wheel travel, and more stable steering at higher lift heights. The cost: long arm kits require welding new frame brackets onto the unibody, they're expensive ($2,500–$4,000 just for the kit), and they're not reversible. This is the right answer for a dedicated 4.5-inch+ build running 35s or larger on serious terrain. It's not necessary — and arguably not justified — for a 3.5-inch street-and-mild-trail TJ.</p>
+    <p>For most owners, the answer is <strong>3 to 3.5 inches of lift, short-arm, with adjustable upper control arms</strong>. That combination fits <strong>33&times;12.5-inch tires</strong> without a body lift or fender cutting, keeps the NP231 transfer case's slip yoke within a safe operating angle, and corrects caster when paired with the right control arms. It's the build that makes the most sense before you know exactly what kind of wheeling you're going to do.</p>
 
-    <h2>The slip yoke eliminator: not optional on lifted TJs</h2>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The NP231 transfer case outputs to the rear driveshaft through a slip yoke — a splined shaft that telescopes in and out as the driveshaft moves. At stock ride height, this works fine. At 3 inches of lift and above, the rear driveshaft operating angle at the slip yoke becomes steep enough to create vibration at highway speeds. You'll feel it as a rhythmic shudder at 55–70 mph that gets worse under acceleration.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The fix is a slip yoke eliminator (SYE) kit, which converts the NP231 output to a fixed yoke and requires a custom CV (constant velocity) rear driveshaft to replace the factory driveshaft. Budget $600–$900 for the SYE kit and custom driveshaft together. Advance Adapters and Tom Wood's Custom Driveshafts are the two common sources. Plan the SYE as part of the lift installation — doing it afterward requires pulling the transmission again.</p>
+    <h2>Lift tiers and what they get you</h2>
 
-    <h2>What a complete 3.5-inch TJ lift actually includes</h2>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px">A correct 3.5-inch lift on a TJ is not just new springs and shocks. Here's the full list:</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Coil springs (all four corners):</strong> Rate them for your expected weight. A front steel bumper and winch add 80–120 lb up front — under-sprung and the front will sag. $300–$600 depending on brand.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Shocks:</strong> New springs with old shocks is a waste. Match shock length to lift height. Bilstein 5100s are the benchmark for value. Fox 2.0 for better off-road performance. $300–$600 for four.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Adjustable track bars (front and rear):</strong> At 3+ inches, the axles shift laterally without track bar correction. Adjustable bars bring the axles back to center. $150–$280 per bar.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Adjustable control arms:</strong> Needed to correct caster after lift. Most quality short arm kits include these. $400–$800 if buying separately.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">SYE + CV rear driveshaft:</strong> See above. $600–$900.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Extended sway bar links:</strong> Stock links are too short at 3+ inches of lift. $60–$120.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Extended brake lines:</strong> Required at 3+ inches. Stock lines pull tight at full droop. $60–$100.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Four-wheel alignment:</strong> Non-negotiable after any lift. $100–$180 at a shop that knows Jeeps. Verify they can set TJ caster, not just toe and camber.</p>
+    <p><strong>0–2 inches (spacer or budget coil):</strong> This is look-of-lift territory. A 1.5–2-inch spacer lift or a mild coil swap adds clearance for <strong>31-inch tires</strong> (32s at a stretch with careful wheel selection), costs $150–300, and requires no drivetrain changes. The factory driveshaft angles are fine, the factory control arm geometry is fine, and you can skip the complex alignment conversation — though you should still get one. If you want 31s and a small visual lift before a longer build, this works. It is not a trail upgrade.</p>
+
+    <p><strong>2.5–3 inches (entry short-arm):</strong> This is the most common kit-in-a-box range. Springs, shocks, and sometimes sway bar disconnects. Fits <strong>31s reliably and 33s marginally</strong> — at 2.5 inches you'll likely need a 1.25-inch body lift to run 33&times;12.5s without rubbing at full lock. The factory control arms can handle this range geometrically, but you're starting to feel caster wander on the highway. The <strong>Rough Country 2.5-inch kit</strong> (~$400–500) lands here. Serviceable for mild use; not a long-term answer if the trail is the goal.</p>
+
+    <p><strong>3–3.5 inches (the sweet spot):</strong> At this height you have enough clearance for <strong>33&times;12.5-inch tires without a body lift</strong> — provided you run wheels with 4-inch backspace or less. Trail geometry improves substantially. The NP231 slip yoke stays within a safe operating angle on a standard short-wheelbase TJ, so no SYE is required. The <strong>Rubicon Express RE7003 Super-Flex short-arm kit</strong> (~$700–900 without shocks) is the benchmark here, with adjustable upper and lower control arms at all four corners plus an adjustable front track bar. Add <strong>Bilstein 5100s</strong> or <strong>Old Man Emu Nitrochargers</strong> and you're at $900–1,300 all-in.</p>
+
+    <p><strong>4 inches and above (dedicated build territory):</strong> At 4-plus inches you gain clearance for <strong>35-inch tires</strong> (35&times;12.5 fits with a 1-inch body lift), and trail performance takes another real step up. But the costs compound: the NP231 slip yoke operating angle becomes a problem, so you need a <strong>slip yoke eliminator and a new CV rear driveshaft</strong>. Adjustable control arms are now required at all four corners. Budget $1,500 minimum for a competent 4-inch build that includes the drivetrain work. This is a committed build, not a weekend project.</p>
+
+    <h2>Caster: the thing most budget lifts skip</h2>
+
+    <p>When you lift a TJ, you change the front axle's caster angle — the rearward tilt of the steering axis that gives the wheels their self-centering force. Stock caster on a TJ is approximately 4–5 degrees. After a 3-inch lift without correction, it drops to 2–3 degrees. The result: the Jeep won't return to center after turns, wanders on the highway, and feels vague at speed. An alignment appointment won't fix it because it's a geometry problem, not a toe or camber problem.</p>
+
+    <p>The solution is <strong>adjustable upper control arms on the front axle</strong>. Shortening the upper arms rotates the axle forward, restoring caster to the 6–8 degree range where the TJ drives correctly. Some kits advertise "caster-corrected" lower control arms — these help but don't give you the precision of an adjustable upper. Any lift of 2.5 inches or more benefits from adjustable front uppers. At 3.5 inches, it's non-negotiable.</p>
+
+    <p>In the rear, lifting without addressing pinion angle causes U-joint vibration at highway speeds, especially under load. Adjustable rear lower control arms let you correct pinion angle independently of ride height. Quality 3.5-inch kits include adjustable rear lowers; budget kits often don't. Check the parts list before you buy.</p>
+
+    <h2>The SYE question</h2>
+
+    <p>The NP231 transfer case outputs to the rear driveshaft through a slip yoke — a telescoping joint that absorbs driveshaft length changes as the suspension cycles. At stock height the operating angle is fine. As lift increases, the angle steepens. Above about 3 inches on a standard TJ, you may begin to feel low-speed vibration; above 4 inches, the vibration is persistent and U-joint life drops significantly.</p>
+
+    <p>A <strong>slip yoke eliminator (SYE)</strong> replaces the slip yoke with a fixed output flange, then pairs with a double-cardan CV rear driveshaft that handles the steeper angle cleanly. Good SYE kits: <strong>JB Conversions</strong> (~$350) and <strong>Advance Adapters</strong> (~$300). Add a custom CV driveshaft from Tom Woods or a similar shop (~$350–450). You're spending $650–800 on this step alone.</p>
+
+    <p>At 3–3.5 inches on a standard short-wheelbase TJ, you can avoid it. The LJ Unlimited's longer 104-inch wheelbase (versus 93.4 inches on the standard TJ) means gentler driveshaft angles at any given lift height — the threshold pushes out slightly on an LJ. If you're planning a 3.5-inch build with eventual intent to go to 4.5 inches, budget for the SYE now rather than pulling everything apart a second time.</p>
 
     <h2>Kit recommendations by budget</h2>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Budget (under $800 for lift components):</strong> Rough Country 3.5-inch short arm kit. Gets the Jeep up, includes everything needed, and will be functional. Shocks are the weak point — expect to replace them within 30,000 miles of trail use. Fine for a first Jeep that isn't doing serious wheeling yet.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Mid-range ($1,200–$2,000 for lift components):</strong> Rubicon Express Super-Flex, Old Man Emu 2.5-inch with Nitrocharger shocks, or Metalcloak 3.5-inch Game-Changer. Better bushing quality, better shocks, better geometry correction. These kits ride better, wheel better, and last longer. This is where most serious TJ builds end up.</p>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Premium ($2,500+ for lift components):</strong> Metalcloak Game-Changer 4.5-inch, Currie long arm, Clayton Off Road long arm. For dedicated trail rigs that are going to 35s and beyond. The long arm kits require welding — budget for professional installation if you don't have a welder.</p>
 
-    <h2>What to do about re-gearing</h2>
-    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Stock TJ gears are 3.07 or 3.73 depending on year and trim. On 33s, 3.73 gears are adequate for daily driving and moderate trails but feel sluggish under load. On 35s, 3.73 gears will wear out your clutch or torque converter faster than necessary. The correct gear ratio for 33s is 4.10, and for 35s is 4.56. If you're already pulling the axles for other reasons (locker install, rear axle swap), re-gear at the same time — the labor overlaps significantly.</p>
+    <p>At the <strong>entry level ($400–600)</strong>, Rough Country's 2.5-inch kit gives you springs, shocks, and sway bar disconnects. It's a starting point. Expect to add adjustable uppers if you want the steering to behave on the highway.</p>
+
+    <p>At the <strong>mid level ($700–1,100)</strong>, the <strong>Rubicon Express RE7003 Super-Flex 3.5-inch kit</strong> is the community standard for good reason. Adjustable upper and lower arms at all four corners, adjustable front track bar, serviceable spherical joints. Add your own shocks — Bilstein 5100s (~$300 for all four) are the default choice at this budget — and the total lands around $1,000–1,300.</p>
+
+    <p>At the <strong>upper mid level ($1,200–1,800)</strong>, the <strong>Old Man Emu coil + JKS arms combo</strong> is the choice for owners who drive the Jeep daily. OME springs have the best street ride quality in this segment without sacrificing trail clearance. JKS adjustable arms are precise, and their quick-disconnect sway bar system is genuinely useful. It costs more than the Rubicon Express kit and is worth it if the Jeep sees regular road miles.</p>
+
+    <p>For <strong>4-inch-and-up builds</strong>, Rubicon Express (RE7000 Super-Flex with 8 adjustable arms) and BDS both make complete systems that address the geometry properly. Budget $1,500–2,500 for the suspension alone, then add SYE and driveshaft. The RE7000 system allows 33&times;12.5-inch tires without a body lift and 35&times;12.5-inch tires with a 1-inch body lift, for reference.</p>
+
+    <h2>Installation order</h2>
+
+    <p>Do the work in this sequence. Install the lift springs and shocks first — at this point the Jeep is at height but geometry hasn't been addressed yet. Install and set the adjustable control arms next: front uppers to rough in caster, rear lowers to set pinion angle. Get a four-wheel alignment before driving more than a short test loop — the alignment shop needs to see the vehicle at ride height with all geometry set. Only after the alignment is confirmed should you swap tires. Running larger tires before alignment amplifies every geometry error and puts stress on components that aren't sitting correctly.</p>
+
+    <p>When you install the lift, also replace the front track bar. The factory track bar is the correct length for stock height; at 3 inches of lift it shifts the front axle slightly off-center, producing a steering pull that alignment cannot correct. Most quality kits include an adjustable front track bar. If yours doesn't, buy one — it's a $100–150 part with a noticeable effect on how the front end tracks.</p>
+
+    <h2>After the lift</h2>
+
+    <p>A 3.5-inch short-arm build with quality springs, shocks, adjustable arms, and a front track bar runs $1,000–1,400 all-in. The best next investment isn't tires — it's <strong>sway bar quick-disconnects</strong> if your kit doesn't include them. The difference between connected and disconnected front sway bar on a TJ in slow technical terrain is not subtle. Drop it on the trail, rehook it for the drive home. After that: tires (33s if your lift is 3 to 3.5 inches), then gears if you go to 35s. On 35s with stock 3.73s, the TJ's 4.0L will feel strangled at highway speeds — you'll want 4.56 gears at minimum.</p>
 
     <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
-      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <a href="/db/?v=tj" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
-          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
-          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">TJ Guide Library</div>
-          <div style="font-size:12px;color:var(--text-dim)">Detailed install guides for every TJ suspension component.</div>
-        </a>
-        <a href="/gear-ratio-calculator.html" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
-          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Calculator</div>
-          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Gear Ratio Calculator</div>
-          <div style="font-size:12px;color:var(--text-dim)">Match your gear ratio to your new tire size.</div>
-        </a>
+      <h2 style="font-size:16px;margin:0 0 12px">Related</h2>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="/blog/when-to-re-gear-axles/" style="color:var(--accent);font-size:14px">When to Re-Gear Your Axles: The Math, the Feel, and When to Leave It Alone &rarr;</a>
+        <a href="/blog/jk-death-wobble/" style="color:var(--accent);font-size:14px">JK Death Wobble: How to Diagnose It and Fix It for Good &rarr;</a>
+        <a href="/db/" style="color:var(--accent);font-size:14px">Browse the DIY Database &rarr;</a>
       </div>
     </div>
 
@@ -126,22 +134,11 @@
 
 <footer class="tm-footer">
   <div class="tm-footer-inner">
-    <div>
-      <div class="tm-brand" style="margin-bottom:12px">
-        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
-        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
-      </div>
-      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
-    </div>
-    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
-    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/tj-overview/">TJ Overview</a><a href="/blog/tj-buyers-guide/">Buying a Used TJ</a></div>
-    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+    <p>Trail Manual &middot; Free DIY reference for off-road owners &middot; <a href="/">trailmanual.com</a></p>
+    <p style="margin-top:6px"><a href="/db/">DIY Database</a> &middot; <a href="/workshop/">The Workshop</a> &middot; <a href="/about/">About</a></p>
   </div>
-  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
 </footer>
-<script>
-const t = document.getElementById('tm-nav-toggle');
-if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
-</script>
+
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
 </body>
 </html>
