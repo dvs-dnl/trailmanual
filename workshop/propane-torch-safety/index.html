@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Propane Torch for Seized Fasteners — Technique and Safety — The Workshop · Trail Manual</title>
+<meta name="description" content="A propane torch frees seized bolts by exploiting thermal expansion — but the open flame is the single most dangerous heat source most DIYers bring near a fuel system. Here's how to use it without starting a fire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  /* Legacy aliases — light-theme values mapped from canon */
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:1200px;
+
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--paper) 0%, rgba(247,244,237,.96) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="/">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+  </div>
+      <div><div class="brand-text">Trail Manual</div><div class="brand-sub">The Workshop</div></div>
+    </a>
+    <a class="back-link" aria-label="Menu" href="/workshop/">← All guides</a>
+  </div>
+</nav>
+
+<div class="page"><article>
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Shop Tools</div>
+    <h1>Propane Torch for Seized Fasteners — Technique and Safety</h1>
+    <p class="lede">Heat is the most effective thing you can throw at a rusted, seized bolt — it expands the fastener, cracks the rust bond, and pulls penetrating oil into the threads. A propane torch is also the single most dangerous heat source most people bring near a fuel system. This guide covers how to use one well, and exactly where it has no business going.</p>
+    <div class="safety-badge">⚠ Safety critical</div>
+  </article></div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p>A propane torch frees seized fasteners by heating the nut or surrounding metal so it expands and the rust bond between the threads fractures. Heat the part, not the threads directly — let it expand, then back the fastener out while it's still hot, or quench it with penetrating oil to draw lubricant into the threads as it cools.</p>
+    <p>The risk isn't the technique — it's the flame. Propane burns near 3,600°F and will ignite fuel vapor, brake-line rubber, wiring insulation, undercoating, and grease instantly. If you can't clear a five-foot bubble of anything flammable around the bolt, don't light the torch. Reach for an induction heater or impact and penetrant instead.</p>
+  </div>
+
+  <h2>Why heat works on a seized bolt</h2>
+  <p>Rust occupies more volume than the steel it came from, so a corroded thread is effectively a press-fit packed with iron oxide. When you heat the nut or the casting around a stuck bolt, the metal expands faster than the rust holding it. That differential cracks the bond. On a nut threaded onto a stud, heating the <strong>nut</strong> specifically makes it grow away from the stud — a brief, localized expansion is what breaks it loose, not cooking the whole assembly red.</p>
+
+  <p>The second mechanism is the one people underuse: <strong>heat plus penetrant</strong>. Warm the fastener, back the flame off, then touch penetrating oil (or even a candle/wax) to the joint. The heat thins the oil and the cooling metal draws it down into the threads by capillary action. This is often more effective than either heat or penetrant alone.</p>
+
+  <div class="panel">
+    <div class="panel-label">Key point</div>
+    <p>Heat the part you want to grow away from the seized thread — usually the nut or the surrounding boss — not the bolt shank. The goal is a quick thermal shock that cracks rust, not melting anything.</p>
+  </div>
+
+  <h2>Propane vs. MAPP vs. oxy-acetylene</h2>
+  <p>A standard yellow-bottle <strong>propane</strong> torch produces a flame around 3,600°F and delivers steady, moderate heat. It's enough for small and medium fasteners — think bracket bolts, exhaust hardware on a bench, accessory mounts — and it heats slowly enough that you're less likely to cook adjacent parts. For most DIY work it's the right starting point and the one this guide assumes.</p>
+
+  <p><strong>MAPP-style gas</strong> (the yellow bottles sold as a propane upgrade) burns hotter and concentrates heat faster, which helps on larger or thicker fasteners where propane struggles to get the mass hot before the heat conducts away. <strong>Oxy-acetylene</strong> is a different category — fast, extremely hot, capable of melting steel — and it's what a shop uses on a big seized suspension bolt. It's also far easier to overheat a part, damage temper, or start a fire with. If you're new to torch work, learn the technique on propane first.</p>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">Watch out — hardened fasteners</div>
+    <p>Heating a grade-8 or other hardened bolt to a glowing red can destroy its heat treatment, leaving it soft and weak even if it survives removal. If you cook a fastener that glowing-hot to get it out, replace it — don't reuse it on anything that carries load. The same goes for a nut you had to heat aggressively.</p>
+  </div>
+
+  <h2>The technique, step by step</h2>
+  <ol>
+    <li><strong>Clear the area first.</strong> Move rags, paper, fuel containers, and anything plastic. Identify every fuel line, brake line, rubber bushing, wiring harness, and grease deposit within reach of the flame. If any of those are close to the fastener, this is the wrong tool for the job — stop here.</li>
+    <li><strong>Have a charged fire extinguisher within arm's reach.</strong> Not across the shop. An ABC dry-chemical extinguisher, sized for your space, staged right next to you before you light up.</li>
+    <li><strong>Hit the joint with penetrant and let it soak</strong> if you have time, then wipe the excess so you're not heating a puddle of flammable oil.</li>
+    <li><strong>Light the torch with the nozzle pointed away</strong> from you and from anything that can ignite. Keep a firm grip.</li>
+    <li><strong>Heat the nut or surrounding metal</strong>, moving the flame so you warm it evenly rather than torching one spot. You're aiming for expansion — on most jobs that's a dull change in color, not a bright glow. Thirty seconds to a couple of minutes depending on the mass.</li>
+    <li><strong>Back the flame off and try the fastener while it's hot.</strong> Use the correct six-point socket or a flare/box wrench so you don't round the now-softer hot fastener. If it doesn't move, reheat — don't reach for a longer breaker bar instead.</li>
+    <li><strong>For stubborn threads, quench with penetrant as it cools</strong> to draw oil in, then repeat the heat-and-turn cycle.</li>
+    <li><strong>Let everything cool before you put a hand near it.</strong> A heated bolt holds dangerous temperature long after it stops glowing.</li>
+  </ol>
+
+  <h2>Where a propane torch must never go</h2>
+  <p>The open flame is the whole hazard. These are the lines you don't cross:</p>
+  <ul>
+    <li><strong>Anywhere near the fuel system.</strong> Fuel tanks, fuel lines, fuel filters, the area around the sending unit, a carburetor, fuel-soaked rags. Gasoline vapor is heavier than air, pools low, and ignites from a flame it isn't even touching. Bolts on or near the tank are an induction-heater or cold-method job, full stop.</li>
+    <li><strong>On or beside brake and clutch hydraulic lines.</strong> The flame destroys the rubber and DOT fluid is flammable. A burned brake line is a failed brake line.</li>
+    <li><strong>Near wiring, harnesses, and connectors.</strong> Insulation melts and shorts; a melted harness is a fire that starts after you've walked away.</li>
+    <li><strong>Against rubber bushings, boots, seals, or CV/axle boots.</strong> They'll burn or melt and fail.</li>
+    <li><strong>On struts, gas-charged shocks, sealed accumulators, or A/C lines.</strong> Heating a pressurized sealed component can rupture it.</li>
+    <li><strong>In an unventilated, closed space.</strong> An open flame consumes oxygen and produces carbon monoxide. Combine that with a running engine and a closed garage and you have a life-threatening atmosphere on top of the fire risk.</li>
+  </ul>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Stop — fire is the failure mode that ends shops</div>
+    <p>The most common torch injuries and garage fires don't come from the bolt — they come from what was nearby. Before the torch lights: nothing flammable within five feet, an extinguisher at your side, the space ventilated, and a clear path away from the vehicle. After you finish, do a flameout check — look for smoldering grease, undercoating, or rags for several minutes before you leave. A spark that lands in old undercoating can flare up long after you've put the torch down.</p>
+  </div>
+
+  <h2>PPE and torch handling</h2>
+  <ul>
+    <li><strong>Safety glasses</strong> against scale and spitting oil, and a face clear of the heat path.</li>
+    <li><strong>Leather gloves</strong> — not nitrile, which melts. Heated parts and the torch head get hot.</li>
+    <li><strong>Natural-fiber clothing.</strong> Cotton and denim resist ignition; synthetics melt into the skin. No loose sleeves near the flame.</li>
+    <li><strong>Store the bottle upright and away from heat.</strong> Check the hose and connection for leaks before lighting — a quick test with soapy water on the fitting shows bubbles if it's leaking.</li>
+    <li><strong>Don't lay a lit torch down.</strong> Shut it off between fasteners. A self-igniting trigger torch should still be set down only fully off.</li>
+  </ul>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Heating with penetrant still pooled on the part</strong> — you've made a flammable surface. Wipe it, heat, then re-apply oil after backing the flame off.</li>
+    <li><strong>Cooking the whole assembly red instead of a quick localized heat</strong> — this damages hardened fasteners and risks the parts around them.</li>
+    <li><strong>Cranking harder on a hot, softened fastener with a worn or 12-point socket</strong> — that's how you round the head and turn a heat job into a drill-and-extract job.</li>
+    <li><strong>Torching near the tank "just for a second."</strong> Fuel vapor doesn't care how brief you planned to be.</li>
+    <li><strong>No extinguisher staged, or one across the room.</strong> By the time you walk to it, a vapor fire has spread.</li>
+    <li><strong>Skipping the flameout check</strong> and leaving smoldering grease or undercoating behind.</li>
+  </ul>
+
+  <div class="panel panel-good">
+    <div class="panel-label">When a torch is the wrong call — and what to use instead</div>
+    <p>If the seized fastener is anywhere near fuel, brake lines, or wiring, an <strong>induction heater</strong> heats the metal directly with no flame and is the safer professional choice — worth renting or buying if you fight rust often. Short of that, the cold approach stacks up: a quality penetrant soaked overnight, a six-point socket on a breaker bar, an impact wrench's hammering action, and as a last resort a nut splitter or extractor. Heat is powerful, but it's one option among several — not the only way through a stuck bolt.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/breaking-rusty-bolts/">Breaking Rusty Bolts — Heat, Impact, and Extractors</a>
+      <a class="related-card" href="/workshop/fire-safety-in-the-shop/">Fire Safety in the Shop</a>
+      <a class="related-card" href="/workshop/chemical-handling/">Chemical Handling — Solvents, Penetrants, and Fluids</a>
+      <a class="related-card" href="/workshop/heat-gun/">Heat Gun Uses — Shrink Tubing, Stubborn Clips, and Vinyl</a>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/channels/">Recommended Channels</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
