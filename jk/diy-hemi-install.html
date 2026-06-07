@@ -17,7 +17,7 @@
 <meta name="description" content="The honest, phase-by-phase DIY guide to dropping a 5.7L Hemi into a 2007–2011 Jeep Wrangler JK using a used drivetrain and the Hotwire Auto harness — prep, tools, install order, timeframes, and the mistakes that cost most builders weeks.">
 <meta property="og:title" content="JK Wrangler 5.7 Hemi DIY Install Guide (Hotwire Path)">
 <meta property="og:description" content="Phase-by-phase walkthrough for a 5.7 Hemi swap into a 2007–2011 JK on the Hotwire Auto harness path. Tools, prep, timeframes by skill level, and the mistakes worth avoiding.">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png"><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -214,21 +214,21 @@ li strong{color:var(--text)}
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
       <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
       <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
       <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
     </div>
     <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
       <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-        <a class="tm-dd-link" href="/vehicle-select.html"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
       </div>
       <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+        <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
         <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
         <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
       </div>
       <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+        <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
         <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon">⚠</div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
         <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon">🔗</div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
       </div>
@@ -239,9 +239,7 @@ li strong{color:var(--text)}
         <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon">🛠</div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
       </div>
       <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">✏</div><div><strong>Blog</strong><span>Guides · dives</span></div></a>
-        <a class="tm-dd-link" href="/channels/"><div class="tm-dd-icon">▶</div><div><strong>Channels</strong><span>Trusted builders</span></div></a>
-        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">✏</div><div><strong>Blog</strong><span>Guides · dives</span></div></a>        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
       </div>
     </div></div>
     <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
