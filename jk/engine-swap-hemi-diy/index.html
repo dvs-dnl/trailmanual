@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<script>try{localStorage.setItem('tm.vehicle','jk');}catch(e){}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JK Wrangler 5.7 Hemi Swap — Complete Installation Guide (DIY Hotwire Path) — Trail Manual</title>
+<meta name="description" content="Step-by-step installation walkthrough for swapping a 5.7L Hemi into a JK Wrangler using the Hotwire Engine Harness Conversion Kit. Phase-by-phase instructions, time estimates by experience level, tool list, and the common mistakes worth dodging.">
+<meta property="og:title" content="JK Wrangler 5.7 Hemi Swap — Complete Installation Guide (DIY Hotwire Path)">
+<meta property="og:description" content="Phase-by-phase installation guide for the JK Hemi swap using the Hotwire harness. Beginner: 10–14 days. Intermediate: 6–9 days. Experienced: 3–5 days. Every step in order.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --max:980px;
+  --font-sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+[data-theme="dark"]{
+  --bg:var(--slate-deep);
+  --bg-2:#22303F;
+  --bg-3:#2D3C4E;
+  --panel:var(--slate);
+  --panel-2:#22303F;
+  --border:#3A4A5E;
+  --text:var(--bone);
+  --text-dim:#A5AFBE;
+  --text-mute:#7A8595;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── Topbar ── */
+.topbar{position:sticky;top:0;z-index:100;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--text)}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:16px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px;background:transparent}
+.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;margin-left:8px;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-moon{display:none}
+
+/* ── Page layout ── */
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+
+/* ── Hero ── */
+.hero{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden;color:var(--text)}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(201,126,80,.06) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative;max-width:800px;color:var(--text)}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:720px;line-height:1.65;margin:0;position:relative}
+.hero-stats{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap;position:relative}
+.stat-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;background:var(--bg);border:1px solid var(--border);border-radius:20px;font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;color:var(--text-dim)}
+.stat-chip strong{color:var(--text);font-weight:600}
+
+/* ── Parts checklist link banner ── */
+.parts-banner{background:linear-gradient(135deg,rgba(201,126,80,.10) 0%,rgba(201,126,80,.04) 100%);border:1px solid rgba(201,126,80,.35);border-left:3px solid var(--clay);border-radius:var(--radius-lg);padding:16px 20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.parts-banner p{margin:0;font-size:14px;color:var(--text-dim)}
+.parts-banner p strong{color:var(--text)}
+.parts-banner a.btn-parts{display:inline-flex;align-items:center;gap:6px;background:var(--clay);color:#fff;font-size:13px;font-weight:600;padding:9px 16px;border-radius:var(--radius);transition:background .15s;white-space:nowrap;text-decoration:none}
+.parts-banner a.btn-parts:hover{background:var(--clay-deep);text-decoration:none}
+
+/* ── Section divider ── */
+.section-divider{border:0;border-top:1px solid var(--border);margin:36px 0}
+
+/* ── Typography ── */
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+h4{font-size:13px;letter-spacing:.3px;margin:18px 0 8px;color:var(--text);text-transform:uppercase;font-weight:700}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.65}
+li strong{color:var(--text)}
+
+/* ── Phase progress nav ── */
+.phase-nav{position:sticky;top:64px;z-index:90;background:var(--bg);border-bottom:1px solid var(--border);padding:0 20px;margin:0 -20px 32px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.phase-nav-inner{max-width:var(--max);margin:0 auto;display:flex;gap:0;min-width:max-content}
+.phase-nav-item{display:flex;align-items:center;gap:7px;padding:12px 14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--text-mute);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s;cursor:pointer}
+.phase-nav-item:hover{color:var(--text);text-decoration:none}
+.phase-nav-item.active{color:var(--accent);border-bottom-color:var(--accent)}
+.phase-nav-item .pn-num{width:18px;height:18px;border-radius:50%;background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;transition:background .15s,border-color .15s,color .15s}
+.phase-nav-item.active .pn-num{background:var(--clay);border-color:var(--clay);color:#fff}
+.phase-nav-item.done .pn-num{background:var(--good-c);border-color:var(--good-c);color:#fff}
+.phase-nav-item.done{color:var(--text-dim)}
+
+/* ── Time estimate table ── */
+.time-table{width:100%;border-collapse:collapse;font-size:14px;margin:18px 0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.time-table th{text-align:left;padding:12px 14px;background:var(--bg-3);color:var(--text-mute);font-weight:600;text-transform:uppercase;letter-spacing:.4px;font-size:11px;border-bottom:1px solid var(--border)}
+.time-table td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top}
+.time-table tr:last-child td{border-bottom:0}
+.time-table .level{color:var(--text);font-weight:600;white-space:nowrap}
+.time-table .time-val{font-family:var(--font-mono);color:var(--accent);font-weight:600}
+
+/* ── Time estimate callout box ── */
+.time-callout{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px 24px;margin:20px 0}
+.time-callout-head{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--text-mute);margin-bottom:14px;font-weight:700}
+.time-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.time-tier{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:14px}
+.time-tier-label{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin-bottom:6px}
+.time-tier-value{font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.5px;margin-bottom:4px}
+.time-tier-desc{font-size:12px;color:var(--text-dim);line-height:1.5}
+@media(max-width:580px){.time-tiers{grid-template-columns:1fr}}
+
+/* ── Phase section card ── */
+.phase{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 26px;margin:20px 0;scroll-margin-top:110px}
+.phase-header{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:4px;flex-wrap:wrap}
+.phase-tag{display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:var(--accent);background:rgba(201,126,80,.10);border:1px solid rgba(201,126,80,.3);padding:3px 9px;border-radius:10px;font-weight:600}
+.phase-time-badge{font-family:var(--font-mono);font-size:11px;color:var(--text-mute);background:var(--bg-2);border:1px solid var(--border);padding:3px 10px;border-radius:10px;letter-spacing:.03em;white-space:nowrap}
+.phase h3{margin:8px 0 6px;font-size:20px}
+.phase-time{font-size:12px;color:var(--text-mute);margin-bottom:16px;font-family:var(--font-mono);letter-spacing:.3px}
+.phase-steps{margin:14px 0 6px;padding-left:0;list-style:none;counter-reset:steps}
+.phase-steps li{counter-increment:steps;position:relative;padding:8px 0 8px 38px;font-size:14.5px;color:var(--text-dim);border-bottom:1px solid var(--border);line-height:1.65}
+.phase-steps li:last-child{border-bottom:0}
+.phase-steps li::before{content:counter(steps);position:absolute;left:0;top:8px;width:24px;height:24px;border-radius:50%;background:var(--bg-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--text-mute);line-height:24px;text-align:center}
+.phase-steps li strong{color:var(--text)}
+.phase-note{font-size:13px;color:var(--text-mute);font-style:italic;margin-top:4px;margin-left:38px}
+
+/* ── Panel / callout blocks ── */
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
+.panel.warn{background:var(--warn-bg);border-color:var(--warn-border);border-left:3px solid var(--warn-c)}
+.panel.good{background:var(--good-bg);border-color:var(--good-border);border-left:3px solid var(--good-c)}
+.panel.info{background:var(--info-bg);border-color:var(--info-border);border-left:3px solid var(--info-c)}
+.panel.danger{background:var(--danger-bg);border-color:var(--danger-border);border-left:3px solid var(--danger)}
+.panel h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+.panel.warn h4{color:var(--warn)}
+.panel.good h4{color:var(--good)}
+.panel.info h4{color:var(--info-c)}
+.panel.danger h4{color:var(--danger)}
+.panel p{margin:0;font-size:14px;line-height:1.6}
+.panel p + p,.panel ul{margin-top:8px;font-size:14px}
+.panel ul{margin-bottom:0}
+.panel li{margin-bottom:4px}
+
+/* ── Mistakes block (amber, inside phase) ── */
+.mistakes{background:rgba(216,144,53,.07);border:1px solid rgba(216,144,53,.3);border-left:3px solid var(--warn-c);border-radius:var(--radius-lg);padding:18px 20px;margin:18px 0}
+.mistakes-head{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--warn-c);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.mistakes-head::before{content:'⚠';font-size:13px}
+.mistakes ul{margin:0;padding-left:18px;list-style:disc}
+.mistakes li{font-size:13.5px;color:var(--text-dim);margin-bottom:6px;line-height:1.6}
+.mistakes li:last-child{margin-bottom:0}
+.mistakes li strong{color:var(--text)}
+
+/* ── Checklist ── */
+.checklist{list-style:none;padding-left:0;margin:14px 0}
+.checklist li{font-size:14.5px;padding:8px 0 8px 30px;position:relative;border-bottom:1px dashed var(--border);color:var(--text-dim)}
+.checklist li:last-child{border-bottom:0}
+.checklist li::before{content:'';position:absolute;left:0;top:11px;width:16px;height:16px;border:1.5px solid var(--text-mute);border-radius:3px;background:var(--bg)}
+.checklist li strong{color:var(--text)}
+
+/* ── Photo ── */
+.photo{margin:24px 0;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-2)}
+.photo img{display:block;width:100%;height:auto}
+.photo-credit{font-size:12px;color:var(--text-mute);padding:10px 14px;line-height:1.5;border-top:1px solid var(--border);background:var(--panel)}
+.photo-credit strong{color:var(--text-dim)}
+.photo-credit a{color:var(--text-dim)}
+
+/* ── Verdict ── */
+.verdict{background:linear-gradient(135deg,rgba(201,126,80,.10) 0%,rgba(201,126,80,.04) 100%);border:1px solid rgba(201,126,80,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:24px 0 28px}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p + p{margin-top:10px}
+
+/* ── First-start table ── */
+.issue-table{width:100%;border-collapse:collapse;font-size:13.5px;margin:12px 0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+.issue-table th{padding:10px 12px;background:var(--bg-3);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);border-bottom:1px solid var(--border);font-weight:700}
+.issue-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-dim)}
+.issue-table tr:last-child td{border-bottom:0}
+.issue-table td:first-child{font-family:var(--font-mono);font-size:12px;color:var(--text);white-space:nowrap}
+
+/* ── Next / related grid ── */
+.next-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:20px 0 0}
+.next-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;display:block;color:var(--text);transition:border-color .15s,background .15s}
+.next-card:hover{border-color:var(--accent);background:var(--bg-2);text-decoration:none}
+.next-card .nc-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin-bottom:4px;font-family:var(--font-mono)}
+.next-card .nc-title{font-weight:700;font-size:15px;color:var(--text)}
+.next-card .nc-desc{font-size:13px;color:var(--text-dim);margin-top:4px;line-height:1.5}
+@media(max-width:580px){.next-grid{grid-template-columns:1fr}}
+
+/* ── Footer ── */
+.footer{padding:30px 20px 24px;text-align:center;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);margin-top:60px}
+.footer .disclaimer{max-width:640px;margin:0 auto;line-height:1.6}
+
+@media(max-width:640px){
+  .page{padding:18px 14px 60px}
+  .hero{padding:24px 18px}
+  .hero h1{font-size:24px}
+  .topbar-inner{padding:10px 14px}
+  .phase{padding:18px 18px}
+  .phase-nav-item{padding:10px 10px;font-size:10px;gap:5px}
+}
+</style>
+</head>
+<body>
+
+<style>
+#tm-topbar{position:sticky;top:0;z-index:100;background:var(--slate-d,#1A2330);border-bottom:1px solid rgba(43,58,74,.8)}
+#tm-topbar .tm-topbar-inner{max-width:var(--max,1200px);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
+#tm-topbar .tm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-mark{width:28px;height:28px;flex-shrink:0}
+#tm-topbar .tm-brand-mark svg{width:100%;height:100%;display:block;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-text{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bone,#E8E2D2);display:flex;align-items:center;gap:4px}
+#tm-topbar .tm-brand-dot{width:4px;height:4px;background:var(--clay,#C97E50);border-radius:50%;display:inline-block}
+#tm-topbar .tm-nav-menu{display:flex;align-items:center;gap:2px;margin-left:auto}
+#tm-topbar .tm-nav-btn{height:40px;padding:0 12px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,226,210,.6);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;transition:color .15s,background .15s;white-space:nowrap}
+#tm-topbar .tm-nav-btn:hover,#tm-topbar .tm-nav-btn.tm-active{color:var(--bone,#E8E2D2);background:rgba(255,255,255,.06)}
+#tm-topbar .tm-chev{font-size:9px;opacity:.5;transition:transform .15s}
+#tm-topbar .tm-nav-btn.tm-active .tm-chev{transform:rotate(180deg);opacity:1}
+#tm-topbar .tm-explore-btn::before{content:'⚄ '}
+#tm-topbar .tm-garage-btn{display:flex;align-items:center;gap:7px}
+#tm-topbar .tm-garage-icon{width:26px;height:26px;border-radius:5px;background:rgba(201,126,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-size:9px;font-weight:700;color:var(--clay,#C97E50)}
+#tm-topbar .tm-garage-icon img{width:100%;height:100%;object-fit:contain}
+#tm-topbar .tm-dd-panel{display:none;position:absolute;left:-24px;right:-24px;top:calc(100% + 1px);background:var(--paper,#F7F4ED);border-top:1px solid var(--bone-d,#C9C1AC);border-bottom:1px solid var(--bone-d,#C9C1AC);z-index:99}
+#tm-topbar .tm-dd-panel.open{display:block}
+#tm-topbar .tm-dd-inner{max-width:var(--max,1200px);margin:0 auto;padding:18px 24px 22px;display:flex;gap:36px}
+#tm-topbar .tm-dd-col{flex:1}
+#tm-topbar .tm-dd-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-l,#5B6B7E);margin-bottom:8px}
+#tm-topbar .tm-dd-link{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;border-radius:6px;color:var(--slate,#2B3A4A);text-decoration:none;transition:background .12s;font-size:13px;line-height:1.3}
+#tm-topbar .tm-dd-link:hover{background:rgba(201,126,80,.1)}
+#tm-topbar .tm-dd-link strong{display:block;font-weight:500;margin-bottom:1px;color:var(--slate,#2B3A4A)}
+#tm-topbar .tm-dd-link span:last-child{font-size:11px;color:var(--slate-l,#5B6B7E)}
+#tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+#tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-hamburger svg{width:16px;height:16px}
+@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}}
+</style>
+<header id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    </div>
+    <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+        <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+        <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon">⚠</div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
+        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon">🔗</div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
+      </div>
+    </div></div>
+    <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon">🛠</div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">✏</div><div><strong>Blog</strong><span>Guides · dives</span></div></a>        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      </div>
+    </div></div>
+    <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">📋</div><div><strong>My builds</strong><span>Saved configs</span></div></a>
+      </div>
+    </div></div>
+  </div>
+</header>
+<script src="/_nav.js"></script>
+
+<div class="page">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-eyebrow">Install Guide · JK Wrangler 2007–2018 · DIY-030</div>
+    <h1>JK Wrangler 5.7 Hemi Swap — Complete Installation Guide (DIY Hotwire Path)</h1>
+    <p class="lede">Step-by-step instructions for swapping a 5.7L Hemi into a JK Wrangler using the Hotwire Engine Harness Conversion Kit. This guide covers the Hotwire harness path only — not the AEV kit path. Donor engine is a 5.7L Eagle Hemi from a 2009–2012 Grand Cherokee or 2009–2010 Commander.</p>
+    <div class="hero-stats">
+      <span class="stat-chip"><strong>Engine:</strong> 5.7L Hemi (Eagle, 2009+)</span>
+      <span class="stat-chip"><strong>Trans:</strong> 545RFE or NAG1</span>
+      <span class="stat-chip"><strong>Difficulty:</strong> Advanced</span>
+      <span class="stat-chip"><strong>Beginner:</strong> 10–14 days</span>
+      <span class="stat-chip"><strong>Intermediate:</strong> 6–9 days</span>
+      <span class="stat-chip"><strong>Experienced:</strong> 3–5 days</span>
+    </div>
+  </div>
+
+  <!-- Parts checklist link banner -->
+  <div class="parts-banner">
+    <p><strong>Have your parts list?</strong> This guide assumes your parts decisions are made and most items are in hand. If you haven't built your parts list yet, start there first — it takes 20 minutes and will save you mid-build surprises.</p>
+    <a class="btn-parts" href="/v8-swap-parts-checklist.html">Parts checklist → Check off as you go</a>
+  </div>
+
+  <!-- Hero photo -->
+  <figure class="photo">
+    <img src="https://img.youtube.com/vi/tUWHD9SMMz8/hqdefault.jpg" alt="5.7L Hemi installed in a Jeep Wrangler JK engine bay">
+    <figcaption class="photo-credit"><strong>Photo placeholder</strong> — 5.7L Hemi in a JK Wrangler engine bay after a DIY install. Image: <a href="https://www.youtube.com/watch?v=tUWHD9SMMz8" target="_blank" rel="noopener">JK Gear and Gadgets — "My Jeep Wrangler DIY Hemi Swap Cost HOW MUCH???"</a>. Replace with original Trail Manual photography once available. <!-- TODO: replace with original photo --></figcaption>
+  </figure>
+
+  <!-- Phase navigation (sticky) — rendered dynamically by JS -->
+  <nav class="phase-nav" id="phaseNav" aria-label="Build phases">
+    <div class="phase-nav-inner" id="phaseNavInner">
+      <!-- populated by JS -->
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- BEFORE YOU START                                       -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <h2>Before you start — prerequisites</h2>
+
+  <p>This guide picks up where the parts checklist leaves off. Before your first wrench turn, all of the following need to be true:</p>
+
+  <ul class="checklist">
+    <li><strong>Parts list complete.</strong> You've gone through the <a href="/v8-swap-parts-checklist.html">V8 Swap Parts Checklist</a> and the major items are either in hand or firmly on order with delivery dates you trust.</li>
+    <li><strong>Donor engine sourced and inspected.</strong> You have a specific 2009+ Eagle 5.7L Hemi — compression-checked, no rod knock, plug condition inspected. A video of the engine running before you paid for it is worth more than a seller's word.</li>
+    <li><strong>Hotwire harness ordered.</strong> Lead time is 4–8 weeks. If you haven't ordered it yet, do it today. You cannot complete the swap without it, and there is no good substitute.</li>
+    <li><strong>Covered workspace with lift or jack stands.</strong> A two-post or four-post lift is ideal. Four 6-ton jack stands and a quality floor jack work. A driveway in Phoenix in July does not work.</li>
+    <li><strong>Jeep off daily-driver duty.</strong> Block out at minimum three weeks of calendar time. Do not start this as your daily driver.</li>
+    <li><strong>Read the Hotwire manual front to back.</strong> Hotwire emails it as a PDF — ask for it before the harness ships. The wiring phase is where most swaps stall; the manual is the map.</li>
+    <li><strong>Emissions situation resolved.</strong> If you're in Arizona or a CARB state, you've confirmed your referee path. This swap has the best V8 emissions story in the JK world — Mopar-in-Mopar, single OBD-II port — but confirm before you cut.</li>
+  </ul>
+
+  <div class="panel warn">
+    <h4>Minimum tool list</h4>
+    <p>Engine hoist (2-ton minimum) · Transmission jack · Torque wrenches in ft-lb and in-lb · OBD2 scanner with live data · Multimeter · MIG welder or access to one (for motor mount plates if going DIY fab) · Brake line flare tool if any brake lines get disturbed · Full socket set metric + SAE including deep wells and E-Torx · Impact driver · Breaker bar (24" minimum) · Pry bar set · Deutsch connector tool kit · Shop light</p>
+  </div>
+
+  <!-- Time estimates -->
+  <h2>Time estimates by experience level</h2>
+
+  <p>These are realistic calendar-day estimates, not optimistic shop hours. Each assumes one person working, full days on the build. The real driver of variance isn't skill — it's how often you stop mid-phase to go get a part you didn't have.</p>
+
+  <div class="time-callout">
+    <div class="time-callout-head">Total build time — phase 1 through first start</div>
+    <div class="time-tiers">
+      <div class="time-tier">
+        <div class="time-tier-label">Beginner</div>
+        <div class="time-tier-value">10–14 days</div>
+        <div class="time-tier-desc">First engine swap. Learning as you go. Budget 2–3 "go get a part" days and extra time on wiring. First-time Hotwire integration and first-start debugging are the main unknowns.</div>
+      </div>
+      <div class="time-tier">
+        <div class="time-tier-label">Intermediate</div>
+        <div class="time-tier-value">6–9 days</div>
+        <div class="time-tier-desc">Have done engine work but not a full swap. Comfortable with wiring, most tools on hand. Main unknowns: Hotwire harness integration, trans crossmember fab, first-start tuning.</div>
+      </div>
+      <div class="time-tier">
+        <div class="time-tier-label">Experienced</div>
+        <div class="time-tier-value">3–5 days</div>
+        <div class="time-tier-desc">Prior V8 swap experience, ideally a Hemi. All tools staged. Day 1: teardown + mock-up. Days 2–3: engine/trans in + mounts. Day 4: wiring + ancillaries. Day 5: fluids, first start, debug.</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="time-table">
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Beginner</th>
+        <th>Intermediate</th>
+        <th>Experienced</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1 · Teardown</td><td class="time-val">1.5–2 days</td><td class="time-val">1 day</td><td class="time-val">4–6 hrs</td></tr>
+      <tr><td>2 · Donor engine prep</td><td class="time-val">1 day</td><td class="time-val">6–8 hrs</td><td class="time-val">3–4 hrs</td></tr>
+      <tr><td>3 · Transmission prep</td><td class="time-val">4–6 hrs</td><td class="time-val">3–4 hrs</td><td class="time-val">1–2 hrs</td></tr>
+      <tr><td>4 · Mock-up and mounts</td><td class="time-val">1–1.5 days</td><td class="time-val">6–8 hrs</td><td class="time-val">3–4 hrs</td></tr>
+      <tr><td>5 · Engine and trans install</td><td class="time-val">1 day</td><td class="time-val">6–8 hrs</td><td class="time-val">3–4 hrs</td></tr>
+      <tr><td>6 · Hotwire harness</td><td class="time-val">1.5–2 days</td><td class="time-val">1 day</td><td class="time-val">6–8 hrs</td></tr>
+      <tr><td>7 · Cooling, fuel, ancillaries</td><td class="time-val">6–8 hrs</td><td class="time-val">4–5 hrs</td><td class="time-val">2–3 hrs</td></tr>
+      <tr><td>8 · Fluids and pre-start</td><td class="time-val">2–3 hrs</td><td class="time-val">1.5 hrs</td><td class="time-val">1 hr</td></tr>
+      <tr><td>9 · First start and tuning</td><td class="time-val">1 day</td><td class="time-val">6–8 hrs</td><td class="time-val">3–4 hrs</td></tr>
+    </tbody>
+  </table>
+
+  <hr class="section-divider">
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 1: TEARDOWN                                      -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase1">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 1</span>
+      <span class="phase-time-badge">Beginner: 1.5–2 days · Intermediate: 1 day · Experienced: 4–6 hrs</span>
+    </div>
+    <h3>Teardown</h3>
+
+    <ol class="phase-steps">
+      <li><strong>Document everything.</strong> Before you touch a connector or hose: photograph every harness routing, every bracket position, and every hose attachment point. Use your phone and organize by area. You will need these photos. Not having them costs you hours.
+        <p class="phase-note">Pay extra attention to the transfer case linkage, the shift cable routing, and the trans harness connectors — these are the most-forgotten items.</p>
+      </li>
+      <li><strong>Drain all fluids.</strong> Engine oil, coolant, transmission fluid, and power steering fluid. Have drain pans under each. Don't let coolant sit on the ground — it's toxic to animals. Dispose properly.</li>
+      <li><strong>Disconnect battery, remove hood.</strong> Disconnect negative first. Remove the hood and set it somewhere safe with padding — you'll be hoisting an engine and can't afford a wing mirror moment.</li>
+      <li><strong>Remove front skid or bumper if needed for hoist clearance.</strong> Check that your hoist can get a hook over the engine with the bumper in place. If not, it comes off now, not after you've rolled the hoist in.</li>
+      <li><strong>Disconnect and label all electrical connectors on the 3.8 engine harness.</strong> Label with tape flags as you go. The JK factory harness will stay in the vehicle — the Hotwire harness will tie into it. You need to know what every connector was doing.</li>
+      <li><strong>Remove air intake, throttle body, and intake manifold.</strong> Plug the exposed ports with shop rags or tape to keep debris out of the intake during teardown.</li>
+      <li><strong>Disconnect cooling lines and heater hoses.</strong> Have a towel handy — there will be residual coolant even after draining.</li>
+      <li><strong>Disconnect and set aside A/C lines.</strong> If you're retaining A/C (recommended), tag the high and low side and set the lines out of the way. Don't kink them. If refrigerant was already evacuated, this is simple; if not, the system needs to be evacuated by a shop before opening the lines.</li>
+      <li><strong>Remove the power steering pump.</strong> Set it aside — you'll reuse it or swap to a Hemi-compatible bracket depending on your accessory layout.</li>
+      <li><strong>Remove the exhaust.</strong> Stock manifolds and downpipes. This is often the most seized part of the teardown. Penetrating oil the manifold studs the night before and let it soak.</li>
+      <li><strong>Support the transmission with the trans jack.</strong> Place it before you disconnect anything below the trans — you don't want it hanging on the drivetrain when it comes loose.</li>
+      <li><strong>Remove both driveshafts.</strong> Front and rear. Mark orientation before removal (use paint marker or scratch mark across both flanges). This matters — you'll reinstall them in the same orientation.</li>
+      <li><strong>Disconnect transfer case linkage and electrical connectors.</strong> The shift linkage and the t-case range switch are the two most-forgotten items. Label them.</li>
+      <li><strong>Unbolt the transmission crossmember.</strong> The JK crossmember doesn't fit the new trans anyway, but getting it out now clears the path.</li>
+      <li><strong>Unbolt the motor mounts.</strong> Two bolts each side through the frame rails.</li>
+      <li><strong>Lift engine and trans out as an assembly.</strong> Chain to the front and rear lift points on the 3.8 block. Keep the leveler on the hoist so you can tilt the assembly as needed to clear the crossmember and firewall. Go slow.</li>
+    </ol>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 1</div>
+      <ul>
+        <li><strong>Not supporting the transfer case independently when dropping the trans.</strong> The NP241 is heavy enough to crack its own case or strip the adapter if the trans drops and pivots away from it. Keep the trans jack under the trans until it's completely clear of the chassis.</li>
+        <li><strong>Skipping the photo documentation.</strong> "I'll remember" is not a plan. Spend 15 extra minutes photographing. It saves hours later.</li>
+        <li><strong>Rushing the exhaust stud removal.</strong> Snapped manifold studs on the head mean a head-off or drilling job. Soak them, use an impact gun with short bursts, and know when to stop and apply more heat.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 2: DONOR ENGINE PREP                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase2">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 2</span>
+      <span class="phase-time-badge">Beginner: 1 day · Intermediate: 6–8 hrs · Experienced: 3–4 hrs</span>
+    </div>
+    <h3>Donor engine prep</h3>
+
+    <p>The 5.7L Eagle Hemi goes in better than it comes out of the donor — the time you spend here is time you don't spend diagnosing on a hot engine bay floor.</p>
+
+    <ol class="phase-steps">
+      <li><strong>Clean and inspect the donor 5.7 Hemi thoroughly.</strong> Check for rod knock (cold start, warm idle), oil leaks at the valve covers and pan, seeping coolant at the water pump and thermostat housing, and spark plug condition. Pull all 16 plugs and check for fouling, gap wear, and color. A healthy Hemi has grey-tan plugs with consistent gap across all 16.</li>
+      <li><strong>Remove donor PCM, all wiring, and accessories you won't use.</strong> Keep the donor PCM, TCM, crank sensor, cam sensor, MAP sensor, and injector pigtails. These are what the Hotwire harness was built to accept.</li>
+      <li><strong>Install new timing chain, guides, and tensioner if donor has over 80,000 miles.</strong> This is highly recommended — 5.7 Hemi timing chains are a documented wear item, particularly on early Eagle motors. Replacing them on the stand costs 2–3 hours. Replacing them after the engine is in the Jeep costs 2 days.</li>
+      <li><strong>Install new water pump, thermostat, and thermostat housing.</strong> These are cheap parts with high consequence. The plastic thermostat housing on donor engines ages out — replace it now, not after first start.</li>
+      <li><strong>Install Hotwire motor mount adapters onto the Hemi block.</strong> Torque to Hotwire's specified values (in the kit documentation). Do not use generic hardware — the motor mounts carry the full engine load.</li>
+      <li><strong>Install the correct flexplate or flywheel</strong> for your chosen transmission (545RFE path uses the flexplate from the donor; confirm part number against Hotwire's compatibility chart).</li>
+      <li><strong>Refresh intake manifold gaskets and valve cover gaskets.</strong> Used Hemi blocks commonly seep at both. New gaskets are $80 from Fel-Pro and take 90 minutes. A coolant or oil leak into the intake after first start is a project-stopper.</li>
+      <li><strong>Pressure-test the coolant passages before drop-in.</strong> With the water pump and thermostat installed, plug the ports and pressure-test to 15 PSI. Hold for 10 minutes. If it holds, you're clear. If not, find the leak now.</li>
+    </ol>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 2</div>
+      <ul>
+        <li><strong>Skipping the timing chain on a high-mileage donor.</strong> "I'll do it later if it makes noise" is a promise you'll regret. Hemi timing chains are the most-replaced wear item on these motors at 80–120K miles. Pulling the engine to do it later costs you two days and a lot of frustration.</li>
+        <li><strong>Keeping the plastic thermostat housing from the donor.</strong> They crack. A new one is $25. A cracked housing on first start drains your coolant in minutes and can overheat a fresh engine fast enough to cause real damage.</li>
+        <li><strong>Using the wrong flexplate.</strong> The 545RFE and NAG1 use different flexplates. Confirm your part number before torquing the converter to the flexplate — getting this wrong means pulling the trans.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 3: TRANSMISSION PREP                             -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase3">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 3</span>
+      <span class="phase-time-badge">Beginner: 4–6 hrs · Intermediate: 3–4 hrs · Experienced: 1–2 hrs</span>
+    </div>
+    <h3>Transmission prep</h3>
+
+    <p>This guide covers the 545RFE path as primary — it's the most common DIY choice, uses the same ATF+4 fluid as the JK's stock trans, and donor units are abundant. The NAG1 path requires a different bellhousing adapter and a separate crossmember solution; if you're on that path, the steps below apply but verify adapter compatibility separately.</p>
+
+    <ol class="phase-steps">
+      <li><strong>Inspect the donor 545RFE.</strong> Check the fluid condition — fresh red is good, dark brown or burnt-smelling means the trans lived a hard life. Pull the pan if you have any doubt and look for metallic debris or clutch material. A bad 545RFE you install is a bad 545RFE you'll pull out in six months.</li>
+      <li><strong>Rebuild or service the trans if there's any question.</strong> A trans drop mid-build is the most demoralizing thing that can happen to this project. A full rebuild kit runs $200–$400. If the fluid looks questionable, rebuild it now.</li>
+      <li><strong>Install the NP241 transfer case adapter.</strong> The JK's NP241 transfer case must be mated to the new 545RFE via an adapter from Advance Adapters or Novak. This adapter accounts for the different output shaft position between the donor trans and the JK factory trans. Do not skip this — the t-case will not physically bolt to the 545RFE without it.</li>
+      <li><strong>Check and replace output shaft seals.</strong> The adapter-to-t-case interface is a common leak point on post-swap builds. New seals are $10 insurance.</li>
+      <li><strong>Pre-fill the trans with fresh ATF+4 before installation.</strong> Filling through the dipstick tube after the trans is in is slow and messy. Pre-fill on the stand to get the pan about 2/3 full, then complete the fill after install.</li>
+    </ol>
+
+    <div class="panel info">
+      <h4>NAG1 note</h4>
+      <p>The NAG1 (Mercedes 5G-Tronic used in some 5.7 WK/XH donors) is a capable transmission and survives the Hemi well. It requires a different bellhousing adapter and a different crossmember mounting solution than the 545RFE. If your donor has a NAG1, plan on additional research before Phase 4. Both paths work — just confirm which trans you have before ordering adapters.</p>
+    </div>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 3</div>
+      <ul>
+        <li><strong>Installing a trans with questionable fluid and hoping for the best.</strong> The 545RFE is a good transmission — but not if it was already slipping or burning. Inspect it thoroughly or rebuild it. The rebuild window is now, on the stand, not in six months with the Jeep back apart.</li>
+        <li><strong>Ordering the wrong t-case adapter.</strong> Advance Adapters offers multiple NP241 adapter configurations. Confirm which NP241 variant you have (NP241OR Rubicon vs. NP241J) before ordering — they use different input shaft specs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 4: MOCK-UP AND MOTOR MOUNT                       -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase4">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 4</span>
+      <span class="phase-time-badge">Beginner: 1–1.5 days · Intermediate: 6–8 hrs · Experienced: 3–4 hrs</span>
+    </div>
+    <h3>Mock-up and motor mount installation</h3>
+
+    <p>This phase is the most precision-sensitive part of the build. Dimensions established here dictate driveshaft lengths, steering clearance, and crossmember position. Go slow.</p>
+
+    <ol class="phase-steps">
+      <li><strong>Lower the Hemi and 545RFE into the bay dry</strong> (no fluids, no exhaust, no accessories attached beyond what's needed for positioning). Check overall clearances before committing to anything.</li>
+      <li><strong>Verify Hotwire motor mount plates position correctly against the JK frame rails.</strong> The plates should sit flat against the frame with the engine centered in the bay. If they don't sit flush, find out why before drilling.</li>
+      <li><strong>Mark and drill motor mount holes.</strong> Use a center punch to mark the drill points. Double-check your measurements. Triple-check before drilling — this is the one step where a mistake requires a welder to fix.</li>
+      <li><strong>Install motor mount plates.</strong> Some Hotwire kits bolt; some require welding. Read your specific kit documentation and confirm which version you have before picking up a drill.</li>
+      <li><strong>Verify transmission crossmember position.</strong> The 545RFE sits differently than the JK's stock trans. Most builders need to fabricate a new crossmember or use a Hotwire or Genright crossmember kit. Position the engine on mounts, let the trans hang, and measure where the crossmember needs to land.</li>
+      <li><strong>Check front driveshaft length.</strong> The 5.7 Hemi package sits approximately 1.5 inches forward of the stock 3.8 position. Measure your front driveshaft with the engine on the mounts. Most JK builders need a shaft shortened or a new custom shaft from Tom Wood's or Adams Driveshaft. Don't guess — measure twice, order once.</li>
+      <li><strong>Check rear driveshaft length.</strong> Same principle. Rear shaft length changes with the trans swap. Measure with everything bolted in position.</li>
+      <li><strong>Check steering shaft clearance at full suspension droop.</strong> Cycle the suspension through full droop by hand and verify the 5.7 Hemi's accessory drive doesn't contact the JK steering shaft at any point through the range of motion. The Hemi sits slightly differently than the 3.8 and binding here is a real-world issue.</li>
+    </ol>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 4</div>
+      <ul>
+        <li><strong>Not checking steering shaft clearance until after the engine is fully installed.</strong> If there's contact, you'll be pulling the engine back out to address it. Check it now, with the engine dry-fitted and the suspension cycled by hand.</li>
+        <li><strong>Ordering driveshafts based on stock specs instead of measuring your actual install.</strong> The mount position shifts with the Hemi — measure from your actual installed position. Tom Wood's and Adams Driveshaft both have measurement guides on their websites.</li>
+        <li><strong>Drilling motor mount holes without double-checking the engine is level and centered.</strong> Use a level. Check left-right symmetry. A crooked engine mount will misalign the drivetrain and cause vibration you'll spend weeks chasing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 5: ENGINE AND TRANS INSTALLATION                 -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase5">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 5</span>
+      <span class="phase-time-badge">Beginner: 1 day · Intermediate: 6–8 hrs · Experienced: 3–4 hrs</span>
+    </div>
+    <h3>Engine and transmission installation</h3>
+
+    <ol class="phase-steps">
+      <li><strong>Final pre-drop check.</strong> Verify all prep is complete — coolant fittings torqued, all adapters tight, flexplate torqued to spec, timing chain fresh. Once this assembly is in the bay, accessing the back of the engine requires significantly more effort.</li>
+      <li><strong>Lower the engine and trans assembly into the bay.</strong> Use the engine leveler on your hoist — you'll need to tilt the assembly to clear the firewall and the front crossmember. Go slow, have a second person watching clearances on both sides.</li>
+      <li><strong>Seat the motor mounts.</strong> Get both sides seated before torquing either. Confirm the engine is level and centered before torquing down.</li>
+      <li><strong>Align the transmission to the crossmember and torque the trans mount.</strong> Position the crossmember, confirm the trans mount rubber is seated correctly, then torque the crossmember bolts to spec.</li>
+      <li><strong>Torque the motor mount bolts.</strong> Follow Hotwire's torque spec — it'll be in the kit documentation. Do not over-torque; the mount rubber compresses and needs to float slightly.</li>
+      <li><strong>Reconnect the driveshafts.</strong> Match the paint or scratch marks you made at teardown. Torque the U-joint strap bolts to spec — a loose driveshaft at highway speed is a catastrophic failure mode.</li>
+      <li><strong>Reconnect the transfer case shift linkage and electrical connectors.</strong> Verify the range switch is connected and that the linkage moves through all positions smoothly (2H, 4H, N, 4L) before moving forward.</li>
+    </ol>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 5</div>
+      <ul>
+        <li><strong>Torquing one motor mount before the other is seated.</strong> Get both seated and the engine level, then torque both. Torquing one side while the other floats puts stress on the mount and can cause a slight misalignment that affects the drivetrain.</li>
+        <li><strong>Not verifying driveshaft orientation before reinstalling.</strong> A driveshaft installed 180° out from where it came off will vibrate badly at speed. The marks from teardown tell you exactly where it was — follow them.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 6: HOTWIRE HARNESS INSTALLATION                  -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase6">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 6</span>
+      <span class="phase-time-badge">Beginner: 1.5–2 days · Intermediate: 1 day · Experienced: 6–8 hrs</span>
+    </div>
+    <h3>Hotwire harness installation</h3>
+
+    <p>This is the most technically demanding phase of the swap. The Hotwire kit replaces the Hemi's factory PCM and harness with a standalone harness designed to work in the JK chassis, retaining your factory gauges, A/C control, cruise control, and ABS. 80% of first-start failures trace back to something done or skipped in this phase.</p>
+
+    <ol class="phase-steps">
+      <li><strong>Read the entire Hotwire instruction manual before touching a wire.</strong> This is not a "figure it out as you go" harness. Hotwire's documentation is well-written and specific — it answers most questions before you have them. Skipping this step is where most wiring problems start.</li>
+      <li><strong>Mount the Hotwire PCM in the JK firewall location.</strong> The kit includes a bracket. Confirm the location before drilling — it needs to be accessible for future tuning and diagnostics.</li>
+      <li><strong>Route the main engine harness.</strong> Follow Hotwire's routing guide for the JK specifically. Zip-tie the harness away from heat sources (exhaust, headers) and moving components. Give yourself slack at the engine-to-body connection point to account for engine movement on the mounts.</li>
+      <li><strong>Connect injector, coil, cam sensor, crank sensor, and MAP sensor connectors.</strong> Every connector in the Hotwire kit is labeled. If a connector doesn't have a clear mate, stop and check the manual before forcing anything.</li>
+      <li><strong>Connect the Hotwire-to-JK body harness adapter.</strong> This is the bridge between the Hemi PCM world and the Jeep's TIPM. It's what keeps your gauges, brake light switch, HVAC controls, and cruise control working. Follow Hotwire's connection order — some connections need to be made before others for the CAN bus to initialize correctly.</li>
+      <li><strong>Retain and connect the JK's ABS module.</strong> The Hotwire kit preserves factory ABS function. Do not disconnect or bypass the ABS module — reconnect it exactly as it was.</li>
+      <li><strong>Connect the O2 sensors.</strong> Pre-catalyst and post-catalyst, both banks (four sensors total). Follow the Hotwire wiring diagram exactly — mismatched O2 sensor positions will cause bank-specific fuel trim codes after first start.</li>
+      <li><strong>Ground the PCM and engine block to chassis.</strong> Hotwire specifies minimum 4-gauge wire for the main ground runs. Run new grounds from the battery negative to the block, from the block to the chassis, and from the engine to the firewall. Do not rely on old grounds from the 3.8 installation — run new wire.</li>
+      <li><strong>Verify no shorts before reconnecting the battery.</strong> With all connections made, use a test light or multimeter on the main fuse to confirm no direct shorts to ground before applying power. A direct short on first power-up can damage the Hotwire PCM.</li>
+    </ol>
+
+    <div class="panel info">
+      <h4>A note on the OBD-II port</h4>
+      <p>One of the advantages of the Hemi-in-Mopar swap: unlike LS swaps, the Hotwire harness routes the Hemi PCM through the Jeep's factory diagnostic connector. You end up with a single, standard OBD-II port that reads the Hemi PCM normally. Your reader or scanner works without adaptation. This is also the cornerstone of the emissions story — there's no jury-rigged port situation to explain to a referee inspector.</p>
+    </div>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 6</div>
+      <ul>
+        <li><strong>Confusing Hotwire harness connectors with leftover JK harness connectors.</strong> Label everything as you work. If a connector doesn't have an obvious mate in the Hotwire kit, it may be a JK-specific function the kit handles differently — check the Hotwire FAQ and their support line before grounding it out or leaving it unconnected.</li>
+        <li><strong>Running undersized ground wire.</strong> Hotwire calls for 4-gauge minimum on the main grounds. Using 8-gauge or the stock 3.8 grounds will cause intermittent mystery codes under load — voltage drop on a ground looks exactly like a sensor fault to the PCM.</li>
+        <li><strong>Not reading the manual first.</strong> The Hotwire documentation specifically covers the JK and explains the connection sequence. Builders who skip it and figure it out backward spend an extra day debugging issues the manual would have prevented.</li>
+        <li><strong>Routing the harness too close to headers.</strong> The Hotwire harness uses quality wire, but it will degrade if run within a few inches of a hot exhaust surface. Plan the routing with exhaust heat in mind before you zip-tie anything permanently.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 7: COOLING, FUEL, AND ANCILLARIES                -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase7">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 7</span>
+      <span class="phase-time-badge">Beginner: 6–8 hrs · Intermediate: 4–5 hrs · Experienced: 2–3 hrs</span>
+    </div>
+    <h3>Cooling, fuel, and ancillary systems</h3>
+
+    <ol class="phase-steps">
+      <li><strong>Install the radiator.</strong> Most JK Hemi builds use an upgraded radiator — the Mishimoto MMRAD-WRA-07 is the popular all-aluminum dual-row choice. If you're in Phoenix, this is not optional. The stock 3.8 radiator will not keep up with the Hemi in summer traffic. Confirm the mounting tabs match your JK model year before ordering.</li>
+      <li><strong>Connect the upper and lower radiator hoses.</strong> Use Hemi-specific silicone hoses — the inlet and outlet positions differ from the 3.8 and the factory rubber hoses don't reach. Verify all hose clamps are fully seated and tightened. A loose lower hose on first start will drain your coolant in seconds and can overheat the engine before you can shut it down.</li>
+      <li><strong>Connect the heater hoses.</strong> Verify both supply and return are connected and clamped. Squeeze the clamps by hand to confirm they're seated past the bead on the fitting.</li>
+      <li><strong>Fill the coolant system.</strong> Use 50/50 premixed Mopar OAT (orange) coolant — do not mix with the green ethylene glycol the JK shipped with. Bleed air from the system by squeezing the upper hose repeatedly while filling the reservoir, and leave the radiator cap loose during initial fill to allow air to escape.</li>
+      <li><strong>Install the fuel supply and return lines.</strong> Verify the push-lock fittings are the correct size for the JK's fuel line diameter. A mismatched quick-connect that looks seated but isn't will spray fuel under the hood on first start.</li>
+      <li><strong>Install the throttle body air intake.</strong> Route away from the battery and any heat sources. Secure all clamps.</li>
+      <li><strong>Install exhaust headers and mid-pipe.</strong> Long-tube headers don't clear the JK frame rails — shorty headers (Hooker BlackHeart or equivalent) are the right choice. Verify clearance at the steering shaft specifically; this is the tightest point in the JK bay for header clearance. The mid-pipe/Y-pipe will likely need to be custom-fabbed by a muffler shop — no bolt-on solution exists for this swap.</li>
+      <li><strong>Power steering: connect or delete.</strong> If retaining power steering, install the Hemi-compatible pump with the appropriate JK bracket kit and connect the high and low pressure lines. If deleting PS for an electric power steering conversion, cap the lines now and plan the EPS install as a second project.</li>
+      <li><strong>A/C lines: reconnect or cap.</strong> If retaining A/C (recommended), reconnect the high and low side lines. The A/C system will need to be evacuated and recharged by a licensed shop since the lines were opened — plan for a $150–$250 shop visit after first start and before the first summer drive.</li>
+    </ol>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 7</div>
+      <ul>
+        <li><strong>Not fully seating hose clamps on the lower radiator hose.</strong> This is the single most common cause of coolant loss on first start. The lower hose is under pressure and is the hardest to see clearly during installation. After installing, reach in and physically push on the hose while wiggling it — if it moves more than a millimeter, the clamp isn't seated.</li>
+        <li><strong>Using the wrong coolant type.</strong> The 5.7 Hemi requires Mopar OAT (orange, HOAT-free) coolant. Mixing it with the green ethylene glycol from the original JK system will gel and clog the system. Flush the old coolant out completely before filling with OAT.</li>
+        <li><strong>Skipping the steering shaft clearance check after headers are installed.</strong> Shorty headers change the geometry slightly. Cycle the suspension through full droop after the headers are on and verify nothing contacts the steering shaft at any point.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 8: FLUIDS AND PRE-START CHECK                    -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase8">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 8</span>
+      <span class="phase-time-badge">Beginner: 2–3 hrs · Intermediate: 1.5 hrs · Experienced: 1 hr</span>
+    </div>
+    <h3>Fluids and pre-start check</h3>
+
+    <ol class="phase-steps">
+      <li><strong>Fill engine oil.</strong> The 5.7 Hemi takes 7 quarts with filter. Use 5W-20 full synthetic — Mopar or equivalent (Pennzoil Platinum, Mobil 1). Do not use conventional oil on a fresh engine with potential dry-start risk.</li>
+      <li><strong>Fill transmission fluid.</strong> The 545RFE requires ATF+4 — do not substitute with Dexron, Mercon, or "universal" ATF. The friction modifiers in ATF+4 are specific to the 545RFE clutch packs.</li>
+      <li><strong>Fill the transfer case.</strong> ATF+4 per the NP241 spec (confirm with the adapter documentation — some adapter combinations specify a different fluid).</li>
+      <li><strong>Fill front and rear differentials.</strong> Check your axle ratio tags to confirm gear oil spec. Most JK Dana 30 and Dana 44 axles use 80W-90 conventional or 75W-90 synthetic. If you're running a Rubicon rear Dana 44 or Trac-Lok, there's an additive spec — follow it.</li>
+      <li><strong>Verify all electrical connectors are fully seated and locked.</strong> Walk around the engine bay and physically press on every connector. The lock tab needs to click. A half-seated connector that looks connected will create intermittent fault codes under vibration.</li>
+      <li><strong>Verify all hose clamps are tight.</strong> Use a screwdriver to confirm every clamp is snug. Focus on the coolant system first, then the fuel lines, then the intake.</li>
+      <li><strong>Verify no tools left in the engine bay.</strong> Lift the intake manifold cover. Check behind the engine. Check in front of the radiator. A ratchet extension in the engine bay sounds like rod knock.</li>
+      <li><strong>Crank the engine without starting to build oil pressure first.</strong> Remove the fuel pump fuse (or use the Hotwire harness's fuel pump disable if documented). Crank the engine in 5–10 second bursts, pausing 30 seconds between, for a total of 30–45 seconds of cranking. Watch for the oil pressure gauge to show movement. This pre-primes the oil pump and gets oil to the bearings before combustion.
+        <p class="phase-note"><strong>This step is not optional.</strong> A dry start on a fresh engine causes real wear to the bearings and cam. The 30 seconds you spend doing this protects an engine that cost $3,000–$5,000.</p>
+      </li>
+    </ol>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 8</div>
+      <ul>
+        <li><strong>Skipping the dry-crank oil pressure prime.</strong> Every engine swap builder who's done one the wrong way tells the same story: "I just wanted to start it." Don't skip this. A fresh oil pump needs priming — the 5 minutes this step takes is cheap insurance on a $4,000 engine.</li>
+        <li><strong>Using the wrong transmission fluid.</strong> ATF+4 is not interchangeable with other automatic transmission fluids in the 545RFE. Wrong fluid causes the clutch packs to slip within the first few hundred miles. The fluid needs to go in clean and correct from the first fill.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- PHASE 9: FIRST START AND TUNING                        -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+
+  <div class="phase" id="phase9">
+    <div class="phase-header">
+      <span class="phase-tag">Phase 9</span>
+      <span class="phase-time-badge">Beginner: 1 day · Intermediate: 6–8 hrs · Experienced: 3–4 hrs</span>
+    </div>
+    <h3>First start and tuning</h3>
+
+    <ol class="phase-steps">
+      <li><strong>Re-enable the fuel pump fuse.</strong> If you pulled it for the dry-crank step, reinstall it now. Key on and listen for the fuel pump prime — you should hear a brief buzz from the tank, then silence. That's the pump pressurizing the fuel rail. Key off, wait 5 seconds, then key on again to get a second prime cycle.</li>
+      <li><strong>Connect your OBD2 scanner.</strong> Plug in before the first crank attempt. If there are immediate fault codes before the engine fires, address them before starting. Common pre-start codes: cam/crank sensor seating issues, throttle position sensor not seeing expected voltage range.</li>
+      <li><strong>Crank the engine.</strong> A Hotwire-equipped Hemi typically starts within 2–3 seconds of cranking if the fuel prime is complete and the harness is correctly connected. If it doesn't start within 5–6 seconds of cranking, stop and diagnose rather than grinding away on the starter.</li>
+      <li><strong>First-start watch list — first 30 seconds:</strong>
+        <ul>
+          <li>Look for coolant leaks immediately — lower hose, heater hoses, thermostat housing</li>
+          <li>Listen for rod knock or unusual mechanical noise (shut down immediately if you hear either)</li>
+          <li>Watch the oil pressure gauge — should climb to 20–40 PSI at idle within 5 seconds of start</li>
+          <li>Watch for fuel leaks at the rail and fuel line connections</li>
+        </ul>
+      </li>
+      <li><strong>Let the engine idle for 5 minutes.</strong> Watch temperature — a fresh engine with a new thermostat will idle cool for 3–4 minutes, then come up to operating temp (195–205°F). If temp climbs past 220°F and keeps rising, shut down and diagnose before continuing.</li>
+      <li><strong>Check for fault codes after the first warm idle cycle.</strong> Some codes are expected on first start and will clear after a few drive cycles (EVAP codes particularly). Codes related to O2 sensors, cam/crank sensors, and fuel trim should be investigated before the first drive.</li>
+      <li><strong>Driveway function test:</strong> Verify transmission shifts through all gears in the driveway (P, R, N, D, 2, 1). Verify transfer case engages 2H, 4H, and 4L cleanly. Verify ABS light goes off after initial system cycle. Verify brakes feel normal.</li>
+      <li><strong>First road test — 5 miles max, close to home.</strong> Listen for anything unusual. Check for vibration at highway speed (driveshaft balance or U-joint orientation). Confirm the trans shifts smoothly through all gears under light acceleration.</li>
+      <li><strong>500-mile break-in protocol:</strong> Vary RPM through the full range during the first 500 miles — don't cruise at sustained highway RPM. Change engine oil at exactly 500 miles regardless of appearance. This removes the metal particles from initial ring seating.</li>
+    </ol>
+
+    <div class="panel warn">
+      <h4>First-start issues and fixes</h4>
+      <table class="issue-table">
+        <thead>
+          <tr><th>Symptom</th><th>Most likely cause</th><th>Fix</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Won't start / no fuel pressure</td>
+            <td>Fuel pump relay, Hotwire fuel pump wire not connected</td>
+            <td>Check relay, verify Hotwire fuel pump output wire is connected to pump signal wire</td>
+          </tr>
+          <tr>
+            <td>Cranks but won't fire</td>
+            <td>Crank sensor connection, cam sensor, no fuel prime</td>
+            <td>Verify crank and cam sensor connectors are fully locked; key-cycle 3× to prime fuel rail before cranking</td>
+          </tr>
+          <tr>
+            <td>Rough idle / immediate stumble</td>
+            <td>Vacuum leak at intake manifold gaskets (common on used Hemi blocks), unmetered air</td>
+            <td>Spray carb cleaner around intake manifold perimeter at idle — idle change indicates vacuum leak location</td>
+          </tr>
+          <tr>
+            <td>Overheats on first warm-up</td>
+            <td>Air pocket trapped in cooling system</td>
+            <td>Let cool, loosen upper hose clamp slightly while warm to burp air, re-tighten, refill reservoir</td>
+          </tr>
+          <tr>
+            <td>CEL P0300 random misfire</td>
+            <td>Coil connector not fully seated, failing plug</td>
+            <td>Check all 8 coil connectors for lock tab click; inspect spark plug condition on affected cylinder</td>
+          </tr>
+          <tr>
+            <td>ABS light stays on</td>
+            <td>ABS connector not fully seated during harness install</td>
+            <td>Trace ABS connector from the module; verify fully seated and locked</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="mistakes">
+      <div class="mistakes-head">Common mistakes — Phase 9</div>
+      <ul>
+        <li><strong>Cranking for 10+ seconds without starting.</strong> If it doesn't start in 5–6 seconds, stop cranking and diagnose. Long cranking without starting washes fuel into the cylinders and can hydrolock the engine if there's a fuel delivery problem. Diagnose first: fuel pressure, codes, spark.</li>
+        <li><strong>Not watching coolant temp obsessively on the first warm-up.</strong> The first 10 minutes are when air pockets move, leaks show, and thermostats fail. Stay at the hood, eyes on the temp gauge, for the entire first warm-up cycle.</li>
+        <li><strong>Skipping the 500-mile oil change.</strong> Ring seating releases metal into the oil. Running past 500 miles on that oil puts metal particles through the bearings. Change it at 500 miles. No exceptions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- What's next -->
+  <h2>What to do after first start</h2>
+
+  <p>Getting the engine running is the milestone, but the build isn't finished. Here's the sequence for the first few hundred miles:</p>
+
+  <ul>
+    <li><strong>Get the A/C recharged.</strong> Schedule this at a licensed shop within the first week of driving. A dry compressor in a Phoenix summer will fail fast.</li>
+    <li><strong>Get a custom tune.</strong> The Hotwire PCM runs on a baseline tune that gets you running, but it doesn't know your tire size or gear ratio. A custom tune from Diablo Sport, HP Tuners, or a local Mopar shop corrects speedometer, optimizes shift points, and sets proper fuel trim for your specific build. Budget $300–$600.</li>
+    <li><strong>Change oil at 500 miles, then again at 3,000.</strong> Two early oil changes is cheap insurance on an engine that cost several thousand dollars.</li>
+    <li><strong>Inspect all fluid levels and check for leaks at 100 miles and 500 miles.</strong> Leaks that weren't visible in the shop show up under driving load and heat cycling.</li>
+    <li><strong>Re-torque the motor mount and driveshaft bolts at 500 miles.</strong> Heat cycling and vibration settle fasteners on a new install.</li>
+  </ul>
+
+  <!-- Parts link banner (repeated at bottom) -->
+  <div class="parts-banner" style="margin-top:28px">
+    <p><strong>Track your progress.</strong> Use the V8 Swap Parts Checklist to check off every part as it's installed — it keeps a running tally of what's done and what's left.</p>
+    <a class="btn-parts" href="/v8-swap-parts-checklist.html">Open the Parts Checklist →</a>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- Related guides -->
+  <h2>Related guides</h2>
+  <div class="next-grid">
+    <a class="next-card" href="/jk/build-decision-3-8-vs-hemi/">
+      <div class="nc-label">Build decision</div>
+      <div class="nc-title">3.8L Rebuild vs. Hemi Swap — Cost Comparison</div>
+      <div class="nc-desc">Deciding whether to swap? Side-by-side cost breakdown, factor-by-factor comparison, and an honest verdict for rigs with chromoly axles, 4.88 gears, and a dead 3.8L.</div>
+    </a>
+    <a class="next-card" href="/v8-swap-parts-checklist.html">
+      <div class="nc-label">Tool · Parts checklist</div>
+      <div class="nc-title">V8 Swap Parts Checklist</div>
+      <div class="nc-desc">Every part for the Hemi or LS swap into a JK. Filter to your engine path, check off as you buy and install, costs total live.</div>
+    </a>
+    <a class="next-card" href="/jk-wrangler-engine-swap-tool.html">
+      <div class="nc-label">Tool · Decision guide</div>
+      <div class="nc-title">JK Engine Swap Comparison Tool</div>
+      <div class="nc-desc">Compare every JK V8 path — AEV Hemi, DIY Hemi, MoTech LT, Bruiser LX3. Honest Phoenix-emissions verdicts and real cost ranges.</div>
+    </a>
+    <a class="next-card" href="/db/?v=jk">
+      <div class="nc-label">Database</div>
+      <div class="nc-title">JK DIY Database</div>
+      <div class="nc-desc">60+ guides for the JK platform — axles, suspension, electrical, maintenance. Filter by system and difficulty.</div>
+    </a>
+    <a class="next-card" href="/jk/">
+      <div class="nc-label">Platform home</div>
+      <div class="nc-title">JK Wrangler Hub</div>
+      <div class="nc-desc">All JK tools, guides, and resources in one place — database, death wobble diagnostic, My Garage, and more.</div>
+    </a>
+  </div>
+
+</div><!-- .page -->
+
+<footer class="footer">
+  <p class="disclaimer">Trail Manual is a free reference. This guide covers one builder's documented path and community-sourced best practices — it is not a substitute for manufacturer documentation or professional mechanical judgment. Always verify torque specs, fluid specs, and safety procedures against your specific parts documentation. Build safely.</p>
+</footer>
+
+<script>
+// ── Theme toggle ──────────────────────────────────────────────
+(function(){
+  var btn=document.getElementById('tm-theme-btn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme');
+    var next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('tm-theme',next);}catch(e){}
+  });
+})();
+
+// ── Phase nav ─────────────────────────────────────────────────
+(function(){
+  var phases=[
+    {id:'phase1',label:'Teardown'},
+    {id:'phase2',label:'Engine prep'},
+    {id:'phase3',label:'Trans prep'},
+    {id:'phase4',label:'Mock-up'},
+    {id:'phase5',label:'Install'},
+    {id:'phase6',label:'Harness'},
+    {id:'phase7',label:'Ancillaries'},
+    {id:'phase8',label:'Pre-start'},
+    {id:'phase9',label:'First start'}
+  ];
+
+  var inner=document.getElementById('phaseNavInner');
+  if(!inner)return;
+
+  // Build nav items
+  phases.forEach(function(ph,i){
+    var a=document.createElement('a');
+    a.className='phase-nav-item';
+    a.href='#'+ph.id;
+    a.setAttribute('data-phase',ph.id);
+    a.innerHTML='<span class="pn-num">'+(i+1)+'</span>'+ph.label;
+    inner.appendChild(a);
+  });
+
+  // Intersection observer to highlight active phase
+  var items=inner.querySelectorAll('.phase-nav-item');
+  var phaseEls=phases.map(function(ph){return document.getElementById(ph.id);}).filter(Boolean);
+
+  var activeIdx=-1;
+  function setActive(idx){
+    if(idx===activeIdx)return;
+    activeIdx=idx;
+    items.forEach(function(item,i){
+      item.classList.remove('active','done');
+      if(i<idx)item.classList.add('done');
+      else if(i===idx)item.classList.add('active');
+    });
+    // Scroll the active nav item into view
+    if(items[idx]){
+      items[idx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+    }
+  }
+
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id=entry.target.id;
+          var idx=phases.findIndex(function(p){return p.id===id;});
+          if(idx>=0)setActive(idx);
+        }
+      });
+    },{rootMargin:'-20% 0px -60% 0px',threshold:0});
+    phaseEls.forEach(function(el){obs.observe(el);});
+  } else {
+    // Fallback: highlight first phase
+    setActive(0);
+  }
+})();
+</script>
+
+</body>
+</html>
