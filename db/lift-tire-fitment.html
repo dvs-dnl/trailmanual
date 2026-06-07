@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+<meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lift vs. Tire Fitment Matrix — Jeep, Toyota, Ford | Trail Manual</title>
+<meta name="description" content="Find the right tire size for your lift height. Per-vehicle fitment charts for Jeep XJ, JK, JL, TJ, YJ, Gladiator, Toyota 4Runner, Tacoma, Ford Bronco (Early, II, Full-size, 6G), and F-150 Raptor — with rubbing notes, trimming requirements, and gear ratio recommendations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#2B3A4A;--slate-deep:#1A2330;--slate-light:#5B6B7E;
+  --clay:#C97E50;--clay-deep:#A85D33;--clay-light:#E8AB85;
+  --bone:#E8E2D2;--bone-deep:#C9C1AC;--paper:#F7F4ED;--panel-canon:#FFFCF5;
+  --moss:#3D5B47;--rust:#8A4E2C;--bark:#4A3B2E;
+  --safety:#B23B2F;--warn-c:#D89035;--good-c:#5E8C5A;--info-c:#4F7795;
+  --bg:var(--paper);--bg-2:var(--bone);--bg-3:var(--bone-deep);
+  --panel:var(--bone);--panel-2:var(--bone-deep);--border:#DDD7C7;
+  --text:var(--slate);--text-dim:var(--slate-light);--text-mute:#8A8678;
+  --accent:var(--clay);--accent-2:var(--moss);--accent-3:var(--rust);
+  --danger:var(--safety);--danger-bg:rgba(178,59,47,.1);--danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c);--warn-bg:rgba(216,144,53,.1);--warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c);--good-bg:rgba(94,140,90,.1);--good-border:rgba(94,140,90,.3);
+  --info:var(--info-c);--info-bg:rgba(79,119,149,.1);--info-border:rgba(79,119,149,.3);
+  --radius:4px;--radius-lg:6px;--shadow:0 4px 24px rgba(43,58,74,.08);--max:1200px;
+  --font-sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer}
+
+/* NAV */
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+
+/* HERO */
+.hero-section{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero-section::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(184,110,58,.12) 0%,transparent 65%);pointer-events:none}
+.hero-section h1{position:relative;font-size:clamp(22px,4vw,36px);color:var(--bone);margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero-section .lede{position:relative;font-size:15px;color:#8A95A8;max-width:680px;line-height:1.65;margin:0 0 12px}
+.hero-caveat{position:relative;margin-top:16px;font-size:12px;color:#6A7585;padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:inline-flex;gap:6px;align-items:center;line-height:1.4}
+
+/* VEHICLE SELECTOR */
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;font-weight:700;color:var(--text-mute);margin-bottom:12px}
+.vehicle-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
+.v-tab{padding:8px 16px;border-radius:var(--radius);border:1px solid var(--border);background:var(--panel);font-size:13px;font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .15s}
+.v-tab:hover{border-color:var(--accent);color:var(--accent)}
+.v-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.v-tab .v-years{font-weight:400;font-size:11px;opacity:.75;margin-left:4px}
+
+/* VEHICLE META STRIP */
+.vehicle-meta{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.vm-item{min-width:120px}
+.vm-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--text-mute);margin-bottom:3px}
+.vm-val{font-size:14px;font-weight:600;color:var(--text)}
+.vm-val.good{color:var(--good)}
+.vm-val.warn{color:var(--warn)}
+
+/* MATRIX TABLE */
+.matrix-wrap{overflow-x:auto;margin-bottom:32px;border:1px solid var(--border);border-radius:var(--radius-lg)}
+table.fitment-matrix{width:100%;border-collapse:collapse;min-width:640px}
+table.fitment-matrix th{background:var(--bg-2);padding:10px 14px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--text-mute);text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
+table.fitment-matrix th.lift-col{text-align:center}
+table.fitment-matrix td{padding:12px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top}
+table.fitment-matrix tr:last-child td{border-bottom:none}
+table.fitment-matrix tr:hover td{background:rgba(201,126,80,.04)}
+.lift-label{font-size:13px;font-weight:700;color:var(--text);white-space:nowrap}
+.lift-sub{font-size:11px;color:var(--text-mute);margin-top:2px}
+.tire-size{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--text)}
+.tire-alt{font-family:var(--font-mono);font-size:12px;color:var(--text-dim);margin-top:2px}
+.cell-status{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:.3px;margin-top:4px;white-space:nowrap}
+.status-clean{background:var(--good-bg);color:var(--good);border:1px solid var(--good-border)}
+.status-minor{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-border)}
+.status-mod{background:var(--info-bg);color:var(--info);border:1px solid var(--info-border)}
+.status-heavy{background:var(--danger-bg);color:var(--danger);border:1px solid var(--danger-border)}
+.cell-note{font-size:12px;color:var(--text-dim);margin-top:5px;line-height:1.45}
+.gear-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;background:var(--bg-3);border:1px solid var(--border);color:var(--text-dim);margin-top:4px;font-family:var(--font-mono)}
+.cell-trim{font-size:12px;color:var(--text-dim);line-height:1.45;min-width:220px}
+.trim-line{margin-bottom:6px}
+.trim-line:last-child{margin-bottom:0}
+.trim-k{display:inline-block;font-size:10px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);margin-right:6px}
+
+/* CALLOUT BOXES */
+.callout{border-radius:var(--radius);padding:14px 16px;font-size:13px;line-height:1.55;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.callout.warn{background:var(--warn-bg);border:1px solid var(--warn-border);color:var(--warn)}
+.callout.info{background:var(--info-bg);border:1px solid var(--info-border);color:var(--info)}
+.callout.good{background:var(--good-bg);border:1px solid var(--good-border);color:var(--good)}
+.callout-icon{flex-shrink:0;font-size:16px;margin-top:1px}
+.callout-body strong{display:block;margin-bottom:3px}
+.callout-body a{color:inherit;text-decoration:underline}
+
+/* REGEAR TABLE */
+.regear-section{margin-bottom:32px}
+.regear-section h2{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0 0 8px}
+.regear-section p{font-size:14px;color:var(--text-dim);margin:0 0 14px;line-height:1.6}
+.regear-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.regear-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.regear-card .rc-tire{font-family:var(--font-mono);font-size:15px;font-weight:700;color:var(--text);margin-bottom:6px}
+.regear-card .rc-gear{font-size:13px;color:var(--text-dim)}
+.regear-card .rc-gear span{color:var(--text);font-weight:600}
+.regear-card .rc-note{font-size:11px;color:var(--text-mute);margin-top:4px}
+
+
+/* WHEEL / BACKSPACING */
+.wheel-section{margin-bottom:32px}
+.wheel-section h2{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0 0 8px}
+.wheel-section p{font-size:14px;color:var(--text-dim);margin:0 0 14px;line-height:1.6}
+.wheel-rec{font-size:13px;color:var(--text-dim);margin:0 0 16px;line-height:1.6}
+.wheel-rec strong{color:var(--text)}
+.wheel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:16px}
+.wheel-spec{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.wheel-spec .ws-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin-bottom:4px}
+.wheel-spec .ws-val{font-family:var(--font-mono);font-size:14px;font-weight:600;color:var(--text)}
+.wheel-calc{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 18px 20px}
+.wheel-calc-controls{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px}
+.wc-field{display:flex;flex-direction:column;gap:5px;min-width:150px}
+.wc-field label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute)}
+.wc-field select{font:inherit;font-size:14px;padding:8px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font-family:var(--font-mono)}
+.wc-out{border-top:1px solid var(--border);padding-top:16px}
+.wc-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.wc-stat{flex:1;min-width:120px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:10px 12px}
+.wc-stat .wc-k{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin-bottom:3px}
+.wc-stat .wc-v{font-family:var(--font-mono);font-size:15px;font-weight:700;color:var(--text)}
+.wc-verdict{border-radius:var(--radius);padding:12px 14px;font-size:13px;line-height:1.55}
+.wc-verdict .wc-vh{font-weight:700;display:block;margin-bottom:3px}
+.wc-verdict.good{background:var(--good-bg);border:1px solid var(--good-border);color:var(--text)}
+.wc-verdict.info{background:var(--info-bg);border:1px solid var(--info-border);color:var(--text)}
+.wc-verdict.warn{background:var(--warn-bg);border:1px solid var(--warn-border);color:var(--text)}
+.wc-verdict.danger{background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--text)}
+.wc-foot{font-size:11px;color:var(--text-mute);margin-top:12px;line-height:1.5}
+
+/* SOURCES */
+.sources{margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
+.sources h3{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 10px}
+.sources ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.sources li a{font-size:12px;color:var(--text-dim);padding:4px 10px;border:1px solid var(--border);border-radius:12px;background:var(--panel);display:inline-block}
+.sources li a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+
+/* DARK */
+[data-theme="dark"]{
+  --bg:var(--slate-deep);--bg-2:#22303F;--bg-3:#2D3C4E;
+  --panel:var(--slate);--panel-2:#22303F;--border:#3A4A5E;
+  --text:var(--bone);--text-dim:#A5AFBE;--text-mute:#7A8595;
+}
+
+/* THEME BTN */
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-sun{display:none}.tm-theme-icon-moon{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-moon{display:none}
+
+/* HAMBURGER */
+.hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;align-items:center;justify-content:center;color:var(--text-dim);flex-shrink:0}
+.hamburger svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-linecap:round}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .vehicle-meta{gap:14px}
+  .vm-item{min-width:90px}
+}
+@media(max-width:480px){
+  .v-tab .v-years{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Lift vs. Tire Fitment</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('topbar-mobile-nav').classList.toggle('open')"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="topbar-mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/workshop/">Workshop</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero-section">
+    <h1>Lift vs. Tire Fitment Matrix</h1>
+    <p class="lede">What tire fits your lift height — and what it takes to make it work. Per-vehicle charts with rubbing notes, required modifications, and gear ratio recommendations for Jeep Wrangler, Cherokee, Gladiator, Toyota 4Runner, Tacoma, Ford Bronco family, and F-150 Raptor.</p>
+    <div class="hero-caveat">⚠️ Every build is different. These numbers represent what works for most owners at each lift height. Suspension brand, wheel backspacing, and factory vs. aftermarket flares all shift the limits. Measure yours before buying rubber.</div>
+  </div>
+
+  <div class="section-label">Select your vehicle</div>
+  <div class="vehicle-tabs" id="vehicle-tabs"></div>
+  <div id="vehicle-panel"></div>
+</main>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+// Statuses: clean | minor | mod | heavy
+// clean  = bolt-on, no rubbing
+// minor  = minor contact at full droop or full lock; bumpstop tweak or minor trimming fixes it
+// mod    = requires deliberate modification (fender trim, spacers, flare swap)
+// heavy  = significant structural work required (SOA, one-ton steering, flare cut, etc.)
+
+const VEHICLES = {
+  xj: {
+    label: "Jeep Cherokee XJ",
+    years: "1984–2001",
+    axles: { front: "Dana 30", rear: "Chrysler 8.25 (most) / Dana 35 (early/sport)" },
+    suspension: "Coil springs, solid front axle",
+    stockTire: '225/75R15 (28.9")',
+    stockGear: "3.55:1 (most) or 3.07:1",
+    note: "The XJ is the benchmark Jeep for budget tire fitment. The unibody limits maximum lift before geometry problems appear — 4.5\" short-arm or 5.5\" long-arm are the practical ceilings for most builds.",
+    citations: ["NAXJA Tire Fitment FAQ", "Cherokee Forum — Lift & Tires Tech Library", "JeepForum XJ Tire Size Thread"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height",
+        primary: { size: '225/75R15', metric: '28.9"' },
+        alt: { size: '215/75R15', metric: '28.3"' },
+        status: "clean",
+        gear: "3.55:1",
+        note: "Factory 225/75R15 clears everything. 30×9.50R15 (30\") fits but rubs lightly at full stuff on some years. Stick with 29\" or under for zero-hassle clearance."
+      },
+      {
+        lift: "+1.5\"",
+        liftSub: "Budget boost / 1.5\" spacers",
+        primary: { size: '30×9.50R15', metric: '29.9"' },
+        alt: { size: '235/75R15', metric: '29.9"' },
+        status: "clean",
+        gear: "3.55:1 (marginal)",
+        note: "30\" tires clear cleanly with budget coil spacers. At full droop and full lock you may get light contact on the front fender liner — a quick bumpstop trim (20 min) eliminates it. Most owners run 31s here with minor contact."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Short-arm lift (Rough Country, Rubicon Express, Skyjacker)",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '265/75R15', metric: '30.9"' },
+        status: "minor",
+        gear: "4.10:1 recommended",
+        note: "31s are the classic 3\" XJ tire. Light contact at full droop on driver-side fender; a brief trim of the plastic liner corner resolves it. 32\" tires fit at 3\" but need fender trimming and bumpstop extensions on both sides. Avoid 32×11.50 — the width eats into your limit fast."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Quality short-arm (AEV, Rubicon Express, OME)",
+        primary: { size: '33×12.50R15', metric: '33.0"' },
+        alt: { size: '285/75R16', metric: '32.8"' },
+        status: "mod",
+        gear: "4.56:1 required",
+        note: "33s at 4.5\" require front fender trimming (inner lip, both sides) and rear quarter-panel relief cuts on most years. Add bumpstop extensions to prevent tire contact at full droop. Budget 2–4 hours for trimming. 3.75\" wheel backspacing is the target — more backspacing kicks the tire into the fender at full stuff."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-arm lift or Spring-Over-Axle (SOA)",
+        primary: { size: '35×12.50R15', metric: '35.0"' },
+        alt: { size: '315/75R15', metric: '35.0"' },
+        status: "heavy",
+        gear: "4.88:1 (manual) / 5.13:1 (auto AW4)",
+        note: "35s require fender flare swap (high-clearance steel flares or Bushwacker cut-outs), one-ton steering upgrade (Chevy 1-ton steering box or Saginaw swap), and extended bumpstops. SOA builds also need a slip-yoke eliminator (SYE) + CV driveshaft to manage driveshaft angle. Not a weekend project."
+      }
+    ],
+    regearRows: [
+      { tire: '31"', manualGear: "3.73:1", autoGear: "4.10:1 (AW4)", note: "Minimum for 31s. 3.55 works but feels lazy above 65 mph." },
+      { tire: '33"', manualGear: "4.56:1", autoGear: "4.56:1 (AW4)", note: "4.10 technically fits 33s but the AW4 hunts gears on grades." },
+      { tire: '35"', manualGear: "4.88:1", autoGear: "5.13:1 (AW4)", note: "AW4 needs 5.13 to keep the 3.91 final drive alive long-term." }
+    ]
+  },
+
+  tj: {
+    label: "Jeep Wrangler TJ",
+    years: "1997–2006",
+    axles: { front: "Dana 30 (base) / Dana 44 (Rubicon)", rear: "Dana 35 (base/Sport) / Dana 44 (Rubicon)" },
+    suspension: "Coil springs, solid front axle",
+    stockTire: '215/75R15 (28.3") or 235/75R15 (29.9")',
+    stockGear: "3.73:1 (most) or 4.10:1 (Rubicon)",
+    note: "The TJ is more tolerant of big tires than the XJ. The coil-sprung solid-axle design handles moderate lifts well, and the Rubicon's 4:1 transfer case low range pairs well with larger rubber. Dana 35 rear axle is the weak point — upgrade it before you beat on 33s in the rocks.",
+    citations: ["JeepForum TJ Lift & Tire Guide", "Pirate4x4 TJ Axle Thread", "Morris 4x4 TJ Tech Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height",
+        primary: { size: '235/75R15', metric: '29.9"' },
+        alt: { size: '30×9.50R15', metric: '29.9"' },
+        status: "clean",
+        gear: "3.73:1",
+        note: "The Sport and Sahara ship with 225/75R15 (28.3\"); the Rubicon ships with 245/75R16 LTD (30.5\"). 30\" tires fit cleanly at stock height with zero rubbing on most trims."
+      },
+      {
+        lift: "+1.5\"",
+        liftSub: "Budget boost / 1.5\" coil spacers",
+        primary: { size: '30×9.50R15', metric: '29.9"' },
+        alt: { size: '245/75R16', metric: '30.5"' },
+        status: "clean",
+        gear: "3.73:1",
+        note: "30\" to 31\" tires fit cleanly at 1.5\". A budget spacer lift is a legitimate entry point for someone buying used TJs already running 30s or 31s on stock springs."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Short-arm lift (Rough Country, Rubicon Express, Old Man Emu)",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '265/75R15', metric: '30.9"' },
+        status: "clean",
+        gear: "3.73:1 (31s) / 4.10:1 (33s)",
+        note: "31s are dead clean at 3\" — no trimming, no rubbing. 33s fit with bumpstop extensions and minor fender liner trimming at the front corners. The TJ's wheelbase (93.4\") and wider track handles 33s without rubbing issues on quality lifts."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Quality short-arm or add-a-leaf combos",
+        primary: { size: '33×12.50R15', metric: '33.0"' },
+        alt: { size: '285/75R16', metric: '32.8"' },
+        status: "minor",
+        gear: "4.56:1",
+        note: "33s are comfortable at 4.5\" with minor fender trimming. Some owners run them without any trimming on quality lifts with good geometry. 35s will rub without a flare swap or significant fender work. Wheel backspacing of 3.75\" is the target here."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-arm or budget SYE + lift coils",
+        primary: { size: '35×12.50R15', metric: '35.0"' },
+        alt: { size: '315/75R15', metric: '35.0"' },
+        status: "mod",
+        gear: "4.88:1",
+        note: "35s at 6\" require a SYE (slip-yoke eliminator) + double-cardan CV driveshaft to keep driveshaft angles sane. Fender flare swap or trimming required. This is achievable on a TJ without SOA — the stock coil mounts handle a 6\" lift with good quality components."
+      }
+    ],
+    regearRows: [
+      { tire: '31"', manualGear: "3.73:1", autoGear: "N/A (manual trans standard)", note: "Stock 3.73 handles 31s well." },
+      { tire: '33"', manualGear: "4.56:1", autoGear: "4.56:1", note: "Required for 33s on all engine options." },
+      { tire: '35"', manualGear: "4.88:1", autoGear: "4.88:1", note: "The 4.0L does OK with 4.88; the 2.5L really needs them." }
+    ]
+  },
+
+  yj: {
+    label: "Jeep Wrangler YJ",
+    years: "1987–1995",
+    axles: { front: "Dana 30", rear: "Dana 35 (most) / AMC 20 (early)" },
+    suspension: "Leaf springs, solid front axle",
+    stockTire: '205/75R15 (27.1") or 225/75R15 (28.9")',
+    stockGear: "3.07:1 (early) or 4.11:1 (later 4-cyl) or 3.73:1 (6-cyl)",
+    note: "The leaf-sprung YJ is the oldest platform here. Leaf springs mean a lift is simpler mechanically but suspension travel is limited compared to coil rigs. The AMC 20 rear (pre-1988 on some trims) is fragile — replace it before running 33s. The YJ's track width is narrower than a TJ, which tightens fender clearance.",
+    citations: ["YJFreaks.com Tech Section", "JeepForum YJ Tire Fitment Thread", "Pirate4x4 YJ Lift Discussion"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height",
+        primary: { size: '225/75R15', metric: '28.9"' },
+        alt: { size: '30×9.50R15', metric: '29.9"' },
+        status: "clean",
+        gear: "3.73:1",
+        note: "The YJ shipped with modest rubber. 30\" tires fit at stock height but contact the front fender liner at full stuff on many years. Most owners running stock-height YJs stay at 29\" or under."
+      },
+      {
+        lift: "+1.5\"",
+        liftSub: "Shackle reversal or 1.5\" add-a-leaf",
+        primary: { size: '30×9.50R15', metric: '29.9"' },
+        alt: { size: '235/75R15', metric: '29.9"' },
+        status: "minor",
+        gear: "3.73:1",
+        note: "30\" tires mostly clear with a 1.5\" lift, but the narrow YJ front track means you may still get occasional fender liner contact at full droop + full lock. A bumpstop trim takes care of it."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Lift springs (Rough Country, Superlift, RE)",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '265/75R15', metric: '30.9"' },
+        status: "minor",
+        gear: "4.10:1 recommended",
+        note: "31s at 3\" require fender liner trimming at the front corners — typically 20–30 min per side with tin snips. The YJ's narrow track makes full-lock clearance tighter than on a TJ. 33s are possible but will rub without a flare swap."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Lift springs + shocks",
+        primary: { size: '33×12.50R15', metric: '33.0"' },
+        alt: { size: '285/75R16', metric: '32.8"' },
+        status: "mod",
+        gear: "4.56:1 required",
+        note: "33s at 4.5\" need front fender trimming and high-clearance flares or cut flares. Wheel backspacing matters a lot here — 3.5\" to 3.75\" is the range. The YJ body is not as easy to trim as an XJ or TJ."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-arm or SOA",
+        primary: { size: '35×12.50R15', metric: '35.0"' },
+        alt: { size: '315/75R15', metric: '35.0"' },
+        status: "heavy",
+        gear: "4.88:1",
+        note: "35s on a YJ are achievable with SOA or long-arm and a full flare swap. The YJ's narrower track makes geometry more critical. Full-length shackle reversal SOA builds are common in the YJ community. Expect significant bodywork and steering upgrades."
+      }
+    ],
+    regearRows: [
+      { tire: '31"', manualGear: "4.10:1", autoGear: "N/A", note: "Stock 3.73 handles 31s on 6-cyl; 4-cyl needs 4.10." },
+      { tire: '33"', manualGear: "4.56:1", autoGear: "N/A", note: "Required across the board for 33s." },
+      { tire: '35"', manualGear: "4.88:1", autoGear: "N/A", note: "4.88 or 5.13 depending on engine." }
+    ]
+  },
+
+  jk: {
+    label: "Jeep Wrangler JK",
+    years: "2007–2018",
+    axles: { front: "Dana 30 (Sport/Sahara) / Dana 44 (Rubicon)", rear: "Dana 44 (all trims)" },
+    suspension: "Coil springs, solid front axle",
+    stockTire: '255/75R17 (32.1") on all trims',
+    stockGear: "3.21:1 (most) or 4.10:1 (Rubicon)",
+    note: "The JK starts with a bigger stock tire than any previous Wrangler, which means it needs less lift before it runs into fitment limits. The Rubicon's factory 4:1 low range is a genuine capability multiplier. Non-Rubicon JKs have the weaker Dana 30 front — it's the first upgrade priority on a rock crawler build.",
+    citations: ["JKowners.com Lift & Tire FAQ", "JeepForum JK Tech Library", "4WD.com JK Fitment Guide"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — all trims",
+        primary: { size: '255/75R17', metric: '32.1"' },
+        alt: { size: '285/70R17', metric: '32.7"' },
+        status: "clean",
+        gear: "3.21:1",
+        note: "The JK ships with 255/75R17 (32\") across all trims — that's the biggest stock tire of any platform covered here. A 285/70R17 (33\") fits at stock height on the Rubicon and Sahara without rubbing; Sport trims may get light fender contact at full lock."
+      },
+      {
+        lift: "+1.5\"",
+        liftSub: "Level kit / 1.5\" coil spacers",
+        primary: { size: '285/70R17', metric: '32.7"' },
+        alt: { size: '305/70R17', metric: '33.8"' },
+        status: "clean",
+        gear: "3.21:1",
+        note: "33\" tires are dead clean at 1.5\" on all trims. Some 285/75R17 (33.8\") owners get away with it too. A 1.5\" level kit is the budget entry point for a minor stance improvement without changing geometry."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Short-arm lift (Rough Country, Rancho, Teraflex, Skyjacker)",
+        primary: { size: '35×12.50R17', metric: '35.0"' },
+        alt: { size: '315/70R17', metric: '34.4"' },
+        status: "minor",
+        gear: "4.56:1 recommended",
+        note: "35s are the target tire at 3\" — they fit cleanly on quality lifts. Budget lifts sometimes need a fender liner trim at front corners to avoid contact at full lock. This is the most popular JK lift height for a reason: it unlocks 35s without major surgery."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Quality short-arm or long-arm entry",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '35×12.50R17', metric: '35.0"' },
+        status: "mod",
+        gear: "4.88:1",
+        note: "37s at 4.5\" need a front fender flare trim or aftermarket flares (e.g., Poison Spyder, GenRight, EVO). Factory flares limit clearance significantly. The rear quarters are usually fine on 4-door JKs; 2-door JKs are tighter. Bumpstop extensions required."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-arm or adjustable 4-link",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '40×13.50R17', metric: '40.0"' },
+        status: "heavy",
+        gear: "5.13:1",
+        note: "37–40\" tires at 6\" require significant work: full flare replacement (or cut), extended brake lines, JK-specific long-arm geometry, and often a front-axle upgrade. 40s are a full build commitment. Not recommended on non-Rubicon Dana 30 — the front axle won't survive it."
+      }
+    ],
+    regearRows: [
+      { tire: '33"', manualGear: "3.73:1", autoGear: "3.73:1", note: "Minimal gain over stock 3.21 — skip unless you're already disassembling the axle." },
+      { tire: '35"', manualGear: "4.56:1", autoGear: "4.56:1", note: "Required. 3.21 with 35s will overheat the auto and kill highway fuel economy." },
+      { tire: '37"', manualGear: "4.88:1", autoGear: "4.88:1 or 5.13:1", note: "4.88 works; 5.13 is better for 37s on the 3.6L Pentastar." },
+      { tire: '40"', manualGear: "5.38:1", autoGear: "5.38:1", note: "Very few options — typically Atlas transfer case territory." }
+    ]
+  },
+
+  jl: {
+    label: "Jeep Wrangler JL",
+    years: "2018–present",
+    axles: { front: "Dana 30 (Sport base) / Dana 44 (Sport S, Sahara, Rubicon)", rear: "Dana 35 (Sport base) / Dana 44 (Sport S+, Sahara, Rubicon)" },
+    suspension: "Coil springs, solid front axle",
+    stockTire: '255/70R18 (31.1") Sport / 285/70R17 (33.0") Rubicon',
+    stockGear: "3.45:1 (most) or 4.10:1 (Rubicon)",
+    note: "The JL's factory suspension geometry is better than the JK — it handles moderate lifts without the alignment issues that plagued the older platform. The eTorque mild hybrid and turbocharged 2.0L engines add complexity to bigger lift installs. Rubicons ship on 33s from the factory, which makes the 35\" benchmark achievable with a modest 2–3\" lift.",
+    citations: ["JLWranglerForums.com Lift & Tire Thread", "JeepForum JL Fitment FAQ", "TeraFlex JL Product Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — trim dependent",
+        primary: { size: '285/70R17', metric: '33.0"' },
+        alt: { size: '255/70R18', metric: '31.1"' },
+        status: "clean",
+        gear: "3.45:1",
+        note: "Sport models ship at 31.1\"; Rubicons are at 33.0\" from the factory. A 285/70R17 (33\") fits on all JL trims at stock height — the Sport S and higher already have the Dana 44 axle and wider flares. No rubbing on any trim at 33\"."
+      },
+      {
+        lift: "+1.5\"",
+        liftSub: "Level kit / 1.5\" coil spacers",
+        primary: { size: '285/70R17', metric: '33.0"' },
+        alt: { size: '305/70R17', metric: '33.8"' },
+        status: "clean",
+        gear: "3.45:1",
+        note: "33\" tires are fully clean at 1.5\" across all trims. A level kit is the minimum recommendation when going from Sport 31s to 33s. No alignment correction needed at this height."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Short-arm lift (TeraFlex, Rough Country, Rancho, EVO)",
+        primary: { size: '35×12.50R17', metric: '35.0"' },
+        alt: { size: '315/70R17', metric: '34.4"' },
+        status: "clean",
+        gear: "4.56:1 recommended",
+        note: "35s are clean at 3\" on the JL — this is the dominant build combination because the JL's factory geometry tolerates a 3\" lift without the caster corrections the JK required. Rubicon owners running 35s at 3\" don't even need flare extensions."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Quality short-arm or entry long-arm",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '35×12.50R17', metric: '35.0"' },
+        status: "minor",
+        gear: "4.88:1",
+        note: "37s at 4.5\" on the JL need front fender liner trimming and often aftermarket flare spacers or replacement flares. The JL's flares are bolted on and easier to swap than JK flares. Bumpstop extensions required. Inner fender trimming is minimal compared to older platforms."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-arm or adjustable 4-link",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '40×13.50R17', metric: '40.0"' },
+        status: "mod",
+        gear: "5.13:1",
+        note: "37\" tires at 6\" need flare replacement and extended brake lines. The JL handles 6\" better than the JK did due to improved geometry, but it still needs proper caster correction. 40s require the full build treatment: long-arm, flare swap, and typically an axle upgrade for the non-Rubicon trims."
+      }
+    ],
+    regearRows: [
+      { tire: '33"', manualGear: "3.73:1", autoGear: "3.73:1", note: "Marginal improvement over stock 3.45. Only worth it if pulling heavy loads." },
+      { tire: '35"', manualGear: "4.56:1", autoGear: "4.56:1", note: "Required for 35s to keep the 8-speed auto happy." },
+      { tire: '37"', manualGear: "4.88:1", autoGear: "4.88:1 or 5.13:1", note: "5.13 is preferred for 37s — the 2.0T especially needs the regear." },
+      { tire: '40"', manualGear: "5.38:1", autoGear: "5.38:1", note: "Niche territory — specialized gearsets from Yukon or G2." }
+    ]
+  },
+
+  gladiator: {
+    label: "Jeep Gladiator JT",
+    years: "2020–present",
+    axles: { front: "Dana 30 (Sport) / Dana 44 (Rubicon, Mojave)", rear: "Dana 44 (all trims)" },
+    suspension: "Coil springs front, leaf springs rear — solid axle both ends",
+    stockTire: '255/70R18 (31.1") Sport / 285/70R17 (33.0") Rubicon',
+    stockGear: "3.73:1 (most) or 4.10:1 (Rubicon)",
+    note: "The Gladiator shares its front suspension with the JL but runs leaf springs in the rear. The 137.3\" wheelbase (vs. JL's 118.4\" for 4-door) actually helps tire clearance — a longer wheelbase means less chassis roll and more side clearance at full droop. The rear leaf springs limit axle articulation but also simplify tire fitment in the back. Rear tire fitment generally follows JL rules.",
+    citations: ["GladiatorForum.com Tire Fitment Thread", "JeepForum JT Tech Notes", "TeraFlex JT Lift Product Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — trim dependent",
+        primary: { size: '285/70R17', metric: '33.0"' },
+        alt: { size: '255/70R18', metric: '31.1"' },
+        status: "clean",
+        gear: "3.73:1",
+        note: "Same as JL: Sport ships at 31\", Rubicon and Mojave at 33\". A 285/70R17 fits all Gladiator trims at stock height with no rubbing. The rear leaf spring setup means no rear articulation concern at stock height."
+      },
+      {
+        lift: "+1.5\"",
+        liftSub: "Level kit / front spacers",
+        primary: { size: '285/70R17', metric: '33.0"' },
+        alt: { size: '305/70R17', metric: '33.8"' },
+        status: "clean",
+        gear: "3.73:1",
+        note: "33s are fully clean at 1.5\" front and rear. The Gladiator's longer wheelbase gives extra breathing room at the rear fenders even without a true lift."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Short-arm front + leaf pack rear (JT-specific kits)",
+        primary: { size: '35×12.50R17', metric: '35.0"' },
+        alt: { size: '315/70R17', metric: '34.4"' },
+        status: "clean",
+        gear: "4.56:1 recommended",
+        note: "35s fit cleanly at 3\" on the Gladiator. JT-specific lift kits (TeraFlex, Rough Country JT, EVO) include rear leaf pack upgrades to keep the truck level. Front clearance mirrors the JL; rear clearance is slightly better due to wheelbase. 35s are the dominant choice at this height."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Quality short-arm or long-arm front + leaf lift rear",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '35×12.50R17', metric: '35.0"' },
+        status: "minor",
+        gear: "4.88:1",
+        note: "37s at 4.5\" need front fender trimming (same as JL). Rear clearance on the Gladiator is more generous due to the longer wheelbase — in most cases 37s fit the rear wheel well cleanly. Flare extensions or swaps needed at the front. Bumpstop extensions front and rear."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-arm front + add-a-leaf or new leaf pack rear",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '40×13.50R17', metric: '40.0"' },
+        status: "mod",
+        gear: "5.13:1",
+        note: "37s at 6\" are clean with proper flare work. 40s fit the Gladiator somewhat better than the JL in the rear due to wheelbase — some owners run 40s on the Rubicon with minor rear quarter trimming only. Front still requires full flare replacement for 40s."
+      }
+    ],
+    regearRows: [
+      { tire: '33"', manualGear: "3.73:1", autoGear: "3.73:1", note: "Stock 3.73 handles 33s fine — no regear needed." },
+      { tire: '35"', manualGear: "4.56:1", autoGear: "4.56:1", note: "Required for 35s, especially with the 3.0L diesel." },
+      { tire: '37"', manualGear: "4.88:1", autoGear: "4.88:1 or 5.13:1", note: "5.13 preferred. The 3.6L is underpowered on 37s without it." },
+      { tire: '40"', manualGear: "5.38:1", autoGear: "5.38:1", note: "Specialty gearsets. Expect ~$2,500–$3,500 in regear labor + parts per axle." }
+    ]
+  },
+  runner5g: {
+    label: "Toyota 4Runner 5th Gen",
+    years: "2010–2024",
+    axles: { front: "IFS (double wishbone, front differential)", rear: "Solid rear axle (Toyota 8.0\")" },
+    suspension: "IFS front (double wishbone), solid rear axle with leaf springs",
+    stockTire: '265/70R17 (31.6\") Trail/TRD; 265/65R17 (30.6\") Limited',
+    stockGear: "3.91:1 (front and rear)",
+    note: "The 5th gen 4Runner pairs IFS up front with a solid axle out back — an arrangement that delivers reasonable trail capability while keeping ride quality on-road. The IFS means lift geometry requires more thought than a solid-axle rig: at 3\"+ you need aftermarket upper control arms (ICON, SPC, Camburg) to correct caster and protect CV longevity. The front crash bar (lower bumper horizontal beam) is the primary fitment constraint for larger tires. The 4.0L V6 is torquey enough that 33s on the factory 3.91 gearing is manageable — but 35s demand a regear.",
+    citations: ["IH8MUD.com 5th Gen 4Runner Lift &amp; Tire FAQ", "4RunnerTalk.com Fitment Thread", "YotaTech.com 5th Gen Lift Guide", "ICON Vehicle Dynamics 5th Gen 4Runner Install Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — all trims",
+        primary: { size: '265/70R17', metric: '31.6\"' },
+        alt: { size: '275/65R18', metric: '31.6\"' },
+        status: "clean",
+        gear: "3.91:1",
+        note: "Factory 265/70R17 (31.6\") fits cleanly on all trims. Some owners bolt on 285/70R17 (33\") at stock height — it fits on most trims but rubs the front inner fender liner tab at full droop. Stick with 265s or 275/65R18 for zero-contact clearance at stock height."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Level kit (front spacers) or front spacers + OME rear",
+        primary: { size: '285/70R17', metric: '33.0\"' },
+        alt: { size: '275/65R18', metric: '31.6\"' },
+        status: "minor",
+        gear: "3.91:1",
+        note: "285/70R17 (33\") is the standard move at 2\". Most builds get light contact on the front inner fender liner tab at full droop — a 5-minute trim with tin snips eliminates it. A front-only spacer level doesn't correct caster; for extended use add SPC upper arms. A matched front + rear OME combo (2\" front, 1\" rear) keeps the truck level and is the smarter long-term choice over front-only leveling."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Quality UCA kit (ICON Stage 2/3, Bilstein 6112 + SPC UCAs, Old Man Emu)",
+        primary: { size: '285/70R17', metric: '33.0\"' },
+        alt: { size: '285/75R17', metric: '33.8\"' },
+        status: "clean",
+        gear: "3.91:1",
+        note: "33\" tires are dead clean at 3\" on a quality UCA lift with caster-corrected arms. ICON aluminum UCAs, SPC upper arms, or Camburg tubular UCAs correct factory caster geometry and extend CV life significantly. Running 285/75R17 (33.8\") adds minor front fender liner trimming. This is the most popular 5th gen 4Runner build combination — the 4.0L V6, quality UCAs, and 33s hit a usable capability-to-practicality balance."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Extended-travel coilovers + extended UCAs + rear add-a-leaf or coilovers",
+        primary: { size: '33×12.50R17', metric: '33.0\"' },
+        alt: { size: '285/75R17', metric: '33.8\"' },
+        status: "mod",
+        gear: "4.56:1 recommended",
+        note: "At 4.5\" the front lower crash bar (the horizontal beam behind the front bumper) becomes the fitment limiter — most owners trim it or replace the front bumper with an aftermarket steel piece (ARB, Warn, Demello) that provides better clearance. Inner fender liner trimming required. Wheel backspacing target: 4.5\"–4.75\" keeps the tire in the wheel well at full droop. 35\" tires are possible but need crash bar work and a deliberate backspacing choice."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Full coilover system (ICON 6\", King, Fox), extended UCAs, rear lift blocks or leaf packs",
+        primary: { size: '35×12.50R17', metric: '35.0\"' },
+        alt: { size: '315/70R17', metric: '34.4\"' },
+        status: "heavy",
+        gear: "4.88:1 required",
+        note: "35\" tires at 6\" require front crash bar removal or replacement with an aftermarket bumper/skid system, metal inner fender trimming (not just liner), extended-travel UCAs maintaining safe CV operating angles, and extended front brake lines. The rear needs a matching lift via AAL, new leaf packs, or rear coilovers. This is a full build commitment — budget $4,000–$8,000 in suspension components alone. CV axle life is the ongoing maintenance item on heavily lifted IFS Toyotas."
+      }
+    ],
+    regearRows: [
+      { tire: '33\"', manualGear: "N/A — auto only", autoGear: "3.91:1 (adequate)", note: "Factory 3.91 handles 33s on the 4.0L V6 — throttle response is slightly lazy but livable. Regear if you tow regularly or live at altitude." },
+      { tire: '35\"', manualGear: "N/A — auto only", autoGear: "4.88:1", note: "Required for 35s. The A750F/E transmission runs hot and hunts gears on grades with 35s on factory 3.91." }
+    ]
+  },
+
+  tacoma3g: {
+    label: "Toyota Tacoma 3rd Gen",
+    years: "2016–2023",
+    axles: { front: "IFS (double wishbone, e-locker on TRD Pro)", rear: "Solid rear axle, leaf springs (locking rear diff on TRD Pro)" },
+    suspension: "IFS front, leaf-spring solid rear axle",
+    stockTire: '265/70R16 (30.6\") SR/SR5; 265/65R17 (30.6\") TRD; 265/70R17 (31.6\") TRD Pro',
+    stockGear: "3.91:1 (V6) or 4.10:1 (4-cyl)",
+    note: "The 3rd gen Tacoma is the best-selling truck in its segment, and the lifted community has produced exhaustive fitment data for it. The front IFS architecture is similar to the 4Runner's — bigger lifts require aftermarket UCAs for caster correction. The rear leaf springs limit articulation but simplify rear fitment. The 3.5L V6 (2GR-FKS) is notably less torquey below 3,000 rpm than the 4.0L it replaced, which makes it more sensitive to tire size increases. Virtually all lifted Tacomas run the 6-speed auto — the manual is only available on 4-cyl SR trims.",
+    citations: ["TacomaWorld.com Lift &amp; Tire FAQ", "TTORA.com Tech Section", "YotaTech.com 3rd Gen Tacoma Lift Thread", "Bilstein 6112 Tacoma Install Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — all trims",
+        primary: { size: '265/70R16', metric: '30.6\"' },
+        alt: { size: '265/70R17', metric: '31.6\"' },
+        status: "clean",
+        gear: "3.91:1",
+        note: "265/70R16 (base trims) and 265/70R17 (TRD Pro) fit cleanly on all 3rd gen Tacoma trims. 285/70R17 fits at stock height on some trims but rubs the front inner fender liner at full droop — not a clean bolt-on at stock height on most builds."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Level kit (front spacers) or Bilstein 5100 at 2\" front + stock rear",
+        primary: { size: '285/70R17', metric: '33.0\"' },
+        alt: { size: '265/70R17', metric: '31.6\"' },
+        status: "minor",
+        gear: "3.91:1",
+        note: "285/70R17 (33\") at 2\" gets minor front inner fender contact at full stuff. Trim the inner liner tab (5 min, tin snips) and it clears cleanly. A Bilstein 5100 set to 2\" front is a common affordable starting point. Adding OME Dakar or Deaver leaf packs in the rear balances the front level — a front-only spacer level leaves the truck raked."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Bilstein 6112 + SPC UCAs or ICON Stage 2 + OME/Deaver rear leaf packs",
+        primary: { size: '285/70R17', metric: '33.0\"' },
+        alt: { size: '285/75R17', metric: '33.8\"' },
+        status: "clean",
+        gear: "3.91:1",
+        note: "33\" tires clear cleanly at 3\" with UCAs correcting caster. SPC upper arms or ICON UCAs are the standard choice and protect the CV axles from premature wear. 285/75R17 (33.8\") adds light fender liner trimming at the front corners. The rear wheel wells on the Tacoma are generous — 33s have room to spare at the rear even with a proper rear lift."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Coilovers (ICON, King, Fox) + SPC UCAs + OME/Deaver rear leaf packs",
+        primary: { size: '33×12.50R17', metric: '33.0\"' },
+        alt: { size: '285/75R17', metric: '33.8\"' },
+        status: "mod",
+        gear: "4.56:1 recommended",
+        note: "33\" tires fit cleanly at 4.5\" with proper front geometry. Wheel backspacing target is 4.5\"–5.0\" — the Tacoma has less tolerance for shallow backspacing than Jeep platforms. The main fitment issue at this height shifts to the front fender lip at full lock. 35\" tires require a front bumper swap or significant inner fender work to clear properly."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Extended-travel coilovers, extended UCAs, front bumper swap, rear leaf lift",
+        primary: { size: '35×12.50R17', metric: '35.0\"' },
+        alt: { size: '315/70R17', metric: '34.4\"' },
+        status: "heavy",
+        gear: "4.88:1 required",
+        note: "35s at 6\" require a front bumper replacement with an aftermarket tube bumper (AFN, Demello, Dissent Off-Road), inner fender metal trimming, and extended CV axles. The 3.5L V6 feels significantly strained on 35s without a regear — the 6-speed auto hunts gears on moderate grades. Extended brake lines front and rear. Budget roughly $3,500–$6,000 in suspension plus $1,500–$2,000 in regear labor and parts."
+      }
+    ],
+    regearRows: [
+      { tire: '33\"', manualGear: "4.10:1 (4-cyl manual)", autoGear: "3.91:1 (adequate, V6)", note: "The 3.5L V6 handles 33s on 3.91 — not ideal but livable. The 2.7L 4-cyl on 33s without a regear is noticeably sluggish, especially on grades." },
+      { tire: '35\"', manualGear: "4.88:1 (4-cyl manual)", autoGear: "4.88:1 (V6 auto)", note: "Required for 35s on any engine. The 3.5L D-4ST is more rpm-sensitive than the old 4.0L — it feels the tire size increase more acutely than any previous Tacoma engine." }
+    ]
+  },
+
+  tacoma2g: {
+    label: "Toyota Tacoma 2nd Gen",
+    years: "2005–2015",
+    axles: { front: "IFS (double wishbone, front differential)", rear: "Solid rear axle, leaf springs" },
+    suspension: "IFS front, leaf-spring solid rear axle",
+    stockTire: '265/70R16 (30.6\") most trims; 265/65R17 (30.6\") TRD Sport',
+    stockGear: "3.91:1 (V6) or 4.10:1 (4-cyl)",
+    note: "The 2nd gen Tacoma (2005–2015) runs the 4.0L 1GR-FE V6 — a torquier, more forgiving engine than the 3.5L that replaced it. It handles tire size increases more gracefully because it makes its torque lower in the rev range. Front IFS architecture and rear leaf springs are essentially identical to the 3rd gen, so fitment limits and modification requirements are similar. The biggest practical advantage: the 4.0L lets you run 33s on factory 3.91 gearing without the sluggishness the newer engine shows.",
+    citations: ["TacomaWorld.com 2nd Gen Lift &amp; Tire Megathread", "TTORA.com Tech Section", "YotaTech.com 2nd Gen Tacoma Guide", "Bilstein 5100 Tacoma 2nd Gen Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — all trims",
+        primary: { size: '265/70R16', metric: '30.6\"' },
+        alt: { size: '265/70R17', metric: '31.6\"' },
+        status: "clean",
+        gear: "3.91:1",
+        note: "265/70R16 fits cleanly on all 2nd gen Tacoma trims. The Access Cab and Double Cab have identical tire fitment at the wheel wells — wheelbase (127.4\" vs 140.6\") affects bed clearance on very large tires at full droop but not at-rest fitment."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Level kit (front spacers) or Bilstein 5100 at 2\" front + stock rear",
+        primary: { size: '285/70R17', metric: '33.0\"' },
+        alt: { size: '265/70R17', metric: '31.6\"' },
+        status: "minor",
+        gear: "3.91:1",
+        note: "285/70R17 (33\") at 2\" gets minor front inner fender contact at full droop — same liner tab as the 3rd gen, same 5-minute tin snip fix. Bilstein 5100 set to 2\" front is the budget starting point. Adding OME Dakar rear leaf packs keeps the truck level and improves rear ride quality under load."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Bilstein 6112 + SPC UCAs or quality coilovers + OME/Deaver rear leaf packs",
+        primary: { size: '285/70R17', metric: '33.0\"' },
+        alt: { size: '285/75R17', metric: '33.8\"' },
+        status: "clean",
+        gear: "3.91:1",
+        note: "33\" tires clear cleanly at 3\" with UCAs correcting caster. The 4.0L V6 feels right at home with 33s on 3.91 — this combination is comfortable for highway, daily driving, and moderate trail use. 285/75R17 (33.8\") adds minor fender liner trimming at the front corners. Virtually every lifted 2nd gen Tacoma owner ends up here or at 4.5\"."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Full coilover kit (ICON, King, Fox) + SPC UCAs + upgraded rear leaf packs",
+        primary: { size: '33×12.50R17', metric: '33.0\"' },
+        alt: { size: '285/75R17', metric: '33.8\"' },
+        status: "mod",
+        gear: "4.56:1 recommended",
+        note: "33x12.5 fits cleanly at 4.5\" with proper front geometry. Wheel backspacing target is 4.5\"–5.0\" (same as 3rd gen). The 4.0L handles 33s on 3.91 but a regear to 4.56 restores the factory power band. 35\" tires require front inner fender metal trimming and typically a bumper swap for proper approach angle."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Extended-travel coilovers, extended UCAs, front bumper swap, rear leaf lift",
+        primary: { size: '35×12.50R17', metric: '35.0\"' },
+        alt: { size: '315/70R17', metric: '34.4\"' },
+        status: "heavy",
+        gear: "4.88:1 required",
+        note: "Same constraints as the 3rd gen at 6\": front bumper replacement with a tube bumper, inner fender metal trimming, extended CV axles, extended brake lines. The 4.0L V6 handles 35s better than the 3.5L and holds up better long-term, but a regear is still required. Budget $3,000–$5,500 in suspension plus regear parts and labor."
+      }
+    ],
+    regearRows: [
+      { tire: '33\"', manualGear: "3.91:1 (adequate, V6)", autoGear: "3.91:1 (adequate, V6)", note: "The 4.0L handles 33s on 3.91 better than any other Toyota truck engine. Only regear if you're doing serious off-road work or towing at capacity regularly." },
+      { tire: '35\"', manualGear: "4.88:1", autoGear: "4.88:1", note: "Required for 35s. The 4.0L holds up better than the 3.5L at this tire size but still hunts gears on grades without a regear." }
+    ]
+  },
+  bronco: {
+    label: "Ford Bronco (Early)",
+    years: "1966–1977",
+    axles: { front: "Dana 44 solid axle, leaf springs + radius arms", rear: "Dana 44 solid axle, leaf springs" },
+    suspension: "Solid front axle, leaf springs front and rear — no TTB on first-gen",
+    stockTire: 'E78-15 / G78-15 (~27.7"–28.5") factory; many came with 31×10.5R15',
+    stockGear: "3.50:1 (inline 6) or 4.11:1 (V8)",
+    note: "The first-gen Bronco runs a solid Dana 44 front — the same setup the aftermarket has been building around for 60 years. No TTB geometry complications, no radius arm drop math: lift it on springs and it responds predictably. The short 92-inch wheelbase amplifies the handling effects of every inch of lift, which means a few inches go a long way. High-steer becomes necessary above 4 inches to correct the drag link geometry. The Dana 44 rear is the same strength as the front — it holds up on 35s but will say goodbye on aggressive 37-inch runs without a locker and good driving habits.",
+    citations: ["Early Bronco Club Tech Archives", "BroncoZone.com Lift FAQ", "BroncoGraveyard.com Parts Notes", "Pirate4x4.com First-Gen Bronco Forum"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height, leaf springs front and rear",
+        primary: { size: 'G78-15 / 215/75R15', metric: '28.5"' },
+        alt: { size: '31×10.50R15', metric: '31.0"' },
+        status: "clean",
+        gear: "4.11:1 (V8) / 3.50:1 (I6)",
+        note: "Factory tires were modest by modern standards. A 215/75R15 or equivalent period tire fits cleanly. Many unmodified first-gens already have 31×10.5R15 mounted — these clear without any rubbing on stock suspension. If you're starting from a true stock Bronco, 31s are the natural first step before touching the suspension."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Longer rear shackles + front coil spacers or mild lift springs",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '33×12.50R15', metric: '33.0"' },
+        status: "minor",
+        gear: "4.11:1",
+        note: "At 2 inches, 31s clear cleanly and 33×12.5R15 fits with minor inner fender liner trimming at the front corners. Longer rear spring shackles ($150–$300) are the budget starting point. The short wheelbase means this modest lift is already a noticeable change in stance. Get an alignment after any lift — the short wheelbase amplifies geometry changes."
+      },
+      {
+        lift: "+4\"",
+        liftSub: "Lift springs front and rear, new shocks, high-steer conversion",
+        primary: { size: '33×12.50R15', metric: '33.0"' },
+        alt: { size: '35×12.50R15', metric: '35.0"' },
+        status: "mod",
+        gear: "4.11:1",
+        note: "35s fit at 4 inches with fender trimming — this is the practical target for most trail-ready first-gen builds. A high-steer conversion is not optional above 4 inches: the stock drag link geometry creates dangerous bumpsteer at this lift height. High-steer kits (Warn, Saginaw conversion setups) run $400–$800 and correct the drag link above the axle centerline. Budget $800–$1,800 for quality lift springs, shocks, and the high-steer kit. Source: Pirate4x4.com First-Gen forum confirms high-steer is required above 4\"."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-travel springs, high-steer, possible spring-over-axle prep",
+        primary: { size: '35×12.50R15', metric: '35.0"' },
+        alt: { size: '37×12.50R15', metric: '37.0"' },
+        status: "heavy",
+        gear: "4.56:1 recommended",
+        note: "At 6 inches the first-gen Bronco is a dedicated trail build. Extended shackles can induce axle wrap — add traction bars. 37s require cutting the fender corners and a body lift (1\"–2\") for front clearance. Full spring-over-axle (SOA) conversions start here: by raising the axle above the springs instead of the springs over the frame, you gain 4–6\" of free lift with improved geometry, at the cost of significant fabrication ($2,500–$6,000+ including custom driveshafts). Know the endpoint before you cut."
+      }
+    ],
+    regearRows: [
+      { tire: '31"', manualGear: "3.50:1 or 4.11:1 (stock adequate)", autoGear: "N/A (3-speed auto)", note: "Stock gearing handles 31s fine on the inline 6 or V8. The inline 6 gets sluggish above 31s without a regear." },
+      { tire: '33"', manualGear: "4.56:1", autoGear: "4.56:1", note: "A regear to 4.56 restores the power band and improves trail crawl ratio meaningfully on both engine options." },
+      { tire: '35"', manualGear: "4.88:1", autoGear: "4.88:1", note: "Required for 35s. The 302 and 351 can pull 35s on 4.56 but feel strained — 4.88 puts you back where you belong." }
+    ]
+  },
+
+  broncoii: {
+    label: "Ford Bronco II",
+    years: "1984–1990",
+    axles: { front: "TTB Dana 28 (most) / Dana 35 TTB (late Sport)", rear: "Ford 7.5\" (most) / Ford 8.8\" (late models), leaf springs" },
+    suspension: "Twin Traction Beam (TTB) front with coil springs, leaf spring rear solid axle",
+    stockTire: 'P205/75R14 (~26.1") or P215/75R15 (~27.7") depending on trim and year',
+    stockGear: "3.45:1 (most) or 3.73:1",
+    note: "The Bronco II runs TTB front suspension — Ford's independent front design where each wheel rides its own beam pivoting from a central point. At stock height it works fine, but lifting it without understanding the geometry produces tire scrub, aggressive camber wear, and handling that feels wrong at highway speed. The Dana 28 front axle is the platform's weakest point: half-shafts snap on big tires, and C-clips make the axle dangerous on aggressive rocky terrain. Lifting a Bronco II over 3 inches without a solid axle swap (SAS) is possible but increasingly problematic. Many serious builders go straight to SAS.",
+    citations: ["Early Bronco Club TTB Tech", "BroncoZone.com Bronco II Lift FAQ", "Pirate4x4.com Bronco II SAS Thread", "4-Wheeling America TTB Geometry Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory TTB height",
+        primary: { size: 'P215/75R15', metric: '27.7"' },
+        alt: { size: '29×9.50R15', metric: '29.0"' },
+        status: "clean",
+        gear: "3.45:1",
+        note: "Stock Bronco IIs came with modest tires that fit without any modification. A 29×9.5R15 slips in cleanly at stock height and is the natural budget upgrade. Don't push tire size on stock geometry — the Dana 28 is already at its load limit with the factory tires on aggressive terrain."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Quality replacement coils (Rough Country, Superlift) + rear add-a-leaf",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '235/75R15', metric: '29.0"' },
+        status: "minor",
+        gear: "3.73:1",
+        note: "2 inches is the practical TTB sweet spot: caster and camber geometry changes are still manageable, 31-inch tires clear with minor fender liner trimming, and the platform remains drivable on-road. Rough Country and Superlift both make Bronco II-specific coil kits. Get an alignment immediately after installation. Avoid stretching this to 2.5\" — the geometry deterioration isn't worth the marginal height gain."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Taller replacement coils, extended radius arms, alignment correction",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '33×10.50R15', metric: '33.0"' },
+        status: "mod",
+        gear: "3.73:1",
+        note: "3 inches on TTB starts causing noticeable geometry problems without proper radius arm correction. 33s fit with fender trimming but put significant stress on the Dana 28 half-shafts. If you're running technical terrain, the Dana 28 will fail on 33s sooner rather than later. At this point the cost of proper TTB geometry correction approaches the cost of a solid axle swap — price both before committing."
+      },
+      {
+        lift: "SAS",
+        liftSub: "Solid Axle Swap — Dana 44 front, geometry rebuild",
+        primary: { size: '33×12.50R15', metric: '33.0"' },
+        alt: { size: '35×12.50R15', metric: '35.0"' },
+        status: "heavy",
+        gear: "4.56:1",
+        note: "The SAS is the correct long-term answer for any Bronco II that will see real trail use. Swap in a Dana 44 front (from a first-gen Bronco or Ford pickup), build a proper leaf or coilover suspension, and the platform becomes genuinely capable. Parts for a basic SAS run $1,500–$3,500 depending on donor axle quality and what's already on the truck. Expect to add custom driveshafts and steering. Labor adds $2,000–$4,000 at a competent shop. The result: a truck that can reliably run 33–35s on technical terrain without snapping half-shafts. Source: Pirate4x4.com Bronco II SAS thread (hundreds of documented builds)."
+      }
+    ],
+    regearRows: [
+      { tire: '29"', manualGear: "3.45:1 (adequate)", autoGear: "3.45:1 (adequate)", note: "Stock gearing is fine for modest tires. The 2.9L V6 is not a powerful engine — don't push the gear ratio conversation until you're on 31s+" },
+      { tire: '31"', manualGear: "3.73:1", autoGear: "3.73:1", note: "A regear to 3.73 is a cheap way to improve feel on 31s, especially if you're already in the axle." },
+      { tire: '33"', manualGear: "4.56:1", autoGear: "4.56:1", note: "Required for 33s. The 2.9L V6 is badly strained on 33s without it. Most shops doing a SAS will include a regear in the same ticket." }
+    ]
+  },
+
+  fullsizebronco: {
+    label: "Ford Bronco Full-size",
+    years: "1978–1996",
+    axles: { front: "Dana 44 solid (1978–79) / TTB Dana 44 (1980–91) / TTB Dana 50 (1992–96, V8)", rear: "Ford 9\" (1978–83) / Dana 44 or Ford 8.8\" (1984–96)" },
+    suspension: "Solid front axle with leaf springs (1978–79); TTB coil springs front + leaf springs rear (1980–96)",
+    stockTire: 'P235/75R15 (~28.9") most; some trims ran 31×10.5R15 from factory',
+    stockGear: "3.55:1 (6-cyl) or 4.10:1 (V8)",
+    note: "The full-size Bronco is a legitimate truck platform — 104.7-inch wheelbase, Dana or Ford axles front and rear, and the same TTB front suspension that the F-150 used from 1980 onward. The TTB complicates lifting because it changes caster as the suspension rises. The fix is radius arm drop brackets: they restore caster geometry by relocating the radius arm pivot point downward. A 4-inch TTB lift without drops produces a truck that wanders at highway speed. With quality drops and an alignment, the full-size Bronco is a stable, capable lifted rig. The 1978-79 solid-axle trucks are simpler to lift but much rarer. Most full-size Bronco lifts you'll encounter are TTB (1980+).",
+    citations: ["BroncoZone.com Full-size Lift FAQ", "Superlift Full-Size Bronco Lift Notes", "BDS Suspension TTB Application Guide", "Pirate4x4.com Full-Size Bronco Tech"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — P235/75R15 or 31×10.5R15 depending on trim",
+        primary: { size: 'P235/75R15', metric: '28.9"' },
+        alt: { size: '31×10.50R15', metric: '31.0"' },
+        status: "clean",
+        gear: "3.55:1 or 4.10:1",
+        note: "Later Eddie Bauer and Nite editions came with 31×10.5R15 from the factory. These clear without rubbing. 31s on a stock full-size Bronco are fine. Don't push to 33s without addressing the suspension — the stock TTB geometry doesn't have clearance to spare."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Coil spacers or mild replacement coils + rear add-a-leaf",
+        primary: { size: '31×10.50R15', metric: '31.0"' },
+        alt: { size: '33×10.50R15', metric: '33.0"' },
+        status: "minor",
+        gear: "3.55:1 or 4.10:1",
+        note: "33×10.5 fits at 2 inches with minor trimming on most Broncos. Radius arm drops are recommended at 2 inches — they're cheap ($150–$300) and caster change at this height is already noticeable without them. New shocks are worth doing in the same pass. This is the most accessible entry point for a drivable truck that sees occasional trail use."
+      },
+      {
+        lift: "+4\"",
+        liftSub: "Replacement coils + longer rear springs + radius arm drops (required) + new shocks",
+        primary: { size: '33×12.50R15', metric: '33.0"' },
+        alt: { size: '35×12.50R15', metric: '35.0"' },
+        status: "mod",
+        gear: "4.10:1",
+        note: "4 inches is the practical sweet spot for a daily-driven lifted full-size Bronco. 35s fit with fender trimming — the front corners of the plastic liner and sometimes a small notch in the front bumper valance. Radius arm drops are mandatory at this height: without them the truck will wander on the freeway and steering response will feel vague. Brands: Superlift, Rough Country, BDS all make TTB-specific kits. Budget $1,200–$2,000 all-in with alignment for a quality build. Source: Superlift and BDS product notes confirm radius arm drops are required at 4\"."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Extended coils, extended radius arms, bumpstop extensions, full alignment",
+        primary: { size: '35×12.50R15', metric: '35.0"' },
+        alt: { size: '37×12.50R15', metric: '37.0"' },
+        status: "heavy",
+        gear: "4.56:1 recommended",
+        note: "37s at 6 inches require full front fender modification — trim or replace the plastic and in some cases cut the metal. Extended brake lines front and rear. TTB geometry at 6 inches is at its limit, even with radius arm drops — some builders add a track bar relocation bracket to correct lateral axle position. The full-size Bronco has the wheelbase and weight to absorb big tires better than the Bronco II, but 37s are a full commitment build. Solid axle conversion (TTB-to-SAS) eliminates the geometry headache entirely and is increasingly common on serious trail builds."
+      }
+    ],
+    regearRows: [
+      { tire: '31"', manualGear: "3.55:1 or 4.10:1 (stock adequate)", autoGear: "3.55:1 or 4.10:1 (stock adequate)", note: "Stock gearing handles 31s on the 5.0L and 5.8L without issues. Don't regear for 31s." },
+      { tire: '33"', manualGear: "4.10:1", autoGear: "4.10:1", note: "If you're on 3.55, a move to 4.10 on 33s is worth it — especially on the 4.9L inline 6. The 5.0L/5.8L on 3.55 can manage 33s but feels lazy at altitude." },
+      { tire: '35"', manualGear: "4.56:1", autoGear: "4.56:1", note: "Required for 35s. The E4OD automatic (1989+) will shift hunt aggressively on grades without a regear on 35s." },
+      { tire: '37"', manualGear: "4.88:1", autoGear: "4.88:1", note: "Specialty territory. Yukon Gear makes 4.88 sets for both the Dana 44 and Ford 8.8 rear." }
+    ]
+  },
+
+  bronco6g: {
+    label: "Ford Bronco 6th Gen",
+    years: "2021–present",
+    axles: { front: "Dana AdvanTEK 44 solid axle (High Pinion)", rear: "Dana AdvanTEK 44 solid axle" },
+    suspension: "Coil springs, solid front axle — same front architecture as JL Rubicon",
+    stockTire: '255/70R17 (32.1") non-Sasquatch / 315/70R17 (35.0") Sasquatch package',
+    stockGear: "4.27:1 non-Sasquatch / 4.70:1 Sasquatch",
+    note: "The 6th gen Bronco came back with the right bones: solid front axle (Dana 44 High Pinion, same family as the JL Rubicon's front end), coil springs all around, factory lockers on Badlands and Sasquatch, and a modular bumper system designed to accommodate aftermarket bumpers without surgery. Sasquatch trucks ship with 35s and 4.70 gearing and are genuinely trail-ready from the factory. Non-Sasquatch trucks are on 32s and 4.27 gearing — the 2-inch lift to 35s is a common first mod. The solid-axle geometry means lifts behave predictably without TTB caster headaches. The 2.3L EcoBoost handles moderate tire size; step up to the 2.7L EcoBoost V6 before going past 35s.",
+    citations: ["BroncoNation.com Lift & Tire FAQ", "TeraFlex Bronco 6G Product Notes", "Rough Country Bronco 6G Fitment Guide", "BroncoSport & Bronco Owner Forums Sasquatch vs non-Sasquatch thread"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Non-Sasquatch: 32\" factory / Sasquatch: 35\" factory",
+        primary: { size: '315/70R17 (Sasq) / 255/70R17 (non-Sasq)', metric: '35.0" / 32.1"' },
+        alt: { size: '285/70R17', metric: '33.0"' },
+        status: "clean",
+        gear: "4.70:1 (Sasq) / 4.27:1 (non-Sasq)",
+        note: "Sasquatch trucks are trail-capable at stock height — 35s, lockers, and 4.70 gearing make for a legitimate off-road build without touching the suspension. Non-Sasquatch trucks are on 32s: a 285/70R17 (33\") fits at stock height on non-Sasquatch trims without rubbing at full lock, which makes it the cheapest upgrade. Don't lift a Sasquatch without upgrading gearing further — 4.70 handles 37s, but you want 4.88 for consistent performance."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Coil spacers or mild replacement coils (non-Sasquatch primary target)",
+        primary: { size: '315/70R17', metric: '35.0"' },
+        alt: { size: '285/70R17', metric: '33.0"' },
+        status: "clean",
+        gear: "4.27:1 (non-Sasq) / 4.70:1 (Sasq)",
+        note: "A 2-inch lift on a non-Sasquatch gets you to 35s with fender liner trimming at the front corners. This is the dominant build path for non-Sasquatch owners who want to match Sasquatch capability without the full package cost. Rough Country, Traxda, and TeraFlex all make Bronco-specific 2\" coil spacer kits. Get an alignment after. The factory gearing (4.27) handles 35s adequately on the 2.3L EcoBoost — not optimal, but drivable."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Quality replacement coils (Bilstein, Fox, TeraFlex) ± bumpstop extension",
+        primary: { size: '315/70R17', metric: '35.0"' },
+        alt: { size: '35×12.50R17', metric: '35.0"' },
+        status: "clean",
+        gear: "4.46:1 recommended",
+        note: "35s are dead clean at 3\" on all trims — Sasquatch and non-Sasquatch. This is the most popular Bronco lift height because it maximizes ground clearance without requiring fender work. Bilstein B8 6112/5160 kits are the enthusiast standard. A regear to 4.46 on non-Sasquatch trucks at 3\" is the correct call if you're running the 2.3L on trails regularly — the 2.7L on factory 4.27 can manage 35s but works noticeably harder."
+      },
+      {
+        lift: "+4\"",
+        liftSub: "Full coilover kit (Fox 2.5, King OEM+ replacement) + bumpstop extension",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '315/70R17', metric: '35.0"' },
+        status: "minor",
+        gear: "4.70:1 or 4.88:1",
+        note: "37s at 4 inches need front fender liner trimming and in some cases the factory modular bumper end caps trimmed or swapped for a slimmer aftermarket unit. The Bronco's solid-axle geometry handles this well — less fender work than a comparable TTB lift. Fox 2.5 Performance Elite and King OEM+ replacement coilovers are the performance-first choices. Regear to 4.70 or 4.88 before running 37s regularly. Source: BroncoNation.com confirms 37s require front fender work at 3–4\"."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Long-travel coilover kit + extended control arms + bumper swap",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '40×13.50R17', metric: '40.0"' },
+        status: "mod",
+        gear: "4.88:1",
+        note: "37s at 6\" require front fender flare replacement or significant metal work. The Bronco's modular bumper makes aftermarket bumper installation cleaner than most platforms — plan for a tube or full-replacement front bumper when going to 37s+ at this height. 40s are possible with full flare replacement and extended brake lines. The 2.7L EcoBoost V6 holds up better than the 2.3L at 40s. This is a dedicated trail build — the 6th gen Bronco at 6\" is one of the most capable factory-platform builds in its class."
+      }
+    ],
+    regearRows: [
+      { tire: '33"', manualGear: "4.27:1 (adequate)", autoGear: "4.27:1 (adequate)", note: "Factory non-Sasquatch gearing handles 33s fine on both engines." },
+      { tire: '35"', manualGear: "4.46:1 (non-Sasq) / 4.70:1 (Sasq fine)", autoGear: "4.46:1 recommended for 2.3L on trails", note: "Non-Sasquatch trucks need a regear for heavy trail use on 35s with the 2.3L. The 2.7L manages 35s on 4.27 but will thank you for 4.46." },
+      { tire: '37"', manualGear: "4.70:1 or 4.88:1", autoGear: "4.88:1 preferred", note: "Required for 37s on either engine. 4.70 (Sasquatch factory ratio) handles 37s; 4.88 is the performance choice for aggressive trail use." },
+      { tire: '40"', manualGear: "4.88:1", autoGear: "4.88:1 or 5.13:1", note: "Niche territory. The 2.7L on 40s needs 4.88 minimum. 5.13 is a specialty gearset — verify availability for your axle code before ordering." }
+    ]
+  },
+
+  raptor: {
+    label: "Ford F-150 Raptor",
+    years: "2010–present (Gen 1–3 + Raptor R)",
+    axles: { front: "High-Strength Steel TTB IFS (Gen 1–2) / Cast-steel high-travel IFS (Gen 3)", rear: "Leaf springs solid axle (Gen 1–2) / Coilover solid axle (Gen 3)" },
+    suspension: "Factory high-travel IFS front, rear varies by generation — built for speed, not rock crawling",
+    stockTire: '315/70R17 (35.0") Gen 1–3 / 37×12.5R17 (37.0") Raptor R factory',
+    stockGear: "3.73:1 (Gen 1 and Gen 3) / 3.55:1 (Gen 2 / 3.5L EcoBoost base)",
+    note: "The Raptor is not a traditional lift project — Ford did the lift already. Gen 1 SVT Raptors ship with 35-inch BFGoodrich All-Terrains and factory Fox shocks with almost 12 inches of suspension travel. The stock suspension is already tuned for high-speed desert running. Lifting a Raptor means upgrading the existing suspension for more travel, better heat management, and capability at higher speeds — not stacking coil spacers. Most owners chase shock upgrades and wheel/tire upgrades rather than lift height. Approach this platform by asking 'what kind of terrain am I building for?' rather than 'how many inches of lift.' Rock crawlers are better served by a Bronco or Wrangler build.",
+    citations: ["RaptorForum.com Suspension Megathread", "Fox Racing Shox Raptor Application Notes", "King Shocks Raptor Upgrade Guide", "Raptor Supremacy Gen 3 Suspension Build Thread"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — Gen 1: 11.5\" travel / Gen 2–3: 13\"+ travel",
+        primary: { size: '315/70R17', metric: '35.0"' },
+        alt: { size: '35×12.50R17', metric: '35.0"' },
+        status: "clean",
+        gear: "3.73:1 (Gen 1, Gen 3) / 3.55:1 (Gen 2)",
+        note: "The Raptor is factory correct for 35s on all generations. Gen 1 uses Fox shocks with 2.5\" diameter body; Gen 2 upgrades to Fox 3.0\" internal bypass; Gen 3 runs Fox Live Valve with electronically controlled damping. At stock height the truck is already doing what most modified trucks aspire to. The Raptor R (2023+) comes from the factory on 37-inch tires with a 5.2L supercharged V8 — it is genuinely different in capability from the EcoBoost Raptors."
+      },
+      {
+        lift: "+1\" preload / leveling",
+        liftSub: "Preload collar adjustment or front leveling spacers",
+        primary: { size: '315/70R17', metric: '35.0"' },
+        alt: { size: '325/70R17', metric: '35.6"' },
+        status: "clean",
+        gear: "3.73:1",
+        note: "The Raptor comes with a factory rake (rear higher than front) for towing and high-speed stability. A preload adjustment or 1-inch spacer levels the truck. At this height, 35s still clear cleanly. Some owners fit 325/70R17 (35.6\") or 305/70R18 as a mild width upgrade. This is a cosmetic change more than a capability change on the Raptor."
+      },
+      {
+        lift: "+2\" coilover swap",
+        liftSub: "Coilover replacement (King OEM+, Fox 3.0 Coilover, Icon CDCV) — Gen 2/3",
+        primary: { size: '35×12.50R17', metric: '35.0"' },
+        alt: { size: '37×12.50R17', metric: '37.0"' },
+        status: "minor",
+        gear: "3.73:1",
+        note: "Replacing the factory Fox shocks with a quality coilover kit (King, Fox, Icon) is the correct Raptor 'lift' move. These kits run $3,000–$6,000 for a full 4-corner kit and add adjustability, rebuild lifespan, and in some cases 1–2 additional inches of ride height. 37-inch tires fit the Gen 3 Raptor with minor front fender liner trimming — it's a popular upgrade because the factory 3.73 gearing handles 37s reasonably well and the suspension travel absorbs the added rotating mass."
+      },
+      {
+        lift: "Long-travel kit",
+        liftSub: "Extended IFS A-arms, 3\"+ coilovers, bypass rear shocks (full prerunner build)",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '40×13.50R17', metric: '40.0"' },
+        status: "heavy",
+        gear: "4.10:1 recommended",
+        note: "The full prerunner build on a Raptor involves extended front upper and lower control arms (Icon, Total Chaos, Camburg) that push the wheel out and allow significantly longer-travel coilovers. Rear gets bypass shock upgrades or full coilover replacement. At this point you are building a serious desert truck: 18–22 inches of suspension travel at the wheel, speeds that make 40-inch tires the right tool, and a budget that starts at $15,000 in suspension parts alone. 40s at this build level require full front bumper replacement and inner fender work. This is not a casual project — it is a competitive prerunner build on a factory platform."
+      }
+    ],
+    regearRows: [
+      { tire: '35"', manualGear: "3.73:1 (Gen 1, Gen 3 adequate)", autoGear: "3.55:1 (Gen 2 adequate)", note: "Factory gearing is tuned for 35s. Don't regear unless you're upgrading to 37s+ or doing heavy towing regularly." },
+      { tire: '37"', manualGear: "4.10:1 recommended", autoGear: "4.10:1 recommended", note: "37s on Gen 2 (3.55 factory) need a regear — the 3.5L EcoBoost feels the added rolling resistance more than the Gen 1 6.2L. Gen 3 on 3.73 manages 37s but 4.10 improves response." },
+      { tire: '40"', manualGear: "4.10:1 or 4.30:1", autoGear: "4.10:1 or 4.30:1", note: "Specialty builds. At 40s on a Raptor you are past bolt-on territory. Source: King Shocks and RaptorForum.com tech notes confirm 4.10 minimum for 40s." }
+    ]
+  },
+
+  powerwagon: {
+    label: "Ram Power Wagon",
+    years: "2005–2009 (3rd gen) / 2014–2018 (4th gen DS) / 2019–present (5th gen DT)",
+    axles: { front: "Solid Dana 60 (electronic locking)", rear: "Solid AAM 11.5\" (electronic locking)" },
+    suspension: "Solid front and rear axles on coil-over-link front / link-coil rear, factory ~2\" taller than a base Ram 2500, with a front sway-bar disconnect built in",
+    stockTire: '285/70R17 (32.9") LT load range E',
+    stockGear: "4.10:1 (front and rear, factory)",
+    note: "The Power Wagon arrives more capable from the factory than most rigs ever get modified to be: electronic locking diffs on both a Dana 60 front and an AAM 11.5\" rear, a 4.10 gearset, a factory front sway-bar disconnect, and a Warn winch on most trims. It is also a 7,000-lb three-quarter-ton truck, and that weight — plus a payload rating that already sits near 1,500 lbs — is the real constraint on tire and lift choices, not wheel-well clearance. The honest read: 35s on a leveling kit is the sweet spot for the vast majority of Power Wagon builds. Going bigger means fighting the truck's mass, eating into payload, and taking on a regear that the factory electronic lockers make more involved than on a Jeep. Know that before you order 37s. Sources: Power Wagon Registry, Pirate4x4 HD Truck forum, AEV and Carli Suspension application notes.",
+    citations: ["PowerWagonRegistry.com Fitment Threads", "AEV (American Expedition Vehicles) Power Wagon Lift Notes", "Carli Suspension Ram 2500 Application Guide", "Pirate4x4.com Heavy-Duty Truck Section", "Thuren Fabrication Ram 2500 Build Notes"],
+    rows: [
+      {
+        lift: "Stock",
+        liftSub: "Factory height — already ~2\" over a base Ram 2500",
+        primary: { size: '285/70R17', metric: '32.9"' },
+        alt: { size: '275/70R18', metric: '33.2"' },
+        status: "clean",
+        gear: "4.10:1",
+        note: "Factory 285/70R17 (33\") clears with room to spare — the Power Wagon ships taller than a standard 2500. The 4.10 factory gearing is matched to this tire and the 6.4L HEMI (or 5.7L on 2005–2009 trucks) pulls it without complaint. Many owners run the truck exactly as delivered and wheel it hard; the factory lockers and disconnecting sway bar do more for capability than any tire upgrade."
+      },
+      {
+        lift: "+2\"",
+        liftSub: "Leveling kit / mild spacer lift (Mopar level kit, Carli Leveling, Rough Country 2\")",
+        primary: { size: '35×12.50R17', metric: '35.0"' },
+        alt: { size: '315/70R17', metric: '34.4"' },
+        status: "minor",
+        gear: "4.10:1",
+        note: "35s are the Power Wagon sweet spot, and 2\" is all most builds need to fit them. Expect light contact on the front lower air-dam and the rear of the front wheel well at full lock — a plastic air-dam trim and a small inner-liner trim clear it. A 17x9 or 17x8.5 wheel with about 4.5–5\" backspacing keeps a 35 from poking past the flares. The 4.10 factory gearing still handles 35s on the HEMI; you'll notice the truck work a little harder loaded or towing, but a regear isn't required here."
+      },
+      {
+        lift: "+3\"",
+        liftSub: "Quality long-travel lift (AEV 3\" DualSport SC, Carli Pintop / Backcountry, Thuren 3\")",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '35×12.50R17', metric: '35.0"' },
+        status: "mod",
+        gear: "4.56:1 recommended",
+        note: "A proper 3\" coil-conversion lift (AEV's DualSport SC is the benchmark, with Carli and Thuren close behind) opens the door to 37s with inner-fender trimming and usually a front bumper or air-dam swap. This is where the truck's weight starts to argue back: 37s add real rolling mass to an already-heavy rig, and a regear to 4.56 keeps the HEMI in its powerband and protects the transmission on grades. Budget $2,500–$4,500 for the lift and plan on the regear as part of the project, not an afterthought."
+      },
+      {
+        lift: "+4.5\"",
+        liftSub: "Tall coil lift + control-arm geometry correction (Carli, Thuren, BDS 4.5\")",
+        primary: { size: '37×12.50R17', metric: '37.0"' },
+        alt: { size: '40×13.50R17', metric: '40.0"' },
+        status: "heavy",
+        gear: "4.88:1 recommended",
+        note: "At 4.5\" you're committing to corrected control-arm geometry, longer brake lines, a front driveshaft that tolerates the steeper angle, and adjustable track bars to recenter both axles. 37s clear cleanly here; 40s become possible with metal fender trimming. The factory electronic lockers complicate the regear — aftermarket ring-and-pinion sets that retain the OEM locker carriers exist, but it's specialist work and the AAM 11.5\" rear plus Dana 60 front means roughly $3,000–$4,500 in regear parts and labor across both axles. This is a deliberate build, not a weekend bolt-on."
+      },
+      {
+        lift: "+6\"",
+        liftSub: "Full 6\" system, fabricated geometry, regear, often a body-mount chop (specialist build)",
+        primary: { size: '40×13.50R17', metric: '40.0"' },
+        alt: { size: '37×12.50R17', metric: '37.0"' },
+        status: "heavy",
+        gear: "5.13:1 required",
+        note: "A 6\" Power Wagon on 40s is a dedicated build on a heavy platform — uncommon, and for good reason. You're managing a high center of gravity on a 7,000-lb truck, a steep front driveshaft angle that often needs a double-cardan setup, extended brake lines, and a full regear to 5.13 to keep the 6.4L from drowning under the rolling mass. Metal fender cutting and body-mount trimming are typically required for 40s. The honest verdict: most people who think they want this are better served stopping at 37s on a 3–4.5\" lift. If you're building a rock-buggy-class HD truck and know it, this is the path — budget five figures across suspension, gears, and driveline."
+      }
+    ],
+    regearRows: [
+      { tire: '35"', manualGear: "N/A — auto only", autoGear: "4.10:1 (factory, adequate)", note: "Factory 4.10 handles 35s on the HEMI. Regear only if you tow heavy regularly or run at altitude." },
+      { tire: '37"', manualGear: "N/A — auto only", autoGear: "4.56:1", note: "Recommended for 37s. The added rolling mass on a heavy truck is felt more than on a Jeep — 4.56 keeps the transmission from hunting on grades." },
+      { tire: '40"', manualGear: "N/A — auto only", autoGear: "5.13:1", note: "Required for 40s. Note: the factory electronic lockers mean a regear must use carrier-compatible gear sets — specialist labor, roughly $3,000–$4,500 across both axles." }
+    ]
+  }
+
+
+};
+
+// ─── STATUS LABELS ────────────────────────────────────────────────────────────
+const STATUS_META = {
+  clean: { label: "Clean fit", dot: "🟢" },
+  minor: { label: "Minor trimming", dot: "🟡" },
+  mod: { label: "Modifications needed", dot: "🟠" },
+  heavy: { label: "Significant mods", dot: "🔴" }
+};
+
+// ─── TRIM & BUMPSTOP RULES ────────────────────────────────────────────────────
+// Baseline guidance derived from the fitment status. Bumpstop guidance splits by
+// front-axle type because a solid axle limits up-travel with a bumpstop, while an
+// IFS/TTB front is governed by the control arm, coilover stroke, and CV angle.
+const TRIM_RULES = {
+  clean: {
+    fender: "No trimming. Factory liners and flares clear this combo.",
+    bumpstop: {
+      solid: "Stock bumpstops are fine — no up-travel limiting needed.",
+      ifs:   "Stock setup clears. No bumpstop or limit-strap changes needed."
+    }
+  },
+  minor: {
+    fender: "Trim the front plastic inner-liner corners with tin snips — about 20 minutes, no metal cutting.",
+    bumpstop: {
+      solid: "Add a 0.5–1\" bumpstop spacer up front to stop tire-to-liner contact at full stuff.",
+      ifs:   "Up-travel is set by the upper control arm, not a bumpstop — a small front bumpstop spacer plus a rear bumpstop spacer dials out light rub."
+    }
+  },
+  mod: {
+    fender: "Trim the inner fender lip on both sides and relieve the rear lower quarter. Budget 2–4 hours, and deburr and repaint any bare metal so it doesn't rust.",
+    bumpstop: {
+      solid: "Run 1–1.5\" extended bumpstops front and rear, then re-check clearance at full compression with the tire mounted.",
+      ifs:   "Set front up-travel with the coilover and extended UCA and add a rear bumpstop spacer; confirm the CV angle stays sane at full droop."
+    }
+  },
+  heavy: {
+    fender: "Plan on a flare swap — high-clearance steel or cut-out flares — plus metal trimming. This is fabrication work, not a trim job.",
+    bumpstop: {
+      solid: "2\"+ extended bumpstops front and rear; set them at full stuff with the tire mounted, never by eye.",
+      ifs:   "Long-travel geometry sets your limits — match bumpstops, limit straps, and CV plunge to the new arms. Have it cycled by someone who's built one."
+    }
+  }
+};
+
+// Per-cell overrides keyed by vehicle id then exact lift label. These add
+// platform-specific detail on top of the baseline rules above.
+const TRIM_OVERRIDES = {
+  xj: {
+    "Stock":  { fender: "No trimming. 30s on a stock XJ only brush the front liner at full stuff and full lock.", bumpstop: "Stock. If you run 30s, a 0.5\" front bumpstop puck cleans up the rare full-lock contact." },
+    "+1.5\"": { fender: "Trim the front plastic liner corners — 20 minutes with snips. The pinch seam behind the front tire is the usual contact point.", bumpstop: "Add a 0.5–1\" front bumpstop puck to keep the tire off the liner at full droop." },
+    "+3\"":   { fender: "Trim the driver-side front liner lip — 31s contact there first. 32s need both front liners trimmed and the rear lower quarter relieved.", bumpstop: "1\" front bumpstop extensions both sides. Rear is usually fine on 31s; add 0.5\" if you run 32s." },
+    "+4.5\"": { fender: "Trim both front inner lips and cut rear quarter-panel relief on most years — budget 2–4 hrs. 3.75\" backspacing keeps the tire off the lip.", bumpstop: "1–1.5\" front and rear extensions. Re-check at full stuff before trail use — the unibody pinch seam is unforgiving." },
+    "+6\"":   { fender: "Fender flare swap (high-clearance steel or Bushwacker cut-outs) plus metal trimming. No trim job clears 35s on an XJ.", bumpstop: "2\"+ extensions front and rear; on an SOA build, set them with the SYE driveshaft installed so you don't bottom the U-joint." }
+  },
+  tj: {
+    "Stock":  { fender: "No trimming — 30s clear a stock TJ clean.", bumpstop: "Stock bumpstops are fine." },
+    "+1.5\"": { fender: "No trimming for 30s; 31s can brush the front flare at full lock — trim the liner corner if they do.", bumpstop: "Stock, or a 0.5\" front spacer if you're on 31s." },
+    "+3\"":   { fender: "31s are dead clean — no trimming. 33s need the front liner corners trimmed.", bumpstop: "33s want 1\" front bumpstop extensions; the wider track keeps the rub mild." },
+    "+4.5\"": { fender: "33s need minor front liner trimming; quality lifts with good geometry sometimes clear without it. 35s need flare work.", bumpstop: "1\" front and rear extensions — and verify Dana 35 rear clearance before you load it up." },
+    "+6\"":   { fender: "35s need a flare swap or heavy fender trimming; the TJ's narrow body shows rub fast.", bumpstop: "1.5–2\" extensions front and rear, and confirm the SYE driveshaft clears at full compression." }
+  },
+  jk: {
+    "+4.5\"": { fender: "35s at 4.5\" need the front fender liner trimmed and the rear lower fender relieved. Steel flares buy clearance without cutting sheet metal.", bumpstop: "1.5\" front and rear bumpstop extensions; the JK's wide track keeps rub manageable for the tire size." },
+    "+6\"":   { fender: "37s require flat or tube fenders and metal trimming. 35s clear a 6\" JK with liner trimming only — don't over-cut.", bumpstop: "2\"+ extensions front and rear; set them at full stuff with the sway bar disconnected." }
+  },
+  gladiator: {
+    "+4.5\"": { fender: "37s on a JT need the front liner trimmed and the rear bed-side flare area relieved — the long wheelbase helps, but the leaf-sprung rear sits the tire close.", bumpstop: "1.5\" front extensions plus rear bumpstop spacers sized to the leaf lift; rear axle wrap on leaves changes the geometry." },
+    "+6\"":   { fender: "37s+ want high-clearance flares front and rear; budget metal work at the bed corners.", bumpstop: "2\" front extensions and matched rear spacers; confirm driveshaft angle on the longer JT rear shaft at full stuff." }
+  },
+  runner5g: {
+    "+4.5\"": { fender: "33s on a 5G need the front pinch weld rolled or trimmed, and most builds add a body mount chop (BMC) to clear at full stuff and full lock.", bumpstop: "Front up-travel is set by the coilover and extended UCA — there's no front 'bumpstop extension.' A rear add-a-leaf bumpstop spacer handles the rear; CV angle is your real front limit." },
+    "+6\"":   { fender: "35s require a body mount chop, pinch-weld trim, and often a 1\" body lift to clear. Liner trimming alone won't do it.", bumpstop: "Long-travel geometry governs the front — match coilover stroke, limit straps, and CV plunge. Don't chase clearance with bumpstops on IFS." }
+  },
+  raptor: {
+    "Long-travel kit": { fender: "37s on a long-travel Raptor need the front pinch weld trimmed and the rear bed/fender relieved for the wider track at full cycle.", bumpstop: "The long-travel arms set your limits — bumpstops, limit straps, and CV plunge get tuned to the kit. Have it cycled on a lift before the first run." }
+  }
+};
+
+function frontAxleType(v) {
+  const s = (v.suspension || "").toLowerCase();
+  return (s.indexOf("ifs") !== -1 || s.indexOf("twin traction") !== -1 || s.indexOf("ttb") !== -1) ? "ifs" : "solid";
+}
+
+function getTrim(vid, row) {
+  const ov = (TRIM_OVERRIDES[vid] || {})[row.lift];
+  if (ov) return ov;
+  const base = TRIM_RULES[row.status] || TRIM_RULES.mod;
+  return { fender: base.fender, bumpstop: base.bumpstop[frontAxleType(VEHICLES[vid])] };
+}
+
+// ─── WHEEL & BACKSPACING ──────────────────────────────────────────────────────
+// Backspacing and wheel width move the tire relative to the fender, the flares,
+// and the suspension. Two wheels with identical diameter sit in completely
+// different places depending on these numbers. Stock figures below are typical
+// factory references — confirm yours against the sticker or a tape measure.
+//   Backspacing (in) = (width + 1)/2 + offset(mm)/25.4
+//   Less backspacing  -> tire moves OUT  (poke)  -> more flare needed, more load on the wheel bearing
+//   More backspacing  -> tire moves IN   (tuck)  -> rubs spring/control arm/frame at full stuff and full lock
+//   A wider wheel pushes BOTH edges out roughly half the added width per side.
+const WHEEL_SPECS = {
+  xj:            { bolt: '5×4.5" (5×114.3)', hub: "71.5 mm", stockWheel: '15×7',   sw: 7,   sBS: 4.75, target: '3.5"–4.0"', tmin: 3.5,  tmax: 4.0,  maxW: 8,   rec: "A 15×8 with 3.75\" backspacing is the XJ standard. It clears the front coils and recenters the track for a lifted unibody without throwing the tire past the flares." },
+  tj:            { bolt: '5×4.5" (5×114.3)', hub: "71.5 mm", stockWheel: '15×7',   sw: 7,   sBS: 4.5,  target: '3.5"–3.75"', tmin: 3.5, tmax: 3.75, maxW: 8,   rec: "15×8 at 3.75\" backspacing is the TJ benchmark. The narrow body rubs fast, so don't chase poke — keep the tire under the flare." },
+  yj:            { bolt: '5×4.5" (5×114.3)', hub: "71.5 mm", stockWheel: '15×7',   sw: 7,   sBS: 4.5,  target: '3.5"–3.75"', tmin: 3.5, tmax: 3.75, maxW: 8,   rec: "Same 15×8 / 3.75\" target as the TJ. The YJ's narrower track makes full-lock clearance tighter, so favor the deeper end of the backspacing range." },
+  jk:            { bolt: '5×5" (5×127)',     hub: "71.5 mm", stockWheel: '17×7.5', sw: 7.5, sBS: 5.7,  target: '4.25"–4.75"', tmin: 4.25, tmax: 4.75, maxW: 9, rec: "A 17×9 with 4.5\" backspacing is the JK default. Factory 17×7.5 wheels tuck the tire in; dropping to ~4.5\" recenters a 35 under steel or trimmed flares." },
+  jl:            { bolt: '5×5" (5×127)',     hub: "71.5 mm", stockWheel: '17×7.5', sw: 7.5, sBS: 5.7,  target: '4.25"–4.75"', tmin: 4.25, tmax: 4.75, maxW: 9, rec: "17×9 / 4.5\" backspacing, same as the JK. The JL's bolt-on flares make a touch of poke easier to cover than on older platforms." },
+  gladiator:     { bolt: '5×5" (5×127)',     hub: "71.5 mm", stockWheel: '17×7.5', sw: 7.5, sBS: 5.7,  target: '4.25"–4.75"', tmin: 4.25, tmax: 4.75, maxW: 9, rec: "17×9 / 4.5\" backspacing carries over from the JL. The longer JT wheelbase gives the rear room, so the front flare is your real backspacing limit." },
+  runner5g:      { bolt: '6×5.5" (6×139.7)', hub: "106 mm",  stockWheel: '17×7',   sw: 7,   sBS: 4.7,  target: '4.5"–4.75"', tmin: 4.5, tmax: 4.85, maxW: 9, rec: "Keep an IFS 4Runner near 4.5\"–4.75\" backspacing. Going shallow to chase poke loads the front wheel bearing and CV — the IFS punishes it faster than a solid axle does." },
+  tacoma3g:      { bolt: '6×5.5" (6×139.7)', hub: "106 mm",  stockWheel: '16×7',   sw: 7,   sBS: 4.9,  target: '4.5"–5.0"', tmin: 4.5, tmax: 5.0,  maxW: 9, rec: "Stay in the 4.5\"–5.0\" backspacing window. The IFS Tacoma has less tolerance for shallow backspacing than any Jeep here — protect the CV and bearing first, style second." },
+  tacoma2g:      { bolt: '6×5.5" (6×139.7)', hub: "106 mm",  stockWheel: '16×7',   sw: 7,   sBS: 4.9,  target: '4.5"–5.0"', tmin: 4.5, tmax: 5.0,  maxW: 9, rec: "Same 4.5\"–5.0\" window as the 3rd gen. Common aftermarket 16×8 and 17×8.5 wheels land here when you pick the right offset." },
+  bronco:        { bolt: '5×5.5" (5×139.7)', hub: "108 mm",  stockWheel: '15×8',   sw: 8,   sBS: 4.0,  target: '3.5"–4.0"', tmin: 3.5, tmax: 4.0,  maxW: 10, rec: "Early Broncos run wide — a 15×8 to 15×10 at ~3.75\" backspacing is typical. More width means more poke, so size flares to match before you order rubber." },
+  broncoii:      { bolt: '5×4.5" (5×114.3)', hub: "71.5 mm", stockWheel: '15×7',   sw: 7,   sBS: 4.0,  target: '3.75"–4.25"', tmin: 3.75, tmax: 4.25, maxW: 8, rec: "The TTB front swings the wheel through an arc, so keep backspacing on the deeper side (3.75\"–4.25\") to keep the tire off the radius arm and frame at full droop." },
+  fullsizebronco:{ bolt: '5×5.5" (5×139.7)', hub: "108 mm",  stockWheel: '15×8',   sw: 8,   sBS: 4.0,  target: '3.75"–4.25"', tmin: 3.75, tmax: 4.25, maxW: 10, rec: "1980–96 TTB trucks want deeper backspacing (3.75\"–4.25\") for the same arc-clearance reason as the Bronco II. The solid-axle 1978–79 trucks can run a bit shallower." },
+  bronco6g:      { bolt: '6×5.5" (6×139.7)', hub: "93.1 mm", stockWheel: '17×8',   sw: 8,   sBS: 5.0,  target: '4.25"–4.75"', tmin: 4.25, tmax: 4.75, maxW: 9, rec: "The 6G's solid front axle behaves like a JL — aim for ~4.5\" backspacing on a 17×8.5 or 17×9. Sasquatch trucks already run a wider stock wheel, so check yours before matching numbers." },
+  raptor:        { bolt: '6×135',            hub: "87 mm",   stockWheel: '17×8.5', sw: 8.5, sBS: 5.25, target: '4.75"–5.25"', tmin: 4.75, tmax: 5.3, maxW: 9.5, rec: "The Raptor already runs a wide track and high-travel IFS — keep backspacing near factory (4.75\"–5.25\"). Shallow backspacing for poke fights the suspension geometry and the bearings." },
+  powerwagon:    { bolt: '8×6.5" (8×165.1)', hub: "121.3 mm", stockWheel: '17×8',  sw: 8,   sBS: 5.0,  target: '4.5"–5.0"', tmin: 4.5, tmax: 5.0,  maxW: 9, rec: "A 17×9 at ~4.5\"–5.0\" backspacing suits the heavy Dana 60 front. The truck's mass already loads the bearings hard — don't add leverage with shallow backspacing." }
+};
+
+function fmtSigned(n) {
+  const r = Math.round(n * 100) / 100;
+  if (Math.abs(r) < 0.05) return "0\"";
+  return (r > 0 ? "+" : "") + r.toFixed(2).replace(/0$/, "").replace(/\.$/, "") + "\"";
+}
+
+// Returns { offset, outer, inner, status, head, body }
+function wheelCalc(spec, width, bs) {
+  const offset = Math.round((bs - (width + 1) / 2) * 25.4);
+  const outer = (spec.sBS - bs) + (width - spec.sw) / 2;   // outward poke vs stock tire face
+  const inner = (bs - spec.sBS) + (width - spec.sw) / 2;   // inward toward suspension
+  const isIfs = (spec.bolt && false);                       // placeholder; axle type read elsewhere
+
+  let status, head, body;
+  if (bs < spec.tmin - 0.5) {
+    status = "danger";
+    head = "Too shallow — the tire pokes hard past the flares";
+    body = "At this backspacing the tire sits well outboard. You'll need wider flares or cut-outs to stay road-legal and to keep trail spray off the paint, and the wheel bearing carries extra leverage every mile. Add backspacing or accept the flare work.";
+  } else if (bs > spec.tmax + 0.75) {
+    status = "warn";
+    head = "Deep — the tire tucks toward the suspension";
+    body = "This much backspacing pulls the tire inboard, where it can catch the coil, control arm, or frame at full stuff and full steering lock. Cycle the suspension by hand with the tire mounted before the first drive, and watch for contact at full droop.";
+  } else if (bs >= spec.tmin && bs <= spec.tmax) {
+    status = "good";
+    head = "In the sweet spot for a lifted build";
+    body = "This backspacing keeps the tire centered under the flare — enough room inboard to clear the suspension, not so much poke that you're loading the bearing or repainting rock chips off the doors.";
+  } else {
+    status = "info";
+    head = "Workable, just off the ideal";
+    body = "This will run, but it sits a little off the recommended window. Nudge backspacing toward the target range if you have the choice when ordering.";
+  }
+
+  let widthNote = "";
+  if (width > spec.maxW) {
+    widthNote = " A " + width + "\" wheel is wider than this platform's practical max (" + spec.maxW + "\") — the extra width pushes both edges out, eats your trimming budget at full lock, and shortens sidewall, which means a harsher ride and easier rim damage on the trail.";
+  }
+
+  const pokeStr = outer > 0.05
+    ? "about " + fmtSigned(outer).replace("+", "") + " further out than the factory tire face"
+    : (outer < -0.05 ? "about " + fmtSigned(-outer).replace("+", "") + " further in (tucked) vs. the factory tire face" : "right at the factory tire face");
+
+  body += " The outer tire face sits " + pokeStr + "." + widthNote;
+  return { offset, outer, inner, status, head, body };
+}
+
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+function buildWheelSection(vid) {
+  const spec = WHEEL_SPECS[vid];
+  if (!spec) return "";
+  const widths = [];
+  for (let w = 6.5; w <= 12.001; w += 0.5) widths.push(Math.round(w * 10) / 10);
+  const bss = [];
+  for (let b = 3.0; b <= 6.001; b += 0.25) bss.push(Math.round(b * 100) / 100);
+  // default selections nearest stock
+  const defW = widths.reduce((a, c) => Math.abs(c - spec.sw) < Math.abs(a - spec.sw) ? c : a, widths[0]);
+  const defB = bss.reduce((a, c) => Math.abs(c - spec.sBS) < Math.abs(a - spec.sBS) ? c : a, bss[0]);
+  const wOpts = widths.map(w => `<option value="${w}"${w === defW ? " selected" : ""}>${w}"</option>`).join("");
+  const bOpts = bss.map(b => `<option value="${b}"${b === defB ? " selected" : ""}>${b.toFixed(2)}"</option>`).join("");
+  return `
+    <div class="wheel-section">
+      <h2>Wheel width &amp; backspacing</h2>
+      <p>Lift height decides how tall a tire fits. Wheel width and backspacing decide <em>where that tire sits</em> — how far it pokes past the flare, and how close it runs to the spring and control arm. Get these wrong and a tire that should clear will rub, or a legal fit will throw mud down the side of the truck.</p>
+      <p class="wheel-rec"><strong>Recommendation:</strong> ${spec.rec}</p>
+      <div class="wheel-grid">
+        <div class="wheel-spec"><div class="ws-label">Bolt pattern</div><div class="ws-val">${spec.bolt}</div></div>
+        <div class="wheel-spec"><div class="ws-label">Hub bore</div><div class="ws-val">${spec.hub}</div></div>
+        <div class="wheel-spec"><div class="ws-label">Stock wheel</div><div class="ws-val">${spec.stockWheel}</div></div>
+        <div class="wheel-spec"><div class="ws-label">Stock backspacing</div><div class="ws-val">~${spec.sBS}"</div></div>
+        <div class="wheel-spec"><div class="ws-label">Lifted target</div><div class="ws-val">${spec.target}</div></div>
+      </div>
+      <div class="wheel-calc">
+        <div class="wheel-calc-controls">
+          <div class="wc-field">
+            <label for="wc-width">Wheel width</label>
+            <select id="wc-width" onchange="recalcWheel()">${wOpts}</select>
+          </div>
+          <div class="wc-field">
+            <label for="wc-bs">Backspacing</label>
+            <select id="wc-bs" onchange="recalcWheel()">${bOpts}</select>
+          </div>
+        </div>
+        <div class="wc-out" id="wc-out"></div>
+      </div>
+    </div>
+  `;
+}
+
+function recalcWheel() {
+  const spec = WHEEL_SPECS[activeVid];
+  const wEl = document.getElementById("wc-width");
+  const bEl = document.getElementById("wc-bs");
+  const out = document.getElementById("wc-out");
+  if (!spec || !wEl || !bEl || !out) return;
+  const width = parseFloat(wEl.value);
+  const bs = parseFloat(bEl.value);
+  const r = wheelCalc(spec, width, bs);
+  const offTxt = (r.offset > 0 ? "+" : "") + r.offset + " mm";
+  out.innerHTML = `
+    <div class="wc-row">
+      <div class="wc-stat"><div class="wc-k">Wheel offset</div><div class="wc-v">${offTxt}</div></div>
+      <div class="wc-stat"><div class="wc-k">Poke vs. stock</div><div class="wc-v">${r.outer > 0.05 ? fmtSigned(r.outer) + " out" : (r.outer < -0.05 ? fmtSigned(-r.outer) + " in" : "even")}</div></div>
+      <div class="wc-stat"><div class="wc-k">Toward suspension</div><div class="wc-v">${r.inner > 0.05 ? fmtSigned(r.inner) + " in" : (r.inner < -0.05 ? fmtSigned(-r.inner) + " out" : "even")}</div></div>
+    </div>
+    <div class="wc-verdict ${r.status}"><span class="wc-vh">${r.head}</span>${r.body}</div>
+    <div class="wc-foot">Offset is calculated from width and backspacing: backspacing = (width + 1) ÷ 2 + offset ÷ 25.4. Poke and tuck are measured against this platform's factory wheel — your stock numbers may vary by trim and year, so measure before you buy.</div>
+  `;
+}
+
+function renderTabs() {
+  const wrap = document.getElementById('vehicle-tabs');
+  const ids = Object.keys(VEHICLES);
+  wrap.innerHTML = ids.map(id => {
+    const v = VEHICLES[id];
+    return `<button class="v-tab" data-id="${id}" onclick="selectVehicle('${id}')">${v.label}<span class="v-years">${v.years}</span></button>`;
+  }).join('');
+}
+
+let activeVid = 'xj';
+function selectVehicle(vid) {
+  activeVid = vid;
+  document.querySelectorAll('.v-tab').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.id === vid);
+  });
+  renderPanel(vid);
+}
+
+function renderPanel(vid) {
+  const v = VEHICLES[vid];
+  const panel = document.getElementById('vehicle-panel');
+
+  const metaHtml = `
+    <div class="vehicle-meta">
+      <div class="vm-item">
+        <div class="vm-label">Front Axle</div>
+        <div class="vm-val">${v.axles.front}</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-label">Rear Axle</div>
+        <div class="vm-val">${v.axles.rear}</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-label">Suspension</div>
+        <div class="vm-val">${v.suspension}</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-label">Stock Tire</div>
+        <div class="vm-val">${v.stockTire}</div>
+      </div>
+      <div class="vm-item">
+        <div class="vm-label">Stock Gearing</div>
+        <div class="vm-val">${v.stockGear}</div>
+      </div>
+    </div>
+    <div class="callout info" style="margin-bottom:24px"><span class="callout-icon">ℹ️</span><span class="callout-body">${v.note}</span></div>
+  `;
+
+  const tableRows = v.rows.map(row => {
+    const st = STATUS_META[row.status];
+    const trim = getTrim(vid, row);
+    return `
+      <tr>
+        <td>
+          <div class="lift-label">${row.lift}</div>
+          <div class="lift-sub">${row.liftSub}</div>
+        </td>
+        <td>
+          <div class="tire-size">${row.primary.size} <span style="color:var(--text-mute);font-weight:400">(${row.primary.metric})</span></div>
+          ${row.alt ? `<div class="tire-alt">Alt: ${row.alt.size} (${row.alt.metric})</div>` : ''}
+          <div class="cell-status status-${row.status}">${st.dot} ${st.label}</div>
+        </td>
+        <td>
+          <span class="gear-pill">⚙ ${row.gear}</span>
+        </td>
+        <td class="cell-note">${row.note}</td>
+        <td class="cell-trim"><div class="trim-line"><span class="trim-k">Fender</span>${trim.fender}</div><div class="trim-line"><span class="trim-k">Bumpstops</span>${trim.bumpstop}</div></td>
+      </tr>
+    `;
+  }).join('');
+
+  const regearRows = v.regearRows.map(r => `
+    <div class="regear-card">
+      <div class="rc-tire">${r.tire}</div>
+      <div class="rc-gear">Manual: <span>${r.manualGear}</span></div>
+      <div class="rc-gear">Auto: <span>${r.autoGear}</span></div>
+      <div class="rc-note">${r.note}</div>
+    </div>
+  `).join('');
+
+  const citationsHtml = v.citations.map(c => `<li><a href="#" onclick="return false;">${c}</a></li>`).join('');
+
+  panel.innerHTML = `
+    ${metaHtml}
+
+    <div class="callout warn" style="margin-bottom:20px">
+      <span class="callout-icon">⚠️</span>
+      <span class="callout-body"><strong>Wheel backspacing matters as much as lift height.</strong> For most platforms here, 3.5\"–3.75\" backspacing is the target on a lifted rig. Too much backspacing (factory 5.5\") tucks the tire into the fender at full droop. Too little pushes past the flares and puts lateral load on the wheel bearings.</span>
+    </div>
+
+    <div class="matrix-wrap">
+      <table class="fitment-matrix" aria-label="${v.label} lift and tire fitment chart">
+        <thead>
+          <tr>
+            <th style="min-width:150px">Lift Height</th>
+            <th style="min-width:180px">Tire Size</th>
+            <th style="min-width:160px" class="lift-col">Gear Ratio</th>
+            <th style="min-width:240px">Notes</th>
+            <th style="min-width:220px">Trim &amp; Bumpstops</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${tableRows}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="regear-section">
+      <h2>Gear ratio quick reference</h2>
+      <p>Bigger tires without a regear means your engine spins at a lower effective RPM at highway speed — the result is sluggish throttle response, poor fuel economy, and excessive transmission wear. These are the ratios you need to get back to where the factory put you.</p>
+      <div class="regear-grid">${regearRows}</div>
+    </div>
+
+    ${buildWheelSection(vid)}
+
+    <div class="callout good">
+      <span class="callout-icon">✅</span>
+      <span class="callout-body"><strong>Trimming fender liners is not the same as cutting your fenders.</strong> On most lifted platforms, the first step to clearing bigger tires is trimming the plastic inner fender liner — a 20-minute job with tin snips. Only when that's done and still rubbing do you touch the metal.</span>
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>${citationsHtml}</ul>
+    </div>
+  `;
+
+  recalcWheel();
+}
+
+// ─── THEME TOGGLE ─────────────────────────────────────────────────────────────
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+renderTabs();
+selectVehicle('xj');
+</script>
+</body>
+</html>
