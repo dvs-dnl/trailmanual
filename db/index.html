@@ -1793,20 +1793,40 @@
         el('p',{},'For newbies: emergency response, plain-English explainer, symptom quiz, guided driveway inspection, prioritized fix plan.')
       ));
     }
-    tools.appendChild(el('div', {class:'tool-card', style:'opacity:.6'},
+    tools.appendChild(el('a', {class:'tool-card', href:'wire-gauge-calculator.html'},
       el('div',{class:'tc-icon'},'🔌'),
       el('h3',{},'Wiring Calculator'),
-      el('p',{},'AWG selector for amp draw + distance. Coming soon.')
+      el('p',{},'AWG for amp draw, run length, and voltage drop tolerance. Winches, light bars, dual battery.')
     ));
-    tools.appendChild(el('div', {class:'tool-card', style:'opacity:.6'},
+    tools.appendChild(el('a', {class:'tool-card', href:'/gear-ratio-calculator.html'},
       el('div',{class:'tc-icon'},'📏'),
       el('h3',{},'Gear Ratio Calculator'),
-      el('p',{},'Pick tire size and use case → recommend axle gear ratio. Coming soon.')
+      el('p',{},'Pick tire size → recommended axle gear ratio, highway RPM comparison, crawl ratio.')
     ));
-    tools.appendChild(el('div', {class:'tool-card', style:'opacity:.6'},
+    tools.appendChild(el('a', {class:'tool-card', href:'fuel-range-planner.html'},
       el('div',{class:'tc-icon'},'⛽'),
       el('h3',{},'Fuel & Range Planner'),
-      el('p',{},'Plan trail/overland fuel needs by tank, mpg, and aux storage. Coming soon.')
+      el('p',{},'Tank, mpg, terrain factor, aux storage → safe planning range with reserve buffer.')
+    ));
+    tools.appendChild(el('a', {class:'tool-card', href:'tire-pressure-airdown.html'},
+      el('div',{class:'tc-icon'},'⚖️'),
+      el('h3',{},'Tire Pressure / Airdown'),
+      el('p',{},'Recommended pressures by surface, tire size, and weight. Air-back-up targets included.')
+    ));
+    tools.appendChild(el('a', {class:'tool-card', href:'trail-tool-kit-builder.html'},
+      el('div',{class:'tc-icon'},'🧰'),
+      el('h3',{},'Trail Tool Kit Builder'),
+      el('p',{},'Build level + trail distance → sized, prioritized tool list. Essential vs. nice-to-have.')
+    ));
+    tools.appendChild(el('a', {class:'tool-card', href:'build-cost-tracker.html'},
+      el('div',{class:'tc-icon'},'📊'),
+      el('h3',{},'Build Cost Tracker'),
+      el('p',{},'Log purchases by phase, track total invested, resale impact, and budget remaining.')
+    ));
+    tools.appendChild(el('a', {class:'tool-card', href:'wheel-offset-visualizer.html'},
+      el('div',{class:'tc-icon'},'📐'),
+      el('h3',{},'Wheel Offset Visualizer'),
+      el('p',{},'Convert offset ↔ backspacing and see a to-scale SVG cross-section of poke and clearance.')
     ));
     app.appendChild(tools);
   }
