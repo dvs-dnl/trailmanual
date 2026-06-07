@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>(function(){try{var t=localStorage.getItem('tm-theme')=='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+  <!-- Vehicle selection -->
+  <script>try{localStorage.setItem('tm.vehicle','jk');}catch(e){}</script>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rebuilt 3.8L vs. 5.7L Hemi Swap — Build Decision | JK Wrangler | Trail Manual</title>
+  <meta name="description" content="Your JK has a dead 3.8L, slipping 545RFE, corroded harness, chromoly axles, and 4.88 gears. Here's the honest cost comparison between a rebuilt 3.8L and a 5.7L Hemi swap — and which one actually makes sense for this specific rig.">
+  <meta property="og:title" content="Rebuilt 3.8L vs. 5.7L Hemi Swap — JK Build Decision">
+  <meta property="og:description" content="Chromoly axles, 4.88s, dead motor, slipping trans, corroded harness. The honest math on whether to rebuild the 3.8L or go Hemi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='2' y='2' width='60' height='60' rx='12' fill='%232B3A4A'/><polyline points='10,48 22,32 30,40 44,22 54,32' stroke='%23F7F4ED' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/><polyline points='10,54 24,38 32,46 46,28 54,38' stroke='%23C97E50' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round' fill='none' opacity='.9'/></svg>" type="image/svg+xml">
+  <style>
+:root {
+  --slate:#2B3A4A; --slate-d:#1A2330; --slate-l:#5B6B7E;
+  --clay:#C97E50; --clay-d:#A85D33; --clay-l:#E8AB85;
+  --bone:#E8E2D2; --bone-d:#C9C1AC; --paper:#F7F4ED; --panel:#FFFCF5;
+  --safety:#B23B2F; --good:#5E8C5A; --moss:#3D5B47;
+  --sans:"DM Sans",-apple-system,sans-serif;
+  --mono:"JetBrains Mono",monospace;
+  --max:1100px;
+  --radius:4px; --radius-lg:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--slate);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---- Dark theme ---- */
+[data-theme="dark"]{--paper:#1A2330;--bone:#2B3A4A;--bone-d:#3A4E60;--slate:#E8E2D2;--slate-l:#9BABBF;--panel:#212d3a}
+[data-theme="dark"] body{background:var(--paper);color:var(--slate)}
+
+/* ---- Topbar ---- */
+#tm-topbar{position:sticky;top:0;z-index:100;background:var(--slate-d,#1A2330);border-bottom:1px solid rgba(43,58,74,.8)}
+#tm-topbar .tm-topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
+#tm-topbar .tm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-mark{width:28px;height:28px;flex-shrink:0}
+#tm-topbar .tm-brand-mark svg{width:100%;height:100%;display:block;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-text{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bone,#E8E2D2);display:flex;align-items:center;gap:4px}
+#tm-topbar .tm-brand-dot{width:4px;height:4px;background:var(--clay,#C97E50);border-radius:50%;display:inline-block}
+#tm-topbar .tm-nav-menu{display:flex;align-items:center;gap:2px;margin-left:auto}
+#tm-topbar .tm-nav-btn{height:40px;padding:0 12px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,226,210,.6);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;transition:color .15s,background .15s;white-space:nowrap;font-family:var(--sans)}
+#tm-topbar .tm-nav-btn:hover,#tm-topbar .tm-nav-btn.tm-active{color:var(--bone,#E8E2D2);background:rgba(255,255,255,.06)}
+#tm-topbar .tm-chev{font-size:9px;opacity:.5;transition:transform .15s}
+#tm-topbar .tm-nav-btn.tm-active .tm-chev{transform:rotate(180deg);opacity:1}
+#tm-topbar .tm-garage-btn{display:flex;align-items:center;gap:7px}
+#tm-topbar .tm-garage-icon{width:26px;height:26px;border-radius:5px;background:rgba(201,126,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-size:9px;font-weight:700;color:var(--clay,#C97E50)}
+#tm-topbar .tm-dd-panel{display:none;position:absolute;left:-24px;right:-24px;top:calc(100% + 1px);background:var(--paper,#F7F4ED);border-top:1px solid var(--bone-d,#C9C1AC);border-bottom:1px solid var(--bone-d,#C9C1AC);z-index:99}
+#tm-topbar .tm-dd-panel.open{display:block}
+#tm-topbar .tm-dd-inner{max-width:var(--max);margin:0 auto;padding:18px 24px 22px;display:flex;gap:36px}
+#tm-topbar .tm-dd-col{flex:1}
+#tm-topbar .tm-dd-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-l,#5B6B7E);margin-bottom:8px}
+#tm-topbar .tm-dd-link{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;border-radius:6px;color:var(--slate,#2B3A4A);text-decoration:none;transition:background .12s;font-size:13px;line-height:1.3}
+#tm-topbar .tm-dd-link:hover{background:rgba(201,126,80,.1);text-decoration:none}
+#tm-topbar .tm-dd-link strong{display:block;font-weight:500;margin-bottom:1px}
+#tm-topbar .tm-dd-link span:last-child{font-size:11px;color:var(--slate-l,#5B6B7E)}
+#tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+#tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-hamburger svg{width:16px;height:16px}
+@media(max-width:700px){
+  #tm-topbar .tm-hamburger{display:flex}
+  #tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}
+  #tm-topbar .tm-nav-menu.open{display:flex}
+  #tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}
+  #tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}
+  #tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}
+  #tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}
+  #tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}
+}
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(232,226,210,.2);border-radius:6px;background:transparent;color:rgba(232,226,210,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0;margin-left:8px}
+.tm-theme-btn:hover{border-color:var(--clay);color:var(--bone)}
+.tm-theme-icon{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-icon-moon{display:none}
+
+/* ---- Page layout ---- */
+.page{max-width:var(--max);margin:0 auto;padding:0 32px 80px}
+@media(max-width:600px){.page{padding:0 20px 60px}}
+
+/* ---- Hero ---- */
+.hero{padding:56px 0 44px;border-bottom:1px solid var(--bone)}
+[data-theme="dark"] .hero{border-color:var(--bone)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
+.hero h1{font-weight:500;font-size:clamp(30px,4.5vw,50px);letter-spacing:-0.02em;line-height:1.08;margin-bottom:18px;max-width:820px}
+.hero-sub{font-size:clamp(16px,2vw,18px);color:var(--slate-l);max-width:700px;line-height:1.55;margin-bottom:16px;font-weight:500}
+.hero-context{font-size:15px;color:var(--slate-l);max-width:700px;line-height:1.75;margin-bottom:28px}
+.scenario-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;background:var(--bone);border:1px solid var(--bone-d);border-radius:4px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--slate)}
+[data-theme="dark"] .chip{background:var(--bone);border-color:var(--bone-d);color:var(--slate)}
+.chip-dot{width:6px;height:6px;border-radius:50%;background:var(--clay)}
+.chip-dot.red{background:var(--safety)}
+.chip-dot.green{background:var(--good)}
+
+/* ---- Section ---- */
+.section{padding:48px 0 0}
+.section-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate-l);display:block;margin-bottom:8px}
+.section h2{font-size:22px;font-weight:600;letter-spacing:-0.015em;margin-bottom:20px;color:var(--slate)}
+.section-lede{font-size:15px;color:var(--slate-l);max-width:700px;line-height:1.75;margin-bottom:28px}
+.section-divider{border:0;border-top:1px solid var(--bone);margin:48px 0 0}
+[data-theme="dark"] .section-divider{border-color:var(--bone)}
+
+/* ---- Assets callout ---- */
+.assets-callout{background:rgba(201,126,80,.08);border:1px solid rgba(201,126,80,.3);border-left:3px solid var(--clay);border-radius:var(--radius-lg);padding:24px 28px;margin:32px 0}
+[data-theme="dark"] .assets-callout{background:rgba(201,126,80,.06);border-color:rgba(201,126,80,.2);border-left-color:var(--clay)}
+.assets-callout-head{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.assets-callout-head::before{content:'◆';font-size:9px}
+.assets-list{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:640px){.assets-list{grid-template-columns:1fr}}
+.assets-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--slate);line-height:1.55}
+[data-theme="dark"] .assets-list li{color:var(--slate)}
+.asset-check{width:20px;height:20px;border-radius:3px;background:rgba(94,140,90,.15);border:1px solid rgba(94,140,90,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;color:var(--good);font-size:11px;font-weight:700;line-height:1}
+.assets-list li strong{color:var(--slate);font-weight:600}
+[data-theme="dark"] .assets-list li strong{color:var(--slate)}
+
+/* ---- Cost columns ---- */
+.cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
+@media(max-width:800px){.cost-grid{grid-template-columns:1fr}}
+.cost-col{background:var(--panel);border:1px solid var(--bone-d);border-radius:var(--radius-lg);overflow:hidden}
+[data-theme="dark"] .cost-col{background:var(--panel);border-color:var(--bone)}
+.cost-col-header{padding:18px 20px;border-bottom:1px solid var(--bone-d);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+[data-theme="dark"] .cost-col-header{border-color:var(--bone)}
+.cost-col-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate-l);margin-bottom:4px}
+.cost-col-title{font-size:16px;font-weight:600;letter-spacing:-0.01em;color:var(--slate)}
+[data-theme="dark"] .cost-col-title{color:var(--slate)}
+.cost-total-badge{font-family:var(--mono);font-size:13px;font-weight:700;padding:5px 12px;border-radius:20px;white-space:nowrap;align-self:flex-start;margin-top:4px}
+.badge-3{background:rgba(94,140,90,.12);color:var(--good);border:1px solid rgba(94,140,90,.3)}
+.badge-hemi{background:rgba(201,126,80,.12);color:var(--clay);border:1px solid rgba(201,126,80,.3)}
+.cost-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.cost-table th{text-align:left;padding:10px 16px;background:var(--bone);color:var(--slate-l);font-weight:600;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;border-bottom:1px solid var(--bone-d)}
+[data-theme="dark"] .cost-table th{background:var(--bone);border-color:var(--bone-d)}
+.cost-table td{padding:12px 16px;border-bottom:1px solid var(--bone);vertical-align:top;color:var(--slate);line-height:1.5}
+[data-theme="dark"] .cost-table td{border-color:rgba(255,255,255,.07);color:var(--slate)}
+.cost-table tr:last-child td{border-bottom:0}
+.cost-table .item-name{font-weight:500;font-size:13px;color:var(--slate)}
+[data-theme="dark"] .cost-table .item-name{color:var(--slate)}
+.cost-table .item-note{font-size:12px;color:var(--slate-l);margin-top:4px;line-height:1.5}
+.cost-table .price{font-family:var(--mono);font-size:13px;white-space:nowrap;text-align:right;color:var(--slate)}
+[data-theme="dark"] .cost-table .price{color:var(--slate)}
+.cost-table tr.total-row{background:rgba(201,126,80,.06)}
+.cost-table tr.total-row td{font-weight:700;color:var(--slate);font-size:14px;padding:14px 16px;border-top:2px solid rgba(201,126,80,.25)}
+.cost-table tr.total-row .price{color:var(--clay);font-size:14px;font-weight:700}
+.cost-table tr.grand-total{background:rgba(201,126,80,.11)}
+.cost-table tr.grand-total td{font-weight:700;color:var(--clay);font-size:14px;padding:14px 16px;border-top:2px solid rgba(201,126,80,.35)}
+.cost-table tr.grand-total .price{color:var(--clay);font-size:15px;font-weight:700}
+.already-have{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:2px 7px;border-radius:10px;background:rgba(94,140,90,.1);color:var(--good);border:1px solid rgba(94,140,90,.3);white-space:nowrap;display:inline-block;margin-top:4px}
+
+/* ---- Comparison table ---- */
+.compare-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:24px 0}
+.compare-table{width:100%;min-width:580px;border-collapse:collapse;font-size:14px;border:1px solid var(--bone-d);border-radius:var(--radius-lg);overflow:hidden}
+[data-theme="dark"] .compare-table{border-color:var(--bone)}
+.compare-table thead tr{background:var(--slate-d)}
+.compare-table th{padding:13px 18px;color:rgba(232,226,210,.9);font-size:11px;font-family:var(--mono);letter-spacing:0.12em;text-transform:uppercase;text-align:left;border-bottom:2px solid rgba(255,255,255,.1)}
+.compare-table th:not(:first-child){text-align:center}
+.compare-table td{padding:12px 18px;border-bottom:1px solid var(--bone);color:var(--slate);vertical-align:middle;line-height:1.45}
+[data-theme="dark"] .compare-table td{border-color:rgba(255,255,255,.07);color:var(--slate)}
+.compare-table tr:last-child td{border-bottom:0}
+.compare-table td:not(:first-child){text-align:center;font-size:13px}
+.compare-table .factor{font-weight:600;font-size:14px}
+.compare-table .win{background:rgba(94,140,90,.10);color:var(--good);font-weight:600}
+[data-theme="dark"] .compare-table .win{background:rgba(94,140,90,.13);color:#7EC07A}
+.compare-table .neutral{background:rgba(43,58,74,.03);color:var(--slate-l)}
+[data-theme="dark"] .compare-table .neutral{background:rgba(255,255,255,.02);color:var(--slate-l)}
+.compare-table tr:nth-child(odd){background:rgba(247,244,237,.5)}
+[data-theme="dark"] .compare-table tr:nth-child(odd){background:rgba(255,255,255,.02)}
+.compare-table tr:nth-child(odd) .win{background:rgba(94,140,90,.13)}
+.compare-table tr:nth-child(odd) .neutral{background:rgba(43,58,74,.05)}
+[data-theme="dark"] .compare-table tr:nth-child(odd) .neutral{background:rgba(255,255,255,.04)}
+.compare-table .tie{background:rgba(201,126,80,.08);color:var(--clay);font-weight:500;font-size:13px;text-align:center}
+[data-theme="dark"] .compare-table .tie{background:rgba(201,126,80,.07)}
+
+/* ---- Math insight cards ---- */
+.math-insight{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+@media(max-width:640px){.math-insight{grid-template-columns:1fr}}
+.mi-card{background:var(--panel);border:1px solid var(--bone-d);border-radius:var(--radius-lg);padding:18px 20px}
+[data-theme="dark"] .mi-card{background:var(--panel);border-color:var(--bone)}
+.mi-label{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay);margin-bottom:8px}
+.mi-value{font-size:22px;font-weight:700;letter-spacing:-0.03em;color:var(--slate);line-height:1.1;margin-bottom:6px}
+[data-theme="dark"] .mi-value{color:var(--slate)}
+.mi-desc{font-size:13px;color:var(--slate-l);line-height:1.55}
+
+/* ---- Verdict ---- */
+.verdict-section{background:linear-gradient(135deg,rgba(201,126,80,.10) 0%,rgba(201,126,80,.04) 100%);border:1px solid rgba(201,126,80,.3);border-radius:var(--radius-lg);padding:28px 32px;margin:48px 0 0}
+[data-theme="dark"] .verdict-section{background:rgba(201,126,80,.07);border-color:rgba(201,126,80,.25)}
+.verdict-label{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.16em;text-transform:uppercase;color:var(--clay);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.verdict-label::before{content:'▶';font-size:9px}
+.verdict-section h2{font-size:22px;font-weight:600;letter-spacing:-0.015em;margin-bottom:16px;color:var(--slate)}
+.verdict-section p{font-size:15px;line-height:1.78;color:var(--slate);margin-bottom:14px}
+.verdict-section p:last-child{margin-bottom:0}
+.verdict-section .caveat{background:rgba(43,58,74,.06);border:1px solid var(--bone-d);border-radius:var(--radius);padding:18px 22px;margin-top:20px;font-size:14px;line-height:1.7;color:var(--slate-l)}
+[data-theme="dark"] .verdict-section .caveat{background:rgba(255,255,255,.04);border-color:var(--bone)}
+.verdict-section .caveat strong{color:var(--slate)}
+
+/* ---- Next steps ---- */
+.next-steps{margin:48px 0 0}
+.next-steps h2{font-size:20px;font-weight:600;margin-bottom:20px;color:var(--slate)}
+.next-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:600px){.next-grid{grid-template-columns:1fr}}
+.next-card{display:flex;flex-direction:column;gap:8px;background:var(--panel);border:1px solid var(--bone-d);border-radius:var(--radius-lg);padding:20px 22px;transition:background .15s,border-color .15s;color:var(--slate)}
+[data-theme="dark"] .next-card{background:var(--panel);border-color:var(--bone);color:var(--slate)}
+.next-card:hover{background:var(--bone);border-color:var(--bone-d);text-decoration:none}
+[data-theme="dark"] .next-card:hover{background:var(--bone)}
+.next-card-eye{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay)}
+.next-card-title{font-size:16px;font-weight:600;letter-spacing:-0.01em;line-height:1.2;color:var(--slate)}
+[data-theme="dark"] .next-card-title{color:var(--slate)}
+.next-card-desc{font-size:13px;color:var(--slate-l);flex:1;line-height:1.55}
+.next-card-arrow{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-l);display:inline-flex;align-items:center;gap:6px;transition:transform .15s,color .15s;margin-top:4px}
+.next-card-arrow::after{content:'\2192';font-size:13px}
+.next-card:hover .next-card-arrow{transform:translateX(4px);color:var(--clay)}
+.next-note{margin-top:16px;font-size:14px;color:var(--slate-l);padding:14px 18px;background:rgba(94,140,90,.07);border:1px solid rgba(94,140,90,.25);border-radius:var(--radius);line-height:1.65}
+[data-theme="dark"] .next-note{background:rgba(94,140,90,.06);border-color:rgba(94,140,90,.2)}
+.next-note strong{color:var(--slate)}
+
+/* ---- Footer ---- */
+.footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:48px}
+[data-theme="dark"] .footer{border-color:var(--bone)}
+.footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
+  </style>
+</head>
+<body>
+
+<!-- ─── TOPBAR ───────────────────────────────────────────────── -->
+<header id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/">
+      <div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+    </a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+    </button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">&#9660;</span></button>
+      <a class="tm-nav-btn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn" onclick="window.location='/vehicle-select.html'">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')">
+        <div class="tm-garage-icon">MG</div><span>My Garage</span>
+      </button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <div class="tm-dd-panel" id="tm-dd-build">
+      <div class="tm-dd-inner">
+        <div class="tm-dd-col">
+          <div class="tm-dd-label">Your rig</div>
+          <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">&#11042;</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+        </div>
+        <div class="tm-dd-col">
+          <div class="tm-dd-label">Build tools</div>
+          <a class="tm-dd-link" href="/jk/engine-swap-hemi-diy/"><div class="tm-dd-icon">&#128297;</div><div><strong>Hemi Swap Guide</strong><span>Full install walkthrough</span></div></a>
+          <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">&#128295;</div><div><strong>V8 Parts Checklist</strong><span>Every part, priced</span></div></a>
+          <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">&#9881;</div><div><strong>Gear Ratio Calc</strong><span>Tires &times; axle</span></div></a>
+        </div>
+        <div class="tm-dd-col">
+          <div class="tm-dd-label">Repair &amp; diagnose</div>
+          <a class="tm-dd-link" href="/db/jk-death-wobble-guide.html"><div class="tm-dd-icon">&#9888;</div><div><strong>Death Wobble</strong><span>JK diagnostic</span></div></a>
+          <a class="tm-dd-link" href="/db/?v=jk"><div class="tm-dd-icon">&#128203;</div><div><strong>All Guides</strong><span>51 JK procedures</span></div></a>
+        </div>
+      </div>
+    </div>
+    <div class="tm-dd-panel" id="tm-dd-garage">
+      <div class="tm-dd-inner">
+        <div class="tm-dd-col">
+          <div class="tm-dd-label">My Garage</div>
+          <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">&#128665;</div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
+          <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">&#128203;</div><div><strong>My builds</strong><span>Saved configs</span></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/_nav.js"></script>
+
+<main>
+<div class="page">
+
+  <!-- ─── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <p class="eyebrow">Build Decision &middot; 2008 JK Unlimited Rubicon</p>
+    <h1>Rebuilt 3.8L vs. 5.7L Hemi Swap &mdash; Which Path Makes Sense for Your Rig?</h1>
+    <p class="hero-sub">Your rig already has the hard stuff: chromoly axles, 4.88s, and a Rubicon foundation. The question is what goes between the frame rails.</p>
+    <p class="hero-context">The engine is seized. The 545RFE is slipping. The wiring harness is corroded and needs to go. You already have 4.88 gears in the axles and chromoly shafts front and rear. A donor Hemi package is in hand for $2,500. This page lays out the honest math and makes the call.</p>
+    <div class="scenario-chips">
+      <span class="chip"><span class="chip-dot red"></span>Dead 3.8L (seized)</span>
+      <span class="chip"><span class="chip-dot red"></span>Slipping 545RFE</span>
+      <span class="chip"><span class="chip-dot red"></span>Corroded harness</span>
+      <span class="chip"><span class="chip-dot green"></span>Chromoly D44 axles</span>
+      <span class="chip"><span class="chip-dot green"></span>4.88 gear ratio</span>
+      <span class="chip"><span class="chip-dot green"></span>Rubicon locking diffs</span>
+    </div>
+  </section>
+
+  <!-- ─── ASSETS CALLOUT ────────────────────────────────────── -->
+  <div class="assets-callout">
+    <div class="assets-callout-head">What carries over to either build &mdash; these don&rsquo;t change</div>
+    <ul class="assets-list">
+      <li>
+        <span class="asset-check">&#10003;</span>
+        <div><strong>Chromoly axle shafts, front and rear.</strong> Dana 44 front and Dana 44 rear with aftermarket chromoly shafts. These handle Hemi torque without drama. Stock 3.8L torque doesn&rsquo;t justify chromoly shafts &mdash; having them already is a signal about where this build is headed.</div>
+      </li>
+      <li>
+        <span class="asset-check">&#10003;</span>
+        <div><strong>4.88 gear ratio already installed.</strong> 4.88s are paired with 37&ndash;40&rdquo; tires on a Hemi. With the 3.8L they work, but the engine hunts at highway speed and the low-end torque never quite fills the ratio. The Hemi was made for gears in this range.</div>
+      </li>
+      <li>
+        <span class="asset-check">&#10003;</span>
+        <div><strong>Rubicon locking differentials.</strong> Factory front and rear lockers. They don&rsquo;t change regardless of which path you take &mdash; but they&rsquo;re worth naming: this is a trail-built rig from the factory up, and it needs an engine that keeps up.</div>
+      </li>
+      <li>
+        <span class="asset-check">&#10003;</span>
+        <div><strong>Unlimited (4-door) platform.</strong> The JKU gives more engine bay room for Hemi accessory routing &mdash; the power steering bracket and belt routing are easier in the longer bay. Not decisive, but useful.</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ─── COST BREAKDOWN ────────────────────────────────────── -->
+  <hr class="section-divider">
+  <section class="section">
+    <span class="section-label">Cost breakdown</span>
+    <h2>What each path actually costs</h2>
+    <p class="section-lede">Prices reflect May 2026 market rates. The 3.8L path assumes a warrantied long block plus OEM harness and a rebuilt or reman 545RFE &mdash; the transmission problem doesn&rsquo;t disappear on the 3.8L path. The Hemi path uses the donor package already in hand.</p>
+
+    <div class="cost-grid">
+
+      <!-- OPTION 1: Rebuilt 3.8L -->
+      <div class="cost-col">
+        <div class="cost-col-header">
+          <div>
+            <div class="cost-col-label">Option 1</div>
+            <div class="cost-col-title">Rebuilt 3.8L + OEM Harness</div>
+          </div>
+          <span class="cost-total-badge badge-3">$3,250&ndash;$6,500</span>
+        </div>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th style="text-align:right;min-width:100px">Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item-name">Rebuilt 3.8L long block (warrantied)</div>
+                <div class="item-note">Jasper, Summit Racing, NAPA Reman. Typically includes gaskets and a 3yr/100k warranty on Jasper units. Core charge varies by supplier.</div>
+              </td>
+              <td class="price">$1,800&ndash;$2,800</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">OEM engine wiring harness (2008 JK 3.8L)</div>
+                <div class="item-note">MoparPartsGiant, LKQ, or dealer. OEM new: $750&ndash;$900. Quality used from LKQ: $450&ndash;$600 with 90-day warranty. The harness replacement is unavoidable on this path too.</div>
+              </td>
+              <td class="price">$450&ndash;$900</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">545RFE rebuild or reman unit</div>
+                <div class="item-note">DIY rebuild kit (Sonnax, TransTec): $800&ndash;$1,100 parts + your labor. Reman unit (Jasper, A&amp;Reds): $1,400&ndash;$2,400 core swap. The slipping transmission is still a separate line item here.</div>
+              </td>
+              <td class="price">$800&ndash;$2,400</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Gaskets, seals, fluids, misc.</div>
+                <div class="item-note">Engine install gaskets, coolant flush, ATF+4 if rebuilding trans, shop supplies.</div>
+              </td>
+              <td class="price">$200&ndash;$400</td>
+            </tr>
+            <tr class="total-row">
+              <td><strong>Total estimated cost</strong></td>
+              <td class="price">$3,250&ndash;$6,500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- OPTION 2: Hemi Swap -->
+      <div class="cost-col">
+        <div class="cost-col-header">
+          <div>
+            <div class="cost-col-label">Option 2</div>
+            <div class="cost-col-title">5.7L Hemi Swap (Hotwire Path)</div>
+          </div>
+          <span class="cost-total-badge badge-hemi">$7,180&ndash;$9,250</span>
+        </div>
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th style="text-align:right;min-width:100px">Range</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="item-name">Donor: 5.7L Hemi + 545RFE + NP241 t-case</div>
+                <div class="item-note">120k-mile Eagle Hemi with matching 545RFE and transfer case. Solves both the engine failure and the transmission problem in one transaction.</div>
+                <div><span class="already-have">Already in hand</span></div>
+              </td>
+              <td class="price">$2,500</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Hotwire Auto plug-and-play harness + PCM</div>
+                <div class="item-note">The keystone of the DIY Hemi swap. Plugs into the JK&rsquo;s existing connectors; PCM is pre-programmed for your VIN. Order early &mdash; 4&ndash;8 week lead time is typical. Current pricing from Hotwire.</div>
+              </td>
+              <td class="price">$2,200&ndash;$2,600</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Motor mount plates (Hotwire or SDP)</div>
+                <div class="item-note">Bolt-in plates that locate the Hemi in the JK bay. Hotwire&rsquo;s own mounts and Skid Row Offroad (SDP) are the two proven options.</div>
+              </td>
+              <td class="price">$350&ndash;$550</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Transmission crossmember</div>
+                <div class="item-note">The OEM JK crossmember does not work with the Hemi 545RFE mounting position. Aftermarket unit required.</div>
+              </td>
+              <td class="price">$250&ndash;$450</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Upgraded radiator + hoses (Mishimoto or equiv.)</div>
+                <div class="item-note">The 3.8L&rsquo;s cooling system is undersized for Hemi heat output. An upgrade is not optional in Phoenix summers or on the trail. Budget here, not later.</div>
+              </td>
+              <td class="price">$300&ndash;$600</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Power steering pump + bracket + hose</div>
+                <div class="item-note">Hemi P/S pump mounts differently than the 3.8L. Bracket and custom-length high-pressure hose required.</div>
+              </td>
+              <td class="price">$200&ndash;$350</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Long-tube exhaust headers (mandatory)</div>
+                <div class="item-note">Stock Hemi manifolds do not fit in the JK engine bay. JBA, Stainless Works, or custom. Spend money here &mdash; cheap headers crack on the trail.</div>
+              </td>
+              <td class="price">$600&ndash;$1,000</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Air intake + 3.5&rdquo; hump hose</div>
+                <div class="item-note">Cold air intake routed for the JK bay geometry. K&amp;N, Volant, or DIY fabrication from silicone couplers and tubing.</div>
+              </td>
+              <td class="price">$100&ndash;$200</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Flex plate, pilot bearing, dust cover</div>
+                <div class="item-note">New flex plate for the Hemi-to-545RFE interface. Do not reuse the donor&rsquo;s flex plate on a 120k-mile motor.</div>
+              </td>
+              <td class="price">$150&ndash;$250</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">ATF+4 transmission fluid (9 qts)</div>
+                <div class="item-note">Full fluid service on the 545RFE during installation. Mopar ATF+4 only &mdash; no substitute fluids in this trans.</div>
+              </td>
+              <td class="price">$200&ndash;$250</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="item-name">Accessory drive belt + misc. hardware</div>
+                <div class="item-note">Hemi serpentine belt (Gates or OEM Mopar), O2 sensor extensions, fasteners, coolant, shop supplies, bracket hardware.</div>
+              </td>
+              <td class="price">$330&ndash;$550</td>
+            </tr>
+            <tr class="total-row">
+              <td><strong>Additional parts beyond donor</strong></td>
+              <td class="price">$4,680&ndash;$6,750</td>
+            </tr>
+            <tr class="grand-total">
+              <td><strong>Grand total including $2,500 donor</strong></td>
+              <td class="price">$7,180&ndash;$9,250</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div><!-- /.cost-grid -->
+  </section>
+
+  <!-- ─── COMPARISON TABLE ──────────────────────────────────── -->
+  <hr class="section-divider">
+  <section class="section">
+    <span class="section-label">Head to head</span>
+    <h2>Factor-by-factor comparison</h2>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:32%">Factor</th>
+            <th style="width:34%">Rebuilt 3.8L</th>
+            <th style="width:34%">5.7L Hemi Swap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="factor">Total cost range</td>
+            <td class="win">$3,250&ndash;$6,500</td>
+            <td class="neutral">$7,180&ndash;$9,250</td>
+          </tr>
+          <tr>
+            <td class="factor">Power output</td>
+            <td class="neutral">202 hp / 237 lb-ft</td>
+            <td class="win">395 hp / 410 lb-ft</td>
+          </tr>
+          <tr>
+            <td class="factor">Fit with 4.88 gears</td>
+            <td class="neutral">Adequate &mdash; motor hunts at highway RPM</td>
+            <td class="win">Excellent &mdash; 4.88s were built for this torque</td>
+          </tr>
+          <tr>
+            <td class="factor">Transmission situation</td>
+            <td class="neutral">545RFE still needs rebuild &mdash; separate cost</td>
+            <td class="win">Donor 545RFE resolves the trans problem simultaneously</td>
+          </tr>
+          <tr>
+            <td class="factor">Harness replacement</td>
+            <td class="neutral">Required regardless &mdash; OEM harness cost still applies</td>
+            <td class="win">Hotwire kit replaces engine + PCM harness; cleaner result</td>
+          </tr>
+          <tr>
+            <td class="factor">Chromoly shaft compatibility</td>
+            <td class="neutral">Chromoly is overkill for 3.8L torque output</td>
+            <td class="win">Chromoly is correct for Hemi torque on the trail</td>
+          </tr>
+          <tr>
+            <td class="factor">Parts availability</td>
+            <td class="tie">Both: plentiful</td>
+            <td class="tie">Both: plentiful</td>
+          </tr>
+          <tr>
+            <td class="factor">Build complexity</td>
+            <td class="win">Moderate &mdash; 4&ndash;6 weeks total</td>
+            <td class="neutral">High &mdash; 10&ndash;14 days active wrenching + Hotwire lead time</td>
+          </tr>
+          <tr>
+            <td class="factor">Resale impact</td>
+            <td class="neutral">Neutral &mdash; returns to stock drivetrain spec</td>
+            <td class="win">Positive &mdash; verified Hemi + chromoly axles adds real value</td>
+          </tr>
+          <tr>
+            <td class="factor">Long-term regret risk</td>
+            <td class="neutral">Moderate &mdash; 3.8L is undersized for this build spec</td>
+            <td class="win">Low &mdash; the right engine for the platform and gear ratio</td>
+          </tr>
+          <tr>
+            <td class="factor">Best if</td>
+            <td class="neutral">Daily driver, hard return-to-service deadline</td>
+            <td class="win">Dedicated trail rig &mdash; build it right once</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── THE REAL MATH ─────────────────────────────────────── -->
+  <hr class="section-divider">
+  <section class="section">
+    <span class="section-label">The real math</span>
+    <h2>Why the gap is smaller than the sticker prices suggest</h2>
+    <p class="section-lede">The headline numbers are $3,250 vs $7,180 &mdash; a roughly $4,000 difference at the low end. But the 3.8L path doesn&rsquo;t start at zero. This rig has three distinct problems: dead engine, slipping trans, corroded harness. When you price out all three, the spread changes.</p>
+    <div class="math-insight">
+      <div class="mi-card">
+        <div class="mi-label">Harness cost offset</div>
+        <div class="mi-value">$450&ndash;$900</div>
+        <div class="mi-desc">The OEM harness replacement isn&rsquo;t free on the 3.8L path &mdash; it&rsquo;s required either way. The Hotwire kit costs more, but it replaces both the engine harness and the PCM, and leaves a cleaner result with a 4&ndash;8 week warranty from Hotwire.</div>
+      </div>
+      <div class="mi-card">
+        <div class="mi-label">Trans solved by donor</div>
+        <div class="mi-value">$800&ndash;$2,400</div>
+        <div class="mi-desc">The slipping 545RFE is a problem on both paths. On the 3.8L path it&rsquo;s a separate rebuild or reman cost on top of the engine. The $2,500 donor package includes a working 545RFE &mdash; one transaction solves two problems.</div>
+      </div>
+      <div class="mi-card">
+        <div class="mi-label">True incremental gap</div>
+        <div class="mi-value">~$1,500&ndash;$2,750</div>
+        <div class="mi-desc">Back out the harness and transmission costs from the 3.8L path and the true incremental cost of going Hemi is roughly $1,500&ndash;$2,750. That&rsquo;s the real price of 193 more horsepower and a rig finally matched to its gear ratio and axle spec.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── THE VERDICT ───────────────────────────────────────── -->
+  <div class="verdict-section">
+    <div class="verdict-label">The call</div>
+    <h2>The Hemi makes compelling sense for this specific rig</h2>
+    <p>This isn&rsquo;t a close call dressed up as one. The 4.88 gears, chromoly shafts, and Rubicon diffs are all aligned with a Hemi build. The harness replacement removes the most common objection to the Hotwire kit cost &mdash; you were paying for that work regardless. The donor package simultaneously solving the engine failure and the transmission slippage is the decisive point: you&rsquo;re not adding a Hemi problem on top of your existing problems, you&rsquo;re replacing three problems with one build.</p>
+    <p>The 3.8L is not a bad engine. But it was underpowered from the factory, and with 4.88 gears it&rsquo;s hunting at highway RPM while the chromoly shafts and Rubicon diffs sit waiting for work they&rsquo;ll never get. You&rsquo;ve already built a rig that expects more torque than the 3.8L delivers. Rebuilding one and putting it back in is the slower, more expensive version of getting the rig you actually want in two years anyway.</p>
+    <p>At roughly $1,500&ndash;$2,750 more in true incremental cost, the Hemi is the right call for a dedicated trail rig. The resale premium on a JK with a verified Hotwire Hemi swap, chromoly axles, and Rubicon diffs is real &mdash; the right buyer pays for that combination.</p>
+    <div class="caveat">
+      <strong>The honest caveat:</strong> If this rig is your daily driver and you need it back in service within four weeks, the 3.8L path is faster. The Hotwire harness carries a 4&ndash;8 week lead time alone, and a first-time Hemi swap takes 10&ndash;14 days of active wrenching after parts arrive. If you&rsquo;re working to a hard deadline, the rebuilt 3.8L respects that. If the timeline is flexible &mdash; and most dedicated trail rigs are &mdash; the Hemi is the answer.
+    </div>
+  </div>
+
+  <!-- ─── NEXT STEPS ────────────────────────────────────────── -->
+  <hr class="section-divider">
+  <section class="section next-steps">
+    <span class="section-label">If you&rsquo;re going Hemi</span>
+    <h2>Where to go next</h2>
+    <div class="next-grid">
+      <a class="next-card" href="/jk/engine-swap-hemi-diy/">
+        <span class="next-card-eye">Full install guide</span>
+        <span class="next-card-title">5.7L Hemi Swap &mdash; Complete DIY Walkthrough</span>
+        <span class="next-card-desc">Phase-by-phase installation guide using the Hotwire harness. From engine pull to first start. Time estimates by experience level, tool list, and common mistakes.</span>
+        <span class="next-card-arrow">Read the guide</span>
+      </a>
+      <a class="next-card" href="/jk/engine-swap-hemi-8hp70-bom/">
+        <span class="next-card-eye">Transmission upgrade</span>
+        <span class="next-card-title">Hemi + 8HP70 Bill of Materials</span>
+        <span class="next-card-desc">If you want to step up from the donor 545RFE to a ZF 8HP70 8-speed &mdash; the complete parts list and cost breakdown for the upgraded path.</span>
+        <span class="next-card-arrow">See the BOM</span>
+      </a>
+      <a class="next-card" href="/v8-swap-parts-checklist.html">
+        <span class="next-card-eye">Parts list</span>
+        <span class="next-card-title">V8 Swap Parts Checklist</span>
+        <span class="next-card-desc">Every part for the Hemi swap organized by category. Check off as you buy. Estimated costs and verified fitment notes for the JK platform.</span>
+        <span class="next-card-arrow">Open checklist</span>
+      </a>
+      <a class="next-card" href="/gear-ratio-calculator.html">
+        <span class="next-card-eye">Confirm your setup</span>
+        <span class="next-card-title">Gear Ratio Calculator</span>
+        <span class="next-card-desc">Verify your 4.88s are dialed for your tire size. With a Hemi and 37&ndash;40&rdquo; tires, 4.88s are typically correct &mdash; but run the numbers for your setup.</span>
+        <span class="next-card-arrow">Calculate</span>
+      </a>
+    </div>
+    <div class="next-note">
+      <strong>Gear ratio note:</strong> With 4.88s already installed, you do not need to re-gear for 37&ndash;40&rdquo; tires on the Hemi. The combination of 395 lb-ft of torque, 4.88 axle gears, and the NP241 transfer case in low range gives you more than enough mechanical advantage for trail work. The 4.88s that felt like too much for the 3.8L are exactly right for the Hemi.
+    </div>
+  </section>
+
+</div><!-- /.page -->
+</main>
+
+<footer class="footer">
+  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
+</footer>
+
+<script>
+(function() {
+  // Theme toggle
+  var b = document.getElementById('tm-theme-btn');
+  if (b) b.addEventListener('click', function() {
+    var c = document.documentElement.getAttribute('data-theme') || 'light';
+    var n = c === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', n);
+    try { localStorage.setItem('tm-theme', n); } catch(e) {}
+  });
+
+  // Dropdown toggle
+  window.tmDrop = function(name) {
+    var panels = ['build', 'garage'];
+    panels.forEach(function(p) {
+      var el = document.getElementById('tm-dd-' + p);
+      var btn = document.getElementById('tm-btn-' + p);
+      if (!el) return;
+      if (p === name) {
+        var isOpen = el.classList.contains('open');
+        el.classList.toggle('open', !isOpen);
+        if (btn) btn.classList.toggle('tm-active', !isOpen);
+      } else {
+        el.classList.remove('open');
+        if (btn) btn.classList.remove('tm-active');
+      }
+    });
+  };
+
+  // Close dropdowns on outside click
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('#tm-topbar')) {
+      ['build', 'garage'].forEach(function(p) {
+        var el = document.getElementById('tm-dd-' + p);
+        var btn = document.getElementById('tm-btn-' + p);
+        if (el) el.classList.remove('open');
+        if (btn) btn.classList.remove('tm-active');
+      });
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
