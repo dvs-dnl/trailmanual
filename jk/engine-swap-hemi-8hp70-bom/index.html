@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hemi 5.7L + 8HP70/75 Swap BOM — JK Wrangler | Trail Manual</title>
+  <meta name="description" content="Full bill of materials for a 5.7L VVT Truck Hemi + ZF 8HP70/75 8-speed swap into a Jeep Wrangler JK. Interactive cost tracker with fan option toggle and running totals.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+  <style>
+:root{
+  --slate:#2B3A4A; --slate-d:#1A2330; --slate-l:#5B6B7E;
+  --clay:#C97E50; --clay-d:#A85D33; --clay-l:#E8AB85;
+  --bone:#E8E2D2; --bone-d:#C9C1AC; --paper:#F7F4ED; --panel:#FFFCF5;
+  --safety:#B23B2F; --good:#5E8C5A; --moss:#3D5B47;
+  --sans:"DM Sans",-apple-system,sans-serif;
+  --mono:"JetBrains Mono",monospace;
+  --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--slate);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ── Topbar ── */
+.topbar{background:var(--slate-d);border-bottom:1px solid #2B3A4A;position:sticky;top:0;z-index:100}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;color:var(--bone)}
+.brand-mark{width:28px;height:28px;display:flex;align-items:center;justify-content:center}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:13px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
+.brand-dot{width:5px;height:5px;border-radius:50%;background:var(--clay);display:inline-block;margin-bottom:2px}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(232,226,210,0.65);transition:color .15s}
+.nav a:hover,.nav a.active{color:var(--bone)}
+
+/* ── Hero ── */
+.hero{max-width:var(--max);margin:0 auto;padding:56px 32px 40px;border-bottom:1px solid var(--bone)}
+.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:14px}
+.hero h1{font-weight:500;font-size:clamp(34px,5.5vw,60px);letter-spacing:-0.02em;line-height:0.97;margin-bottom:16px}
+.hero-lede{font-size:clamp(15px,1.8vw,18px);color:var(--slate-l);max-width:680px;line-height:1.55;margin-bottom:24px}
+.hero-links{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-links a{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--clay);display:inline-flex;align-items:center;gap:5px;transition:color .15s}
+.hero-links a:hover{color:var(--clay-d)}
+.hero-links a::before{content:'←';font-size:13px}
+.hero-links a.fwd::before{content:'';font-size:13px}
+.hero-links a.fwd::after{content:'→';font-size:13px;margin-left:5px}
+.hero-links .sep{color:var(--bone-d);font-family:var(--mono);font-size:11px}
+
+/* ── Summary bar ── */
+.summary-bar{background:var(--slate);color:var(--bone);max-width:var(--max);margin:0 auto}
+.summary-inner{padding:20px 32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between}
+.summary-label{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(232,226,210,0.55);display:block;margin-bottom:4px}
+.summary-total{font-size:clamp(28px,4vw,44px);font-weight:600;letter-spacing:-0.02em;color:var(--clay);font-family:var(--sans)}
+.summary-breakdown{font-family:var(--mono);font-size:11px;color:rgba(232,226,210,0.5);margin-top:4px;line-height:1.5}
+.summary-info{max-width:440px}
+.summary-info p{font-size:13.5px;color:rgba(232,226,210,0.65);line-height:1.5}
+.summary-info strong{color:rgba(232,226,210,0.9)}
+
+/* ── Controls ── */
+.controls{max-width:var(--max);margin:0 auto;padding:24px 32px;border-bottom:1px solid var(--bone);display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.ctrl-group{display:flex;flex-direction:column;gap:6px}
+.ctrl-label{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--slate-l)}
+.fan-toggle{display:flex;border:1px solid var(--bone-d);border-radius:6px;overflow:hidden}
+.fan-btn{padding:8px 18px;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;background:var(--paper);color:var(--slate-l);border:none;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
+.fan-btn.active{background:var(--slate);color:var(--bone)}
+.ctrl-check{display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 14px;border:1px solid var(--bone-d);border-radius:6px;background:var(--paper);transition:background .15s}
+.ctrl-check:hover{background:var(--bone)}
+.ctrl-check input{accent-color:var(--clay);width:16px;height:16px;cursor:pointer}
+.ctrl-check span{font-family:var(--mono);font-size:11px;letter-spacing:0.07em;text-transform:uppercase;color:var(--slate)}
+
+/* ── Content wrapper ── */
+.content{max-width:var(--max);margin:0 auto;padding:40px 32px 80px}
+
+/* ── Section headings ── */
+.bom-section{margin-bottom:48px}
+.bom-section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid var(--slate);padding-bottom:10px;margin-bottom:16px;gap:16px;flex-wrap:wrap}
+.bom-section-title{font-size:18px;font-weight:600;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
+.bom-section-num{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate-l);font-weight:400}
+.bom-section-total{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--slate)}
+.bom-section-note{font-size:13px;color:var(--slate-l);margin-bottom:14px;font-style:italic}
+
+/* ── BOM table ── */
+.bom-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--bone);border-radius:4px}
+table{width:100%;border-collapse:collapse;min-width:760px;font-size:13.5px}
+thead tr{background:var(--slate);color:var(--bone)}
+thead th{padding:10px 12px;text-align:left;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;white-space:nowrap}
+thead th.right{text-align:right}
+tbody tr:nth-child(odd){background:var(--panel)}
+tbody tr:nth-child(even){background:var(--paper)}
+tbody tr:hover{background:var(--bone)}
+tbody td{padding:9px 12px;vertical-align:middle;border-bottom:1px solid var(--bone)}
+tbody td.right{text-align:right;font-family:var(--mono);font-size:13px}
+tbody td.pn{font-family:var(--mono);font-size:12px;color:var(--slate);letter-spacing:0.02em;white-space:nowrap}
+tbody td.pn.dash{color:var(--slate-l)}
+.pn-wrap{display:flex;align-items:center;gap:6px}
+.copy-btn{background:none;border:none;cursor:pointer;color:var(--slate-l);padding:2px;border-radius:3px;display:inline-flex;align-items:center;transition:color .15s,background .15s;flex-shrink:0}
+.copy-btn:hover{color:var(--clay);background:rgba(201,126,80,0.1)}
+.copy-btn svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.copy-btn.copied{color:var(--good)}
+.basis-badge{display:inline-block;padding:2px 7px;border-radius:3px;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap}
+.basis-found{background:rgba(94,140,90,0.13);color:var(--good);border:1px solid rgba(94,140,90,0.25)}
+.basis-est{background:rgba(91,107,126,0.1);color:var(--slate-l);border:1px solid rgba(91,107,126,0.18)}
+td.notes-col{font-size:12.5px;color:var(--slate-l);max-width:260px;line-height:1.4}
+tfoot tr{background:var(--slate-d)}
+tfoot td{padding:10px 12px;font-family:var(--mono);font-size:12px;color:var(--bone);font-weight:500;border-top:2px solid var(--clay)}
+tfoot td.right{text-align:right;font-size:14px;color:var(--clay)}
+
+/* ── Not priced table ── */
+.not-priced-section{background:var(--panel);border:1px solid var(--bone);border-radius:4px;padding:20px 24px;margin-top:48px}
+.not-priced-section h3{font-size:15px;font-weight:600;margin-bottom:12px;color:var(--slate)}
+.not-priced-list{display:flex;flex-direction:column;gap:8px}
+.np-item{display:flex;flex-direction:column;gap:2px}
+.np-name{font-weight:500;font-size:14px}
+.np-detail{font-family:var(--mono);font-size:11px;color:var(--slate-l);letter-spacing:0.04em}
+
+/* ── Running total strip ── */
+.total-strip{position:sticky;bottom:0;z-index:50;background:var(--slate-d);border-top:2px solid var(--clay);padding:12px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.total-strip-label{font-family:var(--mono);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(232,226,210,0.5)}
+.total-strip-num{font-size:22px;font-weight:600;color:var(--clay);letter-spacing:-0.01em}
+.total-strip-right{display:flex;align-items:center;gap:16px}
+.print-btn{padding:8px 18px;background:transparent;border:1px solid rgba(201,126,80,0.5);color:var(--clay);font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;border-radius:4px;cursor:pointer;transition:background .15s,border-color .15s;display:inline-flex;align-items:center;gap:8px}
+.print-btn:hover{background:rgba(201,126,80,0.12);border-color:var(--clay)}
+.print-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Disclaimer ── */
+.disclaimer{background:rgba(91,107,126,0.08);border:1px solid var(--bone);border-radius:4px;padding:14px 20px;margin-bottom:32px;font-size:13px;color:var(--slate-l);line-height:1.5}
+.disclaimer strong{color:var(--slate)}
+
+/* ── Related links ── */
+.related{padding:32px 0 0;border-top:1px solid var(--bone);margin-top:16px;display:flex;flex-wrap:wrap;gap:16px}
+.rel-link{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border:1px solid var(--bone-d);border-radius:4px;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate);background:var(--panel);transition:background .15s,border-color .15s}
+.rel-link:hover{background:var(--bone);border-color:var(--bone-d)}
+.rel-link.clay{color:var(--clay);border-color:rgba(201,126,80,0.4)}
+.rel-link.clay:hover{background:rgba(201,126,80,0.08)}
+
+/* ── Footer ── */
+.footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:0}
+.footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
+
+/* ── Print ── */
+@media print{
+  .topbar,.total-strip,.controls,.print-btn,.copy-btn,.hero-links{display:none!important}
+  .hero{padding:20px 0}
+  .content{padding:0}
+  .summary-bar{background:none;border:1px solid #ccc}
+  .summary-inner{padding:12px 0}
+  .summary-total{color:#333}
+  thead tr{background:#333}
+  body{color:#000}
+  .bom-section-head{border-bottom:2px solid #333}
+}
+
+/* ── Responsive ── */
+@media(max-width:860px){
+  .hero{padding:40px 20px 32px}
+  .summary-inner{padding:16px 20px}
+  .controls{padding:18px 20px;gap:16px}
+  .content{padding:28px 20px 100px}
+  .total-strip{padding:12px 20px}
+}
+@media(max-width:600px){
+  .topbar-inner{padding:12px 16px}
+  .nav{gap:14px}
+  .summary-info{display:none}
+  .hero h1{font-size:28px}
+}
+  </style>
+</head>
+<body>
+
+<style>
+#tm-topbar{position:sticky;top:0;z-index:100;background:var(--slate-d,#1A2330);border-bottom:1px solid rgba(43,58,74,.8)}
+#tm-topbar .tm-topbar-inner{max-width:var(--max,1200px);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
+#tm-topbar .tm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-mark{width:28px;height:28px;flex-shrink:0}
+#tm-topbar .tm-brand-mark svg{width:100%;height:100%;display:block;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-brand-text{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bone,#E8E2D2);display:flex;align-items:center;gap:4px}
+#tm-topbar .tm-brand-dot{width:4px;height:4px;background:var(--clay,#C97E50);border-radius:50%;display:inline-block}
+#tm-topbar .tm-nav-menu{display:flex;align-items:center;gap:2px;margin-left:auto}
+#tm-topbar .tm-nav-btn{height:40px;padding:0 12px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,226,210,.6);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;transition:color .15s,background .15s;white-space:nowrap}
+#tm-topbar .tm-nav-btn:hover,#tm-topbar .tm-nav-btn.tm-active{color:var(--bone,#E8E2D2);background:rgba(255,255,255,.06)}
+#tm-topbar .tm-chev{font-size:9px;opacity:.5;transition:transform .15s}
+#tm-topbar .tm-nav-btn.tm-active .tm-chev{transform:rotate(180deg);opacity:1}
+#tm-topbar .tm-explore-btn::before{content:'⚄ '}
+#tm-topbar .tm-garage-btn{display:flex;align-items:center;gap:7px}
+#tm-topbar .tm-garage-icon{width:26px;height:26px;border-radius:5px;background:rgba(201,126,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-size:9px;font-weight:700;color:var(--clay,#C97E50)}
+#tm-topbar .tm-garage-icon img{width:100%;height:100%;object-fit:contain}
+#tm-topbar .tm-dd-panel{display:none;position:absolute;left:-24px;right:-24px;top:calc(100% + 1px);background:var(--paper,#F7F4ED);border-top:1px solid var(--bone-d,#C9C1AC);border-bottom:1px solid var(--bone-d,#C9C1AC);z-index:99}
+#tm-topbar .tm-dd-panel.open{display:block}
+#tm-topbar .tm-dd-inner{max-width:var(--max,1200px);margin:0 auto;padding:18px 24px 22px;display:flex;gap:36px}
+#tm-topbar .tm-dd-col{flex:1}
+#tm-topbar .tm-dd-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-l,#5B6B7E);margin-bottom:8px}
+#tm-topbar .tm-dd-link{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;border-radius:6px;color:var(--slate,#2B3A4A);text-decoration:none;transition:background .12s;font-size:13px;line-height:1.3}
+#tm-topbar .tm-dd-link:hover{background:rgba(201,126,80,.1)}
+#tm-topbar .tm-dd-link strong{display:block;font-weight:500;margin-bottom:1px;color:var(--slate,#2B3A4A)}
+#tm-topbar .tm-dd-link span:last-child{font-size:11px;color:var(--slate-l,#5B6B7E)}
+#tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+#tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
+#tm-topbar .tm-hamburger svg{width:16px;height:16px}
+@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}}
+</style>
+<header id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    </div>
+    <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+        <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+        <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon">⚠</div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
+        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon">🔗</div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
+      </div>
+    </div></div>
+    <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon">🛠</div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
+      </div>
+      <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">✏</div><div><strong>Blog</strong><span>Guides · dives</span></div></a>        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      </div>
+    </div></div>
+    <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+      <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">📋</div><div><strong>My builds</strong><span>Saved configs</span></div></a>
+      </div>
+    </div></div>
+  </div>
+</header>
+<script src="/_nav.js"></script>
+
+<main>
+
+  <section class="hero">
+    <p class="eyebrow">Jeep Wrangler JK · Engine Swap · Bill of Materials</p>
+    <h1>5.7L Hemi + ZF 8HP70/75<br>Build Cost Tracker</h1>
+    <p class="hero-lede">Full bill of materials for the 5.7L VVT Truck Hemi paired with the ZF 8-speed automatic. U.S. street prices as of May 2026. Excludes engine, transmission, harness, computer, and exhaust manifolds/headers.</p>
+    <div class="hero-links">
+      <a href="/jk/">Back to JK Wrangler</a>
+      <span class="sep">·</span>
+      <a class="fwd" href="/v8-swap-parts-checklist.html">545RFE build parts list</a>
+      <span class="sep">·</span>
+      <a class="fwd" href="/jk/engine-swap-hemi-diy/">Full installation guide</a>
+    </div>
+  </section>
+
+  <!-- Summary bar -->
+  <div class="summary-bar">
+    <div class="summary-inner">
+      <div>
+        <span class="summary-label" id="total-label">Build total — manual fan, incl. manifold hardware</span>
+        <div class="summary-total" id="summary-total">$2,955</div>
+        <div class="summary-breakdown" id="summary-breakdown">Core $2,751 + manifold hardware $79 + manual fan $125</div>
+      </div>
+      <div class="summary-info">
+        <p>Representative U.S. street prices, May 2026. <strong>Not included:</strong> engine, transmission, harness, computer, exhaust manifolds/headers. The 8HP70/75 path replaces the 545RFE automatic — if you're building around the 545RFE, see the separate parts list.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <div class="ctrl-group">
+      <span class="ctrl-label">Fan option</span>
+      <div class="fan-toggle" role="group" aria-label="Fan option">
+        <button class="fan-btn active" id="btn-manual" onclick="setFan('manual')">Manual fan</button>
+        <button class="fan-btn" id="btn-electric" onclick="setFan('electric')">Electric fan</button>
+      </div>
+    </div>
+    <div class="ctrl-group">
+      <span class="ctrl-label">Optional sections</span>
+      <label class="ctrl-check">
+        <input type="checkbox" id="chk-exhaust" checked onchange="updateTotal()">
+        <span>Include exhaust manifold hardware (+$79)</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <strong>Prices reflect U.S. street market, May 2026.</strong> Excludes engine, transmission, wiring harness, PCM/ECM, and exhaust manifolds or headers. <span style="background:rgba(94,140,90,0.13);color:var(--good);border:1px solid rgba(94,140,90,0.25);padding:1px 6px;border-radius:3px;font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;">Found</span> prices reflect a confirmed street price range. Edit unit prices inline as you source parts — the total updates automatically.
+    </div>
+
+    <!-- Section 1: Core Build Parts -->
+    <div class="bom-section" id="section-core">
+      <div class="bom-section-head">
+        <div class="bom-section-title">
+          <span class="bom-section-num">01</span>
+          Core Build Parts
+        </div>
+        <span class="bom-section-total">Subtotal: <strong id="core-total">$2,751</strong></span>
+      </div>
+      <div class="bom-wrap">
+        <table id="table-core">
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Part Number</th>
+              <th class="right">Qty</th>
+              <th class="right">Unit Price</th>
+              <th class="right">Line Total</th>
+              <th>Basis</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Section total</td>
+              <td class="right" id="core-foot">$2,751</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 2: Exhaust manifold hardware -->
+    <div class="bom-section" id="section-exhaust">
+      <div class="bom-section-head">
+        <div class="bom-section-title">
+          <span class="bom-section-num">02</span>
+          Exhaust Manifold Hardware
+        </div>
+        <span class="bom-section-total">Subtotal: <strong>$79</strong></span>
+      </div>
+      <p class="bom-section-note">Optional — skip if hardware is included with your headers or manifolds.</p>
+      <div class="bom-wrap">
+        <table id="table-exhaust">
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Part Number</th>
+              <th class="right">Qty</th>
+              <th class="right">Unit Price</th>
+              <th class="right">Line Total</th>
+              <th>Basis</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Section total</td>
+              <td class="right">$79</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 3: Fan — Manual -->
+    <div class="bom-section" id="section-fan-manual">
+      <div class="bom-section-head">
+        <div class="bom-section-title">
+          <span class="bom-section-num">03A</span>
+          Fan — Manual Option
+        </div>
+        <span class="bom-section-total">Subtotal: <strong>$125</strong></span>
+      </div>
+      <p class="bom-section-note">Choose one fan option. Manual fan = mechanical clutch fan driven by the engine. Lower cost, no wiring, proven reliability off-road.</p>
+      <div class="bom-wrap">
+        <table id="table-fan-manual">
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Part Number</th>
+              <th class="right">Qty</th>
+              <th class="right">Unit Price</th>
+              <th class="right">Line Total</th>
+              <th>Basis</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Section total</td>
+              <td class="right">$125</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Section 3: Fan — Electric -->
+    <div class="bom-section" id="section-fan-electric" style="display:none">
+      <div class="bom-section-head">
+        <div class="bom-section-title">
+          <span class="bom-section-num">03B</span>
+          Fan — Electric Option
+        </div>
+        <span class="bom-section-total">Subtotal: <strong>$454</strong></span>
+      </div>
+      <p class="bom-section-note">Choose one fan option. Electric fan = Camaro pull fan + wiring harness. More expensive upfront; frees up a few horsepower and simplifies underhood clearance on some builds.</p>
+      <div class="bom-wrap">
+        <table id="table-fan-electric">
+          <thead>
+            <tr>
+              <th>Part</th>
+              <th>Part Number</th>
+              <th class="right">Qty</th>
+              <th class="right">Unit Price</th>
+              <th class="right">Line Total</th>
+              <th>Basis</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Section total</td>
+              <td class="right">$454</td>
+              <td colspan="2"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Not priced -->
+    <div class="not-priced-section">
+      <h3>Not Priced — Source Separately</h3>
+      <p style="font-size:13px;color:var(--slate-l);margin-bottom:14px">These items are part of the build but have no list price in the BOM — either proprietary, no part number available, or highly variable.</p>
+      <div class="not-priced-list">
+        <div class="np-item">
+          <span class="np-name">Big Bore Box Pulley</span>
+          <span class="np-detail">T42036 — Proprietary; no quantity listed. Check current pricing from supplier.</span>
+        </div>
+        <div class="np-item">
+          <span class="np-name">Shifter — 2016–2020 Challenger / Charger</span>
+          <span class="np-detail">No OEM part number in BOM. OEM used ~$200–$400 depending on trim. Required only if applicable to your 8HP70/75 configuration.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related links -->
+    <div class="related">
+      <a class="rel-link" href="/jk/">← JK Wrangler</a>
+      <a class="rel-link clay" href="/v8-swap-parts-checklist.html">545RFE build parts list →</a>
+      <a class="rel-link clay" href="/jk/engine-swap-hemi-diy/">Full installation guide →</a>
+      <a class="rel-link" href="/db/?v=jk">JK database</a>
+    </div>
+
+  </div><!-- /content -->
+
+</main>
+
+<!-- Sticky running total -->
+<div class="total-strip" id="total-strip">
+  <div>
+    <div class="total-strip-label">Running total</div>
+    <div class="total-strip-num" id="running-total">$2,955</div>
+  </div>
+  <div class="total-strip-right">
+    <div style="font-family:var(--mono);font-size:11px;color:rgba(232,226,210,0.45);line-height:1.4;" id="strip-note">
+      Manual fan · Manifold hardware included
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      Save / Print
+    </button>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Trail Manual · trailmanual.com · Free, community-built DIY reference</p>
+</footer>
+
+<script>
+// ── BOM DATA ─────────────────────────────────────────────────────────────────
+const CORE = [
+  { part:"Dowel pin", pn:"1122532", qty:2, unit:4, basis:"Est", notes:"New engines only" },
+  { part:"Transmission dust cover", pn:"53021491AA", qty:1, unit:30, basis:"Est", notes:"" },
+  { part:"Intermediate plate", pn:"52104344AA", qty:1, unit:45, basis:"Est", notes:"" },
+  { part:"Flex plate (8HP70 / NAG1)", pn:"4752574AB", qty:1, unit:75, basis:"Found", notes:"MoparPartsGiant ~$72; MSRP $88" },
+  { part:"Flexplate bolts", pn:"6503465", qty:8, unit:3, basis:"Est", notes:"All transmissions" },
+  { part:"Torque converter bolts (8HP70/75)", pn:"6509361AA", qty:6, unit:4, basis:"Est", notes:"" },
+  { part:"Starter", pn:"56044736AC", qty:1, unit:285, basis:"Found", notes:"Street $280–296; MSRP $419" },
+  { part:"Oil filter adapter", pn:"68382403AA", qty:1, unit:95, basis:"Found", notes:"Street $89–122" },
+  { part:"Oil filter adapter O-ring", pn:"530216661AA", qty:1, unit:6, basis:"Est", notes:"" },
+  { part:"Oil filter adapter bolts", pn:"6102041AA", qty:3, unit:4, basis:"Est", notes:"" },
+  { part:"Oil filter", pn:"4884899", qty:1, unit:10, basis:"Est", notes:"" },
+  { part:"Crank sensor (2013+)", pn:"05149230AA", qty:1, unit:40, basis:"Est", notes:"" },
+  { part:"Power steering pulley", pn:"53013688AB", qty:1, unit:45, basis:"Est", notes:"" },
+  { part:"Power steering hose (Gates)", pn:"361850", qty:1, unit:35, basis:"Est", notes:"Gates only per BOM" },
+  { part:"Engine belt (Chrysler accessory drive)", pn:null, qty:1, unit:35, basis:"Est", notes:"No PN in BOM" },
+  { part:"Transfer case cable mount", pn:"52121832AC", qty:1, unit:30, basis:"Est", notes:"" },
+  { part:"Upper radiator hose (Gates)", pn:"20608", qty:1, unit:20, basis:"Found", notes:"Street ~$18–22" },
+  { part:"Lower radiator hose (Gates)", pn:"21047", qty:1, unit:20, basis:"Est", notes:"" },
+  { part:"Transmission cooler (Hayden)", pn:"HYD-679", qty:1, unit:75, basis:"Found", notes:"Street $63–82" },
+  { part:"Air filter (AEM)", pn:"21-204DK", qty:1, unit:72, basis:"Found", notes:"Street $67–80" },
+  { part:"O2 sensor (Chrysler)", pn:"56029049AA", qty:4, unit:100, basis:"Found", notes:"~$96–120 ea; may not apply with aftermarket ECU" },
+  { part:"Trans cooler fittings (8HP70/75)", pn:"68489743AA", qty:2, unit:25, basis:"Est", notes:"" },
+  { part:"Trans cooler lines (8HP70/75)", pn:null, qty:1, unit:60, basis:"Est", notes:"No PN in BOM" },
+  { part:"Knock sensor (2017+)", pn:"5033316AB", qty:1, unit:30, basis:"Est", notes:"" },
+  { part:"Oil & coolant sensor (Chrysler)", pn:"05149077AB", qty:2, unit:25, basis:"Est", notes:"" },
+  { part:"Intake manifold actuator (Chrysler)", pn:"53022137AJ", qty:1, unit:160, basis:"Found", notes:"Aftermkt ~$120 / OEM ~$235" },
+  { part:"Air temp charge sensor (Chrysler)", pn:"5149176AB", qty:1, unit:25, basis:"Est", notes:"" },
+  { part:"Oil pressure switch (2017+)", pn:"5149062AA", qty:1, unit:20, basis:"Est", notes:"" },
+  { part:"A/C compressor", pn:"68454989AA", qty:1, unit:400, basis:"Found", notes:"Street $363–436; supersedes 57009385AA" },
+  { part:"3.5\" hump hose + 2 clamps", pn:null, qty:1, unit:25, basis:"Est", notes:"No PN in BOM" },
+  { part:"Trans mount-to-T-case adapter (8HP70/75)", pn:"68147344AA", qty:1, unit:50, basis:"Est", notes:"" },
+  { part:"Thermostat housing", pn:"53021536AC", qty:1, unit:60, basis:"Est", notes:"" },
+  { part:"Transmission pan (8HP70/75)", pn:"68362041AB", qty:1, unit:146, basis:"Found", notes:"Via MoparPartsGiant" },
+  { part:"Capacitor", pn:"56041889AA", qty:1, unit:35, basis:"Est", notes:"" },
+  { part:"Crankshaft pilot (8HP70/NAG1)", pn:"04736283AA", qty:1, unit:15, basis:"Est", notes:"" },
+  { part:"Transmission fluid (8/9-spd)", pn:"68218925AB", qty:9, unit:24, basis:"Est", notes:"$22–26/qt" },
+  { part:"Belt — Big Bore Box pulley (Gates)", pn:"K060771", qty:1, unit:23, basis:"Found", notes:"Street $21–23" },
+];
+
+const EXHAUST = [
+  { part:"Right manifold gasket", pn:"05045496AA", qty:1, unit:15, basis:"Est", notes:"" },
+  { part:"Left manifold gasket", pn:"05045495AA", qty:1, unit:15, basis:"Est", notes:"" },
+  { part:"Double-ended exhaust stud", pn:"6509544", qty:8, unit:3, basis:"Est", notes:"" },
+  { part:"Exhaust manifold bolts", pn:"6507746AA", qty:10, unit:2.50, basis:"Est", notes:"" },
+];
+
+const FAN_ELECTRIC = [
+  { part:"Camaro fan (GM)", pn:"84100128", qty:1, unit:414, basis:"Found", notes:"$350–480 new; ~$300 used" },
+  { part:"Fan plug wiring", pn:"TX3A", qty:1, unit:15, basis:"Est", notes:"Electric fan only" },
+  { part:"Fan sensor", pn:"2-8296", qty:1, unit:25, basis:"Est", notes:"Electric fan only" },
+];
+
+const FAN_MANUAL = [
+  { part:"Manual fan 18\" (Flex-a-lite)", pn:"FLX-5718", qty:1, unit:70, basis:"Est", notes:"" },
+  { part:"Fan clutch (Hayden)", pn:"HYD-2715", qty:1, unit:55, basis:"Est", notes:"" },
+];
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let fanMode = 'manual'; // 'manual' | 'electric'
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function fmt(n){ return '$' + n.toLocaleString('en-US', {minimumFractionDigits:0,maximumFractionDigits:2}); }
+function sectionTotal(rows){ return rows.reduce((s,r)=>s + r.qty*r.unit, 0); }
+
+function copyPN(pn, btn){
+  navigator.clipboard.writeText(pn).then(()=>{
+    btn.classList.add('copied');
+    btn.title = 'Copied!';
+    setTimeout(()=>{ btn.classList.remove('copied'); btn.title = 'Copy part number'; }, 1800);
+  });
+}
+
+function buildRows(rows, tableId){
+  const tbody = document.querySelector('#'+tableId+' tbody');
+  tbody.innerHTML = '';
+  rows.forEach(r=>{
+    const lineTotal = r.qty * r.unit;
+    const pnCell = r.pn
+      ? `<div class="pn-wrap"><span>${r.pn}</span><button class="copy-btn" title="Copy part number" onclick="copyPN('${r.pn}',this)" aria-label="Copy ${r.pn}"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div>`
+      : `<span style="color:var(--slate-l)">—</span>`;
+    const badge = r.basis === 'Found'
+      ? `<span class="basis-badge basis-found">Found</span>`
+      : `<span class="basis-badge basis-est">Est</span>`;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${r.part}</td>
+      <td class="pn">${pnCell}</td>
+      <td class="right">${r.qty}</td>
+      <td class="right">${fmt(r.unit)}</td>
+      <td class="right">${fmt(lineTotal)}</td>
+      <td>${badge}</td>
+      <td class="notes-col">${r.notes}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ── Fan toggle ─────────────────────────────────────────────────────────────────
+function setFan(mode){
+  fanMode = mode;
+  document.getElementById('btn-manual').classList.toggle('active', mode==='manual');
+  document.getElementById('btn-electric').classList.toggle('active', mode==='electric');
+  document.getElementById('section-fan-manual').style.display = mode==='manual' ? '' : 'none';
+  document.getElementById('section-fan-electric').style.display = mode==='electric' ? '' : 'none';
+  updateTotal();
+}
+
+// ── Running total ──────────────────────────────────────────────────────────────
+function updateTotal(){
+  const inclExhaust = document.getElementById('chk-exhaust').checked;
+  const fanTotal = fanMode === 'manual' ? sectionTotal(FAN_MANUAL) : sectionTotal(FAN_ELECTRIC);
+  const coreTotal = sectionTotal(CORE);
+  const exhaustTotal = inclExhaust ? sectionTotal(EXHAUST) : 0;
+  const grand = coreTotal + exhaustTotal + fanTotal;
+
+  document.getElementById('running-total').textContent = fmt(grand);
+  document.getElementById('summary-total').textContent = fmt(grand);
+
+  const fanLabel = fanMode === 'manual' ? 'manual fan' : 'electric fan';
+  const exhLabel = inclExhaust ? 'incl. manifold hardware' : 'excl. manifold hardware';
+  document.getElementById('total-label').textContent = `Build total — ${fanLabel}, ${exhLabel}`;
+
+  const parts = [`Core ${fmt(coreTotal)}`];
+  if(inclExhaust) parts.push(`manifold hardware ${fmt(sectionTotal(EXHAUST))}`);
+  parts.push(`${fanLabel} ${fmt(fanTotal)}`);
+  document.getElementById('summary-breakdown').textContent = parts.join(' + ');
+
+  const stripNote = `${fanMode === 'manual' ? 'Manual' : 'Electric'} fan · Manifold hardware ${inclExhaust ? 'included' : 'excluded'}`;
+  document.getElementById('strip-note').textContent = stripNote;
+}
+
+// ── Init ───────────────────────────────────────────────────────────────────────
+buildRows(CORE, 'table-core');
+buildRows(EXHAUST, 'table-exhaust');
+buildRows(FAN_MANUAL, 'table-fan-manual');
+buildRows(FAN_ELECTRIC, 'table-fan-electric');
+updateTotal();
+</script>
+
+</body>
+</html>
