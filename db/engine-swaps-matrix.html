@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+<meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engine Swaps Matrix — Stroker, Hemi, LS3, Coyote, Godzilla, Windsor, Toyota 1GR/2UZ/1UZ | Trail Manual</title>
+<meta name="description" content="What it really takes to swap a bigger engine into your Jeep, Bronco, truck, 4Runner, or Land Cruiser. Per-donor breakdowns for the 4.0L stroker, 5.7/6.4L Hemi, GM LS3, Ford 5.0 Coyote, 7.3 Godzilla, 5.0 Windsor (302), and the Toyota 1GR-FE, 2UZ-FE, and 1UZ-FE — power, honest cost tiers, transmission and adapter options, cooling, wiring, and the gotchas that bite first-timers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#2B3A4A;--slate-deep:#1A2330;--slate-light:#5B6B7E;
+  --clay:#C97E50;--clay-deep:#A85D33;--clay-light:#E8AB85;
+  --bone:#E8E2D2;--bone-deep:#C9C1AC;--paper:#F7F4ED;--panel-canon:#FFFCF5;
+  --moss:#3D5B47;--rust:#8A4E2C;--bark:#4A3B2E;
+  --safety:#B23B2F;--warn-c:#D89035;--good-c:#5E8C5A;--info-c:#4F7795;
+  --bg:var(--paper);--bg-2:var(--bone);--bg-3:var(--bone-deep);
+  --panel:var(--bone);--panel-2:var(--bone-deep);--border:#DDD7C7;
+  --text:var(--slate);--text-dim:var(--slate-light);--text-mute:#8A8678;
+  --accent:var(--clay);--accent-2:var(--moss);--accent-3:var(--rust);
+  --danger:var(--safety);--danger-bg:rgba(178,59,47,.1);--danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c);--warn-bg:rgba(216,144,53,.1);--warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c);--good-bg:rgba(94,140,90,.1);--good-border:rgba(94,140,90,.3);
+  --info:var(--info-c);--info-bg:rgba(79,119,149,.1);--info-border:rgba(79,119,149,.3);
+  --radius:4px;--radius-lg:6px;--shadow:0 4px 24px rgba(43,58,74,.08);--max:1200px;
+  --font-sans:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer}
+
+/* NAV */
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+
+/* HERO */
+.hero-section{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero-section::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(184,110,58,.12) 0%,transparent 65%);pointer-events:none}
+.hero-section h1{position:relative;font-size:clamp(22px,4vw,36px);color:var(--bone);margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero-section .lede{position:relative;font-size:15px;color:#8A95A8;max-width:700px;line-height:1.65;margin:0 0 12px}
+.hero-caveat{position:relative;margin-top:16px;font-size:12px;color:#6A7585;padding:8px 12px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:inline-flex;gap:6px;align-items:center;line-height:1.4}
+
+/* SELECTOR */
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;font-weight:700;color:var(--text-mute);margin-bottom:12px}
+.donor-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
+.d-tab{padding:10px 18px;border-radius:var(--radius);border:1px solid var(--border);background:var(--panel);font-size:13px;font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .15s;text-align:left;line-height:1.25}
+.d-tab:hover{border-color:var(--accent);color:var(--accent)}
+.d-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.d-tab .d-fam{display:block;font-weight:400;font-size:11px;opacity:.8;margin-top:2px}
+
+/* VERDICT */
+.verdict{border-left:3px solid var(--accent);background:var(--panel);border:1px solid var(--border);border-left-width:3px;border-radius:var(--radius);padding:18px 22px;margin-bottom:24px}
+.verdict .v-head{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:7px}
+.verdict .v-title{font-size:20px;font-weight:700;letter-spacing:-.3px;margin:0 0 8px;color:var(--text)}
+.verdict p{margin:0;font-size:15px;color:var(--text);line-height:1.6}
+
+/* META STRIP */
+.donor-meta{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px;display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.dm-item{min-width:110px}
+.dm-label{font-size:10px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--text-mute);margin-bottom:3px}
+.dm-val{font-size:14px;font-weight:600;color:var(--text)}
+.dm-val.mono{font-family:var(--font-mono)}
+.dm-val.good{color:var(--good)}
+.dm-val.warn{color:var(--warn)}
+
+/* SECTION */
+.swap-section{margin-bottom:32px}
+.swap-section h2{font-size:18px;font-weight:700;letter-spacing:-.2px;margin:0 0 8px}
+.swap-section p.lead{font-size:14px;color:var(--text-dim);margin:0 0 14px;line-height:1.6}
+
+/* COST TABLE */
+.cost-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-lg)}
+table.cost-table{width:100%;border-collapse:collapse;min-width:560px}
+table.cost-table th{background:var(--bg-2);padding:10px 14px;font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--text-mute);text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
+table.cost-table td{padding:12px 14px;border-bottom:1px solid var(--border);font-size:13px;vertical-align:top}
+table.cost-table tr:last-child td{border-bottom:none}
+table.cost-table tr:hover td{background:rgba(201,126,80,.04)}
+.cost-item{font-weight:600;color:var(--text)}
+.cost-fig{font-family:var(--font-mono);font-size:13px;font-weight:600;color:var(--text);white-space:nowrap}
+.cost-note{font-size:12px;color:var(--text-dim);line-height:1.45}
+tr.total td{background:var(--bg-2);font-weight:700}
+tr.total .cost-fig{color:var(--accent)}
+
+/* RECIPIENT PILLS */
+.rec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.rec-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.rec-card .rc-veh{font-size:14px;font-weight:700;color:var(--text);margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rc-fit{display:inline-flex;align-items:center;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px;text-transform:uppercase}
+.fit-bolt{background:var(--good-bg);color:var(--good);border:1px solid var(--good-border)}
+.fit-kit{background:var(--info-bg);color:var(--info);border:1px solid var(--info-border)}
+.fit-fab{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-border)}
+.rec-card .rc-note{font-size:12px;color:var(--text-dim);line-height:1.5}
+
+/* TWO-COL DETAIL */
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.detail-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
+.detail-card h3{font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.detail-card p{margin:0 0 8px;font-size:13px;color:var(--text);line-height:1.55}
+.detail-card p:last-child{margin-bottom:0}
+.detail-card .spec{font-family:var(--font-mono);font-size:12px;color:var(--text-dim)}
+
+/* CALLOUTS */
+.callout{border-radius:var(--radius);padding:14px 16px;font-size:13px;line-height:1.55;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.callout.warn{background:var(--warn-bg);border:1px solid var(--warn-border);color:var(--warn)}
+.callout.info{background:var(--info-bg);border:1px solid var(--info-border);color:var(--info)}
+.callout.good{background:var(--good-bg);border:1px solid var(--good-border);color:var(--good)}
+.callout.danger{background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger)}
+.callout-icon{flex-shrink:0;font-size:16px;margin-top:1px}
+.callout-body strong{display:block;margin-bottom:3px}
+.callout-body a{color:inherit;text-decoration:underline}
+.gotcha-list{margin:0;padding-left:18px}
+.gotcha-list li{margin-bottom:6px}
+.gotcha-list li:last-child{margin-bottom:0}
+
+/* SOURCES */
+.sources{margin-top:40px;padding-top:20px;border-top:1px solid var(--border)}
+.sources h3{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 10px}
+.sources ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.sources li a{font-size:12px;color:var(--text-dim);padding:4px 10px;border:1px solid var(--border);border-radius:12px;background:var(--panel);display:inline-block}
+.sources li a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+
+/* FOOTER NOTE */
+.tool-foot{margin-top:36px;font-size:12px;color:var(--text-mute);line-height:1.6;border-top:1px solid var(--border);padding-top:18px}
+.tool-foot a{color:var(--text-dim);text-decoration:underline}
+
+/* DARK */
+[data-theme="dark"]{
+  --bg:var(--slate-deep);--bg-2:#22303F;--bg-3:#2D3C4E;
+  --panel:var(--slate);--panel-2:#22303F;--border:#3A4A5E;
+  --text:var(--bone);--text-dim:#A5AFBE;--text-mute:#7A8595;
+}
+
+/* THEME BTN */
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-sun{display:none}.tm-theme-icon-moon{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-moon{display:none}
+
+/* HAMBURGER */
+.hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;align-items:center;justify-content:center;color:var(--text-dim);flex-shrink:0}
+.hamburger svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-linecap:round}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+@media(max-width:600px){
+  .hamburger{display:flex}
+  .donor-meta{gap:14px}
+  .dm-item{min-width:90px}
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Engine Swaps Matrix</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('topbar-mobile-nav').classList.toggle('open')"><svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="topbar-mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/workshop/">Workshop</a>
+    <a href="/blog/">Blog</a>
+    <a href="/about/">About</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero-section">
+    <h1>Engine Swaps Matrix</h1>
+    <p class="lede">A bigger engine is the most expensive way to make your Jeep faster, and the one most likely to stall in your driveway half-finished. This matrix lays out what each common donor actually costs, what it bolts into, and what bites first-timers — donor by donor, with honest numbers. First up: the four engines people drop into Jeeps most.</p>
+    <div class="hero-caveat">⚠️ Costs are 2026 DIY estimates and swing hard with your region, your donor's condition, and how much fab you farm out. Treat every figure as a starting point, not a quote.</div>
+  </div>
+
+  <div class="section-label">Pick a donor engine</div>
+  <div class="donor-tabs" id="donor-tabs"></div>
+  <div id="donor-panel"></div>
+
+  <div class="tool-foot">
+    The donor bench now covers the Jeep, Ford, GM, and Toyota families — the 4.0L stroker and 5.7/6.4 Hemi, the GM LS3, the Ford Coyote, Godzilla, and 5.0 Windsor, and the Toyota 1GR-FE, 2UZ-FE, and 1UZ-FE. Still coming: per-recipient mounting detail and a donor-versus-recipient cross-fitment grid. Paired with the <a href="/db/lift-tire-fitment.html">Lift vs. Tire Fitment Matrix</a> and the <a href="/db/parts-compatibility-tool.html">Parts Compatibility Validator</a>, it's meant to answer "what does this build really take" before you spend a dollar.
+  </div>
+</main>
+
+<script>
+// ─── DATA ────────────────────────────────────────────────────────────────────
+// Phase: donors-jeep — the four engines most commonly swapped into Jeeps.
+// fit codes: bolt = bolt-in / same-platform, kit = vendor kit required, fab = custom fab
+
+const DONORS = {
+  stroker: {
+    label: "4.0L Stroker",
+    fam: "Jeep inline-6 (4.6L / 4.7L)",
+    verdictHead: "The stay-Jeep answer",
+    verdictTitle: "Keep the inline-6, just make it bigger",
+    verdict: "If you love how your 4.0L drives but wish it pulled harder, a stroker is the lowest-drama power bump there is. You combine a 4.0L block with the longer-stroke crank from the old 4.2L (258) to make roughly 4.6 liters, and you keep your factory mounts, transmission, wiring, and emissions hardware. It will not turn an XJ into a V8 rocket — figure 250–285 hp — but it adds real low-end torque exactly where a trail rig uses it, and it stays legal and familiar. The catch is that the power comes from machine work, not bolt-ons, so the quality of the build is only as good as the shop that assembles it.",
+    meta: [
+      { l: "Displacement", v: "4.6L (281 ci)", mono:true },
+      { l: "Power", v: "250–285 hp", mono:true },
+      { l: "Torque", v: "~295–315 lb-ft", mono:true },
+      { l: "DIY cost", v: "$4k–$7k", mono:true, cls:"good" },
+      { l: "Emissions", v: "Stays smog-legal", cls:"good" },
+      { l: "Difficulty", v: "Moderate" }
+    ],
+    costRows: [
+      { item: "Built long block (stroker)", fig: "$3,500–$6,500", note: "Hesco, Golen, or a local machine shop. Price tracks the crank/rod/piston package and whether the head is ported." },
+      { item: "4.2L crank core (if DIY-built)", fig: "$150–$400", note: "Junkyard 258 crank, turned and balanced. Skip if buying a complete long block." },
+      { item: "Gaskets, fluids, timing set", fig: "$250–$450", note: "Full re-seal while it's out." },
+      { item: "Tune / injector swap", fig: "$300–$700", note: "Larger injectors plus a handheld tune (e.g., for the HO/Renix PCM) to match the new displacement." },
+      { item: "Labor (if farmed out)", fig: "$1,200–$3,000", note: "Same-platform R&R is far cheaper than a V8 conversion — no new mounts or harness." },
+      { item: "DIY net total", fig: "$4,000–$7,000", note: "Drops toward $4k if you reuse your accessories and do the swap yourself.", total:true }
+    ],
+    recipients: [
+      { veh: "Cherokee XJ", fit:"bolt", fitLabel:"Bolt-in", note: "The classic stroker home. Drops onto factory mounts, mates to AW4 or AX-15 unchanged. Most documented build on the platform." },
+      { veh: "Wrangler TJ", fit:"bolt", fitLabel:"Bolt-in", note: "Identical 4.0L architecture — same mounts and bellhousing. NV3550/NSG370 and 42RLE all carry over." },
+      { veh: "Wrangler YJ", fit:"bolt", fitLabel:"Bolt-in", note: "If already a 4.0L YJ, straight swap. 2.5L-to-stroker is a larger job (mounts, wiring, crossmember)." },
+      { veh: "Grand Cherokee ZJ/WJ", fit:"bolt", fitLabel:"Bolt-in", note: "4.0L ZJ/WJ accept the stroker on stock mounts; verify accessory/serpentine routing for your year." }
+    ],
+    drivetrain: "Keeps everything. AX-15, NV3550, NSG370 manuals and the AW4/42RLE automatics all bolt to the same Jeep bellhousing pattern — no adapter, no new crossmember. Your driveshafts, transfer case, and axles are untouched.",
+    cooling: "Stock radiator handles a stroker fine for street and moderate trail use. If you already run hot in summer or tow, step up to a 3-row or aftermarket aluminum radiator and a high-flow clutch fan or electric fan — the same upgrades you'd want on a stock 4.0L in Phoenix heat.",
+    wiring: "No harness change. You reuse the factory PCM and engine harness. Plan on larger injectors (often 24 lb) and a tune that knows about them so the displacement and fueling match — running stock injectors and tune on a stroker leaves power on the table and can lean it out up top.",
+    gotchas: [
+      "A stroker is only as good as its machine work. Balancing the rotating assembly is not optional — an out-of-balance stroker shakes and eats main bearings.",
+      "Renix-era (1987–1990) PCMs are harder to tune than HO (1991+). If you're chasing the most power, an HO swap or a standalone makes life easier.",
+      "Stock head flow becomes the bottleneck above ~4.6L. A ported head or aftermarket casting is where the extra displacement actually pays off.",
+      "It's still an inline-6. If your real goal is V8 sound and 400+ hp, a stroker will disappoint — look at the LS3 or Hemi instead and budget accordingly."
+    ],
+    sources: [
+      { t: "NAXJA Stroker Build FAQ", u:"https://naxja.org" },
+      { t: "Hesco 4.6L Stroker", u:"https://www.hesco.com" },
+      { t: "Golen Engine Service", u:"https://www.golen.com" },
+      { t: "Cherokee Forum — Stroker Tech", u:"https://www.cherokeeforum.com" }
+    ]
+  },
+
+  hemi57: {
+    label: "5.7L Hemi",
+    fam: "Mopar Gen III V8 (Eagle)",
+    verdictHead: "The factory-correct V8",
+    verdictTitle: "The Mopar-in-a-Jeep path of least resistance",
+    verdict: "If you want a V8 in a JK and you want it to feel like Jeep built it that way, the 5.7L Hemi is the answer. It's the same family Chrysler put in trucks and chargers, the kit ecosystem is mature, and the result drives like a factory powertrain — 345–383 hp, smooth, and reliable. It is not cheap and it is not a weekend job: a DIY 5.7 JK swap lands around $11,000 net after you sell your 3.6L, and a turnkey conversion from a shop like Bruiser runs well past that. For TJ and XJ the bay is tighter and the bills climb, but the Hemi remains the most drama-free V8 swap for the Wrangler world.",
+    meta: [
+      { l: "Displacement", v: "5.7L (345 ci)", mono:true },
+      { l: "Power", v: "345–383 hp", mono:true },
+      { l: "Torque", v: "375–400 lb-ft", mono:true },
+      { l: "DIY cost", v: "$10k–$13k", mono:true, cls:"warn" },
+      { l: "Best fit", v: "Wrangler JK" },
+      { l: "Difficulty", v: "Hard" }
+    ],
+    costRows: [
+      { item: "Conversion kit (mounts, headers, etc.)", fig: "~$4,500", note: "Jeep Speed Shop 5.7 VVT kit for JK is the reference. Bruiser Conversions offers turnkey." },
+      { item: "Donor engine + trans", fig: "$3,000–$6,000", note: "Used 5.7 with 545RFE/65RFE, or a Mopar crate. Lower if you part out a wrecked Ram/Durango." },
+      { item: "Radiator + cooling", fig: "~$700", note: "Larger radiator is mandatory — the stock JK unit can't shed Hemi heat." },
+      { item: "Standalone harness / PCM flash", fig: "$800–$1,500", note: "Vendor harness or a flashed Mopar PCM tuned for the swap." },
+      { item: "Labor (if farmed out)", fig: "~$4,000+", note: "80–120 hrs. A turnkey Bruiser JK can run $30k+ all-in." },
+      { item: "DIY net total (after selling 3.6L)", fig: "~$11,000", note: "Selling the original Pentastar and trans offsets a meaningful chunk.", total:true }
+    ],
+    recipients: [
+      { veh: "Wrangler JK", fit:"kit", fitLabel:"Vendor kit", note: "The primary 5.7 home. Jeep Speed Shop and Bruiser Conversions both build complete JK kits; the NSG370 manual or 545RFE auto both have paths." },
+      { veh: "Wrangler TJ", fit:"kit", fitLabel:"Vendor kit", note: "Doable with Advance Adapters / vendor mounts, but the LJ/TJ bay is tight — firewall and steering clearance need attention." },
+      { veh: "Cherokee XJ", fit:"fab", fitLabel:"Some fab", note: "Possible but cramped. Expect to massage the firewall and relocate accessories; fewer turnkey kits than the JK." },
+      { veh: "Grand Cherokee WJ/WK", fit:"kit", fitLabel:"Vendor kit", note: "WK already shipped with a Hemi; the WJ swap leans on that parts overlap and is well-traveled." }
+    ],
+    drivetrain: "Most builds keep the Hemi married to a Chrysler automatic — 545RFE, 65RFE, or 68RFE — which bolts to the Hemi natively and ties into the transfer case with the right adapter. Manual swaps use the NSG370 (JK) behind a vendor adapter. Match the transmission's electronics to your tune; a mismatched TCM is a common no-start.",
+    cooling: "A bigger radiator is not optional. The stock JK/TJ cooling stack was sized for a V6 or inline-6 — a Hemi will heat-soak it on a summer climb. Plan on the vendor's recommended radiator plus a proper fan (mechanical clutch or high-CFM electric) and consider a transmission cooler.",
+    wiring: "Two roads: a flashed Mopar PCM with the factory engine harness adapted to your Jeep, or a vendor standalone harness built for the swap. The standalone is more plug-and-play; the factory route is cheaper but needs careful pin-out work. Either way, the body-control and gauge integration is where time disappears.",
+    gotchas: [
+      "Engine bay clearance bites TJ and XJ builders hardest — measure firewall, steering shaft, and exhaust routing before you buy the engine.",
+      "The transmission's TCM/PCM pairing must match your tune. A swap that cranks but won't shift is almost always an electronics mismatch.",
+      "Front axle and oil pan clearance interact with lift height — a Hemi sits differently than the V6 and can change your driveshaft angles.",
+      "Budget creep is the real killer. The headline kit price rarely includes the radiator, harness, exhaust, and the hundred small brackets — the $4,500 kit becomes an $11k project fast."
+    ],
+    sources: [
+      { t: "Jeep Speed Shop — Hemi Swap", u:"https://jeepspeedshop.com/hemi-swap/" },
+      { t: "Bruiser Conversions", u:"https://bruiserconversions.com" },
+      { t: "WranglerJKForum — JKU Hemi Reference", u:"https://wranglerjkforum.net/threads/jku-hemi-swap-reference-guide-swap-info.32731/" },
+      { t: "RevKit — DIY Hemi Cost", u:"https://revkit.com/articles/my-jeep-wrangler-diy-hemi-swap-cost-how-much/" }
+    ]
+  },
+
+  hemi64: {
+    label: "6.4L Hemi (392)",
+    fam: "Mopar Gen III V8 (Apache)",
+    verdictHead: "The big-power Mopar",
+    verdictTitle: "When the 5.7 isn't enough and the budget is real",
+    verdict: "The 6.4L 392 is the Hemi for people who've decided money is not the constraint — it makes 470–485 hp and turns a JK or Gladiator into something genuinely quick. The swap uses the same mature vendor ecosystem as the 5.7, so the engineering is solved; what changes is the price. Expect roughly $20k DIY and $30k or more for a professional turnkey by the time the engine, kit, cooling, and electronics are all in. The reward is factory-feel reliability with serious output. The honest question to ask first: would a 5.7 at half the cost actually leave you wanting? For most trail rigs, it wouldn't.",
+    meta: [
+      { l: "Displacement", v: "6.4L (392 ci)", mono:true },
+      { l: "Power", v: "470–485 hp", mono:true },
+      { l: "Torque", v: "~470 lb-ft", mono:true },
+      { l: "DIY cost", v: "~$20k", mono:true, cls:"warn" },
+      { l: "Best fit", v: "JK / JL / Gladiator" },
+      { l: "Difficulty", v: "Hard" }
+    ],
+    costRows: [
+      { item: "Conversion kit", fig: "~$10,000", note: "392-specific kit (mounts, headers, oil pan, accessory routing). Jeep Speed Shop / Bruiser." },
+      { item: "Donor 392 + trans", fig: "~$10,000", note: "6.4 with 8HP-series auto or 545RFE. Crate or low-mile pull from a 392 Wrangler/SRT." },
+      { item: "Cooling upgrade", fig: "$800–$1,500", note: "A 392 needs serious cooling capacity — large radiator, high-flow fans, trans cooler." },
+      { item: "Harness / electronics", fig: "$1,000–$2,000", note: "Standalone or flashed PCM/TCM matched to the 8-speed if used." },
+      { item: "Labor (turnkey)", fig: "$10,000+", note: "A professional 392 conversion can total $30k all-in." },
+      { item: "DIY net total", fig: "~$20,000", note: "Before factoring resale of your original drivetrain.", total:true }
+    ],
+    recipients: [
+      { veh: "Wrangler JK", fit:"kit", fitLabel:"Vendor kit", note: "The most documented 392 home. Same vendor kits as the 5.7, sized for the bigger engine and its cooling needs." },
+      { veh: "Wrangler JL", fit:"kit", fitLabel:"Vendor kit", note: "JL shipped with a factory 392 (Rubicon 392), so OEM parts overlap heavily — the cleanest swap if you start from a non-392 JL." },
+      { veh: "Gladiator JT", fit:"kit", fitLabel:"Vendor kit", note: "Shares the JL platform; the 392 conversion leans on the same Mopar parts and Mopar's own crate program." },
+      { veh: "Wrangler TJ", fit:"fab", fitLabel:"Heavy fab", note: "Possible but the small TJ bay plus a 392's cooling demands make this a fabrication project, not a kit install." }
+    ],
+    drivetrain: "Factory 392s pair with the ZF 8HP70/8HP75 8-speed automatic, and matching that transmission's electronics is the cleanest route — it's what Mopar engineered around. Builders on a budget sometimes run the 545RFE behind the 392, which works but gives up the 8-speed's gearing and refinement. Manual options exist but are rarer at this power level.",
+    cooling: "Cooling is the make-or-break system on a 392. The engine makes more heat than the 5.7 and the trail is the worst-case scenario — low speed, high load, no airflow. Run the largest radiator that fits, high-CFM fans, and a dedicated transmission cooler. Skimping here is how 392 swaps end up limping home in summer.",
+    wiring: "Same two paths as the 5.7 — vendor standalone or flashed factory PCM/TCM — but the 8-speed adds complexity. If you keep the 8HP, the transmission and engine electronics have to speak to each other correctly, which is why many builders source a matched engine-and-trans pull rather than mixing donors.",
+    gotchas: [
+      "Cooling is the number-one failure point. A 392 that overheats on the trail will do it every hot day until the cooling stack is right.",
+      "Mixing a 392 engine with a non-matched transmission and TCM creates electronics headaches — source the engine and trans together when you can.",
+      "The cost gap to a 5.7 is large. Be honest about whether 485 hp changes how you actually use the rig, or whether it's bragging-rights spend.",
+      "Weight and front-axle load go up with the bigger engine — factor it into spring rates and lift planning."
+    ],
+    sources: [
+      { t: "Jeep Speed Shop — Hemi Swap", u:"https://jeepspeedshop.com/hemi-swap/" },
+      { t: "Bruiser Conversions", u:"https://bruiserconversions.com" },
+      { t: "Mopar 6.4L Crate (392)", u:"https://www.mopar.com" },
+      { t: "JL Wrangler Forums — 392 Swap", u:"https://www.jlwranglerforums.com" }
+    ]
+  },
+
+  ls3: {
+    label: "GM LS3",
+    fam: "GM Gen IV V8 (6.2L)",
+    verdictHead: "The aftermarket king",
+    verdictTitle: "The most-supported V8 swap on earth",
+    verdict: "The LS3 is the swap with the deepest parts bench in the off-road world. It's a 6.2L, 430-hp crate V8 that's light, compact, and surrounded by more brackets, harnesses, headers, and how-to threads than any other engine — which is exactly why it ends up in everything from XJs to 4Runners. Novak Conversions makes bolt-in Jeep mounts, and standalone harness vendors have the wiring solved. A budget build around a used 5.3 truck engine can come in under a Hemi swap; a fresh LS3 with a built trans climbs toward $15k–$25k. The two real tradeoffs: it's a GM engine in a Jeep, which some owners care about, and emissions legality varies by state — in CARB states you need a swap path that can actually pass.",
+    meta: [
+      { l: "Displacement", v: "6.2L (376 ci)", mono:true },
+      { l: "Power", v: "430 hp (crate LS3)", mono:true },
+      { l: "Torque", v: "~425 lb-ft", mono:true },
+      { l: "DIY cost", v: "$8k–$25k", mono:true },
+      { l: "Best fit", v: "XJ / TJ / JK / 4Runner" },
+      { l: "Difficulty", v: "Moderate–Hard" }
+    ],
+    costRows: [
+      { item: "Engine", fig: "$800–$9,000", note: "Used 5.3/6.0 truck LS $800–$1,500 (budget) up to a new LS3 crate ~$8k–$9k." },
+      { item: "Novak mount kit", fig: "$500–$1,200", note: "Bolt-in 3/16\" steel mounts for XJ/TJ — no cutting, top-lip weld recommended." },
+      { item: "Transmission + adapter", fig: "$1,000–$3,500", note: "4L60E/4L80E auto, or adapt to the Jeep AX-15 with a Novak adapter." },
+      { item: "Standalone harness + tune", fig: "$800–$1,500", note: "PSI or Howell harness with a flashed ECU. Watch Gen III vs Gen IV crank trigger." },
+      { item: "Radiator + dual e-fans", fig: "$800–$1,200", note: "Aluminum radiator and electric fans are mandatory for the bigger engine." },
+      { item: "Headers, fuel, mounts misc", fig: "$1,000–$2,500", note: "Swap headers for clearance, EFI-capable fuel system, accessory relocation." },
+      { item: "DIY total", fig: "$8,000–$25,000", note: "Budget 5.3 build at the low end; fresh LS3 + built trans at the high end.", total:true }
+    ],
+    recipients: [
+      { veh: "Cherokee XJ", fit:"kit", fitLabel:"Novak kit", note: "Novak bolt-in mounts, no cutting. Car-style LS (low intake) preferred over truck Vortec for hood clearance. 2\"+ lift helps oil pan/exhaust." },
+      { veh: "Wrangler TJ", fit:"kit", fitLabel:"Novak kit", note: "Novak mounts available; frame rig gives more room than the XJ unibody. AX-15 adapter or auto both viable." },
+      { veh: "Wrangler JK", fit:"kit", fitLabel:"Vendor kit", note: "LS swaps exist alongside the Hemi route; vendor kits handle mounts and cooling. Less common than Mopar in the JK crowd." },
+      { veh: "Toyota 4Runner", fit:"kit", fitLabel:"Vendor kit", note: "PSI and Sikky offer Toyota LS kits; PSI does a complete standalone harness for 1999–2007. Larger radiator + e-fan mandatory." }
+    ],
+    drivetrain: "Two routes. Keep it GM — a 4L60E/4L70E or 4L80E automatic bolts straight to the LS and adapts to the transfer case — or keep it Jeep by mating the LS to your AX-15 with a Novak adapter. The AX-15 is the only stock Jeep manual rated to live behind LS torque for trail use; automatics behind an adapter plate are the more common path. Driveshaft length and transfer-case clocking change with the new trans, so plan those together.",
+    cooling: "An aluminum radiator with dual electric fans is mandatory — the stock Jeep or 4Runner radiator can't keep a 6.2 cool, especially at low trail speeds. Size the radiator to the engine, not the old one, and wire the fans to a proper thermostatic controller. This is the single most-skipped step that comes back to bite LS swappers.",
+    wiring: "Use a standalone harness from PSI or Howell with a flashed ECU rather than hacking a junkyard harness. The classic trap is the Gen III vs Gen IV crank trigger mismatch (24X vs 58X reluctor) — pairing the wrong ECU with the wrong engine means it won't sync and won't start. Confirm your engine generation and order the matching ECU and harness from the start.",
+    gotchas: [
+      "Gen III vs Gen IV crank trigger (24X vs 58X) is the most common no-start. Match the ECU to the engine generation before you order anything.",
+      "Hood and oil-pan clearance is tight in the XJ — use a car-style (low) intake and plan a 2\"+ lift for pan and exhaust room.",
+      "Emissions legality varies by state. In California and other CARB states you need a smog-legal swap path (engine no older than the chassis, all emissions equipment retained) or it won't pass — research before you buy.",
+      "It's a GM engine in a Jeep. Resale and the purist crowd both react to that; it doesn't affect how it drives, but it's worth knowing going in."
+    ],
+    sources: [
+      { t: "Novak Conversions — XJ LS Swap", u:"https://www.novak-adapt.com/knowledge/engines/swap-guides/chevy-buick-gm/xj-swap.html" },
+      { t: "PSI Conversion — Toyota LS Kits", u:"https://www.psiconversion.com/Toyota/" },
+      { t: "PSI — LS Wiring Mistakes", u:"https://www.psiconversion.com/tech/articles/Top-LS-Engine-Swap-Wiring-Mistakes-and-How-to-Avoid-Them.html" },
+      { t: "EngineerFix — LS Swap Cost", u:"https://engineerfix.com/how-much-does-an-ls-swap-actually-cost/" }
+    ]
+  }
+,
+
+  coyote: {
+    label: "5.0L Coyote",
+    fam: "Ford Modular DOHC V8",
+    verdictHead: "The modern Ford V8",
+    verdictTitle: "Mustang power for a Ford-loyal build",
+    verdict: "The Coyote is what you swap when you want a current Ford V8 — the same DOHC 5.0 that lives in the Mustang GT and F-150 — and you'd rather not put a GM or Mopar heart in a Ford body. It makes real power (412 hp in the 2011–2014 Gen 1, 435 in the Gen 2, 460 in the Gen 3) and Ford sells it as a crate engine with a matching Control Pack, so the electronics are a solved problem instead of a junkyard puzzle. The honest tradeoff is width and height: the Coyote is a physically large engine, and in a narrow early-Bronco or Jeep bay the headers, accessories, and hood clearance are the hard part, not the mounts. Budget around $14k–$18k for a DIY crate build by the time the engine, Control Pack, cooling, and adapter are in.",
+    meta: [
+      { l: "Displacement", v: "5.0L (302 ci)", mono:true },
+      { l: "Power", v: "412–460 hp", mono:true },
+      { l: "Torque", v: "390–420 lb-ft", mono:true },
+      { l: "DIY cost", v: "$14k–$18k", mono:true, cls:"warn" },
+      { l: "Best fit", v: "Bronco (Ford bodies)" },
+      { l: "Difficulty", v: "Hard" }
+    ],
+    costRows: [
+      { item: "Coyote crate engine", fig: "$9,000–$10,500", note: "Ford Performance Gen 3 5.0 crate (M-6007-M50C) is the reference. A clean junkyard Coyote with harness runs $4k–$6k and drops the total." },
+      { item: "Ford Performance Control Pack", fig: "~$1,800–$2,000", note: "M-6017-M50C — harness, PCM, and accessories pre-flashed for the crate engine. The reason a Coyote swap is approachable at all." },
+      { item: "Swap mounts / adapter", fig: "$500–$1,200", note: "Platform-specific. Early-Bronco and classic-truck Coyote mount kits exist; Jeep needs a Ford-bellhousing adapter for any kept Jeep trans." },
+      { item: "Transmission", fig: "$1,500–$4,000", note: "10R80 auto, 4R70W, or a TKO/TREMEC manual behind the Coyote. Carries its own controller cost if electronic." },
+      { item: "Cooling + exhaust + fab", fig: "$1,500–$3,000", note: "Aluminum radiator, twin e-fans, custom or shorty headers, and the small brackets that always add up." },
+      { item: "DIY net total", fig: "$14,000–$18,000", note: "Junkyard engine and a manual trans pull it toward the low end; full crate-plus-auto pushes the top.", total:true }
+    ],
+    recipients: [
+      { veh: "Early Bronco (66–77)", fit:"kit", fitLabel:"Vendor kit", note: "The strongest Coyote home in this set. Companies like Kincer Chassis and Bronco-specific shops build complete Coyote packages. Bay is narrow — width and steering clearance are the real work." },
+      { veh: "Full-size Bronco / F-150", fit:"kit", fitLabel:"Vendor kit", note: "Roomier bay and a native Ford drivetrain make this the lowest-drama Coyote swap. 4R70W or 10R80 bolt up; the Control Pack handles wiring." },
+      { veh: "Wrangler TJ/JK", fit:"fab", fitLabel:"Heavy fab", note: "Doable but uncommon — you're adapting a wide Ford engine into a narrow Jeep bay with a Ford-to-NV adapter or a full Ford trans + adapter to the transfer case. Expect custom mounts and exhaust." },
+      { veh: "Cherokee XJ", fit:"fab", fitLabel:"Heavy fab", note: "Tightest fit here. The Coyote's width and the XJ unibody firewall fight each other; a small-block Windsor or an LS is far better proven in this chassis." }
+    ],
+    drivetrain: "In a Ford body the natural pairing is a Ford automatic — 4R70W for older builds, 10R80 for a modern feel — or a TREMEC TKO/T-56 manual, all of which bolt to the Coyote's Ford bellhousing pattern. Putting a Coyote in a Jeep means either running a full Ford transmission and adapting its output to your transfer case, or using a bellhousing adapter to keep a Jeep manual; the Ford-trans route is cleaner. Match the transmission controller to the Control Pack tune so the engine and trans speak the same language.",
+    cooling: "Size the radiator to the Coyote, not to whatever came out. A modern 5.0 makes serious heat at low trail speed where there's no airflow — an aluminum radiator with dual high-CFM electric fans on a thermostatic controller is the baseline, not an upgrade. In Phoenix-grade heat, under-cooling a Coyote on a slow climb is how you cook it.",
+    wiring: "Use the Ford Performance Control Pack. It ships with the engine harness, a pre-flashed PCM, drive-by-wire pedal, and the bits to make a crate Coyote run with minimal guesswork — it's the single biggest reason this swap is sane for a DIYer. A junkyard Coyote can run on its donor harness, but you'll spend the savings in pin-out time and a tune.",
+    gotchas: [
+      "The Coyote is wide and tall. In an early Bronco or any Jeep, header-to-frame and hood clearance — not the mounts — are what eat the schedule. Mock the engine in before you buy headers.",
+      "Drive-by-wire throttle means you're committing to the electronic pedal and the PCM that expects it. Plan the Control Pack in from the start rather than fighting a junkyard ECU.",
+      "Accessory drive routing (alternator, A/C, power steering) is tight and platform-specific. Front-sump vs rear-sump oil pan also interacts with your crossmember and steering — confirm the pan before the engine goes in.",
+      "It's a premium-power swap. If your goal is torque for crawling rather than top-end horsepower, the cheaper 5.0 Windsor or a Godzilla gives more low-end per dollar."
+    ],
+    sources: [
+      { t: "Ford Performance — 5.0L Coyote Crate Engine", u:"https://performanceparts.ford.com/part/M-6007-M50C" },
+      { t: "Ford Performance — Coyote Control Pack", u:"https://performanceparts.ford.com/part/M-6017-M50C" },
+      { t: "Kincer Chassis — Coyote Swaps", u:"https://kincerchassis.com" },
+      { t: "ClassicBroncos — Coyote Swap Tech", u:"https://classicbroncos.com" }
+    ]
+  },
+
+  godzilla: {
+    label: "7.3L Godzilla",
+    fam: "Ford pushrod big-block V8 (gas)",
+    verdictHead: "The torque-per-dollar Ford",
+    verdictTitle: "Big, simple, and cheap to run for the power",
+    verdict: "Ford's 7.3L Godzilla is the swap for people who want a wall of low-end torque and a pushrod engine they can actually work on. It's the gas V8 from the Super Duty — 430 hp and 475 lb-ft in stock truck tune — built as a cam-in-block two-valve design with no DOHC complexity, and Ford sells it crated for around $8,500 with a Control Pack to run it. For a trail rig that lives at low rpm, that torque curve is exactly right, and the engine's simplicity means fewer things to chase later. The catch is size and weight: the Godzilla is a physically big, heavy block that belongs in a full-size truck or Bronco bay, not a narrow Jeep. Figure $13k–$17k DIY for a crate build.",
+    meta: [
+      { l: "Displacement", v: "7.3L (445 ci)", mono:true },
+      { l: "Power", v: "430 hp", mono:true },
+      { l: "Torque", v: "475 lb-ft", mono:true },
+      { l: "DIY cost", v: "$13k–$17k", mono:true, cls:"warn" },
+      { l: "Best fit", v: "Full-size truck / Bronco" },
+      { l: "Difficulty", v: "Hard" }
+    ],
+    costRows: [
+      { item: "Godzilla crate engine", fig: "$8,200–$9,000", note: "Ford Performance 7.3L crate (M-6007-73) is the reference. Junkyard units are still scarce and not much cheaper, so most builds go crate." },
+      { item: "Ford Performance Control Pack", fig: "~$2,000", note: "M-6017-73 — harness and pre-flashed PCM sized for the crate engine. Makes the engine run without a standalone." },
+      { item: "Swap mounts / crossmember", fig: "$600–$1,400", note: "Truck and Bronco mount kits are emerging fast. The block's length and weight set the crossmember work." },
+      { item: "Transmission", fig: "$1,800–$4,500", note: "10R140 heavy-duty auto is the factory pairing; a TREMEC manual or 4R100 also adapt. Controller adds cost on the electronic autos." },
+      { item: "Cooling + exhaust + fab", fig: "$1,800–$3,200", note: "Big radiator, dual fans, and custom exhaust around a wide block. Weight may also call for a front-spring revisit." },
+      { item: "DIY net total", fig: "$13,000–$17,000", note: "The engine is cheap for the displacement; the trans and fab around the size are where the money goes.", total:true }
+    ],
+    recipients: [
+      { veh: "Full-size Bronco / F-series", fit:"kit", fitLabel:"Vendor kit", note: "The Godzilla's natural home — it was built for this chassis family. Native Ford drivetrain, room for the block, and the 10R140 bolts up. Lowest-drama path." },
+      { veh: "Early Bronco (66–77)", fit:"fab", fitLabel:"Heavy fab", note: "Possible and growing in popularity, but the Godzilla is a tight, heavy fit in the early bay — plan suspension for the nose weight and expect custom mounts and exhaust." },
+      { veh: "Power Wagon / heavy 4x4", fit:"fab", fitLabel:"Heavy fab", note: "The torque suits a heavy crawler, but you're adapting a Ford engine into a non-Ford chassis — full Ford trans plus a transfer-case adapter, custom everything." },
+      { veh: "Wrangler / Cherokee", fit:"fab", fitLabel:"Not advised", note: "The block is too large and heavy for a Jeep bay to make sense. A 5.0 Coyote, Windsor, or Hemi is the right Jeep answer — the Godzilla belongs in a truck." }
+    ],
+    drivetrain: "The factory pairing is Ford's 10R140 ten-speed automatic, which bolts to the Godzilla and handles the torque; a 4R100 or a built TREMEC manual are the other common routes. In a Ford body this is straightforward. In anything else you're running the full Ford transmission and adapting its output to your transfer case — there's no shortcut bellhousing for a non-Ford manual behind this engine. Spec the trans and its controller alongside the Control Pack so the tune matches.",
+    cooling: "A big-displacement gas V8 wants a big cooling stack. Run a full-size aluminum radiator with dual electric fans and a proper shroud, and don't reuse an undersized truck radiator on faith — the Godzilla makes heat in proportion to its torque. A trans cooler is mandatory behind the 10R140.",
+    wiring: "The Ford Performance Control Pack carries the harness and a pre-flashed PCM, which is what makes a crate Godzilla a weekend-wiring job instead of a standalone project. Stay on the Control Pack rather than adapting a Super Duty body harness — the truck harness drags in body-control dependencies you don't want in a swap.",
+    gotchas: [
+      "Size and weight are the whole story. The Godzilla is long and heavy — measure hood, firewall, and crossmember clearance, and plan for the added nose weight on your front springs before committing.",
+      "It's a torque engine, not a high-rpm screamer. If you want top-end horsepower, the Coyote makes more power per pound; the Godzilla wins on low-end grunt and serviceability.",
+      "Non-Ford chassis means a full Ford transmission and a transfer-case adapter — there's no clean way to bolt a Jeep or GM trans behind it.",
+      "Fuel system: the Godzilla wants returnless EFI pressure done right. Reusing an old low-pressure pump leaves it starving under load — plan the fuel delivery as part of the swap, not an afterthought."
+    ],
+    sources: [
+      { t: "Ford Performance — 7.3L Godzilla Crate Engine", u:"https://performanceparts.ford.com/part/M-6007-73" },
+      { t: "Ford Performance — 7.3L Control Pack", u:"https://performanceparts.ford.com/part/M-6017-73" },
+      { t: "Ford Authority — Godzilla Swap Coverage", u:"https://fordauthority.com" },
+      { t: "FullSizeBronco — Godzilla Swap Threads", u:"https://www.fullsizebronco.com" }
+    ]
+  },
+
+  ford50: {
+    label: "5.0L Windsor (302)",
+    fam: "Ford small-block V8 (pushrod)",
+    verdictHead: "The budget Ford V8",
+    verdictTitle: "The cheap, abundant, OEM-correct Bronco swap",
+    verdict: "If you own an early Bronco and want a V8 that belongs there, the 5.0L Windsor — the carbureted or EFI 302 — is the honest budget answer. It's the engine Ford actually put in these trucks, parts are everywhere, every shop knows it, and a running junkyard 5.0 with the GT40 heads out of a 1996–2001 Explorer can be had for a few hundred to a couple thousand dollars. Power is modest — roughly 215 hp from an EFI Explorer 5.0, more with heads and a cam — so this is a torque-and-simplicity play, not a horsepower play. The reward is the cheapest, most-supported swap in this matrix: figure $3k–$6k DIY, often less if you reuse a trans. For a do-it-yourself first V8, it's hard to argue with.",
+    meta: [
+      { l: "Displacement", v: "5.0L (302 ci)", mono:true },
+      { l: "Power", v: "~215–300 hp", mono:true },
+      { l: "Torque", v: "~280–325 lb-ft", mono:true },
+      { l: "DIY cost", v: "$3k–$6k", mono:true, cls:"good" },
+      { l: "Best fit", v: "Early Bronco (OEM-correct)" },
+      { l: "Difficulty", v: "Moderate" }
+    ],
+    costRows: [
+      { item: "Donor 5.0 (EFI Explorer / Mustang)", fig: "$400–$2,000", note: "1996–2001 Explorer 5.0 with GT40P heads is the value pick. A Mustang 5.0 or a rebuilt long block costs more but adds power potential." },
+      { item: "EFI harness + PCM (or carb conversion)", fig: "$300–$1,200", note: "Reuse the Explorer EFI harness and PCM, or go carburetor for ultimate simplicity. Carb drops the electronics entirely on an early Bronco." },
+      { item: "Motor mounts / accessories", fig: "$200–$600", note: "Early-Bronco 302 mounts are off-the-shelf and cheap — this engine bolted in from the factory. Accessory brackets are abundant." },
+      { item: "Transmission", fig: "$0–$2,500", note: "Often reuse the existing C4/NP435, or step to an AOD/4R70W or a TREMEC. Many Bronco builds keep what's already there." },
+      { item: "Cooling, gaskets, fluids", fig: "$300–$700", note: "Fresh radiator if the old one is tired, full re-seal, and fluids while it's out." },
+      { item: "DIY net total", fig: "$3,000–$6,000", note: "The cheapest V8 path here. A junkyard engine and a kept trans land near the bottom.", total:true }
+    ],
+    recipients: [
+      { veh: "Early Bronco (66–77)", fit:"bolt", fitLabel:"Bolt-in", note: "OEM-correct — the 302 was a factory option. Mounts, crossmember, and bellhousing are all off-the-shelf. The most documented, lowest-cost swap on the platform." },
+      { veh: "Bronco II", fit:"kit", fitLabel:"Vendor kit", note: "The 2.8/2.9 V6 to 5.0 swap is well-traveled. Mounts and adapters exist; the narrow bay needs attention but the small-block fits where bigger engines won't." },
+      { veh: "Full-size Bronco / F-150", fit:"bolt", fitLabel:"Bolt-in", note: "Many already came with a 302 or 351 — a 5.0 drops in on native mounts and drivetrain. The roomy bay makes it the relaxed version of this swap." },
+      { veh: "Jeep XJ/TJ", fit:"fab", fitLabel:"Some fab", note: "The small-block Windsor is narrow enough to fit a Jeep bay better than a Coyote or Godzilla. Use an Advance Adapters Ford-to-Jeep adapter; mounts are custom but proven." }
+    ],
+    drivetrain: "On an early Bronco the 302 bolts to the factory C4 automatic or the NP435 manual, and stepping up to an AOD/4R70W overdrive auto or a TREMEC manual is a common, well-supported upgrade for highway manners. In a Jeep, an Advance Adapters bellhousing adapter mates the Windsor to a Jeep transmission, or you run a Ford trans and adapt the output. Because this engine has been swapped for decades, almost every adapter you'd want already exists on the shelf.",
+    cooling: "A 302 is modest on heat compared to the big swaps here, so a healthy stock or mild aftermarket radiator handles it. If you're running EFI and a tight early-Bronco bay in desert heat, add an electric fan or a good clutch fan and shroud — the same sensible cooling you'd give any V8, without the oversized stack the Coyote or Godzilla demands.",
+    wiring: "Two honest roads. Keep the Explorer EFI harness and PCM for fuel injection's drivability and cold starts, trimming the harness to the engine-only circuits — very doable on this well-documented engine. Or go carburetor and delete the electronics entirely, which on an early Bronco is the lowest-complexity path and part of why this swap stays cheap. Pick based on whether you value EFI drivability or carb simplicity.",
+    gotchas: [
+      "Power is modest. The Explorer 5.0 is a torque-friendly ~215 hp, not a muscle engine — set expectations there, or plan heads, cam, and intake to wake it up (and spend more).",
+      "GT40 vs GT40P heads matter for headers — the P heads moved a spark-plug angle, so confirm which heads your donor has before buying exhaust to avoid clearance surprises.",
+      "Mixing EFI and carburetor parts across years causes headaches. Commit to one fuel path and source matching intake, distributor, and sensors rather than blending eras.",
+      "If you genuinely want big power later, the 302 caps out earlier than a Coyote or a stroked 351. For most early-Bronco trail use it's plenty; for a horsepower build, start with a bigger base."
+    ],
+    sources: [
+      { t: "Advance Adapters — Ford Engine Swaps", u:"https://www.advanceadapters.com" },
+      { t: "ClassicBroncos — 5.0 EFI Swap Tech", u:"https://classicbroncos.com" },
+      { t: "Ford Muscle — Explorer 5.0 GT40 Swap", u:"https://www.fordmuscle.com" },
+      { t: "Early Bronco Registry — Engine Swap FAQ", u:"https://www.earlybronco.com" }
+    ]
+  },
+
+  toyota1gr: {
+    label: "Toyota 1GR-FE",
+    fam: "Toyota 4.0L DOHC V6",
+    verdictHead: "The stay-Toyota V6 upgrade",
+    verdictTitle: "More power without leaving the family",
+    verdict: "If you run an older Toyota with the 3.0L 3VZ or 3.4L 5VZ and want more without swapping brands, the 1GR-FE is the upgrade that keeps your rig a Toyota. It's the 4.0L DOHC V6 from the FJ Cruiser, 4th- and 5th-gen 4Runner, Tacoma, and Land Cruiser Prado — 236 hp early, 270–285 hp on the Dual VVT-i versions, with the same narrow V6 footprint that fits a Toyota bay where a V8 fights the frame rails. The honest tradeoff: a V6-to-V6 swap is more work than the displacement gain suggests, because the 1GR runs drive-by-wire and a newer ECU that your older harness and pedal don't speak. Budget $6k–$12k DIY once you've sorted the engine, harness, and adapter. For an owner who values keeping it Toyota over chasing big numbers, it's the right answer.",
+    meta: [
+      { l: "Displacement", v: "4.0L (241 ci)", mono:true },
+      { l: "Power", v: "236–285 hp", mono:true },
+      { l: "Torque", v: "266–278 lb-ft", mono:true },
+      { l: "DIY cost", v: "$6k–$12k", mono:true },
+      { l: "Best fit", v: "Older 4Runner / Tacoma" },
+      { l: "Difficulty", v: "Moderate–Hard" }
+    ],
+    costRows: [
+      { item: "Donor 1GR-FE + harness", fig: "$2,000–$4,500", note: "Low-mile pull from a wrecked FJ Cruiser, 4Runner, or Tacoma. Buy it complete with the engine harness, ECU, and drive-by-wire pedal — those are what make it run." },
+      { item: "Swap mounts / crossmember", fig: "$500–$1,200", note: "No off-the-shelf bolt-in kit for the older chassis — expect fabricated or low-volume vendor mounts. The newer V6 sits differently than the 3.4." },
+      { item: "Transmission + adapter", fig: "$800–$3,000", note: "Pair with the donor's A750 auto, or adapt to your existing R150F manual / A340 auto. Bellhousing pattern and bolt-up vary by year — confirm before buying." },
+      { item: "Wiring integration / standalone", fig: "$600–$1,500", note: "The 1GR's CAN-based ECU and drive-by-wire throttle are the hard part. A piggyback or standalone clears the body-control and immobilizer hurdles a swapped chassis creates." },
+      { item: "Cooling, exhaust, fab misc", fig: "$700–$1,800", note: "Larger radiator if yours is tired, custom exhaust off the new heads, accessory routing." },
+      { item: "DIY net total", fig: "$6,000–$12,000", note: "A clean donor and a kept transmission land near the bottom; full standalone and new trans push the top.", total:true }
+    ],
+    recipients: [
+      { veh: "3rd-gen 4Runner (96–02)", fit:"fab", fitLabel:"Heavy fab", note: "The classic 5VZ-to-1GR jump for owners who want more power and keep it Toyota. No turnkey kit — custom mounts, wiring integration, and trans bolt-up all need sorting. Common but not a weekend job." },
+      { veh: "1st-gen Tacoma", fit:"fab", fitLabel:"Heavy fab", note: "Same story as the 4Runner — the platforms share the 5VZ. Fabricated mounts and a standalone or piggyback to run the drive-by-wire 1GR ECU." },
+      { veh: "4th/5th-gen 4Runner", fit:"bolt", fitLabel:"Donor source", note: "These came with the 1GR — they're where the engine comes from, not a swap target. A tired 1GR refresh here is a rebuild, not a conversion." },
+      { veh: "Land Cruiser Prado (90/120)", fit:"kit", fitLabel:"Some support", note: "Strong overseas swap support, especially for diesel-Prado markets going to the 1GR. North American parts are thinner; lean on global Toyota communities." }
+    ],
+    drivetrain: "The cleanest pairing is the 1GR's own A750 automatic, which keeps the engine and trans electronics matched. Keeping your existing Toyota gearbox is possible — the R150F manual and A340 auto can be adapted — but bellhousing patterns shifted across the V6 generations, so verify the bolt-up for your specific donor year before you commit. Driveshaft length and transfer-case clocking change with any new transmission; plan those together rather than discovering it on the lift.",
+    cooling: "The 1GR doesn't make the heat a V8 does, so a healthy stock-size or mild aftermarket radiator handles it in most climates. In Phoenix-grade heat or for sustained low-speed crawling, step up to a larger aluminum radiator and confirm the fan and shroud move real air — the same sensible cooling any modern engine wants when there's no airflow on a slow climb.",
+    wiring: "This is where the 1GR swap earns its difficulty. It runs a CAN-bus ECU, drive-by-wire throttle, and an immobilizer that expect the donor's keys and body modules. Swapping it into an older chassis means either a carefully de-pinned factory harness with the immobilizer defeated, or a standalone/piggyback that sidesteps the body-control dependencies. Source the engine with its matching ECU, pedal, and key so you have a known-good starting point.",
+    gotchas: [
+      "It's a V6-to-V6 swap, so the power gain per dollar is smaller than a V8 swap — be honest about whether the 1GR's extra grunt justifies the wiring and fab work versus a built 5VZ or a supercharger.",
+      "Drive-by-wire and the immobilizer are the real schedule killers. Plan to defeat or integrate the immobilizer from the start, not after it cranks but won't fire.",
+      "Bellhousing patterns changed across Toyota's V6 line. Confirm your transmission actually bolts to your specific donor 1GR before buying an adapter or a trans.",
+      "There's no plug-and-play kit for the older chassis the way Novak supports LS-into-Jeep. Expect to fabricate mounts and solve wiring yourself or pay a Toyota specialist to."
+    ],
+    sources: [
+      { t: "T4R.org — V6 Swap Tech", u:"https://www.toyota-4runner.org" },
+      { t: "YotaTech — 1GR-FE Swap Threads", u:"https://www.yotatech.com" },
+      { t: "Tacoma World — Engine Swaps", u:"https://www.tacomaworld.com" },
+      { t: "IH8MUD — Toyota V6 Swap Reference", u:"https://forum.ih8mud.com" }
+    ]
+  },
+
+  toyota2uz: {
+    label: "Toyota 2UZ-FE",
+    fam: "Toyota 4.7L DOHC V8",
+    verdictHead: "The bulletproof torque V8",
+    verdictTitle: "The Land Cruiser owner's V8 of choice",
+    verdict: "The 2UZ-FE is the V8 to swap when reliability and low-end torque matter more than headline horsepower. It's the iron-block 4.7L from the Tundra, Sequoia, 100- and 200-series Land Cruiser, GX470, LX470, and the V8 4Runner — 230–282 hp depending on year, but 315–330 lb-ft of torque delivered low and flat, which is exactly the curve a heavy crawler wants. The iron block makes it heavier than Toyota's aluminum V8, and that weight is the price of its near-legendary durability. For an 80-series Land Cruiser owner tired of the 1FZ inline-six's thirst-for-power, dropping in a 2UZ is the stay-Toyota torque upgrade. Budget $7k–$14k DIY; the engines are cheap and abundant, but the wiring and adapter work is real.",
+    meta: [
+      { l: "Displacement", v: "4.7L (285 ci)", mono:true },
+      { l: "Power", v: "230–282 hp", mono:true },
+      { l: "Torque", v: "315–330 lb-ft", mono:true },
+      { l: "DIY cost", v: "$7k–$14k", mono:true, cls:"warn" },
+      { l: "Best fit", v: "Land Cruiser / 4Runner" },
+      { l: "Difficulty", v: "Hard" }
+    ],
+    costRows: [
+      { item: "Donor 2UZ-FE + harness", fig: "$1,500–$4,000", note: "Pulls from wrecked Tundra/Sequoia/LX470 are plentiful. Get it complete with harness and ECU. VVT-i (2005+) makes more power but adds wiring complexity over the pre-VVT-i." },
+      { item: "Swap mounts / crossmember", fig: "$700–$1,800", note: "Vendor mounts exist for the popular 80-series swap; other chassis are fabricated. The iron block's weight drives the crossmember work." },
+      { item: "Transmission + adapter", fig: "$1,200–$3,500", note: "A750 auto is the factory pairing; adapting to an older Toyota trans or a manual needs a bellhousing solution. Confirm the bolt pattern for your donor year." },
+      { item: "Standalone / harness integration", fig: "$900–$2,000", note: "The factory ECU wants the donor's body modules and immobilizer. A standalone or a carefully integrated harness clears that — budget for it." },
+      { item: "Cooling, exhaust, fab misc", fig: "$1,200–$2,500", note: "Larger radiator, custom exhaust around the V8, accessory relocation, and the brackets that always add up." },
+      { item: "DIY net total", fig: "$7,000–$14,000", note: "Cheap, abundant engines keep the parts cost down; the labor and wiring are where the project lives.", total:true }
+    ],
+    recipients: [
+      { veh: "80-series Land Cruiser", fit:"fab", fitLabel:"Heavy fab", note: "The signature 2UZ home — owners swap the V8 in for power and refinement over the 1FZ-FE inline-six. Vendor mounts exist; wiring and trans are the work. The most documented 2UZ swap there is." },
+      { veh: "100-series Land Cruiser / LX470", fit:"bolt", fitLabel:"Donor source", note: "These shipped with the 2UZ — it's where many donors come from. A swap here is a refresh, not a conversion." },
+      { veh: "3rd-gen 4Runner (96–02)", fit:"fab", fitLabel:"Heavy fab", note: "A torque-rich V8 in a light body makes a strong trail rig, but the unibody-era bay and the iron block's weight mean fabricated mounts and a front-spring revisit. Less common than the 80-series." },
+      { veh: "Tundra / Sequoia", fit:"bolt", fitLabel:"Donor source", note: "Factory 2UZ platforms and the main donor pool. A swap into one of these is a rebuild or a VVT-i upgrade over a pre-VVT-i, not a cross-platform conversion." }
+    ],
+    drivetrain: "The factory pairing is Toyota's A750 five-speed automatic, which keeps the engine and transmission electronics matched and is the cleanest route. Adapting the 2UZ to an older Toyota gearbox or a manual is possible but needs a bellhousing adapter, and the patterns vary across the UZ line — verify the bolt-up for your specific donor before you buy. As with any swap, the new transmission changes driveshaft length and transfer-case clocking, so spec those alongside the trans.",
+    cooling: "A 4.7L V8 in a chassis built for a six wants more cooling than the original stack. Run a larger aluminum radiator sized to the 2UZ, a proper shroud, and a fan that moves real air at low trail speed — that low-and-slow, high-load condition is the worst case for any V8 swap. A transmission cooler is cheap insurance behind the A750.",
+    wiring: "The 2UZ runs a factory ECU that expects the donor's immobilizer and body modules. The two honest paths are a carefully de-pinned factory harness with the immobilizer addressed, or a standalone that sidesteps the body-control web entirely. The pre-VVT-i engines (through 2004) are simpler to wire than the VVT-i versions — factor that into which donor you chase. Source the engine with its ECU and key so you start from a known-good combination.",
+    gotchas: [
+      "The iron block is heavy. Plan for the added nose weight on your front springs — a 2UZ swap that ignores spring rate sits low and steers heavy.",
+      "VVT-i vs pre-VVT-i changes the wiring difficulty. The pre-VVT-i engines are friendlier to swap; the VVT-i make more power but add electronic complexity. Pick deliberately.",
+      "The immobilizer and body-module dependencies bite swappers who buy an engine without its matching ECU and key. Source the complete package.",
+      "It's a torque engine, not a high-rpm power engine. If you want big horsepower numbers, the 2UZ won't deliver them — its strength is durability and a flat torque curve for crawling."
+    ],
+    sources: [
+      { t: "IH8MUD — 2UZ-FE Swap Reference", u:"https://forum.ih8mud.com" },
+      { t: "T4R.org — V8 Swap Tech", u:"https://www.toyota-4runner.org" },
+      { t: "YotaTech — UZ Engine Swaps", u:"https://www.yotatech.com" },
+      { t: "Tundras.com — 2UZ Tech", u:"https://www.tundras.com" }
+    ]
+  },
+
+  toyota1uz: {
+    label: "Toyota 1UZ-FE",
+    fam: "Lexus 4.0L DOHC V8",
+    verdictHead: "The cheap, smooth Lexus V8",
+    verdictTitle: "The budget V8 with a cult following",
+    verdict: "The 1UZ-FE is the V8 you swap when you want eight cylinders on a tight budget and don't mind doing the wiring. It's the 4.0L aluminum-block DOHC V8 from the Lexus LS400, SC400, and GS400 — one of the most over-built, reliable engines Toyota ever shipped, and junkyard examples are cheap because nobody wrecks an LS400 for the body. It makes 250–290 hp and revs sweet and smooth, but it's a car engine: the torque comes higher in the rev range than a truck V8, so it crawls best with the right gearing behind it. The aluminum block makes it noticeably lighter than the iron 2UZ, which some chassis prefer. Budget $5k–$10k DIY — the engine is the cheapest part of the equation; the adapter and wiring are where the money and time go.",
+    meta: [
+      { l: "Displacement", v: "4.0L (242 ci)", mono:true },
+      { l: "Power", v: "250–290 hp", mono:true },
+      { l: "Torque", v: "260–300 lb-ft", mono:true },
+      { l: "DIY cost", v: "$5k–$10k", mono:true, cls:"good" },
+      { l: "Best fit", v: "Budget Toyota V8 builds" },
+      { l: "Difficulty", v: "Hard" }
+    ],
+    costRows: [
+      { item: "Donor 1UZ-FE + harness", fig: "$500–$1,800", note: "One of the cheapest V8s you can buy — LS400/SC400 donors are abundant and undervalued. Get it complete with the harness and ECU. Later VVT-i (1998+) make more power but add wiring." },
+      { item: "Swap mounts / crossmember", fig: "$500–$1,500", note: "No mainstream bolt-in kit — mounts are fabricated or sourced from the global 1UZ swap community. The light aluminum block keeps crossmember demands modest." },
+      { item: "Transmission + adapter", fig: "$1,200–$3,500", note: "Adapt to a Toyota R150F/R151 manual or A340 auto with a Marks 4WD or similar bellhousing adapter, or run the donor's automatic. The adapter is unavoidable on a 4x4 conversion." },
+      { item: "Standalone / harness integration", fig: "$900–$2,000", note: "The factory ECU is workable but a standalone is the popular route for 1UZ swaps — it clears the immobilizer and gives tuning headroom for the high-revving engine." },
+      { item: "Cooling, exhaust, fab misc", fig: "$900–$2,000", note: "Radiator sized to the V8, custom exhaust, and accessory routing for a car engine going into a truck bay." },
+      { item: "DIY net total", fig: "$5,000–$10,000", note: "The cheap engine is why this swap exists; the adapter and wiring set the real budget.", total:true }
+    ],
+    recipients: [
+      { veh: "3rd-gen 4Runner (96–02)", fit:"fab", fitLabel:"Heavy fab", note: "A light aluminum V8 in a light body — appealing on paper, and done in the community. Custom mounts, a bellhousing adapter to the Toyota trans, and standalone wiring. Gear it right since the torque sits high." },
+      { veh: "80-series Land Cruiser", fit:"fab", fitLabel:"Heavy fab", note: "A cheaper V8 alternative to the 2UZ for owners who want to lose the 1FZ. Lighter than the 2UZ but less low-end torque — gearing matters more for crawling." },
+      { veh: "Tacoma / Hilux", fit:"fab", fitLabel:"Heavy fab", note: "The global Hilux scene swaps the 1UZ widely because the engine is cheap and tough. Fabricated everything; the overseas community is the best parts and knowledge source." },
+      { veh: "Non-Toyota / universal", fit:"fab", fitLabel:"Universal swap", note: "The 1UZ is one of the most-swapped engines worldwide precisely because it's cheap, light, and durable. Adapter plates exist for many transmissions — it's a genuine go-anywhere donor." }
+    ],
+    drivetrain: "Behind a 1UZ you either run the donor's automatic or, more commonly for a 4x4, adapt it to a Toyota manual (R150F/R151) or the A340 auto with a bellhousing adapter from a vendor like Marks 4WD. Because the 1UZ is a high-revving car engine, the right axle gearing matters more than with a torque-truck V8 — plan your final-drive ratio around the engine's powerband so it crawls cleanly instead of needing constant clutch slip. New trans means new driveshaft lengths and transfer-case clocking; spec it as one job.",
+    cooling: "The aluminum 1UZ runs cool by design, so a radiator sized to a 4.0L V8 with a good fan and shroud handles it without the oversized stack a big-block needs. In desert heat or for sustained crawling, confirm the fan moves air at low speed — the universal weak point of any V8 swap is low-airflow, high-load climbs.",
+    wiring: "Most 1UZ swappers go standalone. The factory ECU works, but a standalone clears the immobilizer, simplifies integration into a non-Lexus chassis, and gives tuning room for the high-revving engine — and the worldwide 1UZ community has well-trodden standalone recipes. If you keep the factory ECU, source the engine with its matching key and immobilizer. The VVT-i engines (1998+) add wiring over the earlier non-VVT-i units.",
+    gotchas: [
+      "It's a car engine with a high-rpm powerband. Without the right gearing it crawls poorly — match your axle ratio to the engine, or it'll feel gutless off-idle despite the V8.",
+      "Less low-end torque than the iron 2UZ. If torque-for-crawling is the goal, the 2UZ is the better Toyota V8; the 1UZ wins on cost and weight.",
+      "No mainstream bolt-in kit means you're fabricating mounts and adapting the trans yourself or paying a specialist — lean on the global 1UZ community for proven recipes.",
+      "Immobilizer and ECU integration trip up swappers who buy a bare engine. Get the complete harness, ECU, and key, or commit to a standalone from the start."
+    ],
+    sources: [
+      { t: "Lextreme — 1UZ-FE Swap Resource", u:"https://www.lextreme.com" },
+      { t: "Marks 4WD Adapters — Toyota V8", u:"https://www.marks4wd.com" },
+      { t: "IH8MUD — 1UZ Swap Threads", u:"https://forum.ih8mud.com" },
+      { t: "YotaTech — 1UZ-FE Tech", u:"https://www.yotatech.com" }
+    ]
+  }
+};
+
+const ORDER = ["stroker","hemi57","hemi64","ls3","coyote","godzilla","ford50","toyota1gr","toyota2uz","toyota1uz"];
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+function renderTabs(){
+  const tabs = document.getElementById('donor-tabs');
+  tabs.innerHTML = ORDER.map(id => {
+    const d = DONORS[id];
+    return `<button class="d-tab" data-id="${id}" onclick="selectDonor('${id}')">${d.label}<span class="d-fam">${d.fam}</span></button>`;
+  }).join('');
+}
+
+function selectDonor(id){
+  document.querySelectorAll('.d-tab').forEach(t => t.classList.toggle('active', t.dataset.id === id));
+  const d = DONORS[id];
+  const panel = document.getElementById('donor-panel');
+
+  const metaHtml = `<div class="donor-meta">` + d.meta.map(m =>
+    `<div class="dm-item"><div class="dm-label">${m.l}</div><div class="dm-val ${m.mono?'mono':''} ${m.cls||''}">${m.v}</div></div>`
+  ).join('') + `</div>`;
+
+  const costRows = d.costRows.map(r =>
+    `<tr class="${r.total?'total':''}"><td class="cost-item">${r.item}</td><td class="cost-fig">${r.fig}</td><td class="cost-note">${r.note}</td></tr>`
+  ).join('');
+
+  const recCards = d.recipients.map(r =>
+    `<div class="rec-card"><div class="rc-veh">${r.veh} <span class="rc-fit fit-${r.fit}">${r.fitLabel}</span></div><div class="rc-note">${r.note}</div></div>`
+  ).join('');
+
+  const gotchas = d.gotchas.map(g => `<li>${g}</li>`).join('');
+  const sources = d.sources.map(s => `<li><a href="${s.u}" target="_blank" rel="noopener nofollow">${s.t}</a></li>`).join('');
+
+  panel.innerHTML = `
+    <div class="verdict">
+      <div class="v-head">${d.verdictHead}</div>
+      <div class="v-title">${d.verdictTitle}</div>
+      <p>${d.verdict}</p>
+    </div>
+
+    ${metaHtml}
+
+    <div class="swap-section">
+      <h2>What it costs</h2>
+      <p class="lead">DIY estimates in 2026 dollars. Sell your original engine and transmission to claw back part of it — that's already baked into the net totals below where noted.</p>
+      <div class="cost-wrap">
+        <table class="cost-table" aria-label="${d.label} swap cost breakdown">
+          <thead><tr><th style="min-width:200px">Line item</th><th style="min-width:130px">Cost</th><th style="min-width:240px">Notes</th></tr></thead>
+          <tbody>${costRows}</tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="swap-section">
+      <h2>What it bolts into</h2>
+      <p class="lead">Where this donor goes and how much work each recipient takes. <strong>Bolt-in</strong> means factory mounts; <strong>vendor kit</strong> means a documented conversion kit exists; <strong>fab</strong> means you're cutting and fabricating.</p>
+      <div class="rec-grid">${recCards}</div>
+    </div>
+
+    <div class="swap-section">
+      <h2>Drivetrain, cooling &amp; wiring</h2>
+      <div class="detail-grid">
+        <div class="detail-card"><h3>Transmission &amp; adapters</h3><p>${d.drivetrain}</p></div>
+        <div class="detail-card"><h3>Cooling</h3><p>${d.cooling}</p></div>
+        <div class="detail-card"><h3>Wiring &amp; electronics</h3><p>${d.wiring}</p></div>
+      </div>
+    </div>
+
+    <div class="callout warn">
+      <span class="callout-icon">⚠️</span>
+      <span class="callout-body"><strong>Gotchas that bite first-timers</strong>
+        <ul class="gotcha-list">${gotchas}</ul>
+      </span>
+    </div>
+
+    <div class="sources">
+      <h3>Sources</h3>
+      <ul>${sources}</ul>
+    </div>
+  `;
+}
+
+// ─── THEME TOGGLE ─────────────────────────────────────────────────────────────
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+renderTabs();
+selectDonor('stroker');
+</script>
+</body>
+</html>
