@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rig Builder — Trail Manual</title>
+<meta name="description" content="Plan your off-road build with a tier-aware Rig Builder. Pick your rig and the builder sequences lift, tires, fenders, sliders, bumpers, recovery, and overland gear into a phased plan within your budget.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+/* Photo page hero */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  margin: -30px -20px 48px;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+}
+.page-hero-photo {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1f27;
+}
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(10,13,18,.4) 0%,
+    rgba(10,13,18,.6) 50%,
+    rgba(10,13,18,.96) 100%);
+}
+.page-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 48px 32px 36px;
+  max-width: 760px;
+}
+.page-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.page-hero-inner h1 {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.12;
+  margin: 0 0 14px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.3);
+}
+.page-hero-inner p {
+  font-size: 17px;
+  color: rgba(230,232,235,.8);
+  max-width: 640px;
+  line-height: 1.65;
+  margin: 0;
+}
+</style>
+<script>
+(function(){
+  var t=localStorage.getItem('tm-theme')||
+    (window.matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+  document.documentElement.setAttribute('data-theme',t);
+})();
+</script>
+
+<style>
+.tool-landing-hero {
+  padding: 64px 32px 36px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.tool-landing-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.tool-landing-hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.08;
+  margin: 0 0 18px;
+}
+.tool-landing-hero p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin: 0;
+}
+.tool-landing-section {
+  padding: 32px 32px 80px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.tool-landing-prompt {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  color: var(--text-mute);
+  font-weight: 700;
+  margin: 24px 0 14px;
+}
+.brand-group-header {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--text-dim);
+  margin: 32px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.brand-group-header:first-of-type { margin-top: 8px; }
+.vehicle-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.vehicle-picker-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  text-decoration: none;
+  transition: all .15s ease;
+}
+.vehicle-picker-card:hover {
+  border-color: var(--accent);
+  background: var(--bg-2);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.vp-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.vp-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.vp-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+  letter-spacing: -.2px;
+}
+.vp-count {
+  font-size: 11px;
+  color: var(--text-mute);
+  margin-top: 2px;
+}
+@media (max-width: 540px) {
+  .tool-landing-hero { padding: 40px 20px 24px; }
+  .tool-landing-hero h1 { font-size: 32px; }
+  .tool-landing-section { padding: 20px 20px 60px; }
+}
+</style>
+</head>
+<body>
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate">📋</div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script>
+
+<main class="tm-main" style="padding-top:0">
+  <section class="tool-landing-hero">
+    <div class="tool-landing-eyebrow">Tool</div>
+    <h1>Plan your build.</h1>
+    <p>Pick a build goal — daily driver, mild trail, moderate trail, or rock crawler — and the Rig Builder sequences the right parts in the right order. Add overland gear as a toggle when you want camping, awnings, water, fridge layered on top. Free, no account required.</p>
+  </section>
+  <section class="tool-landing-section">
+    <div class="tool-landing-prompt">Pick your rig to start building</div>
+      <h3 class="brand-group-header">Jeep</h3>
+      <div class="vehicle-picker-grid">
+        <a class="vehicle-picker-card" href="/db/#/xj/builder">
+          <div class="vp-icon"><img src="/images/icon-xj.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Cherokee XJ</div><div class="vp-count">328 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/tj/builder">
+          <div class="vp-icon"><img src="/images/icon-tj.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Wrangler TJ</div><div class="vp-count">54 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/yj/builder">
+          <div class="vp-icon"><img src="/images/icon-yj.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Wrangler YJ</div><div class="vp-count">10 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/jk/builder">
+          <div class="vp-icon"><img src="/images/icon-jk.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Wrangler JK</div><div class="vp-count">51 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/jl/builder">
+          <div class="vp-icon"><img src="/images/icon-jl.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Wrangler JL</div><div class="vp-count">35 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/cj5/builder">
+          <div class="vp-icon"><img src="/images/icon-cj5.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">CJ-5</div><div class="vp-count">5 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/cj7/builder">
+          <div class="vp-icon"><img src="/images/icon-cj7.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">CJ-7</div><div class="vp-count">5 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/zj/builder">
+          <div class="vp-icon"><img src="/images/icon-zj.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Grand Cherokee ZJ</div><div class="vp-count">10 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/wj/builder">
+          <div class="vp-icon"><img src="/images/icon-wj.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Grand Cherokee WJ</div><div class="vp-count">5 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/wk/builder">
+          <div class="vp-icon"><img src="/images/icon-wk.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Grand Cherokee WK</div><div class="vp-count">5 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/gladiator/builder">
+          <div class="vp-icon"><img src="/images/icon-gladiator.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Gladiator JT</div><div class="vp-count">20 guides</div></div>
+        </a>
+      </div>
+      <h3 class="brand-group-header">Ford</h3>
+      <div class="vehicle-picker-grid">
+        <a class="vehicle-picker-card" href="/db/#/bronco-ii/builder">
+          <div class="vp-icon"><img src="/images/icon-bronco-ii.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Bronco II</div><div class="vp-count">10 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/full-size-bronco/builder">
+          <div class="vp-icon"><img src="/images/icon-full-size-bronco.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Full-Size Bronco</div><div class="vp-count">10 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/bronco6g/builder">
+          <div class="vp-icon"><img src="/images/icon-bronco6g.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Bronco (6th Gen)</div><div class="vp-count">10 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/bronco/builder">
+          <div class="vp-icon"><img src="/images/icon-bronco.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Bronco (Early)</div><div class="vp-count">16 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/raptor/builder">
+          <div class="vp-icon"><img src="/images/icon-raptor.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">F-150 Raptor</div><div class="vp-count">14 guides</div></div>
+        </a>
+      </div>
+      <h3 class="brand-group-header">Toyota</h3>
+      <div class="vehicle-picker-grid">
+        <a class="vehicle-picker-card" href="/db/#/4runner/builder">
+          <div class="vp-icon"><img src="/images/icon-4runner.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">4Runner</div><div class="vp-count">32 guides</div></div>
+        </a>
+        <a class="vehicle-picker-card" href="/db/#/tacoma/builder">
+          <div class="vp-icon"><img src="/images/icon-tacoma.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Tacoma</div><div class="vp-count">32 guides</div></div>
+        </a>
+      </div>
+      <h3 class="brand-group-header">Ram</h3>
+      <div class="vehicle-picker-grid">
+        <a class="vehicle-picker-card" href="/db/#/power-wagon/builder">
+          <div class="vp-icon"><img src="/images/icon-power-wagon.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Power Wagon</div><div class="vp-count">18 guides</div></div>
+        </a>
+      </div>
+      <h3 class="brand-group-header">Nissan</h3>
+      <div class="vehicle-picker-grid">
+        <a class="vehicle-picker-card" href="/db/#/pathfinder/builder">
+          <div class="vp-icon"><img src="/images/icon-pathfinder.png" alt="" loading="lazy" onerror="this.style.display='none'"></div>
+          <div class="vp-meta"><div class="vp-label">Pathfinder</div><div class="vp-count">5 guides</div></div>
+        </a>
+      </div>
+  </section>
+</main>
+
+</body>
+</html>
