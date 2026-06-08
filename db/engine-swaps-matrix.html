@@ -139,6 +139,64 @@ tr.total .cost-fig{color:var(--accent)}
 .sources li a{font-size:12px;color:var(--text-dim);padding:4px 10px;border:1px solid var(--border);border-radius:12px;background:var(--panel);display:inline-block}
 .sources li a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
 
+/* VIEW TOGGLE */
+.view-toggle{display:flex;gap:4px;margin-bottom:24px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:4px;width:fit-content}
+.vt-btn{padding:8px 18px;border-radius:calc(var(--radius) - 1px);border:none;background:transparent;font-size:13px;font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .15s}
+.vt-btn:hover{color:var(--text)}
+.vt-btn.active{background:var(--bg);color:var(--accent);box-shadow:0 1px 3px rgba(0,0,0,.1)}
+[data-theme="dark"] .vt-btn.active{background:var(--bg-2)}
+
+/* RECIPIENT VIEW */
+.recipient-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px}
+.r-tab{padding:10px 18px;border-radius:var(--radius);border:1px solid var(--border);background:var(--panel);font-size:13px;font-weight:600;color:var(--text-dim);cursor:pointer;transition:all .15s;text-align:left;line-height:1.25}
+.r-tab:hover{border-color:var(--accent);color:var(--accent)}
+.r-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.r-tab .r-plat{display:block;font-weight:400;font-size:11px;opacity:.8;margin-top:2px}
+.rec-verdict{background:var(--panel);border:1px solid var(--border);border-left:3px solid var(--accent-2);border-radius:var(--radius);padding:18px 22px;margin-bottom:24px}
+.rec-verdict .rv-head{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent-2);margin-bottom:7px}
+.rec-verdict .rv-title{font-size:20px;font-weight:700;letter-spacing:-.3px;margin:0 0 8px;color:var(--text)}
+.rec-verdict p{margin:0;font-size:15px;color:var(--text);line-height:1.6}
+.compat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:32px}
+.compat-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.cc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.cc-engine{font-size:14px;font-weight:700;color:var(--text)}
+.cc-best{font-size:10px;color:var(--good);font-weight:700;vertical-align:middle;margin-left:4px;letter-spacing:.3px;text-transform:uppercase}
+.cc-fam{font-size:11px;color:var(--text-mute);margin-top:2px}
+.cc-note{font-size:12px;color:var(--text-dim);line-height:1.5;margin-top:4px}
+.cc-cost{font-size:11px;font-family:var(--font-mono);color:var(--text-mute);margin-top:6px}
+.btn-donor-link{display:inline-block;margin-top:10px;font-size:11px;font-weight:600;color:var(--accent);background:transparent;border:1px solid var(--border);border-radius:var(--radius);padding:4px 10px;cursor:pointer;transition:all .15s}
+.btn-donor-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* CROSS-FITMENT GRID */
+.cross-intro{font-size:14px;color:var(--text-dim);margin:0 0 16px;line-height:1.6;max-width:780px}
+.cross-intro strong{color:var(--text)}
+.cross-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px;font-size:12px;color:var(--text-dim)}
+.cross-legend .cl-item{display:inline-flex;align-items:center;gap:6px}
+.cross-legend .cl-dot{width:11px;height:11px;border-radius:3px;flex-shrink:0}
+.cl-dot.d-bolt{background:var(--good)}
+.cl-dot.d-kit{background:var(--info)}
+.cl-dot.d-fab{background:var(--warn)}
+.cl-dot.d-none{background:var(--bg-3);border:1px solid var(--border)}
+.cross-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius-lg)}
+table.cross-table{border-collapse:separate;border-spacing:0;min-width:980px;width:100%}
+table.cross-table th,table.cross-table td{border-bottom:1px solid var(--border);border-right:1px solid var(--border)}
+table.cross-table thead th{background:var(--bg-2);position:sticky;top:0;z-index:3;padding:10px 8px;font-size:11px;font-weight:700;color:var(--text);text-align:center;vertical-align:bottom;line-height:1.2;min-width:84px}
+table.cross-table thead th .ct-fam{display:block;font-weight:400;font-size:9px;color:var(--text-mute);margin-top:3px;line-height:1.25}
+table.cross-table th.ct-corner{position:sticky;left:0;z-index:4;text-align:left;min-width:172px;background:var(--bg-2);font-size:11px;color:var(--text-mute);vertical-align:bottom;letter-spacing:.3px;text-transform:uppercase}
+table.cross-table th.ct-row{position:sticky;left:0;z-index:2;background:var(--panel);text-align:left;padding:10px 12px;font-size:12px;font-weight:700;color:var(--text);min-width:172px;line-height:1.25}
+table.cross-table th.ct-row .ct-plat{display:block;font-weight:400;font-size:10px;color:var(--text-mute);margin-top:2px}
+table.cross-table td.ct-cell{padding:0;text-align:center;vertical-align:middle}
+.ct-fit{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:54px;padding:8px 5px;cursor:pointer;transition:background .12s;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.2px;line-height:1.05}
+.ct-fit:hover{background:rgba(201,126,80,.08)}
+.ct-fit .ct-mark{font-size:13px;line-height:1}
+.ct-fit.f-bolt{color:var(--good)}
+.ct-fit.f-kit{color:var(--info)}
+.ct-fit.f-fab{color:var(--warn)}
+.ct-fit.f-none{color:var(--text-mute);cursor:default;font-weight:400}
+.ct-fit.f-none:hover{background:transparent}
+.ct-fit .ct-best{color:var(--good);font-size:11px;line-height:1}
+table.cross-table tbody tr:last-child th,table.cross-table tbody tr:last-child td{border-bottom:none}
+
 /* FOOTER NOTE */
 .tool-foot{margin-top:36px;font-size:12px;color:var(--text-mute);line-height:1.6;border-top:1px solid var(--border);padding-top:18px}
 .tool-foot a{color:var(--text-dim);text-decoration:underline}
@@ -208,12 +266,31 @@ tr.total .cost-fig{color:var(--accent)}
     <div class="hero-caveat">⚠️ Costs are 2026 DIY estimates and swing hard with your region, your donor's condition, and how much fab you farm out. Treat every figure as a starting point, not a quote.</div>
   </div>
 
-  <div class="section-label">Pick a donor engine</div>
-  <div class="donor-tabs" id="donor-tabs"></div>
-  <div id="donor-panel"></div>
+  <div class="view-toggle">
+    <button class="vt-btn active" id="vt-donor" type="button" onclick="switchView('donor')">By donor engine</button>
+    <button class="vt-btn" id="vt-recipient" type="button" onclick="switchView('recipient')">By recipient vehicle</button>
+    <button class="vt-btn" id="vt-cross" type="button" onclick="switchView('cross')">Cross-fitment grid</button>
+  </div>
+
+  <div id="donor-view">
+    <div class="section-label">Pick a donor engine</div>
+    <div class="donor-tabs" id="donor-tabs"></div>
+    <div id="donor-panel"></div>
+  </div>
+
+  <div id="recipient-view" style="display:none">
+    <div class="section-label">Pick a recipient vehicle</div>
+    <div class="recipient-tabs" id="recipient-tabs"></div>
+    <div id="recipient-panel"></div>
+  </div>
+
+  <div id="cross-view" style="display:none">
+    <div class="section-label">Donor × recipient fitment</div>
+    <div id="cross-panel"></div>
+  </div>
 
   <div class="tool-foot">
-    The donor bench now covers the Jeep, Ford, GM, and Toyota families — the 4.0L stroker and 5.7/6.4 Hemi, the GM LS3, the Ford Coyote, Godzilla, and 5.0 Windsor, and the Toyota 1GR-FE, 2UZ-FE, and 1UZ-FE. Still coming: per-recipient mounting detail and a donor-versus-recipient cross-fitment grid. Paired with the <a href="/db/lift-tire-fitment.html">Lift vs. Tire Fitment Matrix</a> and the <a href="/db/parts-compatibility-tool.html">Parts Compatibility Validator</a>, it's meant to answer "what does this build really take" before you spend a dollar.
+    The donor bench covers the Jeep, Ford, GM, and Toyota families — 4.0L stroker, 5.7/6.4 Hemi, GM LS3, Ford Coyote, Godzilla, and 5.0 Windsor, and the Toyota 1GR-FE, 2UZ-FE, and 1UZ-FE. The recipient grid shows all compatible donors for each platform — XJ through Land Cruiser — with fitment ratings and mounting notes. The cross-fitment grid puts every donor and every recipient on one screen, so you can see at a glance which swaps bolt in, which need a vendor kit, and which mean cutting metal. Paired with the <a href="/db/lift-tire-fitment.html">Lift vs. Tire Fitment Matrix</a> and the <a href="/db/parts-compatibility-tool.html">Parts Compatibility Validator</a>.
   </div>
 </main>
 
@@ -678,6 +755,230 @@ const DONORS = {
 
 const ORDER = ["stroker","hemi57","hemi64","ls3","coyote","godzilla","ford50","toyota1gr","toyota2uz","toyota1uz"];
 
+// ─── RECIPIENT DATA ───────────────────────────────────────────────────────────
+// Phase: recipients-grid — per-recipient platform guides and inverted donor index.
+// Each entry gives a platform verdict plus the bestDonor recommendation.
+
+const RECIPIENT_INFO = {
+  'Cherokee XJ': {
+    platform: 'Jeep unibody (1984–2001)',
+    bestDonor: 'stroker',
+    verdict: 'The XJ unibody constrains your options more than any other Jeep. Engine bay is tight, firewall clearance is limited, and there are no full frame rails to weld mounts to. The 4.0L stroker is the unambiguous answer for most builds — bolt-in, budget-rational, leaves everything else factory. For V8 power the GM LS3 is the most proven path thanks to Novak\'s bolt-in engine mounts (no cutting). The Hemi and 5.0 Windsor both fit but need more custom work in the tight bay. Skip the Coyote and Godzilla — both are too wide and heavy for the unibody to make sense.'
+  },
+  'Wrangler TJ': {
+    platform: 'Jeep body-on-frame (1997–2006)',
+    bestDonor: 'stroker',
+    verdict: 'The TJ is the most swap-friendly classic Jeep — body-on-frame construction, live axles front and rear, and a mature vendor ecosystem for every option. The stroker stays budget-smart. For V8s the 5.7 Hemi has the deepest kit support (Advance Adapters, Jeep Speed Shop), and the LS3 with Novak mounts is the proven GM alternative. The LJ long-wheelbase is the best TJ variant for any V8 swap, with more room for the transmission and exhaust behind the firewall.'
+  },
+  'Wrangler JK': {
+    platform: 'Jeep body-on-frame (2007–2018)',
+    bestDonor: 'hemi57',
+    verdict: 'The JK runs a 3.6L Pentastar V6 — there is no inline-6 to stroke — so any swap here is a V8 project. The Mopar ecosystem dominates: dedicated kit manufacturers (Jeep Speed Shop, Bruiser Conversions), factory-feel integration, and a large JK-specific forum community. The 5.7 is the cost-versus-power sweet spot. The 6.4 is for builds where budget is not the constraint. The LS3 is the cross-platform alternative — deeper universal aftermarket, but less native to the Mopar chassis.'
+  },
+  'Wrangler JL': {
+    platform: 'Jeep body-on-frame (2018–present)',
+    bestDonor: 'hemi64',
+    verdict: 'The JL shipped with a factory 392 Hemi option (Rubicon 392), so Mopar\'s own crate program and all OEM parts overlap heavily. A 6.4 swap into a non-392 JL is the most OEM-correct high-power path on any current Jeep — the mounting geometry and electronics are already engineered around this engine family.'
+  },
+  'Wrangler YJ': {
+    platform: 'Jeep body-on-frame (1987–1995)',
+    bestDonor: 'stroker',
+    verdict: 'A YJ that already runs a 4.0L is a clean stroker candidate — same architecture, same mounts, same bolt-up as the TJ. A 2.5L-to-stroker conversion touches mounts, wiring, and the crossmember and is better treated as a separate project than a simple displacement bump.'
+  },
+  'Grand Cherokee ZJ/WJ': {
+    platform: 'Jeep unibody (ZJ 1993–98, WJ 1999–2004)',
+    bestDonor: 'stroker',
+    verdict: 'ZJ and WJ share the Jeep 4.0L architecture, so the stroker drops in on stock mounts the same way it does in an XJ. WJ Hemi swaps lean on the engine-bay overlap between the WJ and the later Hemi-era Grand Cherokees — a well-traveled path with decent kit support relative to the platform\'s age.'
+  },
+  'Gladiator JT': {
+    platform: 'Jeep body-on-frame (2019–present)',
+    bestDonor: 'hemi64',
+    verdict: 'The Gladiator shares the JL platform, so the 6.4 Hemi swap leans on Mopar\'s crate program and OEM parts overlap. The truck chassis gives more room for the bigger cooling stack a 392 demands, and the long wheelbase works in favor of exhaust and transmission packaging.'
+  },
+  '3rd-gen 4Runner (96–02)': {
+    platform: 'Toyota truck platform (1996–2002)',
+    bestDonor: 'ls3',
+    verdict: 'Every option here involves fabrication — no bolt-in kit exists for this chassis. The 1GR-FE keeps it Toyota and fits where a V8 fights the frame rails; the LS3 brings the deepest aftermarket support for a V8 build; the Toyota UZ V8s add torque with fewer brand concerns. Pick based on whether you are optimizing for power (LS3), brand purity (1GR/2UZ), or budget (1UZ).'
+  },
+  '1st-gen Tacoma': {
+    platform: 'Toyota compact truck (1995–2004)',
+    bestDonor: 'toyota1gr',
+    verdict: 'The Tacoma shares the 5VZ platform with the 3rd-gen 4Runner — same swap options, same fabrication requirements. The 1GR-FE is the stay-Toyota upgrade; the 1UZ is the budget V8 with a worldwide swap community built around it. None of these are kit-supported for the first-gen chassis; expect fabricated mounts and wiring work either way.'
+  },
+  'Early Bronco (66–77)': {
+    platform: 'Ford compact body-on-frame (1966–1977)',
+    bestDonor: 'ford50',
+    verdict: 'The cheapest and most correct swap is the one Ford originally offered: the 5.0L Windsor. It bolts to factory mounts, ties into the existing drivetrain, and keeps the rig period-correct. For real power, dedicated Coyote kit manufacturers (Kincer Chassis) make the modern Ford V8 a sane project. The Godzilla is possible but adds serious nose weight — plan a front-spring revisit before committing to it.'
+  },
+  'Full-size Bronco / F-150': {
+    platform: 'Ford full-size (Bronco 1978–96, F-150 1980–2004)',
+    bestDonor: 'ford50',
+    verdict: 'The roomy bay and native Ford drivetrain make swaps here the lowest-drama in the Ford family. The Windsor is the cheap OEM-correct baseline. The Coyote with the Control Pack is the modern performance step. The Godzilla is the torque monster for heavy rigs — the chassis actually has the room and weight capacity to handle it.'
+  },
+  'Bronco II': {
+    platform: 'Ford compact body-on-frame (1983–1990)',
+    bestDonor: 'ford50',
+    verdict: 'The tight Bronco II bay limits options, but the 5.0 Windsor fits with vendor mounts and the right oil pan — far better proven here than any larger donor. The V6-to-5.0 swap is the established community path for this platform.'
+  },
+  'Power Wagon / heavy 4x4': {
+    platform: 'Ram heavy-duty truck (2005–present)',
+    bestDonor: 'godzilla',
+    verdict: 'The Godzilla swap into a Power Wagon is a full heavy-fab project — a Ford engine in a Ram chassis means a full Ford transmission and a transfer-case adapter, custom everything. The torque suits a heavy crawler; the parts sourcing is tougher without a dedicated kit manufacturer behind it.'
+  },
+  '80-series Land Cruiser': {
+    platform: 'Toyota body-on-frame SUV (1990–1997)',
+    bestDonor: 'toyota2uz',
+    verdict: 'The 2UZ-FE is the signature 80-series upgrade — the most-documented Toyota V8 swap there is, with vendor mounts available for the 80 specifically and a large global community. The 1UZ-FE is the budget alternative with a lighter block but less low-end torque for crawling. Both require fabrication; neither is a weekend job, but either gets you from a tired inline-six to a V8 that fits the character of the rig.'
+  }
+};
+
+const RECIPIENT_ORDER = [
+  'Cherokee XJ','Wrangler TJ','Wrangler JK','Wrangler JL','Wrangler YJ',
+  'Grand Cherokee ZJ/WJ','Gladiator JT',
+  '3rd-gen 4Runner (96–02)','1st-gen Tacoma',
+  'Early Bronco (66–77)','Full-size Bronco / F-150','Bronco II',
+  'Power Wagon / heavy 4x4','80-series Land Cruiser'
+];
+
+// Build an inverted index: recipient vehicle → [{donorId, ...}]
+// Normalizes variant names and expands combined entries (e.g. "Wrangler TJ/JK").
+function buildRecipientIndex() {
+  const NORMALIZE = {
+    'Grand Cherokee WJ/WK':       'Grand Cherokee ZJ/WJ',
+    'Full-size Bronco / F-series': 'Full-size Bronco / F-150',
+    'Toyota 4Runner':              '3rd-gen 4Runner (96–02)',
+    'Tacoma / Hilux':              '1st-gen Tacoma'
+  };
+  const EXPAND = {
+    'Wrangler TJ/JK': ['Wrangler TJ','Wrangler JK'],
+    'Jeep XJ/TJ':     ['Cherokee XJ','Wrangler TJ']
+  };
+  const SKIP = new Set(['Donor source','Not advised']);
+  const index = {};
+  function add(veh, entry) {
+    if (!index[veh]) index[veh] = [];
+    if (!index[veh].find(e => e.donorId === entry.donorId)) index[veh].push(entry);
+  }
+  ORDER.forEach(donorId => {
+    const d = DONORS[donorId];
+    (d.recipients || []).forEach(r => {
+      if (SKIP.has(r.fitLabel)) return;
+      const entry = {
+        donorId, donorLabel: d.label, donorFam: d.fam,
+        fit: r.fit, fitLabel: r.fitLabel, note: r.note,
+        cost: (d.meta.find(m => m.l === 'DIY cost') || {}).v || ''
+      };
+      if (EXPAND[r.veh]) {
+        EXPAND[r.veh].forEach(v => add(v, entry));
+      } else {
+        add(NORMALIZE[r.veh] || r.veh, entry);
+      }
+    });
+  });
+  return index;
+}
+
+function switchView(v) {
+  ['donor','recipient','cross'].forEach(name => {
+    document.getElementById(name + '-view').style.display = (name === v) ? '' : 'none';
+    document.getElementById('vt-' + name).classList.toggle('active', name === v);
+  });
+}
+
+// ─── CROSS-FITMENT GRID ─────────────────────────────────────────────────────────
+// Phase: donor-recipient-cross — one matrix of every donor against every recipient.
+function renderCrossGrid() {
+  const idx    = buildRecipientIndex();
+  const recips = RECIPIENT_ORDER.filter(v => idx[v] && idx[v].length);
+  const SHORT  = { bolt: 'Bolt-in', kit: 'Kit', fab: 'Fab' };
+  const MARK   = { bolt: '●', kit: '◆', fab: '▲' }; // ● ◆ ▲
+
+  const head = `<tr><th class="ct-corner">Recipient \\ Donor</th>` +
+    ORDER.map(id => {
+      const d = DONORS[id];
+      return `<th><div class="ct-eng">${d.label}</div><span class="ct-fam">${d.fam}</span></th>`;
+    }).join('') + `</tr>`;
+
+  const body = recips.map(veh => {
+    const info   = RECIPIENT_INFO[veh] || {};
+    const bestId = info.bestDonor;
+    const byDonor = {};
+    idx[veh].forEach(e => { byDonor[e.donorId] = e; });
+    const vehArg = veh.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    const cells = ORDER.map(id => {
+      const e = byDonor[id];
+      if (!e) return `<td class="ct-cell"><div class="ct-fit f-none">—</div></td>`;
+      const isBest  = id === bestId;
+      const noteEsc = (e.note || '').replace(/"/g, '&quot;');
+      return `<td class="ct-cell"><div class="ct-fit f-${e.fit}" title="${noteEsc}" onclick="switchView('recipient');selectRecipient('${vehArg}')">${isBest ? '<span class="ct-best">★</span>' : ''}<span class="ct-mark">${MARK[e.fit]}</span>${SHORT[e.fit]}</div></td>`;
+    }).join('');
+    return `<tr><th class="ct-row">${veh}<span class="ct-plat">${info.platform || ''}</span></th>${cells}</tr>`;
+  }).join('');
+
+  document.getElementById('cross-panel').innerHTML = `
+    <p class="cross-intro">Every donor across the top, every recipient down the side. Each cell tells you how hard that swap really is: <strong>bolt-in</strong> on factory mounts, a documented <strong>vendor kit</strong> exists, or you're <strong>fabricating</strong> mounts and wiring yourself. A dash means it's not a swap worth chasing on that platform. The ★ flags the donor we'd reach for first on each rig. Tap any cell for that platform's full breakdown.</p>
+    <div class="cross-legend">
+      <span class="cl-item"><span class="cl-dot d-bolt"></span>Bolt-in &mdash; factory mounts</span>
+      <span class="cl-item"><span class="cl-dot d-kit"></span>Vendor kit exists</span>
+      <span class="cl-item"><span class="cl-dot d-fab"></span>Custom fab required</span>
+      <span class="cl-item"><span class="cl-dot d-none"></span>Not worth it here</span>
+      <span class="cl-item">★ Best fit for the platform</span>
+    </div>
+    <div class="cross-wrap"><table class="cross-table" aria-label="Donor engine by recipient vehicle fitment grid"><thead>${head}</thead><tbody>${body}</tbody></table></div>
+  `;
+}
+
+function renderRecipientTabs() {
+  const idx   = buildRecipientIndex();
+  const tabs  = document.getElementById('recipient-tabs');
+  const valid = RECIPIENT_ORDER.filter(v => idx[v] && idx[v].length);
+  tabs.innerHTML = valid.map(veh => {
+    const info = RECIPIENT_INFO[veh] || {};
+    const esc  = veh.replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+    return `<button class="r-tab" data-veh="${esc}" type="button">${veh}<span class="r-plat">${info.platform || ''}</span></button>`;
+  }).join('');
+  tabs.addEventListener('click', e => {
+    const btn = e.target.closest('.r-tab');
+    if (btn) selectRecipient(btn.dataset.veh);
+  });
+  if (valid.length) selectRecipient(valid[0]);
+}
+
+function selectRecipient(veh) {
+  document.querySelectorAll('.r-tab').forEach(t => t.classList.toggle('active', t.dataset.veh === veh));
+  const idx    = buildRecipientIndex();
+  const donors = idx[veh] || [];
+  const info   = RECIPIENT_INFO[veh] || {};
+  const panel  = document.getElementById('recipient-panel');
+  const bestId = info.bestDonor;
+
+  const cards = donors.map(d => {
+    const isBest = d.donorId === bestId;
+    return `<div class="compat-card">
+      <div class="cc-head">
+        <div>
+          <div class="cc-engine">${d.donorLabel}${isBest ? ' <span class="cc-best">★ Best fit</span>' : ''}</div>
+          <div class="cc-fam">${d.donorFam}</div>
+        </div>
+        <span class="rc-fit fit-${d.fit}">${d.fitLabel}</span>
+      </div>
+      <div class="cc-note">${d.note}</div>
+      ${d.cost ? `<div class="cc-cost">DIY: ${d.cost}</div>` : ''}
+      <button class="btn-donor-link" onclick="switchView('donor');selectDonor('${d.donorId}')">Full ${d.donorLabel} details →</button>
+    </div>`;
+  }).join('');
+
+  panel.innerHTML = `
+    <div class="rec-verdict">
+      <div class="rv-head">Platform guide</div>
+      <div class="rv-title">${veh}</div>
+      <p>${info.verdict || 'Fitment data for this platform is shown below.'}</p>
+    </div>
+    <div class="section-label">${donors.length} compatible donor${donors.length !== 1 ? 's' : ''}</div>
+    <div class="compat-grid">${cards}</div>
+  `;
+}
+
 // ─── RENDER ──────────────────────────────────────────────────────────────────
 function renderTabs(){
   const tabs = document.getElementById('donor-tabs');
@@ -767,6 +1068,8 @@ document.getElementById('tm-theme-btn').addEventListener('click', () => {
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 renderTabs();
 selectDonor('stroker');
+renderRecipientTabs();
+renderCrossGrid();
 </script>
 </body>
 </html>
