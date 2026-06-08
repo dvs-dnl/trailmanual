@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wire Gauge Calculator — AWG for 12V / 24V Off-Road Wiring | Trail Manual</title>
+<meta name="description" content="Find the right wire gauge (AWG) for your amp draw and run length. Accounts for round-trip resistance, voltage drop tolerance, and ampacity. Covers winches, light bars, dual battery, aux fuse blocks.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-moon{display:none}
+[data-theme="dark"] .tm-theme-icon-sun{display:none}
+[data-theme="dark"] .tm-theme-icon-moon{display:inline}
+.hamburger{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:7px 9px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center}
+.hamburger svg{width:18px;height:18px;fill:none;stroke:currentColor}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+
+.hero{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(201,126,80,.12) 0%,transparent 65%);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(22px,4vw,34px);color:#E8E2D2;margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero .lede{position:relative;font-size:15px;color:#8A95A8;max-width:620px;line-height:1.65;margin:0}
+
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.card+.card{margin-top:20px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 16px}
+
+.inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin-bottom:6px}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font:inherit;font-size:14px;transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field .hint{font-size:11px;color:var(--text-mute);margin-top:4px;line-height:1.4}
+
+/* Result display */
+.result-hero{text-align:center;padding:28px 20px;background:linear-gradient(135deg,rgba(201,126,80,.1),rgba(201,126,80,.04));border:2px solid rgba(201,126,80,.4);border-radius:var(--radius-lg);margin-bottom:20px}
+.result-awg{font-size:72px;font-weight:700;font-family:var(--font-mono);color:var(--accent);line-height:1;letter-spacing:-4px}
+.result-awg-label{font-size:13px;color:var(--text-dim);margin-top:6px;text-transform:uppercase;letter-spacing:.5px}
+.result-awg-next{font-size:13px;color:var(--text-dim);margin-top:10px}
+
+.chips-row{display:flex;gap:10px;flex-wrap:wrap}
+.chip{flex:1;min-width:130px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.chip .c-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);margin-bottom:4px}
+.chip .c-val{font-size:18px;font-weight:700;font-family:var(--font-mono);color:var(--text)}
+.chip .c-sub{font-size:12px;color:var(--text-dim);margin-top:2px}
+.chip.ok .c-val{color:var(--good)}
+.chip.warn .c-val{color:var(--warn)}
+
+/* Formula block */
+.formula{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;font-size:13px;font-family:var(--font-mono);line-height:1.7;color:var(--text)}
+.formula .comment{color:var(--text-mute)}
+.formula .val{color:var(--accent);font-weight:600}
+.formula .result{color:var(--good);font-weight:600}
+
+/* AWG table */
+.awg-table-wrap{overflow-x:auto;margin-top:20px}
+table.awg-table{width:100%;border-collapse:collapse;font-size:13px}
+table.awg-table th{background:var(--bg-2);padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
+table.awg-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+table.awg-table tr:last-child td{border-bottom:none}
+table.awg-table tr.highlighted td{background:rgba(201,126,80,.08)}
+table.awg-table tr.highlighted .awg-num{color:var(--accent);font-weight:700}
+.awg-num{font-family:var(--font-mono);font-size:15px;font-weight:600}
+.drop-bar-wrap{width:120px}
+.drop-bar{height:6px;border-radius:3px;background:var(--border);position:relative;overflow:hidden}
+.drop-bar-fill{height:100%;border-radius:3px;background:var(--good);transition:width .3s}
+.drop-bar-fill.over{background:var(--danger)}
+.drop-bar-fill.near{background:var(--warn)}
+.badge{display:inline-flex;align-items:center;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.badge-ok{background:rgba(94,140,90,.12);color:var(--good);border:1px solid rgba(94,140,90,.3)}
+.badge-fail{background:rgba(178,59,47,.1);color:var(--danger);border:1px solid rgba(178,59,47,.25)}
+
+.alert{border-radius:var(--radius);padding:12px 16px;font-size:13px;line-height:1.55;margin-top:16px}
+.alert-warn{background:rgba(216,144,53,.1);border:1px solid rgba(216,144,53,.35)}
+.alert-info{background:rgba(79,119,149,.1);border:1px solid rgba(79,119,149,.35)}
+
+.caveats{font-size:13px;color:var(--text-dim);line-height:1.65;margin-top:24px}
+.caveats h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.caveats p{margin:0 0 12px}
+.site-footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--text-mute);margin-top:60px}
+.site-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Wire Gauge Calculator</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Wire Gauge Calculator</h1>
+    <p class="lede">Enter amp draw, one-way run length, and system voltage. The calculator finds the minimum AWG that keeps voltage drop inside your tolerance and confirms the gauge is fuse-safe. Winches, light bars, dual battery, aux fuse blocks — same math.</p>
+  </div>
+
+  <!-- ── Inputs ── -->
+  <div class="card">
+    <p class="card-title">Circuit specs</p>
+    <div class="inputs-grid">
+      <div class="field">
+        <label>Amp draw</label>
+        <input type="number" id="amps" value="30" min="1" max="500" step="1">
+        <div class="hint">Continuous draw — use surge rating for winches (typically 300–500A)</div>
+      </div>
+      <div class="field">
+        <label>One-way run length</label>
+        <input type="number" id="length" value="20" min="1" max="200" step="1">
+        <div class="hint">feet — positive to load only; calculator doubles for return path</div>
+      </div>
+      <div class="field">
+        <label>System voltage</label>
+        <select id="voltage">
+          <option value="12" selected>12V (standard)</option>
+          <option value="24">24V</option>
+          <option value="48">48V (EV aux)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Max voltage drop</label>
+        <select id="tolerance">
+          <option value="3" selected>3% — general accessories</option>
+          <option value="2">2% — critical circuits (winch, lights)</option>
+          <option value="5">5% — non-critical (cabin fans, etc.)</option>
+        </select>
+        <div class="hint">Lower tolerance = heavier wire required</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Result ── -->
+  <div class="card" id="result-card">
+    <div class="result-hero">
+      <div class="result-awg" id="result-awg">—</div>
+      <div class="result-awg-label">AWG minimum for voltage drop</div>
+      <div class="result-awg-next" id="result-next"></div>
+    </div>
+
+    <div class="chips-row" id="chips-row"></div>
+
+    <div id="formula-block" style="margin-top:20px"></div>
+
+    <div class="awg-table-wrap">
+      <table class="awg-table" id="awg-table">
+        <thead>
+          <tr>
+            <th>AWG</th>
+            <th>Ω / 1000 ft</th>
+            <th>Ampacity (open air)</th>
+            <th>Total Ω (2× run)</th>
+            <th>Volt drop</th>
+            <th>% drop</th>
+            <th>Pass?</th>
+          </tr>
+        </thead>
+        <tbody id="awg-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="caveats">
+    <h3>How the math works</h3>
+    <p>Voltage drop = current × total circuit resistance. Total resistance = wire resistance per foot × <strong>2× the one-way run</strong> (power goes out and comes back). The minimum AWG is the smallest gauge whose resistance-per-foot keeps the drop inside your tolerance.</p>
+    <p>Ampacity is a separate check — the wire must handle the current without overheating. For most off-road accessories the voltage-drop calculation drives a heavier gauge than ampacity alone requires, so the fuse-safe check is a confirmation, not the primary constraint.</p>
+    <p>These values use copper wire resistance at 68°F (20°C). Wire resistance increases ~0.4% per °F above that, which matters for underhood runs in hot climates. If your run spends time bundled in a hot loom, go one size heavier.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="https://trailmanual.com">Trail Manual</a> · Free DIY reference for off-road vehicles · <a href="/tools/">All tools</a>
+</footer>
+
+<script>
+// ── AWG data ─────────────────────────────────────────────────────────────────
+// [awg, ohms_per_1000ft, ampacity_open_air_A]
+const AWG_DATA = [
+  [20, 10.15,  11],
+  [18,  6.385, 16],
+  [16,  4.016, 22],
+  [14,  2.525, 32],
+  [12,  1.588, 41],
+  [10,  0.9989,55],
+  [8,   0.6282,73],
+  [6,   0.3951,101],
+  [4,   0.2485,135],
+  [2,   0.1563,181],
+  [1,   0.1239,211],
+  ['1/0', 0.09827, 245],
+  ['2/0', 0.07793, 283],
+  ['3/0', 0.06180, 328],
+  ['4/0', 0.04901, 380],
+];
+
+function getNumericAWG(a) {
+  if (typeof a === 'number') return a;
+  // aught gauges: 1/0=0, 2/0=-1, etc.
+  const match = String(a).match(/^(\d+)\/0$/);
+  return match ? -(parseInt(match[1]) - 1) : 0;
+}
+
+function compute() {
+  const amps     = parseFloat(document.getElementById('amps').value) || 30;
+  const lenFt    = parseFloat(document.getElementById('length').value) || 20;
+  const voltage  = parseFloat(document.getElementById('voltage').value) || 12;
+  const tolPct   = parseFloat(document.getElementById('tolerance').value) || 3;
+
+  const totalFt  = lenFt * 2; // round trip
+  const maxDrop  = voltage * (tolPct / 100);
+  const maxR     = maxDrop / amps; // max total circuit resistance
+
+  // Find minimum gauge that passes voltage drop AND ampacity
+  let minIdx = AWG_DATA.length - 1;
+  for (let i = 0; i < AWG_DATA.length; i++) {
+    const [awg, rPer1000, amp] = AWG_DATA[i];
+    const totalR = (rPer1000 / 1000) * totalFt;
+    const dropV  = amps * totalR;
+    const dropPct = (dropV / voltage) * 100;
+    if (dropPct <= tolPct && amp >= amps) {
+      minIdx = i;
+      break;
+    }
+  }
+
+  const [bestAWG, bestR, bestAmp] = AWG_DATA[minIdx];
+  const bestTotalR = (bestR / 1000) * totalFt;
+  const bestDropV  = amps * bestTotalR;
+  const bestDropPct = (bestDropV / voltage) * 100;
+
+  // Update big number
+  document.getElementById('result-awg').textContent = bestAWG;
+  const nextIdx = minIdx + 1 < AWG_DATA.length ? minIdx + 1 : null;
+  document.getElementById('result-next').textContent = nextIdx
+    ? `Next size up: AWG ${AWG_DATA[nextIdx][0]} — ${((amps * (AWG_DATA[nextIdx][1]/1000*totalFt)) / voltage * 100).toFixed(2)}% drop`
+    : '';
+
+  // Chips
+  document.getElementById('chips-row').innerHTML = `
+    <div class="chip ${bestDropPct <= tolPct ? 'ok' : 'warn'}">
+      <div class="c-label">Actual % drop</div>
+      <div class="c-val">${bestDropPct.toFixed(2)}%</div>
+      <div class="c-sub">target ≤ ${tolPct}%</div>
+    </div>
+    <div class="chip">
+      <div class="c-label">Volt drop</div>
+      <div class="c-val">${bestDropV.toFixed(3)}V</div>
+      <div class="c-sub">at ${voltage}V, ${amps}A</div>
+    </div>
+    <div class="chip ${bestAmp >= amps ? 'ok' : 'warn'}">
+      <div class="c-label">Ampacity</div>
+      <div class="c-val">${bestAmp}A</div>
+      <div class="c-sub">gauge handles ${bestAmp >= amps ? '✓ safe' : '✗ exceeded'}</div>
+    </div>
+    <div class="chip">
+      <div class="c-label">Round-trip length</div>
+      <div class="c-val">${totalFt} ft</div>
+      <div class="c-sub">${lenFt} ft × 2 return path</div>
+    </div>
+  `;
+
+  // Formula block
+  document.getElementById('formula-block').innerHTML = `
+    <div class="formula">
+      <span class="comment">// Voltage drop formula</span><br>
+      V<sub>drop</sub> = I × R<sub>total</sub><br>
+      R<sub>total</sub> = (${bestR} Ω/1000ft ÷ 1000) × ${totalFt} ft = <span class="val">${bestTotalR.toFixed(5)} Ω</span><br>
+      V<sub>drop</sub> = ${amps}A × ${bestTotalR.toFixed(5)} Ω = <span class="val">${bestDropV.toFixed(3)} V</span><br>
+      % drop = ${bestDropV.toFixed(3)} ÷ ${voltage} × 100 = <span class="result">${bestDropPct.toFixed(2)}%</span>
+    </div>
+  `;
+
+  // Table
+  const tbody = document.getElementById('awg-tbody');
+  tbody.innerHTML = '';
+  AWG_DATA.forEach(([awg, rPer1000, ampacity], i) => {
+    const totalR = (rPer1000 / 1000) * totalFt;
+    const dropV  = amps * totalR;
+    const dropPct = (dropV / voltage) * 100;
+    const passVD  = dropPct <= tolPct;
+    const passAmp = ampacity >= amps;
+    const pass    = passVD && passAmp;
+    const isBest  = (i === minIdx);
+    const barPct  = Math.min(100, (dropPct / (tolPct * 2)) * 100);
+    const barClass = dropPct > tolPct ? 'over' : dropPct > tolPct * 0.85 ? 'near' : '';
+
+    const tr = document.createElement('tr');
+    if (isBest) tr.classList.add('highlighted');
+    tr.innerHTML = `
+      <td><span class="awg-num">${isBest ? '▶ ' : ''}${awg}</span></td>
+      <td style="font-family:var(--font-mono);font-size:12px">${rPer1000}</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${ampacity}A</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${totalR.toFixed(4)} Ω</td>
+      <td style="font-family:var(--font-mono);font-size:12px">${dropV.toFixed(3)}V</td>
+      <td>
+        <div class="drop-bar-wrap">
+          <div style="font-family:var(--font-mono);font-size:12px;margin-bottom:3px">${dropPct.toFixed(2)}%</div>
+          <div class="drop-bar"><div class="drop-bar-fill ${barClass}" style="width:${barPct}%"></div></div>
+        </div>
+      </td>
+      <td><span class="badge ${pass ? 'badge-ok' : 'badge-fail'}">${pass ? '✓ pass' : passVD ? '✗ amp' : '✗ drop'}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+['amps','length','voltage','tolerance'].forEach(id => {
+  document.getElementById(id).addEventListener('input', compute);
+  document.getElementById(id).addEventListener('change', compute);
+});
+
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+compute();
+</script>
+</body>
+</html>
