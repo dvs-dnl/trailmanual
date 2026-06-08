@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tire Pressure &amp; Airdown Calculator | Trail Manual</title>
+<meta name="description" content="Recommended tire pressures for off-road terrain by surface type: sand, rocks, mud, snow, and pavement. Adjusted for tire size and vehicle weight. Includes airing-back-up targets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-moon{display:none}
+[data-theme="dark"] .tm-theme-icon-sun{display:none}
+[data-theme="dark"] .tm-theme-icon-moon{display:inline}
+.hamburger{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:7px 9px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center}
+.hamburger svg{width:18px;height:18px;fill:none;stroke:currentColor}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+.hero{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(201,126,80,.12) 0%,transparent 65%);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(22px,4vw,34px);color:#E8E2D2;margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero .lede{position:relative;font-size:15px;color:#8A95A8;max-width:620px;line-height:1.65;margin:0}
+
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.card+.card{margin-top:20px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 16px}
+
+.inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin-bottom:6px}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font:inherit;font-size:14px;transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field .hint{font-size:11px;color:var(--text-mute);margin-top:4px;line-height:1.4}
+
+/* Surface selector */
+.surface-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:8px}
+.surface-btn{padding:14px 8px;border:2px solid var(--border);border-radius:var(--radius);background:var(--bg);cursor:pointer;text-align:center;transition:all .15s;font:inherit}
+.surface-btn:hover{border-color:var(--accent)}
+.surface-btn.active{border-color:var(--accent);background:rgba(201,126,80,.08)}
+.s-icon{font-size:24px;display:block;margin-bottom:5px}
+.s-name{font-size:12px;font-weight:700;color:var(--text);display:block}
+
+/* Pressure display */
+.pressure-big{font-size:80px;font-weight:700;font-family:var(--font-mono);color:var(--accent);line-height:1;letter-spacing:-4px;text-align:center;padding:20px 0}
+.pressure-range{text-align:center;font-size:14px;color:var(--text-dim);margin-top:-8px}
+.pressure-caveat{text-align:center;font-size:12px;color:var(--text-mute);margin-top:10px}
+
+.result-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:20px}
+.rc{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.rc-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);margin-bottom:5px}
+.rc-val{font-size:20px;font-weight:700;font-family:var(--font-mono);color:var(--text)}
+.rc-sub{font-size:12px;color:var(--text-dim);margin-top:3px}
+.rc.highway{border-color:rgba(94,140,90,.4);background:rgba(94,140,90,.07)}
+.rc.highway .rc-val{color:var(--good)}
+
+/* Surfaces table */
+.surfaces-table-wrap{overflow-x:auto;margin-top:20px}
+table.surfaces-table{width:100%;border-collapse:collapse;font-size:13px}
+table.surfaces-table th{background:var(--bg-2);padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);text-align:left;border-bottom:2px solid var(--border)}
+table.surfaces-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+table.surfaces-table tr:last-child td{border-bottom:none}
+table.surfaces-table tr.active-row td{background:rgba(201,126,80,.06)}
+.s-tag{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;border:1px solid}
+.s-tag.low{background:rgba(94,140,90,.1);color:var(--good);border-color:rgba(94,140,90,.3)}
+.s-tag.med{background:rgba(216,144,53,.1);color:var(--warn);border-color:rgba(216,144,53,.3)}
+.s-tag.high{background:rgba(178,59,47,.1);color:var(--danger);border-color:rgba(178,59,47,.25)}
+
+.alert{border-radius:var(--radius);padding:12px 16px;font-size:13px;line-height:1.55;margin-top:16px}
+.alert-warn{background:rgba(216,144,53,.1);border:1px solid rgba(216,144,53,.35)}
+.alert-safety{background:rgba(178,59,47,.08);border:1px solid rgba(178,59,47,.35)}
+.caveats{font-size:13px;color:var(--text-dim);line-height:1.65;margin-top:24px}
+.caveats h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.caveats p{margin:0 0 12px}
+.site-footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--text-mute);margin-top:60px}
+.site-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Tire Pressure / Airdown</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Tire Pressure &amp; Airdown Calculator</h1>
+    <p class="lede">Starting-point pressures for airing down by terrain, adjusted for tire size and vehicle weight. These are ranges to start from — the right pressure for your rig depends on tire construction, load, and what the ground is actually doing.</p>
+  </div>
+
+  <!-- ── Inputs ── -->
+  <div class="card">
+    <p class="card-title">Your setup</p>
+    <div class="inputs-grid">
+      <div class="field">
+        <label>Tire diameter</label>
+        <select id="tire-size">
+          <option value="27">27&quot; or smaller</option>
+          <option value="29">29–30&quot;</option>
+          <option value="31" selected>31–32&quot;</option>
+          <option value="33">33–35&quot;</option>
+          <option value="37">37–38&quot;</option>
+          <option value="40">40&quot; or larger</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Vehicle weight</label>
+        <select id="weight">
+          <option value="light">Under 4,000 lb</option>
+          <option value="mid" selected>4,000–5,500 lb</option>
+          <option value="heavy">5,500–7,000 lb</option>
+          <option value="xheavy">Over 7,000 lb</option>
+        </select>
+        <div class="hint">Include gear, passengers, and fluids — loaded weight</div>
+      </div>
+      <div class="field">
+        <label>Highway / street PSI</label>
+        <input type="number" id="highway-psi" value="35" min="20" max="80" step="1">
+        <div class="hint">Check door placard or tire sidewall for your rig's spec</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Select terrain</p>
+    <div class="surface-grid" id="surface-grid">
+      <button class="surface-btn active" data-id="sand" onclick="selectSurface(this)">
+        <span class="s-icon">🏜️</span><span class="s-name">Sand / Dunes</span>
+      </button>
+      <button class="surface-btn" data-id="rock" onclick="selectSurface(this)">
+        <span class="s-icon">⛰️</span><span class="s-name">Rock Crawl</span>
+      </button>
+      <button class="surface-btn" data-id="mud" onclick="selectSurface(this)">
+        <span class="s-icon">🌧️</span><span class="s-name">Mud</span>
+      </button>
+      <button class="surface-btn" data-id="snow" onclick="selectSurface(this)">
+        <span class="s-icon">❄️</span><span class="s-name">Snow / Ice</span>
+      </button>
+      <button class="surface-btn" data-id="dirt" onclick="selectSurface(this)">
+        <span class="s-icon">🪨</span><span class="s-name">Dirt / Gravel</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="card">
+    <p class="card-title">Recommended starting pressure</p>
+
+    <div class="pressure-big" id="pressure-big">—</div>
+    <div class="pressure-range" id="pressure-range">— PSI range</div>
+    <div class="pressure-caveat" id="pressure-caveat"></div>
+
+    <div class="result-cards" id="result-cards"></div>
+
+    <div id="pressure-alert"></div>
+  </div>
+
+  <!-- All terrains reference table -->
+  <div class="card">
+    <p class="card-title">All terrain reference</p>
+    <div class="surfaces-table-wrap">
+      <table class="surfaces-table" id="surfaces-table">
+        <thead>
+          <tr><th>Surface</th><th>Starting PSI</th><th>Range</th><th>Why</th><th>Risk if too low</th></tr>
+        </thead>
+        <tbody id="surfaces-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="caveats">
+    <h3>These are starting points, not absolutes</h3>
+    <p>Tire pressure affects flotation, traction, sidewall flex, heat buildup, and bead retention. The right number depends on tire construction (bias ply vs radial, ply rating), tread pattern, sidewall stiffness, load, and speed. A 33" All-Terrain and a 33" Mud-Terrain have meaningfully different minimum safe pressures. Check with your tire manufacturer for their minimum aired-down recommendation.</p>
+    <p><strong>Airing back up:</strong> After trail, air back to your highway placard pressure before driving at speed. Aired-down tires overheat rapidly on pavement. A CO2 inflator or portable compressor is not optional for airing down — always have a way to reinflate before driving highway.</p>
+    <p><strong>Bead lock note:</strong> These pressures are for standard rims. If you're running bead locks you can go lower, but bead lock rings must be torqued properly before running very low pressures or you risk separating the ring under load.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="https://trailmanual.com">Trail Manual</a> · Free DIY reference for off-road vehicles · <a href="/tools/">All tools</a>
+</footer>
+
+<script>
+// ── Data ─────────────────────────────────────────────────────────────────────
+// Surface data: base pressures by tire bracket (27,29,31,33,37,40)
+// format: { name, icon, basePsi: [by size idx], rangeOffset, riskTag, why, lowRisk }
+const SURFACES = {
+  sand: {
+    name: 'Sand / Dunes', icon: '🏜️',
+    // Base psi for [27,29,31,33,37,40] tires, mid-weight vehicle
+    basePsi: [12, 11, 10, 9, 8, 6],
+    rangeOffset: 2,
+    riskTag: 'med',
+    why: 'Maximum footprint for flotation — more contact area = less sinking',
+    lowRisk: 'Bead separation on loose turns, rim damage on buried obstacles',
+  },
+  rock: {
+    name: 'Rock Crawl', icon: '⛰️',
+    basePsi: [18, 16, 15, 13, 12, 10],
+    rangeOffset: 3,
+    riskTag: 'high',
+    why: 'Sidewall flex wraps tire around obstacles; absorbs impacts that would damage rim',
+    lowRisk: 'Sidewall puncture, rim pinch on sharp edges — go no lower than your tire minimum',
+  },
+  mud: {
+    name: 'Mud', icon: '🌧️',
+    basePsi: [20, 18, 16, 14, 12, 10],
+    rangeOffset: 3,
+    riskTag: 'low',
+    why: 'Moderate airing improves self-cleaning; too low causes tire spin and sidewall buildup',
+    lowRisk: 'Tire de-beading in deep suction mud',
+  },
+  snow: {
+    name: 'Snow / Ice', icon: '❄️',
+    basePsi: [22, 20, 18, 16, 14, 12],
+    rangeOffset: 3,
+    riskTag: 'low',
+    why: 'Increased footprint helps on soft snow; less effective on hard pack or ice',
+    lowRisk: 'Handling degradation at speed, bead issues in extreme cold',
+  },
+  dirt: {
+    name: 'Dirt / Gravel', icon: '🪨',
+    basePsi: [26, 24, 22, 20, 18, 15],
+    rangeOffset: 4,
+    riskTag: 'low',
+    why: 'Slight reduction improves compliance and traction without significant flotation need',
+    lowRisk: 'Irregular wear and handling looseness at speed',
+  },
+};
+
+const TIRE_SIZE_IDX = {'27':0,'29':1,'31':2,'33':3,'37':4,'40':5};
+const WEIGHT_ADJ = { light: -1, mid: 0, heavy: 2, xheavy: 4 };
+const WEIGHT_LABELS = { light: 'Under 4k lb', mid: '4–5.5k lb', heavy: '5.5–7k lb', xheavy: 'Over 7k lb' };
+
+let activeSurface = 'sand';
+
+function selectSurface(btn) {
+  document.querySelectorAll('.surface-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeSurface = btn.dataset.id;
+  compute();
+}
+
+function getPsi(surfId) {
+  const sizeKey = document.getElementById('tire-size').value;
+  const weightKey = document.getElementById('weight').value;
+  const sizeIdx = TIRE_SIZE_IDX[sizeKey] ?? 2;
+  const adj = WEIGHT_ADJ[weightKey] ?? 0;
+  const surf = SURFACES[surfId];
+  return Math.max(5, surf.basePsi[sizeIdx] + adj);
+}
+
+function compute() {
+  const surf = SURFACES[activeSurface];
+  const psi = getPsi(activeSurface);
+  const rangeLow  = Math.max(4, psi - surf.rangeOffset);
+  const rangeHigh = psi + surf.rangeOffset;
+  const highwayPsi = parseFloat(document.getElementById('highway-psi').value) || 35;
+  const reduction = highwayPsi - psi;
+
+  // Big display
+  document.getElementById('pressure-big').textContent = psi;
+  document.getElementById('pressure-range').textContent = `${rangeLow}–${rangeHigh} PSI starting range`;
+  document.getElementById('pressure-caveat').textContent =
+    'Adjust based on your tire construction and actual conditions — start here, fine-tune on the trail';
+
+  // Chips
+  document.getElementById('result-cards').innerHTML = `
+    <div class="rc">
+      <div class="rc-label">Starting PSI</div>
+      <div class="rc-val">${psi}</div>
+      <div class="rc-sub">for your setup</div>
+    </div>
+    <div class="rc">
+      <div class="rc-label">Range</div>
+      <div class="rc-val">${rangeLow}–${rangeHigh}</div>
+      <div class="rc-sub">adjust to conditions</div>
+    </div>
+    <div class="rc highway">
+      <div class="rc-label">Air back up to</div>
+      <div class="rc-val">${highwayPsi}</div>
+      <div class="rc-sub">before highway driving</div>
+    </div>
+    <div class="rc">
+      <div class="rc-label">Reduction</div>
+      <div class="rc-val">${reduction > 0 ? '-' : ''}${Math.abs(reduction)}</div>
+      <div class="rc-sub">PSI from highway spec</div>
+    </div>
+  `;
+
+  // Alert
+  const alertEl = document.getElementById('pressure-alert');
+  if (psi < 10) {
+    alertEl.innerHTML = `<div class="alert alert-warn"><strong>Very low pressure territory.</strong> Under 10 PSI requires bead locks on most standard rims to prevent bead separation. Verify your tire manufacturer's minimum before going this low.</div>`;
+  } else {
+    alertEl.innerHTML = '';
+  }
+
+  // Full table
+  renderTable();
+}
+
+function renderTable() {
+  const tbody = document.getElementById('surfaces-tbody');
+  tbody.innerHTML = '';
+  Object.entries(SURFACES).forEach(([id, surf]) => {
+    const psi = getPsi(id);
+    const rangeLow = Math.max(4, psi - surf.rangeOffset);
+    const rangeHigh = psi + surf.rangeOffset;
+    const tr = document.createElement('tr');
+    if (id === activeSurface) tr.classList.add('active-row');
+    tr.innerHTML = `
+      <td><strong>${surf.icon} ${surf.name}</strong></td>
+      <td style="font-family:var(--font-mono);font-weight:700;font-size:15px;color:${id===activeSurface?'var(--accent)':'var(--text)'}">${psi}</td>
+      <td style="font-family:var(--font-mono);font-size:13px">${rangeLow}–${rangeHigh}</td>
+      <td style="font-size:12px;color:var(--text-dim);max-width:200px">${surf.why}</td>
+      <td><span class="s-tag ${surf.riskTag}">${surf.riskTag === 'low' ? 'Low' : surf.riskTag === 'med' ? 'Moderate' : 'Higher'} risk</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+['tire-size','weight','highway-psi'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.addEventListener('input', compute);
+    el.addEventListener('change', compute);
+  }
+});
+
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+compute();
+</script>
+</body>
+</html>
