@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/jeep-40-crank-position-sensor-symptoms/">
+<title>Jeep 4.0 Crank Position Sensor: Symptoms, the Hot-Start Test, and the Fix — Trail Manual</title>
+<meta name="description" content="A 4.0 that runs fine cold, stalls once hot, and won't restart until it cools is almost always a failing crankshaft position sensor — not the engine. Here's how to confirm it and what to buy.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the symptoms of a bad crankshaft position sensor on a Jeep 4.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The classic 4.0L crankshaft position sensor failure is thermal: the engine runs fine when cold, stalls once it reaches operating temperature, and refuses to restart until it cools down for 20 to 30 minutes, then fires right up. Other signs are random stalling at idle or low speed, a long crank with no spark, and intermittent no-starts that come and go with no warning. It often sets no check engine light at all, or stores code P0320 (no crank reference signal at the PCM)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is the crankshaft position sensor on a Jeep 4.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On the 4.0L inline-six the crankshaft position sensor mounts at the top of the bellhousing on the driver's side, where the transmission meets the engine. It reads the teeth of the flexplate or flywheel through a slot. A single retaining bolt holds it, and the harness connector routes back along the engine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a Jeep 4.0 run with a bad crank position sensor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The PCM needs the crank signal to fire the injectors and the coil, so when the sensor drops out the engine quits and will only crank. Many failing sensors work intermittently, which is why the Jeep starts and runs until heat opens the circuit, then dies. Once it fully fails the engine will not run at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why should I avoid the cheapest crank position sensor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 4.0L PCM is sensitive to the strength of the signal the sensor produces, and the cheapest aftermarket units use weaker magnets and lower-grade internals that the computer struggles to read. They are a frequent repeat-failure complaint, often causing the exact intermittent no-start you were trying to fix. Buy a genuine Mopar sensor or a quality brand like Crown or Standard and do the job once."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate">📋</div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script><main class="tm-main">
+  <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">4.0 Engine · Diagnostics</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">Jeep 4.0 Crank Position Sensor: Symptoms, the Hot-Start Test, and the Fix</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">A 4.0L Jeep that runs fine cold, stalls once it's hot, and refuses to restart until it sits for 20&ndash;30 minutes is almost always a failing <strong>crankshaft position sensor</strong> &mdash; not a dying engine, fuel pump, or coil. The sensor fails when it gets hot and recovers when it cools, which is exactly the maddening, intermittent pattern that sends people chasing the wrong parts. The fix is a single sensor at the top of the bellhousing.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>June 8, 2026</span> · <span>8 min read</span>
+      </div>
+    </div>
+
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Few failures on the 4.0L inline-six are as common &mdash; or as misdiagnosed &mdash; as the crankshaft position sensor, usually shortened to CPS or CKP. It's the sensor that tells the PCM where the crankshaft is and how fast it's turning. Without that signal, the computer won't fire the injectors or the ignition coil, so the engine cranks and cranks but never catches. On XJ Cherokees (1991&ndash;2001) and TJ Wranglers (1997&ndash;2006), a dead or dying CPS is one of the single most frequent causes of a stranding no-start.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Here's the one-line version: <strong>if your 4.0 starts and runs cold, then stalls and won't restart once it's at operating temperature &mdash; only to fire right up after it cools off &mdash; replace the crank position sensor before you touch anything else.</strong> That heat-soak pattern is the CPS's signature, and almost nothing else on the engine behaves that way.</p>
+
+    <h2>What are the symptoms of a bad crank position sensor?</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">CPS failures show up in a few recognizable ways, and they tend to get worse before they leave you stranded for good:</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Thermal no-start.</strong> The headline symptom. Cold, the Jeep runs perfectly. After it warms up &mdash; or after a hot restart at a gas station &mdash; it cranks but won't fire. Let it sit 20 to 30 minutes and it starts like nothing happened. Heat opens the failing circuit; cooling closes it again.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Random stalling.</strong> The engine dies at idle or low speed for no clear reason, sometimes catching itself, sometimes not. It may stumble or surge just before it quits.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Crank, no spark.</strong> When you check, there's no spark at the plugs and the injectors aren't pulsing &mdash; because the PCM never saw the crank signal it needs to fire them.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">"No Bus" on the odometer, or no code at all.</strong> A flickering or "No Bus" message can accompany the no-start. Just as often the check engine light never comes on, because an intermittent signal that recovers doesn't always set a code. When a code does store, it's usually <strong>P0320</strong> &mdash; no crank reference signal at the PCM.</p>
+
+    <div style="background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.3);border-radius:8px;padding:18px 20px;margin:24px 0">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:#ffb74d;margin-bottom:8px">The roadside confirmation</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0">Stranded with a hot no-start? Note the time, then wait. If the Jeep refuses to fire while hot but starts normally after it's cooled for half an hour, you've just watched the crank sensor fail and recover in real time. That single observation is worth more than any parts-cannon guess.</p>
+    </div>
+
+    <h2>Where is the crank position sensor on a 4.0?</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The CPS lives at the <strong>top of the bellhousing on the driver's side</strong>, where the transmission bolts to the back of the engine. It's tucked low and rearward, reading the teeth of the flexplate (automatic) or flywheel (manual) through a slot. A single bolt holds it, and its harness connector clips into the engine harness and routes forward along the block. It's a 4.0L Hall-effect, three-wire sensor: a 5-volt reference, a ground, and a signal wire that switches between roughly 5 volts and zero as the teeth pass.</p>
+
+    <h2>How do I test it &mdash; or should I just replace it?</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Be honest about what testing can and can't do here. Because the CPS is a Hall-effect sensor, you <em>cannot</em> bench-test it with a simple resistance check &mdash; an ohmmeter tells you nothing about whether it's producing a usable signal. That's why so many people "test good" and stay stranded.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">With a scan tool.</strong> The cleanest check: watch engine RPM on a scanner while a helper cranks. If RPM reads <strong>0</strong> while the starter is spinning the engine, the PCM is getting no crank signal &mdash; sensor or its wiring. This is the most direct confirmation.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">With a multimeter.</strong> Back-probe the connector with the sensor plugged in. Confirm a steady <strong>5-volt reference</strong> and a good ground first &mdash; if either is missing, you have a wiring or PCM problem, not a sensor. Then watch the signal wire in DC volts while cranking; a healthy sensor pulses between about 5 volts and 0 as the flexplate teeth pass.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">When to stop testing and replace.</strong> The cruel part of an intermittent CPS is that it usually passes every test while it's cold &mdash; the exact time you can reach it. If your symptoms match the thermal no-start pattern, the reference and ground check out, and there's no spark when it's hot, the sensor is the answer. A new quality CPS is cheap insurance against chasing a ghost for weeks.</p>
+
+    <h2>Which sensor to buy, and why the cheap one bites back</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">This is the part where saving ten dollars costs you the whole repair twice. The 4.0L PCM is unusually sensitive to the <em>strength</em> of the signal the sensor sends. The cheapest no-name sensors use weaker magnets and lower-grade internals, and the computer can't reliably read them &mdash; so the brand-new bargain part reproduces the exact intermittent no-start you were trying to cure. It's one of the most common repeat-failure complaints on every Jeep forum.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Buy genuine Mopar or a known brand.</strong> A factory Mopar sensor or a quality unit from Crown or Standard (SMP) is worth the premium. Expect roughly <strong>$40&ndash;$110</strong> for a good one; the $10&ndash;$25 specials are exactly the parts people warn each other about.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Match it to your year.</strong> The connector and sensor changed across the run, so verify against your VIN. For the late XJ/TJ 4.0 the common Mopar number is <strong>56027866AE</strong> (2000&ndash;2001), with <strong>56027866AC</strong> covering 1999; earlier years use different part numbers. Confirm before you order &mdash; the wrong one looks close but won't seat or signal right.</p>
+
+    <h2>The fix</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Replacement is a roughly <strong>30&ndash;60 minute job</strong> and needs no special tools. Disconnect the battery, trace the harness from the top of the bellhousing and unplug the connector, then remove the single retaining bolt and pull the old sensor out of its slot. Seat the new one fully, torque the bolt snug, and route the new harness exactly where the old one ran so it stays clear of the exhaust and the starter. The tight access from above is the only real annoyance; a long extension and a swivel earn their keep here. Reconnect the battery, and the thermal no-start that's been ruining your week should be gone.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">One honest caveat: a no-spark, no-start can occasionally trace to the ignition coil, the ASD relay, or wiring rather than the sensor. But when the failure is heat-dependent &mdash; dead hot, alive cold &mdash; the crank position sensor is the overwhelming favorite, and it's the cheapest, most likely fix to rule in first. Start there, buy the good one, and you'll most likely end the no-start for good.</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related</h2>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="/blog/xj-oil-pressure-gauge-bouncing/" style="color:var(--accent);font-size:14px">Your XJ Oil Pressure Gauge Is Bouncing or Dropping — Here's How to Tell If It's Serious →</a>
+        <a href="/blog/jeep-40-exhaust-manifold-crack/" style="color:var(--accent);font-size:14px">Jeep 4.0 Cracked Exhaust Manifold: Symptoms, the Real Fix, and What It Costs →</a>
+        <a href="/db/" style="color:var(--accent);font-size:14px">Browse the DIY Database →</a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+    <p style="margin-top:6px"><a href="/blog/">← Blog</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+  </div>
+</footer>
+
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>

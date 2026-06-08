@@ -15,6 +15,7 @@
 <script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/shop-lighting/">
 <title>Shop Lighting Guide: How to Light a Home Garage — The Workshop · Trail Manual</title>
 <meta name="description" content="How to light a home garage shop properly. Lumens, color temperature, overhead vs. portable lights — what you actually need and what you can skip.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -124,15 +125,84 @@ hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
 [data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
 [data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
 </style>
+<script src="/_nav.js"></script>
 </head>
 <body>
-<div class="topbar" id="tm-topbar">
-  <div class="topbar-inner">
-    <a class="brand" href="/"><div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
-    <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-  </div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">DIY field manual</div></div></a>
-    <a class="back-link" aria-label="Menu" href="/workshop/">&#8592; The Workshop</a>
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    </div>
   </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/pathfinder/"><strong>Pathfinder</strong></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate">📋</div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
 </div>
 
 <div class="page"><article>

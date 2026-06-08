@@ -14,6 +14,7 @@
 <meta charset="utf-8">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/power-wagon-buyers-guide/">
 <title>Buying a Used Ram Power Wagon: Year-by-Year + Common Issues</title>
 <meta name="description" content="A practical year-by-year buyer's guide for the Ram Power Wagon — 2014-2018 (4th gen), 2019-2024 (5th gen), 2025+ (new gen). Known issues, what to inspect, fair price ranges by year/mileage, and which years to avoid.">
 <link rel="stylesheet" href="/_shared.css">
@@ -72,7 +73,15 @@
   line-height: 1.65;
   margin: 0;
 }
-</style>
+
+  .tm-vehicle-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;
+    border-radius:999px;background:rgba(201,126,80,.12);border:1px solid rgba(201,126,80,.3);
+    color:var(--accent,#C97E50);font-family:var(--mono,"JetBrains Mono",monospace);
+    font-size:11px;text-decoration:none;letter-spacing:.04em;text-transform:uppercase;
+    font-weight:600;transition:background .15s;}
+  .tm-vehicle-chip:hover{background:rgba(201,126,80,.22);color:var(--accent);}
+  .tm-vehicle-chip svg{width:13px;height:13px;flex-shrink:0;}
+  </style>
 <script>
 (function(){
   var t=localStorage.getItem('tm-theme')||
@@ -111,6 +120,7 @@
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+      <a class="tm-vehicle-chip" href="/power-wagon/"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11l2-5h8l2 5H2z"/><circle cx="5" cy="12.5" r="1"/><circle cx="11" cy="12.5" r="1"/></svg>Power Wagon</a>
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
       <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
@@ -242,5 +252,26 @@
   </article>
 </main>
 
+<button class="tm-theme-btn" id="tm-theme-btn" aria-label="Toggle light/dark theme" title="Toggle theme"><svg id="themeIcon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/><line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/><line x1="3.1" y1="3.1" x2="4.2" y2="4.2"/><line x1="11.8" y1="11.8" x2="12.9" y2="12.9"/><line x1="12.9" y1="3.1" x2="11.8" y2="4.2"/><line x1="4.2" y1="11.8" x2="3.1" y2="12.9"/></svg></button>
+<script>
+(function(){
+  var btn=document.getElementById('tm-theme-btn');
+  if(!btn) return;
+  function setIcon(t){
+    var icon=document.getElementById('themeIcon');
+    if(!icon) return;
+    if(t==='dark') icon.innerHTML='<path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3z" fill="currentColor" stroke="none"/>';
+    else icon.innerHTML='<circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/><line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/><line x1="3.1" y1="3.1" x2="4.2" y2="4.2"/><line x1="11.8" y1="11.8" x2="12.9" y2="12.9"/><line x1="12.9" y1="3.1" x2="11.8" y2="4.2"/><line x1="4.2" y1="11.8" x2="3.1" y2="12.9"/>';
+  }
+  var cur=document.documentElement.getAttribute('data-theme')||'light';
+  setIcon(cur);
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('tm-theme',t);}catch(e){}
+    setIcon(t);
+  });
+})();
+</script>
 </body>
 </html>

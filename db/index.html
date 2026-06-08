@@ -15,6 +15,8 @@
 <meta charset="utf-8">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/db/">
+<meta name="description" content="Off-road DIY guides, build write-ups, and honest maintenance advice. Trail Manual — DIY reference for off-road vehicles">
 <title>Trail Manual — DIY reference for off-road vehicles</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -500,6 +502,15 @@
     raptor:        { icon:'/images/icon-raptor.png',      hero:null, tagline:'Half-ton off-road truck. Long-travel suspension, factory bypass shocks.' },
     'power-wagon': { icon:'/images/icon-power-wagon.png', hero:null, tagline:'The factory-built crawler. Disconnecting sway bar, lockers, 12,000lb winch.' },
     gladiator:     { icon:'/images/icon-gladiator.png',   hero:null, tagline:'Wrangler running gear, truck bed. The crawler that\'ll haul lumber too.' },
+    cj5:             { icon:'/images/icon-cj-5.png',  hero:null, tagline:'Long-production CJ. No factory roll cage — protection is a build, not an option.' },
+    cj7:             { icon:null, hero:null, tagline:"Long-wheelbase CJ. AMC inline-six or V8, Dana 30 front, AMC 20 rear. YJ's direct ancestor." },
+    zj:              { icon:'/images/icon-zj.png',   hero:null, tagline:'First-gen Grand Cherokee. Solid Dana 30, 4.0L or 5.9L V8. Real off-road bones.' },
+    wj:              { icon:null, hero:null, tagline:'Second-gen Grand Cherokee. Solid axles, Quadra-Drive. Last real off-road Grand Cherokee.' },
+    wk:              { icon:'/images/icon-wk.png',   hero:null, tagline:'Third-gen Grand Cherokee. IFS pivot, 3.7L to 6.1L SRT8. Controversial but capable.' },
+    pathfinder:      { icon:null, hero:null, tagline:'Three body-on-frame generations before the 2013 unibody pivot. R51 is the sweet spot.' },
+    'bronco-ii':     { icon:null, hero:null, tagline:'Compact Ranger-based SUV. TTB axles, Cologne V6. Underrated budget trail platform.' },
+    'full-size-bronco': { icon:null, hero:null, tagline:'F-150 chassis, removable hardtop, Dana 44. Five generations of full-size capability.' },
+    bronco6g:        { icon:'/images/icon-bronco.png', hero:null, tagline:'Modern Bronco. EcoBoost, HOSS suspension, removable doors and top.' },
   };
   const HERO_GRADIENTS = {
     xj:'linear-gradient(135deg,#2B3A4A,#4A3B2E 60%,#8A4E2C)',
@@ -513,6 +524,15 @@
     raptor:'linear-gradient(135deg,#1A2330,#3A4A5E 60%,#5B6B7E)',
     'power-wagon':'linear-gradient(135deg,#4A3B2E,#8A4E2C 60%,#C97E50)',
     gladiator:'linear-gradient(135deg,#5B6B7E,#3D5B47 60%,#2B3A4A)',
+    cj5:'linear-gradient(135deg,#3D5B47,#4A3B2E 60%,#2B3A4A)',
+    cj7:'linear-gradient(135deg,#4A3B2E,#3D5B47 60%,#2B3A4A)',
+    zj:'linear-gradient(135deg,#2B3A4A,#3D5B47 60%,#4A3B2E)',
+    wj:'linear-gradient(135deg,#1A2330,#2B3A4A 60%,#3D5B47)',
+    wk:'linear-gradient(135deg,#3A4A5E,#2B3A4A 60%,#1A2330)',
+    pathfinder:'linear-gradient(135deg,#5B6B7E,#4A3B2E 60%,#2B3A4A)',
+    'bronco-ii':'linear-gradient(135deg,#A85D33,#4A3B2E 60%,#2B3A4A)',
+    'full-size-bronco':'linear-gradient(135deg,#8A4E2C,#A85D33 60%,#4A3B2E)',
+    bronco6g:'linear-gradient(135deg,#2B3A4A,#A85D33 60%,#8A4E2C)',
   };
   function vehicleVisual(vid) { return VEHICLE_VISUALS[vid] || {}; }
   function vehicleGradient(vid) { return HERO_GRADIENTS[vid] || HERO_GRADIENTS.xj; }
