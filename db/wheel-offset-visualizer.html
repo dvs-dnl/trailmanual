@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wheel Offset &amp; Backspacing Visualizer | Trail Manual</title>
+<meta name="description" content="Convert between wheel offset (mm) and backspacing (in), visualize poke and inboard clearance with a to-scale SVG cross-section. Includes rub-risk guidance for lifted off-road builds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+/* ── Layout ─────────────────────────────────────────────────────── */
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-moon{display:none}
+[data-theme="dark"] .tm-theme-icon-sun{display:none}
+[data-theme="dark"] .tm-theme-icon-moon{display:inline}
+.hamburger{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:7px 9px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center}
+.hamburger svg{width:18px;height:18px;fill:none;stroke:currentColor}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
+
+/* ── Hero ────────────────────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(201,126,80,.12) 0%,transparent 65%);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(22px,4vw,34px);color:#E8E2D2;margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero .lede{position:relative;font-size:15px;color:#8A95A8;max-width:620px;line-height:1.65;margin:0}
+
+/* ── Cards / panels ─────────────────────────────────────────────── */
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.card + .card{margin-top:20px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 16px}
+
+/* ── Inputs grid ────────────────────────────────────────────────── */
+.inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin-bottom:6px}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font:inherit;font-size:14px;transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field .unit{font-size:11px;color:var(--text-mute);margin-top:4px}
+
+/* ── Mode toggle ─────────────────────────────────────────────────── */
+.mode-toggle{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;width:fit-content}
+.mode-btn{padding:8px 18px;font:inherit;font-size:13px;font-weight:600;background:transparent;border:none;cursor:pointer;color:var(--text-dim);transition:background .15s,color .15s}
+.mode-btn.active{background:var(--accent);color:#fff}
+
+/* ── SVG visualizer ─────────────────────────────────────────────── */
+.viz-wrap{overflow-x:auto;margin:0}
+#wheel-svg{display:block;width:100%;max-width:700px;margin:0 auto}
+
+/* ── Results ────────────────────────────────────────────────────── */
+.results-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.result-chip{flex:1;min-width:140px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.result-chip .rc-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);margin-bottom:5px}
+.result-chip .rc-val{font-size:22px;font-weight:700;font-family:var(--font-mono);color:var(--text)}
+.result-chip .rc-sub{font-size:12px;color:var(--text-dim);margin-top:3px}
+.result-chip.flag-warn{border-color:rgba(216,144,53,.4);background:rgba(216,144,53,.06)}
+.result-chip.flag-warn .rc-val{color:var(--warn)}
+.result-chip.flag-danger{border-color:rgba(178,59,47,.4);background:rgba(178,59,47,.06)}
+.result-chip.flag-danger .rc-val{color:var(--danger)}
+.result-chip.flag-good{border-color:rgba(94,140,90,.4);background:rgba(94,140,90,.06)}
+.result-chip.flag-good .rc-val{color:var(--good)}
+
+/* ── Alert ───────────────────────────────────────────────────────── */
+.alert{border-radius:var(--radius);padding:12px 16px;font-size:13px;line-height:1.55;margin-top:16px}
+.alert-warn{background:rgba(216,144,53,.1);border:1px solid rgba(216,144,53,.35);color:var(--text)}
+.alert-info{background:rgba(79,119,149,.1);border:1px solid rgba(79,119,149,.35);color:var(--text)}
+.alert strong{font-weight:700}
+
+/* ── Notes / caveats ────────────────────────────────────────────── */
+.caveats{font-size:13px;color:var(--text-dim);line-height:1.65;margin-top:24px}
+.caveats h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.caveats p{margin:0 0 12px}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+.site-footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--text-mute);margin-top:60px}
+.site-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Wheel Offset Visualizer</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Wheel Offset &amp; Backspacing Visualizer</h1>
+    <p class="lede">Enter your wheel specs to see how the wheel sits relative to the hub, how much it pokes out or tucks in, and where the rub risk is. Works for any rig — enter your numbers, read the cross-section.</p>
+  </div>
+
+  <!-- ── Inputs ── -->
+  <div class="card">
+    <p class="card-title">Enter wheel specs</p>
+
+    <div style="margin-bottom:16px">
+      <span style="font-size:13px;color:var(--text-dim);margin-right:10px">I know my:</span>
+      <div class="mode-toggle" style="display:inline-flex">
+        <button class="mode-btn active" id="btn-offset" onclick="setMode('offset')">Offset (mm)</button>
+        <button class="mode-btn" id="btn-bs" onclick="setMode('backspacing')">Backspacing (in)</button>
+      </div>
+    </div>
+
+    <div class="inputs-grid">
+      <div class="field">
+        <label>Wheel Width</label>
+        <input type="number" id="width" value="8" min="5" max="16" step="0.5">
+        <div class="unit">inches</div>
+      </div>
+      <div class="field" id="field-offset">
+        <label>Offset</label>
+        <input type="number" id="offset" value="-25" min="-100" max="80" step="1">
+        <div class="unit">mm — negative = pokes out, positive = tucks in</div>
+      </div>
+      <div class="field" id="field-bs" style="display:none">
+        <label>Backspacing</label>
+        <input type="number" id="backspacing" value="3.5" min="1" max="10" step="0.25">
+        <div class="unit">inches</div>
+      </div>
+    </div>
+
+    <!-- Compare mode -->
+    <details style="margin-top:20px">
+      <summary style="cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);user-select:none">Compare to a second setup →</summary>
+      <div style="margin-top:16px">
+        <div style="font-size:12px;color:var(--text-mute);margin-bottom:12px;text-transform:uppercase;letter-spacing:.4px;font-weight:700">Second wheel (optional comparison)</div>
+        <div class="inputs-grid">
+          <div class="field">
+            <label>Width 2</label>
+            <input type="number" id="width2" value="9" min="5" max="16" step="0.5">
+            <div class="unit">inches</div>
+          </div>
+          <div class="field" id="field-offset2">
+            <label>Offset 2</label>
+            <input type="number" id="offset2" value="-44" min="-100" max="80" step="1">
+            <div class="unit">mm</div>
+          </div>
+          <div class="field" id="field-bs2" style="display:none">
+            <label>Backspacing 2</label>
+            <input type="number" id="backspacing2" value="4.0" min="1" max="10" step="0.25">
+            <div class="unit">inches</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="card" id="results-card">
+    <p class="card-title">Cross-section — top view, looking down</p>
+    <div class="viz-wrap">
+      <svg id="wheel-svg" viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+    <div class="results-row" id="results-row"></div>
+    <div id="rub-alert"></div>
+  </div>
+
+  <!-- ── Caveats ── -->
+  <div class="caveats">
+    <h3>What this tells you — and what it doesn't</h3>
+    <p>Offset and backspacing describe where the wheel sits relative to the mounting face. But whether it <em>actually</em> rubs depends on your specific rig: hub-face-to-fender distance, suspension geometry at full droop and full stuff, UCA/LCA clearance, and brake caliper position. This tool shows you the geometry; it can't substitute for a physical check with the tire on.</p>
+    <p>General rub-risk thresholds used here: inboard clearance under 2.5&quot; often conflicts with brake calipers and UCA on common solid-axle setups; outboard section over 5.5&quot; is where most fender contact happens on lifted XJ/JK/TJ without flares. IFS trucks (Tacoma, 4Runner, Raptor) are more sensitive to inboard clearance at full compression.</p>
+    <p><strong>Round-trip check:</strong> offset ↔ backspacing math should always round-trip. If you enter an offset, calculate backspacing, then enter that backspacing — you should get the same offset back within rounding.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="https://trailmanual.com">Trail Manual</a> · Free DIY reference for off-road vehicles · <a href="/tools/">All tools</a>
+</footer>
+
+<script>
+// ── State ────────────────────────────────────────────────────────────────────
+let mode = 'offset'; // 'offset' | 'backspacing'
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btn-offset').classList.toggle('active', m === 'offset');
+  document.getElementById('btn-bs').classList.toggle('active', m === 'backspacing');
+  document.getElementById('field-offset').style.display = m === 'offset' ? '' : 'none';
+  document.getElementById('field-bs').style.display   = m === 'backspacing' ? '' : 'none';
+  document.getElementById('field-offset2').style.display = m === 'offset' ? '' : 'none';
+  document.getElementById('field-bs2').style.display      = m === 'backspacing' ? '' : 'none';
+  compute();
+}
+
+// ── Math ─────────────────────────────────────────────────────────────────────
+function calcFromOffset(widthIn, offsetMm) {
+  const offsetIn = offsetMm / 25.4;
+  const bs = widthIn / 2 + offsetIn;
+  const outboard = widthIn - bs; // distance from hub face to outside lip
+  return { bs, outboard, offsetMm, offsetIn };
+}
+
+function calcFromBS(widthIn, bs) {
+  const offsetIn = bs - widthIn / 2;
+  const offsetMm = offsetIn * 25.4;
+  const outboard = widthIn - bs;
+  return { bs, outboard, offsetMm, offsetIn };
+}
+
+function getSetup1() {
+  const w = parseFloat(document.getElementById('width').value) || 8;
+  if (mode === 'offset') {
+    const o = parseFloat(document.getElementById('offset').value) || 0;
+    return { w, ...calcFromOffset(w, o) };
+  } else {
+    const b = parseFloat(document.getElementById('backspacing').value) || 3.5;
+    return { w, ...calcFromBS(w, b) };
+  }
+}
+
+function getSetup2() {
+  const w2 = parseFloat(document.getElementById('width2').value);
+  if (!w2) return null;
+  if (mode === 'offset') {
+    const o2 = parseFloat(document.getElementById('offset2').value);
+    if (isNaN(o2)) return null;
+    return { w: w2, ...calcFromOffset(w2, o2) };
+  } else {
+    const b2 = parseFloat(document.getElementById('backspacing2').value);
+    if (isNaN(b2)) return null;
+    return { w: w2, ...calcFromBS(w2, b2) };
+  }
+}
+
+// ── SVG Rendering ─────────────────────────────────────────────────────────────
+function getThemeColors() {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  return {
+    bg:       dark ? '#1A2330' : '#F7F4ED',
+    border:   dark ? '#3A4A5E' : '#DDD7C7',
+    text:     dark ? '#E8E2D2' : '#2B3A4A',
+    textDim:  dark ? '#A5AFBE' : '#5B6B7E',
+    accent:   '#C97E50',
+    good:     '#5E8C5A',
+    warn:     '#D89035',
+    danger:   '#B23B2F',
+    hubFill:  dark ? '#2D3C4E' : '#E8E2D2',
+    wheel1:   dark ? '#3A5A7A' : '#4F7795',
+    wheel2:   '#C97E50',
+  };
+}
+
+function renderSVG(s1, s2) {
+  const svg = document.getElementById('wheel-svg');
+  const c = getThemeColors();
+
+  // Scale: 1 inch = 48px. Hub face is at x=350 (center of 700px canvas).
+  const PX = 48;
+  const HUB_X = 350;
+  const WHEEL_H = 80; // half-height of wheel cross-section
+  const AXLE_Y = 110; // vertical center
+
+  // Wheel 1 geometry
+  const w1_px = s1.w * PX;
+  const bs1_px = s1.bs * PX;
+  const out1_px = s1.outboard * PX;
+  // Hub face is at HUB_X. Inside lip = HUB_X - bs1_px, outside lip = HUB_X + out1_px
+  const il1 = HUB_X - bs1_px;
+  const ol1 = HUB_X + out1_px;
+  const cl1 = (il1 + ol1) / 2; // centerline of wheel
+
+  let html = `<defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="${c.textDim}"/>
+    </marker>
+    <marker id="arr-rev" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="${c.textDim}"/>
+    </marker>
+    <marker id="arr-bs" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="${c.good}"/>
+    </marker>
+    <marker id="arr-bs-rev" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto-start-reverse">
+      <path d="M0,0 L6,3 L0,6 Z" fill="${c.good}"/>
+    </marker>
+  </defs>`;
+
+  // Draw wheel 1
+  const wheelY = AXLE_Y - WHEEL_H;
+  const wheelH2 = WHEEL_H * 2;
+  html += `<rect x="${il1}" y="${wheelY}" width="${w1_px}" height="${wheelH2}" rx="3"
+    fill="${c.wheel1}" fill-opacity=".18" stroke="${c.wheel1}" stroke-width="2"/>`;
+
+  // Wheel 1 centerline
+  html += `<line x1="${cl1}" y1="${wheelY - 6}" x2="${cl1}" y2="${wheelY + wheelH2 + 6}"
+    stroke="${c.textDim}" stroke-width="1" stroke-dasharray="4 3"/>`;
+
+  // Draw wheel 2 overlay (if any)
+  if (s2) {
+    const bs2_px = s2.bs * PX;
+    const out2_px = s2.outboard * PX;
+    const il2 = HUB_X - bs2_px;
+    const ol2 = HUB_X + out2_px;
+    html += `<rect x="${il2}" y="${wheelY + 10}" width="${s2.w * PX}" height="${wheelH2 - 20}" rx="3"
+      fill="${c.wheel2}" fill-opacity=".18" stroke="${c.wheel2}" stroke-width="2" stroke-dasharray="6 3"/>`;
+    // delta arrow
+    const deltaX = ol2 - ol1;
+    if (Math.abs(deltaX) > 2) {
+      const dir = deltaX > 0 ? '→ pokes out more' : '→ tucks in more';
+      html += `<text x="${HUB_X}" y="${wheelY - 14}" text-anchor="middle" font-size="11" fill="${c.accent}" font-family="sans-serif">
+        Setup 2 ${dir} by ${Math.abs(deltaX/PX).toFixed(2)}&quot; (${Math.abs(deltaX/PX*25.4).toFixed(0)} mm)
+      </text>`;
+    }
+  }
+
+  // Hub face line (vertical)
+  html += `<line x1="${HUB_X}" y1="${wheelY - 10}" x2="${HUB_X}" y2="${wheelY + wheelH2 + 10}"
+    stroke="${c.accent}" stroke-width="2"/>`;
+  html += `<text x="${HUB_X + 4}" y="${wheelY - 14}" font-size="11" fill="${c.accent}" font-family="sans-serif" font-weight="600">Hub face</text>`;
+
+  // Axle line (horizontal)
+  html += `<line x1="20" y1="${AXLE_Y}" x2="680" y2="${AXLE_Y}" stroke="${c.border}" stroke-width="1" stroke-dasharray="6 4"/>`;
+  html += `<text x="22" y="${AXLE_Y - 4}" font-size="11" fill="${c.textDim}" font-family="sans-serif">axle centerline</text>`;
+
+  // ── Dimension arrows ──
+  const arrowY = wheelY + wheelH2 + 22;
+
+  // Backspacing arrow (hub face → inside lip, direction: inboard)
+  if (bs1_px > 6) {
+    html += `<line x1="${HUB_X - 2}" y1="${arrowY}" x2="${il1 + 4}" y2="${arrowY}"
+      stroke="${c.good}" stroke-width="1.5" marker-start="url(#arr-bs-rev)" marker-end="url(#arr-bs)"/>`;
+    html += `<text x="${(HUB_X + il1) / 2}" y="${arrowY + 14}" text-anchor="middle" font-size="11" fill="${c.good}" font-family="sans-serif" font-weight="600">
+      BS ${s1.bs.toFixed(2)}&quot;
+    </text>`;
+  }
+
+  // Outboard arrow (hub face → outside lip)
+  if (out1_px > 6) {
+    html += `<line x1="${HUB_X + 2}" y1="${arrowY}" x2="${ol1 - 4}" y2="${arrowY}"
+      stroke="${c.textDim}" stroke-width="1.5" marker-start="url(#arr-rev)" marker-end="url(#arr)"/>`;
+    html += `<text x="${(HUB_X + ol1) / 2}" y="${arrowY + 14}" text-anchor="middle" font-size="11" fill="${c.textDim}" font-family="sans-serif" font-weight="600">
+      OB ${s1.outboard.toFixed(2)}&quot;
+    </text>`;
+  }
+
+  // Total width brace
+  html += `<line x1="${il1}" y1="${arrowY + 30}" x2="${ol1}" y2="${arrowY + 30}"
+    stroke="${c.border}" stroke-width="1.5" marker-start="url(#arr-rev)" marker-end="url(#arr)"/>`;
+  html += `<text x="${(il1 + ol1)/2}" y="${arrowY + 44}" text-anchor="middle" font-size="11" fill="${c.textDim}" font-family="sans-serif">
+    ${s1.w}&quot; width
+  </text>`;
+
+  // Labels for inside / outside
+  html += `<text x="${il1 - 4}" y="${AXLE_Y + 4}" text-anchor="end" font-size="11" fill="${c.textDim}" font-family="sans-serif">← inboard</text>`;
+  html += `<text x="${ol1 + 4}" y="${AXLE_Y + 4}" text-anchor="start" font-size="11" fill="${c.textDim}" font-family="sans-serif">outboard →</text>`;
+
+  svg.innerHTML = html;
+}
+
+// ── Results row ───────────────────────────────────────────────────────────────
+function renderResults(s1, s2) {
+  const row = document.getElementById('results-row');
+  const rubAlert = document.getElementById('rub-alert');
+
+  // Flip the converted value depending on mode
+  const convertedLabel = mode === 'offset' ? 'Backspacing' : 'Offset';
+  const convertedVal   = mode === 'offset'
+    ? `${s1.bs.toFixed(2)}&quot;`
+    : `${s1.offsetMm.toFixed(0)} mm`;
+
+  // Rub risk
+  let rubClass = 'flag-good';
+  let rubLabel = 'Low rub risk';
+  let alertHtml = '';
+
+  if (s1.bs < 2.5) {
+    rubClass = 'flag-danger';
+    rubLabel = 'Tight inboard';
+    alertHtml = `<div class="alert alert-warn"><strong>Inboard clearance is tight</strong> (BS ${s1.bs.toFixed(2)}&quot;). Under 2.5&quot; of backspacing often conflicts with brake calipers, inner C/knuckle, or UCA on solid-axle setups. Measure your actual clearance before running.</div>`;
+  } else if (s1.outboard > 5.5) {
+    rubClass = 'flag-warn';
+    rubLabel = 'Check outer fender';
+    alertHtml = `<div class="alert alert-warn"><strong>Outboard section is ${s1.outboard.toFixed(2)}&quot;</strong>. On lifted rigs without flares, contact at the outer fender lip is common above ~5.5&quot; of outboard section — especially at full stuff. Depends entirely on your specific lift and fender gap.</div>`;
+  } else if (s1.outboard > 5.0) {
+    rubClass = 'flag-warn';
+    rubLabel = 'Monitor outer fender';
+  }
+
+  row.innerHTML = `
+    <div class="result-chip">
+      <div class="rc-label">${convertedLabel}</div>
+      <div class="rc-val">${convertedVal}</div>
+      <div class="rc-sub">${mode === 'offset' ? `Offset: ${s1.offsetMm.toFixed(0)} mm` : `Offset: ${s1.offsetMm.toFixed(0)} mm`}</div>
+    </div>
+    <div class="result-chip">
+      <div class="rc-label">Outboard section</div>
+      <div class="rc-val">${s1.outboard.toFixed(2)}&quot;</div>
+      <div class="rc-sub">hub face → outside lip</div>
+    </div>
+    <div class="result-chip">
+      <div class="rc-label">Inboard clearance</div>
+      <div class="rc-val">${s1.bs.toFixed(2)}&quot;</div>
+      <div class="rc-sub">hub face → inside lip</div>
+    </div>
+    <div class="result-chip ${rubClass}">
+      <div class="rc-label">Rub check</div>
+      <div class="rc-val" style="font-size:16px">${rubLabel}</div>
+      <div class="rc-sub">depends on your specific rig</div>
+    </div>
+  `;
+
+  if (s2) {
+    const deltaOB = s2.outboard - s1.outboard;
+    const sign = deltaOB >= 0 ? '+' : '';
+    row.innerHTML += `
+      <div class="result-chip" style="background:rgba(201,126,80,.06);border-color:rgba(201,126,80,.35)">
+        <div class="rc-label">Setup 2 delta</div>
+        <div class="rc-val" style="font-size:16px;color:var(--accent)">${sign}${deltaOB.toFixed(2)}&quot; outboard</div>
+        <div class="rc-sub">${sign}${(deltaOB * 25.4).toFixed(0)} mm vs setup 1</div>
+      </div>
+    `;
+  }
+
+  rubAlert.innerHTML = alertHtml;
+}
+
+// ── Main compute ─────────────────────────────────────────────────────────────
+function compute() {
+  const s1 = getSetup1();
+  if (!s1 || isNaN(s1.bs) || isNaN(s1.w)) return;
+  const s2 = getSetup2();
+  renderSVG(s1, s2);
+  renderResults(s1, s2);
+}
+
+// ── Event wiring ──────────────────────────────────────────────────────────────
+['width','offset','backspacing','width2','offset2','backspacing2'].forEach(id => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('input', compute);
+});
+
+// ── Theme toggle ─────────────────────────────────────────────────────────────
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+  compute(); // redraw with new theme colors
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+compute();
+</script>
+</body>
+</html>
