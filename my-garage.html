@@ -2,7 +2,9 @@
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8" />
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="canonical" href="https://trailmanual.com/my-garage.html">
 <title>My Garage — Maintenance Log · Trail Manual</title>
 <meta name="description" content="Build your garage and track maintenance. Add every rig, log every service, see what's coming up. Everything saves to this device. No account, no signup, no ads." />
 
@@ -1023,6 +1025,26 @@ footer {
 }
 footer a { color: var(--clay-light); }
 
+
+/* ── Mobile nav toggle ────────────────────────────────── */
+.tm-hamburger {
+  display: none; width: 36px; height: 36px;
+  background: transparent; border: 1px solid var(--border-strong);
+  border-radius: 6px; cursor: pointer;
+  align-items: center; justify-content: center;
+  margin-left: auto; color: var(--text-dim);
+}
+.tm-hamburger svg { width: 16px; height: 16px; }
+@media (max-width: 640px) {
+  .tm-hamburger { display: flex; }
+  .site-nav { display: none; flex-direction: column; align-items: flex-start;
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--bg); border-bottom: 1px solid var(--border);
+    padding: 12px 20px; gap: 12px; z-index: 100; }
+  .site-nav.open { display: flex; }
+  .site-nav a { font-size: 13px; }
+  .site-header { position: relative; }
+}
 </style>
 </head>
 <body>
@@ -1046,7 +1068,17 @@ footer a { color: var(--clay-light); }
       <!-- icon swapped by JS -->
       <svg id="themeIcon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/><line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/><line x1="3.1" y1="3.1" x2="4.2" y2="4.2"/><line x1="11.8" y1="11.8" x2="12.9" y2="12.9"/><line x1="12.9" y1="3.1" x2="11.8" y2="4.2"/><line x1="4.2" y1="11.8" x2="3.1" y2="12.9"/></svg>
     </button>
-  </nav>
+  
+    <a href="/blog/">Blog</a></nav>
+  <button class="tm-hamburger" aria-label="Open menu"
+    onclick="document.querySelector('.site-nav').classList.toggle('open')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+         stroke-linecap="round" aria-hidden="true">
+      <line x1="4" y1="7" x2="20" y2="7"/>
+      <line x1="4" y1="12" x2="20" y2="12"/>
+      <line x1="4" y1="17" x2="20" y2="17"/>
+    </svg>
+  </button>
 </header>
 
 <div class="masthead">
