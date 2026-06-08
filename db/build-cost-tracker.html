@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Build Cost Tracker — Off-Road Build Budget | Trail Manual</title>
+<meta name="description" content="Track your off-road build expenses by phase. Log purchases, see total invested, estimated resale impact, and remaining budget. Saved locally in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-moon{display:none}
+[data-theme="dark"] .tm-theme-icon-sun{display:none}
+[data-theme="dark"] .tm-theme-icon-moon{display:inline}
+.hamburger{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:7px 9px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center}
+.hamburger svg{width:18px;height:18px;fill:none;stroke:currentColor}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+main{max-width:960px;margin:0 auto;padding:28px 20px 80px}
+.hero{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(201,126,80,.12) 0%,transparent 65%);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(22px,4vw,34px);color:#E8E2D2;margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero .lede{position:relative;font-size:15px;color:#8A95A8;max-width:620px;line-height:1.65;margin:0}
+
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.card+.card{margin-top:20px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 16px}
+
+/* Summary row */
+.summary-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:24px}
+.sum-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px}
+.sum-card.accent{background:rgba(201,126,80,.07);border-color:rgba(201,126,80,.4)}
+.sum-card.good{background:rgba(94,140,90,.07);border-color:rgba(94,140,90,.3)}
+.sum-card.warn{background:rgba(216,144,53,.07);border-color:rgba(216,144,53,.3)}
+.sum-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);margin-bottom:5px}
+.sum-val{font-size:22px;font-weight:700;font-family:var(--font-mono);color:var(--text)}
+.sum-card.accent .sum-val{color:var(--accent)}
+.sum-card.good .sum-val{color:var(--good)}
+.sum-card.warn .sum-val{color:var(--warn)}
+.sum-sub{font-size:11px;color:var(--text-dim);margin-top:3px}
+
+/* Budget config */
+.budget-row{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:20px}
+.budget-row .field{flex:1;min-width:160px}
+.field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin-bottom:6px}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font:inherit;font-size:14px;transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field .hint{font-size:11px;color:var(--text-mute);margin-top:4px}
+
+/* Add entry form */
+.add-form{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:20px}
+.add-form-grid{display:grid;grid-template-columns:2fr 1fr 1.2fr auto;gap:10px;align-items:end}
+@media(max-width:640px){.add-form-grid{grid-template-columns:1fr 1fr;}.add-form-grid .full-row{grid-column:1/-1;}}
+.add-form .field input,.add-form .field select{padding:8px 10px;font-size:13px}
+.add-form .field label{font-size:11px}
+.btn-add{padding:9px 18px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius);font:inherit;font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .15s}
+.btn-add:hover{background:var(--clay-deep)}
+
+/* Phase bar */
+.phase-bar{display:flex;gap:0;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:16px;flex-wrap:wrap}
+.phase-btn{padding:7px 14px;font:inherit;font-size:12px;font-weight:600;background:transparent;border:none;border-right:1px solid var(--border);cursor:pointer;color:var(--text-dim);transition:background .15s,color .15s;white-space:nowrap}
+.phase-btn:last-child{border-right:none}
+.phase-btn.active{background:var(--bg-2);color:var(--text);font-weight:700}
+.phase-btn:hover{background:rgba(201,126,80,.06)}
+.phase-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:middle}
+
+/* Entries table */
+.entries-wrap{overflow-x:auto}
+table.entries-table{width:100%;border-collapse:collapse;font-size:13px;min-width:520px}
+table.entries-table th{background:var(--bg-2);padding:9px 12px;font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
+table.entries-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+table.entries-table tr:last-child td{border-bottom:none}
+table.entries-table tr:hover td{background:rgba(201,126,80,.03)}
+.entry-name{font-weight:600;color:var(--text)}
+.entry-date{font-size:12px;color:var(--text-mute);font-family:var(--font-mono)}
+.entry-cost{font-family:var(--font-mono);font-weight:700;color:var(--text)}
+.phase-pill{display:inline-flex;align-items:center;gap:5px;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:600;border:1px solid}
+.btn-del{background:transparent;border:none;color:var(--text-mute);cursor:pointer;padding:4px 6px;border-radius:var(--radius);font-size:14px;transition:color .15s}
+.btn-del:hover{color:var(--danger)}
+
+/* Phase breakdown chart */
+.phase-breakdown{margin-top:20px}
+.phase-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.phase-row-label{font-size:12px;font-weight:600;color:var(--text);min-width:110px}
+.phase-bar-track{flex:1;height:10px;background:var(--bg-2);border-radius:5px;overflow:hidden}
+.phase-bar-fill{height:100%;border-radius:5px;transition:width .3s}
+.phase-row-amt{font-size:12px;font-family:var(--font-mono);color:var(--text-dim);min-width:70px;text-align:right}
+
+/* Empty state */
+.empty-state{text-align:center;padding:40px 20px;color:var(--text-mute)}
+.empty-icon{font-size:40px;display:block;margin-bottom:12px}
+.empty-text{font-size:14px;line-height:1.5}
+
+.badge-notice{font-size:12px;color:var(--text-mute);background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;margin-top:16px;display:inline-block}
+
+.caveats{font-size:13px;color:var(--text-dim);line-height:1.65;margin-top:24px}
+.caveats h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.caveats p{margin:0 0 12px}
+.site-footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--text-mute);margin-top:60px}
+.site-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Build Cost Tracker</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Build Cost Tracker</h1>
+    <p class="lede">Log every part, tag it to a build phase, and watch the total climb. The tracker saves in your browser — your data stays on your device. Set a budget, see what's left, and get an honest read on resale impact by phase.</p>
+  </div>
+
+  <!-- ── Config ── -->
+  <div class="card">
+    <p class="card-title">Budget &amp; build settings</p>
+    <div class="budget-row">
+      <div class="field">
+        <label>Build budget (optional)</label>
+        <input type="number" id="budget-input" placeholder="e.g. 5000" min="0" step="100">
+        <div class="hint">Leave blank to track without a cap</div>
+      </div>
+      <div class="field">
+        <label>Vehicle (for context)</label>
+        <input type="text" id="vehicle-input" placeholder="e.g. 1999 XJ Cherokee">
+      </div>
+      <div>
+        <button class="btn-add" onclick="saveBuildConfig()" style="background:var(--slate);padding:9px 14px;font-size:12px">Save settings</button>
+      </div>
+    </div>
+    <div class="badge-notice" id="storage-notice">💾 Entries save automatically to your browser's local storage. Clearing site data will remove them. Export to CSV if you want a backup.</div>
+  </div>
+
+  <!-- ── Summary ── -->
+  <div class="card" id="summary-card">
+    <div class="summary-row" id="summary-row">
+      <!-- filled by JS -->
+    </div>
+
+    <div class="phase-breakdown" id="phase-breakdown">
+      <!-- filled by JS -->
+    </div>
+  </div>
+
+  <!-- ── Add entry ── -->
+  <div class="card">
+    <p class="card-title">Add a purchase</p>
+    <div class="add-form">
+      <div class="add-form-grid">
+        <div class="field">
+          <label>Item name</label>
+          <input type="text" id="new-name" placeholder="e.g. Rancho RS5000X shocks (set of 4)">
+        </div>
+        <div class="field">
+          <label>Cost ($)</label>
+          <input type="number" id="new-cost" placeholder="0.00" min="0" step="0.01">
+        </div>
+        <div class="field">
+          <label>Build phase</label>
+          <select id="new-phase">
+            <option value="suspension">Suspension</option>
+            <option value="axles">Axles &amp; Drivetrain</option>
+            <option value="engine">Engine &amp; Trans</option>
+            <option value="electrical">Electrical</option>
+            <option value="exterior">Exterior / Body</option>
+            <option value="recovery">Recovery Gear</option>
+            <option value="interior">Interior / Cab</option>
+            <option value="maintenance">Maintenance</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div>
+          <button class="btn-add" onclick="addEntry()">+ Add</button>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+        <div class="field" style="flex:1;min-width:160px">
+          <label>Date</label>
+          <input type="date" id="new-date">
+        </div>
+        <div class="field" style="flex:2;min-width:200px">
+          <label>Notes (optional)</label>
+          <input type="text" id="new-notes" placeholder="vendor, part number, notes">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Entries table ── -->
+  <div class="card">
+    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px">
+      <p class="card-title" style="margin:0">Purchases</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button onclick="exportCSV()" style="background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:6px 12px;border-radius:var(--radius);font:inherit;font-size:12px;cursor:pointer">Export CSV</button>
+        <button onclick="clearAll()" style="background:transparent;border:1px solid rgba(178,59,47,.4);color:var(--danger);padding:6px 12px;border-radius:var(--radius);font:inherit;font-size:12px;cursor:pointer">Clear all</button>
+      </div>
+    </div>
+
+    <!-- Phase filter -->
+    <div class="phase-bar" id="phase-filter-bar">
+      <button class="phase-btn active" data-phase="all" onclick="setFilter(this,'all')">All</button>
+      <!-- dynamic phase filters added by JS -->
+    </div>
+
+    <div class="entries-wrap">
+      <table class="entries-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Phase</th>
+            <th>Cost</th>
+            <th>Resale impact</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="entries-tbody"></tbody>
+      </table>
+    </div>
+    <div id="empty-state" style="display:none">
+      <div class="empty-state">
+        <span class="empty-icon">🔧</span>
+        <div class="empty-text">No purchases yet. Add your first item above to start tracking your build.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caveats">
+    <h3>About resale impact estimates</h3>
+    <p>These are rough heuristics — what the off-road community broadly observes, not guarantees. Suspension and axle mods add some market value on off-road-focused platforms (like Craigslist 4x4 listings) but rarely dollar-for-dollar. Engine and trans work can add value for documented work; purely cosmetic mods often add nothing. Maintenance adds nothing to asking price but protects buyer confidence. Actual impact depends heavily on your market, the buyer, and how the work was done.</p>
+    <p>The purpose of tracking resale impact here is to give you a realistic sense of where your money goes, not to suggest you'll get it back. Most builds are money spent because you want to drive them, not investments.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="https://trailmanual.com">Trail Manual</a> · Free DIY reference for off-road vehicles · <a href="/tools/">All tools</a>
+</footer>
+
+<script>
+// ── Phase config ─────────────────────────────────────────────────────────────
+const PHASES = {
+  suspension:  { label:'Suspension',        color:'#4F7795', resale: 0.55 },
+  axles:       { label:'Axles & Drivetrain', color:'#5E8C5A', resale: 0.60 },
+  engine:      { label:'Engine & Trans',     color:'#8A4E2C', resale: 0.50 },
+  electrical:  { label:'Electrical',         color:'#C97E50', resale: 0.25 },
+  exterior:    { label:'Exterior / Body',    color:'#3D5B47', resale: 0.30 },
+  recovery:    { label:'Recovery Gear',      color:'#D89035', resale: 0.20 },
+  interior:    { label:'Interior / Cab',     color:'#9B7B5E', resale: 0.15 },
+  maintenance: { label:'Maintenance',        color:'#7A8595', resale: 0.05 },
+  other:       { label:'Other',              color:'#5B6B7E', resale: 0.20 },
+};
+
+// ── State ─────────────────────────────────────────────────────────────────────
+let entries  = [];
+let config   = { budget: null, vehicle: '' };
+let filter   = 'all';
+
+// ── localStorage helpers ──────────────────────────────────────────────────────
+const LS_KEY_E = 'tm-build-entries';
+const LS_KEY_C = 'tm-build-config';
+
+function load() {
+  try {
+    const e = localStorage.getItem(LS_KEY_E);
+    const c = localStorage.getItem(LS_KEY_C);
+    if (e) entries = JSON.parse(e);
+    if (c) config  = JSON.parse(c);
+  } catch(ex) {}
+}
+
+function save() {
+  try {
+    localStorage.setItem(LS_KEY_E, JSON.stringify(entries));
+    localStorage.setItem(LS_KEY_C, JSON.stringify(config));
+  } catch(ex) {}
+}
+
+function saveBuildConfig() {
+  config.budget  = parseFloat(document.getElementById('budget-input').value) || null;
+  config.vehicle = document.getElementById('vehicle-input').value.trim();
+  save();
+  render();
+}
+
+// ── Entry CRUD ────────────────────────────────────────────────────────────────
+function addEntry() {
+  const name  = document.getElementById('new-name').value.trim();
+  const cost  = parseFloat(document.getElementById('new-cost').value);
+  const phase = document.getElementById('new-phase').value;
+  const date  = document.getElementById('new-date').value;
+  const notes = document.getElementById('new-notes').value.trim();
+
+  if (!name || isNaN(cost) || cost < 0) {
+    document.getElementById('new-name').focus();
+    return;
+  }
+
+  entries.push({ id: Date.now(), name, cost, phase, date: date || new Date().toISOString().slice(0,10), notes });
+  save();
+
+  document.getElementById('new-name').value  = '';
+  document.getElementById('new-cost').value  = '';
+  document.getElementById('new-notes').value = '';
+  render();
+}
+
+function deleteEntry(id) {
+  entries = entries.filter(e => e.id !== id);
+  save();
+  render();
+}
+
+function clearAll() {
+  if (!confirm('Remove all entries? This cannot be undone.')) return;
+  entries = [];
+  save();
+  render();
+}
+
+// ── Filter ────────────────────────────────────────────────────────────────────
+function setFilter(btn, phase) {
+  filter = phase;
+  document.querySelectorAll('.phase-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
+}
+
+// ── Export ────────────────────────────────────────────────────────────────────
+function exportCSV() {
+  const header = 'Date,Item,Phase,Cost,Notes\n';
+  const rows = entries.map(e =>
+    `${e.date},"${e.name.replace(/"/g,'""')}","${PHASES[e.phase]?.label||e.phase}","${e.cost.toFixed(2)}","${(e.notes||'').replace(/"/g,'""')}"`
+  ).join('\n');
+  const blob = new Blob([header + rows], { type:'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `build-cost-tracker-${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+// ── Render ────────────────────────────────────────────────────────────────────
+function fmt(n) {
+  return '$' + n.toLocaleString('en-US', { minimumFractionDigits:0, maximumFractionDigits:0 });
+}
+
+function render() {
+  // Populate config fields if loaded
+  if (config.budget) document.getElementById('budget-input').value = config.budget;
+  if (config.vehicle) document.getElementById('vehicle-input').value = config.vehicle;
+
+  const total    = entries.reduce((s,e) => s + e.cost, 0);
+  const resale   = entries.reduce((s,e) => s + e.cost * (PHASES[e.phase]?.resale ?? 0.2), 0);
+  const budgetLeft = config.budget ? config.budget - total : null;
+
+  // Phase totals
+  const phaseTotals = {};
+  entries.forEach(e => {
+    phaseTotals[e.phase] = (phaseTotals[e.phase] || 0) + e.cost;
+  });
+
+  // Summary row
+  const sumRow = document.getElementById('summary-row');
+  sumRow.innerHTML = `
+    <div class="sum-card accent">
+      <div class="sum-label">Total invested</div>
+      <div class="sum-val">${fmt(total)}</div>
+      <div class="sum-sub">${entries.length} item${entries.length!==1?'s':''}</div>
+    </div>
+    <div class="sum-card good">
+      <div class="sum-label">Est. resale impact</div>
+      <div class="sum-val">${fmt(resale)}</div>
+      <div class="sum-sub">~${total > 0 ? Math.round(resale/total*100) : 0}% of spend recovered (rough estimate)</div>
+    </div>
+    <div class="sum-card">
+      <div class="sum-label">Net cost after resale</div>
+      <div class="sum-val">${fmt(total - resale)}</div>
+      <div class="sum-sub">money you're unlikely to see back</div>
+    </div>
+    ${config.budget ? `
+    <div class="sum-card ${budgetLeft >= 0 ? 'good' : 'warn'}">
+      <div class="sum-label">Budget remaining</div>
+      <div class="sum-val">${budgetLeft >= 0 ? fmt(budgetLeft) : '-'+fmt(Math.abs(budgetLeft))}</div>
+      <div class="sum-sub">of ${fmt(config.budget)} budget</div>
+    </div>` : ''}
+  `;
+
+  // Phase breakdown bar chart
+  const phaseBreakdown = document.getElementById('phase-breakdown');
+  const phaseKeys = Object.keys(phaseTotals).sort((a,b) => phaseTotals[b]-phaseTotals[a]);
+  if (phaseKeys.length && total > 0) {
+    phaseBreakdown.innerHTML = '<div style="font-size:12px;text-transform:uppercase;letter-spacing:.4px;font-weight:700;color:var(--text-mute);margin-bottom:12px">Spend by phase</div>' +
+      phaseKeys.map(p => {
+        const amt  = phaseTotals[p];
+        const pct  = (amt/total*100).toFixed(1);
+        const ph   = PHASES[p] || { label:p, color:'#5B6B7E' };
+        return `<div class="phase-row">
+          <div class="phase-row-label"><span class="phase-dot" style="background:${ph.color}"></span>${ph.label}</div>
+          <div class="phase-bar-track"><div class="phase-bar-fill" style="width:${pct}%;background:${ph.color}"></div></div>
+          <div class="phase-row-amt">${fmt(amt)}</div>
+        </div>`;
+      }).join('');
+  } else {
+    phaseBreakdown.innerHTML = '';
+  }
+
+  // Phase filter buttons
+  const filterBar = document.getElementById('phase-filter-bar');
+  filterBar.innerHTML = `<button class="phase-btn ${filter==='all'?'active':''}" data-phase="all" onclick="setFilter(this,'all')">All</button>`;
+  phaseKeys.forEach(p => {
+    const ph = PHASES[p] || { label:p, color:'#5B6B7E' };
+    filterBar.innerHTML += `<button class="phase-btn ${filter===p?'active':''}" data-phase="${p}" onclick="setFilter(this,'${p}')">
+      <span class="phase-dot" style="background:${ph.color}"></span>${ph.label}
+    </button>`;
+  });
+
+  // Entries table
+  const tbody = document.getElementById('entries-tbody');
+  const emptyState = document.getElementById('empty-state');
+  const filtered = filter === 'all' ? entries : entries.filter(e => e.phase === filter);
+  const sorted   = [...filtered].sort((a,b) => b.date.localeCompare(a.date));
+
+  if (!sorted.length) {
+    tbody.innerHTML = '';
+    emptyState.style.display = '';
+  } else {
+    emptyState.style.display = 'none';
+    tbody.innerHTML = sorted.map(e => {
+      const ph = PHASES[e.phase] || { label:e.phase, color:'#5B6B7E', resale:0.2 };
+      const resaleAmt = e.cost * ph.resale;
+      return `<tr>
+        <td>
+          <div class="entry-name">${e.name}</div>
+          ${e.notes ? `<div style="font-size:11px;color:var(--text-mute);margin-top:2px">${e.notes}</div>` : ''}
+        </td>
+        <td><span class="phase-pill" style="color:${ph.color};border-color:${ph.color}40;background:${ph.color}12">
+          <span class="phase-dot" style="background:${ph.color}"></span>${ph.label}
+        </span></td>
+        <td class="entry-cost">${fmt(e.cost)}</td>
+        <td style="font-size:12px;color:var(--text-dim);font-family:var(--font-mono)">+${fmt(resaleAmt)}<br><span style="font-size:10px">(${Math.round(ph.resale*100)}% est.)</span></td>
+        <td class="entry-date">${e.date}</td>
+        <td><button class="btn-del" onclick="deleteEntry(${e.id})" title="Remove">✕</button></td>
+      </tr>`;
+    }).join('');
+  }
+}
+
+// ── Theme toggle ──────────────────────────────────────────────────────────────
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+// ── Enter key on add form ─────────────────────────────────────────────────────
+['new-name','new-cost','new-notes'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', e => {
+    if (e.key === 'Enter') addEntry();
+  });
+});
+
+// ── Set today as default date ─────────────────────────────────────────────────
+document.getElementById('new-date').value = new Date().toISOString().slice(0,10);
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+load();
+render();
+</script>
+</body>
+</html>
