@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fuel &amp; Range Planner — Trail, Overland, Off-Road | Trail Manual</title>
+<meta name="description" content="Plan your off-road fuel needs. Enter tank capacity, loaded MPG, terrain type, and aux fuel storage. Outputs a safe planning range with usable-fuel reserve buffer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-moon{display:none}
+[data-theme="dark"] .tm-theme-icon-sun{display:none}
+[data-theme="dark"] .tm-theme-icon-moon{display:inline}
+.hamburger{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:7px 9px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center}
+.hamburger svg{width:18px;height:18px;fill:none;stroke:currentColor}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+
+.hero{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(201,126,80,.12) 0%,transparent 65%);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(22px,4vw,34px);color:#E8E2D2;margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero .lede{position:relative;font-size:15px;color:#8A95A8;max-width:620px;line-height:1.65;margin:0}
+
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.card+.card{margin-top:20px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 16px}
+
+.inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.field label{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin-bottom:6px}
+.field input,.field select{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font:inherit;font-size:14px;transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--accent)}
+.field .hint{font-size:11px;color:var(--text-mute);margin-top:4px;line-height:1.4}
+
+/* Terrain selector */
+.terrain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:4px}
+.terrain-btn{padding:12px 8px;border:2px solid var(--border);border-radius:var(--radius);background:var(--bg);cursor:pointer;text-align:center;transition:all .15s;font:inherit}
+.terrain-btn:hover{border-color:var(--accent)}
+.terrain-btn.active{border-color:var(--accent);background:rgba(201,126,80,.08)}
+.terrain-icon{font-size:22px;display:block;margin-bottom:5px}
+.terrain-name{font-size:12px;font-weight:700;color:var(--text);display:block}
+.terrain-mult{font-size:11px;color:var(--text-mute);display:block;margin-top:2px;font-family:var(--font-mono)}
+
+/* Results */
+.range-display{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+@media(max-width:480px){.range-display{grid-template-columns:1fr}}
+.range-box{border-radius:var(--radius-lg);padding:22px;text-align:center;border:2px solid}
+.range-box.safe{background:rgba(94,140,90,.07);border-color:rgba(94,140,90,.4)}
+.range-box.total{background:rgba(79,119,149,.07);border-color:rgba(79,119,149,.3)}
+.range-num{font-size:52px;font-weight:700;font-family:var(--font-mono);line-height:1;letter-spacing:-2px}
+.safe .range-num{color:var(--good)}
+.total .range-num{color:var(--info)}
+.range-unit{font-size:13px;color:var(--text-dim);margin-top:6px}
+.range-sub{font-size:12px;color:var(--text-dim);margin-top:8px;line-height:1.4}
+
+.breakdown-row{display:flex;gap:10px;flex-wrap:wrap}
+.bk-chip{flex:1;min-width:120px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px}
+.bk-chip .c-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute);margin-bottom:4px}
+.bk-chip .c-val{font-size:18px;font-weight:700;font-family:var(--font-mono);color:var(--text)}
+.bk-chip .c-sub{font-size:11px;color:var(--text-dim);margin-top:2px}
+
+/* Tank bar */
+.tank-bar-wrap{margin-top:20px}
+.tank-label{font-size:12px;text-transform:uppercase;letter-spacing:.4px;font-weight:700;color:var(--text-mute);margin-bottom:8px}
+.tank-bar{height:24px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex}
+.tank-seg{height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;transition:width .3s;white-space:nowrap;overflow:hidden}
+.tank-seg.usable{background:var(--good)}
+.tank-seg.aux{background:var(--info)}
+.tank-seg.reserve{background:var(--warn)}
+
+.alert{border-radius:var(--radius);padding:12px 16px;font-size:13px;line-height:1.55;margin-top:16px}
+.alert-warn{background:rgba(216,144,53,.1);border:1px solid rgba(216,144,53,.35)}
+.alert-info{background:rgba(79,119,149,.1);border:1px solid rgba(79,119,149,.35)}
+
+.caveats{font-size:13px;color:var(--text-dim);line-height:1.65;margin-top:24px}
+.caveats h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.caveats p{margin:0 0 12px}
+.site-footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--text-mute);margin-top:60px}
+.site-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Fuel &amp; Range Planner</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Fuel &amp; Range Planner</h1>
+    <p class="lede">Know your actual range before you leave the trailhead. Enter your tank, loaded MPG, terrain type, and aux storage — the planner outputs a safe range that keeps a reserve buffer and accounts for how much terrain degrades fuel economy.</p>
+  </div>
+
+  <!-- ── Inputs ── -->
+  <div class="card">
+    <p class="card-title">Vehicle &amp; fuel setup</p>
+    <div class="inputs-grid">
+      <div class="field">
+        <label>Main tank capacity</label>
+        <input type="number" id="tank" value="20" min="5" max="100" step="0.5">
+        <div class="hint">gallons — use actual fill capacity, not sticker</div>
+      </div>
+      <div class="field">
+        <label>Loaded MPG</label>
+        <input type="number" id="mpg" value="15" min="4" max="50" step="0.5">
+        <div class="hint">on-road MPG with your current build, gear, and passengers</div>
+      </div>
+      <div class="field">
+        <label>Aux fuel storage</label>
+        <input type="number" id="aux" value="0" min="0" max="50" step="0.5">
+        <div class="hint">gallons — jerry cans, aux tank, rotopax (enter 0 if none)</div>
+      </div>
+      <div class="field">
+        <label>Reserve buffer</label>
+        <select id="reserve">
+          <option value="0.15" selected>15% — standard day run</option>
+          <option value="0.20">20% — remote area</option>
+          <option value="0.25">25% — expedition / extreme terrain</option>
+          <option value="0.10">10% — familiar trail, short run</option>
+        </select>
+        <div class="hint">% of usable fuel kept back — don't plan past this point</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-title">Terrain type</p>
+    <div class="terrain-grid" id="terrain-grid">
+      <button class="terrain-btn" data-mult="1.0" data-id="pavement" onclick="selectTerrain(this)">
+        <span class="terrain-icon">🛣️</span>
+        <span class="terrain-name">Pavement</span>
+        <span class="terrain-mult">1.0×</span>
+      </button>
+      <button class="terrain-btn" data-mult="0.80" data-id="dirt" onclick="selectTerrain(this)">
+        <span class="terrain-icon">🪨</span>
+        <span class="terrain-name">Dirt / Gravel</span>
+        <span class="terrain-mult">0.80×</span>
+      </button>
+      <button class="terrain-btn active" data-mult="0.65" data-id="sand" onclick="selectTerrain(this)">
+        <span class="terrain-icon">🏜️</span>
+        <span class="terrain-name">Sand / Dunes</span>
+        <span class="terrain-mult">0.65×</span>
+      </button>
+      <button class="terrain-btn" data-mult="0.55" data-id="rock" onclick="selectTerrain(this)">
+        <span class="terrain-icon">⛰️</span>
+        <span class="terrain-name">Rock Crawl</span>
+        <span class="terrain-mult">0.55×</span>
+      </button>
+      <button class="terrain-btn" data-mult="0.60" data-id="mud" onclick="selectTerrain(this)">
+        <span class="terrain-icon">🌧️</span>
+        <span class="terrain-name">Mud</span>
+        <span class="terrain-mult">0.60×</span>
+      </button>
+    </div>
+    <div style="font-size:12px;color:var(--text-mute);margin-top:8px">Multipliers are practical averages — your actual consumption varies with tire size, gearing, line choice, and conditions.</div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div class="card">
+    <p class="card-title">Planning range</p>
+
+    <div class="range-display">
+      <div class="range-box safe">
+        <div class="range-num" id="safe-range">—</div>
+        <div class="range-unit">miles — safe planning range</div>
+        <div class="range-sub" id="safe-sub">Plan your route to turn around before this point</div>
+      </div>
+      <div class="range-box total">
+        <div class="range-num" id="total-range">—</div>
+        <div class="range-unit">miles — theoretical max</div>
+        <div class="range-sub">If everything goes perfectly — don't plan to this</div>
+      </div>
+    </div>
+
+    <div class="breakdown-row" id="breakdown"></div>
+
+    <div class="tank-bar-wrap">
+      <div class="tank-label">Fuel allocation</div>
+      <div class="tank-bar" id="tank-bar"></div>
+      <div style="display:flex;gap:16px;margin-top:8px;font-size:11px;flex-wrap:wrap">
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:var(--good);border-radius:2px;display:inline-block"></span>Usable for route</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:var(--info);border-radius:2px;display:inline-block"></span>Aux storage</span>
+        <span style="display:flex;align-items:center;gap:5px"><span style="width:10px;height:10px;background:var(--warn);border-radius:2px;display:inline-block"></span>Reserve (keep back)</span>
+      </div>
+    </div>
+
+    <div id="range-alert"></div>
+  </div>
+
+  <div class="caveats">
+    <h3>Why loaded MPG matters more than the sticker</h3>
+    <p>Highway MPG numbers are for a stock, empty vehicle at cruise. On trail you're carrying gear, passengers, and water — plus you're in low range, running aired-down tires, and idling at obstacles. A stock XJ rated at 18 MPG highway might see 12 MPG loaded on dirt and 8–9 MPG in deep sand. Measure your actual loaded MPG on a similar trip before relying on this calculator for a remote run.</p>
+    <p>The terrain multiplier is applied to your loaded MPG, not the sticker. If your XJ gets 12 MPG loaded on pavement, sand applies a 0.65× factor → ~7.8 MPG effective. That's the number the range calculation uses.</p>
+    <p>Aux fuel in jerry cans or roof-rack storage adds to your total supply but shouldn't be counted toward your usable reserve without accounting for the hassle of transferring it at trail speed. Factor that into your buffer selection.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="https://trailmanual.com">Trail Manual</a> · Free DIY reference for off-road vehicles · <a href="/tools/">All tools</a>
+</footer>
+
+<script>
+let terrainMult = 0.65;
+
+function selectTerrain(btn) {
+  document.querySelectorAll('.terrain-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  terrainMult = parseFloat(btn.dataset.mult);
+  compute();
+}
+
+function compute() {
+  const tank    = parseFloat(document.getElementById('tank').value) || 20;
+  const mpg     = parseFloat(document.getElementById('mpg').value) || 15;
+  const aux     = parseFloat(document.getElementById('aux').value) || 0;
+  const resFrac = parseFloat(document.getElementById('reserve').value) || 0.15;
+
+  const totalFuel    = tank + aux;
+  const reserveGal   = totalFuel * resFrac;
+  const usableGal    = totalFuel - reserveGal;
+  const effectiveMpg = mpg * terrainMult;
+
+  const safeRange  = usableGal * effectiveMpg;
+  const totalRange = totalFuel * effectiveMpg;
+
+  document.getElementById('safe-range').textContent = Math.round(safeRange);
+  document.getElementById('total-range').textContent = Math.round(totalRange);
+  document.getElementById('safe-sub').textContent =
+    `Turn around at ~${Math.round(safeRange/2)} miles — ${usableGal.toFixed(1)} gal at ${effectiveMpg.toFixed(1)} mpg effective`;
+
+  // Breakdown chips
+  document.getElementById('breakdown').innerHTML = `
+    <div class="bk-chip">
+      <div class="c-label">Effective MPG</div>
+      <div class="c-val">${effectiveMpg.toFixed(1)}</div>
+      <div class="c-sub">${mpg} mpg × ${terrainMult}× terrain</div>
+    </div>
+    <div class="bk-chip">
+      <div class="c-label">Total fuel</div>
+      <div class="c-val">${totalFuel.toFixed(1)} gal</div>
+      <div class="c-sub">${tank} main + ${aux} aux</div>
+    </div>
+    <div class="bk-chip">
+      <div class="c-label">Usable fuel</div>
+      <div class="c-val">${usableGal.toFixed(1)} gal</div>
+      <div class="c-sub">${(resFrac*100).toFixed(0)}% reserve held back</div>
+    </div>
+    <div class="bk-chip">
+      <div class="c-label">Reserve kept</div>
+      <div class="c-val">${reserveGal.toFixed(1)} gal</div>
+      <div class="c-sub">${Math.round(reserveGal * effectiveMpg)} miles of cushion</div>
+    </div>
+  `;
+
+  // Tank bar
+  const auxFrac  = totalFuel > 0 ? aux / totalFuel : 0;
+  const mainFrac = totalFuel > 0 ? tank / totalFuel : 0;
+  const usablePct   = Math.round((usableGal / totalFuel) * 100);
+  const reservePct  = Math.round(resFrac * 100);
+  // Segment: usable (main portion first, then aux)
+  const mainUsable = Math.max(0, usableGal - aux);
+  const auxUsable  = Math.min(aux, usableGal);
+  const tankBar = document.getElementById('tank-bar');
+  tankBar.innerHTML = `
+    <div class="tank-seg usable" style="width:${(mainUsable/totalFuel*100).toFixed(1)}%">${Math.round(mainUsable/totalFuel*100) > 10 ? Math.round(mainUsable/totalFuel*100)+'%' : ''}</div>
+    ${aux > 0 ? `<div class="tank-seg aux" style="width:${(auxUsable/totalFuel*100).toFixed(1)}%">${Math.round(auxUsable/totalFuel*100) > 8 ? 'aux' : ''}</div>` : ''}
+    <div class="tank-seg reserve" style="width:${(reserveGal/totalFuel*100).toFixed(1)}%;background:var(--warn)">
+      ${reservePct > 8 ? reservePct + '% rsv' : ''}
+    </div>
+  `;
+
+  // Alert for short range
+  const alertEl = document.getElementById('range-alert');
+  if (safeRange < 50) {
+    alertEl.innerHTML = `<div class="alert alert-warn"><strong>Safe range is under 50 miles.</strong> At this terrain factor and reserve, you have limited room for error. Consider adding aux fuel or choosing a shorter route.</div>`;
+  } else if (safeRange < 100 && aux === 0) {
+    alertEl.innerHTML = `<div class="alert alert-info">Safe range is ${Math.round(safeRange)} miles — enough for most day trails. If you're heading somewhere remote, consider aux fuel to increase your margin.</div>`;
+  } else {
+    alertEl.innerHTML = '';
+  }
+}
+
+['tank','mpg','aux','reserve'].forEach(id => {
+  document.getElementById(id).addEventListener('input', compute);
+  document.getElementById(id).addEventListener('change', compute);
+});
+
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+compute();
+</script>
+</body>
+</html>
