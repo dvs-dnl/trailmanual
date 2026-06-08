@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trail Tool Kit Builder — Off-Road Recovery &amp; Repair | Trail Manual</title>
+<meta name="description" content="Build a sized, prioritized trail tool kit based on your build complexity and how far you're going. Honest list — essential vs. nice-to-have, with what most people can skip.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;flex-shrink:0;color:var(--text)}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-moon{display:none}
+[data-theme="dark"] .tm-theme-icon-sun{display:none}
+[data-theme="dark"] .tm-theme-icon-moon{display:inline}
+.hamburger{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:7px 9px;border-radius:var(--radius);cursor:pointer;display:flex;align-items:center}
+.hamburger svg{width:18px;height:18px;fill:none;stroke:currentColor}
+.topbar-mobile-nav{display:none;background:var(--bg);border-top:1px solid var(--border);padding:8px 20px}
+.topbar-mobile-nav a{display:block;padding:10px 0;font-size:14px;color:var(--text-dim);border-bottom:1px solid var(--border);text-decoration:none}
+.topbar-mobile-nav a:last-child{border-bottom:none}
+.topbar-mobile-nav a:hover{color:var(--accent)}
+.topbar-mobile-nav.open{display:block}
+
+main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
+.hero{background:linear-gradient(135deg,#1a1410 0%,#161a20 60%,#131820 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px;margin-bottom:32px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:320px;height:320px;background:radial-gradient(circle,rgba(201,126,80,.12) 0%,transparent 65%);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(22px,4vw,34px);color:#E8E2D2;margin:0 0 10px;letter-spacing:-.5px;line-height:1.2}
+.hero .lede{position:relative;font-size:15px;color:#8A95A8;max-width:620px;line-height:1.65;margin:0}
+
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.card+.card{margin-top:20px}
+.card-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 16px}
+
+/* Selector cards */
+.sel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:540px){.sel-grid{grid-template-columns:1fr}}
+.sel-card{padding:16px;border:2px solid var(--border);border-radius:var(--radius);background:var(--bg);cursor:pointer;text-align:left;font:inherit;transition:all .15s}
+.sel-card:hover{border-color:var(--accent)}
+.sel-card.active{border-color:var(--accent);background:rgba(201,126,80,.07)}
+.sel-icon{font-size:26px;display:block;margin-bottom:8px}
+.sel-title{font-size:14px;font-weight:700;color:var(--text);display:block;margin-bottom:3px}
+.sel-desc{font-size:12px;color:var(--text-dim);display:block;line-height:1.4}
+
+/* Tool list */
+.section-header{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.section-badge{padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700;letter-spacing:.3px}
+.badge-essential{background:rgba(94,140,90,.12);color:var(--good);border:1px solid rgba(94,140,90,.3)}
+.badge-nice{background:rgba(79,119,149,.1);color:var(--info);border:1px solid rgba(79,119,149,.3)}
+.badge-skip{background:var(--bg-2);color:var(--text-mute);border:1px solid var(--border)}
+
+.tool-list{list-style:none;margin:0;padding:0}
+.tool-item{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.tool-item:last-child{border-bottom:none}
+.tool-check{width:20px;height:20px;border-radius:4px;border:2px solid var(--border);background:transparent;cursor:pointer;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.tool-check.checked{background:var(--accent);border-color:var(--accent)}
+.tool-check.checked::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+.tool-body{flex:1}
+.tool-name{font-size:14px;font-weight:600;color:var(--text)}
+.tool-desc{font-size:12px;color:var(--text-dim);margin-top:2px;line-height:1.4}
+.tool-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:5px}
+.tool-tag{font-size:11px;padding:1px 7px;border-radius:8px;border:1px solid var(--border);color:var(--text-mute);font-weight:600}
+.tool-tag.solo{border-color:rgba(201,126,80,.35);color:var(--accent)}
+.tool-tag.recovery{border-color:rgba(94,140,90,.35);color:var(--good)}
+.tool-tag.fluids{border-color:rgba(79,119,149,.35);color:var(--info)}
+.tool-tag.safety{border-color:rgba(178,59,47,.35);color:var(--danger)}
+
+/* Summary bar */
+.summary-bar{display:flex;gap:12px;flex-wrap:wrap;padding:16px;background:var(--bg-2);border-radius:var(--radius);margin-bottom:20px}
+.sum-chip .s-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;font-weight:700;color:var(--text-mute)}
+.sum-chip .s-val{font-size:18px;font-weight:700;font-family:var(--font-mono);color:var(--text)}
+
+/* Pack layout */
+.pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;margin-top:16px}
+.pack-zone{border:1px solid var(--border);border-radius:var(--radius);padding:12px;background:var(--bg)}
+.pack-zone-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin-bottom:8px}
+.pack-zone-items{font-size:12px;color:var(--text-dim);line-height:1.6}
+
+.caveats{font-size:13px;color:var(--text-dim);line-height:1.65;margin-top:24px}
+.caveats h3{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--text-mute);margin:0 0 8px}
+.caveats p{margin:0 0 12px}
+.site-footer{border-top:1px solid var(--border);padding:28px 20px;text-align:center;font-size:12px;color:var(--text-mute);margin-top:60px}
+.site-footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Trail Tool Kit Builder</div>
+      </div>
+    </a>
+    <div class="topbar-right">
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+        <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+        <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="hamburger" aria-label="Open menu" onclick="document.getElementById('mobile-nav').classList.toggle('open')">
+        <svg viewBox="0 0 24 24" stroke-width="1.5" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="topbar-mobile-nav" id="mobile-nav">
+    <a href="/">Trail Manual</a>
+    <a href="/db/">Database</a>
+    <a href="/tools/">Tools</a>
+    <a href="/workshop/">Workshop</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <h1>Trail Tool Kit Builder</h1>
+    <p class="lede">Pick your build complexity and how far you're going. The list that comes back is sized honestly — what's essential for your scenario, what's a genuine upgrade, and what most people don't actually need.</p>
+  </div>
+
+  <!-- ── Inputs ── -->
+  <div class="card">
+    <p class="card-title">Build complexity</p>
+    <div class="sel-grid" id="build-grid">
+      <button class="sel-card active" data-id="stock" onclick="selectBuild(this)">
+        <span class="sel-icon">🚗</span>
+        <span class="sel-title">Stock / Near-Stock</span>
+        <span class="sel-desc">Factory or mild suspension, stock diffs, mostly original drivetrain</span>
+      </button>
+      <button class="sel-card" data-id="mild" onclick="selectBuild(this)">
+        <span class="sel-icon">🛠️</span>
+        <span class="sel-title">Mild Build</span>
+        <span class="sel-desc">2–4&quot; lift, 33–35&quot; tires, some skids, possibly a locker or two</span>
+      </button>
+      <button class="sel-card" data-id="built" onclick="selectBuild(this)">
+        <span class="sel-icon">⚙️</span>
+        <span class="sel-title">Built / Modified</span>
+        <span class="sel-desc">Heavy suspension, 35&quot;+ tires, lockers, portal axles, or custom fabrication</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <p class="card-title">Trail distance &amp; remoteness</p>
+    <div class="sel-grid" id="dist-grid">
+      <button class="sel-card active" data-id="day" onclick="selectDist(this)">
+        <span class="sel-icon">🌅</span>
+        <span class="sel-title">Day Run</span>
+        <span class="sel-desc">Back by dark, cell service likely, friends with you</span>
+      </button>
+      <button class="sel-card" data-id="overnight" onclick="selectDist(this)">
+        <span class="sel-icon">⛺</span>
+        <span class="sel-title">Overnight / Weekend</span>
+        <span class="sel-desc">Camping, spotty cell, further from a shop</span>
+      </button>
+      <button class="sel-card" data-id="remote" onclick="selectDist(this)">
+        <span class="sel-icon">🗺️</span>
+        <span class="sel-title">Remote / Expedition</span>
+        <span class="sel-desc">Days from a shop, no cell, self-rescue only</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Results ── -->
+  <div id="results-section">
+    <!-- filled by JS -->
+  </div>
+
+  <div class="caveats">
+    <h3>Group size matters</h3>
+    <p>This list assumes you might be trailing solo or with a group that doesn't have a support vehicle. In a group of 3+ rigs, you can spread the recovery gear across vehicles — one rig doesn't need to carry it all. The further you are from help, the more self-sufficient each rig should be.</p>
+    <p>The most important recovery item is a communication plan — satellite communicator or a pre-arranged check-in schedule with someone who knows where you are. Tools and gear don't replace a way to call for help if something goes seriously wrong.</p>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <a href="https://trailmanual.com">Trail Manual</a> · Free DIY reference for off-road vehicles · <a href="/tools/">All tools</a>
+</footer>
+
+<script>
+let buildLevel = 'stock';
+let distLevel  = 'day';
+const checked  = new Set();
+
+function selectBuild(btn) {
+  document.querySelectorAll('#build-grid .sel-card').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  buildLevel = btn.dataset.id;
+  render();
+}
+function selectDist(btn) {
+  document.querySelectorAll('#dist-grid .sel-card').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  distLevel = btn.dataset.id;
+  render();
+}
+
+// ── Tool definitions ─────────────────────────────────────────────────────────
+// tier: 'essential' | 'nice' | 'skip'
+// build threshold: 'stock' shows for all, 'mild' shows for mild+built, 'built' for built only
+// dist threshold: 'day' shows for all distances, 'overnight' for overnight+remote, 'remote' only remote
+// tags: array of 'solo','recovery','fluids','safety','repair'
+const TOOLS = [
+  // ── Always essential ──────────────────────────────────────────────────────
+  { id:'spare-tire', name:'Full-size spare', desc:'Same size as your running tires. A space-saver spare is not an option on trail.', tier:'essential', build:'stock', dist:'day', tags:['safety'], pack:'on-rig', skip:false },
+  { id:'jack', name:'Hi-Lift or bottle jack', desc:'Factory scissor jacks are not rated for off-road use. Hi-Lift is the standard; a 2-ton bottle jack works for lighter vehicles on reasonably flat ground.', tier:'essential', build:'stock', dist:'day', tags:['recovery'], pack:'rig-storage', skip:false },
+  { id:'jack-base', name:'Jack base / off-road board', desc:'A 1/2" plate of steel or a chunk of lumber. Without it, your jack sinks into soft ground.', tier:'essential', build:'stock', dist:'day', tags:['recovery'], pack:'rig-storage', skip:false },
+  { id:'inflator', name:'Portable inflator / compressor', desc:'You are airing down — you need to air back up. ARB, Viair, or a 12V inflator. Not optional.', tier:'essential', build:'stock', dist:'day', tags:['safety'], pack:'cab', skip:false },
+  { id:'tire-repair', name:'Tire plug kit + CO2 cartridges', desc:'Slime plugs and a rasp for field repairs. Back this up with your compressor.', tier:'essential', build:'stock', dist:'day', tags:['repair'], pack:'cab', skip:false },
+  { id:'tow-strap', name:'Kinetic recovery strap (20–30 ft)', desc:'Not a tow strap — a kinetic rope that stretches to extract a stuck vehicle. Different item, different use.', tier:'essential', build:'stock', dist:'day', tags:['recovery'], pack:'rig-storage', skip:false },
+  { id:'shackles', name:'Shackles (2× D-ring, 3/4&quot; rated)', desc:'Rated screw-pin shackles, not hardware store hardware. Needed to connect the recovery strap to your tow points.', tier:'essential', build:'stock', dist:'day', tags:['recovery'], pack:'rig-storage', skip:false },
+  { id:'basic-tools', name:'Basic hand tools', desc:'1/4&quot; and 3/8&quot; drive socket sets, combo wrenches 8–19mm, flathead and Phillips, wire strippers, electrical tape. Fits in a pelican case or small bag.', tier:'essential', build:'stock', dist:'day', tags:['repair'], pack:'cab', skip:false },
+  { id:'gloves', name:'Work gloves', desc:'Leather or mechanic\'s. Recovery straps, shackles, and sharp metal are rough on bare hands.', tier:'essential', build:'stock', dist:'day', tags:['safety'], pack:'cab', skip:false },
+  { id:'first-aid', name:'First aid kit', desc:'Dedicated to your trail bag — not the one that was raided for band-aids and never restocked.', tier:'essential', build:'stock', dist:'day', tags:['safety'], pack:'cab', skip:false },
+
+  // ── Day run essentials that many forget ───────────────────────────────────
+  { id:'water', name:'Water (1 gal per person minimum)', desc:'For drinking and for the radiator. People overheat before vehicles do.', tier:'essential', build:'stock', dist:'day', tags:['safety'], pack:'cab', skip:false },
+  { id:'fire-ext', name:'Fire extinguisher (2.5 lb dry chemical)', desc:'Mounted in cab, accessible without opening a drawer. Wiring fires and brush fires are real trail risks.', tier:'essential', build:'stock', dist:'day', tags:['safety'], pack:'cab', skip:false },
+
+  // ── Mild build adds ───────────────────────────────────────────────────────
+  { id:'breaker-bar', name:'Breaker bar + large socket set', desc:'Modified suspension uses larger hardware. 1/2&quot; drive, 3/8&quot;–7/8&quot; range.', tier:'essential', build:'mild', dist:'day', tags:['repair'], pack:'rig-storage', skip:false },
+  { id:'spare-fluids', name:'Spare fluids (gear oil, ATF, coolant)', desc:'A quart each. Diff covers and axle seals are the most common sources of trail leaks.', tier:'essential', build:'mild', dist:'day', tags:['fluids'], pack:'rig-storage', skip:false },
+  { id:'winch-gear', name:'Winch line extension + tree saver', desc:'If you have a winch, carry a tree protector strap and a 30-ft extension so you can reach an anchor.', tier:'essential', build:'mild', dist:'day', tags:['recovery'], pack:'rig-storage', skip:false },
+  { id:'snatch-block', name:'Snatch block (double-line pull)', desc:'Doubles your winch\'s pulling capacity and gives you a different anchor angle. One of the most useful pieces of recovery gear you can carry.', tier:'essential', build:'mild', dist:'overnight', tags:['recovery'], pack:'rig-storage', skip:false },
+
+  // ── Overnight adds ────────────────────────────────────────────────────────
+  { id:'spare-belts', name:'Spare belts and hoses', desc:'Serpentine belt and one upper radiator hose are the most common failure points. 10 minutes to install, hours to hike out without them.', tier:'essential', build:'stock', dist:'overnight', tags:['repair'], pack:'rig-storage', skip:false },
+  { id:'spare-fuel-filter', name:'Spare fuel filter', desc:'If your truck runs rough after dusty trails, a plugged fuel filter is the first thing to swap. Cheap insurance.', tier:'nice', build:'stock', dist:'overnight', tags:['repair'], pack:'rig-storage', skip:false },
+  { id:'jumper-cables', name:'Jumper cables or jump pack', desc:'12-ft cables minimum, or a lithium jump pack (more useful solo). Lights left on, cold soaks, and accessory draws happen.', tier:'essential', build:'stock', dist:'overnight', tags:['repair'], pack:'cab', skip:false },
+  { id:'tarp', name:'Tarp (6×8 or larger)', desc:'Ground cover for crawling under the rig. Also emergency shelter if things go sideways.', tier:'essential', build:'stock', dist:'overnight', tags:['safety'], pack:'rig-storage', skip:false },
+  { id:'headlamp', name:'Headlamp + backup batteries', desc:'Repairs happen after dark. A hands-free light is worth more than it costs.', tier:'essential', build:'stock', dist:'overnight', tags:['safety'], pack:'cab', skip:false },
+
+  // ── Remote / expedition ───────────────────────────────────────────────────
+  { id:'sat-comms', name:'Satellite communicator (Garmin inReach)', desc:'No cell? This is your emergency contact. Not a nice-to-have at this distance.', tier:'essential', build:'stock', dist:'remote', tags:['solo','safety'], pack:'cab', skip:false },
+  { id:'full-spare-parts', name:'Full spare parts kit', desc:'Wheel bearings (front and rear), u-joints, brake hardware, spare fuses. The parts most likely to strand you.', tier:'essential', build:'mild', dist:'remote', tags:['repair'], pack:'rig-storage', skip:false },
+  { id:'welder', name:'Field welding (if equipped)', desc:'A 12V stick welder or inverter welder for broken brackets. Only if you know how to use it.', tier:'nice', build:'built', dist:'remote', tags:['repair'], pack:'rig-storage', skip:false },
+
+  // ── Nice to have (most people skip) ──────────────────────────────────────
+  { id:'maxtrax', name:'MaxTrax / traction boards', desc:'Excellent in sand and mud. Pricey ($250–$300/pair). Most rigs get through without them in a group; solo in deep sand, they earn their keep.', tier:'nice', build:'stock', dist:'overnight', tags:['recovery'], pack:'rig-exterior', skip:false },
+  { id:'chainsaw', name:'Mini chainsaw or folding saw', desc:'Pacific Northwest and mountain trails see deadfall. Most other regions: skip.', tier:'nice', build:'mild', dist:'overnight', tags:['recovery'], pack:'rig-storage', skip:true },
+  { id:'come-along', name:'Come-along (hand winch)', desc:'Manual 2-ton come-along. Useful backup if you don\'t have a powered winch. Not fast, but it works.', tier:'nice', build:'stock', dist:'overnight', tags:['recovery'], pack:'rig-storage', skip:false },
+  { id:'shovel', name:'Folding shovel', desc:'For digging out around a stuck tire or clearing a line. The $30 version works as well as the $90 version.', tier:'nice', build:'stock', dist:'overnight', tags:['recovery'], pack:'rig-exterior', skip:false },
+  { id:'air-down-gauge', name:'Deflator gauge', desc:'ARB or Staun deflator. Faster than a pencil gauge and valve stem. Genuinely useful if you air down often.', tier:'nice', build:'stock', dist:'day', tags:['fluids'], pack:'cab', skip:false },
+];
+
+function getRelevantTools() {
+  const buildOrder = ['stock','mild','built'];
+  const distOrder  = ['day','overnight','remote'];
+  const bIdx = buildOrder.indexOf(buildLevel);
+  const dIdx = distOrder.indexOf(distLevel);
+
+  return TOOLS.filter(t => {
+    const tBIdx = buildOrder.indexOf(t.build);
+    const tDIdx = distOrder.indexOf(t.dist);
+    return tBIdx <= bIdx && tDIdx <= dIdx;
+  });
+}
+
+function toggleCheck(id) {
+  if (checked.has(id)) checked.delete(id);
+  else checked.add(id);
+  render();
+}
+
+function render() {
+  const tools = getRelevantTools();
+  const essential = tools.filter(t => t.tier === 'essential');
+  const nice      = tools.filter(t => t.tier === 'nice');
+  const skippable = nice.filter(t => t.skip);
+
+  const essentialChecked = essential.filter(t => checked.has(t.id)).length;
+  const packZones = {
+    cab:          { label:'In the cab', items:[] },
+    'rig-storage':{ label:'Rig storage / cargo', items:[] },
+    'rig-exterior':{ label:'Exterior mount', items:[] },
+    'on-rig':     { label:'On the rig', items:[] },
+  };
+  essential.forEach(t => { if (packZones[t.pack]) packZones[t.pack].items.push(t.name); });
+
+  const sec = document.getElementById('results-section');
+  sec.innerHTML = '';
+
+  // Summary bar
+  const sumDiv = document.createElement('div');
+  sumDiv.className = 'card';
+  sumDiv.style.marginTop = '12px';
+  sumDiv.innerHTML = `
+    <div class="summary-bar">
+      <div class="sum-chip"><div class="s-label">Essential items</div><div class="s-val">${essential.length}</div></div>
+      <div class="sum-chip"><div class="s-label">Checked off</div><div class="s-val">${essentialChecked} / ${essential.length}</div></div>
+      <div class="sum-chip"><div class="s-label">Nice-to-have</div><div class="s-val">${nice.length}</div></div>
+      <div class="sum-chip"><div class="s-label">Profile</div><div class="s-val" style="font-size:13px;font-weight:700;color:var(--accent)">${buildLevel.charAt(0).toUpperCase()+buildLevel.slice(1)} · ${distLevel.charAt(0).toUpperCase()+distLevel.slice(1)}</div></div>
+    </div>
+  `;
+  sec.appendChild(sumDiv);
+
+  // Essential list
+  const essDiv = document.createElement('div');
+  essDiv.className = 'card';
+  essDiv.style.marginTop = '12px';
+  essDiv.innerHTML = `
+    <div class="section-header">
+      <span class="card-title" style="margin:0">Essential</span>
+      <span class="section-badge badge-essential">Must carry</span>
+    </div>
+    <p style="font-size:13px;color:var(--text-dim);margin:0 0 16px">If you're going on this type of run, this gear should be in or on the rig every time.</p>
+  `;
+  const essUl = document.createElement('ul');
+  essUl.className = 'tool-list';
+  essential.forEach(t => {
+    const li = document.createElement('li');
+    li.className = 'tool-item';
+    li.innerHTML = `
+      <div class="tool-check ${checked.has(t.id)?'checked':''}" onclick="toggleCheck('${t.id}')"></div>
+      <div class="tool-body">
+        <div class="tool-name">${t.name}</div>
+        <div class="tool-desc">${t.desc}</div>
+        <div class="tool-meta">
+          ${t.tags.map(tag=>`<span class="tool-tag ${tag}">${tag}</span>`).join('')}
+          <span class="tool-tag" style="color:var(--text-mute)">${t.pack.replace('-',' ')}</span>
+        </div>
+      </div>
+    `;
+    essUl.appendChild(li);
+  });
+  essDiv.appendChild(essUl);
+  sec.appendChild(essDiv);
+
+  // Nice-to-have
+  if (nice.length) {
+    const niceDiv = document.createElement('div');
+    niceDiv.className = 'card';
+    niceDiv.style.marginTop = '12px';
+    niceDiv.innerHTML = `
+      <div class="section-header">
+        <span class="card-title" style="margin:0">Nice to have</span>
+        <span class="section-badge badge-nice">Genuine upgrade</span>
+      </div>
+      <p style="font-size:13px;color:var(--text-dim);margin:0 0 16px">These add real capability for your profile — but most runs go fine without them. Don't buy them before you have everything on the essential list.</p>
+    `;
+    const niceUl = document.createElement('ul');
+    niceUl.className = 'tool-list';
+    nice.forEach(t => {
+      const li = document.createElement('li');
+      li.className = 'tool-item';
+      li.innerHTML = `
+        <div class="tool-check ${checked.has(t.id)?'checked':''}" onclick="toggleCheck('${t.id}')"></div>
+        <div class="tool-body">
+          <div class="tool-name">${t.name}${t.skip?' <span style="font-size:11px;color:var(--text-mute);font-weight:400"> — most people skip this</span>':''}</div>
+          <div class="tool-desc">${t.desc}</div>
+          <div class="tool-meta">
+            ${t.tags.map(tag=>`<span class="tool-tag ${tag}">${tag}</span>`).join('')}
+          </div>
+        </div>
+      `;
+      niceUl.appendChild(li);
+    });
+    niceDiv.appendChild(niceUl);
+    sec.appendChild(niceDiv);
+  }
+
+  // Pack layout
+  const packDiv = document.createElement('div');
+  packDiv.className = 'card';
+  packDiv.style.marginTop = '12px';
+  packDiv.innerHTML = `<p class="card-title">Suggested packing layout</p>`;
+  const packGrid = document.createElement('div');
+  packGrid.className = 'pack-grid';
+  Object.values(packZones).forEach(zone => {
+    if (!zone.items.length) return;
+    const zoneDiv = document.createElement('div');
+    zoneDiv.className = 'pack-zone';
+    zoneDiv.innerHTML = `<div class="pack-zone-title">${zone.label}</div>
+      <div class="pack-zone-items">${zone.items.map(i=>`• ${i}`).join('<br>')}</div>`;
+    packGrid.appendChild(zoneDiv);
+  });
+  packDiv.appendChild(packGrid);
+  sec.appendChild(packDiv);
+}
+
+document.getElementById('tm-theme-btn').addEventListener('click', () => {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('tm-theme', next); } catch(e) {}
+});
+
+render();
+</script>
+</body>
+</html>
