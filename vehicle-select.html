@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <title>Pick a vehicle — Trail Manual</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Off-road DIY guides, build write-ups, and honest maintenance advice. Pick a vehicle — Trail Manual">
 <meta http-equiv="refresh" content="0; url=/db/">
 <link rel="canonical" href="/db/">
 <style>body{font-family:-apple-system,sans-serif;max-width:480px;margin:80px auto;padding:0 20px;text-align:center;color:#444}a{color:#C97E50;font-weight:600;text-decoration:none}a:hover{text-decoration:underline}</style>
@@ -13,5 +15,26 @@
 <h2>Redirecting…</h2>
 <p>The vehicle picker has moved. <a href="/db/">Pick your rig at /db/</a></p>
 <script>window.location.replace('/db/');</script>
+<button class="tm-theme-btn" id="tm-theme-btn" aria-label="Toggle light/dark theme" title="Toggle theme"><svg id="themeIcon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/><line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/><line x1="3.1" y1="3.1" x2="4.2" y2="4.2"/><line x1="11.8" y1="11.8" x2="12.9" y2="12.9"/><line x1="12.9" y1="3.1" x2="11.8" y2="4.2"/><line x1="4.2" y1="11.8" x2="3.1" y2="12.9"/></svg></button>
+<script>
+(function(){
+  var btn=document.getElementById('tm-theme-btn');
+  if(!btn) return;
+  function setIcon(t){
+    var icon=document.getElementById('themeIcon');
+    if(!icon) return;
+    if(t==='dark') icon.innerHTML='<path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3z" fill="currentColor" stroke="none"/>';
+    else icon.innerHTML='<circle cx="8" cy="8" r="3"/><line x1="8" y1="1" x2="8" y2="2.5"/><line x1="8" y1="13.5" x2="8" y2="15"/><line x1="1" y1="8" x2="2.5" y2="8"/><line x1="13.5" y1="8" x2="15" y2="8"/><line x1="3.1" y1="3.1" x2="4.2" y2="4.2"/><line x1="11.8" y1="11.8" x2="12.9" y2="12.9"/><line x1="12.9" y1="3.1" x2="11.8" y2="4.2"/><line x1="4.2" y1="11.8" x2="3.1" y2="12.9"/>';
+  }
+  var cur=document.documentElement.getAttribute('data-theme')||'light';
+  setIcon(cur);
+  btn.addEventListener('click',function(){
+    var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',t);
+    try{localStorage.setItem('tm-theme',t);}catch(e){}
+    setIcon(t);
+  });
+})();
+</script>
 </body>
 </html>

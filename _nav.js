@@ -1,6 +1,6 @@
 (function(){
   function tmDrop(id){
-    var all=['build','learn','garage'];
+    var all=['build','learn','garage','vehicles'];
     all.forEach(function(x){
       var p=document.getElementById('tm-dd-'+x);
       var b=document.getElementById('tm-btn-'+x);
