@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/xj-overheating-diagnosis/">
+<title>Your XJ Is Overheating: The Diagnosis Sequence, In Order — Trail Manual</title>
+<meta name="description" content="When a 4.0L XJ overheats, work the sequence in order: coolant level and cap, thermostat, fan clutch, e-fan, then radiator and water pump. Most overheating XJs are fixed by the first four — here's how to test each one without guessing.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my Jeep Cherokee XJ overheating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On a 4.0L XJ the usual causes, in rough order of likelihood, are low coolant or a weak radiator cap, a thermostat stuck closed, a worn-out fan clutch, a dead electric auxiliary fan, a scale-clogged radiator, or an eroded water pump impeller. Work through them in that order — the first four are cheap to test and fix the majority of overheating XJs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What temperature is too hot for a Jeep 4.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A healthy 4.0L runs 195 to 210 degrees F, and climbing to around 230 in slow traffic with the AC on is common. Below roughly 225 is safe. Sustained running at 235 to 240 or higher is where head gasket and cylinder head damage starts — pull over before the needle parks there."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I test the fan clutch on an XJ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "With the engine fully warm and off, the fan should resist being spun by hand and stop within about a turn. At operating temperature with the engine running, lightly brush a rolled-up newspaper against the blade tips — a healthy engaged clutch will rip it away; if the fan slows or stops, the clutch is worn out and should be replaced."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep driving an overheating XJ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Short distances, carefully. Turn the AC off and the heater on full blast to shed heat, and pull over and idle in neutral if the needle keeps climbing. Never open the radiator cap hot. Sustained running past about 235 degrees risks the head gasket and on 2000-2001 engines the crack-prone 0331 head — a tow is cheaper than either."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+      <a class="tm-vehicle-chip" href="/xj/">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11l2-5h8l2 5H2z"/><circle cx="5" cy="12.5" r="1"/><circle cx="11" cy="12.5" r="1"/></svg>
+        Cherokee XJ
+      </a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate">📋</div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script><main class="tm-main">
+  <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">XJ Cherokee · Diagnostics</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">Your XJ Is Overheating: The Diagnosis Sequence, In Order</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">When a 4.0L XJ overheats, the cause is almost always one of six things: low coolant or a weak cap, a stuck thermostat, a worn fan clutch, a dead auxiliary e-fan, a clogged radiator, or an eroded water pump. Test them in that order — cheapest and most likely first — and you'll find it without throwing parts at the truck. The first four fix most overheating XJs.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>June 10, 2026</span> · <span>9 min read</span>
+      </div>
+    </div>
+
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">First, calibrate. A 4.0L with a 195°F thermostat normally runs <strong>195–210°F</strong>, and creeping toward <strong>230°F</strong> in slow traffic with the AC on is common behavior, not a crisis. Below roughly <strong>225°F</strong> the engine is safe. The danger zone starts around <strong>235–240°F</strong> sustained — that's where head gaskets let go, and on 2000–2001 engines it's what cracks the infamous 0331 head. If your needle visits 230 on a grade and comes back down, read on calmly. If it parks past 240, shut it down and diagnose before you drive it again.</p>
+
+    <div style="background:rgba(229,115,115,.08);border:1px solid rgba(229,115,115,.3);border-radius:8px;padding:18px 20px;margin:24px 0">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:#e57373;margin-bottom:8px">If it's overheating right now</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0">AC off. Heater on full blast — the heater core is a second radiator and will pull real heat out of the engine. If the needle keeps climbing, pull over, leave the engine idling in neutral for a minute so coolant keeps circulating, then shut it down. <strong>Never open the radiator cap on a hot engine.</strong> Wait until you can hold your hand on the upper hose.</p>
+    </div>
+
+    <h2>Step 1 — Coolant level and the cap</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Cold engine, cap off, look into the radiator neck: coolant should be at the top, and the overflow bottle between its marks. Low coolant is the single most common cause, and it means a leak — coolant doesn't evaporate. Check hose ends, the water pump weep hole, the radiator end tanks, and the heater core connections. While you're there, look at the cap itself: a cap that can't hold its rated pressure lowers the boiling point and burps coolant into the overflow on every hot run. A <strong>$10–15 cap</strong> is the cheapest possible fix for an overheat, which is why it goes first. One bit of good news: every 1991+ XJ uses an <strong>open, self-bleeding cooling system</strong> — fill it, run it, top it off, done. The 1987–90 closed system needs deliberate bleeding, and trapped air there will overheat an otherwise healthy engine.</p>
+
+    <h2>Step 2 — Thermostat</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Start the cold engine and hold your hand on the upper radiator hose. It should stay cool for several minutes, then turn hot fast when the thermostat opens around 195°F. A hose that stays cold while the gauge climbs means the thermostat is stuck closed. It's a <strong>$10–20 part</strong> and an hour with two bolts. Buy a quality 195°F unit — and don't rule out a thermostat just because it's new. Fresh-out-of-the-box failures and wrong-type units are common enough that forum veterans test them in a pot of water on the stove first. Skip the 180°F "cooling upgrade" — a colder thermostat just opens earlier; it adds zero capacity once the system is maxed.</p>
+
+    <h2>Step 3 — Fan clutch</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">If the XJ runs cool on the highway but heats up in traffic or on slow trails, airflow is your problem, and the fan clutch is the prime suspect. It's a wear item that most owners have never replaced. Two tests: engine off and fully warm, spin the fan by hand — it should resist and stop within about a turn; spinning free like a ceiling fan means the clutch is dead. Or the classic: engine running at operating temperature, lightly brush a rolled-up newspaper against the blade tips. A healthy engaged clutch rips it out of your hand; if the fan slows or stops, replace the clutch. Expect <strong>$50–100</strong> for a quality unit, and shops charge <strong>$194–357</strong> for the job per RepairPal — it's four nuts and a DIY afternoon.</p>
+
+    <h2>Step 4 — Electric auxiliary fan</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The XJ's second fan is electric and should kick on with the AC compressor or when coolant passes roughly 210–215°F. Easy test: engine running, switch the AC on and watch the e-fan. If it never spins, check the fuse and relay in the power distribution center first, then the fan motor itself with jumper wires straight off the battery. A dead e-fan often hides for months — the truck cools fine until the first 100°F day in traffic, then it doesn't.</p>
+
+    <h2>Step 5 — Radiator</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A 25-year-old radiator clogs two ways: scale inside that flushing won't break loose, and crushed or sealed fins outside — worn fan clutches have been known to walk forward and fold fins flat. With the engine warm, sweep an infrared thermometer across the core: a healthy radiator cools evenly from inlet to outlet, while cold stripes mean plugged tubes. No IR gun? Big temperature difference between upper and lower hose is normal; a radiator that's hot at the inlet and barely warm across most of the core is done. A new aftermarket radiator for a 4.0L runs roughly <strong>$100–200</strong>, and a clean stock system cools a stock XJ in any climate — you do not need a three-row "upgrade" to survive summer, you need the stock system actually working.</p>
+
+    <h2>Step 6 — Water pump and lower hose</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Last because it's least common and most work. The 4.0L pump fails two ways: the bearing gets loud and the weep hole drips — obvious — or the impeller erodes quietly until it can't move coolant at highway load. While you're under there, squeeze the lower radiator hose: a hose with a collapsed internal spring sucks shut at RPM and starves the pump, mimicking a bad one. If you pull the pump on a high-mileage engine, replace both hoses and the thermostat in the same job; the gaskets and coolant are already out.</p>
+
+    <div style="background:rgba(255,183,77,.08);border:1px solid rgba(255,183,77,.3);border-radius:8px;padding:18px 20px;margin:24px 0">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:#ffb74d;margin-bottom:8px">Replaced everything and it still overheats?</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0">Stop buying parts. At this point the usual finds are a head gasket pushing combustion gas into the coolant (a <strong>$10 block test kit</strong> answers this in five minutes), a wrong or defective new thermostat, trapped air on a pre-91 closed system, or a "new" radiator that's actually the old problem in a new tank. Combustion gas in the coolant also explains overheating that <em>started</em> after an overheat — the first event damages the gasket, the gasket causes the next one.</p>
+    </div>
+
+    <h2>The order matters more than the parts</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The forum graveyard is full of XJs that got a radiator, water pump, thermostat, fan clutch, and both fans in one desperate weekend — and still ran hot, because the actual fault was a $12 cap or a bad gauge sender. Every step above has a test that costs nothing or nearly nothing. Run the sequence, trust the results, and replace exactly the part that failed its test. Your XJ's cooling system was engineered to handle desert summers when it left the factory; your job isn't to upgrade it, it's to put it back.</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related</h2>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <a href="/blog/xj-cooling-system-failures/" style="color:var(--accent);font-size:14px">XJ Cooling System Failures: What Breaks, When, and What to Do →</a>
+        <a href="/blog/xj-head-gasket-vs-cracked-0331-head/" style="color:var(--accent);font-size:14px">Blown Head Gasket or Cracked 0331 Head? How to Tell on a 4.0L XJ →</a>
+        <a href="/db/" style="color:var(--accent);font-size:14px">Browse the DIY Database →</a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+    <p style="margin-top:6px"><a href="/blog/">← Blog</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+  </div>
+</footer>
+
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
