@@ -932,3 +932,24 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
 .tm-dd-link--sm { padding: 6px 8px !important; gap: 4px !important; }
 .tm-dd-link--sm strong { font-size: 13px; line-height: 1.3; }
 .tm-dd-link--sm span { display: none; }
+
+/* ── Affiliate disclosure note (GTM Phase 2) ───────────────────────────
+   Place ABOVE any section containing affiliate links (FTC: disclosure must
+   precede the links). Never used on safety-critical pages — those carry no
+   affiliate links at all. Usage:
+   <div class="tm-affiliate-note">Some links below are affiliate links
+   (Amazon Associates). If you buy through one we may earn a commission at
+   no extra cost to you — it never changes what we recommend.
+   <a href="/terms/#affiliate">How we handle this</a>.</div>            */
+.tm-affiliate-note{
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  border-radius:8px;
+  background:var(--surface);
+  color:var(--text-dim);
+  font-size:13px;
+  line-height:1.6;
+  padding:10px 14px;
+  margin:16px 0;
+}
+.tm-affiliate-note a{color:var(--accent)}
