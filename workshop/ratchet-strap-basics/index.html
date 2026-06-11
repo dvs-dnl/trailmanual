@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/ratchet-strap-basics/">
+<title>Ratchet Straps — Load Ratings, Rigging, and Inspection — Trail Manual Workshop</title>
+<meta name="description" content="How to read ratchet strap load ratings, rig a load so it stays put, and know when a strap is done — including why a ratchet strap is never a recovery strap.">
+<link rel="stylesheet" href="/_shared.css">
+<script src="/_nav.js"></script>
+<style>
+body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
+.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
+.back-link:hover { color: var(--accent); }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
+.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
+.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
+.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
+.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
+.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+.callout.warn { border-left-color: #e05555; }
+.callout strong { color: var(--text); }
+.temp-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 14px; }
+.temp-table th { text-align: left; padding: 10px 12px; background: var(--bg-2); border-bottom: 2px solid var(--border); color: var(--text); font-weight: 600; font-size: 13px; }
+.temp-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+.temp-table tr:last-child td { border-bottom: none; }
+.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
+.video-section h2{margin-top:0}
+.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
+.video-embed{margin:18px 0 0}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-mute)}
+.video-credit a{color:var(--text-dim);border-bottom:1px dotted var(--text-mute)}
+.video-credit a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 500px) {
+  .guide-title { font-size: 26px; }
+  .guide-lede { font-size: 16px; }
+  .brand-sub { display: none; }
+  .back-link { font-size: 12px; }
+  .temp-table { font-size: 13px; }
+  .temp-table th, .temp-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-mark">TM</div>
+    <div>
+      <div class="brand-text">Trail Manual</div>
+      <div class="brand-sub">The Workshop</div>
+    </div>
+  </a>
+  <button class="tm-theme-btn" aria-label="Toggle dark mode" onclick="(function(){var h=document.documentElement,d='data-theme',c=h.getAttribute(d)==='dark';h.setAttribute(d,c?'light':'dark');try{localStorage.setItem('tm-theme',c?'light':'dark');}catch(e){}})()">
+    <svg class="tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="back-link" href="/workshop/">← Workshop</a>
+  <button class="hamburger" aria-label="Menu" onclick="this.setAttribute('aria-expanded',document.getElementById('ws-nav').classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav id="ws-nav" class="ws-nav" aria-label="Site"><a href="/">Home</a><a href="/db/">Vehicles</a><a href="/workshop/">Workshop</a><a href="/blog/">Blog</a></nav>
+</header>
+
+<article>
+<div class="guide-wrap">
+  <div class="guide-eyebrow">Workshop · Shop Tools</div>
+  <h1 class="guide-title">Ratchet Straps — Load Ratings, Rigging, and Inspection</h1>
+
+  <p class="guide-lede">
+    The number that matters on a ratchet strap is the working load limit (WLL), not the breaking strength printed in giant type on the package. Your tie-downs' combined WLL should meet or exceed the weight of what you're hauling, the strap should pull against the load at a useful angle, and any strap with cut edges, fraying, or sun-bleached fibers belongs in the trash — not on your axle shafts doing 75 on the interstate.
+  </p>
+
+  <div class="guide-body">
+
+    <h2>Why this matters</h2>
+    <p>If you wrench on a 4x4, you haul things: axles, transfer cases, a parts engine on a furniture dolly, a transmission strapped to a harbor-freight trailer, fuel cans and recovery gear in the bed. Every one of those loads becomes a projectile in a hard stop if it isn't secured, and a 200-lb axle coming through the back of a cab — or off the back of a trailer into traffic — is a worst-day scenario. Load securement is also a legal obligation in most states, and an unsecured-load citation is the cheap version of what can go wrong.</p>
+
+    <p>Ratchet straps are rated, engineered equipment, and they're sold right next to bungee cords as if they're interchangeable. They're not. Knowing how the ratings work, how to rig a strap so the geometry works in your favor, and when to retire one is the difference between gear that holds and gear that lets go.</p>
+
+    <div class="callout">
+      <strong>Key point:</strong> Working load limit is typically one-third of a strap's breaking strength. A strap marked "3,300 lb break strength" is rated to hold 1,100 lb in service — and the combined WLL of all your straps is what has to cover the load, with margin.
+    </div>
+
+    <h2>Reading the ratings</h2>
+    <p>Every legitimate ratchet strap carries a label or stamp with two numbers:</p>
+    <ul>
+      <li><strong>Breaking strength (or "assembly strength")</strong> — the load at which the weakest component of the assembly fails in a lab. This is the marketing number. You never operate anywhere near it.</li>
+      <li><strong>Working load limit (WLL)</strong> — the rated capacity in normal service, almost always one-third of breaking strength. This is the design margin that absorbs road shock, bumps, and the dynamic loads a moving vehicle puts into the strap. The WLL is the only number you plan around.</li>
+    </ul>
+    <p>The assembly is only as strong as its weakest part. A heavy 2" webbing strap with thin wire hooks is rated by the hooks, not the webbing. If a strap has no WLL label at all, treat it as unrated — fine for keeping a tarp from flapping, not for securing a load.</p>
+    <p>As a working rule, add up the WLL of every strap on the load and make sure the total meets or exceeds the load's full weight. Commercial securement rules (FMCSA) allow aggregate WLL of half the cargo weight because the rules also mandate friction, blocking, and minimum strap counts — for DIY hauling without that supporting structure, covering the full weight is the standard worth holding yourself to. Straps are cheap. Use more than you think you need.</p>
+
+    <h2>Rigging it right</h2>
+    <p>A correctly rated strap rigged badly still drops the load. The geometry matters as much as the rating:</p>
+    <ul>
+      <li><strong>Thread the mandrel correctly.</strong> Open the ratchet, feed the webbing through the slot in the rotating spool from underneath, pull the slack through by hand, then ratchet. The webbing should wrap the spool at least two full turns when tight — fewer and it can slip; a spool packed full of webbing can jam and won't reach full tension.</li>
+      <li><strong>Pull the slack out by hand first.</strong> The ratchet is for tensioning, not for reeling in three feet of loose strap.</li>
+      <li><strong>Tension firmly, then stop.</strong> Tight enough that the load can't shift and the strap doesn't deflect much under a hard hand-press. Cranking until the handle needs your full body weight crushes cargo, overloads the hardware, and makes release dangerous.</li>
+      <li><strong>Angles count.</strong> A strap pulling straight down mostly adds friction; a strap at roughly 45° resists both vertical and horizontal movement. Oppose straps in pairs so the load is held against itself — front pair pulling rearward, rear pair pulling forward.</li>
+      <li><strong>Hook to structure.</strong> Frame rails, rated D-rings, stake pockets, factory bed anchors. Never plastic trim, bumper covers, or anything that flexes when you pull on it.</li>
+      <li><strong>Protect the webbing from edges.</strong> Webbing loses a major fraction of its strength over a sharp corner. Use edge protectors, a rag, or a section of old garden hose anywhere the strap crosses sheet metal, a bracket, or a cut edge.</li>
+      <li><strong>Put a half twist in long exposed runs.</strong> A flat strap in airflow flutters violently at highway speed, which abrades the webbing and walks tension out of the ratchet. A single half twist kills the flutter.</li>
+      <li><strong>Secure the tail.</strong> Roll the loose end and tie or rubber-band it off. A flapping tail frays itself, whips paint, and can unwind into a wheel.</li>
+      <li><strong>Stop and re-check.</strong> Loads settle and webbing seats during the first miles. Check tension a few minutes into the drive, and again at fuel stops on a long haul.</li>
+    </ul>
+
+    <h2>Inspection — when a strap is done</h2>
+    <p>Webbing is polyester. It's strong, but it doesn't announce fatigue the way a rusty chain does. Run the strap through your hands before each use and retire it without debate when you find:</p>
+    <ul>
+      <li><strong>Cuts, nicks, or snags</strong> in the webbing edges — edge damage propagates under load</li>
+      <li><strong>Fraying or fuzzy abrasion</strong> heavy enough to obscure the weave</li>
+      <li><strong>UV fading and stiffness</strong> — chalky, bleached, board-stiff webbing has lost real strength even if it looks intact</li>
+      <li><strong>Burns, melted spots, or chemical staining</strong> — battery acid and brake clean both attack webbing</li>
+      <li><strong>Knots</strong> — a knot can cut webbing strength roughly in half, and the strap that "needed" a knot was damaged already</li>
+      <li><strong>Bent, cracked, or gouged hooks</strong> and ratchets that won't hold a pawl or release smoothly</li>
+    </ul>
+    <p>A worn strap has no second career securing loads. Cut it up so nobody fishes it back out of the scrap pile, and store the good ones rolled, dry, and out of the sun — UV exposure on a dashboard or open truck bed ages webbing faster than use does.</p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Planning around breaking strength instead of WLL</strong> — that erases the entire safety margin the rating system exists to provide.</li>
+      <li><strong>One strap on a heavy load</strong> — a single point of failure with no backup. Two opposed straps is the floor for anything with real mass.</li>
+      <li><strong>Hooking into sheet metal or plastic</strong> — the anchor fails long before the strap does.</li>
+      <li><strong>Running webbing over a sharp edge bare</strong> — the most common cause of straps that "broke for no reason."</li>
+      <li><strong>Over-cranking the ratchet</strong> — crushed cargo, stressed hardware, and a release that snaps open under stored tension.</li>
+      <li><strong>Using bungee cords for cargo</strong> — bungees position things; they do not secure them. There's no rating on a bungee for a reason.</li>
+    </ul>
+
+    <div class="callout warn">
+      <strong>A ratchet strap is never a recovery strap.</strong> Pulling a stuck vehicle loads gear far beyond any tie-down's rating, and polyester webbing has none of the controlled stretch a kinetic rope uses to do the work. When a ratchet strap assembly fails under a snatch load, the hooks come back like shrapnel. Recovery gear — kinetic rope, soft shackles, rated tree savers — is its own category with its own ratings. Keep the two piles separate in your rig.
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
+  <a href="/channels/">Recommended Channels</a> &nbsp;·&nbsp;
+  <a href="/">Trail Manual</a>
+</footer>
+
+</body>
+</html>
