@@ -10,6 +10,10 @@
     gtag('js', new Date());
 
     gtag('config', 'G-639VVRC92N');
+    document.addEventListener('click', function(ev){
+      var a = ev.target && ev.target.closest ? ev.target.closest('a[href*="tag=trailmanual0b-20"]') : null;
+      if (a) gtag('event', 'affiliate_click', {link_url: a.href, page_path: location.pathname + location.hash});
+    }, true);
   </script>
 
 <meta charset="utf-8">
@@ -378,7 +382,10 @@
 
   @media(max-width:560px){.vp-grid{grid-template-columns:1fr 1fr}}
 
-  </style>
+  
+.tm-affiliate-note{border:1px solid var(--line,#2a3038);border-left:3px solid var(--accent,#C97E50);border-radius:8px;background:var(--surface,rgba(255,255,255,.03));color:var(--text-dim,#9aa3ad);font-size:13px;line-height:1.6;padding:10px 14px;margin:0 0 12px}
+.tm-affiliate-note a{color:var(--accent,#C97E50)}
+</style>
 </head>
 <body>
 
@@ -1471,13 +1478,18 @@
     }
     if ((e.parts||[]).length) {
       const sec = el('div', {class:'detail-section'}, el('h3',{},'Parts & vendors'));
+      if ((e.parts||[]).some(p => ((p.url||p.amazon_url||'')).indexOf('tag=trailmanual0b-20') !== -1)) {
+        sec.appendChild(el('div', {class:'tm-affiliate-note'},
+          'Some part links below are affiliate links (Amazon Associates). Buying through one may earn us a commission at no extra cost to you — it never changes what we recommend. ',
+          el('a', {href:'/terms/#affiliate'}, 'How we handle this')));
+      }
       const tbl = el('table', {class:'parts-table'});
       tbl.appendChild(el('thead',{}, el('tr',{},
         el('th',{},'Part'), el('th',{},'P/N'), el('th',{},'Vendor'), el('th',{style:'text-align:right'},'Est. price')
       )));
       const tb = el('tbody');
       e.parts.forEach(p => tb.appendChild(el('tr',{},
-        el('td',{}, p.url ? el('a',{href:p.url,target:'_blank',rel:'noopener'}, p.name||'') : (p.name||'')),
+        el('td',{}, (p.url||p.amazon_url) ? el('a',{href:(p.url||p.amazon_url),target:'_blank',rel:((p.url||p.amazon_url).indexOf('tag=trailmanual0b-20')!==-1?'sponsored noopener':'noopener')}, p.name||'') : (p.name||'')),
         el('td',{style:'color:var(--text-mute);font-size:12px'}, p.part_number||''),
         el('td',{}, p.vendor||''),
         el('td',{style:'text-align:right;color:var(--accent);font-weight:600'}, p.price_estimate_usd ? '$'+Number(p.price_estimate_usd).toLocaleString() : '—')
