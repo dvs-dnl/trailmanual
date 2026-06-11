@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/db/otd-pricing-calculator.html">
+<title>Out-the-Door Price Calculator — Trail Manual</title>
+<meta name="description" content="Estimate the real out-the-door cost of a used 4x4 by state. Sales/use tax, title, registration, VLT/VLF, and doc fees for AZ, CA, TX, FL, and NV — plus the buyer-protection rules that actually matter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:900px;
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+[data-theme="dark"]{
+  --bg:#141A22; --bg-2:#1A2330; --bg-3:#222C3A;
+  --panel:#1A2330; --panel-2:#222C3A; --border:#2C3848;
+  --text:#E6E9EE; --text-dim:#A8B2C0; --text-mute:#7A8595;
+  --shadow:0 4px 24px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+button{font:inherit;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
+.topbar-inner{max-width:var(--max);margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:inherit}
+.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}
+.brand-text{font-size:15px;letter-spacing:-.2px}
+.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;letter-spacing:.3px;text-transform:uppercase}
+.breadcrumb{display:flex;align-items:center;gap:6px;margin-left:auto;font-size:13px;color:var(--text-mute);flex-wrap:wrap}
+.breadcrumb a{color:var(--text-dim)}
+.breadcrumb .sep{color:var(--text-mute)}
+.tm-theme-btn{background:transparent;border:1px solid var(--border);color:var(--text-dim);padding:8px 10px;border-radius:var(--radius);cursor:pointer;display:inline-flex;align-items:center;transition:color .15s,border-color .15s;margin-left:8px;flex-shrink:0}
+.tm-theme-btn:hover{color:var(--text);border-color:var(--accent)}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-sun{display:inline-block}
+[data-theme="dark"] .tm-theme-icon-moon{display:none}
+main{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+.hero h1{font-size:30px;line-height:1.15;margin:0 0 10px;letter-spacing:-.5px}
+.hero .lede{font-size:16px;color:var(--text-dim);max-width:62ch;margin:0 0 8px}
+.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:600;margin-bottom:8px}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;margin:22px 0;box-shadow:var(--shadow)}
+.card h2{font-size:18px;margin:0 0 4px}
+.card .sub{font-size:13px;color:var(--text-dim);margin:0 0 16px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:600;color:var(--text-dim);margin:0 0 6px}
+input,select{width:100%;padding:10px 12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font:inherit;font-size:15px}
+input:focus,select:focus{outline:none;border-color:var(--accent)}
+.field{margin-bottom:14px}
+.hint{font-size:12px;color:var(--text-mute);margin-top:4px}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{flex:1;min-width:120px;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);color:var(--text-dim);font-weight:600;font-size:14px}
+.seg button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.result-total{font-size:34px;font-weight:700;font-family:var(--font-mono);color:var(--text);letter-spacing:-1px}
+.result-sub{font-size:13px;color:var(--text-dim);margin-top:2px}
+table.breakdown{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
+table.breakdown td{padding:9px 0;border-bottom:1px solid var(--border)}
+table.breakdown td:last-child{text-align:right;font-family:var(--font-mono);white-space:nowrap}
+table.breakdown tr.subtotal td{font-weight:700;border-bottom:2px solid var(--text-dim)}
+table.breakdown tr.muted td{color:var(--text-mute)}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:6px;vertical-align:middle}
+.tag.free{background:var(--good-bg);color:var(--good);border:1px solid var(--good-border)}
+.tag.tax{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn-border)}
+.note{border-left:3px solid var(--info);background:var(--info-bg);padding:12px 14px;border-radius:0 var(--radius) var(--radius) 0;margin:12px 0;font-size:14px}
+.note.warn{border-left-color:var(--warn);background:var(--warn-bg)}
+.note.good{border-left-color:var(--good);background:var(--good-bg)}
+.note strong{color:var(--text)}
+.notes-list{list-style:none;padding:0;margin:0}
+.notes-list li{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--text-dim)}
+.notes-list li:last-child{border-bottom:none}
+.notes-list li strong{color:var(--text)}
+.foot{font-size:12px;color:var(--text-mute);margin-top:18px;line-height:1.6}
+.statebar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.statebar button{padding:8px 16px;background:var(--bg);border:1px solid var(--border);border-radius:999px;color:var(--text-dim);font-weight:600;font-size:14px}
+.statebar button.on{background:var(--slate);border-color:var(--slate);color:#fff}
+[data-theme="dark"] .statebar button.on{background:var(--clay);border-color:var(--clay)}
+.soon{opacity:.5;cursor:not-allowed}
+footer{border-top:1px solid var(--border);margin-top:40px}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:28px 20px;font-size:13px;color:var(--text-mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <div class="topbar-inner">
+    <a href="https://trailmanual.com" class="brand">
+      <div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div>
+        <div class="brand-text">Trail Manual</div>
+        <div class="brand-sub">Out-the-Door Calculator</div>
+      </div>
+    </a>
+    <div class="breadcrumb"><a href="/db/">Database</a><span class="sep">/</span><span>OTD Price</span></div>
+    <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme">
+      <svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+      <svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<main>
+  <div class="hero">
+    <div class="eyebrow">Used 4x4 Buyer Tools</div>
+    <h1>What it actually costs to drive it home</h1>
+    <p class="lede">The sticker price is never the price. Tax, title, registration, and the state's own vehicle levy stack on top — and they vary by where you register, not where you buy. Enter the numbers and see the real out-the-door total for your state.</p>
+  </div>
+
+  <div class="card">
+    <div class="statebar" id="statebar"></div>
+    <p class="sub" id="state-sub"></p>
+
+    <div class="grid2">
+      <div class="field">
+        <label for="price">Purchase price</label>
+        <input type="number" id="price" inputmode="numeric" placeholder="e.g. 14500" value="14500">
+        <div class="hint">What you and the seller agreed on.</div>
+      </div>
+      <div class="field">
+        <label for="seller">Buying from</label>
+        <div class="seg" id="seller-seg">
+          <button data-seller="dealer" class="on">Dealer</button>
+          <button data-seller="private">Private party</button>
+        </div>
+        <div class="hint">This changes the tax math in some states.</div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="field">
+        <label for="msrp">Original MSRP (base, when new)</label>
+        <input type="number" id="msrp" inputmode="numeric" placeholder="e.g. 33000" value="33000">
+        <div class="hint" id="msrp-hint">Used for the state's value-based registration levy. Estimate is fine.</div>
+      </div>
+      <div class="field">
+        <label for="year">Model year</label>
+        <input type="number" id="year" inputmode="numeric" placeholder="e.g. 2014" value="2014">
+        <div class="hint">Older vehicles owe less on the value-based levy.</div>
+      </div>
+    </div>
+
+    <div class="field" id="localrate-field">
+      <label for="localrate">Combined local tax rate (%)</label>
+      <input type="number" id="localrate" inputmode="decimal" step="0.01" placeholder="e.g. 8.6">
+      <div class="hint" id="localrate-hint"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:10px">
+      <div>
+        <h2 style="margin:0">Out-the-door total</h2>
+        <div class="result-sub" id="result-context"></div>
+      </div>
+      <div style="text-align:right">
+        <div class="result-total" id="otd-total">$0</div>
+        <div class="result-sub" id="over-sticker"></div>
+      </div>
+    </div>
+    <table class="breakdown" id="breakdown"></table>
+    <div id="state-notes"></div>
+    <div class="foot" id="disclaimer"></div>
+  </div>
+
+  <div class="card">
+    <h2>Before you sign — <span id="protect-state"></span> buyer protections</h2>
+    <p class="sub">The rules that decide whether you can walk away after the deal. Read these before, not after.</p>
+    <ul class="notes-list" id="protections"></ul>
+  </div>
+
+  <p class="foot">Estimates only. Rates and fees change; confirm with your state's DMV/MVD and revenue department before budgeting a purchase. Trail Manual takes no cut of any sale and links no paid products on this page.</p>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span>Trail Manual — built by people who wrench, for people who wrench.</span>
+    <span><a href="/db/">Database</a> · <a href="/workshop/">Workshop</a> · <a href="/about/">About</a></span>
+  </div>
+</footer>
+
+<script>
+// ─── STATE TAX/FEE MODELS ──────────────────────────────────────────────────
+// Each state defines fixed fees, a registration model, and the tax treatment
+// of dealer vs private-party sales. Numbers reflect 2026 published rates.
+
+function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+
+// California Transportation Improvement Fee brackets (by vehicle value)
+function caTIF(value){
+  if(value < 5000) return 32;
+  if(value < 25000) return 65;
+  if(value < 35000) return 129;
+  if(value < 60000) return 193;
+  return 227;
+}
+
+var STATES = {
+  AZ: {
+    name: "Arizona",
+    abbr: "AZ",
+    sub: "Home state. Phoenix-area buyers, this is your default — adjust the local rate for your city.",
+    defaultLocalRate: 8.6,
+    localRateHint: "AZ state TPT is 5.6%. Maricopa County + Phoenix push the combined rate to about 8.6%. Look up your city/county for the exact figure.",
+    // Returns array of {label, amount, free, tax, note}
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      // Sales tax (TPT) — dealer only. AZ charges NO tax on in-state private sales.
+      var salesTax = 0;
+      if(p.seller === 'dealer'){
+        salesTax = price * (p.localRate/100);
+        rows.push({label:"Transaction Privilege Tax (sales tax) @ "+p.localRate.toFixed(2)+"%", amount:salesTax, tax:true});
+      } else {
+        rows.push({label:"Sales tax — private-party sale", amount:0, free:true,
+          note:"Arizona is one of the few states that charges no sales tax on a private-party in-state used sale. You keep that money."});
+      }
+      // Vehicle License Tax (VLT) — annual, value-based
+      var assessed = p.msrp * 0.60;
+      var yearsOld = Math.max(0, p.curYear - p.year);
+      var depreciated = assessed * Math.pow((1 - 0.1625), yearsOld);
+      var vlt = (depreciated / 100) * 2.89; // used-vehicle rate $2.89 per $100
+      rows.push({label:"Vehicle License Tax (VLT, annual)", amount:vlt, tax:true,
+        note:"60% of original MSRP, minus 16.25% for each year registered, taxed at $2.89 per $100. This recurs every year and shrinks as the rig ages."});
+      // Fixed fees
+      rows.push({label:"Title fee", amount:4});
+      rows.push({label:"Registration fee", amount:8});
+      rows.push({label:"Air Quality Research fee", amount:1.50});
+      return {rows: rows, taxTotal: salesTax + vlt};
+    },
+    notes: [
+      {kind:"good", html:"<strong>Private party = no sales tax.</strong> On a $14,500 truck bought from an individual in Arizona, that's roughly $1,200 you don't pay. It's the single biggest reason to buy private here."},
+      {kind:"info", html:"<strong>The VLT is the part people forget.</strong> It's an annual levy, not a one-time fee, and it's based on original MSRP — so a loaded trim costs more to register every year than a base one, even years later."},
+      {kind:"info", html:"<strong>Out-of-state purchase?</strong> If you buy in another state but register in AZ, you owe Arizona use tax (the 5.6% state portion, credited for tax already paid elsewhere) plus VLT and fees."}
+    ],
+    protections: [
+      {head:"No cooling-off period", body:"Arizona has no general right to cancel a vehicle purchase. Once you sign, it's yours. There is no 3-day return on cars — that rule is for door-to-door sales, not dealerships."},
+      {head:"\"As-is\" is real here", body:"Used cars sold as-is carry no implied warranty. If the dealer didn't put a promise in writing, you have little recourse for problems found after the sale. Inspect — or pay a shop to inspect — before you buy."},
+      {head:"Lemon law is narrow", body:"Arizona's used-car lemon law covers only major defects in the first 15 days or 500 miles, and only from a licensed dealer. Private sales aren't covered at all."},
+      {head:"Title in hand", body:"For a private sale, never hand over money without a signed title and a matching ID. AZ lets you verify a title's status through ServiceArizona before you pay."}
+    ]
+  },
+
+  CA: {
+    name: "California",
+    abbr: "CA",
+    sub: "California taxes private-party sales too — and the tax follows your home county, not the seller's.",
+    defaultLocalRate: 8.75,
+    localRateHint: "CA state rate is 7.25%. District taxes push most counties to 8–10.75%. Use tax on a private sale is based on YOUR county of residence, not where the car is.",
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      // Sales/use tax — applies to BOTH dealer and private party in CA
+      var salesTax = price * (p.localRate/100);
+      if(p.seller === 'dealer'){
+        rows.push({label:"Sales tax @ "+p.localRate.toFixed(2)+"%", amount:salesTax, tax:true});
+      } else {
+        rows.push({label:"Use tax @ "+p.localRate.toFixed(2)+"% (your home county)", amount:salesTax, tax:true,
+          note:"Unlike Arizona, California collects use tax on private-party sales when you register. There's no private-party loophole here."});
+      }
+      // Registration stack
+      rows.push({label:"Base registration fee", amount:74});
+      rows.push({label:"CHP fee", amount:29});
+      // VLF — 0.65% of vehicle value (use purchase price as the depreciated-value proxy)
+      var vlf = price * 0.0065;
+      rows.push({label:"Vehicle License Fee (VLF, annual) @ 0.65%", amount:vlf, tax:true,
+        note:"0.65% of the vehicle's depreciated value, recalculated each year. It falls as the rig ages."});
+      // Transportation Improvement Fee — by value
+      var tif = caTIF(price);
+      rows.push({label:"Transportation Improvement Fee", amount:tif,
+        note:"Flat fee tiered by vehicle value: $32 / $65 / $129 / $193 / $227."});
+      // County/district fee (estimate)
+      rows.push({label:"County / district fee (est.)", amount:27});
+      // Title transfer
+      rows.push({label:"Title transfer fee", amount:15});
+      // Dealer doc fee cap
+      if(p.seller === 'dealer'){
+        rows.push({label:"Dealer doc fee (max)", amount:85,
+          note:"California caps the dealer document-processing fee at $85 ($85 for BPA-program dealers). Anything above that is not legal."});
+      }
+      return {rows: rows, taxTotal: salesTax + vlf};
+    },
+    notes: [
+      {kind:"warn", html:"<strong>No private-party tax break.</strong> California collects use tax on private sales at registration — based on your county, not the seller's. Budget for it the same as a dealer sale."},
+      {kind:"info", html:"<strong>The doc fee is capped at $85.</strong> Dealers can't pad it. If a contract shows a larger 'document' or 'processing' charge, push back or walk."},
+      {kind:"info", html:"<strong>Smog matters.</strong> For most used cars the seller must provide a valid smog certificate (within 90 days) before transfer. No smog cert can stall your registration and cost you a repair bill."}
+    ],
+    protections: [
+      {head:"2-day cancellation option (under $40k)", body:"On a used car under $40,000, a California dealer must OFFER you a 2-day contract-cancellation option before you sign. It's a paid add-on (roughly $75 to 1% of price), and a restocking fee may apply — but it's the only built-in way to return the car for any reason."},
+      {head:"\"As-is\" can't erase the implied warranty", body:"Under the Song-Beverly Act, a California dealer cannot use an 'as-is' sale to fully waive the implied warranty of merchantability. Any waiver must spell out who pays for repairs. This is stronger than Arizona's as-is rule."},
+      {head:"CARS Act 3-day return — Oct 1, 2026", body:"A new federal/state right gives buyers a 3-day return on certain used vehicles starting October 1, 2026. If you're buying near that date, ask the dealer in writing how they're handling it."},
+      {head:"\"Certified\" means something", body:"A car can't be advertised as 'certified' if it has frame damage or was sold as-is. Treat a certified label as a claim you can hold the dealer to."}
+    ]
+  },
+
+  TX: {
+    name: "Texas",
+    abbr: "TX",
+    sub: "Texas charges one flat 6.25% motor-vehicle tax statewide — no city or county add-on — and it taxes private-party sales too.",
+    defaultLocalRate: 6.25,
+    localRateHint: "Texas motor-vehicle tax is a flat 6.25% everywhere in the state. Unlike normal Texas sales tax, cities and counties can't add to it — leave this at 6.25 unless you have a specific reason not to.",
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      var salesTax = price * (p.localRate/100);
+      if(p.seller === 'dealer'){
+        rows.push({label:"Motor-vehicle sales tax @ "+p.localRate.toFixed(2)+"%", amount:salesTax, tax:true});
+      } else {
+        rows.push({label:"Motor-vehicle tax @ "+p.localRate.toFixed(2)+"% (price or 80% of SPV, whichever is higher)", amount:salesTax, tax:true,
+          note:"Texas taxes private-party sales. The county collects 6.25% on your purchase price OR 80% of the state's Standard Presumptive Value (SPV) for that vehicle — whichever is higher. Paid well under SPV? You're taxed on 80% of SPV unless a certified appraisal backs your number. Look up the SPV at txdmv.gov before you negotiate."});
+      }
+      rows.push({label:"Title application fee", amount:33,
+        note:"$33 in emissions counties (DFW, Houston, Austin, El Paso area), $28 elsewhere."});
+      rows.push({label:"Registration (base)", amount:50.75});
+      rows.push({label:"State fees (inspection replacement, processing, insurance)", amount:13.25,
+        note:"$7.50 inspection-program replacement + $4.75 processing + $1.00 insurance verification. The $7.50 replaced the old safety-inspection fee when Texas dropped non-commercial safety inspections in 2025."});
+      rows.push({label:"Local county fee (est.)", amount:15,
+        note:"Counties add $10–$21.50. Urban counties like Travis and Bexar sit at the top of that range."});
+      if(p.seller === 'dealer'){
+        rows.push({label:"Dealer documentary fee (max)", amount:225,
+          note:"Texas presumes a documentary fee of $225 or less is reasonable (raised from $150 in July 2024). A dealer charging more must file a cost justification with the state — so anything over $225 is your cue to push."});
+      }
+      return {rows: rows, taxTotal: salesTax};
+    },
+    notes: [
+      {kind:"info", html:"<strong>One flat rate, no local add-on.</strong> Texas charges 6.25% on vehicles statewide — the city and county taxes that inflate normal Texas purchases don't apply to cars. What you see is what you owe."},
+      {kind:"warn", html:"<strong>Private sales are taxed on SPV, not just your price.</strong> Buy a $6,000 truck the state values higher and you'll owe 6.25% on 80% of its Standard Presumptive Value, not your $6,000 — unless a certified appraisal backs your number. Check the SPV before you talk price."},
+      {kind:"good", html:"<strong>No annual value tax.</strong> Unlike Arizona's VLT or California's VLF, Texas levies no yearly tax on what your rig is worth. Registration is a flat fee that doesn't punish you for buying a nicer trim."}
+    ],
+    protections: [
+      {head:"No cooling-off period", body:"Texas gives you no right to cancel a vehicle purchase after you sign. The 3-day return rule people remember is for door-to-door sales, not car lots. Once it's signed, the car is yours."},
+      {head:"\"As-is\" is binding", body:"A used car sold as-is in Texas carries no implied warranty. If the dealer didn't put a promise in writing, repairs found after the sale are on you. Inspect first, or pay a shop to."},
+      {head:"Lemon law is warranty-gated", body:"The Texas Lemon Law (Occupations Code Ch. 2301) covers a used vehicle only if it's still under the original manufacturer's warranty when the defect is first reported. Out of factory warranty means out of luck under the lemon law."},
+      {head:"The DTPA still has teeth", body:"The Texas Deceptive Trade Practices Act lets you go after a seller who lied — undisclosed frame damage, a rolled-back odometer, a hidden salvage or flood title, or a flat claim that 'it has no problems.' Fraud claims survive an as-is sale."}
+    ]
+  },
+
+  FL: {
+    name: "Florida",
+    abbr: "FL",
+    sub: "Florida taxes private sales too, caps the county surtax at the first $5,000 — and charges first-time registrants a $225 fee most calculators forget.",
+    defaultLocalRate: 1.0,
+    localRateHint: "Florida's state rate on vehicles is 6%. Counties add a discretionary surtax of 0–1.5%, but it applies only to the first $5,000 of the price. Enter your county's surtax here — not a combined rate.",
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      var stateTax = price * 0.06;
+      var surtax = Math.min(price, 5000) * (p.localRate/100);
+      var salesTax = stateTax + surtax;
+      if(p.seller === 'dealer'){
+        rows.push({label:"Sales tax @ 6% state", amount:stateTax, tax:true});
+      } else {
+        rows.push({label:"Use tax @ 6% state (private sale)", amount:stateTax, tax:true,
+          note:"Florida collects the tax at the county tax collector's office when you transfer the title — private sales get no exemption here."});
+      }
+      rows.push({label:"County surtax @ "+p.localRate.toFixed(2)+"% (first $5,000 only)", amount:surtax, tax:true,
+        note:"The discretionary county surtax stops at the first $5,000 of the price. Above that, your marginal rate is a flat 6% no matter the county."});
+      rows.push({label:"Title transfer fee", amount:75.25,
+        note:"Electronic title. Add $2.50 if you want a printed paper title mailed to you."});
+      rows.push({label:"Initial registration fee", amount:225,
+        note:"Florida's one-time 'new wheels on the road' fee (s. 320.072). It applies when you register without transferring an existing Florida plate. Transferring a plate you already have? Subtract this line."});
+      rows.push({label:"Registration (annual, weight-based)", amount:45.60,
+        note:"Rate for vehicles 3,500 lbs and up — where most 4x4s land. Lighter vehicles pay $27.60 (under 2,500 lbs) or $35.60 (2,500–3,499 lbs)."});
+      rows.push({label:"New metal plate", amount:28});
+      if(p.seller === 'dealer'){
+        rows.push({label:"Dealer doc fee (typical)", amount:899,
+          note:"Florida sets no cap, and $799–$1,099 'dealer' or 'pre-delivery service' fees are routine — among the highest in the country. The catch that works for you: Florida law requires the fee to be included in the advertised price. A fee stacked on top of the advertised number is a violation worth raising."});
+      }
+      return {rows: rows, taxTotal: salesTax};
+    },
+    notes: [
+      {kind:"warn", html:"<strong>The $225 first-tag fee is the gotcha.</strong> Registering a vehicle without an existing Florida plate to transfer costs a one-time $225 on top of everything else. Moving a plate from your old rig skips it entirely — bring the old registration."},
+      {kind:"info", html:"<strong>The county surtax stops at $5,000.</strong> On a $20,000 truck in a 1% county you pay 6% on all of it but the surtax on only the first $5,000 — an effective rate near 6.25%, not 7%. Florida is cheaper on tax than the combined rate makes it look."},
+      {kind:"warn", html:"<strong>Doc fees here are the highest in the country.</strong> No cap, and $799–$1,099 is routine. Florida law requires the fee to be inside the advertised price — if it appears on top of the number that got you in the door, push back or walk."},
+      {kind:"good", html:"<strong>No annual value tax, no inspections.</strong> Unlike Arizona's VLT or California's VLF, Florida charges a flat weight-based registration each year, and there's no safety or emissions inspection to pass."}
+    ],
+    protections: [
+      {head:"No cooling-off period", body:"Florida gives you no right to cancel a vehicle purchase after you sign. The 3-day rule people remember is for door-to-door sales, not car lots. Signed means sold."},
+      {head:"Lemon law is new-cars-only", body:"Florida's Motor Vehicle Warranty Enforcement Act covers new vehicles for 24 months from delivery — and it does not extend to used vehicles at all, even from a franchised dealer. A used purchase here has zero lemon-law coverage."},
+      {head:"\"As-is\" is binding", body:"A used vehicle sold as-is on the FTC Buyers Guide carries no implied warranty in Florida. Any promise that isn't in writing doesn't exist. Inspect first — or pay a shop to."},
+      {head:"Flood cars are the Florida problem", body:"Hurricanes push flood vehicles into the used market every year, and not all of them carry branded titles. Check the VIN against NICB's free flood database and the title at FLHSMV, and look for silt under seats, musty carpet, and corroded connectors. FDUTPA — Florida's deceptive-practices act — reaches sellers who hide flood damage, washed titles, or rolled-back odometers."}
+    ]
+  },
+
+  NV: {
+    name: "Nevada",
+    abbr: "NV",
+    sub: "Nevada skips sales tax on private-party sales entirely — but its annual Governmental Services Tax is MSRP-based, like Arizona's VLT.",
+    defaultLocalRate: 8.375,
+    localRateHint: "Nevada's statewide floor is 6.85%. Clark County (Las Vegas) runs 8.375%, Washoe (Reno) 8.265%. Enter your county's combined rate — most rural counties sit at or near 6.85%.",
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      var salesTax = 0;
+      if(p.seller === 'dealer'){
+        salesTax = price * (p.localRate/100);
+        rows.push({label:"Sales tax @ "+p.localRate.toFixed(2)+"%", amount:salesTax, tax:true,
+          note:"Paid to the dealer on the actual purchase price. Buying from an out-of-state dealer? The DMV collects Nevada's tax at registration, with credit for tax already paid elsewhere."});
+      } else {
+        rows.push({label:"Sales tax — private-party sale", amount:0, free:true,
+          note:"Private-party, family, and gift transfers are not subject to Nevada sales tax. Like Arizona, this is the single biggest reason to buy private here."});
+      }
+      // Governmental Services Tax — annual, based on 35% of original MSRP
+      var yearsOld = Math.max(0, p.curYear - p.year);
+      var factor = yearsOld === 0 ? 1 : Math.max(0.15, 0.95 - 0.10*(yearsOld-1));
+      var depreciated = p.msrp * 0.35 * factor;
+      var gst = Math.max(16, depreciated * 0.04);
+      rows.push({label:"Governmental Services Tax (annual)", amount:gst, tax:true,
+        note:"35% of original MSRP, depreciated 5% after the first year and 10% per year after, down to a 15% floor — then taxed at 4 cents per $1 ($16 minimum). This recurs every year and shrinks as the rig ages."});
+      var sgst = depreciated * 0.01;
+      rows.push({label:"Supplemental GST (Clark & Churchill only)", amount:sgst, tax:true,
+        note:"An extra 1 cent per $1 of the same depreciated valuation — voter-approved highway money in Clark and Churchill counties. Registering anywhere else, subtract this line."});
+      rows.push({label:"Title fee", amount:28.25});
+      rows.push({label:"Registration fee", amount:33,
+        note:"$33 for passenger vehicles. Trucks registered at 6,000+ lbs declared gross weight pay $38–$48."});
+      rows.push({label:"License plates (standard)", amount:8});
+      if(p.seller === 'dealer'){
+        rows.push({label:"Dealer doc fee (typical)", amount:499,
+          note:"Nevada sets no cap on the doc fee. The state average is about $440 — it's a negotiable line, so make the dealer defend anything past $500."});
+      }
+      return {rows: rows, taxTotal: salesTax + gst + sgst};
+    },
+    notes: [
+      {kind:"good", html:"<strong>Private party = no sales tax.</strong> On a $15,000 truck bought from an individual, that's roughly $1,250 you don't pay in Clark County. Nevada and Arizona are the two states in this tool with the private-party break."},
+      {kind:"info", html:"<strong>The GST is the part people forget.</strong> Nevada's Governmental Services Tax recurs every year and is based on original MSRP — a loaded trim costs more to register annually than a base one, years after anyone paid sticker. Clark and Churchill counties add a supplemental 1&cent;/$1 on top."},
+      {kind:"warn", html:"<strong>Smog check before the DMV will register it.</strong> Clark (Las Vegas) and Washoe (Reno) counties require an annual emissions test on 1968-and-newer gas vehicles — about $20–40 plus a $6 certificate. Buying used in either metro, make the seller's passing test part of the deal. New vehicles are exempt for their first three registrations; rural counties skip it entirely."},
+      {kind:"info", html:"<strong>No cap on the doc fee.</strong> The Nevada average is about $440. Sales tax and DMV fees are fixed by law — the doc fee is the one line on the worksheet you can negotiate."}
+    ],
+    protections: [
+      {head:"No cooling-off period", body:"Nevada gives you no right to cancel a vehicle purchase after you sign. The 3-day rule people remember is for door-to-door sales, not car lots. Signed means sold."},
+      {head:"Lemon law is effectively new-cars-only", body:"Nevada's lemon law (NRS 597.600–.680) covers defects reported within the manufacturer's warranty period or one year after original delivery — whichever ends first. A used rig qualifies only in the narrow case where it's under a year old and still in factory warranty."},
+      {head:"\"As-is\" is binding", body:"A used vehicle sold as-is on the FTC Buyers Guide carries no implied warranty in Nevada. If the promise isn't in writing, it doesn't exist. Inspect first — or pay a shop to."},
+      {head:"The DTPA still has teeth", body:"Nevada's Deceptive Trade Practices Act (NRS 598) reaches sellers who lie — odometer rollbacks, washed salvage titles, undisclosed flood damage. Fraud claims survive an as-is sale. And check desert-specific wear: sun-cracked dashes and bushings are cosmetic; a heat-cycled transmission is not."}
+    ]
+  }
+};
+
+// ─── APP STATE ──────────────────────────────────────────────────────────────
+var ui = {
+  state: 'AZ',
+  seller: 'dealer',
+  localRate: null
+};
+
+function buildStateBar(){
+  var bar = document.getElementById('statebar');
+  var live = ['AZ','CA','TX','FL','NV'];
+  var soon = ['CO','NM'];
+  var html = '';
+  live.forEach(function(s){
+    html += '<button data-state="'+s+'" class="'+(ui.state===s?'on':'')+'">'+STATES[s].name+'</button>';
+  });
+  soon.forEach(function(s){
+    html += '<button class="soon" disabled title="Coming soon">'+s+' · soon</button>';
+  });
+  bar.innerHTML = html;
+  bar.querySelectorAll('button[data-state]').forEach(function(b){
+    b.addEventListener('click', function(){
+      ui.state = b.getAttribute('data-state');
+      ui.localRate = null; // reset to state default
+      buildStateBar();
+      syncStateUI();
+      calc();
+    });
+  });
+}
+
+function syncStateUI(){
+  var st = STATES[ui.state];
+  document.getElementById('state-sub').textContent = st.sub;
+  document.getElementById('localrate-hint').textContent = st.localRateHint;
+  document.getElementById('protect-state').textContent = st.name;
+  var rateInput = document.getElementById('localrate');
+  if(ui.localRate === null){
+    rateInput.value = st.defaultLocalRate;
+  }
+}
+
+function readInputs(){
+  var st = STATES[ui.state];
+  var rateVal = parseFloat(document.getElementById('localrate').value);
+  return {
+    price: Math.max(0, parseFloat(document.getElementById('price').value) || 0),
+    msrp: Math.max(0, parseFloat(document.getElementById('msrp').value) || 0),
+    year: parseInt(document.getElementById('year').value) || 2014,
+    curYear: 2026,
+    seller: ui.seller,
+    localRate: isNaN(rateVal) ? st.defaultLocalRate : rateVal
+  };
+}
+
+function calc(){
+  var st = STATES[ui.state];
+  var p = readInputs();
+  var res = st.compute(p);
+
+  // breakdown table
+  var rows = '';
+  rows += '<tr class="subtotal"><td>Purchase price</td><td>'+money(p.price)+'</td></tr>';
+  var addOns = 0;
+  res.rows.forEach(function(r){
+    addOns += r.amount;
+    var tag = r.free ? '<span class="tag free">no tax</span>' : (r.tax ? '<span class="tag tax">tax/levy</span>' : '');
+    var noteHtml = r.note ? '<div class="hint" style="margin-top:2px">'+r.note+'</div>' : '';
+    var amt = r.free ? '<span style="color:var(--good)">$0</span>' : money(r.amount);
+    rows += '<tr'+(r.free?' class="muted"':'')+'><td>'+r.label+tag+noteHtml+'</td><td>'+amt+'</td></tr>';
+  });
+  var total = p.price + addOns;
+  rows += '<tr class="subtotal"><td>Out-the-door total</td><td>'+money(total)+'</td></tr>';
+  document.getElementById('breakdown').innerHTML = rows;
+
+  document.getElementById('otd-total').textContent = money(total);
+  var over = total - p.price;
+  document.getElementById('over-sticker').textContent = '+' + money(over) + ' over sticker';
+  document.getElementById('result-context').textContent =
+    STATES[ui.state].name + ' · ' + (p.seller==='dealer'?'dealer':'private-party') + ' sale · registering in 2026';
+
+  // state notes
+  var notesHtml = '';
+  st.notes.forEach(function(n){
+    notesHtml += '<div class="note '+(n.kind==='info'?'':n.kind)+'">'+n.html+'</div>';
+  });
+  document.getElementById('state-notes').innerHTML = notesHtml;
+
+  // protections
+  var protHtml = '';
+  st.protections.forEach(function(pr){
+    protHtml += '<li><strong>'+pr.head+'</strong><br>'+pr.body+'</li>';
+  });
+  document.getElementById('protections').innerHTML = protHtml;
+
+  var levyTxt = ui.state==='AZ' ? 'Annual levies (VLT) are shown for year one and recur.'
+    : (ui.state==='CA' ? 'Annual levies (VLF + TIF) are shown for year one and recur.'
+    : (ui.state==='TX' ? 'Texas has no annual value-based vehicle tax — registration is a flat yearly fee.'
+    : (ui.state==='FL' ? 'Florida has no annual value-based vehicle tax — registration renews at a flat weight-based fee.'
+    : 'Annual levies (Governmental Services Tax + any supplemental) are shown for year one and recur.')));
+  document.getElementById('disclaimer').textContent =
+    levyTxt + ' Fixed DMV/MVD fees are one-time. Tax rate is editable above.';
+}
+
+// ─── WIRING ─────────────────────────────────────────────────────────────────
+document.getElementById('seller-seg').addEventListener('click', function(e){
+  var b = e.target.closest('button[data-seller]');
+  if(!b) return;
+  ui.seller = b.getAttribute('data-seller');
+  this.querySelectorAll('button').forEach(function(x){ x.classList.remove('on'); });
+  b.classList.add('on');
+  calc();
+});
+
+['price','msrp','year','localrate'].forEach(function(id){
+  document.getElementById(id).addEventListener('input', function(){
+    if(id==='localrate') ui.localRate = parseFloat(this.value);
+    calc();
+  });
+});
+
+buildStateBar();
+syncStateUI();
+calc();
+</script>
+<script>
+(function(){
+  var btn=document.getElementById('tm-theme-btn');
+  if(!btn)return;
+  btn.addEventListener('click',function(){
+    var current=document.documentElement.getAttribute('data-theme')==='dark'?'dark':'light';
+    var next=current==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('tm-theme',next);}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
