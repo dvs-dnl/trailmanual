@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="canonical" href="https://trailmanual.com/db/otd-pricing-calculator.html">
 <title>Out-the-Door Price Calculator — Trail Manual</title>
-<meta name="description" content="Estimate the real out-the-door cost of a used 4x4 by state. Sales/use tax, title, registration, VLT/VLF, and doc fees for AZ, CA, TX, FL, and NV — plus the buyer-protection rules that actually matter.">
+<meta name="description" content="Estimate the real out-the-door cost of a used 4x4 by state. Sales/use tax, title, registration, VLT/VLF, and doc fees for AZ, CA, TX, FL, NV, CO, and NM — plus the buyer-protection rules that actually matter.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -461,6 +461,106 @@ var STATES = {
       {head:"\"As-is\" is binding", body:"A used vehicle sold as-is on the FTC Buyers Guide carries no implied warranty in Nevada. If the promise isn't in writing, it doesn't exist. Inspect first — or pay a shop to."},
       {head:"The DTPA still has teeth", body:"Nevada's Deceptive Trade Practices Act (NRS 598) reaches sellers who lie — odometer rollbacks, washed salvage titles, undisclosed flood damage. Fraud claims survive an as-is sale. And check desert-specific wear: sun-cracked dashes and bushings are cosmetic; a heat-cycled transmission is not."}
     ]
+  },
+  CO: {
+    name: "Colorado",
+    abbr: "CO",
+    sub: "Colorado taxes private-party sales too, stacks state + county + city + district rates that swing wildly by your home address, and bills an annual Specific Ownership Tax tied to original MSRP.",
+    defaultLocalRate: 8.20,
+    localRateHint: "Colorado's state rate is 2.9%, but your county, city, and special districts stack on top — and the total is set by where YOU live, not where you buy. Denver lands near 8.81% on vehicles, Colorado Springs near 8.20%, unincorporated rural counties closer to 4–5%. Look up your exact rate on the Colorado DOR Sales Tax Rate Locator and enter the combined number.",
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      // Colorado taxes both dealer and private-party sales; the tax follows the buyer's home-address jurisdictions.
+      var salesTax = price * (p.localRate/100);
+      if(p.seller === 'dealer'){
+        rows.push({label:"Sales/use tax @ "+p.localRate.toFixed(2)+"%", amount:salesTax, tax:true,
+          note:"State 2.9% plus your home county, city, and special-district rates. The dealer collects state and state-administered local tax at the sale; any home-rule city tax you owe is settled when you title at the county."});
+      } else {
+        rows.push({label:"Use tax @ "+p.localRate.toFixed(2)+"%", amount:salesTax, tax:true,
+          note:"Colorado has no private-party exemption. The county collects state + local use tax on your purchase price when you title the vehicle — figured on where you live, not where the seller lives."});
+      }
+      // Specific Ownership Tax — annual, taxable value = 85% of original MSRP (Class C passenger/SUV), stepped down by age.
+      var yearsOld = Math.max(0, p.curYear - p.year);
+      var taxable = p.msrp * 0.85;
+      var sotRate;
+      if(yearsOld <= 0) sotRate = 0.021;
+      else if(yearsOld === 1) sotRate = 0.015;
+      else if(yearsOld === 2) sotRate = 0.012;
+      else if(yearsOld === 3) sotRate = 0.009;
+      else if(yearsOld <= 8) sotRate = 0.0045;
+      else sotRate = 0;
+      var sot = yearsOld >= 9 ? 3 : Math.max(3, taxable * sotRate);
+      rows.push({label:"Specific Ownership Tax (annual)", amount:sot, tax:true,
+        note:"Colorado's yearly value tax. Taxable base is 85% of original MSRP for a passenger SUV (75% for pickups under 16,000 lbs), taxed at 2.1% in year one and stepping down — 1.5%, 1.2%, 0.9%, then 0.45% in years five through nine — to a flat $3 from year ten on. Like Arizona's VLT, it tracks MSRP, so a loaded trim costs more to register every year regardless of what you paid."});
+      rows.push({label:"Title fee", amount:7.20});
+      rows.push({label:"Registration & license fee (est.)", amount:55,
+        note:"A bundle: base license fee by weight plus the Road Safety ($16–23) and Bridge Safety ($13–32) surcharges and small clerk fees. A passenger SUV or light truck lands roughly $50–90 a year; heavier rigs pay more."});
+      rows.push({label:"Plate & program fees", amount:25,
+        note:"Plate issuance plus small statewide program fees. Front Range counties also require a passing emissions test (see below) before the registration tab is issued."});
+      if(p.seller === 'dealer'){
+        rows.push({label:"Dealer doc fee (typical)", amount:599,
+          note:"Colorado sets NO statutory cap on the dealer documentation/handling fee — $400–$700 is common and some go higher. It's a negotiable line, so make the dealer defend anything past $600 and compare across lots before you commit."});
+      }
+      return {rows: rows, taxTotal: salesTax + sot};
+    },
+    notes: [
+      {kind:"warn", html:"<strong>Your address sets the tax, not the lot.</strong> Colorado stacks state (2.9%), county, city, and special-district rates, and the total is based on where you register — buy in a low-tax unincorporated county, live in Denver, and you still owe Denver's rate. Pin your exact combined rate on the Colorado DOR Sales Tax Rate Locator before you sign."},
+      {kind:"info", html:"<strong>The Specific Ownership Tax recurs every year.</strong> It's tied to original MSRP, not your purchase price — so a high-trim rig costs more to register annually for the rest of its life, even bought cheap used. It starts at 2.1% of 85% of MSRP and drops to a flat $3 once the vehicle is ten years old."},
+      {kind:"warn", html:"<strong>Front Range emissions test.</strong> The Denver–Boulder–Fort Collins–Colorado Springs AIR program requires an emissions test on gas vehicles roughly seven-plus model years old before you can register. Budget about $25 and make a current passing certificate part of any used deal in those counties. Newer vehicles and mountain/rural counties are exempt."},
+      {kind:"good", html:"<strong>No annual sales-tax surprise after year one.</strong> Once the use tax is paid at titling, the recurring cost is the Specific Ownership Tax and registration — both shrink as the rig ages. Just know the doc fee has no cap here, so it's the line to push on at the dealer."}
+    ],
+    protections: [
+      {head:"No cooling-off period", body:"Colorado gives you no right to cancel a vehicle purchase after you sign. The 3-day rule people remember is for door-to-door sales, not car lots. Signed means sold."},
+      {head:"Lemon law is new-cars-only", body:"Colorado's lemon law (C.R.S. §42-10-101) covers new vehicles within the first year and the manufacturer's warranty period — it does not extend to used vehicles. A used purchase here carries no lemon-law buyback right."},
+      {head:"\"As-is\" is binding", body:"A used vehicle sold as-is on the FTC Buyers Guide carries no implied warranty in Colorado. If the promise isn't in writing, it doesn't exist. Inspect first — or pay a shop to."},
+      {head:"The Consumer Protection Act still has teeth", body:"The Colorado Consumer Protection Act (C.R.S. §6-1-101) reaches sellers who deceive — odometer rollbacks, washed salvage or hail titles, undisclosed frame damage. Fraud claims survive an as-is sale. And check altitude-specific wear: a turbo or transmission that ran hard in the mountains carries heat history a flatland test drive won't show."}
+    ]
+  },
+  NM: {
+    name: "New Mexico",
+    abbr: "NM",
+    sub: "New Mexico swaps sales tax for a flat 4% Motor Vehicle Excise Tax — one time, statewide, and it hits private-party sales the same as dealer sales. No annual value tax after that.",
+    defaultLocalRate: 4.0,
+    localRateHint: "New Mexico charges a flat 4% Motor Vehicle Excise Tax (MVET) on the purchase price, statewide. Cities and counties can't add to it, so leave this at 4.0 unless you're applying a trade-in credit, which lowers the taxable price.",
+    compute: function(p){
+      var rows = [];
+      var price = p.price;
+      // MVET — one-time excise tax in lieu of sales tax; applies to dealer AND private party.
+      var mvet = price * (p.localRate/100);
+      if(p.seller === 'dealer'){
+        rows.push({label:"Motor Vehicle Excise Tax @ "+p.localRate.toFixed(2)+"%", amount:mvet, tax:true,
+          note:"New Mexico's MVET stands in for sales tax — 4% of the price you pay, less any trade-in credit. It's a one-time charge collected when you title, not a recurring levy."});
+      } else {
+        rows.push({label:"Motor Vehicle Excise Tax @ "+p.localRate.toFixed(2)+"% (private sale)", amount:mvet, tax:true,
+          note:"No private-party break here — New Mexico charges the same 4% MVET whether you buy from a dealer or an individual. Title within 90 days or the state adds a 50% penalty, effectively turning 4% into 6%."});
+      }
+      // Registration — weight + model-year based, NOT value based.
+      var yearsOld = Math.max(0, p.curYear - p.year);
+      var regBase = 48; // mid-range passenger/light-truck one-year fee
+      var reg = yearsOld >= 5 ? regBase * 0.80 : regBase;
+      rows.push({label:"Registration fee (1 yr, est.)", amount:reg,
+        note:"New Mexico sets registration by vehicle weight and model year, not value — roughly $27 to $62 a year for a passenger SUV or light truck. Rigs five model years or older pay about 80% of the standard rate. A two-year tab runs about double. Unlike Arizona or Colorado, there's no annual value-based tax stacked on top."});
+      rows.push({label:"Title fee", amount:5});
+      rows.push({label:"MVD administrative fee", amount:2});
+      rows.push({label:"Tire recycling fee", amount:1.50});
+      if(p.seller === 'dealer'){
+        rows.push({label:"Dealer doc fee (typical)", amount:339,
+          note:"New Mexico sets no statutory cap on the dealer documentation fee — $200 to $400 is typical and some go higher. It's a negotiable line, so make the dealer defend anything past $350."});
+      }
+      return {rows: rows, taxTotal: mvet};
+    },
+    notes: [
+      {kind:"good", html:"<strong>No annual value tax.</strong> Once the 4% MVET is paid at titling, your recurring cost is just a weight-and-age registration fee — roughly $27 to $62 a year, dropping about 20% once the rig turns five. New Mexico doesn't bill an MSRP-based yearly levy the way Arizona (VLT) and Colorado (Specific Ownership Tax) do, so an older 4x4 stays cheap to keep registered."},
+      {kind:"info", html:"<strong>The 4% is flat and statewide.</strong> Unlike normal gross-receipts tax, the MVET has no city or county add-on — it's 4% of your price everywhere in New Mexico. A trade-in lowers the taxable amount, so enter your net price after trade if you have one."},
+      {kind:"warn", html:"<strong>Title within 90 days.</strong> Miss the 90-day window to apply for title and New Mexico adds a 50% penalty to the MVET — turning a 4% bill into 6%. On a $14,000 truck that's an extra $280 for paperwork you could have filed on time."}
+    ],
+    protections: [
+      {head:"No cooling-off period", body:"New Mexico gives you no right to cancel a vehicle purchase once you sign. The 3-day rule people remember applies to door-to-door sales, not car lots. Signed is sold — inspect before you commit."},
+      {head:"Lemon law is new-cars-only", body:"New Mexico's Motor Vehicle Quality Assurance Act (NMSA Sec. 57-16A) covers new vehicles within the first year or the manufacturer's warranty period. It does not extend to used vehicles — a used purchase here carries no lemon-law buyback right."},
+      {head:"\"As-is\" is binding", body:"A used vehicle sold as-is on the FTC Buyers Guide carries no implied warranty in New Mexico. If a promise isn't in writing, it doesn't exist. Pay a shop to inspect before money changes hands."},
+      {head:"The Unfair Practices Act still has teeth", body:"New Mexico's Unfair Practices Act (NMSA Sec. 57-12) reaches sellers who deceive — odometer rollbacks, washed salvage titles, undisclosed flood or frame damage. Fraud claims survive an as-is sale. And check desert-specific wear: a sun-baked dash is cosmetic, but a heat-cycled transmission or cracked suspension bushings are not."}
+    ]
   }
 };
 
@@ -473,8 +573,8 @@ var ui = {
 
 function buildStateBar(){
   var bar = document.getElementById('statebar');
-  var live = ['AZ','CA','TX','FL','NV'];
-  var soon = ['CO','NM'];
+  var live = ['AZ','CA','TX','FL','NV','CO','NM'];
+  var soon = [];
   var html = '';
   live.forEach(function(s){
     html += '<button data-state="'+s+'" class="'+(ui.state===s?'on':'')+'">'+STATES[s].name+'</button>';
