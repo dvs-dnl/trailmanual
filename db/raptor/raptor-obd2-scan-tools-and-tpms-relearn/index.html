@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- tm:generated db_static_build -->
+<meta charset="utf-8">
+<title>Raptor Diagnostics: OBD2 Scanners, TPMS Relearn, and What FORScan Can&#x27;t Do — Ford F-150 Raptor | Trail Manual</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Two tools cover most of what a Raptor owner needs: a bidirectional OBD2 scanner to read and clear codes and run active tests, and a TPMS tool to…">
+<link rel="canonical" href="https://trailmanual.com/db/raptor/raptor-obd2-scan-tools-and-tpms-relearn/">
+<meta property="og:title" content="Raptor Diagnostics: OBD2 Scanners, TPMS Relearn, and What FORScan Can&#x27;t Do — Ford F-150 Raptor">
+<meta property="og:description" content="Two tools cover most of what a Raptor owner needs: a bidirectional OBD2 scanner to read and clear codes and run active tests, and a TPMS tool to…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trailmanual.com/db/raptor/raptor-obd2-scan-tools-and-tpms-relearn/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="stylesheet" href="/_shared.css">
+<script>
+(function(){try{var s=localStorage.getItem('tm-theme');
+if(s==='dark')document.documentElement.setAttribute('data-theme','dark');
+else if(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)
+document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-639VVRC92N');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.tm-aff');
+if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname});});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Raptor Diagnostics: OBD2 Scanners, TPMS Relearn, and What FORScan Can't Do",
+  "description": "Two tools cover most of what a Raptor owner needs: a bidirectional OBD2 scanner to read and clear codes and run active tests, and a TPMS tool to\u2026",
+  "author": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "mainEntityOfPage": "https://trailmanual.com/db/raptor/raptor-obd2-scan-tools-and-tpms-relearn/",
+  "about": "Ford F-150 Raptor"
+}
+</script>
+<style>
+.tm-guide{max-width:760px;margin:0 auto;padding:24px 20px 64px}
+.tm-bc{font-size:13px;color:var(--text-dim);margin:8px 0 4px}
+.tm-bc a{color:var(--text-dim)}
+.tm-guide h1{font-size:30px;line-height:1.2;margin:8px 0 12px}
+.tm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.tm-chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
+.tm-lead{font-size:18px;line-height:1.55;font-weight:500;margin:0 0 20px}
+.tm-guide h2{font-size:20px;margin:28px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+.tm-guide p,.tm-guide li{line-height:1.65}
+.tm-guide ul{padding-left:20px}
+.tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
+.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="tm-guide">
+  <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/raptor/">Ford F-150 Raptor</a></nav>
+  <h1>Raptor Diagnostics: OBD2 Scanners, TPMS Relearn, and What FORScan Can&#x27;t Do</h1>
+  <div class="tm-chips"><span class="tm-chip">Difficulty 2/5</span><span class="tm-chip">0.25–1.0 hrs</span><span class="tm-chip">$30–250</span><span class="tm-chip">2010-2014, 2017-2020, 2021-present</span></div>
+  <p class="tm-lead">Two tools cover most of what a Raptor owner needs: a bidirectional OBD2 scanner to read and clear codes and run active tests, and a TPMS tool to relearn sensors after you swap between street and trail wheels. FORScan with a proper OBD adapter is the power-user option for Ford-specific module access, but it isn&#x27;t a substitute for a TPMS activation tool, and it can&#x27;t repair hardware. Buy the scanner that matches how deep you actually go.</p>
+<p>The Raptor throws the same diagnostic puzzles as any modern truck, plus a few specific to running multiple wheel sets and a turbo engine that owners like to monitor. Knowing which tool does what saves money and frustration. The deep Ford-module tool, FORScan, gets its own treatment in [FORScan for Raptor](/db/?v=raptor); this guide covers the broader toolkit and where each piece fits.</p>
+<p>A scanner reads diagnostic trouble codes (DTCs), shows live sensor data, and — if it&#x27;s bidirectional — commands active tests like cycling the ABS pump or the cooling fan. The tiers:</p>
+<ul><li>**Budget Bluetooth ELM327 dongle ($20–$30)** paired with a phone app: reads and clears generic codes, shows basic live data. Fine for a check-engine light you want to understand before deciding what to do. Limited on Ford-specific codes.</li><li>**Mid-range bidirectional scanner ($120–$250)** from Autel, Foxwell, or Topdon: reads manufacturer-specific codes, runs active tests, displays freeze-frame data. This is the practical sweet spot for a DIY Raptor owner.</li><li>**FORScan with a quality adapter (OBDLink EX or MX+, ~$60 plus free software):** Ford-specific module access, the ability to read enhanced codes, and — for the experienced — program certain module settings. Powerful, but it&#x27;s a software tool, not a hardware fix.</li></ul>
+<p>If you run a separate set of trail wheels (beadlocks, for instance) and street wheels, each set has its own TPMS sensors, and the truck needs to relearn the new sensor IDs when you swap. Without a relearn, you get a persistent TPMS warning and no real pressure data — exactly when you most want it, on the trail after airing down. A TPMS activation/relearn tool reads each sensor and writes the IDs to the truck. This is also covered from the pressure side in [Raptor Air-Down and TPMS](/db/?v=raptor); the tool is what makes a two-wheelset setup livable.</p>
+<p>Some model years allow a relearn procedure through the dash menu or a drive-cycle; others require the tool. Know which your truck needs before you&#x27;re standing at the trailhead with a blinking warning.</p>
+<p>For most owners: one mid-range bidirectional scanner and, if you run multiple wheel sets, one TPMS tool. FORScan needs a compatible adapter — the cheap ELM327 dongles are unreliable for it, so budget for an OBDLink EX (USB) or MX+ (Bluetooth) if you want to run FORScan properly.</p>
+<p>The biggest mistake is clearing codes to make a light go away without diagnosing the cause — on an EcoBoost, a cleared misfire or boost-related code hides a problem that&#x27;s still there and may be doing damage under load. Read freeze-frame data and fix the root cause. The second is trying to run FORScan on a bargain ELM327 dongle; they drop connection mid-operation, and a dropped connection during module programming can leave a module in a bad state. The third is assuming any scanner does TPMS relearn — most don&#x27;t; that&#x27;s a separate tool.</p>
+<p>A budget Bluetooth dongle is $20–$30. A capable mid-range bidirectional scanner runs $120–$250. A proper FORScan adapter is $40–$70 (the software is free). A TPMS relearn tool is $60–$120. For a Raptor owner who runs two wheel sets and likes to monitor the truck, a mid-range scanner plus a TPMS tool — roughly $250 total — covers nearly everything short of dealer-level programming.</p>
+<h2>Why it works</h2>
+<ul><li>A bidirectional scanner pays for itself the first time it saves a diagnostic shop visit</li><li>A TPMS tool makes running separate trail and street wheels practical</li><li>FORScan unlocks Ford-specific data and settings for free, beyond generic scanners</li></ul>
+<h2>Trade-offs</h2>
+<ul><li>FORScan needs a quality adapter and the knowledge to use it safely — it can misconfigure modules</li><li>No single tool does everything; scanning and TPMS relearn are usually separate purchases</li><li>Clearing codes is not fixing problems, and it&#x27;s a common trap to fall into</li></ul>
+<h2>Tools required</h2>
+<ul><li>OBD2 scanner</li><li>TPMS relearn tool</li><li>OBD-to-USB/Bluetooth adapter</li></ul>
+<h2>Parts</h2>
+
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Bidirectional OBD2 scanner (Ford-capable)</td><td>Autel / Foxwell / Topdon</td><td>~$180</td></tr><tr><td>FORScan OBD adapter (OBDLink EX/MX+)</td><td>OBDLink</td><td>~$60</td></tr><tr><td>TPMS relearn / activation tool</td><td>Autel TS / Ford</td><td>~$90</td></tr><tr><td>Budget Bluetooth ELM327 dongle</td><td>aftermarket</td><td>~$25</td></tr></tbody></table>
+<h2>Sources</h2>
+<ul><li>{&#x27;title&#x27;: &#x27;FORScan Ford module programming reference&#x27;, &#x27;url&#x27;: &#x27;https://forscan.org&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Ford TPMS sensor relearn procedure&#x27;, &#x27;url&#x27;: &#x27;https://www.fordservicecontent.com&#x27;}</li></ul>
+<h2>Related</h2>
+<ul><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+  <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
+  <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+</div>
+</body>
+</html>
