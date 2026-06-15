@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- tm:generated db_static_build -->
+<meta charset="utf-8">
+<title>Battery and Charging on the Raptor — BMS Quirks, AGM Replacement, and Powering Accessories Without Surprises — Ford F-150 Raptor | Trail Manual</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Replace a Raptor battery with the same AGM spec the truck came with, and tell the truck you did it — Ford&#x27;s Battery Monitoring System needs a BMS reset…">
+<link rel="canonical" href="https://trailmanual.com/db/raptor/raptor-battery-and-charging/">
+<meta property="og:title" content="Battery and Charging on the Raptor — BMS Quirks, AGM Replacement, and Powering Accessories Without Surprises — Ford F-150 Raptor">
+<meta property="og:description" content="Replace a Raptor battery with the same AGM spec the truck came with, and tell the truck you did it — Ford&#x27;s Battery Monitoring System needs a BMS reset…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trailmanual.com/db/raptor/raptor-battery-and-charging/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="stylesheet" href="/_shared.css">
+<script>
+(function(){try{var s=localStorage.getItem('tm-theme');
+if(s==='dark')document.documentElement.setAttribute('data-theme','dark');
+else if(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)
+document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-639VVRC92N');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.tm-aff');
+if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname});});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Battery and Charging on the Raptor \u2014 BMS Quirks, AGM Replacement, and Powering Accessories Without Surprises",
+  "description": "Replace a Raptor battery with the same AGM spec the truck came with, and tell the truck you did it \u2014 Ford's Battery Monitoring System needs a BMS reset\u2026",
+  "author": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "mainEntityOfPage": "https://trailmanual.com/db/raptor/raptor-battery-and-charging/",
+  "about": "Ford F-150 Raptor"
+}
+</script>
+<style>
+.tm-guide{max-width:760px;margin:0 auto;padding:24px 20px 64px}
+.tm-bc{font-size:13px;color:var(--text-dim);margin:8px 0 4px}
+.tm-bc a{color:var(--text-dim)}
+.tm-guide h1{font-size:30px;line-height:1.2;margin:8px 0 12px}
+.tm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.tm-chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
+.tm-lead{font-size:18px;line-height:1.55;font-weight:500;margin:0 0 20px}
+.tm-guide h2{font-size:20px;margin:28px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+.tm-guide p,.tm-guide li{line-height:1.65}
+.tm-guide ul{padding-left:20px}
+.tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
+.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="tm-guide">
+  <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/raptor/">Ford F-150 Raptor</a></nav>
+  <h1>Battery and Charging on the Raptor — BMS Quirks, AGM Replacement, and Powering Accessories Without Surprises</h1>
+  <div class="tm-chips"><span class="tm-chip">Difficulty 2/5</span><span class="tm-chip">0.5–2.0 hrs</span><span class="tm-chip">$220–700</span><span class="tm-chip">2010-2014, 2017-2020, 2021-present</span></div>
+  <p class="tm-lead">Replace a Raptor battery with the same AGM spec the truck came with, and tell the truck you did it — Ford&#x27;s Battery Monitoring System needs a BMS reset after replacement or it will charge the new battery on the old battery&#x27;s profile and shorten its life. Desert heat is the other half of the story: Phoenix-grade summers cut battery life to 3–4 years no matter what you buy.</p>
+<p>The Raptor&#x27;s electrical system is smarter than the battery in it, and that&#x27;s the source of nearly every battery complaint on these trucks. The Battery Monitoring System (BMS) tracks the battery&#x27;s age and state of charge and deliberately varies alternator output — including periods of *not* charging at 100% — to save fuel and extend battery life.</p>
+<p>When you install a new battery, the BMS keeps assuming the old, aged battery is still there. It charges conservatively on a worn profile, the new battery chronically undercharges, and an AGM that lives undercharged sulfates early. The fix takes five minutes and most shops skip it.</p>
+<p>Reset options: FORScan with a cheap OBDLink adapter has a battery-replacement service function (the route most Raptor owners should already have for other reasons — see the FORScan guide); a dealer or any shop with a capable scan tool can do it; and on many model years a manual dance exists (key cycles and rear-defrost presses) that&#x27;s documented per-year — verify the sequence for your truck rather than trusting a generic forum post. After any battery swap, confirm the reset happened. That single step is the difference between a 5-year battery and a 2.5-year battery.</p>
+<p>Gen 2/3 trucks with auto start-stop shipped with an AGM (group H7/65-series depending on year). Replace AGM with AGM — a flooded battery costs $100 less and the BMS charge strategy will quietly murder it, and it can&#x27;t handle start-stop cycling regardless. Disable-start-stop tricks don&#x27;t change the charging architecture.</p>
+<p>In Phoenix heat, battery chemistry runs its clock at double speed. Heat, not cold, is what kills batteries — cold just reveals the death. Expect 3–4 years from any battery here, test annually after year two (any parts store will load-test free), and replace proactively before a desert season rather than discovering the failure 60 miles up a wash. A battery that cranks noticeably slower on a 110°F afternoon is telling you something; believe it.</p>
+<p>The Odyssey Extreme upgrade ($400) buys deeper cycling reserve and vibration tolerance — worth it for trucks running winches or camp loads, unnecessary for a stock daily.</p>
+<p>The Raptor gives you cleaner options than the battery-clamp rat&#x27;s nest most trucks accumulate:</p>
+<ul><li>**Upfitter switches (Gen 2/3):** factory-wired, fused, ignition-logical circuits rated up to 25–40A depending on position. Use these first for lights, compressors, and radios — it&#x27;s what they&#x27;re for, and the dedicated guide covers the wiring.</li><li>**High-draw gear (winch, onboard air):** direct to battery with proper gauge cable and a circuit breaker or fuse within 18 inches of the battery post. The winch guide covers sizing.</li><li>**Camp power (fridges, inverters):** this is where people flatten starting batteries. The BMS makes parasitic-draw behavior less predictable than older trucks — a fridge that &quot;always worked overnight&quot; on your last truck may trip low-voltage warnings here. For regular camp loads, a second battery or power station charged by a DC-DC charger (REDARC BCDC-class, ~$350) isolates house loads from starting duty and respects the BMS&#x27;s variable-voltage charging, which a simple isolator solenoid does not. On a smart-alternator truck, the DC-DC charger isn&#x27;t optional gold-plating; it&#x27;s how the aux battery actually gets charged.</li></ul>
+<p>A failing battery on a BMS truck announces itself with electrical gremlins before it fails to crank: start-stop stops working (often the first sign), &quot;system off to save battery&quot; messages, flickering displays, or random warning lights on startup. Chasing those as module problems wastes money that a $25 load test would have saved. Battery first, always, on any weird-electrical complaint.</p>
+<p>Motorcraft AGM ~$260, Odyssey upgrade ~$400, BMS reset free with FORScan you should own anyway. A dual-battery camp setup adds $700–$1,000 all-in. The cheap insurance: terminal brush, annual load test, and never letting a Phoenix battery see its fifth birthday.</p>
+<h2>Tools required</h2>
+<ul><li>10mm socket</li><li>battery terminal brush</li><li>multimeter</li><li>memory saver (optional)</li><li>FORScan or dealer tool for BMS reset</li></ul>
+<h2>Parts</h2>
+
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Motorcraft BAGM-65-850 AGM battery (Gen 2/3 spec)</td><td>Ford Motorcraft</td><td>~$260</td></tr><tr><td>Odyssey Extreme 65-PC1750T AGM</td><td>Odyssey Battery</td><td>~$400</td></tr><tr><td>REDARC BCDC1225D DC-DC charger (aux battery builds)</td><td>REDARC</td><td>~$350</td></tr></tbody></table>
+<h2>Sources</h2>
+<ul><li>{&#x27;title&#x27;: &#x27;Ford Battery Monitoring System — BMS reset after replacement&#x27;, &#x27;url&#x27;: &#x27;https://www.ford.com/support/how-tos/owner-manuals/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;FORScan BMS reset procedure&#x27;, &#x27;url&#x27;: &#x27;https://forscan.org&#x27;}</li></ul>
+<h2>Related</h2>
+<ul><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+  <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
+  <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+</div>
+</body>
+</html>
