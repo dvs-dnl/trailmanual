@@ -1253,18 +1253,32 @@
     ));
     app.appendChild(hero);
 
-    // --- death-wobble routing (only on solid front axles) ---
-    const SOLID_AXLE = {xj:1,jk:1,jl:1,tj:1,bronco:1,'full-size-bronco':1,gladiator:1,'power-wagon':1};
+    // --- steering-diagnostic routing by front-axle type ---
+    // Authoritative source: bronco6g-mockups/build_vehicles.py `axle_front`. Keep in sync.
+    const AXLE_FRONT = {
+      xj:'solid', jk:'solid', jl:'solid', tj:'solid', yj:'solid', zj:'solid', wj:'solid',
+      cj5:'solid', cj7:'solid', bronco:'solid', 'full-size-bronco':'solid',
+      gladiator:'solid', 'power-wagon':'solid',
+      'bronco-ii':'ttb',
+      wk:'ifs', '4runner':'ifs', tacoma:'ifs', raptor:'ifs', bronco6g:'ifs', pathfinder:'ifs',
+    };
     const DW_HREF = {
-      xj: '/xj-death-wobble-guide.html',
+      xj: '/db/death-wobble-guide.html',
       jk: '/db/jk-death-wobble-guide.html',
       tj: '/db/tj-yj-death-wobble-guide.html',
+      yj: '/db/tj-yj-death-wobble-guide.html',
+      zj: '/db/death-wobble-guide.html',
+      wj: '/db/death-wobble-guide.html',
+      cj5: '/db/death-wobble-guide.html',
+      cj7: '/db/death-wobble-guide.html',
       jl: '/db/death-wobble-guide.html',
       bronco: '/db/death-wobble-guide.html',
-      gladiator: '/db/death-wobble-guide.html',
-      'power-wagon': '/db/death-wobble-guide.html',
+      'full-size-bronco': '/db/death-wobble-guide.html',
+      gladiator: '/gladiator/death-wobble-guide.html',
+      'power-wagon': '/power-wagon/death-wobble-guide.html',
     };
-    const dwLive = !!SOLID_AXLE[vid];
+    const axleType = AXLE_FRONT[vid] || 'ifs';
+    const dwLive = axleType === 'solid';
     const dwHref = DW_HREF[vid] || '/db/death-wobble-guide.html';
 
     function makeTool(opts) {
@@ -1297,11 +1311,16 @@
       desc:'Every DIY procedure for this platform — ' + numCats + ' categories, filterable by part, system, or tier.',
       cta:'Browse', onclick:()=>go('#/'+vid+'/browse')
     });
-    canonical.push(dwLive
+    canonical.push(
+      axleType === 'solid'
       ? { title:'Death Wobble', tag:'Safety', tagClass:'safety',
           iconChar:'⚠', iconClass:'safety',
           desc:'Diagnose the cause in 8 questions. Track-bar, ball joints, balance — find it before it finds you.',
           cta:'Diagnose', href:dwHref }
+      : axleType === 'ttb'
+      ? { title:'TTB Steering Diagnostic', tag:'Coming soon', soon:true,
+          iconChar:'⚠', iconClass:'neutral',
+          desc:'The Twin Traction Beam can wobble like a solid axle. Track bar, tie rod ends, and wheel balance — same diagnosis, different geometry.' }
       : { title:'Steering Diagnostic', tag:'Coming soon', soon:true,
           iconChar:'⚠', iconClass:'neutral',
           desc:'IFS-front diagnostic for steering wander, vibration, and pull. Different physics, different fix.' }
