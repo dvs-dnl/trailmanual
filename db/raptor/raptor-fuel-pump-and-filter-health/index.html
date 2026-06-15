@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- tm:generated db_static_build -->
+<meta charset="utf-8">
+<title>Fuel Pump and Filter Health — Keeping the EcoBoost Fed in Heat and Dust — Ford F-150 Raptor | Trail Manual</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The EcoBoost Raptor runs a two-stage fuel system — a low-pressure in-tank pump feeding a camshaft-driven high-pressure pump that supplies the direct…">
+<link rel="canonical" href="https://trailmanual.com/db/raptor/raptor-fuel-pump-and-filter-health/">
+<meta property="og:title" content="Fuel Pump and Filter Health — Keeping the EcoBoost Fed in Heat and Dust — Ford F-150 Raptor">
+<meta property="og:description" content="The EcoBoost Raptor runs a two-stage fuel system — a low-pressure in-tank pump feeding a camshaft-driven high-pressure pump that supplies the direct…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trailmanual.com/db/raptor/raptor-fuel-pump-and-filter-health/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="stylesheet" href="/_shared.css">
+<script>
+(function(){try{var s=localStorage.getItem('tm-theme');
+if(s==='dark')document.documentElement.setAttribute('data-theme','dark');
+else if(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)
+document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-639VVRC92N');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.tm-aff');
+if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname});});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Fuel Pump and Filter Health \u2014 Keeping the EcoBoost Fed in Heat and Dust",
+  "description": "The EcoBoost Raptor runs a two-stage fuel system \u2014 a low-pressure in-tank pump feeding a camshaft-driven high-pressure pump that supplies the direct\u2026",
+  "author": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "mainEntityOfPage": "https://trailmanual.com/db/raptor/raptor-fuel-pump-and-filter-health/",
+  "about": "Ford F-150 Raptor"
+}
+</script>
+<style>
+.tm-guide{max-width:760px;margin:0 auto;padding:24px 20px 64px}
+.tm-bc{font-size:13px;color:var(--text-dim);margin:8px 0 4px}
+.tm-bc a{color:var(--text-dim)}
+.tm-guide h1{font-size:30px;line-height:1.2;margin:8px 0 12px}
+.tm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.tm-chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
+.tm-lead{font-size:18px;line-height:1.55;font-weight:500;margin:0 0 20px}
+.tm-guide h2{font-size:20px;margin:28px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+.tm-guide p,.tm-guide li{line-height:1.65}
+.tm-guide ul{padding-left:20px}
+.tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
+.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="tm-guide">
+  <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/raptor/">Ford F-150 Raptor</a></nav>
+  <h1>Fuel Pump and Filter Health — Keeping the EcoBoost Fed in Heat and Dust</h1>
+  <div class="tm-chips"><span class="tm-chip">Difficulty 3/5</span><span class="tm-chip">1.0–4.0 hrs</span><span class="tm-chip">$0–600</span><span class="tm-chip">2010-2014, 2017-2020, 2021-present</span></div>
+  <p class="tm-lead">The EcoBoost Raptor runs a two-stage fuel system — a low-pressure in-tank pump feeding a camshaft-driven high-pressure pump that supplies the direct injectors — and there&#x27;s no serviceable inline filter to change; the strainer lives on the in-tank pump module. So &quot;fuel maintenance&quot; here is mostly about fuel quality and knowing how to tell a real fuel-delivery fault from the cheaper things people mistake for one. Measure rail pressure under load before you condemn a pump.</p>
+<p>Modern direct-injection trucks moved the filter inside the tank and made the pump a sealed module, which means the old &quot;change the fuel filter every 30k&quot; routine doesn&#x27;t apply. What does apply: feed it clean, detergent-rich fuel, and learn to read the data so a misfire doesn&#x27;t turn into a guessed-at $280 part you didn&#x27;t need.</p>
+<p>There are two pumps. The low-pressure in-tank module (with the strainer/sock that&#x27;s the only &quot;filter&quot;) lifts fuel and feeds the engine bay at modest pressure. There, a mechanical high-pressure fuel pump (HPFP), driven off a camshaft lobe, steps pressure up to the very high levels direct injection needs and feeds the fuel rail. The ECU monitors both low-side and high-side pressure constantly, and that data is the key to diagnosis.</p>
+<p>This matters because symptoms differ. A failing in-tank pump tends to show up as a crank-no-start, stumble, or power loss when the tank is low or fuel is hot. An HPFP or its drive can throw rail-pressure codes and a hard misfire under boost. Knowing which side is starving narrows a $280 tank job versus a different repair entirely.</p>
+<p>Pull codes first with the [OBD2 scan tool](/db/?v=raptor) and watch live data: commanded versus actual rail pressure, and fuel-trim numbers. Healthy direct injection holds commanded rail pressure even under hard acceleration. If actual rail pressure sags well below commanded under load while the low side stays normal, you&#x27;re looking at the high-pressure side. If the low-side pressure itself drops — especially with a low or hot tank — the in-tank module is the suspect.</p>
+<p>Critically, a rough-running EcoBoost is far more often a coil, a worn spark plug (the [spark plug service](/db/?v=raptor) guide), or a boost leak from the [turbo and BOV](/db/?v=raptor) side than a fuel pump. Rule those out — they&#x27;re cheaper and more common — before condemning fuel delivery. Watching the data keeps you from buying a pump to fix an ignition problem.</p>
+<p>Run Top Tier gasoline. The detergent package in Top Tier fuel keeps the direct injectors and the intake side cleaner, and on a DI engine that can&#x27;t wash its intake valves with fuel, deposit control matters more than on older engines. The [octane and long-range tank](/db/?v=raptor) guide covers the 91-vs-87 question; for system health, the brand&#x27;s detergent rating matters as much as the octane number. An occasional bottle of a PEA-based cleaner (Techron, Gumout Regane) does no harm and can help injector spray pattern, though it&#x27;s not a substitute for consistent good fuel.</p>
+<p>If you run a long-range tank or auxiliary tank, keep the same filtration discipline — added plumbing is added places for debris and water to enter. Keep the tank reasonably full in dusty, hot desert running; a fuller tank keeps the in-tank pump cooler and submerged, which is how it&#x27;s designed to live.</p>
+<p>Diagnosis costs nothing beyond a scanner you should already own. Good fuel is the actual maintenance — a few cents a gallon over bottom-tier gas. If the in-tank module genuinely fails, the part is $200–$350 and it&#x27;s a tank-drop or bed-lift job (3–4 hours at home, or $500–$800 at a shop). The HPFP is less commonly the failure but more involved if it is. The honest takeaway: this category is mostly about feeding the engine well and measuring before you spend — the cheapest fuel &quot;repair&quot; is the pump you correctly decided not to buy.</p>
+<h2>Tools required</h2>
+<ul><li>OBD2 scanner with live fuel-pressure data</li><li>fuel-pressure test gauge (where ports exist)</li><li>basic hand tools</li><li>fender covers</li></ul>
+<h2>Parts</h2>
+<p class="tm-affiliate-note">Some parts links are Amazon affiliate links — if you buy through them Trail Manual may earn a small commission at no extra cost to you. We only list parts we’d run on our own rig, and never on safety-critical pages.</p>
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td><a href="https://www.amazon.com/s?k=motorcraft+fuel+pump+module+f150&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">In-tank fuel pump module (if failed — verify by part number)</a></td><td>Motorcraft / Delphi</td><td>~$280</td></tr><tr><td><a href="https://www.amazon.com/s?k=techron+fuel+system+cleaner&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Top-tier detergent fuel system cleaner (PEA-based)</a></td><td>Techron / Gumout Regane</td><td>~$12</td></tr><tr><td>Quality fuel (Top Tier rated)</td><td>Top Tier station</td><td>—</td></tr></tbody></table>
+<h2>Sources</h2>
+<ul><li>{&#x27;title&#x27;: &#x27;Ford F-150/Raptor workshop manual — fuel delivery, HPFP, and pressure specifications&#x27;, &#x27;url&#x27;: &#x27;https://www.motorcraftservice.com&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Top Tier Gasoline — detergent standard and participating retailers&#x27;, &#x27;url&#x27;: &#x27;https://www.toptiergas.com&#x27;}</li></ul>
+<h2>Related</h2>
+<ul><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+  <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
+  <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+</div>
+</body>
+</html>
