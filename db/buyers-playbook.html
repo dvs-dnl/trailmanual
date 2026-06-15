@@ -221,9 +221,96 @@ var PLAYBOOKS = {
     sources: "Known-issue and year-change detail cross-checked against NAXJA (naxja.org) tech archives, CherokeeForum.com, the Jeep Cherokee FSM, and long-run owner reports. Price ranges reflect 2026 listings across Facebook Marketplace, Bring a Trailer, and Cars & Bids."
   },
 
-  // ── Coming up: batch-1 finishes TJ + JK, then batch-2/3 add the rest. ──
-  tj: { status:"soon", label:"Wrangler TJ" },
-  jk: { status:"soon", label:"Wrangler JK" },
+  tj: {
+    status: "live",
+    label: "Wrangler TJ",
+    name: "Jeep Wrangler TJ",
+    years: "1997–2006",
+    focus: "The coil-sprung TJ is the do-everything Wrangler. The 2003+ cars with the NV3550/NSG370 and the LJ Unlimited are the ones worth chasing — and a real Rubicon is worth the premium.",
+    answer: "The TJ is the Wrangler that articulates like a trail rig and still drives home, thanks to the coil suspension that replaced the YJ's leaf springs. The 4.0L/automatic or AX-15 drivetrain is durable, parts are everywhere, and values have climbed hard since 2020. <strong>Buy on frame condition and a clean drivetrain, not on a fresh lift.</strong> The rear frame rails and the body tub rust where you can't see them, and a tired front end will death-wobble. Both are findable in twenty minutes if you know where to look.",
+    knownIssues: [
+      {sys:"Frame", sev:"critical", issue:"Rear frame rails rot above the rear control-arm and track-bar mounts, and behind the rear wheels", cost:"$0–$3,500+", note:"This is the TJ's structural weak point. Poke the frame above the rear lower control-arm mounts, around the gas-tank skid, and behind the rear tires. Flaking or perforated steel here is a safety and welding job, not a wash-and-wax. Worst in salt-belt cars."},
+      {sys:"Body tub", sev:"major", issue:"Floor pans, rear corners, and the seat-mount areas rust under the carpet and trim", cost:"$200–$1,500", note:"Pull a corner of the carpet and check the floors. Surface scale is normal; holes are not. Tub rust is fixable but adds up fast."},
+      {sys:"Engine (2000–06)", sev:"major", issue:"Cracked 0331-casting cylinder head — same casting as the late XJ", cost:"$1,500–$2,800", note:"The 4.0L in 2000–2006 cars used the crack-prone 0331 head. Watch for coolant loss, white exhaust, and overheating. A 7120 or aftermarket head is the permanent fix. Ask for receipts."},
+      {sys:"Exhaust manifold", sev:"minor", issue:"4.0L exhaust manifolds crack and tick when cold", cost:"$150–$450", note:"A ticking that fades as it warms up is almost always a cracked manifold. Common, not urgent, and a fair negotiating point."},
+      {sys:"Rear axle", sev:"major", issue:"Dana 35 rear on non-Rubicon cars is the weak link past 33s", cost:"$1,200–$3,000 to swap", note:"Same story as the XJ — the C-clip Dana 35 bends shafts under big tires and lockers. Rubicons came with a Dana 44 rear; that's part of why they cost more. Stock-tire TJs are fine on the 35."},
+      {sys:"Steering", sev:"critical", issue:"Death wobble from worn track bar, ball joints, or tie-rod ends — worse when lifted", cost:"$200–$900", note:"Safety-critical. A violent front-end shimmy after a bump points to a worn track bar or steering joints. Test at 45–55 mph. Lifted cars with a stock-geometry track bar are the usual offenders. See our TJ death-wobble guide."},
+      {sys:"Cooling", sev:"minor", issue:"Tired radiator and fan clutch cause creeping temps", cost:"$150–$400", note:"Overheating can mask a head problem. Confirm a healthy radiator and fan clutch, and block-test for combustion gases before you accept 'it just runs a little warm.'"},
+      {sys:"Drivetrain", sev:"good", issue:"4.0L six, AX-15/NSG370 manuals, and the NP231 t-case are tough", cost:"—", note:"The 4.0L routinely passes 250k miles. The AX-15 and NSG370 manuals are stout; the 32RH/42RLE autos are fine behind a stock setup. This durability is the reason the platform holds value."}
+    ],
+    yearDelta: [
+      {years:"1997–1999", change:"First coil-sprung Wrangler, 4.0L, AX-15 / 32RH", note:"1997 was a near-total redesign over the YJ — coils, round headlights, a real dash. Early cars carry fewer electronics, and the 0331 head hadn't arrived yet (an upside). 1997 had some one-year-only quirks."},
+      {years:"2000–2002", change:"0331 head era begins; minor updates", note:"Watch the cracking head on these. AX-15 manual ran through 2002; 32RH 3-speed auto."},
+      {years:"2003–2004", change:"Rubicon arrives; NV3550 5-speed; 42RLE 4-speed auto; LJ Unlimited (2004)", note:"The big one. 2003 introduced the Rubicon — Dana 44s front and rear, air or electric lockers, 4:1 Rock-Trac t-case, 4.10 gears. 2004 added the longer-wheelbase LJ Unlimited, the most sought-after TJ today."},
+      {years:"2005–2006", change:"NSG370 6-speed manual; final TJ years", note:"The last and most-refined TJs. LJ Rubicon Unlimited from these years commands the strongest money on the whole platform."}
+    ],
+    priceRanges: [
+      {tier:"Rusty / high-mile project", range:"$4,500–$8,000", note:"Runs and drives but the frame or tub needs work, or the build is questionable. Only worth it as a project you go in eyes-open on."},
+      {tier:"Honest stock driver", range:"$9,000–$16,000", note:"Solid frame, stock or lightly modified, 120k–180k miles, no death wobble. The realistic buy for a regular two-door."},
+      {tier:"Clean low-mile / desirable spec", range:"$16,000–$26,000", note:"Rust-free, documented, sub-120k, or a well-kept Unlimited. TJs in this band have genuinely appreciated."},
+      {tier:"Rubicon / LJ Unlimited", range:"$22,000–$38,000+", note:"A real Rubicon (verify the Dana 44s and Rock-Trac) or a clean LJ is the top of the market. Built examples can exceed this if the parts and labor are real."}
+    ],
+    walkAway: [
+      {head:"Rotten rear frame rails", body:"Soft or perforated steel above the rear control-arm or track-bar mounts. This is the structure that holds the rear axle to the truck. Walk unless you weld and priced the repair in."},
+      {head:"0331 head with coolant loss", body:"On a 2000–06 car with unexplained coolant use, white exhaust, or chronic overheating, assume the cracked head until proven otherwise. Block-test before money changes hands."},
+      {head:"'Rubicon' that isn't", body:"Badges and stickers are cheap. If the axles aren't Dana 44s and the t-case isn't the 4:1 Rock-Trac, you're paying Rubicon money for a Sport. Verify the hardware, not the decals."},
+      {head:"Active death wobble waved off", body:"If it shakes on the test drive and the seller calls it a Jeep thing, they're hoping you don't know the front-end rebuild is on you. Safety issue and a trust flag."},
+      {head:"Salvage title with vague repair history", body:"Frame damage hides under fresh paint and a lift. If the repair isn't documented, assume the frame is compromised."}
+    ],
+    related: [
+      {label:"TJ / YJ Death Wobble Guide", url:"/db/tj-yj-death-wobble-guide.html"},
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"TJ Database", url:"/db/#/tj/home"}
+    ],
+    sources: "Known-issue and year-change detail cross-checked against JeepForum / Wrangler TJ archives, Pirate4x4, the Jeep TJ FSM, and long-run owner reports. Price ranges reflect 2026 listings across Facebook Marketplace, Bring a Trailer, and Cars & Bids, where clean TJs and LJs have appreciated markedly since 2020."
+  },
+
+  jk: {
+    status: "live",
+    label: "Wrangler JK",
+    name: "Jeep Wrangler JK",
+    years: "2007–2018",
+    focus: "The first four-door Wrangler. Buy a 2012+ Pentastar car if you can — the 3.6L is the upgrade that fixed the JK's biggest weakness. A documented TIPM and a checked-off cylinder-head recall matter more than the lift.",
+    answer: "The JK is the Wrangler that made the four-door (JKU) mainstream, and it's the cheapest way into a modern, electronically-locking, well-supported solid-axle rig. <strong>The single most important choice is the engine year.</strong> The 2007–2011 cars use the gutless, oil-thirsty 3.8L V6; the 2012–2018 cars got the 285-hp 3.6L Pentastar, which is the engine you want. Beyond that, the JK's gremlins are electrical (the TIPM) and an early Pentastar cylinder-head problem — both are documented, both are checkable, and both should move the price if unresolved.",
+    knownIssues: [
+      {sys:"Engine — 3.8L (2007–11)", sev:"major", issue:"Underpowered, prone to oil consumption and a cold ticking", cost:"$0–$3,000+", note:"The 3.8L makes 202 hp and feels it, especially on 35s. Watch oil level between changes and listen for a top-end tick. Not a walk-away on its own, but it caps what the truck can comfortably do and should temper the price."},
+      {sys:"Engine — 3.6L Pentastar (2012–13)", sev:"major", issue:"Left-bank cylinder-head failure (#2 cylinder), often a ticking then a misfire", cost:"$0 if recall done, $1,500–$3,000 if not", note:"Early Pentastars had a known head defect covered by an extended warranty (roughly 7yr/70k). On a 2012–2013 car, ask whether the head was replaced and get the receipt. A documented replacement is a plus, not a minus."},
+      {sys:"Electrical — TIPM", sev:"critical", issue:"Totally Integrated Power Module failures: no-start, dead fuel pump, phantom electrical faults", cost:"$300–$1,100", note:"The TIPM (the JK's main power module) can fail the fuel-pump relay and strand the truck, or throw random gremlins. A no-start that comes and goes, or a fuel pump that runs with the key off, points here. Common on 2007–2013 cars — ask if it's been addressed."},
+      {sys:"Steering", sev:"critical", issue:"Death wobble — the JK is notorious for it, stock or lifted", cost:"$200–$1,200", note:"Safety-critical. The JK's geometry makes it especially prone to a violent front-end shimmy after a bump, traced to the track bar, steering damper, and tie-rod ends. Test at 45–55 mph. A heavy-duty track bar and tie rod are the common cure. Don't accept 'they all do that.'"},
+      {sys:"Rear axle", sev:"major", issue:"Dana 44 rear is decent, but non-Rubicon Dana 30 front limits big builds", cost:"$1,500–$4,000 to upgrade", note:"Non-Rubicon JKs run a Dana 30 front and Dana 44 rear. The 44 rear is reasonable; the 30 front is the limiter on 37s and lockers. Rubicons came with Dana 44s front and rear plus lockers — worth the premium for a serious build."},
+      {sys:"Body / windows", sev:"minor", issue:"Window regulators fail; soft tops leak and wear", cost:"$60–$300", note:"Power-window regulators are a known wear item. Soft-top zippers and seals age. Cheap and expected — useful negotiating points, not dealbreakers."},
+      {sys:"Frame / rust", sev:"minor", issue:"Better than XJ/TJ, but salt-belt frames still rust at the rear and skid mounts", cost:"$0–$1,500", note:"JK frames hold up better than the older platforms, but a salt-state truck can still rot at the rear frame and body mounts. Check it; don't assume newer means clean."},
+      {sys:"Drivetrain", sev:"good", issue:"Pentastar + W5A580 auto and the NSG370 manual are solid", cost:"—", note:"The 3.6L Pentastar (post-head-fix) and the Mercedes-derived W5A580 5-speed auto (2012+) are a durable, capable combo. The NSG370 6-speed manual is stout. This is the drivetrain that makes a clean JK a long-term keeper."}
+    ],
+    yearDelta: [
+      {years:"2007–2010", change:"All-new JK; two-door and four-door JKU; 3.8L V6; Dana 30/44", note:"The redesign that introduced the four-door Wrangler. The 3.8L and the early TIPM are the watch items. Interiors are the most dated of the run."},
+      {years:"2011", change:"Major interior refresh; body-color hardtop option", note:"A much-improved cabin — softer materials, better dash. Still the 3.8L engine, so pair-check the price."},
+      {years:"2012–2013", change:"3.6L Pentastar replaces the 3.8L; 5-speed W5A580 auto", note:"The pivotal upgrade — 285 hp and a far better powertrain. But these two years carry the early-Pentastar head issue, so confirm the recall/warranty repair."},
+      {years:"2014–2018", change:"Refined Pentastar, trim expansion, final JK years", note:"The sweet spot: Pentastar power with the head problem sorted on later builds. 2018 overlapped with the new JL; 'JK' badged trucks ran out as the JL ramped up."}
+    ],
+    priceRanges: [
+      {tier:"High-mile / 3.8L project", range:"$8,000–$15,000", note:"An early two-door 3.8L with miles or needs. Cheapest way in, but you're buying the weaker engine and the older electronics."},
+      {tier:"Honest driver (2012+ Pentastar)", range:"$16,000–$26,000", note:"A clean Pentastar JK or JKU, stock or lightly built, with the head and TIPM sorted. The realistic buy for a daily-able rig."},
+      {tier:"Clean low-mile four-door", range:"$25,000–$36,000", note:"Well-kept JKU Sport/Sahara, documented, lower miles. The four-door commands a premium over the two-door."},
+      {tier:"Rubicon / well-built", range:"$30,000–$45,000+", note:"A real Rubicon (Dana 44s, lockers, Rock-Trac, sway-bar disconnect) or a tastefully built JKU. Verify the build is real parts and real labor, not bolt-ons over neglect."}
+    ],
+    walkAway: [
+      {head:"Recurring no-start or fuel-pump gremlin (TIPM)", body:"Intermittent no-starts, a fuel pump that won't prime, or random electrical faults point at a failing TIPM. If it's undiagnosed, you're buying the repair and the uncertainty. Price it in or walk."},
+      {head:"2012–13 Pentastar with an unrepaired head", body:"A ticking-into-misfire on an early Pentastar that never had the head done is a real bill. No receipt, no proof the warranty covered it — assume it's on you."},
+      {head:"Death wobble the seller normalizes", body:"The JK's wobble is well-known, which is exactly why a seller might shrug it off. It's a front-end rebuild and a safety issue. Treat the shrug as a flag."},
+      {head:"'Rubicon' without the hardware", body:"Verify Dana 44s front and rear, the Rock-Trac 4:1 case, and the lockers. A Sport wearing Rubicon decals is not a Rubicon, and shouldn't carry the price of one."},
+      {head:"Salvage title with a fresh lift and paint", body:"A lift and new paint can hide collision or frame repair. Without documented history on a salvage/rebuilt JK, assume the worst and move on."}
+    ],
+    related: [
+      {label:"JK Death Wobble Guide", url:"/db/jk-death-wobble-guide.html"},
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"JK Database", url:"/db/#/jk/home"}
+    ],
+    sources: "Known-issue and year-change detail cross-checked against JK-Forum / WranglerForum archives, the Jeep JK FSM, NHTSA TIPM complaints, and FCA's extended-warranty notice for the 3.6L cylinder head. Price ranges reflect 2026 listings across Facebook Marketplace, Bring a Trailer, Cars & Bids, and dealer used inventory."
+  },
+
   jl: { status:"soon", label:"Wrangler JL" },
   "4runner": { status:"soon", label:"4Runner" },
   tacoma: { status:"soon", label:"Tacoma" },
