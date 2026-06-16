@@ -82,7 +82,7 @@
   .hero.with-image{padding:0;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--panel)}
   .hero-photo{width:100%;height:280px;background-size:cover;background-position:center;position:relative}
   .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(26,35,48,.78) 100%)}
-  .hero-photo .hero-photo-icon{position:absolute;left:24px;bottom:24px;width:60px;height:60px;z-index:2;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .hero-photo .hero-photo-icon{position:absolute;left:24px;bottom:24px;width:64px;height:64px;z-index:2;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(240,236,224,.94);border-radius:8px;padding:6px}
   .hero-photo .hero-photo-icon img,.hero-photo .hero-photo-icon svg{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 4px rgba(0,0,0,.4))}
   .hero-photo .hero-photo-label{position:absolute;right:24px;bottom:24px;font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:rgba(0,0,0,.4);padding:6px 12px;border-radius:3px;backdrop-filter:blur(4px);z-index:2}
   .hero-body{padding:28px 32px 32px}
@@ -372,13 +372,14 @@
   .vp-card:hover{border-color:var(--accent);transform:translateY(-1px)}
   .vp-card.inactive{opacity:.55;cursor:default}
   .vp-card.inactive:hover{transform:none;border-color:var(--border)}
-  .vp-icon{width:72px;height:56px;display:flex;align-items:center;justify-content:center;margin-bottom:4px}
+  .vp-icon{width:72px;height:56px;display:flex;align-items:center;justify-content:center;margin-bottom:4px;background:#F0ECE0;border:1px solid var(--border);border-radius:8px;padding:6px}
   .vp-icon img{width:100%;height:100%;object-fit:contain}
   .vp-years{font-size:11px;color:var(--text-mute);font-weight:500;letter-spacing:.04em}
   .vp-name{font-weight:600;font-size:15px;line-height:1.2}
   .vp-count{font-size:12px;color:var(--text-dim)}
   .vp-badge{display:inline-block;margin-top:auto;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:10px;background:var(--accent);color:#fff;width:fit-content}
   .vp-badge.soon{background:var(--bg-3);color:var(--text-mute)}
+  .vp-badge.early{background:var(--bg-3);color:var(--accent)}
 
   @media(max-width:560px){.vp-grid{grid-template-columns:1fr 1fr}}
 
@@ -500,6 +501,7 @@
   const VEHICLE_VISUALS = {
     xj:            { icon:'/images/icon-xj.png',          hero:'/images/adventure-xj-sedona-slickrock.jpeg', tagline:'The original compact SUV. Solid axles, unibody, 4.0L for life.' },
     tj:            { icon:'/images/icon-tj.png',          hero:'/images/tj-grey-rock-ledge.jpeg',            tagline:'Coil-sprung Wrangler. Still many builders\' favorite.' },
+    lj:            { icon:'/images/icon-lj.png',          hero:null, tagline:'The long-wheelbase TJ. Dana 44 rear standard, cult following.' },
     yj:            { icon:'/images/icon-yj.png',          hero:'/images/yj-rock-crawl-driver.jpeg',           tagline:'Square-headlight Wrangler. AMC inline-six, leaf-sprung, simple to fix.' },
     jk:            { icon:'/images/icon-jk.png',          hero:'/images/adventure-jk-sedona-cathedral.jpeg', tagline:'The first four-door Wrangler. The truck the modern aftermarket was built around.' },
     jl:            { icon:'/images/icon-jl.png',          hero:null, tagline:'The current Wrangler. Solid axles, removable doors, and now a plug-in hybrid.' },
@@ -522,6 +524,7 @@
   const HERO_GRADIENTS = {
     xj:'linear-gradient(135deg,#2B3A4A,#4A3B2E 60%,#8A4E2C)',
     tj:'linear-gradient(135deg,#3D5B47,#2B3A4A 60%,#1A2330)',
+    lj:'linear-gradient(135deg,#3D5B47,#4A3B2E 60%,#2B3A4A)',
     yj:'linear-gradient(135deg,#4A3B2E,#3D5B47 60%,#2B3A4A)',
     jk:'linear-gradient(135deg,#1A2330,#2B3A4A 60%,#5B6B7E)',
     jl:'linear-gradient(135deg,#4A3B2E,#2B3A4A 60%,#3D5B47)',
@@ -1109,7 +1112,7 @@
     // Brand → family → vehicle IDs (canonical order)
     var BRANDS = [
       { name:'Jeep', families:[
-        { label:'Wrangler', meta:'YJ · TJ · JK · JL', ids:['yj','tj','jk','jl'] },
+        { label:'Wrangler', meta:'YJ · TJ · LJ · JK · JL', ids:['yj','tj','lj','jk','jl'] },
         { label:'Cherokee', meta:'XJ', ids:['xj'] },
         { label:'CJ',       meta:'CJ-5 · CJ-7', ids:['cj5','cj7'] },
         { label:'Grand Cherokee', meta:'ZJ · WJ · WK', ids:['zj','wj','wk'] },
@@ -1131,10 +1134,13 @@
       ]},
     ];
 
+    // Platforms held out of the index until built out (GTM plan A) — honest badge.
+    var EARLY = {cj5:1,cj7:1,yj:1,zj:1,wj:1,wk:1,'bronco-ii':1,bronco6g:1,'full-size-bronco':1,pathfinder:1};
+
     // Hero
     var hero = el('div', {class:'picker-hero'});
     hero.appendChild(el('h1', {}, 'Pick your platform'));
-    hero.appendChild(el('p', {}, 'Trail Manual is a multi-vehicle DIY reference. Select a vehicle to browse guides, build paths, and diagnostic tools.'));
+    hero.appendChild(el('p', {}, 'Trail Manual goes deep on Jeep first \u2014 the Cherokee XJ, the Wrangler family, and the Gladiator. Other platforms are covered and growing. Pick a vehicle to browse guides, build paths, and diagnostic tools.'));
     var stats = el('div', {class:'picker-stats'});
     stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.total_entries||0)), el('div',{class:'l'},'Entries')));
     stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active;}).length)), el('div',{class:'l'},'Active vehicles')));
@@ -1201,7 +1207,7 @@
           card.appendChild(el('div', {class:'vp-name'}, v.label||id));
           if (active) {
             card.appendChild(el('div', {class:'vp-count'}, (v.entry_count||0) + ' guides'));
-            card.appendChild(el('div', {class:'vp-badge'}, 'Open'));
+            card.appendChild(el('div', {class:'vp-badge' + (EARLY[id]?' early':'')}, EARLY[id]?'Early':'Open'));
           } else {
             card.appendChild(el('div', {class:'vp-badge soon'}, 'Coming soon'));
           }
@@ -1256,7 +1262,7 @@
     // --- steering-diagnostic routing by front-axle type ---
     // Authoritative source: bronco6g-mockups/build_vehicles.py `axle_front`. Keep in sync.
     const AXLE_FRONT = {
-      xj:'solid', jk:'solid', jl:'solid', tj:'solid', yj:'solid', zj:'solid', wj:'solid',
+      xj:'solid', jk:'solid', jl:'solid', tj:'solid', lj:'solid', yj:'solid', zj:'solid', wj:'solid',
       cj5:'solid', cj7:'solid', bronco:'solid', 'full-size-bronco':'solid',
       gladiator:'solid', 'power-wagon':'solid',
       'bronco-ii':'ttb',
@@ -1266,6 +1272,7 @@
       xj: '/db/death-wobble-guide.html',
       jk: '/db/jk-death-wobble-guide.html',
       tj: '/db/tj-yj-death-wobble-guide.html',
+      lj: '/db/tj-yj-death-wobble-guide.html',
       yj: '/db/tj-yj-death-wobble-guide.html',
       zj: '/db/death-wobble-guide.html',
       wj: '/db/death-wobble-guide.html',
