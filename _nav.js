@@ -21,7 +21,7 @@
       var vids=Object.keys(g);
       if(!vids.length) return;
       var vid=vids[0];
-      var icons={xj:'/images/icon-xj-mj.png',tj:'/images/icon-tj.png',yj:'/images/icon-yj.png',jk:'/images/icon-jk.png',jl:'/images/icon-jl.png',cj5:'/images/icon-cj-5.png',cj7:'/images/icon-cj-5.png',zj:'/images/icon-zj.png',wj:'/images/icon-zj.png',wk:'/images/icon-wk.png',gladiator:'/images/icon-gladiator.png','4runner':'/images/icon-4runner.png',tacoma:'/images/icon-tacoma.png',pathfinder:'/images/icon-r50.png',bronco:'/images/icon-bronco-early.png','bronco-ii':'/images/icon-bronco-early.png','full-size-bronco':'/images/icon-bronco-early.png',bronco6g:'/images/icon-bronco.png',raptor:'/images/icon-raptor.png','power-wagon':'/images/icon-power-wagon.png'};
+      var icons={xj:'/images/icon-xj.png',tj:'/images/icon-tj.png',yj:'/images/icon-yj.png',jk:'/images/icon-jk.png',jl:'/images/icon-jl.png',cj5:'/images/icon-cj5.png',cj7:'/images/icon-cj5.png',zj:'/images/icon-zj.png',wj:'/images/icon-zj.png',wk:'/images/icon-wk.png',gladiator:'/images/icon-gladiator.png','4runner':'/images/icon-4runner.png',tacoma:'/images/icon-tacoma.png',pathfinder:'/images/icon-pathfinder.png',bronco:'/images/icon-bronco.png','bronco-ii':'/images/icon-bronco.png','full-size-bronco':'/images/icon-bronco.png',bronco6g:'/images/icon-bronco.png',raptor:'/images/icon-raptor.png','power-wagon':'/images/icon-power-wagon.png'};
       var el=document.getElementById('tm-garage-icon');
       if(el&&icons[vid])el.innerHTML='<img src="'+icons[vid]+'" alt="'+vid+'" style="width:100%;height:100%;object-fit:contain">';
     }catch(e){}
