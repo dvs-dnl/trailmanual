@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/pry-bar-types/">
+<title>Pry Bars — Flat, Rolling Head, and Dead Blow — Trail Manual Workshop</title>
+<meta name="description" content="How to choose and use pry bars in the shop — flat pry bars for precision, rolling head bars for leverage, and the dead blow hammer that pairs with them. Technique, fulcrum control, and what not to pry against.">
+<link rel="stylesheet" href="/_shared.css">
+<script src="/_nav.js"></script>
+<style>
+body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
+.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
+.back-link:hover { color: var(--accent); }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
+@media(max-width:700px){.tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
+.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
+.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
+.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
+.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
+.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+.callout.warn { border-left-color: #e05555; }
+.callout strong { color: var(--text); }
+.spec-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 14px; }
+.spec-table th { text-align: left; padding: 10px 12px; background: var(--bg-2); border-bottom: 2px solid var(--border); color: var(--text); font-weight: 600; font-size: 13px; }
+.spec-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+.spec-table tr:last-child td { border-bottom: none; }
+footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 500px) {
+  .guide-title { font-size: 26px; }
+  .guide-lede { font-size: 16px; }
+  .brand-sub { display: none; }
+  .back-link { font-size: 12px; }
+  .spec-table { font-size: 13px; }
+  .spec-table th, .spec-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-mark">TM</div>
+    <div>
+      <div class="brand-text">Trail Manual</div>
+      <div class="brand-sub">The Workshop</div>
+    </div>
+  </a>
+  <button class="tm-theme-btn" aria-label="Toggle dark mode" onclick="(function(){var h=document.documentElement,d='data-theme',c=h.getAttribute(d)==='dark';h.setAttribute(d,c?'light':'dark');try{localStorage.setItem('tm-theme',c?'light':'dark');}catch(e){}})()">
+    <svg class="tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="back-link" href="/workshop/">← Workshop</a>
+  <button class="hamburger" aria-label="Menu" onclick="this.setAttribute('aria-expanded',document.getElementById('ws-nav').classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav id="ws-nav" class="ws-nav" aria-label="Site"><a href="/">Home</a><a href="/db/">Vehicles</a><a href="/workshop/">Workshop</a><a href="/blog/">Blog</a></nav>
+</header>
+
+<article>
+<div class="guide-wrap">
+  <div class="guide-eyebrow">Workshop · Shop Tools</div>
+  <h1 class="guide-title">Pry Bars — Flat, Rolling Head, and Dead Blow</h1>
+
+  <p class="guide-lede">
+    When a part won't move by hand and a wrench has nothing to grab, you reach for leverage or a controlled blow. The flat pry bar gives you precision, the rolling head pry bar gives you raw mechanical advantage in tight spaces, and the dead blow hammer delivers a heavy, no-bounce strike that seats or frees a part without marring it. These three live in the same drawer and solve the same family of problems — applying more force than your hands can, under control.
+  </p>
+
+  <div class="guide-body">
+
+    <h2>Three tools, one job</h2>
+    <p>A pry bar is a lever. You set the working end against the part you want to move, rest the bar across a solid point nearby — the fulcrum — and push on the far end. The longer the bar and the closer the fulcrum sits to the part, the more force multiplies at the tip. A two-foot bar can turn 40 pounds of arm into hundreds of pounds at the work. That multiplication is the whole point, and it's also why a pry bar deserves respect: the same leverage that moves a stuck part will break a casting or your hand if you misjudge it.</p>
+    <p>The dead blow hammer isn't a pry bar — it's a striking tool — but it belongs in this conversation because it solves the other half of the same problem. Some parts respond to steady leverage; others only let go to a sharp impact. Knowing which tool a stuck component wants is half of getting it apart without damage.</p>
+
+    <div class="callout">
+      <strong>Key point:</strong> Match the tool to the part. Steady, sustained force is a pry bar's job. A sharp, shock impact that doesn't bounce back is the dead blow's job. Reaching for the wrong one is how parts and knuckles get broken.
+    </div>
+
+    <h2>The flat pry bar</h2>
+    <p>A flat pry bar — sometimes called a wonder bar or pry bar in the building trades, and sold in mechanic's sets as thin, flat-bladed bars — has a wide, thin, often beveled working end. The thin profile is the advantage: it slides into gaps a thicker tool can't enter, like the seam between two body panels, behind a stuck trim piece, or under a seal pressed into a machined recess. The wide blade spreads contact across a larger area, which lowers the chance of gouging or denting the surface you're prying against.</p>
+    <p>Flat bars are the precision end of the family. They shine on delicate work: lining up sheet metal, popping a seal out of a bore without scoring the bore wall, separating panels that are clipped rather than bolted, and lifting components a small, controlled amount. A short set of flat bars in a few lengths handles most of this. What they don't do well is heavy lifting — the thin blade flexes and can take a permanent bend if you load it hard, and a flat bar offers limited fulcrum geometry compared to a rolling head.</p>
+
+    <h2>The rolling head pry bar</h2>
+    <p>The rolling head pry bar is the heavy lifter. It has a round, solid shaft and a head bent roughly 90 degrees that ends in a tapered tip, with the back of the head curved into a rocker shape. That curved head is the defining feature: as you push the handle down, the head rocks against the fulcrum, and the curve keeps the contact point moving in a way that maintains leverage through the full stroke. The result is maximum mechanical advantage — you can lift, separate, and rotate heavy assemblies that a flat bar can't touch.</p>
+    <p>This is the bar for separating components that fit tightly together, persuading a stuck pulley or seal, lifting a transmission or engine cradle a controlled amount during reassembly, and — the use it's quietly best at — lining up bolt holes. Slide the tapered tip through two parts whose holes are slightly off, lever the handle, and the tip walks the holes into alignment so the bolt drops through. A 12-to-18-inch rolling head bar covers most automotive work; a 24-inch or longer bar is worth owning when you're moving suspension, driveline, or subframe components.</p>
+
+    <table class="spec-table">
+      <thead>
+        <tr>
+          <th>Tool</th>
+          <th>Best at</th>
+          <th>Avoid for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Flat / wonder bar</td>
+          <td>Tight gaps, seals in bores, trim and panels, precise small lifts</td>
+          <td>Heavy lifting — the thin blade flexes and bends</td>
+        </tr>
+        <tr>
+          <td>Rolling head pry bar</td>
+          <td>Maximum leverage, separating tight assemblies, aligning bolt holes</td>
+          <td>Delicate surfaces — the narrow tip concentrates force and can gouge</td>
+        </tr>
+        <tr>
+          <td>Dead blow hammer</td>
+          <td>Seating or freeing parts with a no-bounce shock, body work, hubs</td>
+          <td>Anything brittle or thin — cast iron, glass, fragile housings</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The dead blow hammer</h2>
+    <p>A dead blow hammer looks like a mallet, but the head is hollow and partly filled with loose steel shot or sand. When the face strikes, the shot lags behind for an instant, then piles forward into the struck face. That delayed transfer does two things: it spreads the impact over a slightly longer time, and — more usefully — it cancels the rebound. A normal hammer bounces back at you; a dead blow lands and stays put. The shot absorbs the energy that would otherwise become bounce.</p>
+    <p>No bounce means more of the energy goes into the part and less into a second, uncontrolled hit. That's why it's the go-to for seating a part squarely (a wheel hub, a bearing race, a stubborn fitment), knocking a stuck component free, and body work where a rebounding strike would mark or distort the panel. The face is usually a soft polymer or coated in rubber or urethane, so it drives steel and cast parts without leaving the dents a steel hammer would.</p>
+    <p>Compared to a rubber mallet, a dead blow of the same weight hits noticeably harder because the shot adds momentum, and it doesn't bounce. A rubber mallet is for the lightest seating and tapping where any marring is unacceptable and you need almost no force. A ball-peen or other steel hammer delivers the most concentrated force but will mar or break what it hits — keep it off finished parts. For most "this needs persuading but I can't mark it" jobs on a vehicle, the dead blow is the right middle ground. A 2-to-3-pound (32-to-48-ounce) dead blow covers the broad range of shop work.</p>
+
+    <h2>How to pry without breaking anything</h2>
+    <p>The fulcrum decides whether prying is safe. Pick a solid, load-bearing point to rest the bar against — a substantial casting, a frame member, a thick boss — never a thin sheet-metal edge, a sensor, a hose fitting, a gasket surface, or anything you'd hate to crack. Place a block of hardwood or a folded shop rag between the bar and the fulcrum when the contact surface could be marred. Position the fulcrum close to the part you're moving; the closer it is, the more force you gain and the shorter the swing if the bar slips.</p>
+    <p>Push with steady, controlled pressure rather than a sudden jerk. Watch the part, not the bar, so you see it begin to move and can stop before you overdo it. Keep your body out of the line the bar will travel if it slips — and assume it will slip at some point. Brace your free hand somewhere that won't get pinched if the part lets go suddenly. When you need both leverage and a shock, a common move is to hold light tension on a rolling head bar and tap the stuck part with the dead blow; the vibration breaks the grip while the bar takes up the slack the instant it frees.</p>
+
+    <div class="callout warn">
+      <strong>Wear eye protection and respect what you're prying against.</strong> Pry bars slip, and they slip toward your face and hands. Cast aluminum and cast iron parts — many brackets, housings, and pump bodies — crack rather than flex under prying load and can fail without warning. Never use a pry bar or dead blow against a brittle casting, a machined sealing surface, a wheel, or any component where a crack would be dangerous or expensive. If a part needs more force than feels controlled, stop and reassess — heat, penetrating oil, or the right puller is often the answer, not a longer bar.
+    </div>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Using the fulcrum point as the sacrifice.</strong> People focus on the part they're moving and ignore what the bar is resting against. A thin bracket, a sensor body, or a gasket flange used as a fulcrum gets crushed or cracked. Choose the fulcrum as deliberately as the target.</li>
+      <li><strong>Prying with a flat bar where a rolling head belongs.</strong> Load a thin flat blade like a heavy lever and it flexes, takes a set, and eventually snaps — often launching the bar. Heavy leverage is the rolling head's job.</li>
+      <li><strong>Treating a dead blow like a rubber mallet — or a steel hammer.</strong> It hits harder than a rubber mallet and softer than steel. Swinging it like a framing hammer on a brittle housing still breaks the housing. The soft face protects against marring, not against overforce.</li>
+      <li><strong>Standing in the slip line.</strong> A bar under hundreds of pounds of load that suddenly slips moves fast. Keep your face, throat, and bracing hand out of the arc it would swing through.</li>
+      <li><strong>Forcing past the point of feel.</strong> If steady pressure isn't moving the part, more leverage usually means breakage, not success. Back off and address why it's stuck — rust, a hidden fastener, a press fit that wants heat.</li>
+    </ul>
+
+    <h2>What to own</h2>
+    <p>A practical starting kit is a small set of flat pry bars in a few lengths (these often come as a 3- or 4-piece set for under $30), one 12-to-18-inch rolling head pry bar, and a 2-to-3-pound dead blow hammer. That trio handles the overwhelming majority of leverage and seating work on a vehicle. Add a longer rolling head bar — 24 inches or more — once you start working on suspension, driveline, or subframe components, where the extra length turns a fight into a controlled lift.</p>
+    <p>Quality matters most on the rolling head bar, because it sees the highest loads: a forged, properly heat-treated bar won't bend or mushroom its tip the way a cheap casting will. Flat bars and the dead blow are more forgiving of price. As with most leverage tools, a borrowed bar is a fine way to find out which lengths you actually reach for before you buy your own set.</p>
+
+  </div>
+
+</div>
+</article>
+
+<footer>
+  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
+  <a href="/channels/">Recommended Channels</a> &nbsp;·&nbsp;
+  <a href="/">Trail Manual</a>
+</footer>
+
+</body>
+</html>

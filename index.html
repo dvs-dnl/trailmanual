@@ -1040,19 +1040,22 @@
   border-right: 1px solid var(--border, rgba(0,0,0,.08));
   transition: background .18s;
   flex-shrink: 0;
+  width: 120px;            /* fixed width — ensures -50% is exactly one set width */
+  box-sizing: border-box;
 }
 .v-strip-item:hover { background: rgba(201,126,80,.07); }
 .v-strip-item img {
-  height: 96px;
+  height: 84px;
   width: auto;
+  max-width: 96px;
   object-fit: contain;
   opacity: .85;
   transition: opacity .18s, transform .18s;
 }
 .v-strip-item:hover img { opacity: 1; transform: translateY(-2px); }
 @media (max-width: 600px) {
-  .v-strip-item { padding: 10px 12px 8px; }
-  .v-strip-item img { height: 72px; }
+  .v-strip-item { padding: 10px 12px 8px; width: 96px; }
+  .v-strip-item img { height: 62px; max-width: 76px; }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1139,6 +1142,216 @@
   .hc-slide{transition:none;}
   .hc-slide.is-active .hc-photo{animation:none; transform:scale(1.06);}
 }
+
+/* ── TOOLS & GUIDES CARDS ─────────────────────────────────── */
+.tg-section {
+  padding: 48px 0 32px;
+  border-top: 1px solid var(--border);
+}
+.tg-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tg-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.tg-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+  margin: 0;
+}
+.tg-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+.tg-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .18s, transform .18s, box-shadow .18s;
+}
+.tg-card:hover {
+  border-color: rgba(197,165,114,.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.18);
+  text-decoration: none;
+}
+.tg-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(197,165,114,.12);
+  border: 1px solid rgba(197,165,114,.18);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.tg-card-icon.danger { background: rgba(178,59,47,.1); border-color: rgba(178,59,47,.2); color: var(--danger, #B23B2F); }
+.tg-card-icon.good   { background: rgba(94,140,90,.1);  border-color: rgba(94,140,90,.2);  color: var(--good, #5E8C5A); }
+.tg-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -.1px;
+  line-height: 1.3;
+  margin: 0;
+}
+.tg-card p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin: 0;
+  flex: 1;
+}
+.tg-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+.tg-card-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  background: var(--bg-3);
+  color: var(--text-mute);
+  border: 1px solid var(--border);
+}
+.tg-card-tag.guide { background: rgba(197,165,114,.1); color: var(--accent); border-color: rgba(197,165,114,.25); }
+.tg-card-tag.tool  { background: rgba(79,119,149,.1);  color: var(--info, #4F7795);  border-color: rgba(79,119,149,.25); }
+.tg-card-tag.diag  { background: rgba(178,59,47,.08);  color: var(--danger, #B23B2F); border-color: rgba(178,59,47,.2); }
+.tg-card-arrow {
+  color: var(--accent);
+  font-size: 14px;
+  transition: transform .15s;
+}
+.tg-card:hover .tg-card-arrow { transform: translateX(3px); }
+@media (max-width: 900px) { .tg-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .tg-grid { grid-template-columns: 1fr; } }
+
+/* ── WHERE TO START — CTA marquee ──────────────────────────── */
+.wts-section {
+  padding: 52px 0 40px;
+  border-top: 1px solid var(--border);
+}
+.wts-header {
+  margin-bottom: 28px;
+}
+.wts-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.wts-title {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -.5px;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+.wts-sub {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin: 0;
+}
+@keyframes wts-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.wts-track-wrap {
+  overflow: hidden;
+  margin: 0 -20px;
+  cursor: default;
+}
+.wts-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  padding: 4px 20px 8px;
+  animation: wts-marquee 28s linear infinite;
+  will-change: transform;
+}
+.wts-track-wrap:hover .wts-track { animation-play-state: paused; }
+.wts-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  text-decoration: none;
+  color: inherit;
+  width: 220px;
+  flex-shrink: 0;
+  transition: border-color .18s, transform .18s, box-shadow .18s;
+}
+.wts-card:hover {
+  border-color: rgba(197,165,114,.5);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+  text-decoration: none;
+}
+.wts-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(197,165,114,.12);
+  border: 1px solid rgba(197,165,114,.2);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wts-label {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.2px;
+  line-height: 1.25;
+}
+.wts-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.55;
+  flex: 1;
+}
+.wts-arrow {
+  font-size: 18px;
+  color: var(--accent);
+  margin-top: auto;
+  transition: transform .15s;
+}
+.wts-card:hover .wts-arrow { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .wts-track { animation: none; }
+}
 </style>
 <script>
 (function(){
@@ -1165,17 +1378,17 @@
   </div>
   <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
-      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger">⚠</div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
-      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate">🔗</div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
     </div>
   </div></div>
 <div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
@@ -1219,17 +1432,17 @@
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
-      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate">🛠</div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate">✏</div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate">📋</div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
     </div>
   </div></div>
 </header>
@@ -1340,7 +1553,7 @@
   <!-- Trust stats (kept from the original hero) -->
   <div class="hero-trust-bar">
     <div class="hero-trust">
-      <div class="hero-trust-item"><div class="trust-n">958+</div><div class="trust-l">Guides</div></div>
+      <div class="hero-trust-item"><div class="trust-n">1099+</div><div class="trust-l">Guides</div></div>
       <div class="hero-trust-item"><div class="trust-n">21</div><div class="trust-l">Platforms</div></div>
       <div class="hero-trust-item"><div class="trust-n">300+</div><div class="trust-l">Sources cited</div></div>
       <div class="hero-trust-item"><div class="trust-n">$0</div><div class="trust-l">Cost to use</div></div>
@@ -1356,7 +1569,7 @@
     var prev=root.querySelector('.hc-prev');
     var next=root.querySelector('.hc-next');
     if(slides.length<2) return;
-    var i=0, timer=null, DELAY=5500;
+    var i=0, timer=null, DELAY=6000;
     var dots=slides.map(function(_,n){
       var d=document.createElement('button');
       d.className='hc-dot'+(n===0?' is-active':'');
@@ -1385,6 +1598,14 @@
     root.addEventListener('mouseleave',start);
     root.addEventListener('focusin',stop);
     root.addEventListener('focusout',start);
+    var _tx=null;
+    root.addEventListener('touchstart',function(e){ _tx=e.touches[0].clientX; stop(); },{passive:true});
+    root.addEventListener('touchend',function(e){
+      if(_tx===null) return;
+      var dx=e.changedTouches[0].clientX-_tx; _tx=null;
+      if(Math.abs(dx)>40){ show(dx<0?i+1:i-1); }
+      start();
+    },{passive:true});
     document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
     start();
   })();
@@ -1456,6 +1677,186 @@
     </div>
   </div>
 
+  <!-- ── TOOLS & GUIDES ─────────────────────────────────────────────── -->
+  <div class="tm-main-inner">
+  <section class="tg-section">
+    <div class="tg-header">
+      <div>
+        <div class="tg-eyebrow">Diagnostic &amp; How-To</div>
+        <h2 class="tg-title">Tools &amp; Guides</h2>
+      </div>
+      <a class="btn-outline" href="/workshop/">All workshop guides &#8594;</a>
+    </div>
+    <div class="tg-grid">
+      <a class="tg-card" href="/db/death-wobble-guide.html">
+        <div class="tg-card-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div>
+        <h3>Death Wobble Diagnostic</h3>
+        <p>Answer 8 questions to pinpoint the real cause — before you throw parts at it.</p>
+        <div class="tg-card-foot">
+          <span class="tg-card-tag diag">Diagnostic</span>
+          <span class="tg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+      <a class="tg-card" href="/v8-swap-parts-checklist.html">
+        <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>V8 Engine Swap Checklist</h3>
+        <p>Pick an engine path and get a complete parts list with live cost totals.</p>
+        <div class="tg-card-foot">
+          <span class="tg-card-tag guide">Guide</span>
+          <span class="tg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+      <a class="tg-card" href="/db/workshop/wire-stripper-crimper/">
+        <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div>
+        <h3>Wire Stripper &amp; Crimper Guide</h3>
+        <p>How to choose the right gauge, strip cleanly, and make a crimp that lasts.</p>
+        <div class="tg-card-foot">
+          <span class="tg-card-tag guide">Workshop</span>
+          <span class="tg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+      <a class="tg-card" href="/db/workshop/multimeter/">
+        <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2C6.5 2 2 4.5 2 7.5v9C2 19.5 6.5 22 12 22s10-2.5 10-5.5v-9C22 4.5 17.5 2 12 2z M2 7.5C2 10.5 6.5 13 12 13s10-2.5 10-5.5 M2 12c0 3 4.5 5.5 10 5.5s10-2.5 10-5.5"/></svg></div>
+        <h3>Multimeter for DIYers</h3>
+        <p>Read voltage, continuity, and resistance without guessing. Every mode explained.</p>
+        <div class="tg-card-foot">
+          <span class="tg-card-tag guide">Workshop</span>
+          <span class="tg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+      <a class="tg-card" href="/db/workshop/torque-wrench/">
+        <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div>
+        <h3>Torque Wrench Guide</h3>
+        <p>Click vs. beam vs. digital — and how to use each one correctly.</p>
+        <div class="tg-card-foot">
+          <span class="tg-card-tag guide">Workshop</span>
+          <span class="tg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+      <a class="tg-card" href="/db/trail-tool-kit-builder.html">
+        <div class="tg-card-icon good"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div>
+        <h3>Trail Tool Kit Builder</h3>
+        <p>Interactive checklist for building a vehicle-specific trail recovery kit.</p>
+        <div class="tg-card-foot">
+          <span class="tg-card-tag tool">Tool</span>
+          <span class="tg-card-arrow">&#8594;</span>
+        </div>
+      </a>
+    </div>
+  </section>
+  </div>
+
+  <!-- ── WHERE TO START ────────────────────────────────────────────────── -->
+  <div class="tm-main-inner">
+  <section class="wts-section">
+    <div class="wts-header">
+      <div class="wts-eyebrow">New here?</div>
+      <h2 class="wts-title">Where Are You Going to Start?</h2>
+      <p class="wts-sub">Pick a path — every section is free, no account needed.</p>
+    </div>
+    <div class="wts-track-wrap" role="presentation">
+      <div class="wts-track">
+      <a class="wts-card" href="/build/" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div>
+        <div class="wts-label">Rig Builder</div>
+        <div class="wts-desc">Plan your lift, tires, armor, and recovery gear — step by step.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/guides/" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div class="wts-label">Repair Guides</div>
+        <div class="wts-desc">Step-by-step how-tos for every major system on every platform.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/workshop/" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div>
+        <div class="wts-label">Workshop</div>
+        <div class="wts-desc">Shop tools, safety, and technique — for any rig.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/db/" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2C6.5 2 2 4.5 2 7.5v9C2 19.5 6.5 22 12 22s10-2.5 10-5.5v-9C22 4.5 17.5 2 12 2z M2 7.5C2 10.5 6.5 13 12 13s10-2.5 10-5.5 M2 12c0 3 4.5 5.5 10 5.5s10-2.5 10-5.5"/></svg></div>
+        <div class="wts-label">DIY Database</div>
+        <div class="wts-desc">Search 958+ entries across 21 platforms. Pick your vehicle.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/db/death-wobble-guide.html" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div>
+        <div class="wts-label">Death Wobble</div>
+        <div class="wts-desc">8-question diagnostic that finds the actual cause.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/gear-ratio-calculator.html" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div>
+        <div class="wts-label">Gear Ratio Calc</div>
+        <div class="wts-desc">See how tire size changes your effective gearing.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/my-garage.html" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+        <div class="wts-label">My Garage</div>
+        <div class="wts-desc">Log service history and saved builds — private, on-device.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/blog/" tabindex="0">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <div class="wts-label">Blog</div>
+        <div class="wts-desc">Deep dives, build breakdowns, and honest takes.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/build/" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div>
+        <div class="wts-label">Rig Builder</div>
+        <div class="wts-desc">Plan your lift, tires, armor, and recovery gear — step by step.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/guides/" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+        <div class="wts-label">Repair Guides</div>
+        <div class="wts-desc">Step-by-step how-tos for every major system on every platform.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/workshop/" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div>
+        <div class="wts-label">Workshop</div>
+        <div class="wts-desc">Shop tools, safety, and technique — for any rig.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/db/" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2C6.5 2 2 4.5 2 7.5v9C2 19.5 6.5 22 12 22s10-2.5 10-5.5v-9C22 4.5 17.5 2 12 2z M2 7.5C2 10.5 6.5 13 12 13s10-2.5 10-5.5 M2 12c0 3 4.5 5.5 10 5.5s10-2.5 10-5.5"/></svg></div>
+        <div class="wts-label">DIY Database</div>
+        <div class="wts-desc">Search 958+ entries across 21 platforms. Pick your vehicle.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/db/death-wobble-guide.html" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div>
+        <div class="wts-label">Death Wobble</div>
+        <div class="wts-desc">8-question diagnostic that finds the actual cause.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/gear-ratio-calculator.html" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div>
+        <div class="wts-label">Gear Ratio Calc</div>
+        <div class="wts-desc">See how tire size changes your effective gearing.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/my-garage.html" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
+        <div class="wts-label">My Garage</div>
+        <div class="wts-desc">Log service history and saved builds — private, on-device.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      <a class="wts-card" href="/blog/" tabindex="-1" aria-hidden="true">
+        <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <div class="wts-label">Blog</div>
+        <div class="wts-desc">Deep dives, build breakdowns, and honest takes.</div>
+        <div class="wts-arrow">&#8594;</div>
+      </a>
+      </div>
+    </div>
+  </section>
+  </div>
+
   <!-- ── PHOTO STRIP ─────────────────────────────────────────────────── -->
   <div class="photo-strip">
     <div class="photo-strip-inner">
@@ -1493,7 +1894,7 @@
       <div class="problem-grid">
         <div class="problem-col">
           <div class="problem-col-header">
-            <div class="problem-icon">📌</div>
+            <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z M12 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div>
             <div>
               <div class="problem-col-title">Forums age out</div>
               <div class="problem-col-source">vs. Jeep forums</div>
@@ -1503,7 +1904,7 @@
         </div>
         <div class="problem-col">
           <div class="problem-col-header">
-            <div class="problem-icon">💬</div>
+            <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
             <div>
               <div class="problem-col-title">Reviews have skin in the game</div>
               <div class="problem-col-source">vs. affiliate sites</div>
@@ -1513,7 +1914,7 @@
         </div>
         <div class="problem-col">
           <div class="problem-col-header">
-            <div class="problem-icon">💰</div>
+            <div class="problem-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 1v22 M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
             <div>
               <div class="problem-col-title">Shop manuals skip the money part</div>
               <div class="problem-col-source">vs. factory service manuals</div>
@@ -1541,7 +1942,7 @@
           <span class="bento-tag live">● Live — 21 platforms</span>
           <h3 style="font-size:26px;margin-top:6px">Off-Road<br>DIY Database</h3>
           <p style="font-size:15px;max-width:440px">
-            349 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
+            350 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
             wheels &amp; tires, interior, electrical, and body. XJ-first and growing — pick
             your platform, filter by category, get straight answers with real pricing.
           </p>
@@ -1587,16 +1988,16 @@
     <p class="section-lede">New posts weekly. No fluff, no sponsored angles.</p>
 
     <div class="blog-grid">
-      <a class="blog-feature" href="/blog/do-you-need-a-slip-yoke-eliminator/">
+      <a class="blog-feature" href="/blog/xj-engine-oil-leaks/">
         <div class="blog-feature-photo">
-          <img src="/images/tj-white-wheel-droop.jpeg" alt="Lifted Jeep at full droop — rear driveshaft angle and slip yoke geometry" loading="lazy">
+          <img src="/images/adventure-xj-trailside-repair.jpeg" alt="XJ Cherokee with the hood up — tracing a 4.0 oil leak to its source" loading="lazy">
         </div>
         <div class="blog-feature-body">
-          <span class="blog-tag">Axles &amp; Drivetrain</span>
-          <h3>Do You Need a Slip Yoke Eliminator? The Lift Threshold (and Why a JK Doesn't Need One)</h3>
-          <p>You need an SYE when a lift raises the rear driveshaft angle enough to cause vibration the slip yoke can't absorb — on an NP231 Jeep (XJ, YJ, TJ, ZJ) that's about 3&ndash;4". Fixed-yoke Jeeps (every JK and JL, plus the TJ/LJ Rubicon) don't need one. The thresholds, the costs, and why you need a CV driveshaft too.</p>
+          <span class="blog-tag">Engine &amp; Diagnosis</span>
+          <h3>XJ 4.0 Oil Leaks: Where They Come From and Which Ones Matter</h3>
+          <p>The two most common 4.0 leaks are the valve cover gasket and the oil filter adapter o-rings — both cheap, both an afternoon&rsquo;s work. The rear main seal gets blamed most and is the least likely, because it catches drips from everything above it. How to find the real source before you buy a gasket.</p>
           <div class="blog-meta">
-            <span>10 min read</span>
+            <span>9 min read</span>
             <span class="read-more">Read &rarr;</span>
           </div>
         </div>
@@ -1658,7 +2059,7 @@
           <img src="/images/tj-white-granite-crawl.jpeg" alt="TJ on granite — what the shop work is for" loading="lazy">
         </div>
         <div class="ws-card-body">
-          <div class="ws-icon">🔧</div>
+          <div class="ws-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
           <h3>Shop Tools</h3>
           <p>What to buy, what not to cheap out on, and how to use each correctly.</p>
         </div>
@@ -1668,7 +2069,7 @@
           <img src="/images/tj-yellow-mud-axle.jpeg" alt="Working the undercarriage — technique applies everywhere" loading="lazy">
         </div>
         <div class="ws-card-body">
-          <div class="ws-icon">🦺</div>
+          <div class="ws-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <h3>Safety</h3>
           <p>Working under a vehicle, fire safety, chemical handling. Most accidents are preventable.</p>
         </div>
@@ -1678,7 +2079,7 @@
           <img src="/images/yj-axle-droop-rocks.jpeg" alt="Full droop — the moment wrenching knowledge matters" loading="lazy">
         </div>
         <div class="ws-card-body">
-          <div class="ws-icon">🛠</div>
+          <div class="ws-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div>
           <h3>Technique</h3>
           <p>Seized bolts, torque specs, thread repair, wiring diagrams — skills that come up on every repair.</p>
         </div>
@@ -1688,7 +2089,7 @@
           <img src="/images/tj-pov-trail-rocks.jpeg" alt="Where good shop prep gets you" loading="lazy">
         </div>
         <div class="ws-card-body">
-          <div class="ws-icon">🏠</div>
+          <div class="ws-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10"/></svg></div>
           <h3>Shop Setup</h3>
           <p>What a functional home garage actually needs. What can wait.</p>
         </div>
@@ -1699,40 +2100,6 @@
     </div>
   </section>
 
-  <!-- ── ROADMAP ──────────────────────────────────────────────────────── -->
-  <section class="section">
-    <div class="section-eyebrow">Roadmap</div>
-    <h2>Built one platform at a time.</h2>
-    <p class="section-lede">Trail Manual goes deep on Jeep first, then widens. Being the definitive reference on the platforms we know best beats thin coverage everywhere — so the Jeep libraries lead, and the rest grow as the audience does.</p>
-
-    <div class="roadmap">
-      <div class="roadmap-row">
-        <div class="roadmap-phase">Phase 1</div>
-        <div class="roadmap-desc"><strong>Jeep Cherokee XJ (1984–2001)</strong> — 349 entries across maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, and build recipes.</div>
-        <div class="roadmap-status live">Open now</div>
-      </div>
-      <div class="roadmap-row">
-        <div class="roadmap-phase">Phase 2</div>
-        <div class="roadmap-desc"><strong>Wrangler family</strong> — TJ, JK, JL, plus the Gladiator JT pickup. Shared off-road systems (axles, recovery, tires) reuse XJ entries directly.</div>
-        <div class="roadmap-status live">Open now</div>
-      </div>
-      <div class="roadmap-row">
-        <div class="roadmap-phase">Phase 3</div>
-        <div class="roadmap-desc"><strong>Beyond Jeep — the strong platforms</strong> — early Bronco, F-150 Raptor, 4Runner, Tacoma, and the Ram Power Wagon. Real libraries, building toward Jeep-grade depth.</div>
-        <div class="roadmap-status live">Live, building</div>
-      </div>
-      <div class="roadmap-row">
-        <div class="roadmap-phase">Phase 4</div>
-        <div class="roadmap-desc"><strong>Early coverage</strong> — CJ-5/CJ-7, Grand Cherokee ZJ/WJ/WK, Bronco II/6G/full-size, and Pathfinder. Starter guides today; deeper coverage as the audience grows.</div>
-        <div class="roadmap-status next">Early</div>
-      </div>
-      <div class="roadmap-row">
-        <div class="roadmap-phase">AutoVet</div>
-        <div class="roadmap-desc"><strong>Pre-purchase intelligence</strong> — Used vehicle research, VIN decode, model-specific inspection checklist, and vetted shop booking. Free for buyers. Currently off-road focused, opening to all used vehicles.</div>
-        <div class="roadmap-status next">In development</div>
-      </div>
-    </div>
-  </section>
 
   <!-- ── EMAIL CTA ────────────────────────────────────────────────────── -->
   <section class="section" style="border-top:none;padding-top:0;margin-bottom:0">
@@ -1764,19 +2131,23 @@
         </div>
       </div>
       <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
-        Free, community-built DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+        Free, honest DIY reference for off-road vehicle owners. 21 platforms, 958+ guides. No sponsored content, no paywall.
       </p>
     </div>
     <div>
       <h4>Tools</h4>
-      <a href="/db/">XJ Database</a>
-      <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
-      <a href="/db/xj-lift-kit-guide.html">XJ Lift Guide</a>
-      <a href="/tools/">All tools →</a>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
     </div>
     <div>
       <h4>Learn</h4>
-      <a href="/workshop/">Workshop</a>      <a href="/about/#roadmap">Roadmap</a>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
     </div>
     <div>
       <h4>About</h4>

@@ -245,17 +245,17 @@ const COMPAT = {
     years: "1984–2001",
     categories: {
       steering: {
-        label: "Steering", icon: "🔧",
+        label: "Steering", icon: "",
         parts: {
           "steering-box": {
-            label: "Steering Box", icon: "⚙️",
+            label: "Steering Box", icon: "",
             stock: { desc: "Saginaw 706 recirculating ball, 2.75\" piston, ~3.5 turns lock-to-lock", note: "Undersized for lifted builds with larger tires" },
             swaps: [
               { id:"xj-durango-box", title:"1999 Dodge Durango Steering Box", summary:"Most popular XJ steering upgrade. Larger 3.125\" piston vs. 2.75\" stock. Nearly doubles hydraulic assist.", donor:"1999 Dodge Durango 4x4", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$150–$300 used", part:"NAPA #27-7588", notes:["Use 1999 specifically — two variants existed in 1998; 1999 is the stronger unit","Some units have an internal snap ring limiting lock-to-lock travel — remove it and replace the cylinder end cap","Pair with the WJ power steering pump (below) for full benefit","Also fits TJ Wrangler (same Saginaw box swap)"], also_fits:["TJ Wrangler"] }
             ]
           },
           "power-steering-pump": {
-            label: "Power Steering Pump", icon: "💧",
+            label: "Power Steering Pump", icon: "",
             stock: { desc: "~1,450 psi / 2.0 GPM output", note: "Undersized when paired with the Durango steering box" },
             swaps: [
               { id:"xj-wj-pump", title:"1999–2004 WJ Grand Cherokee Pump (4.7L V8)", summary:"Nearly 30% higher pressure output. Pairs with the Durango box or works as a stand-alone upgrade.", donor:"1999–2004 Jeep Grand Cherokee (WJ) 4.7L V8", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$50–$150 used", part:"MasterPro #20-62608 (2002 WJ V8 4.7L)", notes:["Output: ~1,900 psi / 2.8 GPM vs. stock ~1,450 psi / 2.0 GPM","2001+ WJ pump is the strongest variant","Transfer the high-pressure output fitting from your XJ pump to the WJ pump body","XJ reservoir swaps onto WJ pump body, or plug the smaller return port","1996+ XJ mounting brackets are compatible without modification"] }
@@ -271,10 +271,10 @@ const COMPAT = {
         }
       },
       axles: {
-        label: "Axles", icon: "🔩",
+        label: "Axles", icon: "",
         parts: {
           "rear-axle": {
-            label: "Rear Axle (Dana 35 → Dana 44)", icon: "🪝",
+            label: "Rear Axle (Dana 35 → Dana 44)", icon: "",
             stock: { desc: "Dana 35 (most trims) or Dana 44 (tow package, rare)", note: "Dana 35 is a common failure point — upgrading is standard practice on any built XJ" },
             swaps: [
               { id:"xj-d44-xj-tow", title:"XJ Tow-Package Dana 44 (Junkyard Score)", summary:"The cleanest bolt-in option. Correct width, bolt pattern, and spring perch location.", donor:"1984–2001 Jeep Cherokee XJ (tow-package trim)", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$500–$1,200 used", part:"Varies", notes:["Hard to find — tow-package trims were uncommon","All dimensions match stock: width, bolt pattern (5×4.5\"), spring perch location","Best junkyard find if you encounter one"] },
@@ -283,7 +283,7 @@ const COMPAT = {
             ]
           },
           "front-axle": {
-            label: "Front Axle (Dana 30 HP)", icon: "🪝",
+            label: "Front Axle (Dana 30 HP)", icon: "",
             stock: { desc: "Dana 30 High-Pinion. Some pre-1992 units have center axle disconnect (CAD).", note: "Verify high-pinion vs. low-pinion before purchasing any donor unit" },
             swaps: [
               { id:"xj-d30-hp-donor", title:"1993–1999 XJ High-Pinion Dana 30 (no CAD)", summary:"Best clean/strong donor units. No vacuum disconnect complexity. Also a direct fit into TJ Wrangler.", donor:"1993–1999 Jeep Cherokee XJ", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$100–$300 used", part:"Varies", notes:["Pre-1992 units often have the center axle disconnect (CAD) — avoid unless you want the complexity","2000–2001 XJ front axle is LOW-pinion — completely different; do not confuse","1993–1999 HP D30 bolts directly into TJ Wrangler — all four control arm brackets and track bar bracket align identically","TJ front axle gears will NOT fit in XJ front housing — different gear tooth profiles"], also_fits:["TJ Wrangler"] }
@@ -292,10 +292,10 @@ const COMPAT = {
         }
       },
       seats: {
-        label: "Seats", icon: "🪑",
+        label: "Seats", icon: "",
         parts: {
           "front-seats": {
-            label: "Front Seats", icon: "🪑",
+            label: "Front Seats", icon: "",
             stock: { desc: "XJ front seats; mount pattern changed between 1994 and 1995", note: "Compatibility splits at 1994/1995 — check your year before buying" },
             swaps: [
               { id:"xj-seats-any-xj", title:"Any XJ Seat (1984–2001)", summary:"Universal within the generation. All XJ years share the same mount pattern.", donor:"Any 1984–2001 Jeep Cherokee XJ", fitment:"direct", fitment_label:"All XJ years — direct bolt-in", diff:"easy", cost:"$50–$200 used pair", part:"Varies", notes:["All XJ model years share the same mount — no exceptions"] },
@@ -307,17 +307,17 @@ const COMPAT = {
         }
       },
       brakes: {
-        label: "Brakes", icon: "🛑",
+        label: "Brakes", icon: "",
         parts: {
           "front-brakes": {
-            label: "Front Brakes", icon: "🛑",
+            label: "Front Brakes", icon: "",
             stock: { desc: "Stock XJ single-piston front calipers and rotors", note: "Marginal on lifted XJs with larger tires; WJ upgrade is the standard fix" },
             swaps: [
               { id:"xj-brakes-wj", title:"WJ Grand Cherokee Front Brake Upgrade", summary:"Larger rotors and calipers from WJ. Significant improvement in stopping power. Plan for a complete swap including knuckles.", donor:"1999–2004 Jeep Grand Cherokee (WJ)", fitment:"requires-modification", fitment_label:"Requires modification", diff:"hard", cost:"$800–$1,000 complete", part:"2003–2004 WJ calipers preferred", notes:["Use 2003–2004 WJ calipers (silver, not earlier black) for best fitment","WJ rotors must be redrilled to 5×4.5\" bolt pattern, OR swap to 2000–2006 XJ/TJ/LJ hubs (which accept WJ rotors without redrilling)","1995+ XJ already has a dual-diaphragm booster — no booster swap needed","Full swap: WJ knuckles + calipers + rotors + hub swap (to avoid redrilling)","Best combined with the Durango steering box and WJ pump swap"] }
             ]
           },
           "rear-brakes": {
-            label: "Rear Brakes", icon: "🛑",
+            label: "Rear Brakes", icon: "",
             stock: { desc: "9\" drum brakes on Chrysler 8.25\" rear axle (all 1984–2001 XJ)", note: "Converting to rear discs is a popular mod on builds with larger tires — drums overheat and fade on long descents with heavy braking" },
             swaps: [
               { id:"xj-rear-disc-kit", title:"Aftermarket Rear Disc Conversion Kit (bolt-on brackets, no axle swap)", summary:"Caliper bracket kits bolt to the stock 8.25\" rear housing and accept common GM metric calipers. No axle swap, no welding.", donor:"Vendor kit (Rock-Solid Motorsports or equivalent) + GM metric calipers from junkyard", fitment:"direct", fitment_label:"Bolt-in to existing 8.25\" housing", diff:"medium", cost:"$200–$400 for bracket kit + $50–$100 for used GM metric calipers", part:"Rock-Solid Motorsports XJ Rear Disc Kit or equivalent", notes:["Brackets bolt to the axle tube end flanges on the stock Chrysler 8.25\" — no welding, no fabrication","GM metric calipers from a 1982–2004 S10, Blazer, or early Tahoe are the standard donor — $15–$40 each at a junkyard","Rotor diameter is specified by the kit — confirm before ordering (typically 10.4\"–10.9\")","You'll need an adjustable brake proportioning valve or block the factory rear proportioning circuit for correct front/rear bias with four-wheel discs","Parking brake: GM metric calipers have an integrated screw-type parking brake that functions — requires routing a new cable bracket to the caliper","Source: NAXJA Tech, Cherokee Forum documented builds — well-proven conversion path"], also_fits:["TJ Wrangler (similar C8.25\" housing geometry)"] },
@@ -325,7 +325,7 @@ const COMPAT = {
             ]
           },
           "master-cylinder": {
-            label: "Master Cylinder / Brake Booster", icon: "🔧",
+            label: "Master Cylinder / Brake Booster", icon: "",
             stock: { desc: "Single-diaphragm 7\" booster (1984–1994 XJ); dual-diaphragm 7\" booster (1995–2001 XJ)", note: "Pre-1995 XJs are working with half the booster assist — do this upgrade first before any front brake work" },
             swaps: [
               { id:"xj-booster-1995up", title:"1995–2001 XJ Dual-Diaphragm Booster + Master Cylinder", summary:"Direct bolt-in on any pre-1995 XJ. Same physical footprint, two diaphragms instead of one. Noticeably better pedal feel.", donor:"Any 1995–2001 Jeep Cherokee XJ", fitment:"direct", fitment_label:"Direct bolt-in (for 1984–1994 XJ)", diff:"easy", cost:"$50–$150 used", part:"Varies by year — any 1995–2001 XJ donor", notes:["Same firewall mounting holes, same pushrod geometry, same brake line ports — true direct swap","The 7\" dual-diaphragm provides substantially more assist than the earlier single-diaphragm at the same pedal effort","Do this BEFORE the WJ front brake upgrade — the larger WJ pistons demand more fluid volume and benefit from better assist","If the master cylinder has unknown service history, replace it alongside the booster — cores are cheap","The WJ master cylinder is NOT a drop-in for XJ (different flange, different reservoir) — stay within the XJ generation for this swap","Confirmed: 1984–1994 XJ owners report immediately better pedal feel after the 1995+ booster swap (NAXJA Tech Forum)"] }
@@ -334,10 +334,10 @@ const COMPAT = {
         }
       },
       suspension: {
-        label: "Suspension", icon: "🔼",
+        label: "Suspension", icon: "",
         parts: {
           "front-coils": {
-            label: "Front Coil Springs", icon: "🔼",
+            label: "Front Coil Springs", icon: "",
             stock: { desc: "Stock XJ front coil springs; rate varies by trim level", note: "ZJ Upcountry coils are the classic budget lift trick" },
             swaps: [
               { id:"xj-coils-zj-upcountry", title:"ZJ V8 Upcountry Front Coil Springs (1993–1998)", summary:"Direct bolt-in. ~1–1.5\" free lift with no other changes. Higher spring rate suits heavy front ends.", donor:"1993–1998 Jeep Grand Cherokee (ZJ) V8 Upcountry package", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$30–$80 used pair", part:"Varies", notes:["~1–1.5\" of free lift with no other modifications","Higher spring rate than stock XJ — handles heavy bumpers and winches well","Widely available at junkyards; good first step before a dedicated lift kit"] }
@@ -346,10 +346,10 @@ const COMPAT = {
         }
       },
       electrical: {
-        label: "Electrical", icon: "⚡",
+        label: "Electrical", icon: "",
         parts: {
           "alternator": {
-            label: "Alternator", icon: "⚡",
+            label: "Alternator", icon: "",
             stock: { desc: "75A (1984–1987 base trims) to 117A (1992–2001 high-output option). Most XJs came with 90A stock — far below what a built rig actually needs.", note: "Age-related capacity loss makes this worse over time; a decade-old alternator rated 90A may be putting out 60–65A under load. Test output before assuming stock is adequate." },
             swaps: [
               { id:"xj-alt-mopar136", title:"Mopar 136A Alternator (1997–1998 Dodge Trucks / ZJ / WJ)", summary:"The most documented XJ alternator upgrade — 20–80% more output than stock depending on your year. Common at junkyards, fits with 30 minutes of bracket grinding.", donor:"1997–1998 Dodge Ram, Dakota, Durango, or 1993–2004 ZJ/WJ Grand Cherokee (V8 applications)", fitment:"requires-modification", fitment_label:"Minor modification (bracket clearance)", diff:"medium", cost:"$75–$150 used / $150–$200 reman", part:"Varies — confirm 136A output rating at the counter; lower-output units share the same body", notes:["136A vs. stock 90–117A — meaningful output gain, especially on older XJs with degraded stock alternators","Slight grinding needed on the adjusting bracket for clearance — Dremel or die grinder, 30 minutes of work","WJ units (1999–2004) from V8 Grand Cherokees are the easiest junkyard find — confirm 136A rated output before pulling","Required if running a winch, dual batteries, or sustained LED lighting over 200W total","Source: NAXJA Tech, Cherokee Forum — one of the most-documented XJ electrical upgrades"], also_fits:["TJ Wrangler"] },
@@ -357,14 +357,14 @@ const COMPAT = {
             ]
           },
           "starter-motor": {
-            label: "Starter Motor", icon: "🔑",
+            label: "Starter Motor", icon: "",
             stock: { desc: "Bosch or Mitsubishi reduction-gear starter, 1.4kW output. Shared part across the entire Mopar 4.0L family.", note: "One of the best junkyard cross-references on the platform — pull from any 4.0L Mopar application and it bolts right in" },
             swaps: [
               { id:"xj-starter-40l-family", title:"4.0L Mopar Family Starter Cross-Reference (ZJ / WJ / TJ / MJ)", summary:"XJ, ZJ Grand Cherokee, WJ Grand Cherokee, TJ Wrangler, and MJ Comanche all share the same 4.0L reduction-gear starter. Pull from any of these at the junkyard.", donor:"1991–1999 Jeep Grand Cherokee ZJ (4.0L), 1999–2004 Jeep Grand Cherokee WJ (4.0L), 1997–2006 Jeep Wrangler TJ (4.0L), 1987–1992 Jeep Comanche MJ (4.0L)", fitment:"direct", fitment_label:"Direct bolt-in (all 4.0L Mopar I6 applications)", diff:"easy", cost:"$20–$60 used / $80–$120 reman", part:"Bosch SR4449N, BBB Industries 3230, or WAI Global 28205 — all cross-reference to the same 4.0L XJ application", notes:["Confirmed cross-reference across XJ 1991–2001, ZJ 1993–1999, WJ 1999–2004, TJ 1997–2006, MJ 1987–1992 — all 4.0L applications","Pull from whichever 4.0L donor is cheapest at your junkyard — they are functionally identical","2.5L 4-cylinder XJ uses a different, smaller starter — this cross-reference applies to 4.0L units only","Inspect the flywheel ring gear before installing any used starter — a worn ring gear will destroy starters quickly","Reman units from any major parts store cross-reference correctly when you input an XJ 4.0L application — same unit ships","Source: Bosch and Carquest cross-reference databases, NAXJA Parts Section — confirmed"], also_fits:["TJ Wrangler", "ZJ Grand Cherokee", "WJ Grand Cherokee", "MJ Comanche"] }
             ]
           },
           "sensors-4.0l": {
-            label: "4.0L Sensor Cross-References", icon: "📡",
+            label: "4.0L Sensor Cross-References", icon: "",
             stock: { desc: "XJ 4.0L uses a MAP-based (speed-density) fuel management system. Sensors are shared across the entire Mopar 4.0L platform — XJ, ZJ, TJ, WJ, MJ all run common parts.", note: "A junkyard ZJ, WJ, or TJ with a 4.0L is a legitimate source for replacement sensors on your XJ — same engine, same part numbers" },
             swaps: [
               { id:"xj-sensors-40l-cross", title:"4.0L Mopar Sensor Suite Cross-Reference (CPS / MAP / TPS / IAT / O2 / CTS)", summary:"The CPS, MAP, TPS, IAT, O2, and coolant temp sensors are shared across all Mopar 4.0L applications. At the junkyard, any 4.0L Jeep or Mopar truck works as a sensor donor.", donor:"1993–1999 Jeep Grand Cherokee ZJ (4.0L), 1999–2004 WJ (4.0L), 1997–2006 Jeep Wrangler TJ (4.0L), 1987–1992 MJ Comanche (4.0L)", fitment:"direct", fitment_label:"Direct bolt-in (confirmed cross-reference by sensor)", diff:"easy", cost:"$10–$80 depending on sensor type", part:"See notes for individual part numbers — confirmed via Mopar and Bosch cross-reference data", notes:["CPS (Crankshaft Position Sensor): Mopar 53006483 / NGK-NTK RP1041 — applies to XJ, ZJ, WJ, TJ all 4.0L. Most common cause of a no-start or intermittent stall with no fault code on the 4.0L.","MAP Sensor: Mopar 56041018AA / Standard Motor Products AS7 — 3-bar MAP, all 4.0L platforms. Plug-and-play from any ZJ, TJ, or WJ donor.","TPS (Throttle Position Sensor): Mopar 4854767 / Standard Motor Products TH206 — same 0–5V potentiometer-style sensor across XJ, ZJ, WJ, TJ. 5-pin connector — confirm before purchasing.","IAT Sensor (Intake Air Temperature): Mopar 4686157 / Standard Motor Products AX16 — NTC thermistor, same across all 4.0L Mopar applications.","O2 Sensor (upstream, 1996–2001 XJ): Bosch 15706 / Denso 234-4050 / NGK 22100 — 4-wire heated sensor. Shared with ZJ 1996–1999, WJ 1999–2004, TJ 1997–2006. All OBD-II (post-1995) applications cross.","Coolant Temperature Sensor (CTS): Mopar 4761252 / Standard Motor Products TX37 — same part across XJ, ZJ, TJ, WJ 4.0L.","Fuel injector pinouts changed between XJ model years (1991, 1994, and 1997+ were each separate wiring revisions) — injectors do NOT cross freely between generation years.","Source: Mopar parts catalog, Bosch application guide, NAXJA Parts Research Section, Cherokee Forum engine management threads — confirmed reliable"], also_fits:["TJ Wrangler", "ZJ Grand Cherokee", "WJ Grand Cherokee", "MJ Comanche"] }
@@ -373,10 +373,10 @@ const COMPAT = {
         }
       },
       cooling: {
-        label: "Cooling", icon: "🌡️",
+        label: "Cooling", icon: "",
         parts: {
           "radiator": {
-            label: "Radiator", icon: "💧",
+            label: "Radiator", icon: "",
             stock: { desc: "Plastic tank / aluminum core (1991–2001 XJ). The plastic tanks are the weak point — they crack with age, particularly after 150k miles in hot climates. When a plastic tank fails on an automatic XJ, coolant contaminates the ATF through the lower cooler tank — the most common cause of AW4 failure on high-mileage rigs.", note: "A cracked radiator on an automatic XJ is an emergency. Replace it before the crack spreads, not after it ruins the transmission." },
             swaps: [
               { id:"xj-rad-mishimoto", title:"Mishimoto MMRAD-XJ-91 All-Aluminum Radiator (1991–2001 XJ 4.0L)", summary:"The cleanest radiator replacement for a stock or modified XJ. All-aluminum construction, thicker core, higher capacity — same bolt holes and hose positions as stock.", donor:"Aftermarket (Mishimoto) — not a junkyard swap", fitment:"direct", fitment_label:"Direct bolt-in (same mounting and hose positions)", diff:"easy", cost:"$200–$300 new", part:"Mishimoto MMRAD-XJ-91 (1991–2001 XJ 4.0L)", notes:["Full all-aluminum construction — no plastic tanks to crack","Same mounting holes, same upper and lower hose positions as the OEM unit — bolt-in with no modification","Core thickness is roughly 1.5–2x the stock unit; meaningfully more capacity for towing, modified engines, or summer trail use in hot climates","CSF 2862 is a direct alternative at comparable pricing — same direct-fit application","Both upper and lower hose diameters match the stock XJ — reuse your existing hoses if they're in good shape","Source: Cherokee Forum and NAXJA parts threads — Mishimoto XJ application is one of the most-purchased aftermarket cooling upgrades for the platform"] },
@@ -384,7 +384,7 @@ const COMPAT = {
             ]
           },
           "electric-fan": {
-            label: "Electric Fan", icon: "💨",
+            label: "Electric Fan", icon: "",
             stock: { desc: "Mechanical fan clutch driven by the serpentine belt on all 4.0L XJs. Draws 15–20 horsepower at highway speed. At low trail speeds — where the engine drops toward idle RPM — the fan doesn't spin fast enough to pull adequate air through the radiator.", note: "The mechanical fan is worst when you need it most: at idle on a hot trail with no forward motion. An electric fan tied to a thermostat switch runs at full speed regardless of engine RPM." },
             swaps: [
               { id:"xj-fan-lincoln-mark-viii", title:"Lincoln Mark VIII Electric Fan (1993–1998) — the documented junkyard conversion", summary:"The most-cited junkyard electric fan for the XJ and TJ. A single 16″ unit that moves 2,200–2,800 CFM depending on the source. Fits the XJ radiator core with a fabricated mounting ring or universal mounting straps.", donor:"1993–1998 Lincoln Mark VIII (4.6L V8 — pulls as a complete fan and housing assembly)", fitment:"requires-modification", fitment_label:"Minor fabrication (mounting straps or ring)", diff:"medium", cost:"$20–$60 used / $10–$20 in mounting hardware", part:"Mark VIII fan assembly — pull the complete unit including motor, housing, and connector", notes:["The Mark VIII is a 16″ single fan rated for a 4.6L V8 — moves significantly more air than any comparable junkyard fan from the Mopar parts pool","Pull the complete fan and housing; the housing is what you build your mount from","Mount with universal electric fan mounting straps ($8–$12 at any parts store) looped through the radiator fins, or fabricate a simple ring from 1.5″ aluminum strap","Wire to a thermostat switch (Hayden 3647 or equivalent, adjustable 185–220°F) for automatic operation — set at 195°F for stock engines","The Mark VIII motor draws approximately 20A at full speed — use a 25A relay triggered by the thermostat switch; do not wire through a dash switch directly","One of the most-cited cooling improvements across NAXJA and Cherokee Forum — thousands of documented XJ and TJ installs over 20+ years","Source: NAXJA Cooling/Overheating Tech Articles, Cherokee Forum Electric Fan Conversion thread — the Mark VIII is the established standard for this swap"], also_fits:["TJ Wrangler (same mounting approach, same fan dimensions)"] },
@@ -392,7 +392,7 @@ const COMPAT = {
             ]
           },
           "trans-cooler": {
-            label: "Transmission Cooler (AW4)", icon: "🧊",
+            label: "Transmission Cooler (AW4)", icon: "",
             stock: { desc: "AW4 automatic transmission cooling runs through the lower tank of the factory radiator on all automatic XJs. When the plastic tank cracks, coolant enters the ATF circuit. This is the most common cause of AW4 transmission failure on high-mileage XJs.", note: "An external transmission cooler costs $30–$80 and is the best insurance against the most common AW4 failure mode. If your automatic XJ doesn't have one yet, this is where to start." },
             swaps: [
               { id:"xj-trans-cooler-inline", title:"Inline External Transmission Cooler (B&M 70268 or Derale 13213 or Hayden 679)", summary:"An inline add-on, not a donor swap. Routes trans cooling through an external cooler mounted in the airflow path, reducing heat load on the factory radiator-mounted unit and removing the contamination risk.", donor:"Aftermarket (B&M, Derale, or Hayden) — not a junkyard swap", fitment:"direct", fitment_label:"Inline add-on (no donor vehicle required)", diff:"easy", cost:"$30–$80 new", part:"B&M 70268 SuperCooler (most cited for XJ); Derale 13213 or Hayden Rapid-Cool 679 as alternatives", notes:["Route cooler lines from the radiator's trans cooler ports to the external cooler and back using factory-diameter barbed fittings — standard 5/16″ cooler line fits B&M and Hayden inlet/outlet ports","Mount the cooler in front of the A/C condenser or between the grille slats using zip ties or the included bracket — keep it in the airflow path","ATF temperature typically drops 30–50°F on sustained pulls compared to through-radiator cooling alone","When the radiator tank cracks, an already-installed external cooler means the ATF isn't solely dependent on the radiator cooler — reduces contamination risk","B&M 70268 is the most-cited because it's compact (11″ × 9″ stacked plate) and fits between the grille slats without modification on most XJs","Best time to install: during a radiator replacement, when the cooler lines are already disconnected","Source: Cherokee Forum AW4 Technical Section, NAXJA — standard recommendation for any automatic XJ build"] },
@@ -402,10 +402,10 @@ const COMPAT = {
         }
       },
       drivetrain: {
-        label: "Drivetrain", icon: "🔄",
+        label: "Drivetrain", icon: "",
         parts: {
           "transfer-case": {
-            label: "Transfer Case", icon: "🔄",
+            label: "Transfer Case", icon: "",
             stock: { desc: "NP231 Command-Trac (most trims) or NP242 Select-Trac (some higher trims). NP231: 2.72:1 low range, part-time only. NP242: 2.72:1 low range, adds full-time 4WD mode.", note: "The 2.72:1 low range is the limiting factor for technical wheeling — the NV241OR swap is the real performance upgrade" },
             swaps: [
               { id:"xj-tcase-nv241or", title:"NV241OR RockTrac (2003–2006 TJ Rubicon)", summary:"4:1 low range vs. 2.72:1 stock. The single biggest capability upgrade for serious wheeling. Input shaft swap required.", donor:"2003–2006 Jeep Wrangler TJ Rubicon", fitment:"requires-modification", fitment_label:"Requires input gear swap", diff:"hard", cost:"$1,500–$2,500 used", part:"NV241OR", notes:["4:1 low range vs. stock 2.72:1 — transformative for rock crawling and technical trail work","23-spline short input on the NV241OR; swap the input gear from your existing NP231 into the NV241OR to match the XJ input shaft","Rear output housing is longer than the NP231 — rear driveshaft will likely be too short; budget for a custom driveshaft (Adams Driveshafts is the standard vendor — $350–$500)","32-spline front and rear outputs — stronger than the stock 23-spline","If running an SYE on your existing NP231, the CV driveshaft from that setup may still be too short for the NV241OR's longer rear housing — remeasure before ordering","Budget $2,500–$3,500 all-in including driveshaft, hardware, and fluid","Confirmed XJ installs documented on NAXJA Tech and Pirate4x4"], also_fits:["TJ Wrangler (more common application)"] },
@@ -413,7 +413,7 @@ const COMPAT = {
             ]
           },
           "driveshaft": {
-            label: "Rear Driveshaft / SYE", icon: "🔩",
+            label: "Rear Driveshaft / SYE", icon: "",
             stock: { desc: "NP231 uses a slip yoke rear output — the output shaft slides into the driveshaft rather than bolting to a fixed flange.", note: "Past 3–4″ of lift, the slip yoke can over-extend at full droop and pull free. A Slip Yoke Eliminator (SYE) is required." },
             swaps: [
               { id:"xj-sye-kit", title:"Slip Yoke Eliminator Kit (Advance Adapters or equivalent)", summary:"Converts the NP231 rear output from a slip yoke to a fixed flange. Required for lifts past 3–4″. Pairs with a custom CV rear driveshaft.", donor:"Advance Adapters #714516D, Tom Wood's, or Rubicon Express SYE kit for XJ NP231", fitment:"direct", fitment_label:"Bolt-in to existing NP231", diff:"medium", cost:"$150–$250 for SYE kit + $300–$500 for custom CV driveshaft", part:"Advance Adapters #714516D (SYE) + custom CV driveshaft from Adams Driveshafts, Tom Wood's, or Spicer", notes:["The SYE replaces the NP231's rear output seal and slip yoke with a fixed tailhousing and output flange","Once installed, the original slip yoke driveshaft no longer fits — you need a custom CV driveshaft measured to your specific lift and ride height","Adams Driveshafts and Tom Wood's Custom Drive Shafts both build XJ CV driveshafts; plan 2–3 weeks for a custom order","Measure collapsed length from the fixed flange to the pinion yoke at ride height (not full droop) — this is the spec you give the driveshaft builder","Without the SYE, a 4.5″+ lift puts the slip yoke at near full extension at ride height — at full droop the shaft can pull free entirely","Budget $450–$800 all-in for SYE kit plus CV driveshaft","Source: Pirate4x4 XJ Tech, NAXJA Member Tech Articles — one of the most-documented XJ mods"], also_fits:["TJ Wrangler (same NP231J transfer case family)"] },
@@ -421,7 +421,7 @@ const COMPAT = {
             ]
           },
           "manual-transmission": {
-            label: "Manual Transmission", icon: "⚙️",
+            label: "Manual Transmission", icon: "",
             stock: { desc: "AX-5 5-speed (2.5L 4-cylinder XJ). AX-15 5-speed (4.0L 6-cylinder XJ, 1991–1999). NV3550 5-speed (4.0L 6-cylinder XJ, 2000–2001).", note: "The AX-5 in 4-cyl XJs is the weak point. AX-15 and NV3550 are both strong — the NV3550 is a drop-in replacement when an AX-15 wears out." },
             swaps: [
               { id:"xj-trans-dakota-ax15", title:"1994+ Dodge Dakota AX-15 5-Speed (for 4-cyl XJ owners)", summary:"Bolt-in strength upgrade over the AX-5. Requires the XJ bellhousing — the Dakota bellhousing will not work.", donor:"1994+ Dodge Dakota V6", fitment:"requires-modification", fitment_label:"Requires XJ bellhousing", diff:"medium", cost:"$200–$500 used", part:"AX-15 + XJ bellhousing", notes:["Use the XJ bellhousing — Dakota bellhousing bolts and alignment differ","The AX-15 in the Dakota is the same unit as the 6-cyl XJ — significantly stronger than the AX-5","Retain all your existing shifter linkage and transfer case adapter — only the bellhousing swaps","Good option for 4-cyl XJ owners wanting more durability without swapping to a 6-cyl"] },
@@ -437,17 +437,17 @@ const COMPAT = {
     years: "2007–2018",
     categories: {
       axles: {
-        label: "Axles", icon: "🔩",
+        label: "Axles", icon: "",
         parts: {
           "front-axle": {
-            label: "Front Axle (Dana 30 → Dana 44)", icon: "🪝",
+            label: "Front Axle (Dana 30 → Dana 44)", icon: "",
             stock: { desc: "Dana 30 (Sport/Sahara) or Dana 44 (Rubicon only)", note: "Dana 30 is a common upgrade target on built JKs" },
             swaps: [
               { id:"jk-front-rubicon-d44", title:"JK Rubicon Dana 44 Front Axle", summary:"Direct bolt-in. All mounting points are identical to the Sport/Sahara Dana 30.", donor:"2007–2018 Jeep Wrangler JK Rubicon", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$1,500–$3,000 used complete", part:"Varies (Rubicon Dana 44)", notes:["All mounting points identical to Sport/Sahara — no fabrication needed","E-locker requires wiring (power + ground run to the axle); harness kits available under the dash radio panel","Verify gear ratio — Rubicon axles come 3.73 or 4.10 from factory depending on config","Rubicon carrier bearings are metric/larger — non-Rubicon housing CANNOT accept Rubicon internals without machining","Automatic JKs require ECU reprogramming if gear ratio changes"] }
             ]
           },
           "rear-axle": {
-            label: "Rear Axle", icon: "🪝",
+            label: "Rear Axle", icon: "",
             stock: { desc: "Dana 44 30-spline (Sport/Sahara); Dana 44 32-spline w/ ARB locker (Rubicon). Note: early 2007 2-door had a Dana 35.", note: "The non-Rubicon D44 can be upgraded internally without a full axle swap" },
             swaps: [
               { id:"jk-rear-rubicon-d44", title:"JK Rubicon Dana 44 Rear Axle", summary:"Direct bolt-in. 32-spline shafts, factory ARB locker, larger carrier bearings.", donor:"2007–2018 Jeep Wrangler JK Rubicon", fitment:"direct", fitment_label:"Direct bolt-in", diff:"medium", cost:"$1,500–$3,000 used complete", part:"Varies (Rubicon Dana 44)", notes:["All mounting points identical — no fabrication needed","Factory ARB Air Locker requires an air compressor or CO2 system onboard","Verify gear ratio matches the front axle before purchasing","Automatic JKs: ECU reprogramming required if gear ratio changes"] },
@@ -457,10 +457,10 @@ const COMPAT = {
         }
       },
       seats: {
-        label: "Seats", icon: "🪑",
+        label: "Seats", icon: "",
         parts: {
           "front-seats": {
-            label: "Front Seats", icon: "🪑",
+            label: "Front Seats", icon: "",
             stock: { desc: "JK front seats; consistent mount pattern across all 2007–2018 years", note: "All JK years are cross-compatible — full intra-generation flexibility" },
             swaps: [
               { id:"jk-seats-any-jk", title:"Any JK Front Seat (2007–2018)", summary:"Full intra-generation compatibility. All years share the same bolt holes.", donor:"Any 2007–2018 Jeep Wrangler JK", fitment:"direct", fitment_label:"All JK years — direct bolt-in", diff:"easy", cost:"$100–$400 used pair", part:"Varies", notes:["Bolt holes are consistent across the entire generation","2011+ seat brackets may be slightly shorter — swap the brackets from the donor seat year to resolve any height difference","Confirmed: 2016 seats install in a 2008 JK with the bracket swap","If the original seat had seat-mounted side-impact airbags (SIABs), the replacement must also include them, or the circuit must be properly disabled — SIAB-equipped seats are uncommon, verify before buying"] },
@@ -470,10 +470,10 @@ const COMPAT = {
         }
       },
       brakes: {
-        label: "Brakes", icon: "🛑",
+        label: "Brakes", icon: "",
         parts: {
           "front-brakes": {
-            label: "Front Brakes", icon: "🛑",
+            label: "Front Brakes", icon: "",
             stock: { desc: "Delphi single-piston front calipers, 12.1\" (307mm) rotors (Sport/Sahara); Brembo dual-piston, 12.9\" (328mm) rotors (Rubicon)", note: "The Sport/Sahara system handles street and mild trail use well; the Brembo upgrade matters most on builds over 35\" with heavy armor or regular descents" },
             swaps: [
               { id:"jk-front-brembo-rubicon", title:"JK Rubicon Brembo Front Caliper Upgrade into Sport/Sahara", summary:"Larger pistons and larger rotors from a Rubicon donor. Genuine improvement under load. Requires Rubicon caliper brackets — the bracket positions the Brembo over the larger rotor.", donor:"2007–2018 Jeep Wrangler JK Rubicon (front brake assembly)", fitment:"requires-modification", fitment_label:"Requires Rubicon caliper brackets + matching rotors", diff:"medium", cost:"$400–$800 used complete set", part:"Rubicon Brembo calipers + Rubicon caliper brackets + 12.9\" Rubicon rotors", notes:["The caliper bracket (which positions the Brembo over the larger rotor) bolts to the knuckle — Sport/Sahara knuckle is compatible, so no axle swap is required to run this brake upgrade","Source caliper, bracket, and rotor as a matched set — mixing components from different production years can create subtle caliper-to-rotor misalignment","Most useful on builds running 35\"+ tires with heavy bumpers and armor, or rigs that see repeated long descents","If you're already planning the full Rubicon D44 axle swap (see Axles section), you'll get the Brembo brakes included in that package anyway — no need to do this separately","Brake line from the stock hard line to the Rubicon caliper: same fitting size, same routing — no brake line modification needed","Confirmed: JeepForum documented build threads show this swap works without knuckle changes"] },
@@ -481,7 +481,7 @@ const COMPAT = {
             ]
           },
           "rear-brakes": {
-            label: "Rear Brakes", icon: "🛑",
+            label: "Rear Brakes", icon: "",
             stock: { desc: "All JK models (Sport, Sahara, Rubicon) ship with four-wheel disc brakes standard. Single-piston rear calipers with 11.5\" rotors across the board.", note: "JK rear brakes are adequate for most builds — the front is the limiting factor under hard braking on a heavy lifted rig" },
             swaps: [
               { id:"jk-rear-slotted-rotors", title:"Slotted Rotors + Upgraded Pads (aftermarket, direct bolt-in)", summary:"The practical rear brake upgrade for JK. Slotted rotors shed heat better on steep off-road descents. All direct-fit, no cross-vehicle sourcing needed.", donor:"Aftermarket — PowerStop, EBC, Hawk, DBA, etc.", fitment:"direct", fitment_label:"Direct bolt-in", diff:"easy", cost:"$150–$300 for rotors + pads", part:"PowerStop Z36 Truck & Tow kit is widely cited for JK; EBC Greenstuff for street use", notes:["Slotted (not just cross-drilled) holds up better in off-road use — cross-drilled alone can crack under repeated heavy heat cycles from water crossings followed by hard braking","Match front and rear brake compound when upgrading for consistent pedal feel and bias — mixing aggressive front pads with stock rears can cause premature rear lockup off-road","No proportioning valve changes needed with same-diameter rotors","Slotted rotors also clear mud and debris from the pad face faster than smooth rotors — a real benefit on trail"] },
@@ -491,10 +491,10 @@ const COMPAT = {
         }
       },
       electrical: {
-        label: "Electrical", icon: "⚡",
+        label: "Electrical", icon: "",
         parts: {
           "alternator": {
-            label: "Alternator", icon: "⚡",
+            label: "Alternator", icon: "",
             stock: { desc: "136A Denso alternator (3.8L JK 2007–2011); 160A Denso alternator (3.6L Pentastar JK 2012–2018). Both are adequate for stock JKs.", note: "A 160A stock alternator handles most trail accessories fine. The upgrade matters most on winch builds, dual battery setups, or rigs with significant aux lighting" },
             swaps: [
               { id:"jk-alt-220a-aftermarket", title:"220A High-Output Alternator (Mechman or DB Electrical)", summary:"The go-to upgrade for JK winch builds. Bolt-in replacement for the factory Denso unit — same mounting footprint, same wiring.", donor:"Mechman Alternators 220A JK unit, or DB Electrical ADR0432 (3.6L) / ADR0423 (3.8L)", fitment:"direct", fitment_label:"Direct bolt-in (same Denso footprint)", diff:"easy", cost:"$250–$450 (aftermarket — not a junkyard swap)", part:"Mechman 8322-220 (3.6L JK) or 8383-220 (3.8L JK); DB Electrical ADR0432 (3.6L) or ADR0423 (3.8L)", notes:["220A vs. 136–160A stock — eliminates voltage sag under simultaneous winch + lighting + compressor load","Same Denso mounting footprint: drop in, reconnect the single charge wire and B+ post — done","The 3.8L (2007–2011) and 3.6L (2012–2018) use different alternators — confirm the correct part number for your engine before ordering","If you're running a Warn or Smittybilt winch rated over 10,000 lbs, a dual battery setup, and a full LED lightbar simultaneously, stock output will sag noticeably at idle — this swap addresses it directly","Source: JeepForum JK Electrical Section, Mechman tech documentation — confirmed for both 3.8L and 3.6L applications"] },
@@ -502,7 +502,7 @@ const COMPAT = {
             ]
           },
           "tipm": {
-            label: "TIPM (Totally Integrated Power Module)", icon: "🖥️",
+            label: "TIPM (Totally Integrated Power Module)", icon: "",
             stock: { desc: "The JK TIPM is the combined fuse box, relay center, and body control module. 2007–2010 units have documented failure rates — random fuel pump shutoff, horn honking, and power windows behaving erratically are the most common symptoms.", note: "TIPM failures are electrical gremlins that are hard to diagnose without knowing the TIPM is the suspect. Any unexplained electrical failure on a 2007–2010 JK should put it on the list." },
             swaps: [
               { id:"jk-tipm-reman", title:"Remanufactured OEM TIPM (Dorman or Rebuild Service)", summary:"The TIPM is vehicle-specific — not a free junkyard swap. A reman unit matched to your year and options, or a rebuild service, is the correct fix for 2007–2010 JKs.", donor:"Dorman 599-936 (2007–2008 JK) or 599-914 (2009–2010 JK) — matched by year, engine, and option content; OR Flagship One TIPM rebuild service", fitment:"direct", fitment_label:"VIN-matched reman or rebuild (not a junkyard pull)", diff:"medium", cost:"$200–$600 (reman unit) or $100–$200 (rebuild service, mail-in)", part:"Dorman 599-936 (2007–2008 JK 3.8L) — verify full application; Flagship One rebuild service for mail-in option", notes:["The TIPM is chassis-specific — fuel pump driver module, wiring configuration, and module programming are tied to your option content. A random junkyard TIPM is not a reliable drop-in.","Most reliable path: Dorman reman unit for your specific year and engine, or mail the original TIPM to Flagship One for rebuild ($100–$200 + shipping, 3–5 day turnaround)","Symptoms of TIPM failure on 2007–2010 JK: fuel pump relay failure (no-start or intermittent stall), horn activating randomly, power windows behaving erratically, AC compressor engaging or disengaging without input","2011+ JKs with updated TIPM hardware have significantly lower failure rates — from a used-JK buying standpoint, 2011+ is preferred for electrical reliability","Source: JeepForum TIPM Megathread, NHTSA complaint database (1,000+ complaints on 2007–2010 JK TIPM), Dorman application guide"] },
@@ -512,10 +512,10 @@ const COMPAT = {
         }
       },
       cooling: {
-        label: "Cooling", icon: "🌡️",
+        label: "Cooling", icon: "",
         parts: {
           "radiator": {
-            label: "Radiator", icon: "💧",
+            label: "Radiator", icon: "",
             stock: { desc: "Plastic tank / aluminum core on both 3.8L (2007–2011) and 3.6L (2012–2018) JKs. The 3.8L is the one with documented overheating — sustained rock crawling in desert heat can push coolant temperature into the danger zone. The 3.6L Pentastar runs significantly cooler.", note: "If you run a 3.8L JK on technical trails in summer heat, an upgraded radiator is a real upgrade. At low trail speeds with no ram air and the factory fan at its limit, the stock core doesn't have enough margin." },
             swaps: [
               { id:"jk-rad-mishimoto-38", title:"Mishimoto MMRAD-JK-07 All-Aluminum Radiator (2007–2011 JK 3.8L)", summary:"Direct bolt-in all-aluminum replacement. Thicker core and higher capacity than the factory unit. The most-cited fix for 3.8L JK overheating on trail.", donor:"Aftermarket (Mishimoto) — not a junkyard swap", fitment:"direct", fitment_label:"Direct bolt-in (same mounting and hose positions)", diff:"easy", cost:"$250–$350 new", part:"Mishimoto MMRAD-JK-07 (2007–2011 JK 3.8L)", notes:["Full all-aluminum construction — no plastic tanks to age-crack","Same mounting holes and hose positions as the factory unit; reuse factory hoses","Core capacity is meaningfully larger than stock — approximately 2x the core volume by most measurements","CSF 3470 is the direct competitor at comparable pricing — both perform similarly","Paired with a supplemental pusher fan (see Electric Fan section), this combination addresses 3.8L overheating in all but the most extreme sustained situations","Source: JeepForum 3.8L Overheating Section — Mishimoto and CSF are the consistently recommended fixes"] },
@@ -523,14 +523,14 @@ const COMPAT = {
             ]
           },
           "electric-fan": {
-            label: "Electric Fan (Supplemental)", icon: "💨",
+            label: "Electric Fan (Supplemental)", icon: "",
             stock: { desc: "Both 3.8L and 3.6L JKs use electric cooling fans from the factory — no mechanical fan. The 3.8L fan module is a dual-speed unit that runs at high speed under AC or elevated temp, but is marginal at idle during sustained slow-speed crawling in high-ambient heat.", note: "The factory fan is sufficient for most trail use. The gap appears on very slow technical sections in high-ambient heat — if temps rise during crawling, a secondary pusher fan in front of the condenser is the targeted fix." },
             swaps: [
               { id:"jk-fan-pusher-spal", title:"SPAL 10″ or 12″ Pusher Fan (secondary fan in front of A/C condenser)", summary:"Adding a secondary pusher fan in front of the condenser helps at near-zero trail speeds where no ram air is moving through the cooler stack. The factory puller fan works from behind the radiator; the pusher addresses the airflow gap at idle.", donor:"SPAL 30100398 (10″) or 30100404 (12″) — aftermarket, not a junkyard swap", fitment:"direct", fitment_label:"Mount to A/C condenser face (universal brackets)", diff:"medium", cost:"$60–$120 new plus $10–$20 in mounting hardware", part:"SPAL 10″ or 12″ pusher fan rated 800+ CFM (10″) or 1,100+ CFM (12″)", notes:["Wire to a manual dash toggle switch — activate at the start of a slow technical section before temps rise, not after","A 10″ fan fits in front of the condenser without touching the bumper reinforcement on most JK builds; measure your specific clearance first","Relay the fan through a 20A relay triggered by the manual switch — direct wiring at these amp loads will overheat a standard toggle switch","The factory JK fan handles highway and moderate trail use; this is specifically for the idle-speed trail condition","The 3.8L benefits most; the 3.6L has less need for a supplemental pusher","Source: JeepForum 3.8L Overheating — pusher fan addition is recommended alongside a radiator upgrade for serious trail-built 3.8L JKs"] }
             ]
           },
           "trans-cooler": {
-            label: "Transmission Cooler", icon: "🧊",
+            label: "Transmission Cooler", icon: "",
             stock: { desc: "JK automatics (42RLE 4-speed on 2007–2011 3.8L; W5A580 on some 3.6L applications) use a factory trans cooler integrated into the radiator lower tank — same design and same potential failure mode as the XJ.", note: "The JK trans cooler is adequate for normal use. The upgrade matters most for builds towing regularly, running a higher-stall converter, or doing sustained slow-speed technical trail work in summer heat." },
             swaps: [
               { id:"jk-trans-cooler-inline", title:"Inline External Transmission Cooler (B&M 70268 or Derale 13213)", summary:"Same inline add-on approach as the XJ. Routes trans cooling through an external unit in addition to the radiator-mounted cooler. Mounts in front of the A/C condenser.", donor:"Aftermarket (B&M, Derale) — not a junkyard swap", fitment:"direct", fitment_label:"Inline add-on (no donor vehicle required)", diff:"easy", cost:"$30–$80 new", part:"B&M 70268 SuperCooler or Derale 13213", notes:["Cooler line routing on the JK is similar to XJ — trans cooler lines exit the lower radiator tank; route through the external cooler and back","Mount in front of the A/C condenser in the airflow path using the included bracket or zip ties","Required for any JK doing regular towing over 3,500 lbs in summer heat — the factory cooler's capacity is marginal under sustained load","Also recommended for builds running a higher-stall torque converter, which produces more ATF heat than a stock unit","Source: JeepForum Automatic Transmission Section — standard recommendation for JK automatic builds doing towing or sustained trail use"] }
@@ -539,10 +539,10 @@ const COMPAT = {
         }
       },
       drivetrain: {
-        label: "Drivetrain", icon: "🔄",
+        label: "Drivetrain", icon: "",
         parts: {
           "transfer-case": {
-            label: "Transfer Case", icon: "🔄",
+            label: "Transfer Case", icon: "",
             stock: { desc: "NV241J Command-Trac (all Sport/Sahara JKs): 2.72:1 low range, part-time 4WD. NP241OR Rock-Trac (Rubicon only): 4:1 low range, 32-spline outputs.", note: "The Command-Trac 2.72:1 is the limiting factor on any serious trail build — the Rock-Trac swap transforms the crawl ratio" },
             swaps: [
               { id:"jk-tcase-rock-trac", title:"NP241OR Rock-Trac from JK Rubicon", summary:"4:1 low range vs. 2.72:1 stock. Bolts into any JK with an input shaft swap.", donor:"2007–2018 Jeep Wrangler JK Rubicon", fitment:"requires-modification", fitment_label:"Requires input shaft swap", diff:"hard", cost:"$1,500–$3,000 used", part:"NP241OR Rock-Trac (JK Rubicon)", notes:["Rock-Trac input shaft is 32-spline; Command-Trac input is 23-spline — swap the input shaft from your Command-Trac into the Rock-Trac before installing","Rear output housing dimensions are nearly identical to the Command-Trac — original driveshafts typically fit without modification","32-spline front and rear outputs are stronger than the Command-Trac's 23-spline; note that the 32-spline flanges require 32-spline driveshaft yokes if you're building custom shafts","Verify gear ratio of the Rubicon donor axles (3.73 or 4.10) and match your current axle ratio before purchasing","Budget $2,000–$3,500 all-in including hardware and fluid","Source: JeepForum JK Tech Section, Pirate4x4 — well-documented swap path with multiple confirmed installs"] },
@@ -550,7 +550,7 @@ const COMPAT = {
             ]
           },
           "manual-transmission": {
-            label: "Manual Transmission", icon: "⚙️",
+            label: "Manual Transmission", icon: "",
             stock: { desc: "NSG370 6-speed manual (2007–2018 JK, all engine options). Aisin-Warner design, 23-spline output shaft. Rated to approximately 300 ft-lb of torque.", note: "The NSG370 is adequate for stock and mildly modified JKs. For high-torque engine swaps, the NV4500 or G56 are the proven upgrade paths." },
             swaps: [
               { id:"jk-trans-nv4500", title:"Dodge NV4500 5-Speed (engine swap applications)", summary:"Heavy-duty OEM transmission for JKs running a Hemi, LS, or Cummins swap. Handles significantly more torque than the NSG370. Not a drop-in — requires a bellhousing adapter.", donor:"1994–2005 Dodge Ram or Dakota NV4500 application", fitment:"requires-modification", fitment_label:"Requires bellhousing adapter + driveshaft work", diff:"hard", cost:"$400–$1,200 used + adapter kit ($300–$700)", part:"NV4500 + Advance Adapters or Novak Conversions adapter kit (engine-specific)", notes:["The NV4500 handles far more torque than the NSG370 — the correct choice when swapping to a Hemi, LS, or diesel","Requires a bellhousing adapter matched to your engine — Advance Adapters and Novak Conversions both make JK-application kits for common engine swaps","NV4500 is longer than the NSG370 — plan for revised driveshaft lengths and potentially a transmission tunnel modification","29-spline NV4500 output shaft does NOT match the NP241 transfer case adapter directly — the adapter kit addresses this","Budget this as part of a full engine swap project; doing the NV4500 swap alone on a stock 3.8L or 3.6L JK is rarely cost-effective","Source: Novak Conversions tech documentation, Pirate4x4 JK Build Section — multiple documented installs"] }
@@ -565,10 +565,10 @@ const COMPAT = {
     years: "1997–2006",
     categories: {
       brakes: {
-        label: "Brakes", icon: "🛑",
+        label: "Brakes", icon: "",
         parts: {
           "front-brakes": {
-            label: "Front Brakes", icon: "🛑",
+            label: "Front Brakes", icon: "",
             stock: { desc: "Four-wheel disc standard on all TJ models. 10.9\" (277mm) front rotors, single-piston calipers on Dana 30 solid-axle.", note: "TJ front brake components cross-reference with 1997–2001 XJ — useful to know at the junkyard" },
             swaps: [
               { id:"tj-front-xj-cross", title:"1997–2001 XJ Cherokee Front Brake Components (cross-reference)", summary:"TJ and 1997–2001 XJ share nearly identical front brake geometry on the Dana 30. Cross-reference freely when sourcing calipers, pads, and rotors.", donor:"1997–2001 Jeep Cherokee XJ (same Dana 30 front axle geometry)", fitment:"direct", fitment_label:"Verified cross-reference", diff:"easy", cost:"$30–$100 used", part:"Confirm via NAPA or RockAuto cross-reference — consistent overlap confirmed", notes:["Front caliper part numbers cross-reference between 1997–2006 TJ and 1997–2001 XJ — confirmed via Wagner and Moog cross-reference charts","Useful for sourcing rebuilt calipers from XJ donors at the junkyard when TJ-specific units are harder to find locally","Both platforms run the Dana 30 high-pinion front axle — rotor hat depth and hub geometry are effectively identical","Works in both directions: TJ calipers can substitute for XJ, and vice versa", "Source: Cherokee Forum Tech, Jeep TJ Forum confirmed cross-reference"], also_fits:["XJ Cherokee (same swap in reverse)"] },
@@ -576,7 +576,7 @@ const COMPAT = {
             ]
           },
           "rear-brakes": {
-            label: "Rear Brakes", icon: "🛑",
+            label: "Rear Brakes", icon: "",
             stock: { desc: "9\" drum brakes on Dana 35 rear axle (Sport/Sahara, all 1997–2006 years); 11.1\" rear disc brakes on Dana 44 rear axle (Rubicon 2003–2006 only)", note: "The Rubicon rear axle swap is the most popular TJ mod — you get rear discs AND the stronger Dana 44 in one shot" },
             swaps: [
               { id:"tj-rear-disc-rubicon-axle", title:"TJ Rubicon Rear Axle Swap (Dana 44 + Factory Rear Discs)", summary:"The cleanest path to rear disc brakes on a non-Rubicon TJ. Direct bolt-in — same spring perch geometry across all TJ years. Also nets the stronger Dana 44 and Tru-Lok locker.", donor:"2003–2006 Jeep Wrangler TJ Rubicon (rear axle)", fitment:"direct", fitment_label:"Direct bolt-in (same spring perch geometry, all TJ years)", diff:"medium", cost:"$800–$2,000 used complete axle", part:"Rubicon TJ Dana 44 rear axle — verify gear ratio (3.73 or 4.10) before purchasing", notes:["Spring perch location and axle width are identical between non-Rubicon and Rubicon TJ — all years share the same rear coil spring perch geometry","Rear track width is unchanged — the swap is bolt-in at spring perches, shock mounts, and sway bar end links","You get 30-spline axle shafts and the factory Tru-Lok electric locker (if the donor had it) as part of the deal","Match gear ratios: if your front Dana 30 has 4.10 gears, buy a 4.10-geared Rubicon rear — mismatched ratios will damage both transfer case and drivetrain","Parking brake cables and brake line routing are the same — reconnect and bleed","Source: Pirate4x4 TJ Tech Section, JeepForum — hundreds of confirmed direct-swap builds documented","Budget $1,200–$2,500 all-in including brake lines, cable, fluid flush, and possible gear ratio verification"] },
@@ -586,10 +586,10 @@ const COMPAT = {
         }
       },
       electrical: {
-        label: "Electrical", icon: "⚡",
+        label: "Electrical", icon: "",
         parts: {
           "alternator": {
-            label: "Alternator", icon: "⚡",
+            label: "Alternator", icon: "",
             stock: { desc: "75A (base 1997–1999 TJ 4-cyl), 90A (most 1997–1999 6-cyl), or 117A (2000–2006 TJ 4.0L 6-cyl). The 117A stock unit is the most common by the late production years.", note: "The same alternator upgrade path that applies to the XJ 4.0L applies to the TJ — the mounting bracket family is identical" },
             swaps: [
               { id:"tj-alt-136a-donor", title:"Mopar 136A Alternator (Dakota V6 / ZJ / WJ — same donor pool as XJ)", summary:"Same upgrade as the XJ. The TJ 4.0L and XJ 4.0L use the same alternator mounting family. Any 136A donor that fits an XJ fits a TJ.", donor:"1997–1998 Dodge Dakota V6 or Durango, 1993–2004 ZJ/WJ Grand Cherokee (V8) — confirm 136A output rating", fitment:"requires-modification", fitment_label:"Minor modification (same bracket clearance as XJ)", diff:"medium", cost:"$75–$150 used / $150–$200 reman", part:"Same application as XJ 4.0L — confirm 136A output rating on the unit", notes:["The TJ and XJ 4.0L share the same alternator mounting bracket geometry — every XJ alternator upgrade note in the XJ Electrical section applies directly to TJ","Same 30-minute bracket grinding process; same donor vehicles","117A stock TJ unit handles most daily-driver and mild trail builds; upgrade when adding a winch, dual battery, or significant lighting","Source: JeepForum TJ Tech Section, NAXJA cross-reference threads — confirmed same donor pool as XJ"], also_fits:["XJ Cherokee (same swap in reverse)"] },
@@ -597,7 +597,7 @@ const COMPAT = {
             ]
           },
           "sensors-4.0l": {
-            label: "4.0L Sensor Cross-References", icon: "📡",
+            label: "4.0L Sensor Cross-References", icon: "",
             stock: { desc: "TJ 4.0L runs the same MAP-based fuel management system as the XJ 4.0L. Sensor pinouts and part numbers are identical across the full 4.0L Mopar platform.", note: "See the XJ Electrical section for the full sensor cross-reference list — every part number documented there applies directly to the TJ 4.0L" },
             swaps: [
               { id:"tj-sensors-40l-xj-cross", title:"TJ 4.0L Sensor Suite — Same Cross-Reference as XJ 4.0L", summary:"TJ and XJ share identical sensor part numbers for CPS, MAP, TPS, IAT, O2, and coolant temp. A junkyard XJ, ZJ, or WJ is a direct sensor source for a TJ, and vice versa.", donor:"1984–2001 Jeep Cherokee XJ (4.0L), 1993–1999 ZJ Grand Cherokee (4.0L), 1999–2004 WJ Grand Cherokee (4.0L)", fitment:"direct", fitment_label:"Direct bolt-in (confirmed cross-reference)", diff:"easy", cost:"$10–$80 depending on sensor", part:"Same part numbers as XJ application — Mopar 53006483 (CPS), Mopar 56041018AA (MAP), Bosch 15706 (O2 upstream), Mopar 4761252 (CTS)", notes:["Every sensor listed in the XJ 4.0L cross-reference applies identically to the TJ 4.0L — the engine is the same unit across both platforms","CPS, MAP, TPS, IAT, O2 (upstream), and coolant temp are direct cross-references from any 4.0L Mopar application","The TJ 4.0L injection harness was updated between 1997 and 2000 — confirm connector style matches the donor sensor year range before purchasing","At the junkyard, any 4.0L XJ, ZJ, WJ, or MJ sitting next to your TJ is a legitimate sensor donor — same engine family throughout","Source: Same cross-reference data as XJ application — Mopar catalog, Bosch application guide, NAXJA / JeepForum TJ Tech"], also_fits:["XJ Cherokee", "ZJ Grand Cherokee", "WJ Grand Cherokee"] }
@@ -606,10 +606,10 @@ const COMPAT = {
         }
       },
       cooling: {
-        label: "Cooling", icon: "🌡️",
+        label: "Cooling", icon: "",
         parts: {
           "radiator": {
-            label: "Radiator", icon: "💧",
+            label: "Radiator", icon: "",
             stock: { desc: "Plastic tank / aluminum core on all 1997–2006 TJ 4.0L models. Same failure mode as the XJ — plastic tanks crack with age, especially in hot climates. Automatic TJs have the ATF-in-coolant contamination risk when the lower tank fails.", note: "The TJ radiator is physically smaller than the XJ unit (narrower body), but the upgrade path is the same — all-aluminum direct-fit replacement or junkyard core upgrade." },
             swaps: [
               { id:"tj-rad-mishimoto", title:"Mishimoto MMRAD-TJ-97 All-Aluminum Radiator (1997–2006 TJ 4.0L)", summary:"Direct bolt-in all-aluminum replacement. Same mounting holes and hose connections as the factory unit. Eliminates the plastic tank failure mode and adds core capacity.", donor:"Aftermarket (Mishimoto) — not a junkyard swap", fitment:"direct", fitment_label:"Direct bolt-in (same mounting and hose positions)", diff:"easy", cost:"$200–$300 new", part:"Mishimoto MMRAD-TJ-97 (1997–2006 TJ 4.0L)", notes:["Full all-aluminum construction — same bolt-in approach as the XJ Mishimoto unit","Same upper and lower hose positions as the factory radiator — reuse existing hoses if in good condition","CSF 2862 is a direct alternative at comparable pricing","TJ and XJ radiators are NOT interchangeable — different core widths to fit different body dimensions; confirm TJ application when ordering","Source: JeepForum TJ Cooling Section, Pirate4x4 — Mishimoto TJ application is documented across hundreds of builds"] },
@@ -617,7 +617,7 @@ const COMPAT = {
             ]
           },
           "electric-fan": {
-            label: "Electric Fan", icon: "💨",
+            label: "Electric Fan", icon: "",
             stock: { desc: "Mechanical fan clutch driven by the serpentine belt on all TJ 4.0L models. Same 15–20 HP parasitic drag at highway speed as the XJ, and the same inadequacy at low crawling speeds when engine RPM drops.", note: "The TJ mechanical fan has the same design problem as the XJ. At low trail speeds, it doesn't spin fast enough to pull air through the core. An electric fan tied to a thermostat switch runs at full speed regardless of engine RPM." },
             swaps: [
               { id:"tj-fan-lincoln-mark-viii", title:"Lincoln Mark VIII Electric Fan (1993–1998) — same swap as XJ", summary:"The most-documented junkyard electric fan conversion for the TJ — identical to the XJ swap. Single 16″ unit, ~2,200–2,800 CFM, fits the TJ core with fabricated mounting straps or a ring.", donor:"1993–1998 Lincoln Mark VIII (4.6L V8)", fitment:"requires-modification", fitment_label:"Minor fabrication (mounting straps or ring)", diff:"medium", cost:"$20–$60 used / $10–$20 in hardware", part:"Mark VIII fan assembly — pull the complete unit including housing and motor", notes:["Identical swap procedure to the XJ — all NAXJA and Cherokee Forum documentation for this swap applies directly to the TJ","Mark VIII fan housing fits the TJ core with universal mounting straps looped through the radiator fins","Wire through a 25A relay triggered by a thermostat switch (Hayden 3647, ~$25) — set at 195°F for stock engines","20A draw at full speed; use the relay and 12 AWG wiring — never direct-wire through a dash toggle","Source: JeepForum TJ Electric Fan Conversion threads, Pirate4x4 TJ Cooling Section — Mark VIII fan is the established junkyard solution for both XJ and TJ"], also_fits:["XJ Cherokee (same documented swap)"] },
@@ -625,7 +625,7 @@ const COMPAT = {
             ]
           },
           "trans-cooler": {
-            label: "Transmission Cooler (AW4)", icon: "🧊",
+            label: "Transmission Cooler (AW4)", icon: "",
             stock: { desc: "TJ models equipped with the AW4 automatic use the same radiator-mounted trans cooler as the XJ. Same failure mode: plastic radiator tank crack leads to coolant contamination of the ATF. Manual transmission TJs have no factory trans cooler and don't need one.", note: "This section applies only to AW4-equipped TJs. Manual transmission TJs (AX-15 and NV3550) run fine without a cooler under normal conditions." },
             swaps: [
               { id:"tj-trans-cooler-inline", title:"Inline External Transmission Cooler (B&M 70268 or Derale 13213)", summary:"Same inline add-on as the XJ AW4 build. Mounts in front of the A/C condenser. Standard recommendation for any automatic TJ.", donor:"Aftermarket (B&M, Derale) — not a junkyard swap", fitment:"direct", fitment_label:"Inline add-on (no donor vehicle required)", diff:"easy", cost:"$30–$80 new", part:"B&M 70268 SuperCooler or Derale 13213 or Hayden 679", notes:["Identical installation to the XJ — cooler lines route from the radiator lower tank trans ports to the external cooler and back","Mount in front of the condenser or between the grille in the airflow path","The AW4 is robust; the risk is coolant contamination when the radiator cracks, not internal heat damage from normal trail use","Best installed during a radiator replacement while the cooler lines are already disconnected — adds 30 minutes to the job","Source: NAXJA and JeepForum AW4 reliability threads — same recommendation as for XJ automatics"], also_fits:["XJ Cherokee (same AW4 setup)"] }
@@ -634,10 +634,10 @@ const COMPAT = {
         }
       },
       drivetrain: {
-        label: "Drivetrain", icon: "🔄",
+        label: "Drivetrain", icon: "",
         parts: {
           "transfer-case": {
-            label: "Transfer Case", icon: "🔄",
+            label: "Transfer Case", icon: "",
             stock: { desc: "NP231J Command-Trac (all non-Rubicon TJs): 2.72:1 low range. Same family as the XJ NP231 — all the same SYE kits and input gear swaps apply. NV241OR Rock-Trac (2003–2006 Rubicon only): 4:1 low range.", note: "The NP231J and XJ NP231 are the same transfer case family — every XJ drivetrain tip on this page applies directly to TJ" },
             swaps: [
               { id:"tj-tcase-nv241or", title:"NV241OR Rock-Trac Swap (the native Rubicon unit)", summary:"The most popular TJ transfer case upgrade. 4:1 low range. Input shaft swap required — same procedure as the XJ NV241OR swap.", donor:"2003–2006 Jeep Wrangler TJ Rubicon", fitment:"requires-modification", fitment_label:"Requires input shaft swap", diff:"hard", cost:"$1,200–$2,000 used", part:"NV241OR (TJ application)", notes:["Input shaft swap is identical to the XJ procedure — swap the NP231J's input gear into the NV241OR before installing","Rear output housing is longer than the NP231J — rear driveshaft will likely need to be replaced with a custom CV unit (Adams Driveshafts or Tom Wood's)","Going straight to the NV241OR means you can skip the SYE kit entirely — the NV241OR uses a fixed flange output, not a slip yoke","32-spline front and rear outputs — same spec as the XJ application, stronger than the stock 23-spline","More commonly done on TJ than XJ because Rubicon donors are widely available in TJ trim; the swap is one of the most-documented TJ mods on any forum","Budget $2,000–$3,000 all-in with driveshaft and hardware","Source: Pirate4x4 TJ Tech Section, JeepForum — thousands of documented installs"] },
@@ -645,7 +645,7 @@ const COMPAT = {
             ]
           },
           "manual-transmission": {
-            label: "Manual Transmission", icon: "⚙️",
+            label: "Manual Transmission", icon: "",
             stock: { desc: "AX-15 5-speed (1997–1999 TJ 4.0L 6-cyl). NV3550 5-speed (2000–2006 TJ 4.0L 6-cyl). AX-5 5-speed (2.5L TJ 4-cyl). Both 6-cyl transmissions use the same adapter to the NP231J transfer case.", note: "AX-15 and NV3550 are both robust — the NV3550 upgrade is mainly worth it when the AX-15 is worn out or you want the better sealing and gear spacing" },
             swaps: [
               { id:"tj-trans-nv3550", title:"NV3550 5-Speed (direct AX-15 replacement for 6-cyl TJ)", summary:"Drop-in replacement for AX-15 owners with worn-out units. Same bellhousing pattern, same adapter to the NP231J — no driveshaft or transfer case changes needed.", donor:"2000–2006 Jeep Wrangler TJ (4.0L 6-cyl) or 2000–2001 Jeep Cherokee XJ (4.0L 6-cyl)", fitment:"direct", fitment_label:"Direct bolt-in (AX-15 replacement)", diff:"medium", cost:"$400–$800 used", part:"NV3550 from TJ 6-cyl or XJ 6-cyl (same mounting pattern)", notes:["Same bellhousing pattern as the AX-15 — the NV3550 bolts directly in with no adapter","Same 23-spline output shaft — the NP231J adapter is unchanged; no driveshaft or transfer case work needed","Better gear spacing for off-road use and noticeably improved sealing versus a high-mileage AX-15","TJ and XJ NV3550 units are fully interchangeable — same drivetrain package across both platforms","Shift quality is often noticeably improved over a worn AX-15 — sometimes the most obvious benefit of the swap","Source: Confirmed via JeepForum TJ Tech and NAXJA — the NV3550 is the factory service replacement for a worn AX-15"] }
@@ -662,7 +662,7 @@ const COMPAT = {
   }
 };
 
-const CAT_ICONS = { steering:"🔧", axles:"🔩", seats:"🪑", brakes:"🛑", suspension:"🔼", electrical:"⚡", drivetrain:"🔄", cooling:"🌡️" };
+const CAT_ICONS = { steering:"", axles:"", seats:"", brakes:"", suspension:"", electrical:"", drivetrain:"", cooling:"" };
 
 // ─── STATE ───────────────────────────────────────────────────────────────────
 
@@ -703,7 +703,7 @@ function renderVehicleScreen() {
     <div class="hero-section">
       <h1>Parts Compatibility Validator</h1>
       <p class="lede">Find what swaps from other vehicles into yours — with OEM part numbers, year ranges, fitment notes, and honest difficulty ratings. Built from community knowledge, not affiliate databases.</p>
-      <div class="hero-caveat">⚠ Verify fitment for your specific year before purchasing. Data is community-sourced and updated regularly.</div>
+      <div class="hero-caveat">Note: Verify fitment for your specific year before purchasing. Data is community-sourced and updated regularly.</div>
     </div>
     ${renderSteps()}
     <div class="section-head">
@@ -719,7 +719,7 @@ function renderCategoryScreen() {
     const partCount = Object.keys(cat.parts).length;
     const swapCount = Object.values(cat.parts).reduce((sum, p) => sum + p.swaps.length, 0);
     return `<div class="cat-card" onclick="selectCategory('${key}')">
-      <div class="cc-icon">${cat.icon || CAT_ICONS[key] || "🔧"}</div>
+      <div class="cc-icon">${cat.icon || CAT_ICONS[key] || ""}</div>
       <h4>${cat.label}</h4>
       <div class="cc-count">${swapCount} swap${swapCount !== 1 ? "s" : ""} documented</div>
     </div>`;
@@ -740,7 +740,7 @@ function renderPartsScreen() {
   const rows = Object.entries(cat.parts).map(([key, part]) => {
     const swapCount = part.swaps.length;
     return `<div class="part-row" onclick="selectPart('${key}')">
-      <div class="pr-icon">${part.icon || "🔧"}</div>
+      <div class="pr-icon">${part.icon || ""}</div>
       <div>
         <div class="pr-name">${part.label}</div>
         <div class="pr-stock">${part.stock.desc}</div>
@@ -776,7 +776,7 @@ function renderResultsScreen() {
     const avoidClass = s.fitment === "not-recommended" ? " avoid" : "";
     const fitNote = s.fitment_note_full
       ? `<div class="fitment-note">${s.fitment_note_full}</div>`
-      : (s.fitment === "conditional" ? `<div class="fitment-note">⚠ Fitment depends on your XJ year — read notes carefully</div>` : "");
+      : (s.fitment === "conditional" ? `<div class="fitment-note">Note: Fitment depends on your XJ year — read notes carefully</div>` : "");
 
     const partNum = s.part && s.part !== "Varies" && s.part !== "N/A" && s.part !== "Varies by year"
       ? `<div class="sc-meta"><div class="sm-label">Part Number</div><div class="sm-val">${s.part}</div></div>` : "";
@@ -816,7 +816,7 @@ function renderResultsScreen() {
     <div class="stock-panel">
       <div class="sp-label">Stock / OEM</div>
       <div class="sp-desc">${part.stock.desc}</div>
-      ${part.stock.note ? `<div class="sp-note">⚠ ${part.stock.note}</div>` : ""}
+      ${part.stock.note ? `<div class="sp-note">Note: ${part.stock.note}</div>` : ""}
     </div>
     <div class="section-head">
       <h2>${part.label} — Compatible Swaps</h2>
