@@ -874,7 +874,7 @@
   function currentVehicleId() {
     // hash format: #/<vid>/...path
     const m = location.hash.match(/^#\/([a-z0-9_-]+)(\/|$)/);
-    if (m && m[1] && M.vehicles.find(v=>v.id===m[1] && v.active)) return m[1];
+    if (m && m[1] && M.vehicles.find(v=>v.id===m[1] && v.active && !v.hidden)) return m[1];
     return null;
   }
   function vehicleMeta(vid) { return M.vehicles.find(v=>v.id===vid); }
@@ -1006,12 +1006,13 @@
     hero.appendChild(el('p', {}, 'Select a vehicle to browse guides, build paths, and diagnostic tools.'));
     var stats = el('div', {class:'picker-stats'});
     stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.total_entries||0)), el('div',{class:'l'},'Entries')));
-    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active;}).length)), el('div',{class:'l'},'Active vehicles')));
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active && !v.hidden;}).length)), el('div',{class:'l'},'Active vehicles')));
     hero.appendChild(stats);
     app.appendChild(hero);
 
     var vmap = {};
-    M.vehicles.forEach(function(v){ vmap[v.id] = v; });
+    // Hidden vehicles excluded from the brand grid (see build.py "hidden" flag).
+    M.vehicles.forEach(function(v){ if (v.hidden) return; vmap[v.id] = v; });
 
     var jumpNav2 = el('nav', {'class':'picker-jump-nav', 'aria-label':'Jump to brand'});
     ['Jeep','Ford','Toyota','Ram','Nissan'].forEach(function(b){

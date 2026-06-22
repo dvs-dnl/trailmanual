@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Infrared Thermometer — Reading Brake, Cooling, and Exhaust Temps — Trail Manual Workshop</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="canonical" href="https://trailmanual.com/workshop/infrared-thermometer/">
+<meta name="description" content="How to use an infrared thermometer for car diagnosis: distance-to-spot ratio, emissivity on shiny metal, and comparing brake, cooling, and exhaust temps.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+/* Workshop guide page styles */
+body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
+.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
+.back-link:hover { color: var(--accent); }
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
+.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
+.safety-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(220,60,60,.12); border: 1px solid rgba(220,60,60,.3); color: #e05555; font-size: 12px; font-family: var(--mono); text-transform: uppercase; letter-spacing: .1em; padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
+.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
+.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
+.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
+.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+.callout.warn { border-left-color: #e05555; }
+.callout strong { color: var(--text); }
+footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 500px) {
+  .guide-title { font-size: 26px; }
+  .guide-lede { font-size: 16px; }
+  .brand-sub { display: none; }
+  .back-link { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-mark">TM</div>
+    <div>
+      <div class="brand-text">Trail Manual</div>
+      <div class="brand-sub">The Workshop</div>
+    </div>
+  </a>
+  <a class="back-link" href="/workshop/">← Workshop</a>
+</header>
+
+<div class="guide-wrap">
+  <div class="guide-eyebrow">Workshop · Tools</div>
+  <h1 class="guide-title">Infrared Thermometer — Reading Brake, Cooling, and Exhaust Temps</h1>
+
+  <p class="guide-lede">
+    An infrared thermometer reads surface temperature from a distance, in a second, without touching anything. Its real power isn't the number on the screen — it's the difference between two numbers. Compare one side to the other, and a dragging brake, a stuck thermostat, or a dead cylinder shows up in plain sight.
+  </p>
+
+  <div class="guide-body">
+
+    <h2>What it actually measures</h2>
+    <p>An infrared (IR) thermometer reads the heat radiating off a <strong>surface</strong> — nothing more. It doesn't sense the temperature inside a casting, the coolant in a hose, or the gas in a pipe. It reads the skin. That's enough for almost every roadside and driveway diagnosis you'll do, as long as you remember you're reading the outside of the thing, not its core.</p>
+    <p>Two specs decide whether the reading means anything: distance-to-spot ratio and emissivity. Understand those two and the tool becomes trustworthy. Ignore them and you'll chase numbers that aren't real.</p>
+
+    <div class="callout">
+      <strong>Key point:</strong> The IR gun is a comparison tool first and an absolute-temperature tool second. A reading of "412°F" tells you little on its own. "Left rotor 280°F, right rotor 540°F" tells you which caliper is dragging.
+    </div>
+
+    <h2>Distance-to-spot ratio — get close</h2>
+    <p>The lens reads an average over a circle, and that circle grows as you back away. A typical automotive gun is rated <strong>12:1</strong>, meaning at 12 inches from the target it averages roughly a 1-inch spot; at 24 inches, a 2-inch spot; at 6 feet, a spot the size of a dinner plate. Stand back to read an exhaust runner and the gun blends the hot runner with the cold cylinder head around it, and you get a meaningless middle number.</p>
+    <p>Hold the gun a hand's width from the target whenever you can. For small parts — a single exhaust port, a fuse, a wheel bearing — close is the only way to read that part alone and not its surroundings. The visible laser dot marks the <em>center</em> of the spot, not its size, so the real measured area is always larger than the dot suggests.</p>
+
+    <h2>Emissivity — why shiny metal lies</h2>
+    <p>Emissivity is how efficiently a surface gives off infrared. Dull, dark, painted, or oxidized surfaces emit well (around 0.95, which is what most fixed guns assume). Bright bare metal — a polished rotor face, aluminum, chrome exhaust tip, fresh stainless — emits poorly and reflects the temperature of everything around it instead. Point a gun at a mirror-finish surface and it can read 150°F low and you'd never know.</p>
+    <p>Work around it three ways:</p>
+    <ul>
+      <li><strong>Aim at a dull spot.</strong> Read the rusty rotor edge or hat, the oxidized exhaust weld, the painted casting — not the polished face.</li>
+      <li><strong>Make your own target.</strong> A square of masking tape or a dab of flat-black high-temp paint on the part gives the gun a consistent ~0.95 surface to read. Let it reach the part's temperature first.</li>
+      <li><strong>Adjust emissivity</strong> if your gun has the setting, but for most diagnostic work the tape trick is faster and the comparison still holds as long as both sides are read the same way.</li>
+    </ul>
+
+    <h2>Brakes — find the dragging corner</h2>
+    <p>Drive the vehicle a few miles with normal braking, park on level ground, and read both sides of the same axle right away. A healthy pair runs within a reasonable range of each other. One corner running far hotter points to a <strong>seized caliper, sticking slide pins, or a collapsed brake hose</strong> holding pressure. A corner running cold while its partner is warm can mean a caliper that isn't applying at all.</p>
+    <p>Read the rotor hat or the dull outer edge rather than the shiny swept face, and take both readings within seconds of each other — brake parts shed heat fast, and a one-minute delay invalidates the comparison.</p>
+
+    <div class="callout warn">
+      <strong>These parts are hot.</strong> Rotors, exhaust, and cooling components after a drive can exceed 400°F and will burn you through a glove. The whole point of a non-contact tool is that you don't have to touch them — keep it that way, and watch where you brace your free hand.
+    </div>
+
+    <h2>Cooling system — follow the heat</h2>
+    <p>The cooling system is where the IR gun earns its keep, because flow problems show up as temperature differences you can see:</p>
+    <ul>
+      <li><strong>Thermostat check:</strong> with the engine warming up, watch the upper radiator hose. When the thermostat opens, that hose temperature jumps as hot coolant starts flowing. A hose that stays cool while the gauge climbs means a thermostat stuck shut — overheating waiting to happen.</li>
+      <li><strong>Clogged radiator:</strong> with the engine hot, scan across the radiator core in a grid. Even, gradual cooling from inlet to outlet is normal. Distinct cold patches are blocked tubes not carrying flow.</li>
+      <li><strong>Water pump and heater core:</strong> compare inlet to outlet. A pump that isn't moving coolant, or a plugged heater core, shows little temperature drop across it where there should be a clear one.</li>
+    </ul>
+
+    <h2>Exhaust — dead cylinders and tired cats</h2>
+    <p>On an engine with accessible exhaust runners, scan each one close to the head with the engine idling. A <strong>misfiring or dead cylinder runs noticeably cooler</strong> than its neighbors because it isn't burning fuel — this reads before the catalytic converter, so it isolates the problem to that cylinder. Equal runners point you away from a mechanical miss and toward something common to all cylinders.</p>
+    <p>For the catalytic converter, compare the inlet pipe to the outlet pipe after the engine is fully warm. A working converter is doing chemistry that gives off heat, so the outlet should read at least as hot as the inlet, usually a bit hotter. An outlet that's clearly cooler than the inlet suggests a converter that isn't lighting off. Converters begin working around 350°F and are fully active near 500°F, so make sure the system is hot before you judge it.</p>
+
+    <h2>Other quick checks</h2>
+    <p>The same tool spots a hot wheel bearing (compare hubs side to side after a drive), confirms an A/C system is working (read the temperature at the center vent), and finds an overloaded circuit (a connector or fuse running hotter than its neighbors). Anywhere two things should be the same temperature and aren't, the gun finds it.</p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Trusting a reading off shiny bare metal.</strong> Low emissivity makes polished rotors, aluminum, and chrome read far colder than they are. Read a dull spot or add tape.</li>
+      <li><strong>Standing too far back.</strong> The spot grows with distance and averages in cold surroundings. Get within a hand's width of small targets.</li>
+      <li><strong>Comparing readings taken minutes apart.</strong> Parts cool quickly; both sides of a comparison must be read in quick succession to be valid.</li>
+      <li><strong>Reading absolute numbers as gospel.</strong> Surface temperature, emissivity, and air movement all shift the figure. The difference between two surfaces is what diagnoses the fault.</li>
+      <li><strong>Trying to read through steam, smoke, or glass.</strong> The gun reads the nearest surface — it'll measure the windshield, not what's behind it, and water vapor scatters the reading.</li>
+    </ul>
+
+  </div>
+
+</div>
+
+<footer>
+  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
+  <a href="/channels/">Recommended Channels</a> &nbsp;·&nbsp;
+  <a href="/">Trail Manual</a>
+</footer>
+
+</body>
+</html>

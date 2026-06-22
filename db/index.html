@@ -1019,7 +1019,7 @@
   function currentVehicleId() {
     // hash format: #/<vid>/...path
     const m = location.hash.match(/^#\/([a-z0-9_-]+)(\/|$)/);
-    if (m && m[1] && M.vehicles.find(v=>v.id===m[1] && v.active)) return m[1];
+    if (m && m[1] && M.vehicles.find(v=>v.id===m[1] && v.active && !v.hidden)) return m[1];
     return null;
   }
   function vehicleMeta(vid) { return M.vehicles.find(v=>v.id===vid); }
@@ -1143,13 +1143,15 @@
     hero.appendChild(el('p', {}, 'Trail Manual goes deep on Jeep first \u2014 the Cherokee XJ, the Wrangler family, and the Gladiator. Other platforms are covered and growing. Pick a vehicle to browse guides, build paths, and diagnostic tools.'));
     var stats = el('div', {class:'picker-stats'});
     stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.total_entries||0)), el('div',{class:'l'},'Entries')));
-    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active;}).length)), el('div',{class:'l'},'Active vehicles')));
-    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.length)), el('div',{class:'l'},'On the roadmap')));
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active && !v.hidden;}).length)), el('div',{class:'l'},'Active vehicles')));
+    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return !v.hidden;}).length)), el('div',{class:'l'},'On the roadmap')));
     hero.appendChild(stats);
     app.appendChild(hero);
 
     var vmap = {};
-    M.vehicles.forEach(function(v){ vmap[v.id] = v; });
+    // Hidden vehicles (non-Jeep, not yet fully built) are excluded from the picker;
+    // their pages/shards still exist but are not browsable. See build.py "hidden" flag.
+    M.vehicles.forEach(function(v){ if (v.hidden) return; vmap[v.id] = v; });
 
     // Brand jump nav
     var jumpNav = el('nav', {'class':'picker-jump-nav', 'aria-label':'Jump to brand'});

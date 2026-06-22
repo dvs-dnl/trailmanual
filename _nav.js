@@ -10,7 +10,7 @@
   }
   function tmExplore(){
     fetch('/db/data/manifest.json').then(function(r){return r.json();}).then(function(m){
-      var active=m.vehicles.filter(function(v){return v.active;});
+      var active=m.vehicles.filter(function(v){return v.active && !v.hidden;});
       var v=active[Math.floor(Math.random()*active.length)];
       window.location.href='/db/#/'+v.id+'/home';
     }).catch(function(){window.location.href='/db/';});

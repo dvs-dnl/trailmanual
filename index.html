@@ -1054,6 +1054,91 @@
   .v-strip-item { padding: 10px 12px 8px; }
   .v-strip-item img { height: 72px; }
 }
+
+/* ═══════════════════════════════════════════════════════
+   HERO CAROUSEL — auto-rotating full-bleed feature cards
+   ═══════════════════════════════════════════════════════ */
+.hero-carousel{
+  position:relative; overflow:hidden;
+  margin:-30px -20px 0; min-height:600px;
+  background:#1a1f27;
+}
+.hc-viewport{position:relative; min-height:600px;}
+.hc-slide{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; visibility:hidden;
+  transition:opacity .7s ease;
+  z-index:0;
+}
+.hc-slide.is-active{opacity:1; visibility:visible; z-index:1;}
+.hc-photo{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center 42%;
+  background-color:#1a1f27;
+  transform:scale(1.04);
+}
+.hc-slide.is-active .hc-photo{
+  animation:hcKenBurns 8s ease-out forwards;
+}
+@keyframes hcKenBurns{from{transform:scale(1.04)} to{transform:scale(1.12)}}
+.hc-overlay{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to bottom,
+      rgba(10,13,18,0.66) 0%, rgba(10,13,18,0.52) 40%,
+      rgba(10,13,18,0.80) 80%, rgba(10,13,18,0.96) 100%),
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(197,165,114,.12) 0%, transparent 65%);
+}
+.hc-inner{
+  position:relative; z-index:2; text-align:center;
+  max-width:820px; margin:0 auto; padding:0 24px; width:100%;
+}
+.hc-inner h1{
+  font-size:60px; font-weight:900; letter-spacing:-2px; line-height:1.06;
+  margin:0 0 22px; color:#fff; text-shadow:0 2px 20px rgba(0,0,0,.45);
+}
+.hc-inner h1 em{font-style:normal; color:var(--accent);}
+.hc-inner .hero-sub{margin:0 auto 34px;}
+/* Arrows */
+.hc-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  z-index:5; width:46px; height:46px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(14,17,22,.55); border:1px solid rgba(255,255,255,.2);
+  color:#fff; font-size:26px; line-height:1; cursor:pointer;
+  backdrop-filter:blur(6px); transition:background .18s, border-color .18s;
+}
+.hc-arrow:hover{background:rgba(14,17,22,.8); border-color:rgba(197,165,114,.6);}
+.hc-prev{left:18px;} .hc-next{right:18px;}
+/* Dots */
+.hc-dots{
+  position:absolute; left:0; right:0; bottom:22px; z-index:5;
+  display:flex; gap:10px; justify-content:center;
+}
+.hc-dot{
+  width:9px; height:9px; border-radius:50%; cursor:pointer; padding:0;
+  background:rgba(255,255,255,.35); border:1px solid rgba(255,255,255,.4);
+  transition:background .2s, width .2s, border-radius .2s;
+}
+.hc-dot.is-active{background:var(--accent); border-color:var(--accent); width:26px; border-radius:5px;}
+/* Trust bar under carousel */
+.hero-trust-bar{margin:26px auto 0; padding:0 20px;}
+@media (max-width:900px){
+  .hero-carousel,.hc-viewport{min-height:520px;}
+  .hc-inner h1{font-size:40px; letter-spacing:-1.2px;}
+}
+@media (max-width:560px){
+  .hero-carousel,.hc-viewport{min-height:480px;}
+  .hc-inner h1{font-size:30px; letter-spacing:-.8px;}
+  .hc-inner .hero-sub{font-size:16px;}
+  .hc-arrow{width:38px; height:38px; font-size:22px;}
+  .hc-prev{left:8px;} .hc-next{right:8px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .hc-slide{transition:none;}
+  .hc-slide.is-active .hc-photo{animation:none; transform:scale(1.06);}
+}
 </style>
 <script>
 (function(){
@@ -1109,9 +1194,13 @@
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
       <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
@@ -1121,9 +1210,12 @@
     <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
     </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
     <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/pathfinder/"><strong>Pathfinder</strong></a>
     </div>
+    -->
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
@@ -1144,53 +1236,159 @@
 <script src="/_nav.js"></script><main class="tm-main" style="padding-top:0">
 
   <!-- ── HERO ────────────────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="hero-photo"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
+  <!-- ── HERO CAROUSEL — auto-rotating feature cards (5.5s), dot + arrow nav ─────
+       Cards link to real, live site features only. Photo notes:
+       - Card 1: XJ Cherokee on slickrock (rocks behind) — adventure-xj-sedona-slickrock.jpeg
+       - Card 2: JK airing up tires on the trail — adventure-jk-field-airing.jpeg
+       - Card 3: closest existing XJ "trailside repair" photo. IDEAL: a Cherokee with the
+                 hood open, someone leaning into the engine bay — drop that in here when shot.
+       - Cards 4-7 use existing trail photos; swap freely. -->
+  <section class="hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Featured Trail Manual tools">
+    <div class="hc-viewport">
 
-      <div class="hero-eyebrow">
-        <span class="live-dot"></span>
-        560+ Jeep DIY guides — Cherokee XJ to Gladiator
-      </div>
-
-      <h1>We read the forums<br><em>so you don't have to.</em></h1>
-
-      <p class="hero-sub">
-        The deepest free DIY library for Jeep — the Cherokee XJ, the Wrangler family
-        (TJ/JK/JL), and the Gladiator. Forum-tested, step-by-step, for the backyard
-        mechanic. Other trail rigs are covered too, and growing.
-      </p>
-
-      <div class="hero-cta">
-        <a class="btn-primary" href="/db/">Pick your rig →</a>
-        <a class="btn-primary" href="/tools/" style="background:transparent;border:2px solid var(--accent);color:var(--accent)">Browse by tool →</a>
-      </div>
-      <p class="hero-sub" style="margin-top:14px;font-size:14px;opacity:.75;max-width:560px">
-        Two ways in — start with your vehicle and see every guide built for it, or start with a tool (Rig Builder, repair guides, gear calc) and pick your vehicle inside.
-      </p>
-
-      <div class="hero-trust">
-        <div class="hero-trust-item">
-          <div class="trust-n">779+</div>
-          <div class="trust-l">Guides</div>
-        </div>
-        <div class="hero-trust-item">
-          <div class="trust-n">20</div>
-          <div class="trust-l">Platforms</div>
-        </div>
-        <div class="hero-trust-item">
-          <div class="trust-n">300+</div>
-          <div class="trust-l">Sources cited</div>
-        </div>
-        <div class="hero-trust-item">
-          <div class="trust-n">$0</div>
-          <div class="trust-l">Cost to use</div>
+      <!-- Card 1 — Rig Builder -->
+      <div class="hc-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 7: Plan your build">
+        <div class="hc-photo" style="background-image:url('/images/adventure-xj-sedona-slickrock.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>Rig Builder</div>
+          <h1>Plan Out Your <em>Full Build</em></h1>
+          <p class="hero-sub">Rig builder, parts lists, and build logs for every mod.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/build/">Start Your Build &rarr;</a></div>
         </div>
       </div>
+
+      <!-- Card 2 — Guides -->
+      <div class="hc-slide" role="group" aria-roledescription="slide" aria-label="2 of 7: Learn from the best">
+        <div class="hc-photo" style="background-image:url('/images/adventure-jk-field-airing.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>Guides</div>
+          <h1>Learn the Top <em>Tech and Tips</em> from Across the Web</h1>
+          <p class="hero-sub">Curated guides, how-tos, and expert advice for every skill level.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/guides/">Browse Guides &rarr;</a></div>
+        </div>
+      </div>
+
+      <!-- Card 3 — Workshop / maintenance tools -->
+      <div class="hc-slide" role="group" aria-roledescription="slide" aria-label="3 of 7: Workshop tools">
+        <div class="hc-photo" style="background-image:url('/images/adventure-xj-trailside-repair.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>Workshop</div>
+          <h1>Track Maintenance &amp; <em>Step-by-Step Repairs</em></h1>
+          <p class="hero-sub">Offline-ready workshop tools and repair guides &mdash; all stored on your device.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/workshop/">Open Workshop &rarr;</a></div>
+        </div>
+      </div>
+
+      <!-- Card 4 — DIY Database picker -->
+      <div class="hc-slide" role="group" aria-roledescription="slide" aria-label="4 of 7: DIY database">
+        <div class="hc-photo" style="background-image:url('/images/adventure-sedona-jeep-lineup.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>DIY Database</div>
+          <h1>Every Platform, <em>One Database</em></h1>
+          <p class="hero-sub">Hundreds of forum-tested, source-cited entries &mdash; pick your rig and see them all.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/db/">Explore the Database &rarr;</a></div>
+        </div>
+      </div>
+
+      <!-- Card 5 — Death Wobble diagnostic -->
+      <div class="hc-slide" role="group" aria-roledescription="slide" aria-label="5 of 7: Death wobble diagnostic">
+        <div class="hc-photo" style="background-image:url('/images/yj-axle-droop-rocks.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>Free Tool</div>
+          <h1>Diagnose <em>Death Wobble</em> in 8 Questions</h1>
+          <p class="hero-sub">A guided diagnostic that points you to the real cause &mdash; before you throw parts at it.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/db/death-wobble-guide.html">Run the Diagnostic &rarr;</a></div>
+        </div>
+      </div>
+
+      <!-- Card 6 — Gear ratio calculator -->
+      <div class="hc-slide" role="group" aria-roledescription="slide" aria-label="6 of 7: Gear ratio calculator">
+        <div class="hc-photo" style="background-image:url('/images/tj-yellow-mud-axle.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>Calculator</div>
+          <h1>Dial In Your <em>Gears and Tire Size</em></h1>
+          <p class="hero-sub">See how bigger tires change your effective ratio &mdash; and what to regear to.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/gear-ratio-calculator.html">Open the Calculator &rarr;</a></div>
+        </div>
+      </div>
+
+      <!-- Card 7 — My Garage -->
+      <div class="hc-slide" role="group" aria-roledescription="slide" aria-label="7 of 7: My Garage">
+        <div class="hc-photo" style="background-image:url('/images/tj-grey-rock-ledge.jpeg')"></div>
+        <div class="hc-overlay"></div>
+        <div class="hc-inner">
+          <div class="hero-eyebrow"><span class="live-dot"></span>My Garage</div>
+          <h1>Keep Your Whole Build in <em>My Garage</em></h1>
+          <p class="hero-sub">Log service, mileage, and saved builds &mdash; private, and stored on your device.</p>
+          <div class="hero-cta"><a class="btn-primary" href="/my-garage.html">Open My Garage &rarr;</a></div>
+        </div>
+      </div>
+
     </div>
+
+    <button class="hc-arrow hc-prev" type="button" aria-label="Previous slide">&lsaquo;</button>
+    <button class="hc-arrow hc-next" type="button" aria-label="Next slide">&rsaquo;</button>
+    <div class="hc-dots" role="tablist" aria-label="Choose slide"></div>
   </section>
 
+  <!-- Trust stats (kept from the original hero) -->
+  <div class="hero-trust-bar">
+    <div class="hero-trust">
+      <div class="hero-trust-item"><div class="trust-n">958+</div><div class="trust-l">Guides</div></div>
+      <div class="hero-trust-item"><div class="trust-n">21</div><div class="trust-l">Platforms</div></div>
+      <div class="hero-trust-item"><div class="trust-n">300+</div><div class="trust-l">Sources cited</div></div>
+      <div class="hero-trust-item"><div class="trust-n">$0</div><div class="trust-l">Cost to use</div></div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var root=document.getElementById('heroCarousel');
+    if(!root) return;
+    var slides=Array.prototype.slice.call(root.querySelectorAll('.hc-slide'));
+    var dotsWrap=root.querySelector('.hc-dots');
+    var prev=root.querySelector('.hc-prev');
+    var next=root.querySelector('.hc-next');
+    if(slides.length<2) return;
+    var i=0, timer=null, DELAY=5500;
+    var dots=slides.map(function(_,n){
+      var d=document.createElement('button');
+      d.className='hc-dot'+(n===0?' is-active':'');
+      d.setAttribute('type','button');
+      d.setAttribute('role','tab');
+      d.setAttribute('aria-label','Slide '+(n+1));
+      d.addEventListener('click',function(){go(n,true);});
+      dotsWrap.appendChild(d);
+      return d;
+    });
+    function show(n){
+      slides[i].classList.remove('is-active');
+      dots[i].classList.remove('is-active');
+      i=(n+slides.length)%slides.length;
+      slides[i].classList.add('is-active');
+      dots[i].classList.add('is-active');
+    }
+    function go(n,manual){ show(n); if(manual) restart(); }
+    function nextSlide(){ show(i+1); }
+    function start(){ stop(); timer=setInterval(nextSlide,DELAY); }
+    function stop(){ if(timer){clearInterval(timer); timer=null;} }
+    function restart(){ start(); }
+    if(next) next.addEventListener('click',function(){ show(i+1); restart(); });
+    if(prev) prev.addEventListener('click',function(){ show(i-1); restart(); });
+    root.addEventListener('mouseenter',stop);
+    root.addEventListener('mouseleave',start);
+    root.addEventListener('focusin',stop);
+    root.addEventListener('focusout',start);
+    document.addEventListener('visibilitychange',function(){ document.hidden?stop():start(); });
+    start();
+  })();
+  </script>
 
   <!-- ── VEHICLE ICON MARQUEE ─────────────────────────────────────────── -->
   <div class="v-strip" role="presentation">
@@ -1340,10 +1538,10 @@
       <!-- Featured: XJ Database -->
       <a class="bento-card featured" href="/db/">
         <div class="bento-featured-text">
-          <span class="bento-tag live">● Live — 20 platforms</span>
+          <span class="bento-tag live">● Live — 21 platforms</span>
           <h3 style="font-size:26px;margin-top:6px">Off-Road<br>DIY Database</h3>
           <p style="font-size:15px;max-width:440px">
-            334 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
+            349 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
             wheels &amp; tires, interior, electrical, and body. XJ-first and growing — pick
             your platform, filter by category, get straight answers with real pricing.
           </p>
@@ -1389,16 +1587,16 @@
     <p class="section-lede">New posts weekly. No fluff, no sponsored angles.</p>
 
     <div class="blog-grid">
-      <a class="blog-feature" href="/blog/xj-tire-size-by-lift/">
+      <a class="blog-feature" href="/blog/do-you-need-a-slip-yoke-eliminator/">
         <div class="blog-feature-photo">
-          <img src="/images/tj-white-wheel-droop.jpeg" alt="Lifted Jeep on oversize tires — lift height and tire fitment" loading="lazy">
+          <img src="/images/tj-white-wheel-droop.jpeg" alt="Lifted Jeep at full droop — rear driveshaft angle and slip yoke geometry" loading="lazy">
         </div>
         <div class="blog-feature-body">
-          <span class="blog-tag">XJ Build</span>
-          <h3>What Size Tires Fit Your XJ? Lift Height to Tire Size, Decoded</h3>
-          <p>With factory flares: 2" clears 30s, 3" clears 31s, 4.5" clears 32s, 6.5" clears 33s — trim the fenders and each step goes up a size. Here's the full chart, why backspacing matters as much as lift, and when you have to re-gear.</p>
+          <span class="blog-tag">Axles &amp; Drivetrain</span>
+          <h3>Do You Need a Slip Yoke Eliminator? The Lift Threshold (and Why a JK Doesn't Need One)</h3>
+          <p>You need an SYE when a lift raises the rear driveshaft angle enough to cause vibration the slip yoke can't absorb — on an NP231 Jeep (XJ, YJ, TJ, ZJ) that's about 3&ndash;4". Fixed-yoke Jeeps (every JK and JL, plus the TJ/LJ Rubicon) don't need one. The thresholds, the costs, and why you need a CV driveshaft too.</p>
           <div class="blog-meta">
-            <span>8 min read</span>
+            <span>10 min read</span>
             <span class="read-more">Read &rarr;</span>
           </div>
         </div>
@@ -1510,7 +1708,7 @@
     <div class="roadmap">
       <div class="roadmap-row">
         <div class="roadmap-phase">Phase 1</div>
-        <div class="roadmap-desc"><strong>Jeep Cherokee XJ (1984–2001)</strong> — 334 entries across maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, and build recipes.</div>
+        <div class="roadmap-desc"><strong>Jeep Cherokee XJ (1984–2001)</strong> — 349 entries across maintenance, suspension, axles, drivetrain, armor, recovery, wheels &amp; tires, interior, electrical, body, and build recipes.</div>
         <div class="roadmap-status live">Open now</div>
       </div>
       <div class="roadmap-row">
