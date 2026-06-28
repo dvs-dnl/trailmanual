@@ -163,6 +163,16 @@
   .phase-list .cost{color:var(--text-mute);font-size:12px;flex-shrink:0}
   .empty{text-align:center;padding:60px 20px;color:var(--text-mute)}
   .empty h3{margin:0 0 6px;color:var(--text-dim)}
+  .save-garage-card{margin:24px 0 8px;padding:18px 20px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px}
+  .save-garage-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-dim);margin-bottom:10px}
+  .save-garage-body{font-size:13px;color:var(--text-mute);margin-bottom:12px}
+  .save-garage-rig{font-size:13px;color:var(--text-dim);font-weight:600;margin-bottom:12px}
+  .save-garage-select{width:100%;padding:6px 8px;font-size:13px;background:var(--bg-3);border:1px solid var(--border);border-radius:5px;color:var(--text-base);margin-bottom:12px}
+  .save-garage-btn{display:inline-block;padding:7px 16px;font-size:12px;font-weight:700;font-family:var(--mono,monospace);text-transform:uppercase;letter-spacing:.5px;background:var(--accent);color:#fff;border:none;border-radius:5px;cursor:pointer;text-decoration:none}
+  .save-garage-btn:hover{opacity:.85}
+  .save-garage-success{text-align:center;padding:8px 0;font-size:13px;color:var(--text-dim)}
+  .save-garage-check{font-size:24px;color:var(--accent);margin-bottom:6px}
+  .save-garage-success a{color:var(--accent);font-weight:600}
 
   /* Misc */
   .pill-row{display:flex;flex-wrap:wrap;gap:6px}
@@ -925,6 +935,88 @@
         phaseEl.appendChild(ul);
         list.appendChild(phaseEl);
       }
+
+      // ---- Save-to-Garage card ----
+      if (chosen.length > 0) {
+        const GKEY = 'tm.garage.v1';
+        function garageData() {
+          try { return JSON.parse(localStorage.getItem(GKEY) || '{}'); } catch(e) { return {}; }
+        }
+        function saveRigPlan(vehicleId) {
+          const gd = garageData();
+          const vehicles = gd.vehicles || [];
+          const v = vehicles.find(v => v.id === vehicleId);
+          if (!v) return false;
+          if (!v.projects) v.projects = [];
+          v.projects.push({
+            id: 'rb-' + Date.now(),
+            type: 'rig-builder',
+            tier: state.tier,
+            tierLabel: (TIER_META[state.tier] || {}).label || state.tier,
+            budget: state.budget,
+            style: state.style,
+            experience: state.experience,
+            totalCost: Math.round(total),
+            itemCount: chosen.length,
+            items: chosen.map(e => ({ id: e.id, title: e.title, category: e.category, cost: moneyMid(e.cost_usd) })),
+            startedAt: new Date().toISOString().slice(0, 10),
+            notes: ''
+          });
+          try { localStorage.setItem(GKEY, JSON.stringify(gd)); return true; }
+          catch(err) { return false; }
+        }
+
+        const gd = garageData();
+        const garageVehicles = gd.vehicles || [];
+        const saveCard = el('div', { class: 'save-garage-card' });
+        saveCard.appendChild(el('div', { class: 'save-garage-title' }, '\uD83D\uDCBE Save to My Garage'));
+
+        if (garageVehicles.length === 0) {
+          saveCard.appendChild(el('div', { class: 'save-garage-body' }, 'Add a rig in My Garage first, then come back to save this build plan.'));
+          const gLink = el('a', { class: 'save-garage-btn', href: '/my-garage.html' });
+          gLink.textContent = 'Open My Garage →';
+          saveCard.appendChild(gLink);
+        } else {
+          saveCard.appendChild(el('div', { class: 'save-garage-body' }, 'Save this ' + chosen.length + '-item, $' + Math.round(total).toLocaleString() + ' build plan to your rig.'));
+
+          let selectedVehicleId = garageVehicles[0].id;
+
+          if (garageVehicles.length > 1) {
+            const sel = document.createElement('select');
+            sel.className = 'save-garage-select';
+            garageVehicles.forEach(v => {
+              const opt = document.createElement('option');
+              opt.value = v.id;
+              opt.textContent = (v.year ? v.year + ' ' : '') + (v.make || '') + ' ' + (v.model || '') + (v.nickname ? ' (' + v.nickname + ')' : '');
+              sel.appendChild(opt);
+            });
+            sel.addEventListener('change', () => { selectedVehicleId = sel.value; });
+            saveCard.appendChild(sel);
+          } else {
+            const v = garageVehicles[0];
+            saveCard.appendChild(el('div', { class: 'save-garage-rig' }, (v.year ? v.year + ' ' : '') + (v.make || '') + ' ' + (v.model || '') + (v.nickname ? ' — ' + v.nickname : '')));
+          }
+
+          const saveBtn = document.createElement('button');
+          saveBtn.className = 'save-garage-btn';
+          saveBtn.textContent = 'Save build plan';
+          saveBtn.addEventListener('click', () => {
+            if (saveRigPlan(selectedVehicleId)) {
+              saveCard.innerHTML = '';
+              const success = el('div', { class: 'save-garage-success' },
+                el('div', { class: 'save-garage-check' }, '\u2713'),
+                el('div', {}, 'Build plan saved.')
+              );
+              const garageLink = el('a', { href: '/my-garage.html' }, 'View in My Garage →');
+              success.appendChild(garageLink);
+              saveCard.appendChild(success);
+            }
+          });
+          saveCard.appendChild(saveBtn);
+        }
+        list.appendChild(saveCard);
+      }
+
       if (!chosen.length) {
         list.appendChild(el('div', {class:'empty'}, el('h3',{},'No matches'), 'Try raising your budget or DIY skill cap.'));
       }
