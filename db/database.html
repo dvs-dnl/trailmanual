@@ -454,7 +454,7 @@
   const catMeta = c => CAT_META[c] || {label:(c||'').replace(/_/g,' '), icon:'•', color:'#888'};
 
   // ---- builder taxonomy (v2) ----
-  const INSTALL_TYPES = new Set(['part','kit','upgrade_path','swap']);
+  const INSTALL_TYPES = new Set(['part','kit','upgrade_path','upgrade','swap']);
   // type='task' is ambiguous in launch-tier data (used for both installs and
   // service work). Allow it only when it has an install-hint tag AND no
   // maintenance tag.

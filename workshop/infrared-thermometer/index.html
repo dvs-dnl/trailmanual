@@ -47,6 +47,14 @@ footer a { color: var(--accent); text-decoration: none; }
   .brand-sub { display: none; }
   .back-link { font-size: 12px; }
 }
+
+.tm-hamburger { display: none; background: none; border: none; padding: 6px; cursor: pointer; color: var(--text); margin-left: 8px; }
+.tm-hamburger svg { width: 24px; height: 24px; display: block; }
+.tm-nav-menu { display: none; background: var(--bg); border-bottom: 1px solid var(--border); padding: 8px 16px; }
+.tm-nav-menu a { display: block; padding: 10px 0; color: var(--text); text-decoration: none; font-family: var(--mono); font-size: 13px; border-bottom: 1px solid var(--border); }
+.tm-nav-menu a:last-child { border-bottom: none; }
+.tm-nav-menu.open { display: block; }
+@media (max-width: 720px) { .tm-hamburger { display: inline-flex; align-items: center; } }
 </style>
 </head>
 <body>
@@ -59,10 +67,12 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="brand-sub">The Workshop</div>
     </div>
   </a>
+  <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
   <a class="back-link" href="/workshop/">← Workshop</a>
 </header>
+<nav id="tm-nav-menu" class="tm-nav-menu" aria-label="Site"><a href="/">Home</a><a href="/workshop/">Workshop</a><a href="/db/">Database</a><a href="/blog/">Blog</a></nav>
 
-<div class="guide-wrap">
+<article class="guide-wrap">
   <div class="guide-eyebrow">Workshop · Tools</div>
   <h1 class="guide-title">Infrared Thermometer — Reading Brake, Cooling, and Exhaust Temps</h1>
 
@@ -127,7 +137,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
   </div>
 
-</div>
+</article>
 
 <footer>
   <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp;
