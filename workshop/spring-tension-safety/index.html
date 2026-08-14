@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/spring-tension-safety/">
+<title>Compressed Springs — The Energy You Cannot See — The Workshop · Trail Manual</title>
+<meta name="description" content="A loaded spring is a battery that looks like a piece of steel. Where stored energy hides on a vehicle — coil springs, torsion bars, gas struts, valve springs, pressure plates — and how to take it out of the system on purpose.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  /* Legacy aliases — light-theme values mapped from canon */
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:1200px;
+
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+/* ═══════════════════════════════════════════════════════
+   TRAIL MANUAL · UNIFIED NAV  v1.0 · May 2026
+   tnav- prefix · self-contained · works with or without _shared.css
+   Reads --paper,--bone,--slate,--slate-l,--clay from page :root.
+   ═══════════════════════════════════════════════════════ */
+.tnav{--nb:var(--paper,#F7F4ED);--nbdr:var(--bone,#E8E2D2);--nt:var(--slate,#2B3A4A);--ntd:var(--slate-light,var(--slate-l,#5B6B7E));--na:var(--clay,#C97E50);--nhov:var(--bone,#E8E2D2);--ndrop:var(--panel,var(--paper,#F7F4ED));--nbdr2:var(--bone,#E8E2D2)}
+.tnav[data-variant=dark]{--nb:var(--slate-d,var(--slate-deep,#1A2330));--nbdr:rgba(43,58,74,.8);--nt:var(--bone,#E8E2D2);--ntd:rgba(232,226,210,.65);--nhov:rgba(255,255,255,.08);--ndrop:#2B3A4A;--nbdr2:rgba(255,255,255,.12)}
+.tnav{position:sticky;top:0;z-index:200;background:var(--nb);border-bottom:1px solid var(--nbdr);font-family:var(--font-sans,'DM Sans',-apple-system,sans-serif);backdrop-filter:blur(8px)}
+.tnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:4px}
+.tnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--nt);flex-shrink:0;margin-right:16px}
+.tnav-brand:hover{text-decoration:none;opacity:.85}
+.tnav-logo{width:28px;height:28px;display:block;flex-shrink:0}
+.tnav-wordmark{font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--nt);line-height:1;white-space:nowrap}
+.tnav-dot{display:inline-block;width:5px;height:5px;background:var(--na);border-radius:50%;margin:0 4px;vertical-align:3px}
+.tnav-center{display:flex;align-items:center;gap:2px;flex:1}
+.tnav-right{margin-left:auto;flex-shrink:0}
+.tnav-link,.tnav-link-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--ntd);background:transparent;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;font-family:inherit;line-height:1}
+.tnav-link:hover,.tnav-link-btn:hover,.tnav-link:focus-visible,.tnav-link-btn:focus-visible{color:var(--nt);background:var(--nhov);text-decoration:none;outline:none}
+.tnav-link.tnav-active,.tnav-link-btn.tnav-active{color:var(--na);background:var(--nhov)}
+.tnav-caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;flex-shrink:0}
+.tnav-item.tnav-open .tnav-caret{transform:rotate(180deg)}
+.tnav-item{position:relative}
+.tnav-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--ndrop);border:1px solid var(--nbdr2);border-radius:8px;box-shadow:0 8px 32px rgba(43,58,74,.16);padding:6px;z-index:300}
+.tnav-drop.tnav-drop-right{left:auto;right:0}
+.tnav-item.tnav-open>.tnav-drop{display:block}
+.tnav-drop-vehicles{min-width:420px;display:none;grid-template-columns:1fr 1fr;gap:0 8px;padding:8px}
+.tnav-item.tnav-open>.tnav-drop-vehicles{display:grid}
+.tnav-drop-section{padding:4px 0 6px}
+.tnav-drop-label{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ntd);padding:6px 10px 4px}
+.tnav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);text-decoration:none;transition:background .12s,color .12s;gap:8px}
+.tnav-drop-link:hover,.tnav-drop-link:focus-visible{background:var(--nhov);color:var(--na);outline:none;text-decoration:none}
+.tnav-drop-years{font-size:11px;color:var(--ntd);flex-shrink:0;font-family:var(--font-mono,'JetBrains Mono',monospace)}
+.tnav-divider{border:none;border-top:1px solid var(--nbdr2);margin:4px 6px}
+.tnav-my-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid var(--nbdr);background:transparent;color:var(--nt);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;transition:border-color .15s,background .15s,color .15s;line-height:1}
+.tnav-my-btn:hover,.tnav-my-btn:focus-visible{border-color:var(--na);background:var(--nhov);outline:none}
+.tnav-item.tnav-open .tnav-my-btn{border-color:var(--na);color:var(--na)}
+.tnav-my-icon{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-vehicle-pill{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:5px;background:var(--nhov);margin-bottom:2px;text-decoration:none;color:var(--nt);transition:filter .12s}
+.tnav-vehicle-pill:hover{filter:brightness(1.05);text-decoration:none}
+.tnav-vehicle-pill img{width:28px;height:28px;object-fit:contain}
+.tnav-vehicle-pill-info{display:flex;flex-direction:column;gap:2px}
+.tnav-vehicle-pill-name{font-size:13px;font-weight:600;color:var(--nt);line-height:1.2}
+.tnav-vehicle-pill-years{font-size:11px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-no-vehicle{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:5px;font-size:13px;color:var(--ntd);text-decoration:none;transition:background .12s}
+.tnav-no-vehicle:hover{background:var(--nhov);color:var(--na);text-decoration:none}
+.tnav-theme-row{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s,color .12s}
+.tnav-theme-row:hover{background:var(--nhov);color:var(--na)}
+.tnav-theme-icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-hamburger{display:none;align-items:center;justify-content:center;width:36px;height:36px;background:transparent;border:1px solid var(--nbdr);border-radius:6px;color:var(--nt);cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color .15s;padding:0}
+.tnav-hamburger:hover,.tnav-hamburger:focus-visible{border-color:var(--na);outline:none}
+.tnav-ham-icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.tnav-drawer{display:none;border-top:1px solid var(--nbdr);background:var(--nb);max-height:calc(100vh - 56px);overflow-y:auto}
+.tnav-drawer.tnav-open{display:block}
+.tnav-drawer-inner{max-width:1200px;margin:0 auto;padding:12px 16px 20px;display:flex;flex-direction:column}
+.tnav-drawer-section{border-bottom:1px solid var(--nbdr);padding:8px 0 12px}
+.tnav-drawer-section:last-child{border-bottom:none}
+.tnav-drawer-label{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ntd);padding:4px 8px 6px}
+.tnav-drawer-vehicles{display:grid;grid-template-columns:1fr 1fr;gap:0 4px}
+@media(max-width:400px){.tnav-drawer-vehicles{grid-template-columns:1fr}}
+.tnav-drawer-link{display:flex;align-items:center;justify-content:space-between;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);text-decoration:none;transition:background .12s;gap:8px}
+.tnav-drawer-link:hover{background:var(--nhov);text-decoration:none;color:var(--na)}
+.tnav-drawer-link.tnav-active{color:var(--na)}
+.tnav-drawer-years{font-size:12px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-drawer-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s}
+.tnav-drawer-btn:hover{background:var(--nhov);color:var(--na)}
+@media(max-width:720px){.tnav-center{display:none}.tnav-right{display:none}.tnav-hamburger{display:flex}.tnav-inner{padding:0 16px}}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+  /* Defensive: explicit color so legacy cascade can't break the hero */
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
+.video-section h2{margin-top:0}
+.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
+.video-embed{margin:18px 0 0}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-mute)}
+.video-credit a{color:var(--text-dim);border-bottom:1px dotted var(--text-mute)}
+.video-credit a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+</style>
+<script src="/_nav.js"></script>
+</head>
+<body>
+
+<header class="tnav" id="tnav" data-variant="light">
+  <div class="tnav-inner">
+
+    <a class="tnav-brand" href="/">
+      <svg class="tnav-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="tnav-wordmark">TRAIL<span class="tnav-dot"></span>MANUAL</span>
+    </a>
+
+    <nav class="tnav-center" aria-label="Primary">
+      <div class="tnav-item" id="tnav-vehicles">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-vehicles">Vehicles <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop tnav-drop-vehicles" id="tnav-drop-vehicles" role="menu">
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Jeep</span>
+            <a class="tnav-drop-link" href="/xj/" role="menuitem">Cherokee XJ <span class="tnav-drop-years">1984–2001</span></a>
+            <a class="tnav-drop-link" href="/tj/" role="menuitem">Wrangler TJ <span class="tnav-drop-years">1997–2006</span></a>
+            <a class="tnav-drop-link" href="/jk/" role="menuitem">Wrangler JK <span class="tnav-drop-years">2007–2018</span></a>
+            <a class="tnav-drop-link" href="/jl/" role="menuitem">Wrangler JL <span class="tnav-drop-years">2018–</span></a>
+            <a class="tnav-drop-link" href="/gladiator/" role="menuitem">Gladiator JT <span class="tnav-drop-years">2019–</span></a>
+          </div>
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Ford</span>
+            <a class="tnav-drop-link" href="/bronco/" role="menuitem">Early Bronco <span class="tnav-drop-years">1966–1977</span></a>
+            <a class="tnav-drop-link" href="/bronco-ii/" role="menuitem">Bronco II <span class="tnav-drop-years">1984–1990</span></a>
+            <a class="tnav-drop-link" href="/full-size-bronco/" role="menuitem">Full-Size Bronco <span class="tnav-drop-years">1978–1996</span></a>
+            <a class="tnav-drop-link" href="/bronco6g/" role="menuitem">New Bronco <span class="tnav-drop-years">2021–</span></a>
+            <a class="tnav-drop-link" href="/raptor/" role="menuitem">F-150 Raptor <span class="tnav-drop-years">Gen 2–3</span></a>
+            <span class="tnav-drop-label">Toyota · Ram</span>
+            <a class="tnav-drop-link" href="/4runner/" role="menuitem">4Runner <span class="tnav-drop-years">3rd–5th Gen</span></a>
+            <a class="tnav-drop-link" href="/tacoma/" role="menuitem">Tacoma <span class="tnav-drop-years">1st–3rd Gen</span></a>
+            <a class="tnav-drop-link" href="/power-wagon/" role="menuitem">Power Wagon <span class="tnav-drop-years">2011–</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="tnav-item" id="tnav-tools">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-tools">Tools <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop" id="tnav-drop-tools" role="menu">
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Vehicle Database</a>
+          <a class="tnav-drop-link" href="/gear-ratio-calculator.html" role="menuitem">Gear Ratio Calculator</a>
+          <a class="tnav-drop-link" href="/jk-wrangler-engine-swap-tool.html" role="menuitem">Engine Swap Tool (JK)</a>
+          <a class="tnav-drop-link" href="/v8-swap-parts-checklist.html" role="menuitem">V8 Parts Checklist</a>
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Pick Your Rig</a>
+        </div>
+      </div>
+      <a class="tnav-link tnav-active" href="/workshop/">Workshop</a>
+      <a class="tnav-link" href="/blog/">Blog</a>
+      <a class="tnav-link" href="/about/">About</a>
+    </nav>
+
+    <div class="tnav-item tnav-right" id="tnav-mymanual">
+      <button class="tnav-my-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-mymanual">
+        <svg class="tnav-my-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        My Manual
+        <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+      </button>
+      <div class="tnav-drop tnav-drop-right" id="tnav-drop-mymanual" role="menu" style="min-width:240px">
+        <div id="tnav-vehicle-slot"></div>
+        <a class="tnav-drop-link" href="/my-garage.html" role="menuitem">
+          <svg style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          My Garage
+        </a>
+        <hr class="tnav-divider">
+        <button class="tnav-theme-row" id="tnav-theme-btn" role="menuitem">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="tnav-hamburger" id="tnav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav-drawer">
+      <svg class="tnav-ham-icon" viewBox="0 0 18 18"><line x1="1" y1="4" x2="17" y2="4"/><line x1="1" y1="9" x2="17" y2="9"/><line x1="1" y1="14" x2="17" y2="14"/></svg>
+    </button>
+  </div>
+
+  <div class="tnav-drawer" id="tnav-drawer" aria-hidden="true">
+    <div class="tnav-drawer-inner">
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Jeep</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/xj/">Cherokee XJ <span class="tnav-drawer-years">1984–2001</span></a>
+          <a class="tnav-drawer-link" href="/tj/">Wrangler TJ <span class="tnav-drawer-years">1997–2006</span></a>
+          <a class="tnav-drawer-link" href="/jk/">Wrangler JK <span class="tnav-drawer-years">2007–2018</span></a>
+          <a class="tnav-drawer-link" href="/jl/">Wrangler JL <span class="tnav-drawer-years">2018–</span></a>
+          <a class="tnav-drawer-link" href="/gladiator/">Gladiator JT <span class="tnav-drawer-years">2019–</span></a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Ford · Toyota · Ram</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/bronco/">Early Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco-ii/">Bronco II</a>
+          <a class="tnav-drawer-link" href="/full-size-bronco/">Full-Size Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco6g/">New Bronco</a>
+          <a class="tnav-drawer-link" href="/raptor/">F-150 Raptor</a>
+          <a class="tnav-drawer-link" href="/4runner/">4Runner</a>
+          <a class="tnav-drawer-link" href="/tacoma/">Tacoma</a>
+          <a class="tnav-drawer-link" href="/power-wagon/">Power Wagon</a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Navigate</span>
+        <a class="tnav-drawer-link tnav-active" href="/workshop/">Workshop</a>
+        <a class="tnav-drawer-link" href="/blog/">Blog</a>
+        <a class="tnav-drawer-link" href="/db/">Vehicle Database</a>
+        <a class="tnav-drawer-link" href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+        <a class="tnav-drawer-link" href="/jk-wrangler-engine-swap-tool.html">Engine Swap Tool</a>
+        <a class="tnav-drawer-link" href="/about/">About</a>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">My Manual</span>
+        <div id="tnav-vehicle-slot-mobile"></div>
+        <a class="tnav-drawer-link" href="/my-garage.html">My Garage</a>
+        <button class="tnav-drawer-btn" id="tnav-theme-btn-mobile">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path-mobile" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label-mobile">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page"><article>
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>Compressed Springs — The Energy You Cannot See</h1>
+    <p class="lede">A loaded spring is a charged battery that looks exactly like a piece of steel. There is no gauge on it, no hiss, no warning light — and the fastener holding it back usually looks like every other fastener on the vehicle. Nearly every serious shop injury that involves a spring comes from the same moment: someone removed the one bolt that was holding the energy in, without knowing that's what the bolt was doing.</p>
+    <div class="safety-badge">Safety critical</div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p>Before you remove any fastener, answer one question: <strong>what is holding this part still, and which direction does it want to travel when I let go?</strong> If the answer involves a spring, a torsion bar, a pressurized strut, or a suspension component under load, that energy gets captured or released on purpose — with the correct tool — before the fastener comes out.</p>
+    <p>Two rules cover most of it. <strong>Never remove a fastener that a spring is loading.</strong> <strong>Never put your body in the line the energy will travel.</strong> Everything below is detail on where that energy hides and how to take it out of the system deliberately.</p>
+  </div>
+
+  <h2>Why a spring is a battery</h2>
+  <p>A spring stores energy as elastic deformation. The force it pushes back with rises in proportion to how far you've compressed it — that's the spring rate, in pounds per inch. But the <strong>energy</strong> stored rises with the <em>square</em> of the compression: E = ½kx², where k is the rate and x is the deflection from free length.</p>
+  <p>That square is the part people underestimate. Take a strut spring rated near 250 lb/in that gets compressed roughly 6 inches from free length to fit inside the assembly. The first inch of compression stores about 125 in-lb. The sixth inch alone adds about 1,375 in-lb — eleven times as much. Total stored energy in that spring lands in the neighborhood of 4,500 in-lb, or roughly 375 ft-lb. For scale, that's in the same range as the muzzle energy of a common handgun cartridge, packed into a part you can lift with one hand.</p>
+  <p>The exact numbers vary by vehicle and it is a mistake to memorize a figure. The takeaway is structural: <strong>the last bit of compression stores far more energy than the first, and a spring that's nearly at its installed height is nearly fully charged.</strong> "It's almost all the way down, it can't have much left in it" is backwards.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">The first habit</div>
+    <p>Stand out of the release path. Springs travel along their own axis. Torsion bars and torsion rods rotate through an arc. Before you load or unload anything, look at the geometry and move your head, hands, and torso out of the line — and check what's behind you and in front of the part, because whatever is there is what the spring will find.</p>
+  </div>
+
+  <h2>Where the energy hides on a vehicle</h2>
+  <p>This is the map. Read it once and the pattern becomes recognizable on systems not listed here.</p>
+
+  <h3>Suspension coil springs — the highest body count</h3>
+  <p>On most short-long arm (SLA) front suspensions, the coil spring sits between the lower control arm and the frame perch, and it is <strong>fully loaded even with the wheel off the ground</strong>. A significant family of older Fords — 1965–73 Mustang, Falcon, Fairlane, Cougar, and the Mustang II-derived front ends — instead mounts the coil between the <em>upper</em> arm and the shock tower, where jacking the lower arm does nothing to the spring. Identify which layout you have before you plan the release; the two methods are not interchangeable. Removing the lower control arm pivot bolts, or separating the lower ball joint, with that spring in place is one of the classic fatal mistakes in home repair. The control arm becomes a lever swinging on stored energy.</p>
+  <p>The correct sequence on the lower-arm layout is to <strong>install an internal spring compressor, or run a safety chain through the coil, before anything is separated</strong> — then support the lower control arm with a floor jack positioned to take the spring load and lower that jack slowly and under control. On most SLA suspensions the spring is <em>still compressed at full droop</em> and never reaches free length. Assume that it is. Setting the compressor after the ball joint is already separated means fitting a tool onto a charged spring in a cramped pocket with the arm hanging — which is the situation the factory procedure exists to prevent.</p>
+  <p>On a MacPherson strut, the spring is captured between the strut perch and the upper mount, and only a spring compressor takes it apart. That's a topic of its own — see the <a href="/workshop/spring-compressor/">spring compressor guide</a> for tool selection and the two-compressor rule.</p>
+  <p>On a solid-axle vehicle with coils — Jeep XJ, TJ, JK, JL, Ram HD, and the 1966–1977 full-size Bronco (1980–1996 Broncos use Ford’s Twin Traction Beam independent front end, which is a different job) — the spring usually comes out without a compressor. Disconnect the shock, the sway bar end links, and the track bar, then lower the axle on a jack until the spring reaches free height. The hazard here is different: with the shock disconnected, <strong>nothing limits axle droop</strong>, and the axle can drop suddenly and free the spring while you're reaching past it. Keep the jack under control and keep your hands off the spring until the axle stops moving. Check that the brake hoses and ABS sensor leads have slack before you let the axle down — unlimited droop stretches or tears them, and you find that out on the first stop rather than in the driveway.</p>
+
+  <h3>Torsion bars — the trap that looks like a solid rod</h3>
+  <p>Torsion-bar front suspensions (GM half-tons and HDs, Colorado/Canyon, Dodge Dakota and Durango, 2WD Ram, Ford Explorer 1995+, Ranger 4WD 1998+, F-150 4WD 1997–2003, Toyota 4WD pickups, 4Runner and Tacoma, S-10 4WD) store their spring energy as twist in a steel bar. It looks like inert stock. It is not. The adjuster bolt at the crossmember is holding the entire preload in compression, and running that bolt all the way out of its anchor on a loaded bar — or hammering the torsion key off — releases the preload all at once. Backing the bolt off a few turns to lower ride height is a normal adjustment; taking it out of the anchor is not.</p>
+  <p><strong>A torsion bar unloading tool is not optional on this job.</strong> It's a forged clamp that bears on the crossmember and the adjuster arm, takes the load off the adjuster bolt so the bolt can be removed, and then releases the twist gradually under thread control. ReadyLIFT, OTC, and OEMTOOLS all make one, and most parts-store loan-tool programs carry it. Substituting a C-clamp, a generic gear puller, or a pry bar is how people lose fingers — those tools are not shaped for the load path and they slip or break under it.</p>
+
+  <h3>Leaf springs</h3>
+  <p>A leaf pack under a loaded vehicle carries the arch as stored energy. Loosening U-bolts with the axle unsupported lets the pack unload and the axle shift. Support the axle on a jack or stands, unload the suspension deliberately, and keep in mind that the center pin is what holds the pack's leaves aligned — a pack coming apart at the center pin releases each leaf's individual arch.</p>
+
+  <h3>Gas-charged shocks and struts</h3>
+  <p>These are pressure vessels, not springs, but the failure mode is the same: energy you can't see. A standard twin-tube gas-charged shock carries roughly <strong>100–150 psi of nitrogen</strong> in the reserve tube; high-pressure monotube designs run to <strong>360–400 psi</strong> depending on manufacturer. The primary hazard is the gas charge — cutting, heating, or crushing the body can rupture it or fire the rod out. The oil is the second one: a jet of pressurized hydraulic fluid through skin is an injection injury and a surgical emergency, not a cut you bandage.</p>
+  <p>Never cut, torch, weld, crush, or incinerate a gas-charged shock or strut. If you're scrapping one and the recycler requires it depressurized, Monroe and Gabriel publish nearly identical procedures: fully extend the rod, clamp the body <em>horizontally</em> in a vise so it cannot move, cover the drill site with a rag or shield, and drill a hole angled downward about one inch from the bottom of the body — a 1/16" bit for a low-pressure twin-tube, 1/8" for a high-pressure monotube. Once the gas has stopped venting, <strong>drill a second hole near the top</strong>; the oil will not drain from one hole alone. Check the body for a "high pressurized — do not heat or open" marking, which identifies a monotube; those need an additional hole roughly 1&frac12; inches from the bottom to drain fully. Safety glasses and gloves, and the oil goes in a pan for disposal with your used oil.</p>
+
+  <h3>Hood, hatch, and liftgate struts and torsion rods</h3>
+  <p>The gas struts holding a hatch up carry enough force to swing a tailgate into your head when the ball stud pops, and enough internal pressure to matter if you cut one. Hood torsion rods — common on GM full-size trucks and many sedans — are a coiled spring under permanent preload; releasing one from its anchor without a rod tool sends it through an arc at head height. Prop the panel independently before you disconnect anything holding it up.</p>
+
+  <h3>Valve springs</h3>
+  <p>A stock valve spring runs roughly 45–90 lb of seat pressure and 200–300 lb at full lift; performance-street springs start near 110–130 lb on the seat and go well beyond. When you compress one to pull the keepers, the retainer and both keeper halves are small hardened parts sitting directly under load, at bench height, in line with your face. Use a proper valve spring compressor and hold the valve up one of two ways. <strong>Shop air:</strong> the piston must be at TDC <em>on the compression stroke</em> with the crank held against rotation — off TDC, air pressure spins the engine, and it does that with a socket on the balancer bolt and your hands in the valvetrain. <strong>Rope trick:</strong> piston down, feed rope into the cylinder, then rotate the crank up by hand to trap it under the valves. Get a magnetic pickup on the keepers before you release the spring. Safety glasses are the minimum.</p>
+
+  <h3>Clutch pressure plates</h3>
+  <p>The diaphragm spring in a pressure plate is holding roughly 2,000 to 3,000 pounds of clamp load against the flywheel — more on performance units. The cover bolts share that load. <strong>Loosen them in a cross pattern, one or two turns at a time, all the way around</strong> — if you run one bolt out at a time, the last few bolts carry the entire spring load, and a stripped or snapped bolt at that point launches the cover. Same discipline in reverse on installation.</p>
+
+  <h3>Drum brake hardware</h3>
+  <p>Return springs and hold-down springs are low energy compared to a coil spring, but they're at eye level and they release toward the person doing the work. A brake spring tool controls the release; pliers and screwdrivers make the spring a projectile. Safety glasses, every time.</p>
+
+  <h3>Serpentine belt tensioners</h3>
+  <p>The tensioner arm is spring-loaded and travels fast. If your breaker bar or belt tool slips off the tensioner, the arm snaps back through wherever your hand was. Seat the tool positively, keep fingers out of the belt path and away from pulley pinch points, and release the arm under control rather than letting it go.</p>
+
+  <h3>The small ones that still reach your eye</h3>
+  <ul>
+    <li><strong>Snap rings and circlips</strong> — famous for launching. Correct-tip snap ring pliers, and a rag or shop towel over the ring as it comes free — never a bare hand.</li>
+    <li><strong>Throttle, clutch, and hood-latch return springs</strong> — modest force, awkward angles, and they let go when your face is close to the work.</li>
+    <li><strong>Sway bar preload</strong> — a sway bar on an articulated or unevenly loaded suspension holds twist. Disconnect end links with the vehicle level and the suspension settled, or the bar will move when the second link releases.</li>
+    <li><strong>Air springs and air bags</strong> — deflate the system completely before disconnecting anything. Many air suspensions hold residual pressure with the key off.</li>
+  </ul>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">Not a car part, but it's in your shop</div>
+    <p>Garage door <strong>torsion springs</strong> above the door are among the highest-energy springs a homeowner will ever stand next to, and they are replaced with winding bars by people who do it for a living. Adjusting or replacing one with the wrong tools kills people every year. Call a door company. This is the one item in the shop where Trail Manual's answer is unambiguously "don't."</p>
+  </div>
+
+  <h2>Reading a system before you touch it</h2>
+  <p>The skill worth building isn't memorizing this list — it's the habit of interrogating an assembly before the first fastener moves. Four questions, every time:</p>
+  <ol>
+    <li><strong>What is holding this component in position right now?</strong> Gravity, a spring, hydraulic pressure, friction, or the fastener itself?</li>
+    <li><strong>If I remove this fastener, which way does the part move, and how fast?</strong> Slowly under its own weight is one answer. "I don't know" is a stop signal.</li>
+    <li><strong>Where is my body relative to that path?</strong> Move before you turn the wrench, not after you feel it start to go.</li>
+    <li><strong>What do I have that will capture this energy under control?</strong> A jack under a control arm, a spring compressor, an unloading tool, a strap. If the answer is "nothing," the job hasn't started yet.</li>
+  </ol>
+  <p>Two useful tells: a fastener that's <strong>hard to turn in both directions</strong> is often carrying load, not corroded. And a component that <strong>shifts, creaks, or springs back</strong> when you loosen a fastener a quarter turn is telling you exactly what it plans to do when the fastener leaves.</p>
+
+  <h2>De-energizing, in general terms</h2>
+  <ul>
+    <li><strong>Support before you separate.</strong> Put a jack, stand, or strap on the component so the energy has somewhere to go besides your hands.</li>
+    <li><strong>Release gradually, on threads.</strong> Threaded release — a compressor screw, an unloading tool, a jack screw — gives you the ability to stop mid-way. Prying, hammering, and cutting do not.</li>
+    <li><strong>Never use impact tools on a device holding stored energy.</strong> An impact gun on a spring compressor rod or a torsion bar adjuster over-rotates before you can feel binding.</li>
+    <li><strong>Verify the fastener moves before the load is transferred to it.</strong> Crack a nut loose while the assembly is still supported, so you learn whether it's seized before you're depending on it.</li>
+    <li><strong>Don't leave a spring compressed.</strong> Finish the job or release the compression. A charged spring on a bench overnight is a hazard for whoever walks past it next.</li>
+    <li><strong>Compress only as far as the job requires.</strong> Extra compression is extra stored energy and extra consequence, for no benefit.</li>
+  </ul>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Assuming the wheel being off the ground means the spring is unloaded.</strong> On SLA suspensions and struts, it isn't.</li>
+    <li><strong>Removing a torsion bar adjuster bolt without an unloading tool</strong> — or hammering the key off a loaded bar.</li>
+    <li><strong>Loosening pressure plate bolts one at a time</strong> instead of evenly in a cross pattern.</li>
+    <li><strong>Using one spring compressor instead of a matched pair 180° apart.</strong></li>
+    <li><strong>Cutting or torching a gas-charged shock</strong> for scrap or to remove a seized one.</li>
+    <li><strong>Working under a component held up only by the spring you're about to release.</strong></li>
+    <li><strong>Standing in line with the release path</strong> because that's where the wrench reaches most comfortably.</li>
+    <li><strong>Treating small springs as harmless</strong> — snap rings, brake springs, and valve keepers all travel toward your face.</li>
+  </ul>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Stop — signs to walk away</div>
+    <p>Stop if a spring is bowing sideways under compression, if a compressor hook or unloading tool is slipping or has visible thread damage, if a component is stuck in a compressed state and won't release, or if you find yourself improvising a tool to hold back a load. Release what you safely can, back out, and get the right tool or a shop. A shop presses a spring or pulls a torsion bar for the price of an hour of labor. The alternative starts at an ER visit.</p>
+  </div>
+
+  <h2>PPE and workspace</h2>
+  <ul>
+    <li><strong>Eye protection every time, face shield for high-energy work.</strong> Secondary projectiles — rust scale, keepers, broken clips — go in every direction, not only along the spring axis.</li>
+    <li><strong>Gloves for handling, off for precision.</strong> Gloves protect from edges and oil, but never wear them near a rotating tool.</li>
+    <li><strong>Closed footwear and a clear floor.</strong> If something releases, you want a path out and nothing to trip over.</li>
+    <li><strong>No bystanders.</strong> Clear the area — especially of children and anyone who doesn't know what they're standing next to.</li>
+    <li><strong>Aim the assembly at a wall or open space</strong>, not at a doorway, a window, or the bench where you sit.</li>
+  </ul>
+
+  <h2>The honest framing</h2>
+  <p>Stored energy is one of the few hazards in DIY repair that doesn't scale with experience in the usual way. A first-timer who asks "what happens when I remove this?" before every fastener is safer than a seasoned wrench who's done the job forty times and stopped checking. The failures come from familiarity, not from inexperience.</p>
+  <p>Build the question into the routine and this hazard mostly disappears. Skip it once on the wrong assembly and there's no second chance to ask.</p>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/spring-compressor/">Spring Compressor — Safe Use and What Not to Do</a>
+      <a class="related-card" href="/workshop/working-under-a-vehicle/">Working Under a Vehicle Safely</a>
+      <a class="related-card" href="/workshop/eye-and-hand-protection/">Eye and Hand Protection</a>
+      <a class="related-card" href="/workshop/when-to-stop/">When to Stop and Go to a Shop</a>
+    </div>
+  </div>
+</article></div>
+
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/channels/">Recommended Channels</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+<script>
+(function(){
+  /* Trail Manual Unified Nav v1.0 */
+  var THEME_KEY='tm.theme';
+  var VEHICLE_KEY='tm.currentVehicle';
+  var html=document.documentElement;
+
+  /* ── Theme ── */
+  function isDark(){return html.getAttribute('data-theme')==='dark';}
+  function applyTheme(dark){
+    html.setAttribute('data-theme',dark?'dark':'light');
+    try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch(e){}
+    updateThemeUI(dark);
+  }
+  var SUN='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z';
+  var MOON='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  function updateThemeUI(dark){
+    var p=document.getElementById('tnav-theme-path');
+    var pm=document.getElementById('tnav-theme-path-mobile');
+    var l=document.getElementById('tnav-theme-label');
+    var lm=document.getElementById('tnav-theme-label-mobile');
+    var txt=dark?'Switch to Light':'Switch to Dark';
+    var path=dark?SUN:MOON;
+    if(p)p.setAttribute('d',path);
+    if(pm)pm.setAttribute('d',path);
+    if(l)l.textContent=txt;
+    if(lm)lm.textContent=txt;
+  }
+  /* Init theme — check new key then legacy */
+  var savedTheme='';
+  try{savedTheme=localStorage.getItem(THEME_KEY)||localStorage.getItem('tm-theme')||'';}catch(e){}
+  if(savedTheme==='dark'){html.setAttribute('data-theme','dark');}
+  updateThemeUI(isDark());
+  var themeBtn=document.getElementById('tnav-theme-btn');
+  var themeBtnM=document.getElementById('tnav-theme-btn-mobile');
+  if(themeBtn)themeBtn.addEventListener('click',function(){applyTheme(!isDark());closeAll();});
+  if(themeBtnM)themeBtnM.addEventListener('click',function(){applyTheme(!isDark());closeDrawer();});
+
+  /* ── Current vehicle slot ── */
+  function renderVehicleSlots(){
+    var v=null;
+    try{v=JSON.parse(localStorage.getItem(VEHICLE_KEY)||'null');}catch(e){}
+    [['tnav-vehicle-slot',false],['tnav-vehicle-slot-mobile',true]].forEach(function(pair){
+      var slot=document.getElementById(pair[0]);
+      if(!slot)return;
+      slot.innerHTML='';
+      if(v&&v.name){
+        var a=document.createElement('a');
+        a.href=v.path||'/';
+        a.className='tnav-vehicle-pill';
+        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display=&#39;none&#39;">':'')+
+          '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
+          (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
+        slot.appendChild(a);
+      }else{
+        var b=document.createElement('a');
+        b.href='/vehicle-select.html';
+        b.className='tnav-no-vehicle';
+        b.textContent='Pick your rig →';
+        slot.appendChild(b);
+      }
+    });
+  }
+  renderVehicleSlots();
+
+  /* ── Dropdowns ── */
+  function closeAll(){
+    document.querySelectorAll('.tnav-item.tnav-open').forEach(function(el){
+      el.classList.remove('tnav-open');
+      var btn=el.querySelector('[aria-haspopup]');
+      if(btn)btn.setAttribute('aria-expanded','false');
+    });
+  }
+  document.querySelectorAll('.tnav-item[id]').forEach(function(item){
+    var btn=item.querySelector('[aria-haspopup]');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var wasOpen=item.classList.contains('tnav-open');
+      closeAll();
+      if(!wasOpen){item.classList.add('tnav-open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  var navEl=document.getElementById('tnav');
+  if(navEl)navEl.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();closeDrawer();}});
+
+  /* ── Hamburger / drawer ── */
+  var hamburger=document.getElementById('tnav-hamburger');
+  var drawer=document.getElementById('tnav-drawer');
+  function closeDrawer(){
+    if(drawer){drawer.classList.remove('tnav-open');drawer.setAttribute('aria-hidden','true');}
+    if(hamburger)hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger&&drawer){
+    hamburger.addEventListener('click',function(){
+      var isOpen=drawer.classList.toggle('tnav-open');
+      drawer.setAttribute('aria-hidden',isOpen?'false':'true');
+      hamburger.setAttribute('aria-expanded',isOpen?'true':'false');
+      closeAll();
+    });
+  }
+})();
+</script>
+</body>
+</html>
