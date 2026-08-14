@@ -14,6 +14,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JK Wrangler 5.7 Hemi Swap — Complete Installation Guide (DIY Hotwire Path) — Trail Manual</title>
+<link rel="canonical" href="https://trailmanual.com/jk/engine-swap-hemi-diy/">
 <meta name="description" content="Step-by-step installation walkthrough for swapping a 5.7L Hemi into a JK Wrangler using the Hotwire Engine Harness Conversion Kit. Phase-by-phase instructions, time estimates by experience level, tool list, and the common mistakes worth dodging.">
 <meta property="og:title" content="JK Wrangler 5.7 Hemi Swap — Complete Installation Guide (DIY Hotwire Path)">
 <meta property="og:description" content="Phase-by-phase installation guide for the JK Hemi swap using the Hotwire harness. Beginner: 10–14 days. Intermediate: 6–9 days. Experienced: 3–5 days. Every step in order.">
@@ -171,7 +172,7 @@ li strong{color:var(--text)}
 /* ── Mistakes block (amber, inside phase) ── */
 .mistakes{background:rgba(216,144,53,.07);border:1px solid rgba(216,144,53,.3);border-left:3px solid var(--warn-c);border-radius:var(--radius-lg);padding:18px 20px;margin:18px 0}
 .mistakes-head{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--warn-c);font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.mistakes-head::before{content:'⚠';font-size:13px}
+.mistakes-head::before{content:'!';font-size:13px}
 .mistakes ul{margin:0;padding-left:18px;list-style:disc}
 .mistakes li{font-size:13.5px;color:var(--text-dim);margin-bottom:6px;line-height:1.6}
 .mistakes li:last-child{margin-bottom:0}
@@ -258,7 +259,7 @@ li strong{color:var(--text)}
 #tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
 #tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
 #tm-topbar .tm-hamburger svg{width:16px;height:16px}
-@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}}
+@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}#tm-topbar .tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
 </style>
 <header id="tm-topbar">
   <div class="tm-topbar-inner">
@@ -272,32 +273,32 @@ li strong{color:var(--text)}
     </div>
     <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
       <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">⬡</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
       </div>
       <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-        <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon">🔧</div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
-        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">🔩</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">⚙</div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+        <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
       </div>
       <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-        <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon">📋</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon">⚠</div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
-        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon">🔗</div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
+        <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
+        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
       </div>
     </div></div>
     <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
       <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">📚</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
-        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon">🛠</div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
+        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
       </div>
       <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">✏</div><div><strong>Blog</strong><span>Guides · dives</span></div></a>        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · dives</span></div></a>        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
       </div>
     </div></div>
     <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
       <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">🚙</div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
-        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">📋</div><div><strong>My builds</strong><span>Saved configs</span></div></a>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
+        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configs</span></div></a>
       </div>
     </div></div>
   </div>
@@ -330,7 +331,7 @@ li strong{color:var(--text)}
   <!-- Hero photo -->
   <figure class="photo">
     <img src="https://img.youtube.com/vi/tUWHD9SMMz8/hqdefault.jpg" alt="5.7L Hemi installed in a Jeep Wrangler JK engine bay">
-    <figcaption class="photo-credit"><strong>Photo placeholder</strong> — 5.7L Hemi in a JK Wrangler engine bay after a DIY install. Image: <a href="https://www.youtube.com/watch?v=tUWHD9SMMz8" target="_blank" rel="noopener">JK Gear and Gadgets — "My Jeep Wrangler DIY Hemi Swap Cost HOW MUCH???"</a>. Replace with original Trail Manual photography once available. <!-- TODO: replace with original photo --></figcaption>
+    <figcaption class="photo-credit">5.7L Hemi in a JK Wrangler engine bay after a DIY install. Image: <a href="https://www.youtube.com/watch?v=tUWHD9SMMz8" target="_blank" rel="noopener">JK Gear and Gadgets — "My Jeep Wrangler DIY Hemi Swap Cost HOW MUCH???"</a>.</figcaption>
   </figure>
 
   <!-- Phase navigation (sticky) — rendered dynamically by JS -->
