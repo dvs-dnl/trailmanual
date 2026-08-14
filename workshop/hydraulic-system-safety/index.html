@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/hydraulic-system-safety/">
+<title>Hydraulic System Pressure — Safe Bleeds and Work Procedures — The Workshop · Trail Manual</title>
+<meta name="description" content="Skin penetration starts near 100 psi and every hydraulic system on your vehicle runs far above it — how to depressurize brakes, hydroboost, integral ABS, jacks and presses before you open a fitting, how to bleed safely, and what to do in the first hour after an injection injury.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  /* Legacy aliases — light-theme values mapped from canon */
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:1200px;
+
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+/* ═══════════════════════════════════════════════════════
+   TRAIL MANUAL · UNIFIED NAV  v1.0 · May 2026
+   tnav- prefix · self-contained · works with or without _shared.css
+   Reads --paper,--bone,--slate,--slate-l,--clay from page :root.
+   ═══════════════════════════════════════════════════════ */
+.tnav{--nb:var(--paper,#F7F4ED);--nbdr:var(--bone,#E8E2D2);--nt:var(--slate,#2B3A4A);--ntd:var(--slate-light,var(--slate-l,#5B6B7E));--na:var(--clay,#C97E50);--nhov:var(--bone,#E8E2D2);--ndrop:var(--panel,var(--paper,#F7F4ED));--nbdr2:var(--bone,#E8E2D2)}
+.tnav[data-variant=dark]{--nb:var(--slate-d,var(--slate-deep,#1A2330));--nbdr:rgba(43,58,74,.8);--nt:var(--bone,#E8E2D2);--ntd:rgba(232,226,210,.65);--nhov:rgba(255,255,255,.08);--ndrop:#2B3A4A;--nbdr2:rgba(255,255,255,.12)}
+.tnav{position:sticky;top:0;z-index:200;background:var(--nb);border-bottom:1px solid var(--nbdr);font-family:var(--font-sans,'DM Sans',-apple-system,sans-serif);backdrop-filter:blur(8px)}
+.tnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:4px}
+.tnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--nt);flex-shrink:0;margin-right:16px}
+.tnav-brand:hover{text-decoration:none;opacity:.85}
+.tnav-logo{width:28px;height:28px;display:block;flex-shrink:0}
+.tnav-wordmark{font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--nt);line-height:1;white-space:nowrap}
+.tnav-dot{display:inline-block;width:5px;height:5px;background:var(--na);border-radius:50%;margin:0 4px;vertical-align:3px}
+.tnav-center{display:flex;align-items:center;gap:2px;flex:1}
+.tnav-right{margin-left:auto;flex-shrink:0}
+.tnav-link,.tnav-link-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--ntd);background:transparent;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;font-family:inherit;line-height:1}
+.tnav-link:hover,.tnav-link-btn:hover,.tnav-link:focus-visible,.tnav-link-btn:focus-visible{color:var(--nt);background:var(--nhov);text-decoration:none;outline:none}
+.tnav-link.tnav-active,.tnav-link-btn.tnav-active{color:var(--na);background:var(--nhov)}
+.tnav-caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;flex-shrink:0}
+.tnav-item.tnav-open .tnav-caret{transform:rotate(180deg)}
+.tnav-item{position:relative}
+.tnav-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--ndrop);border:1px solid var(--nbdr2);border-radius:8px;box-shadow:0 8px 32px rgba(43,58,74,.16);padding:6px;z-index:300}
+.tnav-drop.tnav-drop-right{left:auto;right:0}
+.tnav-item.tnav-open>.tnav-drop{display:block}
+.tnav-drop-vehicles{min-width:420px;display:none;grid-template-columns:1fr 1fr;gap:0 8px;padding:8px}
+.tnav-item.tnav-open>.tnav-drop-vehicles{display:grid}
+.tnav-drop-section{padding:4px 0 6px}
+.tnav-drop-label{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ntd);padding:6px 10px 4px}
+.tnav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);text-decoration:none;transition:background .12s,color .12s;gap:8px}
+.tnav-drop-link:hover,.tnav-drop-link:focus-visible{background:var(--nhov);color:var(--na);outline:none;text-decoration:none}
+.tnav-drop-years{font-size:11px;color:var(--ntd);flex-shrink:0;font-family:var(--font-mono,'JetBrains Mono',monospace)}
+.tnav-divider{border:none;border-top:1px solid var(--nbdr2);margin:4px 6px}
+.tnav-my-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid var(--nbdr);background:transparent;color:var(--nt);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;transition:border-color .15s,background .15s,color .15s;line-height:1}
+.tnav-my-btn:hover,.tnav-my-btn:focus-visible{border-color:var(--na);background:var(--nhov);outline:none}
+.tnav-item.tnav-open .tnav-my-btn{border-color:var(--na);color:var(--na)}
+.tnav-my-icon{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-vehicle-pill{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:5px;background:var(--nhov);margin-bottom:2px;text-decoration:none;color:var(--nt);transition:filter .12s}
+.tnav-vehicle-pill:hover{filter:brightness(1.05);text-decoration:none}
+.tnav-vehicle-pill img{width:28px;height:28px;object-fit:contain}
+.tnav-vehicle-pill-info{display:flex;flex-direction:column;gap:2px}
+.tnav-vehicle-pill-name{font-size:13px;font-weight:600;color:var(--nt);line-height:1.2}
+.tnav-vehicle-pill-years{font-size:11px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-no-vehicle{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:5px;font-size:13px;color:var(--ntd);text-decoration:none;transition:background .12s}
+.tnav-no-vehicle:hover{background:var(--nhov);color:var(--na);text-decoration:none}
+.tnav-theme-row{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s,color .12s}
+.tnav-theme-row:hover{background:var(--nhov);color:var(--na)}
+.tnav-theme-icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-hamburger{display:none;align-items:center;justify-content:center;width:36px;height:36px;background:transparent;border:1px solid var(--nbdr);border-radius:6px;color:var(--nt);cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color .15s;padding:0}
+.tnav-hamburger:hover,.tnav-hamburger:focus-visible{border-color:var(--na);outline:none}
+.tnav-ham-icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.tnav-drawer{display:none;border-top:1px solid var(--nbdr);background:var(--nb);max-height:calc(100vh - 56px);overflow-y:auto}
+.tnav-drawer.tnav-open{display:block}
+.tnav-drawer-inner{max-width:1200px;margin:0 auto;padding:12px 16px 20px;display:flex;flex-direction:column}
+.tnav-drawer-section{border-bottom:1px solid var(--nbdr);padding:8px 0 12px}
+.tnav-drawer-section:last-child{border-bottom:none}
+.tnav-drawer-label{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ntd);padding:4px 8px 6px}
+.tnav-drawer-vehicles{display:grid;grid-template-columns:1fr 1fr;gap:0 4px}
+@media(max-width:400px){.tnav-drawer-vehicles{grid-template-columns:1fr}}
+.tnav-drawer-link{display:flex;align-items:center;justify-content:space-between;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);text-decoration:none;transition:background .12s;gap:8px}
+.tnav-drawer-link:hover{background:var(--nhov);text-decoration:none;color:var(--na)}
+.tnav-drawer-link.tnav-active{color:var(--na)}
+.tnav-drawer-years{font-size:12px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-drawer-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s}
+.tnav-drawer-btn:hover{background:var(--nhov);color:var(--na)}
+@media(max-width:720px){.tnav-center{display:none}.tnav-right{display:none}.tnav-hamburger{display:flex}.tnav-inner{padding:0 16px}}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+  /* Defensive: explicit color so legacy cascade can't break the hero */
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
+.video-section h2{margin-top:0}
+.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
+.video-embed{margin:18px 0 0}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-mute)}
+.video-credit a{color:var(--text-dim);border-bottom:1px dotted var(--text-mute)}
+.video-credit a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+</style>
+<script src="/_nav.js"></script>
+</head>
+<body>
+
+<header class="tnav" id="tnav" data-variant="light">
+  <div class="tnav-inner">
+
+    <a class="tnav-brand" href="/">
+      <svg class="tnav-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="tnav-wordmark">TRAIL<span class="tnav-dot"></span>MANUAL</span>
+    </a>
+
+    <nav class="tnav-center" aria-label="Primary">
+      <div class="tnav-item" id="tnav-vehicles">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-vehicles">Vehicles <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop tnav-drop-vehicles" id="tnav-drop-vehicles" role="menu">
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Jeep</span>
+            <a class="tnav-drop-link" href="/xj/" role="menuitem">Cherokee XJ <span class="tnav-drop-years">1984–2001</span></a>
+            <a class="tnav-drop-link" href="/tj/" role="menuitem">Wrangler TJ <span class="tnav-drop-years">1997–2006</span></a>
+            <a class="tnav-drop-link" href="/jk/" role="menuitem">Wrangler JK <span class="tnav-drop-years">2007–2018</span></a>
+            <a class="tnav-drop-link" href="/jl/" role="menuitem">Wrangler JL <span class="tnav-drop-years">2018–</span></a>
+            <a class="tnav-drop-link" href="/gladiator/" role="menuitem">Gladiator JT <span class="tnav-drop-years">2019–</span></a>
+          </div>
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Ford</span>
+            <a class="tnav-drop-link" href="/bronco/" role="menuitem">Early Bronco <span class="tnav-drop-years">1966–1977</span></a>
+            <a class="tnav-drop-link" href="/bronco-ii/" role="menuitem">Bronco II <span class="tnav-drop-years">1984–1990</span></a>
+            <a class="tnav-drop-link" href="/full-size-bronco/" role="menuitem">Full-Size Bronco <span class="tnav-drop-years">1978–1996</span></a>
+            <a class="tnav-drop-link" href="/bronco6g/" role="menuitem">New Bronco <span class="tnav-drop-years">2021–</span></a>
+            <a class="tnav-drop-link" href="/raptor/" role="menuitem">F-150 Raptor <span class="tnav-drop-years">Gen 2–3</span></a>
+            <span class="tnav-drop-label">Toyota · Ram</span>
+            <a class="tnav-drop-link" href="/4runner/" role="menuitem">4Runner <span class="tnav-drop-years">3rd–5th Gen</span></a>
+            <a class="tnav-drop-link" href="/tacoma/" role="menuitem">Tacoma <span class="tnav-drop-years">1st–3rd Gen</span></a>
+            <a class="tnav-drop-link" href="/power-wagon/" role="menuitem">Power Wagon <span class="tnav-drop-years">2011–</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="tnav-item" id="tnav-tools">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-tools">Tools <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop" id="tnav-drop-tools" role="menu">
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Vehicle Database</a>
+          <a class="tnav-drop-link" href="/gear-ratio-calculator.html" role="menuitem">Gear Ratio Calculator</a>
+          <a class="tnav-drop-link" href="/jk-wrangler-engine-swap-tool.html" role="menuitem">Engine Swap Tool (JK)</a>
+          <a class="tnav-drop-link" href="/v8-swap-parts-checklist.html" role="menuitem">V8 Parts Checklist</a>
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Pick Your Rig</a>
+        </div>
+      </div>
+      <a class="tnav-link tnav-active" href="/workshop/">Workshop</a>
+      <a class="tnav-link" href="/blog/">Blog</a>
+      <a class="tnav-link" href="/about/">About</a>
+    </nav>
+
+    <div class="tnav-item tnav-right" id="tnav-mymanual">
+      <button class="tnav-my-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-mymanual">
+        <svg class="tnav-my-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        My Manual
+        <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+      </button>
+      <div class="tnav-drop tnav-drop-right" id="tnav-drop-mymanual" role="menu" style="min-width:240px">
+        <div id="tnav-vehicle-slot"></div>
+        <a class="tnav-drop-link" href="/my-garage.html" role="menuitem">
+          <svg style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          My Garage
+        </a>
+        <hr class="tnav-divider">
+        <button class="tnav-theme-row" id="tnav-theme-btn" role="menuitem">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="tnav-hamburger" id="tnav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav-drawer">
+      <svg class="tnav-ham-icon" viewBox="0 0 18 18"><line x1="1" y1="4" x2="17" y2="4"/><line x1="1" y1="9" x2="17" y2="9"/><line x1="1" y1="14" x2="17" y2="14"/></svg>
+    </button>
+  </div>
+
+  <div class="tnav-drawer" id="tnav-drawer" aria-hidden="true">
+    <div class="tnav-drawer-inner">
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Jeep</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/xj/">Cherokee XJ <span class="tnav-drawer-years">1984–2001</span></a>
+          <a class="tnav-drawer-link" href="/tj/">Wrangler TJ <span class="tnav-drawer-years">1997–2006</span></a>
+          <a class="tnav-drawer-link" href="/jk/">Wrangler JK <span class="tnav-drawer-years">2007–2018</span></a>
+          <a class="tnav-drawer-link" href="/jl/">Wrangler JL <span class="tnav-drawer-years">2018–</span></a>
+          <a class="tnav-drawer-link" href="/gladiator/">Gladiator JT <span class="tnav-drawer-years">2019–</span></a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Ford · Toyota · Ram</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/bronco/">Early Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco-ii/">Bronco II</a>
+          <a class="tnav-drawer-link" href="/full-size-bronco/">Full-Size Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco6g/">New Bronco</a>
+          <a class="tnav-drawer-link" href="/raptor/">F-150 Raptor</a>
+          <a class="tnav-drawer-link" href="/4runner/">4Runner</a>
+          <a class="tnav-drawer-link" href="/tacoma/">Tacoma</a>
+          <a class="tnav-drawer-link" href="/power-wagon/">Power Wagon</a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Navigate</span>
+        <a class="tnav-drawer-link tnav-active" href="/workshop/">Workshop</a>
+        <a class="tnav-drawer-link" href="/blog/">Blog</a>
+        <a class="tnav-drawer-link" href="/db/">Vehicle Database</a>
+        <a class="tnav-drawer-link" href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+        <a class="tnav-drawer-link" href="/jk-wrangler-engine-swap-tool.html">Engine Swap Tool</a>
+        <a class="tnav-drawer-link" href="/about/">About</a>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">My Manual</span>
+        <div id="tnav-vehicle-slot-mobile"></div>
+        <a class="tnav-drawer-link" href="/my-garage.html">My Garage</a>
+        <button class="tnav-drawer-btn" id="tnav-theme-btn-mobile">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path-mobile" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label-mobile">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page"><article>
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>Hydraulic System Pressure — Safe Bleeds and Work Procedures</h1>
+    <p class="lede">Hydraulic fluid does not need much pressure to get inside you. Skin penetration starts around 100 psi — and the brake line, the power steering hose, the bottle jack, and the shop press on your garage floor all run several times that. A leak you can barely see can put fluid through a glove, through skin, and into the tissue of your hand without leaving a wound worth a bandage.</p>
+    <div class="safety-badge">Safety critical</div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p><strong>Depressurize the system before you open it, and never locate a leak with any part of your body.</strong> On a vehicle that means engine off, key off, accumulator discharged, ram lowered, and the line cracked slowly with a rag over the fitting — not spun loose with a flare wrench while something is still holding pressure behind it.</p>
+    <p>If pressurized fluid does break your skin — even if the mark looks like a pinprick and barely hurts — that is a <strong>surgical emergency</strong>. Go to an emergency department immediately, say the words "high-pressure injection injury," and bring the container the fluid came from. Waiting to see whether it gets worse is how people lose fingers and hands.</p>
+  </div>
+
+  <h2>Why 100 psi is the number that matters</h2>
+  <p>Fluid escaping a pinhole is not a spray. It is a jet — coherent, invisible from a few feet away, and moving fast enough that the fluid arrives before the pain does. Industry safety literature puts the exit velocity of a hydraulic pinhole leak near <strong>600 feet per second</strong>, and puts the pressure required to break intact human skin at roughly <strong>100 psi</strong>. Every pressurized fluid system on a vehicle clears that threshold by a wide margin.</p>
+  <p>What makes an injection injury different from a cut is that almost nothing happens at first. The entry wound is often a dot. There may be no bleeding. The fluid, meanwhile, has tracked along tendon sheaths and fascial planes well beyond the entry point, and it is doing two things: displacing tissue mechanically, and destroying it chemically. Swelling and pain build over the following hours as the compartment pressure rises and blood supply to the tissue is cut off.</p>
+  <p>The clinical outcomes track directly with delay and with pressure. Published series put the overall amputation rate near <strong>48%</strong>; injuries under 1,000 psi run closer to <strong>19%</strong>, and above 1,000 psi closer to <strong>43%</strong>. Prognosis improves markedly when surgical debridement happens <strong>within six hours</strong>. Solvents and paint thinners are worse than oil; the fluid's chemistry matters as much as the pressure.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">If it happens — do this, in this order</div>
+    <ul>
+      <li><strong>Go to an emergency department now.</strong> Not urgent care, not tomorrow morning. Ask for a hand surgeon.</li>
+      <li><strong>Use the exact phrase "high-pressure injection injury."</strong> Triage staff who don't hear it may reasonably classify a pinprick as minor and hand you a bandage.</li>
+      <li><strong>Bring the fluid.</strong> The bottle, the label, or the safety data sheet. Treatment depends on what was injected.</li>
+      <li><strong>Elevate the limb, remove rings and watches</strong> before swelling starts, and don't eat or drink — surgery may follow immediately.</li>
+      <li><strong>Do not wait for it to hurt.</strong> Low initial pain is characteristic of these injuries, not reassuring.</li>
+    </ul>
+  </div>
+
+  <h2>What's actually pressurized on your vehicle</h2>
+  <p>Knowing the numbers changes how you approach the fitting. These are typical operating ranges — check the factory manual for your platform before you rely on any of them.</p>
+  <ul>
+    <li><strong>Brake hydraulics</strong> — roughly 800 to 1,500 psi in the lines under hard braking, with peaks higher on heavy vehicles and boosted systems. Static after shutdown, the system is near zero <em>unless</em> it has an accumulator.</li>
+    <li><strong>Power steering</strong> — about 150 to 200 psi at rest, 450 to 600 psi in normal use, and 1,200 psi or more against the relief valve at full lock. That relief pressure is the number that matters when you crack a high-pressure hose fitting.</li>
+    <li><strong>Hydroboost brake assist</strong> — the accumulator stores between roughly <strong>675 and 2,600 psi</strong> depending on the system, enough for one to three assisted stops after the engine quits. It stays charged with the engine off.</li>
+    <li><strong>Integral ABS units</strong> (Teves Mark II, Bosch III and similar, common on late-'80s and '90s vehicles) — a nitrogen-charged accumulator holding pressure that does not bleed down on its own.</li>
+    <li><strong>Hydraulic clutch</strong> — lower pressure than brakes, same fluid, same rules. The master and slave still generate hundreds of psi at the pedal.</li>
+    <li><strong>Bottle jacks, floor jacks, and shop presses</strong> — hand pumps in this class commonly work up to <strong>8,000 to 10,000 psi</strong>. The pump handle you push with one arm is the highest-pressure device in most home garages.</li>
+    <li><strong>Common-rail diesel fuel systems</strong> — <strong>25,000 to 30,000 psi</strong> and beyond. This is a different category of hazard entirely, and it is the reason you never crack an injector line on a running common-rail engine.</li>
+  </ul>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">The rule with no exceptions</div>
+    <p><strong>Never search for a hydraulic leak with your hand.</strong> Not a gloved hand, not a fingertip, not a quick pass to feel for wetness. Shut the system down, relieve the pressure, and pass a piece of <strong>cardboard</strong> or a mirror over the suspect area. Gloves stop nothing at these pressures — leather and nitrile are irrelevant to a 600 ft/s jet.</p>
+  </div>
+
+  <h2>De-energizing a system before you open it</h2>
+  <p>The sequence is the same regardless of what kind of hydraulics you're working on: stop the source, drop the load, discharge the storage, then open the fitting under control.</p>
+
+  <h3>Brake and clutch hydraulics</h3>
+  <p>On a conventional vacuum-boosted system with no accumulator, engine off and key off is enough — line pressure is atmospheric. Still crack the fitting slowly with a rag wrapped around it, because a line that was recently pressurized can hold a slug of fluid and because <strong>brake fluid strips paint on contact</strong>. Keep a bottle of water nearby to flush any spill on bodywork or skin.</p>
+  <p>Use a <a href="/workshop/flare-nut-wrench/">flare nut wrench</a> on every hydraulic fitting. An open-end wrench rounds a soft line fitting, and a rounded fitting on a brake line turns a bleed job into a line-replacement job.</p>
+
+  <h3>Hydroboost systems</h3>
+  <p>The accumulator holds pressure with the engine off. Before disconnecting any line or the booster itself, <strong>pump the brake pedal roughly a dozen times with the engine off</strong> until the pedal goes hard and the assist is clearly gone. That discharges the accumulator into the reservoir. Skipping it means opening a fitting with up to a couple thousand psi behind it.</p>
+
+  <h3>Integral ABS with an accumulator</h3>
+  <p>These systems need more. <strong>With the ignition off, pump the brake pedal 25 to 40 times</strong> — until the pedal is unmistakably hard and further strokes produce no change — before opening any line or removing a pressure switch. Ignition off is part of the procedure: leave it on and the pump re-charges the accumulator while you're trying to empty it. Check the factory procedure for your specific unit; these systems vary and several of them require a scan tool for the bleed afterward.</p>
+
+  <h3>Common-rail diesel</h3>
+  <p>Do not crack lines on a running engine, and do not treat a rail as depressurized because the key is off. Follow the manufacturer's residual-pressure release procedure, allow the specified wait time, and understand that a leak in this system produces an atomized fuel mist that is both an injection hazard and an ignition hazard. If the factory procedure isn't available to you, this is a reasonable job to hand to a shop — see <a href="/workshop/when-to-stop/">when to stop and go to a shop</a>.</p>
+
+  <h3>Jacks and shop presses</h3>
+  <p>The ram is stored energy the entire time it is extended. Lower the ram fully and release the pump valve before servicing, changing dies, or chasing a leak. A jack under load is holding that load with a seal and a column of oil — which is exactly why a <a href="/workshop/floor-jack-and-stands/">jack is never a substitute for stands</a>. On a press, the second hazard is the workpiece: bearings, bushings, and hardened parts fracture and launch under load. Shield the work, wear a face shield, and keep your body out of the plane the part would travel.</p>
+
+  <h2>Bleeding brakes without creating a second problem</h2>
+  <p>Bleeding is where most DIYers meet hydraulic pressure directly, and most of the risk in a bleed isn't injection — it's finishing the job with a system that doesn't stop the vehicle. The full procedure lives in the <a href="/workshop/bleeding-brakes/">bleeding brakes guide</a>; what follows is the pressure-and-safety layer over it.</p>
+  <ul>
+    <li><strong>Keep the reservoir full through the entire bleed.</strong> Running it dry pulls air into the master cylinder and puts you back at the beginning, or worse — on some systems, back to the dealer for a module bleed.</li>
+    <li><strong>Don't push the pedal to the floor on a high-mileage system.</strong> The master cylinder bore wears a ridge where the piston normally stops. Driving the seals past that ridge on a two-person bleed can cut them and turn a fluid change into a master cylinder replacement. Have your helper stop at normal travel, or put a block under the pedal.</li>
+    <li><strong>Run the bleeder hose into a catch bottle with the end submerged</strong>, positioned above the bleeder screw so air can't siphon back.</li>
+    <li><strong>Pressure bleeders live at low pressure.</strong> Typical reservoir-cap bleeders operate around <strong>10 to 20 psi</strong>. More is not faster; more splits reservoirs and blows caps. Check the tool's rating and stay under it.</li>
+    <li><strong>Crack bleeder screws before you need them.</strong> A seized bleeder that snaps off mid-job leaves you with an open caliper and no way to close it. Penetrating oil and heat go in <em>before</em> the system is opened.</li>
+    <li><strong>ABS modules often need a scan tool.</strong> If air gets into the HCU, manual bleeding will not clear it on many vehicles. Know whether yours is one of them before you open the system.</li>
+    <li><strong>Never reuse old fluid, and don't mix standards.</strong> DOT 3, 4, and 5.1 are glycol-based and mix; DOT 5 is silicone and does not belong in a system built for the others.</li>
+    <li><strong>Verify a firm pedal against the pedal itself, not against the road.</strong> First stop happens at walking pace in the driveway, not in traffic.</li>
+  </ul>
+
+  <div class="panel panel-good">
+    <div class="panel-label">A useful habit</div>
+    <p>Before any hydraulic fitting comes loose, ask what is on the other side of it and what happens when it opens. If the honest answer is "I'm not sure whether that's still pressurized," the fitting stays tight until you find out.</p>
+  </div>
+
+  <h2>Hoses, lines, and fittings</h2>
+  <p>Most injection injuries in vehicle work start at a component that was already telling you something.</p>
+  <ul>
+    <li><strong>A weeping hose is a failing hose.</strong> Seepage at a crimp, a bulge, cracked outer cover, exposed reinforcement braid, or a wet film that returns after you wipe it — replace it. These do not stabilize.</li>
+    <li><strong>Never clamp, tape, or zip-tie a pressurized leak.</strong> A repair that contains the leak locally raises pressure elsewhere in the hose and moves the failure, usually somewhere less convenient.</li>
+    <li><strong>Route away from heat and abrasion.</strong> A hose resting on an exhaust or rubbing a bracket fails at that spot, and the failure is a jet aimed wherever the hose happens to point.</li>
+    <li><strong>Torque hydraulic fittings to spec.</strong> Overtightening a flare distorts the seat and creates the leak you were trying to prevent. Under-torquing leaves a fitting that backs off under vibration.</li>
+    <li><strong>Replace crush washers and copper sealing washers</strong> on banjo fittings — every time, not when they look bad.</li>
+    <li><strong>Support the line when you break a fitting loose.</strong> Twisting a hard line while cracking its nut kinks or cracks the line, and a cracked brake line fails under pedal pressure rather than in your driveway.</li>
+  </ul>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Feeling for a leak by hand</strong> — the single most common route to an injection injury.</li>
+    <li><strong>Opening a hydroboost or integral-ABS system without discharging the accumulator.</strong></li>
+    <li><strong>Assuming key-off means zero pressure.</strong> Accumulators, thermal expansion, and common-rail residual pressure all say otherwise.</li>
+    <li><strong>Treating a pinprick wound as minor</strong> and going to bed. The window for good outcomes is measured in hours.</li>
+    <li><strong>Cracking an injector line on a running diesel</strong> to find a dead cylinder — a technique from an era of much lower injection pressures.</li>
+    <li><strong>Using an open-end wrench on flare fittings</strong> and rounding them.</li>
+    <li><strong>Working under a vehicle held up by a jack</strong> rather than stands, because the hydraulics "have never failed before."</li>
+    <li><strong>Over-pressurizing a bleeder tank</strong> past its rating to speed up a bleed.</li>
+    <li><strong>Standing in line with a press ram or workpiece</strong> while the pump is loaded.</li>
+    <li><strong>Skipping eye protection.</strong> Brake fluid, power steering fluid, and hydraulic oil all cause chemical eye injury, and a fitting under residual pressure sprays upward at face height more often than it sprays down.</li>
+  </ul>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Stop — signs to walk away</div>
+    <p>Stop if a system won't depressurize when the procedure says it should, if a fitting is seized on a line you can't replace, if a hose is failing on a component you can't get parts for, or if the factory service procedure calls for a tool you're improvising around. Hydraulic work has a specific quality: the failures are quiet right up until they are permanent. A shop bleeds a module or replaces a high-pressure hose for the price of an hour's labor. The alternative starts in a hand surgeon's operating room.</p>
+  </div>
+
+  <h2>PPE and workspace</h2>
+  <ul>
+    <li><strong>Safety glasses at minimum; a face shield when you're cracking a fitting near your face</strong> or running a press.</li>
+    <li><strong>Nitrile gloves for fluid contact</strong> — they protect from chemistry, not pressure. Nothing you can wear stops an injection jet.</li>
+    <li><strong>A catch pan and absorbent under every fitting you open.</strong> Brake fluid on paint is a repaint; on a garage floor it's a slip hazard. See <a href="/workshop/drain-pan-and-fluid-disposal/">drain pans and fluid disposal</a>.</li>
+    <li><strong>Water within reach</strong> to flush skin and paint immediately.</li>
+    <li><strong>Good light on the fitting.</strong> Most fumbled hydraulic work happens with a hand in a dark spot, working by feel — which is the opposite of what this hazard tolerates.</li>
+  </ul>
+
+  <h2>The honest framing</h2>
+  <p>Hydraulics reward exactly one habit: knowing the state of the system before you open it. That's it. Everything above is a variation on it. Brake bleeds, power steering hoses, clutch slaves, presses, and jacks are all well within reach of a home garage, and people do this work safely every day — by discharging what stores energy, dropping what holds a load, and never putting a hand where fluid is trying to get out.</p>
+  <p>The injuries in this category are rarely the result of hard jobs. They come from a quick check on a hose while the engine was still running.</p>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/bleeding-brakes/">Bleeding Brakes — The Full Procedure</a>
+      <a class="related-card" href="/workshop/hydraulic-press/">Hydraulic Press — Shop Uses and Bearing Press Basics</a>
+      <a class="related-card" href="/workshop/flare-nut-wrench/">Flare Nut Wrenches — Why They Exist</a>
+      <a class="related-card" href="/workshop/spring-tension-safety/">Compressed Springs — The Energy You Cannot See</a>
+      <a class="related-card" href="/workshop/floor-jack-and-stands/">Floor Jacks and Jack Stands</a>
+      <a class="related-card" href="/workshop/when-to-stop/">When to Stop and Go to a Shop</a>
+    </div>
+  </div>
+</article></div>
+
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/channels/">Recommended Channels</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+<script>
+(function(){
+  /* Trail Manual Unified Nav v1.0 */
+  var THEME_KEY='tm.theme';
+  var VEHICLE_KEY='tm.currentVehicle';
+  var html=document.documentElement;
+
+  /* ── Theme ── */
+  function isDark(){return html.getAttribute('data-theme')==='dark';}
+  function applyTheme(dark){
+    html.setAttribute('data-theme',dark?'dark':'light');
+    try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch(e){}
+    updateThemeUI(dark);
+  }
+  var SUN='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z';
+  var MOON='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  function updateThemeUI(dark){
+    var p=document.getElementById('tnav-theme-path');
+    var pm=document.getElementById('tnav-theme-path-mobile');
+    var l=document.getElementById('tnav-theme-label');
+    var lm=document.getElementById('tnav-theme-label-mobile');
+    var txt=dark?'Switch to Light':'Switch to Dark';
+    var path=dark?SUN:MOON;
+    if(p)p.setAttribute('d',path);
+    if(pm)pm.setAttribute('d',path);
+    if(l)l.textContent=txt;
+    if(lm)lm.textContent=txt;
+  }
+  /* Init theme — check new key then legacy */
+  var savedTheme='';
+  try{savedTheme=localStorage.getItem(THEME_KEY)||localStorage.getItem('tm-theme')||'';}catch(e){}
+  if(savedTheme==='dark'){html.setAttribute('data-theme','dark');}
+  updateThemeUI(isDark());
+  var themeBtn=document.getElementById('tnav-theme-btn');
+  var themeBtnM=document.getElementById('tnav-theme-btn-mobile');
+  if(themeBtn)themeBtn.addEventListener('click',function(){applyTheme(!isDark());closeAll();});
+  if(themeBtnM)themeBtnM.addEventListener('click',function(){applyTheme(!isDark());closeDrawer();});
+
+  /* ── Current vehicle slot ── */
+  function renderVehicleSlots(){
+    var v=null;
+    try{v=JSON.parse(localStorage.getItem(VEHICLE_KEY)||'null');}catch(e){}
+    [['tnav-vehicle-slot',false],['tnav-vehicle-slot-mobile',true]].forEach(function(pair){
+      var slot=document.getElementById(pair[0]);
+      if(!slot)return;
+      slot.innerHTML='';
+      if(v&&v.name){
+        var a=document.createElement('a');
+        a.href=v.path||'/';
+        a.className='tnav-vehicle-pill';
+        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display=&#39;none&#39;">':'')+
+          '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
+          (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
+        slot.appendChild(a);
+      }else{
+        var b=document.createElement('a');
+        b.href='/vehicle-select.html';
+        b.className='tnav-no-vehicle';
+        b.textContent='Pick your rig →';
+        slot.appendChild(b);
+      }
+    });
+  }
+  renderVehicleSlots();
+
+  /* ── Dropdowns ── */
+  function closeAll(){
+    document.querySelectorAll('.tnav-item.tnav-open').forEach(function(el){
+      el.classList.remove('tnav-open');
+      var btn=el.querySelector('[aria-haspopup]');
+      if(btn)btn.setAttribute('aria-expanded','false');
+    });
+  }
+  document.querySelectorAll('.tnav-item[id]').forEach(function(item){
+    var btn=item.querySelector('[aria-haspopup]');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var wasOpen=item.classList.contains('tnav-open');
+      closeAll();
+      if(!wasOpen){item.classList.add('tnav-open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  var navEl=document.getElementById('tnav');
+  if(navEl)navEl.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();closeDrawer();}});
+
+  /* ── Hamburger / drawer ── */
+  var hamburger=document.getElementById('tnav-hamburger');
+  var drawer=document.getElementById('tnav-drawer');
+  function closeDrawer(){
+    if(drawer){drawer.classList.remove('tnav-open');drawer.setAttribute('aria-hidden','true');}
+    if(hamburger)hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger&&drawer){
+    hamburger.addEventListener('click',function(){
+      var isOpen=drawer.classList.toggle('tnav-open');
+      drawer.setAttribute('aria-hidden',isOpen?'false':'true');
+      hamburger.setAttribute('aria-expanded',isOpen?'true':'false');
+      closeAll();
+    });
+  }
+})();
+</script>
+</body>
+</html>
