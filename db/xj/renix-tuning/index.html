@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- tm:generated db_static_build -->
+<meta charset="utf-8">
+<title>Renix ECU Tuning Basics (1987–1990 4.0L) — Jeep Cherokee XJ | Trail Manual</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="There is no tune for a Renix ECU — no flash, no chip, no piggyback worth buying. Tuning a 1987–1990 4.0L means restoring the sensor signals and grounds…">
+<link rel="canonical" href="https://trailmanual.com/db/xj/renix-tuning/">
+<meta property="og:title" content="Renix ECU Tuning Basics (1987–1990 4.0L) — Jeep Cherokee XJ">
+<meta property="og:description" content="There is no tune for a Renix ECU — no flash, no chip, no piggyback worth buying. Tuning a 1987–1990 4.0L means restoring the sensor signals and grounds…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trailmanual.com/db/xj/renix-tuning/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="stylesheet" href="/_shared.css">
+<script>
+(function(){try{var s=localStorage.getItem('tm-theme');
+if(s==='dark')document.documentElement.setAttribute('data-theme','dark');
+else if(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)
+document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-639VVRC92N');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.tm-aff');
+if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname});});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Renix ECU Tuning Basics (1987\u20131990 4.0L)",
+  "description": "There is no tune for a Renix ECU \u2014 no flash, no chip, no piggyback worth buying. Tuning a 1987\u20131990 4.0L means restoring the sensor signals and grounds\u2026",
+  "author": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "mainEntityOfPage": "https://trailmanual.com/db/xj/renix-tuning/",
+  "about": "Jeep Cherokee XJ"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Renix ECU Tuning Basics (1987\u20131990 4.0L)",
+  "description": "There is no tune for a Renix ECU \u2014 no flash, no chip, no piggyback worth buying. Tuning a 1987\u20131990 4.0L means restoring the sensor signals and grounds\u2026",
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Digital multimeter with backprobe pins"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "T-20 Torx driver"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Metric sockets and wrenches (8mm, 10mm, 13mm)"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Wire brush and small round file"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Electrical contact cleaner"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "1/8\" NPT tap and tap driver"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Timing light (for verification)"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Bench vise and hammer (CPS advance mod only)"
+    }
+  ],
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Throttle body and intake cleaner"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Dielectric grease (connector protection)"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Permatex #2 non-hardening thread sealer"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Throttle body gasket (MAP hose rebuild)"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Vacuum fitting, MAP supply (MAP hose rebuild)"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Vacuum elbows, pair (MAP hose rebuild)"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Plastic vacuum tubing, ~13 in (MAP hose rebuild)"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Crankshaft position sensor, Renix bellhousing-mount"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Throttle position sensor, Renix dual-output"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Bosch four-hole injectors, set of six (Volvo application)"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Refresh the engine grounds first. The stud on the oil dipstick tube carries multiple ground eyelets and is the single worst offender. Remove every eyelet, wire-brush the eyelet face and the stud boss to bare metal, reassemble tight, and coat with dielectric grease. Do the same at the block-to-firewall strap and the battery-to-body ground."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verify the sensor ground. Put the red meter lead on terminal B of the TPS three-wire flat connector and the black lead on the negative battery post. More than 1 ohm means the sensor ground harness needs repair before anything downstream will read correctly."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "On 1987\u20131988 models, address C101. The bulkhead connector between the engine harness and the body harness carries nearly every critical sensor and injector signal. It was a known resistance source when new \u2014 Jeep deleted it for 1989 and 1990. Refresh the terminals, or eliminate the connector by soldering the circuits through."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Clean the relay and connector contacts. Pull each engine-bay relay, brighten the blades and receptacle contacts, and reseat with dielectric grease. Do the coil and ignition control module contacts while you are there."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Test the CPS on AC volts. Unplug the harness connector at the CPS, set the meter to AC volts, probe both wires, and crank the engine. You want about 0.5 VAC. At 0.35 VAC or below, expect intermittent crank/no-start. Resistance testing this sensor is unreliable and will send you chasing the wrong part."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Clean the throttle body and IAC. Carbon on the butterfly edge changes the closed-throttle airflow and makes the TPS adjustment meaningless. Do this before you touch the TPS, not after."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Set the TPS \u2014 ECU side. Key on, engine off, connectors still plugged in. Backprobe terminals A and B to read your REFERENCE voltage (a healthy system reads roughly 4.8\u20135.0 V; a low number here means you skipped step 1). Backprobe B and C for OUTPUT voltage. Target output is 17% of reference \u2014 for a 4.82 V reference that is 0.82 V."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Adjust and lock it. Loosen the two T-20 Torx screws holding the TPS to the throttle body, rotate the sensor to the target output, then tighten while watching the meter so the reading does not walk."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Index the distributor. With the engine at #1 TDC, drop the distributor in with the rotor near the 4 o'clock position \u2014 it will land near 5 o'clock as the gear engages \u2014 then rotate the housing until the trailing edge of the rotor tip is departing the #1 cap terminal. Clamp it there. This sets injection sync, and a mis-indexed distributor produces a rough idle no amount of sensor work will cure."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Rebuild the throttle-body-to-MAP vacuum line. The factory hose assembly is discontinued and cracks where it enters the throttle body. Tap the lower of the two throttle body holes 1/8\" NPT (the upper hole is blind), flush the cuttings with cleaner, seal the fitting with Permatex #2, and run new plastic tubing to the MAP with an elbow at each end. A leaking MAP signal tells the ECU there is no vacuum, and the engine runs pig rich or refuses to start."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verify. Warm the engine, confirm idle settles between roughly 650 and 800 RPM, and watch for a steady TPS sweep with no dropouts as you open the throttle by hand."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "---"
+    }
+  ]
+}
+</script>
+<style>
+.tm-guide{max-width:760px;margin:0 auto;padding:24px 20px 64px}
+.tm-bc{font-size:13px;color:var(--text-dim);margin:8px 0 4px}
+.tm-bc a{color:var(--text-dim)}
+.tm-guide h1{font-size:30px;line-height:1.2;margin:8px 0 12px}
+.tm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.tm-chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
+.tm-lead{font-size:18px;line-height:1.55;font-weight:500;margin:0 0 20px}
+.tm-guide h2{font-size:20px;margin:28px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+.tm-guide p,.tm-guide li{line-height:1.65}
+.tm-guide ul{padding-left:20px}
+.tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
+.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
+</style>
+</head>
+<body>
+<div class="tm-guide">
+  <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/xj/">Jeep Cherokee XJ</a></nav>
+  <h1>Renix ECU Tuning Basics (1987–1990 4.0L)</h1>
+  <div class="tm-chips"><span class="tm-chip">Difficulty: intermediate</span></div>
+  <p class="tm-lead">There is no tune for a Renix ECU — no flash, no chip, no piggyback worth buying. Tuning a 1987–1990 4.0L means restoring the sensor signals and grounds the ECU relies on, and a Renix that gets that treatment runs the way it did new.</p>
+<p>The Renix engine management system is a sealed, non-programmable box. It has no reprogrammable memory, no diagnostic port a modern scanner can talk to, and no aftermarket calibration support. Every &quot;performance chip&quot; listed for an 87–90 XJ is either a resistor in a plastic shell or a product for a different vehicle entirely.</p>
+<p>What the ECU does have is a fixed set of maps and a hard dependency on clean inputs. It computes spark timing from the crank position sensor, fuel quantity from the MAP sensor, and enrichment from the throttle position sensor and coolant temp sensor — then trims with the oxygen sensor and pulls timing when the knock sensor reports detonation. Those signals travel through a grounding system that was under-engineered when the Jeep was new and is now thirty-plus years old. Feed the ECU bad data and it makes bad decisions, faithfully, forever. That is what most &quot;slow Renix&quot; complaints actually are.</p>
+<p>The order below matters. Grounds and connectors come before sensor calibration, because you cannot calibrate a sensor against a reference voltage that is being dragged down by corrosion.</p>
+<ul><li><strong>Crank position sensor (CPS)</strong> — bellhousing-mounted, reads the flywheel. Provides RPM and the timing reference. Spark timing is calculated by the ECU; you do not set base timing by rotating the distributor.</li><li><strong>Distributor sync signal generator</strong> — tells the ECU where cylinder 1 and cylinder 6 are so it can sequence injection. Distributor position affects fuel sync, not spark advance.</li><li><strong>MAP sensor</strong> — firewall-mounted, fed by a vacuum line from the throttle body. The single most heavily weighted input for air/fuel calculation.</li><li><strong>TPS</strong> — two sensors in one housing. One output goes to the ECU, the other to the AW4 transmission controller. They are adjusted independently and a shop that sets the wrong one leaves you exactly where you started.</li><li><strong>Coolant temp sensor (ECU side)</strong> — there are two temp senders; one drives the gauge, one drives fueling. A drifted ECU-side sender runs the engine rich with no warning light.</li><li><strong>Knock sensor</strong> — pulls roughly 5 degrees of timing when it hears detonation. It works, which is why the CPS advance mod below is survivable.</li></ul>
+<p><strong>CPS advance mod (about 5 degrees).</strong> Sliding the sensor body up its perforated mounting bar advances the timing reference. Set the CPS in a vise with the bar unclamped, put a tight-fitting bolt through the top hole of the bar, and drive it through until the sensor body sits about 3/8&quot; from the edge of that hole. The knock sensor covers you if the fuel is marginal. Two cautions: aged plastic cracks under the hammer, and the mod only behaves on a Jeep whose grounds, TPS, and distributor index are already correct.</p>
+<p><strong>Four-hole injector swap.</strong> The factory Renix injectors are single-hole units. Bosch <strong>0-280-155-746</strong> injectors from late-90s Volvos are a direct fit with the same flow rate and four spray holes, which atomizes fuel considerably better. Refurbished sets are inexpensive and the throttle response gain is real, particularly on cold starts.</p>
+<ul><li><strong>eBay &quot;performance chips&quot; and inline resistors.</strong> The Renix ECU has nothing to reprogram. Resistor modules that fool the coolant temp sensor make the engine run rich, which feels like power and is not.</li><li><strong>Rotating the distributor for more advance.</strong> It moves injection sync, not spark. You will make the engine worse.</li><li><strong>Bolting an HO PCM to a Renix engine.</strong> The sensors, injectors, and harness architecture differ. If you want HO fueling, do the full conversion — see the HO upgrade guide.</li><li><strong>Buying parts before doing steps 1 through 4.</strong> A new TPS on a bad ground reads wrong the same way the old one did.</li></ul>
+<p>If you want genuine calibration control on an 87–90, the honest path is a standalone EFI system — Holley Terminator X, Megasquirt, and similar — at $1,200 and up plus a wiring weekend. That is a different project with a different budget, not a tune.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li><strong>Refresh the engine grounds first.</strong> The stud on the oil dipstick tube carries multiple ground eyelets and is the single worst offender. Remove every eyelet, wire-brush the eyelet face and the stud boss to bare metal, reassemble tight, and coat with dielectric grease. Do the same at the block-to-firewall strap and the battery-to-body ground.</li><li><strong>Verify the sensor ground.</strong> Put the red meter lead on terminal B of the TPS three-wire flat connector and the black lead on the negative battery post. More than <strong>1 ohm</strong> means the sensor ground harness needs repair before anything downstream will read correctly.</li><li><strong>On 1987–1988 models, address C101.</strong> The bulkhead connector between the engine harness and the body harness carries nearly every critical sensor and injector signal. It was a known resistance source when new — Jeep deleted it for 1989 and 1990. Refresh the terminals, or eliminate the connector by soldering the circuits through.</li><li><strong>Clean the relay and connector contacts.</strong> Pull each engine-bay relay, brighten the blades and receptacle contacts, and reseat with dielectric grease. Do the coil and ignition control module contacts while you are there.</li><li><strong>Test the CPS on AC volts.</strong> Unplug the harness connector at the CPS, set the meter to AC volts, probe both wires, and crank the engine. You want about <strong>0.5 VAC</strong>. At <strong>0.35 VAC or below</strong>, expect intermittent crank/no-start. Resistance testing this sensor is unreliable and will send you chasing the wrong part.</li><li><strong>Clean the throttle body and IAC.</strong> Carbon on the butterfly edge changes the closed-throttle airflow and makes the TPS adjustment meaningless. Do this before you touch the TPS, not after.</li><li><strong>Set the TPS — ECU side.</strong> Key on, engine off, connectors still plugged in. Backprobe terminals A and B to read your REFERENCE voltage (a healthy system reads roughly 4.8–5.0 V; a low number here means you skipped step 1). Backprobe B and C for OUTPUT voltage. Target output is <strong>17% of reference</strong> — for a 4.82 V reference that is <strong>0.82 V</strong>.</li><li><strong>Adjust and lock it.</strong> Loosen the two T-20 Torx screws holding the TPS to the throttle body, rotate the sensor to the target output, then tighten while watching the meter so the reading does not walk.</li><li><strong>Index the distributor.</strong> With the engine at #1 TDC, drop the distributor in with the rotor near the 4 o&#x27;clock position — it will land near 5 o&#x27;clock as the gear engages — then rotate the housing until the trailing edge of the rotor tip is departing the #1 cap terminal. Clamp it there. This sets injection sync, and a mis-indexed distributor produces a rough idle no amount of sensor work will cure.</li><li><strong>Rebuild the throttle-body-to-MAP vacuum line.</strong> The factory hose assembly is discontinued and cracks where it enters the throttle body. Tap the <strong>lower</strong> of the two throttle body holes <strong>1/8&quot; NPT</strong> (the upper hole is blind), flush the cuttings with cleaner, seal the fitting with Permatex #2, and run new plastic tubing to the MAP with an elbow at each end. A leaking MAP signal tells the ECU there is no vacuum, and the engine runs pig rich or refuses to start.</li><li><strong>Verify.</strong> Warm the engine, confirm idle settles between roughly 650 and 800 RPM, and watch for a steady TPS sweep with no dropouts as you open the throttle by hand.</li><li>---</li></ol>
+<h2>Why it works</h2>
+<ul><li>Zero to about $220 in parts recovers driveability most owners try to buy their way out of with a parts cannon</li><li>Fixes the actual root cause of the rough idle, hesitation, and hard-start complaints the platform is known for</li><li>Every step is meter work and hand tools — no scan tool exists for this system anyway</li><li>Grounds and connector work pays off across the whole vehicle, not only the engine</li></ul>
+<h2>Trade-offs</h2>
+<ul><li>Takes a full day the first time, and the payoff arrives in increments rather than one dramatic change</li><li>Backprobing connectors without proper pins damages terminals — buy the pins</li><li>The CPS advance mod can crack a brittle sensor body, costing you a part you were not planning to replace</li><li>None of this raises the ceiling; a healthy Renix still makes 177 hp, and real power means the HO conversion or a stroker</li></ul>
+<h2>Tools required</h2>
+<ul><li>Digital multimeter with backprobe pins</li><li>T-20 Torx driver</li><li>Metric sockets and wrenches (8mm, 10mm, 13mm)</li><li>Wire brush and small round file</li><li>Electrical contact cleaner</li><li>1/8&quot; NPT tap and tap driver</li><li>Timing light (for verification)</li><li>Bench vise and hammer (CPS advance mod only)</li></ul>
+<h2>Parts</h2>
+<p class="tm-affiliate-note">Some parts links are Amazon affiliate links — if you buy through them Trail Manual may earn a small commission at no extra cost to you. We only list parts we’d run on our own rig, and never on safety-critical pages.</p>
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td><a href="https://www.amazon.com/s?k=CRC+throttle+body+and+air+intake+cleaner&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Throttle body and intake cleaner</a></td><td>local parts store / Amazon</td><td>—</td></tr><tr><td><a href="https://www.amazon.com/s?k=permatex+dielectric+tune+up+grease&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Dielectric grease (connector protection)</a></td><td>local parts store / Amazon</td><td>—</td></tr><tr><td><a href="https://www.amazon.com/s?k=permatex+form+a+gasket+no+2+sealant&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Permatex #2 non-hardening thread sealer</a></td><td>local parts store / Amazon</td><td>—</td></tr><tr><td>Throttle body gasket (MAP hose rebuild)</td><td>NAPA</td><td>—</td></tr><tr><td>Vacuum fitting, MAP supply (MAP hose rebuild)</td><td>NAPA</td><td>—</td></tr><tr><td>Vacuum elbows, pair (MAP hose rebuild)</td><td>NAPA</td><td>—</td></tr><tr><td>Plastic vacuum tubing, ~13 in (MAP hose rebuild)</td><td>NAPA</td><td>—</td></tr><tr><td>Crankshaft position sensor, Renix bellhousing-mount</td><td>RockAuto / dealer / local</td><td>—</td></tr><tr><td>Throttle position sensor, Renix dual-output</td><td>RockAuto / local</td><td>—</td></tr><tr><td>Bosch four-hole injectors, set of six (Volvo application)</td><td>RockAuto / reman supplier</td><td>—</td></tr></tbody></table>
+<h2>Sources</h2>
+<ul class="tm-sources"><li><a href="https://cruiser54.com/?page_id=75" target="_blank" rel="noopener nofollow">Cruiser&#x27;s Mostly Renix Tips — index of all 41 tips</a></li><li><a href="https://cruiser54.com/?p=54" target="_blank" rel="noopener nofollow">Renix TPS Testing and Adjusting (Tip 8)</a></li><li><a href="https://cruiser54.com/?p=50" target="_blank" rel="noopener nofollow">Renix CPS Testing and Adjusting (Tip 7)</a></li><li><a href="https://cruiser54.com/?p=19" target="_blank" rel="noopener nofollow">Renix Ground Refreshing (Tip 1)</a></li><li><a href="https://cruiser54.com/?p=24" target="_blank" rel="noopener nofollow">Renix C101 Connector Refreshing (Tip 2)</a></li><li><a href="https://cruiser54.com/?p=68" target="_blank" rel="noopener nofollow">Renix Distributor Indexing (Tip 13)</a></li><li><a href="https://cruiser54.com/?p=280" target="_blank" rel="noopener nofollow">Throttle Body to MAP Sensor Hose Fix (Tip 31)</a></li><li><a href="https://cruiser54.com/?p=127" target="_blank" rel="noopener nofollow">Renix CPS Advance Mod (Tip 23)</a></li><li><a href="https://cruiser54.com/?p=438" target="_blank" rel="noopener nofollow">Best Injectors for Renix (Tip 37)</a></li><li><a href="https://en.wikipedia.org/wiki/Renix" target="_blank" rel="noopener nofollow">Renix — engine management background</a></li></ul>
+<h2>Related</h2>
+<ul><li><a href="/db/xj/maint-renix-vs-ho-4-0/">Renix 4.0L vs HO 4.0L Differences</a></li><li><a href="/db/xj/eng-renix-ho-upgrade/">HO Upgrade for Renix (Manifold/Injector/PCM Swap)</a></li><li><a href="/db/xj/maint-vacuum-leak-diagnosis/">Vacuum Leak Diagnosis</a></li><li><a href="/db/xj/maint-tps-replacement/">Throttle Position Sensor (TPS) Replacement</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+  <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
+  <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
+</div>
+</body>
+</html>
