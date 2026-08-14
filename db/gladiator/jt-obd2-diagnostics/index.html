@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -67,13 +77,13 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <p class="tm-lead">The JT Gladiator&#x27;s OBD2 port is under the driver&#x27;s side dash, left of the steering column. Plug in a scanner and you can read fault codes, live sensor data, and run basic tests — without paying a shop $150 to do it.</p>
 <p>The OBD2 port is standard across all 2020–2024 Gladiator trims. What varies is how deep your scanner can go. Generic OBD2 readers (the $25–35 units at every auto parts store) read and clear POWERTRAIN codes: engine and transmission fault codes that fall under the universal OBD2 standard. They miss chassis, ABS, airbag, and TIPM codes — which are manufacturer-specific and require enhanced software to access.</p>
 <p>For a JT used for trail work, enhanced access matters. A P0xxx code is visible to a basic reader; a C1234 (chassis/ABS) or U1xxx (network communication) code requires enhanced Chrysler/Stellantis protocol support. The BlueDriver ($99) covers enhanced codes for Chrysler-platform vehicles including the JT and handles most of what a trail owner needs. The OBDLink MX+ ($109) is faster and more reliable over Bluetooth for extended live data sessions. If you&#x27;re doing serious wrenching — testing actuators, resetting TPMS, calibrating sensors after a suspension swap — the Autel MK808 ($269) is the right tool.</p>
-<p>**P0128 — Coolant Temperature Below Thermostat Regulating Temperature**: The thermostat is stuck open. The 3.6L JT runs a 203°F thermostat — if coolant temperature never climbs above 185°F, the thermostat is the culprit. Replace it.</p>
-<p>**P0171 / P0174 — System Too Lean (Banks 1 and 2)**: The engine is running lean. On the JT, this is commonly a vacuum leak, a degraded oxygen sensor, or a clogged fuel injector. Examine vacuum lines first — they&#x27;re visible and cheap to replace. If fuel pressure tests normal, scan the O2 sensor live data.</p>
-<p>**P062F — Internal Control Module EEPROM Error**: Appears occasionally after disconnecting the battery or a TIPM glitch. Clear it. If it returns repeatedly, the TIPM (Totally Integrated Power Module) may be developing an issue — a known weak point on FCA platforms.</p>
-<p>**U0100 — Lost Communication with ECM/PCM**: Network communication fault. Usually a wiring issue or loose connector rather than a failed module. Check the ECM connectors first.</p>
-<p>**B1B03 / B1B04 — TPMS sensor codes**: Appear after tire rotations where the TPMS ID sequence hasn&#x27;t been updated. Reset TPMS via the instrument cluster menu or with an enhanced scanner after rotation.</p>
+<p><strong>P0128 — Coolant Temperature Below Thermostat Regulating Temperature</strong>: The thermostat is stuck open. The 3.6L JT runs a 203°F thermostat — if coolant temperature never climbs above 185°F, the thermostat is the culprit. Replace it.</p>
+<p><strong>P0171 / P0174 — System Too Lean (Banks 1 and 2)</strong>: The engine is running lean. On the JT, this is commonly a vacuum leak, a degraded oxygen sensor, or a clogged fuel injector. Examine vacuum lines first — they&#x27;re visible and cheap to replace. If fuel pressure tests normal, scan the O2 sensor live data.</p>
+<p><strong>P062F — Internal Control Module EEPROM Error</strong>: Appears occasionally after disconnecting the battery or a TIPM glitch. Clear it. If it returns repeatedly, the TIPM (Totally Integrated Power Module) may be developing an issue — a known weak point on FCA platforms.</p>
+<p><strong>U0100 — Lost Communication with ECM/PCM</strong>: Network communication fault. Usually a wiring issue or loose connector rather than a failed module. Check the ECM connectors first.</p>
+<p><strong>B1B03 / B1B04 — TPMS sensor codes</strong>: Appear after tire rotations where the TPMS ID sequence hasn&#x27;t been updated. Reset TPMS via the instrument cluster menu or with an enhanced scanner after rotation.</p>
 <p><strong>With a live data-capable scanner connected:</strong></p>
-<ul><li>**Fuel trims (STFT, LTFT)**: Short-term and long-term fuel trims exceeding ±10% indicate a fueling or vacuum issue.</li><li>**O2 sensor waveform**: A cycling waveform (rich-lean-rich) indicates a healthy upstream O2 sensor. A flat line means a dead sensor.</li><li>**Coolant temp**: Should reach 200–210°F and stabilize. Overheating begins at 230°F on the gauge.</li><li>**Battery voltage**: Should read 13.8–14.4V at idle with the alternator charging. Below 13.2V suggests an alternator or connection issue.</li></ul>
+<ul><li><strong>Fuel trims (STFT, LTFT)</strong>: Short-term and long-term fuel trims exceeding ±10% indicate a fueling or vacuum issue.</li><li><strong>O2 sensor waveform</strong>: A cycling waveform (rich-lean-rich) indicates a healthy upstream O2 sensor. A flat line means a dead sensor.</li><li><strong>Coolant temp</strong>: Should reach 200–210°F and stabilize. Overheating begins at 230°F on the gauge.</li><li><strong>Battery voltage</strong>: Should read 13.8–14.4V at idle with the alternator charging. Below 13.2V suggests an alternator or connection issue.</li></ul>
 <p>Clearing a code does not fix the underlying problem — it resets the fault memory and turns off the check engine light. If the root cause is still present, the code returns within one to three drive cycles. Clearing codes before an emissions test also resets the readiness monitors — the vehicle must complete several drive cycles before the monitors set &quot;ready,&quot; which is required to pass testing in most states. Don&#x27;t clear codes before an emissions inspection unless you have time to drive 100+ miles in varied conditions.</p>
 <p>Basic code reader (Autel AL319): ~$33. Reads and clears P-codes. Enough to diagnose most check engine lights on a stock JT. Not enough for suspension/ABS/airbag work.</p>
 <p>Enhanced Bluetooth adapter (BlueDriver or OBDLink MX+): $99–109. Pairs with a phone app and covers manufacturer-specific codes. The right choice for a JT owner who does their own maintenance and trail repairs.</p>
@@ -85,11 +95,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Autel AutoLink AL319 OBD2 Scanner</td><td>Autel</td><td>~$33</td></tr><tr><td>BlueDriver Bluetooth OBD2 Scanner</td><td>BlueDriver</td><td>~$99</td></tr><tr><td>Autel MaxiCOM MK808 Bi-Directional Scanner</td><td>Autel</td><td>~$269</td></tr><tr><td>OBDLink MX+ Bluetooth Adapter</td><td>OBDLink</td><td>~$109</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Jeep Gladiator JT OBD2 Port Location and Protocol&#x27;, &#x27;url&#x27;: &#x27;https://www.stellantis.com&#x27;}</li><li>{&#x27;title&#x27;: &#x27;BlueDriver JT Gladiator Enhanced Diagnostics Support&#x27;, &#x27;url&#x27;: &#x27;https://www.bluedriver.com&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.stellantis.com" target="_blank" rel="noopener nofollow">Jeep Gladiator JT OBD2 Port Location and Protocol</a></li><li><a href="https://www.bluedriver.com" target="_blank" rel="noopener nofollow">BlueDriver JT Gladiator Enhanced Diagnostics Support</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/gladiator/jt-obd2-diagnostic/">OBD2 Scanning and Diagnostics — Jeep Gladiator JT</a></li><li><a href="/db/gladiator/jt-alternator-battery-upgrade/">Alternator and Battery Upgrade — Jeep Gladiator JT</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
