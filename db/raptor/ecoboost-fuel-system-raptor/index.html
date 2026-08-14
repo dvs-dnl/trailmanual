@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -73,6 +83,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>A high-output, high-compression turbo engine is sensitive to fuel quality. Run top-tier detergent fuel of the octane Ford specifies (premium for full output on these engines). Cheap, low-detergent fuel accelerates deposit formation and gives the knock sensors more work to do, which costs you timing and power. The few extra dollars a tank is the cheapest insurance the fuel system has.</p>
 <p>Don&#x27;t expect a bottle of injector cleaner to fix Gen 2 intake carbon — it can&#x27;t reach the valves on a DI-only engine. Don&#x27;t ignore creeping fuel-trim numbers; they&#x27;re the early warning for the HPFP. And don&#x27;t cheap out on fuel in a truck whose entire personality is built on boost.</p>
 <p>Top-tier premium fuel: a few dollars more per tank, every tank. Walnut-blast carbon clean (Gen 2): $300–$500 at a shop, roughly every 80,000–120,000 miles. HPFP replacement: $400–$600 in parts plus labor if it fails. Datalogging tools you likely already own if you&#x27;ve tuned the truck.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Identify your generation — Gen 2 is DI-only (plan for carbon), Gen 3 is dual-injection (carbon largely handled)</li><li>Run top-tier premium fuel at the octane Ford specifies — this is the baseline maintenance</li><li>On a Gen 2, plan a walnut-blast intake clean around 80,000–120,000 miles or sooner if idle gets rough</li><li>Datalog long-term fuel trims and high-pressure fuel rail pressure periodically to catch HPFP drift early</li><li>Address any low-fuel-pressure codes under load promptly — they point at the HPFP or supply side</li><li>Follow fuel-system safety: relieve pressure before opening any line, and work in a ventilated space away from ignition sources</li></ol>
 <h2>Why it works</h2>
 <ul><li>Gen 3&#x27;s dual injection largely eliminates the carbon-cleaning chore</li><li>Top-tier fuel is cheap, effective preventive maintenance</li><li>Datalogging catches HPFP weakness before it strands you</li></ul>
 <h2>Trade-offs</h2>
@@ -83,11 +95,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Top-tier detergent fuel (per tank premium)</td><td>Shell / Chevron</td><td>~$30</td></tr><tr><td>High-pressure fuel pump (HPFP)</td><td>Ford / Bosch</td><td>~$450</td></tr><tr><td>Walnut blasting intake carbon clean (shop)</td><td>shop service</td><td>~$400</td></tr><tr><td>Fuel injector cleaner (intake-valve safe)</td><td>CRC / Techron</td><td>~$12</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;EcoBoost direct injection and intake carbon buildup&#x27;, &#x27;url&#x27;: &#x27;https://www.fordraptorforum.com&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Gen 3 Raptor dual port + direct injection system&#x27;, &#x27;url&#x27;: &#x27;https://www.ford.com/trucks/raptor&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.fordraptorforum.com" target="_blank" rel="noopener nofollow">EcoBoost direct injection and intake carbon buildup</a></li><li><a href="https://www.ford.com/trucks/raptor" target="_blank" rel="noopener nofollow">Gen 3 Raptor dual port + direct injection system</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/raptor/raptor-fuel-pump-and-filter-health/">Fuel Pump and Filter Health — Keeping the EcoBoost Fed in Heat and Dust</a></li><li><a href="/db/raptor/raptor-octane-range-and-long-range-tank/">Raptor Fuel: Octane Requirements, Real Range, and Long-Range Tanks</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
