@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -68,13 +78,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The 5th gen 4Runner has factory blank switch locations that take OEM-look toggles, which is why built 4Runners can run a lot of accessories without looking like a science fair. The real decision is how you distribute and protect the power. A pre-built switch system mounts a relay/fuse module in the engine bay, runs a single control cable to an in-cab keypad, and gives you labeled, individually fused outputs — it&#x27;s tidy, reliable, and removes most of the guesswork. A DIY build using a fused distribution block, relays, and factory-style switches achieves the same result for roughly a third of the cost, at the price of your time and care.</p>
 <p>What you should never do is splice accessories into existing circuits or run unfused wire from the battery. That&#x27;s how electrical fires and mystery gremlins start. This is intermediate work — not because any single step is hard, but because doing it cleanly and safely takes patience and a multimeter.</p>
 <p>Crimpers, wire strippers, a multimeter, interior trim removal tools, a drill for any panel openings, and a heat gun for adhesive-lined heat shrink. Either a Switch Pros/sPOD system, or a fused distribution block, relays, appropriately gauged wire, and factory-style switch blanks. Use marine-grade tinned wire and adhesive heat shrink for anything in the engine bay.</p>
-<p>1. Plan every circuit first: list each accessory, its current draw, and the wire gauge and fuse size it needs</p>
-<p>2. Mount the power module (or distribution block and relays) in a dry, protected spot in the engine bay</p>
-<p>3. Run the main feed from the battery through a master fuse within a few inches of the positive terminal</p>
-<p>4. Route control wiring into the cabin through an existing grommet — never drill the firewall without a proper grommet</p>
-<p>5. Install switches in the factory blank locations and connect each output to its accessory with the correct gauge and an inline fuse</p>
-<p>6. Ground accessories to clean, bare metal — bad grounds cause more 12V problems than bad power</p>
-<p>7. Test each circuit with the multimeter before final assembly, checking for correct voltage and no shorts</p>
+<ol><li>Plan every circuit first: list each accessory, its current draw, and the wire gauge and fuse size it needs</li><li>Mount the power module (or distribution block and relays) in a dry, protected spot in the engine bay</li><li>Run the main feed from the battery through a master fuse within a few inches of the positive terminal</li><li>Route control wiring into the cabin through an existing grommet — never drill the firewall without a proper grommet</li><li>Install switches in the factory blank locations and connect each output to its accessory with the correct gauge and an inline fuse</li><li>Ground accessories to clean, bare metal — bad grounds cause more 12V problems than bad power</li><li>Test each circuit with the multimeter before final assembly, checking for correct voltage and no shorts</li></ol>
 <p>Fuse everything, and fuse the main feed right at the battery — an unfused main is the single most dangerous shortcut in accessory wiring. Match wire gauge to current draw; undersized wire on a winch or compressor circuit overheats. Protect every pass-through with a grommet and keep wiring away from heat and moving parts. Seal engine-bay connections against Phoenix dust and monsoon moisture with adhesive heat shrink. And label your circuits — future you will thank present you.</p>
 <p>A Switch Pros or sPOD system runs about $300 and is worth it for the time saved and the clean result. A DIY distribution block, relays, switches, and wire totals roughly $80–$120 if you source carefully. Factory-look switch blanks are about $40 a set. The pre-built route is the value play for most people; the DIY route makes sense if you genuinely enjoy 12V work and want to save the difference.</p>
 <h2>Tools required</h2>
@@ -83,11 +87,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Switch Pros / sPOD 6-Switch Power System</td><td>Switch Pros</td><td>~$300</td></tr><tr><td>Factory-Style Switch Blanks (OEM-look toggles)</td><td>Cali Raised / aftermarket</td><td>~$40</td></tr><tr><td>Fused Distribution Block + Relays + Wire</td><td>Blue Sea / generic</td><td>~$80</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;5th Gen 4Runner Accessory Wiring Reference&#x27;, &#x27;url&#x27;: &#x27;https://www.4runner.org&#x27;}</li><li>{&#x27;title&#x27;: &#x27;12V Relay and Fusing Basics&#x27;, &#x27;url&#x27;: &#x27;https://www.bluesea.com&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.4runner.org" target="_blank" rel="noopener nofollow">5th Gen 4Runner Accessory Wiring Reference</a></li><li><a href="https://www.bluesea.com" target="_blank" rel="noopener nofollow">12V Relay and Fusing Basics</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/db/4runner/4runner-dual-battery/">Dual Battery and Auxiliary Power for the 4Runner</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/4runner/4runner-dual-battery/">Dual Battery and Power System</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
