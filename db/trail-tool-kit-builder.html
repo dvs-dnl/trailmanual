@@ -14,6 +14,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trail Tool Kit Builder — Off-Road Recovery &amp; Repair | Trail Manual</title>
+<link rel="canonical" href="https://trailmanual.com/db/trail-tool-kit-builder.html">
 <meta name="description" content="Build a sized, prioritized trail tool kit based on your build complexity and how far you're going. Honest list — essential vs. nice-to-have, with what most people can skip.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,17 +143,17 @@ main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
     <p class="card-title">Build complexity</p>
     <div class="sel-grid" id="build-grid">
       <button class="sel-card active" data-id="stock" onclick="selectBuild(this)">
-        <span class="sel-icon">🚗</span>
+        <span class="sel-icon"></span>
         <span class="sel-title">Stock / Near-Stock</span>
         <span class="sel-desc">Factory or mild suspension, stock diffs, mostly original drivetrain</span>
       </button>
       <button class="sel-card" data-id="mild" onclick="selectBuild(this)">
-        <span class="sel-icon">🛠️</span>
+        <span class="sel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
         <span class="sel-title">Mild Build</span>
         <span class="sel-desc">2–4&quot; lift, 33–35&quot; tires, some skids, possibly a locker or two</span>
       </button>
       <button class="sel-card" data-id="built" onclick="selectBuild(this)">
-        <span class="sel-icon">⚙️</span>
+        <span class="sel-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
         <span class="sel-title">Built / Modified</span>
         <span class="sel-desc">Heavy suspension, 35&quot;+ tires, lockers, portal axles, or custom fabrication</span>
       </button>
@@ -163,17 +164,17 @@ main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
     <p class="card-title">Trail distance &amp; remoteness</p>
     <div class="sel-grid" id="dist-grid">
       <button class="sel-card active" data-id="day" onclick="selectDist(this)">
-        <span class="sel-icon">🌅</span>
+        <span class="sel-icon"></span>
         <span class="sel-title">Day Run</span>
         <span class="sel-desc">Back by dark, cell service likely, friends with you</span>
       </button>
       <button class="sel-card" data-id="overnight" onclick="selectDist(this)">
-        <span class="sel-icon">⛺</span>
+        <span class="sel-icon"></span>
         <span class="sel-title">Overnight / Weekend</span>
         <span class="sel-desc">Camping, spotty cell, further from a shop</span>
       </button>
       <button class="sel-card" data-id="remote" onclick="selectDist(this)">
-        <span class="sel-icon">🗺️</span>
+        <span class="sel-icon"></span>
         <span class="sel-title">Remote / Expedition</span>
         <span class="sel-desc">Days from a shop, no cell, self-rescue only</span>
       </button>
