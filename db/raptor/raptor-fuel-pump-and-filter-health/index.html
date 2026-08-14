@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -68,9 +78,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Modern direct-injection trucks moved the filter inside the tank and made the pump a sealed module, which means the old &quot;change the fuel filter every 30k&quot; routine doesn&#x27;t apply. What does apply: feed it clean, detergent-rich fuel, and learn to read the data so a misfire doesn&#x27;t turn into a guessed-at $280 part you didn&#x27;t need.</p>
 <p>There are two pumps. The low-pressure in-tank module (with the strainer/sock that&#x27;s the only &quot;filter&quot;) lifts fuel and feeds the engine bay at modest pressure. There, a mechanical high-pressure fuel pump (HPFP), driven off a camshaft lobe, steps pressure up to the very high levels direct injection needs and feeds the fuel rail. The ECU monitors both low-side and high-side pressure constantly, and that data is the key to diagnosis.</p>
 <p>This matters because symptoms differ. A failing in-tank pump tends to show up as a crank-no-start, stumble, or power loss when the tank is low or fuel is hot. An HPFP or its drive can throw rail-pressure codes and a hard misfire under boost. Knowing which side is starving narrows a $280 tank job versus a different repair entirely.</p>
-<p>Pull codes first with the [OBD2 scan tool](/db/?v=raptor) and watch live data: commanded versus actual rail pressure, and fuel-trim numbers. Healthy direct injection holds commanded rail pressure even under hard acceleration. If actual rail pressure sags well below commanded under load while the low side stays normal, you&#x27;re looking at the high-pressure side. If the low-side pressure itself drops — especially with a low or hot tank — the in-tank module is the suspect.</p>
-<p>Critically, a rough-running EcoBoost is far more often a coil, a worn spark plug (the [spark plug service](/db/?v=raptor) guide), or a boost leak from the [turbo and BOV](/db/?v=raptor) side than a fuel pump. Rule those out — they&#x27;re cheaper and more common — before condemning fuel delivery. Watching the data keeps you from buying a pump to fix an ignition problem.</p>
-<p>Run Top Tier gasoline. The detergent package in Top Tier fuel keeps the direct injectors and the intake side cleaner, and on a DI engine that can&#x27;t wash its intake valves with fuel, deposit control matters more than on older engines. The [octane and long-range tank](/db/?v=raptor) guide covers the 91-vs-87 question; for system health, the brand&#x27;s detergent rating matters as much as the octane number. An occasional bottle of a PEA-based cleaner (Techron, Gumout Regane) does no harm and can help injector spray pattern, though it&#x27;s not a substitute for consistent good fuel.</p>
+<p>Pull codes first with the <a href="/db/?v=raptor">OBD2 scan tool</a> and watch live data: commanded versus actual rail pressure, and fuel-trim numbers. Healthy direct injection holds commanded rail pressure even under hard acceleration. If actual rail pressure sags well below commanded under load while the low side stays normal, you&#x27;re looking at the high-pressure side. If the low-side pressure itself drops — especially with a low or hot tank — the in-tank module is the suspect.</p>
+<p>Critically, a rough-running EcoBoost is far more often a coil, a worn spark plug (the <a href="/db/?v=raptor">spark plug service</a> guide), or a boost leak from the <a href="/db/?v=raptor">turbo and BOV</a> side than a fuel pump. Rule those out — they&#x27;re cheaper and more common — before condemning fuel delivery. Watching the data keeps you from buying a pump to fix an ignition problem.</p>
+<p>Run Top Tier gasoline. The detergent package in Top Tier fuel keeps the direct injectors and the intake side cleaner, and on a DI engine that can&#x27;t wash its intake valves with fuel, deposit control matters more than on older engines. The <a href="/db/?v=raptor">octane and long-range tank</a> guide covers the 91-vs-87 question; for system health, the brand&#x27;s detergent rating matters as much as the octane number. An occasional bottle of a PEA-based cleaner (Techron, Gumout Regane) does no harm and can help injector spray pattern, though it&#x27;s not a substitute for consistent good fuel.</p>
 <p>If you run a long-range tank or auxiliary tank, keep the same filtration discipline — added plumbing is added places for debris and water to enter. Keep the tank reasonably full in dusty, hot desert running; a fuller tank keeps the in-tank pump cooler and submerged, which is how it&#x27;s designed to live.</p>
 <p>Diagnosis costs nothing beyond a scanner you should already own. Good fuel is the actual maintenance — a few cents a gallon over bottom-tier gas. If the in-tank module genuinely fails, the part is $200–$350 and it&#x27;s a tank-drop or bed-lift job (3–4 hours at home, or $500–$800 at a shop). The HPFP is less commonly the failure but more involved if it is. The honest takeaway: this category is mostly about feeding the engine well and measuring before you spend — the cheapest fuel &quot;repair&quot; is the pump you correctly decided not to buy.</p>
 <h2>Tools required</h2>
@@ -79,11 +89,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p class="tm-affiliate-note">Some parts links are Amazon affiliate links — if you buy through them Trail Manual may earn a small commission at no extra cost to you. We only list parts we’d run on our own rig, and never on safety-critical pages.</p>
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td><a href="https://www.amazon.com/s?k=motorcraft+fuel+pump+module+f150&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">In-tank fuel pump module (if failed — verify by part number)</a></td><td>Motorcraft / Delphi</td><td>~$280</td></tr><tr><td><a href="https://www.amazon.com/s?k=techron+fuel+system+cleaner&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Top-tier detergent fuel system cleaner (PEA-based)</a></td><td>Techron / Gumout Regane</td><td>~$12</td></tr><tr><td>Quality fuel (Top Tier rated)</td><td>Top Tier station</td><td>—</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Ford F-150/Raptor workshop manual — fuel delivery, HPFP, and pressure specifications&#x27;, &#x27;url&#x27;: &#x27;https://www.motorcraftservice.com&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Top Tier Gasoline — detergent standard and participating retailers&#x27;, &#x27;url&#x27;: &#x27;https://www.toptiergas.com&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.motorcraftservice.com" target="_blank" rel="noopener nofollow">Ford F-150/Raptor workshop manual — fuel delivery, HPFP, and pressure specifications</a></li><li><a href="https://www.toptiergas.com" target="_blank" rel="noopener nofollow">Top Tier Gasoline — detergent standard and participating retailers</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
