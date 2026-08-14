@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/how-to-torque-lug-nuts/">
+<title>How to Torque Lug Nuts (and Why the Sequence Matters) &mdash; Trail Manual</title>
+<meta name="description" content="Tighten lug nuts in a star pattern, in stages, to the factory spec with a torque wrench &mdash; final pass with the tire on the ground &mdash; then re-check after 50 to 100 miles. The sequence matters because tightening in a circle pulls the wheel onto the hub crooked, which warps rotors and loosens wheels. Specs by vehicle inside, from 83 lb-ft on a Tacoma to 150 lb-ft on a Raptor.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the correct way to torque lug nuts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run the nuts down snug by hand in a star pattern with the wheel off the ground, lower the vehicle until the tire touches and cannot spin, then torque in the same star pattern in two passes: first to roughly half the spec, then to the full factory spec with a torque wrench. Re-check the torque after the first 50 to 100 miles of driving. Threads should be clean and dry — no oil, no anti-seize — because factory specs assume dry threads."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do you torque lug nuts in a star pattern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tightening in a circle drags the wheel to one side as the first nuts clamp down, so it seats slightly cocked on the hub. The star pattern pulls the wheel down evenly from opposite sides, keeping the wheel centered and the clamping load uniform. Uneven clamping is a leading cause of brake rotor distortion — the rotor hat gets pulled unevenly against the hub — and of wheels that loosen later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you use an impact wrench to tighten lug nuts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use an impact for removal and for running nuts down to snug, but never for final tightening. An impact gun cannot control final torque — one lug lands at 150 lb-ft while its neighbor sits at 80, which distorts the rotor and stretches studs. Checking an impact-tightened nut with a torque wrench afterward only proves it is at least that tight; it cannot detect an over-tightened lug. The last pass belongs to a torque wrench, every time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you really need to re-torque lug nuts after 50 to 100 miles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, any time a wheel has been off — tire rotation, brake work, a flat, new wheels. Clamping load changes over the first heat cycles as seating surfaces bed in and the metal compresses slightly, and alloy wheels move more than steel. Ford's owner literature specifies re-tightening to spec within 100 miles after any wheel disturbance. It takes five minutes with the vehicle on the ground."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
+      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script><main class="tm-main">
+  <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">Workshop &middot; All Platforms</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">How to Torque Lug Nuts (and Why the Sequence Matters)</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">Here is the whole answer up front: run the nuts down snug in a star pattern, lower the vehicle until the tire can't spin, then torque in the same star pattern in two passes &mdash; half spec, then full spec &mdash; with a torque wrench on clean, dry threads. Re-check after the first 50 to 100 miles. That's it. The rest of this page is why each of those words is there, and what goes wrong when one of them is skipped.</p>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">The sequence matters because a wheel tightened in a circle gets dragged onto the hub crooked. The clamping load ends up uneven, and uneven clamping load is how brake rotors get distorted and how wheels come loose on the highway. This is one of the few jobs on a vehicle where the technique matters as much as the number.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>August 5, 2026</span> &middot; <span>8 min read</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:0 0 28px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0;line-height:1.6"><strong style="color:var(--text)">Star pattern, two passes, torque wrench, dry threads, tire on the ground for the final pass, re-check at 50&ndash;100 miles.</strong> Specs for the platforms we cover run from <strong style="color:var(--text)">83 lb-ft</strong> on a Tacoma or 4Runner to <strong style="color:var(--text)">150 lb-ft</strong> on an F-150 Raptor &mdash; the full table is below. An impact gun is for taking wheels off and running nuts down to snug, never for final tightening.</p>
+    </div>
+
+    <h2>Why the pattern matters more than people think</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A wheel doesn't bolt to a flat plate in free space. It seats against the hub face and centers itself as the tapered (or ball-seat) lug nuts pull it down. If you tighten around the circle &mdash; one nut, then its neighbor, then the next &mdash; the first nuts clamp their side of the wheel down hard while the far side is still loose. The wheel gets pulled fractionally to one side and seats cocked. You will not see it. You will feel it later, as a vibration that shows up under braking, and you may pay for it as a rotor that needs to be turned or replaced.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The star (crisscross) pattern fixes this by always moving to a nut roughly opposite the one you tightened. On a 5-lug wheel that traces a five-pointed star; on a 6-lug wheel you work in opposing pairs. The wheel gets pulled down evenly from all sides and seats flat and centered. Same wrench, same nuts, same effort &mdash; different outcome.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The mechanism behind the rotor damage is worth understanding, because "warped rotors" get blamed on everything. On most modern vehicles the rotor is a hat-section casting sandwiched between the hub face and the wheel. When lug clamping is uneven &mdash; one nut hammered to 150 lb-ft while its neighbor sits at 80 &mdash; the rotor hat is pulled unevenly against the hub. The distortion is small, but a rotor only needs a couple thousandths of an inch of runout to start depositing pad material unevenly, and from there you get the pulsing brake pedal everyone calls warp. Uneven lug torque is one of the most common causes, and it's entirely preventable.</p>
+
+    <h2>The procedure, start to finish</h2>
+    <ol style="margin:0 0 16px;padding-left:20px;color:var(--text-dim);font-size:15px;line-height:1.85">
+      <li><strong style="color:var(--text)">Clean the mating surfaces.</strong> Wire-brush rust and caked mud off the hub face and the back of the wheel. Debris between those surfaces compresses over the first few miles and your clamping load goes with it. Threads should be clean and dry.</li>
+      <li><strong style="color:var(--text)">Hang the wheel and start every nut by hand.</strong> Two or three turns by fingers before any tool touches them. A cross-threaded stud found now costs a few minutes; found at full torque, it costs a stud &mdash; and on some axles, pressing in a new stud means pulling the hub.</li>
+      <li><strong style="color:var(--text)">Snug in a star pattern with the wheel off the ground.</strong> Enough to seat the wheel against the hub, no more. An impact on its lowest setting or a hand wrench both work here.</li>
+      <li><strong style="color:var(--text)">Lower the vehicle until the tire touches and can't rotate.</strong> Full vehicle weight isn't needed yet &mdash; you need the wheel held still so your torque goes into the nut, not into spinning the wheel.</li>
+      <li><strong style="color:var(--text)">First torque pass at roughly half spec, star pattern.</strong> On a 100 lb-ft wheel, set the wrench to 50 and go around.</li>
+      <li><strong style="color:var(--text)">Final pass at full spec, star pattern, vehicle on the ground.</strong> Pull the wrench slowly until it clicks once. Stop. A second pull after the click adds torque you can't measure.</li>
+      <li><strong style="color:var(--text)">Re-check after 50&ndash;100 miles.</strong> Set the wrench to spec and confirm each nut in the star pattern. If any nut moves noticeably, keep an eye on that wheel &mdash; repeated loosening means something is wrong at the seat or the stud, not with your technique.</li>
+    </ol>
+
+    <h2>Torque specs for the platforms we cover</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">These are factory figures for stock wheels. Two caveats that matter: factory service manual figures shifted across model years on the older platforms (the XJ's spec ranged from 75 lb-ft in the mid-80s FSM to 85&ndash;115 in the 2000 FSM), and aftermarket wheels follow the <em>wheel manufacturer's</em> spec and seat type, not the number below. When your owner's manual disagrees with this table, the manual wins.</p>
+    <div style="overflow-x:auto;margin:0 0 16px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;color:var(--text-dim)">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border);text-align:left">
+            <th style="padding:8px 10px;color:var(--text)">Vehicle</th>
+            <th style="padding:8px 10px;color:var(--text)">Stud size</th>
+            <th style="padding:8px 10px;color:var(--text)">Torque (lb-ft)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Jeep Cherokee XJ / Wrangler TJ</td><td style="padding:8px 10px">1/2"-20</td><td style="padding:8px 10px"><strong style="color:var(--text)">85&ndash;115</strong> steel &middot; <strong style="color:var(--text)">75&ndash;105</strong> aluminum</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Jeep Wrangler JK</td><td style="padding:8px 10px">1/2"-20</td><td style="padding:8px 10px"><strong style="color:var(--text)">95&ndash;100</strong></td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Jeep Wrangler JL / Gladiator JT</td><td style="padding:8px 10px">M14</td><td style="padding:8px 10px"><strong style="color:var(--text)">130</strong></td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Toyota Tacoma / 4Runner</td><td style="padding:8px 10px">M12 x 1.5</td><td style="padding:8px 10px"><strong style="color:var(--text)">83</strong></td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Ford Bronco (6th gen)</td><td style="padding:8px 10px">M14 x 1.5</td><td style="padding:8px 10px"><strong style="color:var(--text)">100</strong> (135 Nm)</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Ford F-150 Raptor</td><td style="padding:8px 10px">M14 x 1.5</td><td style="padding:8px 10px"><strong style="color:var(--text)">150</strong></td></tr>
+          <tr><td style="padding:8px 10px">Ram 2500 Power Wagon</td><td style="padding:8px 10px">M14 x 1.5</td><td style="padding:8px 10px"><strong style="color:var(--text)">130</strong> cone seat &middot; <strong style="color:var(--text)">140</strong> flange</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Notice the spread: nearly double from the Tacoma to the Raptor. This is why "gutentight" isn't a spec and why the four-way wrench in your emergency kit is a get-home tool, not a maintenance tool. If you learned lug torque by feel on one vehicle and carried it to another, you're either 40 lb-ft short or 40 over.</p>
+
+    <h2>Dry threads. No oil, no anti-seize</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Factory lug torque specs assume clean, dry threads. Torque is a stand-in for what you actually want &mdash; clamping force &mdash; and most of the wrench's effort goes into overcoming thread friction. Lubricate the threads and that friction drops, so the same 100 lb-ft reading drives the stud significantly harder. On lug hardware, oil or anti-seize on the threads means a stretched stud at the reading you thought was correct, and a stretched stud is a weakened one. If your nuts are seizing, the fix is cleaning the threads and replacing corroded hardware, not lubricating it.</p>
+
+    <h2>The impact gun question</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">An impact wrench is the right tool for removal and a fine tool for running nuts down to snug. It is the wrong tool for final tightening, and this is not garage folklore. A gun rated at 600 lb-ft has no idea what it delivered to any given nut &mdash; one lands at 150 while its neighbor sits at 80, in whatever order the operator went around, which is usually a circle. That's every failure mode on this page at once: uneven clamp, cocked wheel, distorted rotor, stretched studs, and nuts a roadside four-way can't break loose when you have a flat in the dark.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Shops that impact wheels on and then "check" them with a torque wrench are doing half the job: the click only proves each nut is <em>at least</em> that tight. It cannot detect the nut that got hammered 60 lb-ft past spec. Torque sticks &mdash; the color-coded torsion extensions tire shops use &mdash; limit how hard the gun can hit, and in practiced hands they land close, but they're a shop-throughput tool. In your own garage there is no reason not to finish with a torque wrench. If a shop touches your wheels, the five minutes it takes to re-torque them in your driveway is worth it.</p>
+
+    <h2>Why the re-torque is not optional</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Clamping load changes over the first miles after a wheel goes on. Seating surfaces bed in, paint and minor corrosion at the mating faces compress, and heat cycles work the joint. Aluminum wheels move more than steel, and freshly painted or powder-coated wheels move most of all &mdash; the coating between the nut seat and the wheel compresses and the preload goes with it. This is why Ford's owner literature specifies re-tightening to spec within 100 miles of any wheel disturbance: rotation, flat, brake job, new wheels, anything. A wheel that loosens does not announce itself until the studs are already taking bending loads they were never designed for, and by the time you hear the rhythmic clunk of a loose wheel, studs are usually already damaged. The re-check costs five minutes. Do it in the driveway after the first drive, and any time a shop has had the wheels off.</p>
+
+    <h2>The wrench itself</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Any functioning click-type torque wrench in the 1/2-inch-drive class covers every spec in the table above, and a workable one costs less than a single rotor. Three habits keep it accurate: pull slowly and stop at the first click rather than yanking to it, never use it as a breaker bar for removal, and wind the adjustment back to the bottom of its scale before it goes in the drawer so the internal spring isn't stored under load. A torque wrench that lives at 130 lb-ft between uses stops being a measuring instrument and becomes a heavy ratchet. You don't need a premium tool for lug nuts &mdash; you need a functioning one, used correctly, every time a wheel goes on.</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <a href="/blog/how-to-read-tire-size/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">How to Read Tire Size</div>
+          <div style="font-size:12px;color:var(--text-dim)">Metric vs. flotation, decoded once and for all.</div>
+        </a>
+        <a href="/blog/what-axle-do-i-have/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">What Axle Do I Have?</div>
+          <div style="font-size:12px;color:var(--text-dim)">Dana 30/35/44 visual ID and VIN decoding.</div>
+        </a>
+        <a href="/blog/xj-ball-joint-replacement/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">XJ Ball Joint Replacement</div>
+          <div style="font-size:12px;color:var(--text-dim)">Symptoms, diagnosis, and the DIY procedure.</div>
+        </a>
+        <a href="/workshop/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Workshop</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Workshop Reference</div>
+          <div style="font-size:12px;color:var(--text-dim)">Torque, technique, and safety fundamentals.</div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
+    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/xj-death-wobble-causes/">XJ Death Wobble</a><a href="/db/?v=xj">XJ Database</a></div>
+    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
+</footer>
+
+<script>
+const t = document.getElementById('tm-nav-toggle');
+if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
+</script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
