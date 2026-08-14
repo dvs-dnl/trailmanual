@@ -884,81 +884,6 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   EMAIL CTA
-   ═══════════════════════════════════════════════════════ */
-.email-band {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  padding: 0;
-  display: flex;
-  min-height: 240px;
-}
-.email-band-photo {
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/adventure-jk-sedona-cathedral.jpeg');
-  background-size: cover;
-  background-position: center 30%;
-  background-color:var(--slate-deep,#1A2330);
-}
-.email-band-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(100deg,
-    rgba(10,13,18,.94) 0%,
-    rgba(10,13,18,.78) 55%,
-    rgba(10,13,18,.55) 100%);
-  border: 1px solid var(--border);
-  border-radius: 14px;
-}
-.email-band-inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  flex-wrap: wrap;
-  padding: 52px 52px;
-  width: 100%;
-}
-.email-band-text { flex: 1.2; min-width: 220px; }
-.email-band-text h2 {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -.4px;
-  margin: 0 0 8px;
-  color: #fff;
-}
-.email-band-text p {
-  font-size: 14px;
-  color: rgba(154,163,177,.85);
-  margin: 0;
-  line-height: 1.65;
-}
-.email-form {
-  flex: 1;
-  min-width: 280px;
-  display: flex;
-  gap: 10px;
-}
-.email-form input[type="email"] {
-  flex: 1;
-  background: rgba(14,17,22,.8);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 8px;
-  padding: 12px 16px;
-  color: var(--text);
-  font-size: 14px;
-  font-family: inherit;
-  outline: none;
-  transition: border-color .18s;
-  backdrop-filter: blur(4px);
-}
-.email-form input[type="email"]:focus { border-color: var(--accent); }
-.email-form input[type="email"]::placeholder { color: var(--text-mute); }
-
-/* ═══════════════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════════════ */
 @media (max-width: 960px) {
@@ -993,8 +918,6 @@
   .workshop-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .roadmap-row { grid-template-columns: 70px 1fr; }
   .roadmap-status { grid-column: 2; justify-self: start; margin-top: -8px; }
-  .email-band-inner { padding: 32px 24px; gap: 24px; }
-  .email-form { flex-direction: column; }
   .section h2 { font-size: 28px; }
   .channels-band { flex-direction: column; align-items: flex-start; gap: 16px; }
   .photo-strip-inner { gap: 2px; }
@@ -1553,7 +1476,7 @@
   <!-- Trust stats (kept from the original hero) -->
   <div class="hero-trust-bar">
     <div class="hero-trust">
-      <div class="hero-trust-item"><div class="trust-n">1099+</div><div class="trust-l">Guides</div></div>
+      <div class="hero-trust-item"><div class="trust-n">1,100+</div><div class="trust-l">Guides</div></div>
       <div class="hero-trust-item"><div class="trust-n">21</div><div class="trust-l">Platforms</div></div>
       <div class="hero-trust-item"><div class="trust-n">300+</div><div class="trust-l">Sources cited</div></div>
       <div class="hero-trust-item"><div class="trust-n">$0</div><div class="trust-l">Cost to use</div></div>
@@ -1706,7 +1629,7 @@
           <span class="tg-card-arrow">&#8594;</span>
         </div>
       </a>
-      <a class="tg-card" href="/db/workshop/wire-stripper-crimper/">
+      <a class="tg-card" href="/workshop/wire-stripper-crimper/">
         <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div>
         <h3>Wire Stripper &amp; Crimper Guide</h3>
         <p>How to choose the right gauge, strip cleanly, and make a crimp that lasts.</p>
@@ -1715,7 +1638,7 @@
           <span class="tg-card-arrow">&#8594;</span>
         </div>
       </a>
-      <a class="tg-card" href="/db/workshop/multimeter/">
+      <a class="tg-card" href="/workshop/multimeter/">
         <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2C6.5 2 2 4.5 2 7.5v9C2 19.5 6.5 22 12 22s10-2.5 10-5.5v-9C22 4.5 17.5 2 12 2z M2 7.5C2 10.5 6.5 13 12 13s10-2.5 10-5.5 M2 12c0 3 4.5 5.5 10 5.5s10-2.5 10-5.5"/></svg></div>
         <h3>Multimeter for DIYers</h3>
         <p>Read voltage, continuity, and resistance without guessing. Every mode explained.</p>
@@ -1724,7 +1647,7 @@
           <span class="tg-card-arrow">&#8594;</span>
         </div>
       </a>
-      <a class="tg-card" href="/db/workshop/torque-wrench/">
+      <a class="tg-card" href="/workshop/torque-wrench/">
         <div class="tg-card-icon "><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div>
         <h3>Torque Wrench Guide</h3>
         <p>Click vs. beam vs. digital — and how to use each one correctly.</p>
@@ -1777,7 +1700,7 @@
       <a class="wts-card" href="/db/" tabindex="0">
         <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2C6.5 2 2 4.5 2 7.5v9C2 19.5 6.5 22 12 22s10-2.5 10-5.5v-9C22 4.5 17.5 2 12 2z M2 7.5C2 10.5 6.5 13 12 13s10-2.5 10-5.5 M2 12c0 3 4.5 5.5 10 5.5s10-2.5 10-5.5"/></svg></div>
         <div class="wts-label">DIY Database</div>
-        <div class="wts-desc">Search 958+ entries across 21 platforms. Pick your vehicle.</div>
+        <div class="wts-desc">Search 1,100+ guides across 21 platforms. Pick your vehicle.</div>
         <div class="wts-arrow">&#8594;</div>
       </a>
       <a class="wts-card" href="/db/death-wobble-guide.html" tabindex="0">
@@ -1825,7 +1748,7 @@
       <a class="wts-card" href="/db/" tabindex="-1" aria-hidden="true">
         <div class="wts-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2C6.5 2 2 4.5 2 7.5v9C2 19.5 6.5 22 12 22s10-2.5 10-5.5v-9C22 4.5 17.5 2 12 2z M2 7.5C2 10.5 6.5 13 12 13s10-2.5 10-5.5 M2 12c0 3 4.5 5.5 10 5.5s10-2.5 10-5.5"/></svg></div>
         <div class="wts-label">DIY Database</div>
-        <div class="wts-desc">Search 958+ entries across 21 platforms. Pick your vehicle.</div>
+        <div class="wts-desc">Search 1,100+ guides across 21 platforms. Pick your vehicle.</div>
         <div class="wts-arrow">&#8594;</div>
       </a>
       <a class="wts-card" href="/db/death-wobble-guide.html" tabindex="-1" aria-hidden="true">
@@ -1942,7 +1865,7 @@
           <span class="bento-tag live">● Live — 21 platforms</span>
           <h3 style="font-size:26px;margin-top:6px">Off-Road<br>DIY Database</h3>
           <p style="font-size:15px;max-width:440px">
-            350 entries across maintenance, suspension, axles, drivetrain, armor, recovery,
+            350+ entries across maintenance, suspension, axles, drivetrain, armor, recovery,
             wheels &amp; tires, interior, electrical, and body. XJ-first and growing — pick
             your platform, filter by category, get straight answers with real pricing.
           </p>
@@ -1988,14 +1911,14 @@
     <p class="section-lede">New posts weekly. No fluff, no sponsored angles.</p>
 
     <div class="blog-grid">
-      <a class="blog-feature" href="/blog/xj-engine-oil-leaks/">
+      <a class="blog-feature" href="/blog/at-vs-mt-tires-explained/">
         <div class="blog-feature-photo">
-          <img src="/images/adventure-xj-trailside-repair.jpeg" alt="XJ Cherokee with the hood up — tracing a 4.0 oil leak to its source" loading="lazy">
+          <img src="/images/tj-yellow-mud-axle.jpeg" alt="Mud-packed tire and axle on a trail rig" loading="lazy">
         </div>
         <div class="blog-feature-body">
-          <span class="blog-tag">Engine &amp; Diagnosis</span>
-          <h3>XJ 4.0 Oil Leaks: Where They Come From and Which Ones Matter</h3>
-          <p>The two most common 4.0 leaks are the valve cover gasket and the oil filter adapter o-rings — both cheap, both an afternoon&rsquo;s work. The rear main seal gets blamed most and is the least likely, because it catches drips from everything above it. How to find the real source before you buy a gasket.</p>
+          <span class="blog-tag">Tires</span>
+          <h3>All-Terrain vs. Mud-Terrain Tires: Which One You Actually Need</h3>
+          <p>For about nine out of ten builds the answer is all-terrain. A/Ts run 45,000&ndash;65,000 miles against 35,000&ndash;45,000 for an M/T, cost less per tire, and usually carry the 3PMSF snow rating. The four cases where a mud-terrain genuinely earns it, what it costs the other 360 days, and where hybrids fit.</p>
           <div class="blog-meta">
             <span>9 min read</span>
             <span class="read-more">Read &rarr;</span>
@@ -2101,23 +2024,7 @@
   </section>
 
 
-  <!-- ── EMAIL CTA ────────────────────────────────────────────────────── -->
-  <section class="section" style="border-top:none;padding-top:0;margin-bottom:0">
-    <div class="email-band">
-      <div class="email-band-photo"></div>
-      <div class="email-band-overlay"></div>
-      <div class="email-band-inner">
-        <div class="email-band-text">
-          <h2>Stay in the loop.</h2>
-          <p>New platforms, new tools, AutoVet launch updates — about one email a month. No filler, no affiliate pitches.</p>
-        </div>
-        <a class="btn-primary" style="white-space:nowrap;box-shadow:none;text-decoration:none;display:inline-block" href="mailto:dvs.dnl@gmail.com?subject=Trail%20Manual%20list%20—%20add%20me&body=Add%20me%20to%20the%20Trail%20Manual%20monthly%20email.">Email to join the list</a>
-        <p style="color:var(--text-mute);font-size:12px;margin:10px 0 0">One click opens an email — send it and you're on the list. A proper signup form is coming; until then this is the honest version.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
+  </main>
 
 <!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
 <footer class="tm-footer">
@@ -2131,7 +2038,7 @@
         </div>
       </div>
       <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
-        Free, honest DIY reference for off-road vehicle owners. 21 platforms, 958+ guides. No sponsored content, no paywall.
+        Free, honest DIY reference for off-road vehicle owners. 21 platforms, 1,100+ guides. No sponsored content, no paywall.
       </p>
     </div>
     <div>
