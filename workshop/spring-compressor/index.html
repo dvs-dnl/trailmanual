@@ -481,7 +481,7 @@ li strong{color:var(--text)}
         var a=document.createElement('a');
         a.href=v.path||'/';
         a.className='tnav-vehicle-pill';
-        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display='none'">':'')+
+        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display=&#39;none&#39;">':'')+
           '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
           (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
         slot.appendChild(a);
