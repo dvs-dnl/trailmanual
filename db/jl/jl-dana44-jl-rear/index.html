@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -69,6 +79,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Eaton&#x27;s ELocker is the most common upgrade because it&#x27;s electric, one-wire activation, and doesn&#x27;t require an air compressor. The 14234-1 fits 35-spline M220 carriers on 2018–2023 JL/JT non-Rubicons. The newer 14313-2 covers later model years through 2026. The 19977-010 is the performance 4-pinion option for older 30-spline D44s with 3.73 or numerically lower gears — relevant only if you&#x27;re running an older D44 conversion or stock gears. Get the spline count from your build sheet or, more reliably, by pulling the diff cover and counting splines on the side gears.</p>
 <p>ARB Air Lockers are the air-actuated alternative. The RD-245 fits 30-spline factory-CV Dana 44s and costs $1,091 plus another $340 for the compressor (CKMA12) if you don&#x27;t have one. Two locker reasons to choose ARB: you want full-open behavior on the street (ELockers are also open until engaged, so this is a wash), and you want the option to add a front ARB later sharing the same compressor. If you&#x27;re already running OBA for tires, the ARB compressor is a no-cost adder.</p>
 <p>Install is not a beginner job. You&#x27;re pulling the carrier, swapping in the locker, setting pinion preload, ring gear backlash (0.005–0.008&quot;), and pinion bearing crush (~15 in-lb rolling torque used). If you&#x27;re not regearing at the same time, you can re-use the existing ring gear if it&#x27;s not worn — but most shops will tell you to regear during the locker install since the carrier is out anyway. If this is your first gear setup, pay a driveline shop. Bad setup eats a $1,100 locker.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Confirm axle: M220 vs older D44, spline count (30/32/35), and current gear ratio (stamped on ring gear or check VIN build sheet).</li><li>Drain rear diff fluid. Pull the cover.</li><li>Mark and remove the carrier bearing caps. Note shim locations and orientation.</li><li>Pry the carrier out. Measure ring-and-pinion backlash before removing anything (note for re-setup).</li><li>Press old carrier bearings, install on new locker carrier with same shims to start.</li><li>Drop new locker into housing, install bearing caps, torque to spec (55-70 ft-lbs typical).</li><li>Re-check backlash (0.005–0.008&quot;) and pattern. Adjust shims as needed.</li><li>Run actuator wire (ELocker) along axle tube to a frame-mounted switch, or run ARB air line.</li><li>Fill diff with 75W-85 or 75W-90 gear oil — Rubicon trac-lok pumpkins also need friction modifier; locker pumpkins do not.</li><li>Bench-test actuator before reinstalling driveshaft. Verify locker engages and disengages cleanly.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Eaton ELocker is fully open until engaged — no street manners trade-off</li><li>One-wire install, no air system needed for ELocker</li><li>ARB shares compressor with front locker if planning both</li><li>Massive traction gain on a non-Rubicon JL</li></ul>
 <h2>Trade-offs</h2>
@@ -79,11 +91,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Eaton ELocker — Dana 44 M220 35-spline (Non-Rubicon JL/JT)</td><td>Eaton</td><td>~$1100</td></tr><tr><td>Eaton ELocker — Dana 44 M220 35-spline (alt p/n)</td><td>Eaton</td><td>~$1150</td></tr><tr><td>Eaton Performance ELocker — 30-spline D44, 3.73 and lower</td><td>Eaton</td><td>~$900</td></tr><tr><td>ARB Air Locker RD-245 — Dana 44 30-spline w/factory CV</td><td>ARB</td><td>~$1091</td></tr><tr><td>ARB compact onboard compressor (CKMA12)</td><td>ARB</td><td>~$340</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Eaton 14234-1 Dana 44 Electric Locker — Quadratec&#x27;, &#x27;url&#x27;: &#x27;https://www.quadratec.com/p/eaton/dana-44-electric-locker-wrangler-jl-gladiator-jt-14234-1&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Eaton 14313-2 35 Spline D44/M220 E-Locker — OffRoad Elements&#x27;, &#x27;url&#x27;: &#x27;https://www.offroadelements.com/eaton-e-locker-35-spline-d44-m220-wrangler-jl-gladiator-jt-2018/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Eaton 19977-010 4-Pinion ELocker 30-spline D44 — Quadratec&#x27;, &#x27;url&#x27;: &#x27;https://www.quadratec.com/p/eaton/performance-4-pinion-e-locker-30-spline-dana-44-19977-010&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.quadratec.com/p/eaton/dana-44-electric-locker-wrangler-jl-gladiator-jt-14234-1" target="_blank" rel="noopener nofollow">Eaton 14234-1 Dana 44 Electric Locker — Quadratec</a></li><li><a href="https://www.offroadelements.com/eaton-e-locker-35-spline-d44-m220-wrangler-jl-gladiator-jt-2018/" target="_blank" rel="noopener nofollow">Eaton 14313-2 35 Spline D44/M220 E-Locker — OffRoad Elements</a></li><li><a href="https://www.quadratec.com/p/eaton/performance-4-pinion-e-locker-30-spline-dana-44-19977-010" target="_blank" rel="noopener nofollow">Eaton 19977-010 4-Pinion ELocker 30-spline D44 — Quadratec</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jl/jl-dana44-jl-front/">Dana 44 AdvanTEK Front — Service and Upgrade</a></li><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
