@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -69,32 +79,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Every JL Wrangler since 2018 has an OBD2 port under the driver&#x27;s side dash — it&#x27;s the 16-pin trapezoid connector. A scanner plugged in here gives you access to DTCs (diagnostic trouble codes), live sensor data, and the ability to clear warning lights.</p>
 <p>The JL uses FCA&#x27;s CAN bus architecture. Standard OBD2 codes (P, B, C, U) all work. Enhanced codes that go deeper into Jeep-specific systems require a scanner with FCA support — Autel scanners, FORScan (with a paid license for Chrysler), or Mopar&#x27;s own DRB-III successor tool.</p>
 <ul><li>OBD2 scanner or Bluetooth adapter:</li><li>Entry level: Ancel AD310 or Autel AL319 ($30–$50) — reads/clears codes, basic live data</li><li>Mid-tier: BlueDriver Bluetooth + app ($120) — reads codes, live data, enhanced FCA codes, pending codes</li><li>App-based (Bluetooth): OBD Auto Doctor or Torque Pro + ELM327 Bluetooth adapter ($20–$30) — code reading and live data, no enhanced Jeep codes without an upgraded adapter</li></ul>
-<p>**Engine and drivetrain:**</p>
-<p>| Code | Description | Common cause on JL |</p>
-<p>|---|---|---|</p>
-<p>| P0300–P0306 | Random/cylinder misfire | Worn spark plugs, bad coil, carbon-fouled injector |</p>
-<p>| P0087 | Fuel rail pressure low | Failing fuel pump, clogged filter sock |</p>
-<p>| P0016 / P0017 | Cam-crank correlation (bank 1 or 2) | Oil sludge on cam phasers, low oil level, stretched timing chain |</p>
-<p>| P0128 | Coolant temp below thermostat | Stuck-open thermostat |</p>
-<p>| P0191 | Fuel rail pressure sensor | Sensor failure or wiring issue |</p>
-<p>| P0420 | Catalyst efficiency low | Failing O2 sensor or aging catalytic converter |</p>
-<p>| P219A / P219B | Air-fuel ratio imbalance | Vacuum leak, injector fouling (common on DI engines) |</p>
-<p>**Electrical and network:**</p>
-<p>| Code | Description | Common cause on JL |</p>
-<p>|---|---|---|</p>
-<p>| U0001 | High-speed CAN bus fault | Wiring damage, aftermarket accessories interfering |</p>
-<p>| U0100 | Lost communication with ECM | Module failure or power supply issue |</p>
-<p>| B1000 | Airbag control unit fault | Common after battery disconnect — clears itself |</p>
-<p>**Evap and emissions:**</p>
-<p>| Code | Description | Common cause on JL |</p>
-<p>|---|---|---|</p>
-<p>| P0456 | Evap small leak | Loose or cracked gas cap (check cap first) |</p>
-<p>| P0440 / P0442 | Evap system leak | Cracked hose, damaged charcoal canister |</p>
+<p><strong>Engine and drivetrain:</strong></p>
+<div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Code</th><th>Description</th><th>Common cause on JL</th></tr></thead><tbody><tr><td>P0300–P0306</td><td>Random/cylinder misfire</td><td>Worn spark plugs, bad coil, carbon-fouled injector</td></tr><tr><td>P0087</td><td>Fuel rail pressure low</td><td>Failing fuel pump, clogged filter sock</td></tr><tr><td>P0016 / P0017</td><td>Cam-crank correlation (bank 1 or 2)</td><td>Oil sludge on cam phasers, low oil level, stretched timing chain</td></tr><tr><td>P0128</td><td>Coolant temp below thermostat</td><td>Stuck-open thermostat</td></tr><tr><td>P0191</td><td>Fuel rail pressure sensor</td><td>Sensor failure or wiring issue</td></tr><tr><td>P0420</td><td>Catalyst efficiency low</td><td>Failing O2 sensor or aging catalytic converter</td></tr><tr><td>P219A / P219B</td><td>Air-fuel ratio imbalance</td><td>Vacuum leak, injector fouling (common on DI engines)</td></tr></tbody></table></div>
+<p><strong>Electrical and network:</strong></p>
+<div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Code</th><th>Description</th><th>Common cause on JL</th></tr></thead><tbody><tr><td>U0001</td><td>High-speed CAN bus fault</td><td>Wiring damage, aftermarket accessories interfering</td></tr><tr><td>U0100</td><td>Lost communication with ECM</td><td>Module failure or power supply issue</td></tr><tr><td>B1000</td><td>Airbag control unit fault</td><td>Common after battery disconnect — clears itself</td></tr></tbody></table></div>
+<p><strong>Evap and emissions:</strong></p>
+<div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Code</th><th>Description</th><th>Common cause on JL</th></tr></thead><tbody><tr><td>P0456</td><td>Evap small leak</td><td>Loose or cracked gas cap (check cap first)</td></tr><tr><td>P0440 / P0442</td><td>Evap system leak</td><td>Cracked hose, damaged charcoal canister</td></tr></tbody></table></div>
 <p><strong>Beyond codes, live data is where OBD2 gets useful. Key PIDs to monitor on a JL:</strong></p>
-<ul><li>**Fuel trims** (STFT, LTFT): Should be within ±5% at idle. Values higher than +10% mean the engine is running lean (vacuum leak, injector issue). Values lower than -10% mean rich (O2 sensor, MAF reading high).</li><li>**Engine coolant temp**: Should reach 192–210°F at normal operating temp and stabilize. If it never gets there → stuck-open thermostat. If it climbs past 230°F → cooling system issue.</li><li>**Fuel rail pressure** (3.6L at idle): 56–66 PSI. If consistently below 50 PSI → pump trending toward failure.</li><li>**O2 sensor voltage** (3.6L): Should cycle between 0.1–0.9V at idle after warmup. A sensor stuck at one value is failing.</li></ul>
+<ul><li><strong>Fuel trims</strong> (STFT, LTFT): Should be within ±5% at idle. Values higher than +10% mean the engine is running lean (vacuum leak, injector issue). Values lower than -10% mean rich (O2 sensor, MAF reading high).</li><li><strong>Engine coolant temp</strong>: Should reach 192–210°F at normal operating temp and stabilize. If it never gets there → stuck-open thermostat. If it climbs past 230°F → cooling system issue.</li><li><strong>Fuel rail pressure</strong> (3.6L at idle): 56–66 PSI. If consistently below 50 PSI → pump trending toward failure.</li><li><strong>O2 sensor voltage</strong> (3.6L): Should cycle between 0.1–0.9V at idle after warmup. A sensor stuck at one value is failing.</li></ul>
 <p>Clearing a code does not fix the problem — it resets the monitor. If the condition still exists, the code returns within one drive cycle. Clear codes after a confirmed repair, not as a way to make the light disappear temporarily.</p>
 <p>After clearing, the JL&#x27;s emissions monitors need one or more complete drive cycles to reset. An emissions inspection will fail if monitors show &quot;Not Ready.&quot; Give it 2–3 days of normal driving before an inspection after clearing.</p>
-<ul><li>**Enhanced codes vs. standard codes**: P, B, C, U codes from the standard OBD2 spec are readable by any scanner. Jeep-specific enhanced codes (often in the P1xxx and C1xxx range) require FCA-licensed software.</li><li>**Aftermarket accessory interference**: Auxiliary lights wired directly to the battery (not through a proper relay/fuse circuit) can generate CAN bus faults. If U-codes appear after installing accessories, audit your wiring first.</li><li>**Battery disconnect resets**: JL electronics are sensitive to battery disconnects. After any battery work, expect temporarily cleared settings (radio, windows, TPMS) and possibly some module faults that clear after a drive cycle.</li></ul>
+<ul><li><strong>Enhanced codes vs. standard codes</strong>: P, B, C, U codes from the standard OBD2 spec are readable by any scanner. Jeep-specific enhanced codes (often in the P1xxx and C1xxx range) require FCA-licensed software.</li><li><strong>Aftermarket accessory interference</strong>: Auxiliary lights wired directly to the battery (not through a proper relay/fuse circuit) can generate CAN bus faults. If U-codes appear after installing accessories, audit your wiring first.</li><li><strong>Battery disconnect resets</strong>: JL electronics are sensitive to battery disconnects. After any battery work, expect temporarily cleared settings (radio, windows, TPMS) and possibly some module faults that clear after a drive cycle.</li></ul>
 <ul><li>ELM327 Bluetooth adapter (for Torque Pro): $15–$25</li></ul>
 <h2>Tools required</h2>
 <ul><li>OBD2 scanner</li></ul>
@@ -102,6 +97,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
