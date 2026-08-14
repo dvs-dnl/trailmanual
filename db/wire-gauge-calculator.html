@@ -14,6 +14,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Wire Gauge Calculator — AWG for 12V / 24V Off-Road Wiring | Trail Manual</title>
+<link rel="canonical" href="https://trailmanual.com/db/wire-gauge-calculator.html">
 <meta name="description" content="Find the right wire gauge (AWG) for your amp draw and run length. Accounts for round-trip resistance, voltage drop tolerance, and ampacity. Covers winches, light bars, dual battery, aux fuse blocks.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -296,7 +297,7 @@ function compute() {
     <div class="chip ${bestAmp >= amps ? 'ok' : 'warn'}">
       <div class="c-label">Ampacity</div>
       <div class="c-val">${bestAmp}A</div>
-      <div class="c-sub">gauge handles ${bestAmp >= amps ? '✓ safe' : '✗ exceeded'}</div>
+      <div class="c-sub">gauge handles ${bestAmp >= amps ? '✓ safe' : '&#10005; exceeded'}</div>
     </div>
     <div class="chip">
       <div class="c-label">Round-trip length</div>
@@ -344,7 +345,7 @@ function compute() {
           <div class="drop-bar"><div class="drop-bar-fill ${barClass}" style="width:${barPct}%"></div></div>
         </div>
       </td>
-      <td><span class="badge ${pass ? 'badge-ok' : 'badge-fail'}">${pass ? '✓ pass' : passVD ? '✗ amp' : '✗ drop'}</span></td>
+      <td><span class="badge ${pass ? 'badge-ok' : 'badge-fail'}">${pass ? '✓ pass' : passVD ? '&#10005; amp' : '&#10005; drop'}</span></td>
     `;
     tbody.appendChild(tr);
   });
