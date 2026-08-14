@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <title>Auxiliary Switch Bank Wiring (JK) — Jeep Wrangler JK | Trail Manual</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A switch bank is the right way to power lights, a compressor, and accessories on a JK — one fused, relay-driven panel instead of a rat&#x27;s nest of…">
+<meta name="description" content="A switch bank is the correct way to power lights, a compressor, a fridge, and accessories on a JK — one fused, relay-driven panel instead of a stack of…">
 <link rel="canonical" href="https://trailmanual.com/db/jk/jk-aux-switch-bank/">
 <meta property="og:title" content="Auxiliary Switch Bank Wiring (JK) — Jeep Wrangler JK">
-<meta property="og:description" content="A switch bank is the right way to power lights, a compressor, and accessories on a JK — one fused, relay-driven panel instead of a rat&#x27;s nest of…">
+<meta property="og:description" content="A switch bank is the correct way to power lights, a compressor, a fridge, and accessories on a JK — one fused, relay-driven panel instead of a stack of…">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://trailmanual.com/db/jk/jk-aux-switch-bank/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
@@ -31,7 +31,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Auxiliary Switch Bank Wiring (JK)",
-  "description": "A switch bank is the right way to power lights, a compressor, and accessories on a JK \u2014 one fused, relay-driven panel instead of a rat's nest of\u2026",
+  "description": "A switch bank is the correct way to power lights, a compressor, a fridge, and accessories on a JK \u2014 one fused, relay-driven panel instead of a stack of\u2026",
   "author": {
     "@type": "Organization",
     "name": "Trail Manual"
@@ -49,17 +49,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   "@context": "https://schema.org",
   "@type": "HowTo",
   "name": "Auxiliary Switch Bank Wiring (JK)",
-  "description": "A switch bank is the right way to power lights, a compressor, and accessories on a JK \u2014 one fused, relay-driven panel instead of a rat's nest of\u2026",
-  "totalTime": "PT6H",
+  "description": "A switch bank is the correct way to power lights, a compressor, a fridge, and accessories on a JK \u2014 one fused, relay-driven panel instead of a stack of\u2026",
+  "totalTime": "PT8H",
   "estimatedCost": {
     "@type": "MonetaryAmount",
     "currency": "USD",
-    "value": "350"
+    "value": "800"
   },
   "tool": [
     {
       "@type": "HowToTool",
-      "name": "crimpers"
+      "name": "ratcheting crimper"
     },
     {
       "@type": "HowToTool",
@@ -67,25 +67,53 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
     },
     {
       "@type": "HowToTool",
-      "name": "test light or multimeter"
+      "name": "multimeter"
     },
     {
       "@type": "HowToTool",
-      "name": "panel hole saw"
+      "name": "heat gun"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "trim panel tool"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "hole saw or step drill"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "socket set"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "label maker or paint pen"
     }
   ],
   "supply": [
     {
       "@type": "HowToSupply",
-      "name": "Switch panel (sPOD / Trigger / Switch-Pros)"
+      "name": "Integrated switch system (sPOD BantamX / Switch-Pros SP-9100 / Trigger)"
     },
     {
       "@type": "HowToSupply",
-      "name": "Marine-grade wire + heat-shrink connectors"
+      "name": "DIY alternative: 6-circuit fused relay block"
     },
     {
       "@type": "HowToSupply",
-      "name": "Inline fuses / fuse block"
+      "name": "Marine-grade tinned wire, 10/12/14/16 AWG assortment"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Adhesive-lined heat shrink connectors and terminals"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Main feed circuit breaker or ANL fuse at the battery, 60-100A"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Split loom, grommets, and stainless zip ties"
     }
   ]
 }
@@ -103,29 +131,51 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
 <div class="tm-guide">
   <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/jk/">Jeep Wrangler JK</a></nav>
   <h1>Auxiliary Switch Bank Wiring (JK)</h1>
-  <div class="tm-chips"><span class="tm-chip">Difficulty 3/5</span><span class="tm-chip">2–6 hrs</span><span class="tm-chip">$120–350</span><span class="tm-chip">2007-2011, 2012-2018</span></div>
-  <p class="tm-lead">A switch bank is the right way to power lights, a compressor, and accessories on a JK — one fused, relay-driven panel instead of a rat&#x27;s nest of add-a-fuse taps. A self-contained system like an sPOD or Switch-Pros costs more than DIY relays but is cleaner, safer, and far less likely to cook a circuit. Wire it once, correctly.</p>
-<p>The JK&#x27;s factory electrical system is not built for stacking accessory loads onto random circuits. Each high-draw accessory wants its own fused, relay-switched feed from the battery so a fault blows a fuse instead of melting harness wiring. A switch bank consolidates that: a power module near the battery, a switch panel at the dash, and one control wire between them.</p>
-<p>A pre-built module (sPOD, Switch-Pros, Trigger) houses the relays and fuses in one sealed box, mounts on the firewall or inner fender, and runs a single data/control cable to the dash panel. It is the least-error-prone option and the easiest to service. Mount the module away from heat, fuse the main feed at the battery, and label each circuit.</p>
-<p>You can build the same thing with individual relays, a fuse block, and a switch panel for less money. Every accessory gets: battery feed → fuse → relay → switch trigger → load, with a good chassis ground. Use marine-grade wire and adhesive heat-shrink connectors, and keep runs away from headers and pinch points.</p>
-<p>Electrical faults start fires. Fuse every circuit at the source, size wire to the load, protect the wire through every panel pass-through with a grommet, and never tap a safety circuit. A tidy, fused switch bank is cheap insurance. Plan the circuits before you start — lights, compressor, fridge, and aux power each on their own labeled, correctly-fused output — so the panel grows with the build instead of forcing a rewire every time you add an accessory.</p>
+  <div class="tm-chips"><span class="tm-chip">Difficulty 3/5</span><span class="tm-chip">3–8 hrs</span><span class="tm-chip">$150–800</span><span class="tm-chip">2007-2011, 2012-2018</span></div>
+  <p class="tm-lead">A switch bank is the correct way to power lights, a compressor, a fridge, and accessories on a JK — one fused, relay-driven panel instead of a stack of add-a-fuse taps in the interior fuse box. An integrated system like an sPOD BantamX or Switch-Pros SP-9100 runs $500-800 and is cleaner, safer, and far less likely to cook a circuit than a DIY build; a discrete relay-and-fuse-block setup does the same job for $150-250 if you are willing to do the layout work yourself. Either way, wire it once and wire it properly, because electrical faults on a vehicle full of fuel lines and fabric are the failure mode with the worst outcome.</p>
+<p>The JK&#x27;s factory harness is sized for the factory&#x27;s loads. Each accessory you add wants its own path: battery, fuse, relay, switch trigger, load, ground. When that path exists, a short blows a fuse and you drive home. When it does not — when a light bar is tapped into the interior fuse box through a piggyback adapter — a fault has to travel back through factory harness wiring that was never sized for it, and the wire becomes the fuse.</p>
+<p>Worth noting up front: unlike the JL that replaced it, the JK did not ship with factory auxiliary switches as a standard feature. On this platform the switch bank is something you add, which is why the aftermarket for it is as developed as it is.</p>
+<div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th></th><th>Integrated (sPOD, Switch-Pros)</th><th>Discrete (relays + fuse block)</th></tr></thead><tbody><tr><td>Cost</td><td>$500-800</td><td>$150-250</td></tr><tr><td>Install time</td><td>3-4 hours</td><td>6-10 hours</td></tr><tr><td>Relays and fuses</td><td>Sealed module, one location</td><td>You source and mount them</td></tr><tr><td>Wiring runs</td><td>One control cable to the dash</td><td>One trigger wire per circuit</td></tr><tr><td>Troubleshooting</td><td>Panel indicates the circuit</td><td>Multimeter and your own diagram</td></tr><tr><td>Serviceability on trail</td><td>Swap a fuse in the module</td><td>Depends on how you built it</td></tr><tr><td>Expandability</td><td>Fixed channel count (commonly 6-8)</td><td>Add circuits as needed</td></tr></tbody></table></div>
+<p>The integrated route is the honest recommendation for most people. The module holds the relays and fuses in one sealed box on the firewall or inner fender, and a single control cable runs to a switch panel at the dash. Fewer connections through the firewall means fewer failure points, and the sealed enclosure survives water crossings and engine bay heat in a way that a hand-built relay cluster on a bracket often does not.</p>
+<p>The discrete route is genuinely fine and costs a third as much. It rewards planning: draw the circuits before you cut wire.</p>
+<p>Do this on paper first. Total your loads and size the main feed and each branch.</p>
+<div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Accessory</th><th>Typical draw</th><th>Wire gauge (short run)</th><th>Fuse</th></tr></thead><tbody><tr><td>LED light bar, 30-40 in</td><td>8-15 A</td><td>14 AWG</td><td>20 A</td></tr><tr><td>Pod lights, pair</td><td>3-6 A</td><td>16 AWG</td><td>10 A</td></tr><tr><td>Onboard air compressor (ARB twin)</td><td>30-40 A</td><td>10 AWG</td><td>50 A</td></tr><tr><td>12V fridge</td><td>4-7 A running, higher on startup</td><td>14 AWG</td><td>15 A</td></tr><tr><td>Rock lights</td><td>2-4 A</td><td>16 AWG</td><td>10 A</td></tr><tr><td>Aux 12V outlet / USB</td><td>5-10 A</td><td>14 AWG</td><td>15 A</td></tr></tbody></table></div>
+<p>Two rules that matter more than the table: size wire to the current <strong>and the length of the run</strong>, since voltage drop over a long run to a rear-mounted accessory can justify going up a gauge; and fuse to protect the <strong>wire</strong>, not the device. A fuse exists so the wire never becomes the weakest element in the circuit.</p>
+<p>A winch is the exception to all of this — it draws hundreds of amps and does not belong on a switch bank. It gets its own dedicated cabling, covered in the <a href="/db/jk/jk-winch-wiring/">winch wiring guide</a>.</p>
+<ol><li><strong>Disconnect the negative battery terminal</strong> before anything else.</li><li><strong>Mount the module</strong> on the firewall or inner fender, away from the exhaust manifold and clear of the hood&#x27;s closing path. Orient it so the fuse cover is accessible with the hood open.</li><li><strong>Run the main power lead to the battery positive</strong> with a circuit breaker or ANL fuse <strong>at the battery end</strong>, within a few inches of the post. This is the single most important fuse on the vehicle: it protects the entire feed if that cable ever chafes to the frame.</li><li><strong>Ground the module to clean bare metal</strong>, not to paint and not to a random body bolt. Scrape to shine, use a star washer, and coat the finished joint with dielectric grease. Poor grounds cause the majority of confusing 12V faults on a built JK.</li><li><strong>Route the control cable through the firewall</strong> using an existing grommet where possible. If you must drill, deburr the hole and fit a rubber grommet — a sharp edge through a harness is a fire waiting on vibration.</li><li><strong>Mount the switch panel</strong> where you can reach it belted in. Common JK locations are the A-pillar, the dash above the radio, and the overhead bar.</li><li><strong>Wire accessories one at a time</strong>, labeling both ends of every run as you go. Future you will need those labels at night in the rain.</li><li><strong>Reconnect the battery and test each circuit individually</strong>, watching current draw on a multimeter against what you expected.</li></ol>
+<p>Every circuit follows the same shape: battery → main fuse → relay terminal 30; switch → relay terminal 86 (with 85 to ground); relay terminal 87 → branch fuse → accessory → ground. Mount the relays and fuse block together in a sealed enclosure rather than scattered on zip ties, use marine-grade tinned wire and adhesive-lined heat shrink at every termination, and keep the whole assembly out of the wheel well spray path.</p>
+<p>Draw the diagram, keep a copy in the glovebox, and label the fuse block. A hand-built system nobody can read is a system nobody can fix on a trail.</p>
+<ul><li><strong>Fusing at the accessory instead of at the source.</strong> The unprotected length is the length that burns.</li><li><strong>Grounding accessories to the accessory&#x27;s mounting bracket</strong> rather than running a proper ground back to a known-good point.</li><li><strong>Undersized main feed.</strong> Adding a compressor later to a feed sized for lights leaves the whole panel starved.</li><li><strong>Splicing into factory circuits</strong> for a switched-ignition trigger without checking what else shares that circuit. Never tap airbag, ABS, or any safety-system wiring.</li><li><strong>Ignoring the supply side.</strong> If lights dim at idle with the compressor running, the problem is upstream — start with the <a href="/db/jk/jk-battery-cables-jk/">battery and charging cable guide</a> before blaming the panel.</li></ul>
+<p><strong>Safety note:</strong> electrical faults start fires, and a JK&#x27;s fuel and brake lines run through the same engine bay as this wiring. Fuse at the source, size wire to load and length, grommet every pass-through, keep runs away from exhaust and steering components, and disconnect the battery whenever you are working on the system.</p>
+<p>Buy an integrated module if the budget allows — it is faster to install, sealed against the environment, and easier to diagnose. Build it discrete if it does not, and spend the saved money on wire and connectors good enough that the build lasts. Either way, plan the circuits before the first crimp, fuse everything at the battery end, and label it all. Then adding the <a href="/db/jk/jk-led-upgrade/">LED lighting</a> and everything after it becomes a twenty-minute job rather than another rewire.</p>
 <h2>Tools required</h2>
-<ul><li>crimpers</li><li>wire strippers</li><li>test light or multimeter</li><li>panel hole saw</li></ul>
+<ul><li>ratcheting crimper</li><li>wire strippers</li><li>multimeter</li><li>heat gun</li><li>trim panel tool</li><li>hole saw or step drill</li><li>socket set</li><li>label maker or paint pen</li></ul>
 <h2>Parts</h2>
 
-<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Switch panel (sPOD / Trigger / Switch-Pros)</td><td>sPOD/Switch-Pros</td><td>~$280</td></tr><tr><td>Marine-grade wire + heat-shrink connectors</td><td>Ancor</td><td>~$40</td></tr><tr><td>Inline fuses / fuse block</td><td>Blue Sea</td><td>~$35</td></tr></tbody></table>
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Integrated switch system (sPOD BantamX / Switch-Pros SP-9100 / Trigger)</td><td>sPOD / Switch-Pros / Trigger</td><td>~$600</td></tr><tr><td>DIY alternative: 6-circuit fused relay block</td><td>Blue Sea Systems / Bussmann RTMR</td><td>~$90</td></tr><tr><td>Marine-grade tinned wire, 10/12/14/16 AWG assortment</td><td>Ancor</td><td>~$70</td></tr><tr><td>Adhesive-lined heat shrink connectors and terminals</td><td>Ancor / TE</td><td>~$35</td></tr><tr><td>Main feed circuit breaker or ANL fuse at the battery, 60-100A</td><td>Blue Sea Systems</td><td>~$40</td></tr><tr><td>Split loom, grommets, and stainless zip ties</td><td>various</td><td>~$30</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;JK electrical reference — Quadratec&#x27;, &#x27;url&#x27;: &#x27;https://www.quadratec.com/c/reference/2017-jeep-wrangler-jk-specs&#x27;}</li><li>{&#x27;title&#x27;: &#x27;JK platform reference&#x27;, &#x27;url&#x27;: &#x27;https://en.wikipedia.org/wiki/Jeep_Wrangler_(JK)&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.quadratec.com/c/reference/2017-jeep-wrangler-jk-specs" target="_blank" rel="noopener nofollow">JK electrical reference — Quadratec</a></li><li><a href="https://www.project-jk.com/jeep-jk-write-ups/jeep-jk-wrangler-torque-settings" target="_blank" rel="noopener nofollow">Jeep JK Wrangler torque settings and body reference — Project-JK</a></li><li><a href="https://en.wikipedia.org/wiki/Jeep_Wrangler_(JK)" target="_blank" rel="noopener nofollow">JK platform reference</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/db/jk/jk-led-upgrade/">LED Headlight and Tail Light Upgrade (JK)</a></li><li><a href="/db/jk/jk-winch-wiring/">Winch Wiring and Electrical Install (JK Wrangler)</a></li><li><a href="/db/jk/jk-recovery-gear-kit/">Recovery Gear Starter Kit — Strap, Shackles, and Traction Boards</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/jk/jk-led-upgrade/">LED Headlight and Tail Light Upgrade (JK)</a></li><li><a href="/db/jk/jk-winch-wiring/">Winch Wiring and Electrical Install (JK Wrangler)</a></li><li><a href="/db/jk/jk-battery-cables-jk/">Battery Cable Inspection and Replacement</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
