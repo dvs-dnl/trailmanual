@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -70,6 +80,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>If you&#x27;re replacing, you have three paths. Mopar OEM cables are direct fits and run about $95 positive / $65 negative. They will work and look stock. The second path is a military-style terminal upgrade: cut the old terminal off your existing cable, crimp on a new bolt-on military terminal, and call it done — under $25 in parts. The third path is a full custom cable upgrade kit like the Custom Battery Cables #7240M. Heavier gauge wire, military terminals, fused alternator lead, and proper chassis grounds. About $230, and worth it on a JK with a winch, big stereo, or auxiliary lights.</p>
 <p>Disconnect order matters. Pull negative first, always. Reverse on reinstall — positive on first, negative last. This prevents shorting a wrench from positive to chassis ground. Torque the terminal bolts to 70 in-lb (Mopar spec). Hand-tight plus a snug turn is fine if you don&#x27;t have an in-lb wrench — overtightening crushes the soft lead post.</p>
 <p>After install, smear dielectric grease over the terminals and re-cover the boots. Crank the engine. If the start is noticeably faster than before, the cables were the problem.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Disconnect the negative battery cable first (10mm). Move it well clear of the post.</li><li>Disconnect the positive cable (10mm).</li><li>Trace each cable to its other end — starter solenoid for positive, body ground for negative. Inspect for corrosion, chafe, or burnt insulation.</li><li>If replacing the positive cable, the lug at the starter is 13mm. Access is from below on most JKs.</li><li>If replacing the negative cable, pull the body ground bolt and clean the pad to bare metal.</li><li>Install new cables in reverse order. Apply dielectric grease at every connection.</li><li>Torque battery terminal bolts to 70 in-lb. Reinstall positive first, then negative.</li><li>Start the engine and verify crank speed and voltage at idle (target: 13.8–14.4V).</li></ol>
 <h2>Why it works</h2>
 <ul><li>Fixes slow cranking, no-starts, and voltage-drop electrical gremlins</li><li>Cheap if you re-terminate; modest cost if you replace whole cables</li><li>No special tools beyond basic hand tools</li><li>Often resolves codes the cables themselves never throw</li></ul>
 <h2>Trade-offs</h2>
@@ -80,11 +92,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Mopar OEM positive battery cable</td><td>Mopar</td><td>~$95</td></tr><tr><td>Mopar OEM negative battery cable</td><td>Mopar</td><td>~$65</td></tr><tr><td>Custom Battery Cables JK Pentastar military kit</td><td>Custom Battery Cables</td><td>~$230</td></tr><tr><td>NOCO NCP2 battery terminal cleaner spray</td><td>NOCO</td><td>~$8</td></tr><tr><td>Permatex dielectric grease (3 oz)</td><td>Permatex</td><td>~$7</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Custom Battery Cables — JK Pentastar Military Kit #7240M&#x27;, &#x27;url&#x27;: &#x27;https://custombatterycables.com/jeep-wrangler/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Quadratec — How to Replace Your Jeep Wrangler Battery and Upgrade Terminals&#x27;, &#x27;url&#x27;: &#x27;https://www.quadratec.com/c/howto/how-to-replace-your-jeep-wrangler-battery&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Wrangler Forum — Battery Terminal Corrosion&#x27;, &#x27;url&#x27;: &#x27;https://www.wranglerforum.com/threads/battery-terminal-corrosion.2457921/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://custombatterycables.com/jeep-wrangler/" target="_blank" rel="noopener nofollow">Custom Battery Cables — JK Pentastar Military Kit #7240M</a></li><li><a href="https://www.quadratec.com/c/howto/how-to-replace-your-jeep-wrangler-battery" target="_blank" rel="noopener nofollow">Quadratec — How to Replace Your Jeep Wrangler Battery and Upgrade Terminals</a></li><li><a href="https://www.wranglerforum.com/threads/battery-terminal-corrosion.2457921/" target="_blank" rel="noopener nofollow">Wrangler Forum — Battery Terminal Corrosion</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-serpentine-belt/">Serpentine Belt Replacement — 3.6L</a></li><li><a href="/db/jk/jk-transfer-case-fluid-jk/">Transfer Case Fluid Change — NV241 / NV271</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
