@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -70,6 +80,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Total system capacity is about 10 quarts. A pan drain only releases about 4 quarts because the torque converter and cooler lines hold the rest. The accepted way to fully refresh the fluid without a flush machine is three drain-and-fills spaced 300–500 miles apart. Each round dilutes the old fluid, and after three you are at ~80% fresh fluid — comparable to a full machine flush at half the cost.</p>
 <p>Use Toyota Genuine WS only, or a real WS-spec equivalent like Aisin AFW+ (Aisin actually builds the transmission for Toyota). Do not use Dexron VI, Mercon V, or universal &quot;multi-vehicle&quot; ATFs — the WS fluid is engineered for low viscosity and the wrong fluid causes shift slippage and overheating within 50 miles.</p>
 <p>The fill plug is on the side of the trans housing, accessed with a 24mm socket. The drain plug is on the bottom of the pan, 14mm hex (Allen) bit. There is an inner overflow tube inside the fill plug threads — a 5mm hex (Allen) — that you only touch if you are setting the final level. Open the outer fill plug first to confirm you have a way to refill before you drain.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Drive 10 minutes to warm fluid to operating temp. Park level. Engine off.</li><li>Remove the 24mm fill plug on the side of the transmission first. If it is seized, stop — do not drain.</li><li>Place pan under transmission. Remove 14mm hex drain plug. Capture fluid (about 4 qt).</li><li>Measure what came out. Reinstall drain plug with new gasket, torque to 20 ft-lb.</li><li>Using a pump or long-neck funnel, fill through the side plug with the same volume you drained.</li><li>With engine running and foot on brake, cycle through all gears (P-R-N-D, hold each 3 seconds), return to Park.</li><li>Monitor ATF temp via OBD2 scanner. Wait for 95–115°F window.</li><li>With engine still running, remove the inner overflow plug (5mm hex). Fluid will drip out the tube.</li><li>When the drip slows to a few drops every 5 seconds, reinstall the inner plug, then the outer 24mm plug. Both get new gaskets.</li><li>Drive 300–500 miles, then repeat the full procedure. Repeat once more for the third pass.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Refreshed fluid extends transmission life well past the &quot;lifetime&quot; claim</li><li>Catches a leaking pan gasket or weeping cooler line early</li><li>$40–$60 in fluid per round vs. $250 dealer service</li><li>Builds the skill set for any other Toyota WS transmission</li></ul>
 <h2>Trade-offs</h2>
@@ -80,11 +92,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Toyota Genuine WS ATF (1 qt) — 5-speed needs 4 qt per drain, 6-speed needs ~4.2 qt</td><td>Toyota</td><td>~$12</td></tr><tr><td>Aisin AFW+ (alternative, 1 gal)</td><td>Aisin</td><td>~$40</td></tr><tr><td>Drain plug gasket / crush washer</td><td>Toyota</td><td>~$2</td></tr><tr><td>Fill plug gasket (overflow tube)</td><td>Toyota</td><td>~$2</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;BlauParts — 3rd gen Tacoma ATF change guide&#x27;, &#x27;url&#x27;: &#x27;https://www.blauparts.com/blog/how-to-change-3rd-gen-toyota-tacoma-automatic-transmission-fluid.html&#x27;}</li><li>{&#x27;title&#x27;: &#x27;ToyotaNation — Official ATF drain-and-fill how-to&#x27;, &#x27;url&#x27;: &#x27;https://www.toyotanation.com/threads/the-official-how-to-atf-drain-and-fill.323590/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;TacomaWorld — Drain/refill thread&#x27;, &#x27;url&#x27;: &#x27;https://www.tacomaworld.com/threads/how-to-drain-refill-automatic-transmission.63851/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.blauparts.com/blog/how-to-change-3rd-gen-toyota-tacoma-automatic-transmission-fluid.html" target="_blank" rel="noopener nofollow">BlauParts — 3rd gen Tacoma ATF change guide</a></li><li><a href="https://www.toyotanation.com/threads/the-official-how-to-atf-drain-and-fill.323590/" target="_blank" rel="noopener nofollow">ToyotaNation — Official ATF drain-and-fill how-to</a></li><li><a href="https://www.tacomaworld.com/threads/how-to-drain-refill-automatic-transmission.63851/" target="_blank" rel="noopener nofollow">TacomaWorld — Drain/refill thread</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/tacoma/tacoma-trans-shudder-3rd-gen/">3rd Gen Transmission Shudder — Causes and Fix</a></li><li><a href="/db/tacoma/tacoma-transfer-case-fluid/">Transfer Case Fluid Change</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
