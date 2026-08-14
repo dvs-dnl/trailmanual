@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -69,6 +79,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Here is the part most people miss: the 12V battery still cranks the engine on a cold start, exactly like a non-hybrid Jeep. The MGU only takes over to restart the engine after an auto stop-start shutoff. So when you turn the key first thing in the morning, you&#x27;re using the same lead-acid battery any JK owner has been using for fifteen years. The 48V battery handles the smooth restart at red lights, captures regen energy on coastdown, and feeds the MGU when it pushes 90 to 130 lb-ft into the crankshaft for the first second or two of acceleration. That brief torque assist is what makes the 2.0L feel quicker than its 270 hp on paper.</p>
 <p>Common eTorque problems on JL forums cluster around three things. First, the 12V starter battery still dies — owners often blame eTorque but the 12V is a normal AGM battery that ages on a normal AGM battery timeline (4–6 years in Phoenix heat). Second, the 48V battery occasionally throws codes for hybrid battery coolant sensor or temp sensor faults; dealerships generally replace under warranty. Third, some early 2.0L trucks reported weekly drain even with 14.4V charging — almost always traced to a parasitic draw, not the hybrid system. The 48V battery and related components are covered by an 8 year / 80,000 mile federal hybrid warranty, so most of the expensive failures are not coming out of your wallet.</p>
 <p>What eTorque does not do: it does not give you all-electric range, it does not let you bypass the 12V system if it dies, and it does not produce enough sustained torque to matter once you&#x27;re above idle. Treat it as a smarter alternator that also softens the auto stop-start hand-off.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Identify whether your JL has eTorque by looking for the badge on the rear quarter panel or the second battery box under the rear passenger seat.</li><li>If you see a low-battery warning, test the 12V starter battery first — same drill as any AGM battery.</li><li>If the 48V hybrid system throws a code (P1A0A, P0A7D, P0AFA, others), document it and take it to a dealer while still under 8/80k warranty.</li><li>Do not disconnect or service the orange-shielded 48V cables — high-voltage hybrid wiring requires shop-level safety procedures.</li><li>Maintain the 12V battery normally: clean terminals, check resting voltage at 12.6V, replace at 4–6 years.</li></ol>
 <h2>Why it works</h2>
 <ul><li>48V battery, MGU, and related components covered 8 years / 80,000 miles</li><li>Smooths the auto stop-start restart</li><li>Adds brief torque assist on takeoff</li><li>Improves city MPG by 1–2 mpg</li></ul>
 <h2>Trade-offs</h2>
@@ -76,11 +88,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h2>Tools required</h2>
 <ul><li>OBD-II scanner (optional)</li></ul>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;What is eTorque and does my Jeep Wrangler have it?&#x27;, &#x27;url&#x27;: &#x27;https://metalcloak.com/blog/what-is-e-torque&#x27;}</li><li>{&#x27;title&#x27;: &#x27;48 volt eTorque battery reliability discussion&#x27;, &#x27;url&#x27;: &#x27;https://www.jlwranglerforums.com/forum/threads/48-volt-etorque-battery-reliability-system.74361/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Battery issues and How to test 48V eTorque Battery&#x27;, &#x27;url&#x27;: &#x27;https://www.jlwranglerforums.com/forum/threads/battery-issues-and-how-to-test-48v-etorque-battery.111007/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://metalcloak.com/blog/what-is-e-torque" target="_blank" rel="noopener nofollow">What is eTorque and does my Jeep Wrangler have it?</a></li><li><a href="https://www.jlwranglerforums.com/forum/threads/48-volt-etorque-battery-reliability-system.74361/" target="_blank" rel="noopener nofollow">48 volt eTorque battery reliability discussion</a></li><li><a href="https://www.jlwranglerforums.com/forum/threads/battery-issues-and-how-to-test-48v-etorque-battery.111007/" target="_blank" rel="noopener nofollow">Battery issues and How to test 48V eTorque Battery</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
