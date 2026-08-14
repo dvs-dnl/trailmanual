@@ -83,6 +83,36 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       "@type": "HowToSupply",
       "name": "Renix-era scan tool (Snap-on MT2500, Chrysler DRB-II, or AMC MS-1700) \u2014 borrow or shop-only"
     }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Confirm your year. If it's a 1987\u20131990 Renix truck, stop here \u2014 the flash method won't work and you'll need a scan tool on the under-hood plugs. Everything below is for 1991\u20131995."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Sit in the driver's seat with the engine off. You will not start the engine at any point."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Cycle the ignition key in this exact sequence, ending in the ON (run) position: ON \u2013 OFF \u2013 ON \u2013 OFF \u2013 ON. Do it briskly \u2014 aim to complete the sequence in under five seconds. Leave the key in ON."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Watch the Check Engine Light in the cluster. After a moment it begins to flash in groups. Count the flashes: a group of flashes, a short pause, then another group makes up one two-digit code. Example: flash-flash-flash, pause, flash-flash = code 32."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Write each code down as it comes. There's a longer pause between separate codes. The PCM repeats the whole string, so if you miss one, keep watching or cycle the key again."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Code 55 always comes last \u2014 it means \"end of codes,\" not a fault. If 55 is the only code you get, the PCM has nothing stored."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Look the codes up (common ones are listed below) and test the named circuit before buying anything. A code points at a sensor's circuit \u2014 the sensor, its wiring, its connector, and its ground are all suspects, not only the part. A digital multimeter confirms which one is actually out of spec."
+    }
   ]
 }
 </script>
@@ -99,6 +129,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -109,9 +149,11 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <p class="tm-lead">On a 1991–1995 XJ you can read trouble codes for free by cycling the key on-off-on-off-on and counting the Check Engine Light flashes — no scanner needed. On a 1987–1990 Renix XJ that trick does nothing: those trucks don&#x27;t store codes, and most don&#x27;t even have a Check Engine Light. Knowing which system you have is the whole job.</p>
 <p>The &quot;key dance&quot; is one of the most useful things you can know about an OBD-I Jeep. When the Check Engine Light comes on, or when the engine runs rough and you want a starting point before throwing parts at it, the PCM can flash its stored fault codes through the dash light. The catch is that this only works on 1991–1995 XJs. The earlier Renix-injected trucks (1987–1990) use a completely different computer that doesn&#x27;t store or flash codes the same way — confusing those two systems is the single most common dead end XJ owners hit. This guide covers both, plus what to do with a code once you have it. A code tells you which circuit is unhappy, not which part is bad — it&#x27;s a place to start testing, not a verdict.</p>
 <p>There are three diagnostic eras across the XJ run, and they behave nothing alike:</p>
-<ul><li>**1984–1986 (2.8L GM V6 / carbureted or early TBI):** Pre-Renix. No usable flash-code system on the 4-cylinder/V6 of this era. Diagnosis is done with a multimeter and a manual.</li><li>**1987–1990 (Renix 4.0L and 2.5L):** The Renix system monitors sensors in real time but does **not** store trouble codes, and most of these trucks have no Check Engine Light at all. The key dance does nothing. To read anything you need a period scan tool — a Snap-on MT2500, a Chrysler DRB-II with the Renix cartridge, or the AMC MS-1700 — connected to the two yellow-capped diagnostic plugs under the hood near the passenger strut tower. These pull live data while the engine runs; they don&#x27;t dump a stored history. This is shop or club territory — buying one of these tools for a single Jeep isn&#x27;t worth it.</li><li>**1991–1995 (Chrysler OBD-I):** Full key-dance support. The PCM stores fault codes and flashes them through the Check Engine Light. This is the system the steps below cover.</li><li>**1996+ (OBD-II):** Standardized 16-pin port under the dash, read with any cheap code reader. That&#x27;s a separate guide — see &quot;OBD-II Scanner Basics for XJ (1996+).&quot;</li></ul>
-<ul><li>**12** — Battery or PCM power was recently disconnected (sets after every battery pull; clears on its own).</li><li>**13** — MAP sensor not detecting vacuum change.</li><li>**14** — MAP sensor voltage out of range.</li><li>**15** — Vehicle speed sensor signal.</li><li>**17** — Engine staying too cold — usually a stuck-open thermostat.</li><li>**21** — Oxygen sensor circuit.</li><li>**22** — Coolant temperature sensor (CTS) — the two-wire sensor that feeds the PCM, not the single-wire gauge sender.</li><li>**23** — Intake/charge air temperature sensor.</li><li>**24** — Throttle position sensor (TPS).</li><li>**25** — Idle air control (IAC) motor circuit — common cause of surging or stalling at idle.</li><li>**27** — Injector control circuit.</li><li>**31** — EVAP purge solenoid circuit.</li><li>**33** — A/C clutch relay circuit.</li><li>**41** — Alternator field / charging circuit.</li><li>**42** — Auto shutdown (ASD) or fuel pump relay circuit.</li><li>**43** — Ignition coil or misfire.</li><li>**44** — Loss of battery-temp input or FJ2 voltage.</li><li>**46 / 47** — Charging voltage too high (46) or too low (47).</li><li>**51 / 52** — Fuel system running lean (51) or rich (52) at the O2 sensor.</li><li>**53** — Internal PCM fault.</li><li>**54** — Camshaft sync / distributor sync signal.</li><li>**55** — End of codes (always last — not a fault).</li></ul>
+<ul><li><strong>1984–1986 (2.8L GM V6 / carbureted or early TBI):</strong> Pre-Renix. No usable flash-code system on the 4-cylinder/V6 of this era. Diagnosis is done with a multimeter and a manual.</li><li><strong>1987–1990 (Renix 4.0L and 2.5L):</strong> The Renix system monitors sensors in real time but does <strong>not</strong> store trouble codes, and most of these trucks have no Check Engine Light at all. The key dance does nothing. To read anything you need a period scan tool — a Snap-on MT2500, a Chrysler DRB-II with the Renix cartridge, or the AMC MS-1700 — connected to the two yellow-capped diagnostic plugs under the hood near the passenger strut tower. These pull live data while the engine runs; they don&#x27;t dump a stored history. This is shop or club territory — buying one of these tools for a single Jeep isn&#x27;t worth it.</li><li><strong>1991–1995 (Chrysler OBD-I):</strong> Full key-dance support. The PCM stores fault codes and flashes them through the Check Engine Light. This is the system the steps below cover.</li><li><strong>1996+ (OBD-II):</strong> Standardized 16-pin port under the dash, read with any cheap code reader. That&#x27;s a separate guide — see &quot;OBD-II Scanner Basics for XJ (1996+).&quot;</li></ul>
+<ul><li><strong>12</strong> — Battery or PCM power was recently disconnected (sets after every battery pull; clears on its own).</li><li><strong>13</strong> — MAP sensor not detecting vacuum change.</li><li><strong>14</strong> — MAP sensor voltage out of range.</li><li><strong>15</strong> — Vehicle speed sensor signal.</li><li><strong>17</strong> — Engine staying too cold — usually a stuck-open thermostat.</li><li><strong>21</strong> — Oxygen sensor circuit.</li><li><strong>22</strong> — Coolant temperature sensor (CTS) — the two-wire sensor that feeds the PCM, not the single-wire gauge sender.</li><li><strong>23</strong> — Intake/charge air temperature sensor.</li><li><strong>24</strong> — Throttle position sensor (TPS).</li><li><strong>25</strong> — Idle air control (IAC) motor circuit — common cause of surging or stalling at idle.</li><li><strong>27</strong> — Injector control circuit.</li><li><strong>31</strong> — EVAP purge solenoid circuit.</li><li><strong>33</strong> — A/C clutch relay circuit.</li><li><strong>41</strong> — Alternator field / charging circuit.</li><li><strong>42</strong> — Auto shutdown (ASD) or fuel pump relay circuit.</li><li><strong>43</strong> — Ignition coil or misfire.</li><li><strong>44</strong> — Loss of battery-temp input or FJ2 voltage.</li><li><strong>46 / 47</strong> — Charging voltage too high (46) or too low (47).</li><li><strong>51 / 52</strong> — Fuel system running lean (51) or rich (52) at the O2 sensor.</li><li><strong>53</strong> — Internal PCM fault.</li><li><strong>54</strong> — Camshaft sync / distributor sync signal.</li><li><strong>55</strong> — End of codes (always last — not a fault).</li></ul>
 <p>A code 12 by itself after you&#x27;ve disconnected the battery is normal and means nothing. Code 55 by itself means clean. Anything in between is a thread to pull.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Confirm your year. If it&#x27;s a 1987–1990 Renix truck, stop here — the flash method won&#x27;t work and you&#x27;ll need a scan tool on the under-hood plugs. Everything below is for 1991–1995.</li><li>Sit in the driver&#x27;s seat with the engine <strong>off</strong>. You will not start the engine at any point.</li><li>Cycle the ignition key in this exact sequence, ending in the ON (run) position: <strong>ON – OFF – ON – OFF – ON</strong>. Do it briskly — aim to complete the sequence in under five seconds. Leave the key in ON.</li><li>Watch the Check Engine Light in the cluster. After a moment it begins to flash in groups. Count the flashes: a group of flashes, a short pause, then another group makes up one two-digit code. Example: flash-flash-flash, pause, flash-flash = code <strong>32</strong>.</li><li>Write each code down as it comes. There&#x27;s a longer pause between separate codes. The PCM repeats the whole string, so if you miss one, keep watching or cycle the key again.</li><li>Code <strong>55</strong> always comes last — it means &quot;end of codes,&quot; not a fault. If 55 is the only code you get, the PCM has nothing stored.</li><li>Look the codes up (common ones are listed below) and test the named circuit before buying anything. A code points at a sensor&#x27;s circuit — the sensor, its wiring, its connector, and its ground are all suspects, not only the part. A digital multimeter confirms which one is actually out of spec.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Costs nothing on a 1991–1995 XJ — the diagnostic capability is built into the truck and the dash light.</li><li>Narrows a no-start or rough-running problem to a circuit in a couple of minutes, before you spend money guessing.</li><li>No tools, no port adapter, no app — works in a parking lot with a dead phone.</li></ul>
 <h2>Trade-offs</h2>
@@ -122,11 +164,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p class="tm-affiliate-note">Some parts links are Amazon affiliate links — if you buy through them Trail Manual may earn a small commission at no extra cost to you. We only list parts we’d run on our own rig, and never on safety-critical pages.</p>
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td><a href="https://www.amazon.com/s?k=innova+digital+multimeter&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Innova / Autel digital multimeter</a></td><td>auto parts store / Amazon</td><td>~$35</td></tr><tr><td>Renix-era scan tool (Snap-on MT2500, Chrysler DRB-II, or AMC MS-1700) — borrow or shop-only</td><td>borrow from a shop / local club</td><td>~$0</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Cherokee Forum — How to Read OBD Trouble Codes (1984–2001)&#x27;, &#x27;url&#x27;: &#x27;https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-read-obd-trouble-codes-399060&#x27;}</li><li>{&#x27;title&#x27;: &#x27;FixJeeps — Jeep check engine codes for the YJ, XJ and other OBD-I Jeeps&#x27;, &#x27;url&#x27;: &#x27;https://www.fixjeeps.com/jeep-check-engine-codes.html&#x27;}</li><li>{&#x27;title&#x27;: &#x27;NAXJA Forums — Retrieving codes on a 1990 Renix Cherokee&#x27;, &#x27;url&#x27;: &#x27;https://naxja.org/threads/how-do-i-get-the-trouble-codes-from-a-90-cherokee.11474/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;1991–1995 Jeep Cherokee XJ OBD-I Diagnostic Trouble Codes (reference list)&#x27;, &#x27;url&#x27;: &#x27;https://www.scribd.com/doc/59148138/1991-1995-Jeep-Cherokee-XJ-OBD-I-Diagnostic-Trouble-Codes&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-read-obd-trouble-codes-399060" target="_blank" rel="noopener nofollow">Cherokee Forum — How to Read OBD Trouble Codes (1984–2001)</a></li><li><a href="https://www.fixjeeps.com/jeep-check-engine-codes.html" target="_blank" rel="noopener nofollow">FixJeeps — Jeep check engine codes for the YJ, XJ and other OBD-I Jeeps</a></li><li><a href="https://naxja.org/threads/how-do-i-get-the-trouble-codes-from-a-90-cherokee.11474/" target="_blank" rel="noopener nofollow">NAXJA Forums — Retrieving codes on a 1990 Renix Cherokee</a></li><li><a href="https://www.scribd.com/doc/59148138/1991-1995-Jeep-Cherokee-XJ-OBD-I-Diagnostic-Trouble-Codes" target="_blank" rel="noopener nofollow">1991–1995 Jeep Cherokee XJ OBD-I Diagnostic Trouble Codes (reference list)</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/xj/obd2-scanner/">OBD-II Scanner Basics for XJ (1996+)</a></li><li><a href="/db/xj/compression-test/">Compression Test and Leak-Down Test on the XJ 4.0L</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
