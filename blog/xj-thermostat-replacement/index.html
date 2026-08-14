@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/xj-thermostat-replacement/">
+<title>XJ Thermostat Replacement: 195&deg;F or 180&deg;F, and How to Do It Right &mdash; Trail Manual</title>
+<meta name="description" content="Run the 195&deg;F thermostat in a Jeep Cherokee XJ. That is the factory spec for the 4.0 and 2.5, and a 180&deg;F unit does not fix overheating &mdash; a thermostat only sets the minimum operating temperature, never the maximum. The part costs $8&ndash;$20, the job is two bolts and about an hour, and the housing bolts torque to 15 ft-lb (20 N&middot;m). Overtightening them is the single most common cause of a leaking thermostat housing.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should I run a 180 or 195 degree thermostat in a Jeep 4.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run the 195\u00b0F thermostat. It is the factory specification for the 4.0 and 2.5 in the XJ Cherokee, and the engine management is calibrated around it. A 180\u00b0F thermostat does not lower the temperature your engine reaches under load \u2014 it only opens sooner, which means the engine runs cooler than designed during warmup and light cruising. That costs fuel economy, slows the warmup that burns moisture out of the oil, and can keep the computer from reaching full closed-loop fueling. The only defensible reason to run a 180 is a purpose-built engine with an upgraded radiator where you are deliberately targeting lower temps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will a cooler thermostat fix my XJ overheating?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A thermostat sets the minimum operating temperature, not the maximum. Once the coolant is above the rating, the thermostat is already fully open and has no further influence \u2014 from that point the radiator, water pump, fan clutch, and airflow control how hot the engine gets. An XJ that climbs past 220\u00b0F on a grade has a heat-rejection problem: a clogged or undersized radiator, a failed fan clutch, a worn water pump impeller, or air in the system. Swapping to a 180\u00b0F thermostat masks nothing and fixes nothing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the symptoms of a bad thermostat in a Jeep Cherokee XJ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stuck open is the common failure: weak or cold heat from the vents, a gauge that never climbs to its normal position, heat that gets worse at highway speed and better at idle, and on OBD-II trucks a P0128 code for coolant temperature below the thermostat regulating temperature. Stuck closed is rarer and far more dangerous: the temperature spikes within a few minutes of a cold start, and the upper radiator hose stays cool while the engine is hot because no coolant is circulating to the radiator. Shut the engine off if that happens."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the thermostat housing bolt torque on a Jeep 4.0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "20 N\u00b7m, or 15 ft-lb, per the Jeep Cherokee XJ factory service manual. Use a torque wrench. Overtightening the two housing bolts is the most common cause of a thermostat housing leak \u2014 the aluminum housing distorts or the gasket crushes unevenly, and the joint weeps coolant no matter how many gaskets you throw at it."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+      <a class="tm-vehicle-chip" href="/xj/"><img src="/images/icon-xj.png" alt="" class="tm-chip-icon" style="height:18px;width:auto;vertical-align:-4px;margin-right:4px">Cherokee XJ</a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
+      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script><main class="tm-main">
+  <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">XJ Cherokee &middot; Cooling System</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">XJ Thermostat Replacement: 195&deg;F or 180&deg;F, and How to Do It Right</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">The thermostat argument has been running on XJ forums for twenty years, and it rests on a misunderstanding of what the part does. A thermostat is a floor, not a ceiling. It blocks coolant from reaching the radiator until the engine warms up, then opens and gets out of the way. Once your XJ is hot, the thermostat has no say in how hot it gets &mdash; that is the radiator, the water pump, and the fan. Which means the 180&deg;F thermostat people install to &ldquo;run cooler&rdquo; does nothing on a hot day pulling a grade, and costs them something every other day of the year.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>July 31, 2026</span> &middot; <span>8 min read</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:0 0 28px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0;line-height:1.6">Run the <strong style="color:var(--text)">195&deg;F thermostat</strong> &mdash; the factory spec for both the 4.0 and the 2.5 in an XJ. A <strong style="color:var(--text)">180&deg;F unit will not fix overheating</strong>, because a thermostat sets the minimum operating temperature, never the maximum. If your Cherokee runs hot under load, the problem is the radiator, fan clutch, water pump, or air in the system &mdash; not the thermostat rating. The part is <strong style="color:var(--text)">$8&ndash;$20</strong>, the job is <strong style="color:var(--text)">two bolts and about an hour</strong>, and the housing bolts torque to <strong style="color:var(--text)">15 ft-lb (20 N&middot;m)</strong>. Overtightening them is the number one cause of a housing that leaks afterward.</p>
+    </div>
+
+    <h2>The 180 vs. 195 question, settled</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Every 4.0 and 2.5 XJ left the factory with a 195&deg;F thermostat, and the engine controller was calibrated around that number. The coolant temperature sensor feeds fueling, spark timing, and the transition from open loop to closed loop. Run the engine colder than the calibration expects and you get richer mixtures for longer, worse fuel economy, and slower warmup &mdash; which matters more than it sounds, because a cold engine is where moisture and fuel dilution accumulate in the oil. The people reporting better mileage after a 180&deg;F swap are almost always reporting the effect of a fresh thermostat replacing a tired one that had been hanging partly open.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Here is the part that ends the argument: on a hot day, on a climb, with the AC on, your thermostat is already 100% open. It has been fully open since the coolant crossed its rating. Whether that rating was 180 or 195 makes no difference to how much heat the radiator can shed. If the truck creeps toward 230&deg;F, it will do so with either thermostat installed. The 180 changed the starting point, not the ceiling.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">There is one legitimate case for a 180: a built engine with an upgraded high-capacity radiator where you are deliberately targeting lower operating temperatures for a specific reason and have the cooling capacity to hold them. That is a small fraction of XJs. If you are reading this because your temp gauge is climbing, that is not your truck.</p>
+
+    <h2>How a failing thermostat actually presents</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Stuck open</strong> is the ordinary failure and the one worth learning. Coolant circulates to the radiator constantly, so the engine never reaches operating temperature. The symptoms line up: weak or lukewarm heat from the vents, a temp gauge that sits low and never settles where it used to, and the tell that separates it from a heater core problem &mdash; the heat is worse at highway speed and better sitting at idle, because more airflow through the radiator means more heat pulled out of coolant that never should have been going there. On OBD-II XJs (1996&ndash;2001) this throws <strong style="color:var(--text)">P0128</strong>: coolant temperature below thermostat regulating temperature. The diagnostic threshold is roughly that the engine should be past 100&deg;F within a mile and near 210&deg;F within five miles at 35 mph.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Stuck closed</strong> is rare and it will destroy the engine if you drive through it. Temperature spikes within a few minutes of a cold start &mdash; not gradually, and not only under load. The diagnostic check is the upper radiator hose: engine hot, hose cool, means no coolant is reaching the radiator. Shut it off. On a 4.0, sustained overheating is how you crack an 0331 head or lose a head gasket, and both cost far more than an hour in the driveway.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">You can confirm a suspect thermostat on the bench before you buy anything: drop it in a pot of water with a thermometer and heat it. A good 195 stays shut until the water is near 195&deg;F, then opens visibly. One that is already cracked open at room temperature has failed.</p>
+
+    <div class="tm-affiliate-note">Some links below are affiliate links (Amazon Associates). Buying through one may earn us a commission at no extra cost to you &mdash; it never changes what we recommend. <a href="/terms/#affiliate">How we handle this</a>.</div>
+
+    <h2>What to buy</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">This is a cheap part and there is no reason to shop hard. A <a href="https://www.amazon.com/s?k=Stant+SuperStat+195+thermostat+Jeep+4.0&amp;tag=trailmanual0b-20" rel="sponsored noopener" target="_blank">Stant SuperStat 195&deg;F</a> is the standard recommendation on XJ forums and typically runs under $20 &mdash; it flows better than the base-line economy thermostats and has a long track record in these engines. The <a href="https://www.amazon.com/s?k=Mopar+52028186AC+thermostat+Jeep+Cherokee&amp;tag=trailmanual0b-20" rel="sponsored noopener" target="_blank">Mopar unit (52028186AC on 1997&ndash;2001 XJs)</a> is the factory part and usually lands under $20 as well. Either is a correct answer. What you should avoid is the bargain-bin no-name thermostat &mdash; the failure mode is a wax element that sticks a year later, and you will be doing the job twice to save six dollars.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Buy a gasket with it, and inspect the aluminum housing before you commit. XJ thermostat housings corrode, and a pitted sealing face will not seal against any gasket. If the mating surface is eaten away rather than just crusty, replace it &mdash; a <a href="https://www.amazon.com/s?k=Jeep+Cherokee+XJ+thermostat+housing+kit+4.0&amp;tag=trailmanual0b-20" rel="sponsored noopener" target="_blank">thermostat housing kit</a> with the housing, thermostat, and gasket together is the efficient way to handle it if you already suspect the housing. If the housing is clean, you do not need this &mdash; skip it and buy just the thermostat.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Have coolant on hand. The XJ 4.0 cooling system holds roughly 12 quarts total, though this job only asks you to drain a gallon or two. Buy a gallon of the correct coolant for your year and a gallon of distilled water if you are mixing your own, and do not top off with tap water.</p>
+
+    <h2>The replacement, start to finish</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Work on a cold engine. Opening a hot cooling system will put scalding coolant on your hands and face.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">1. Drop the coolant level below the housing.</strong> You do not need to drain the whole system. The radiator petcock is reachable behind the grille &mdash; six or eight screws and you can get a hand on it. Many XJ owners skip the petcock entirely and siphon a gallon out through the radiator neck, which is faster and makes less mess. Parking with the front end slightly elevated keeps coolant biased toward the rear of the block and away from the housing. Catch what comes out; coolant is toxic to animals.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">2. Get to the housing.</strong> It sits at the front of the cylinder head where the upper radiator hose attaches. Loosen the hose clamp and work the hose off &mdash; twist it to break the bond rather than levering it, since a brittle hose will tear. Two bolts hold the housing to the head. They are usually 13mm and frequently corroded; penetrating oil and patience beat a snapped bolt in an aluminum head every time.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">3. Pull the housing and the old thermostat.</strong> The housing may be stuck to the gasket. Pry gently at a casting rib &mdash; never at the sealing face, and never with a screwdriver wedged into the joint hard enough to gouge aluminum. Note which way the old thermostat faces before you remove it. The spring side goes into the engine.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">4. Clean both surfaces completely.</strong> This is where the job is won or lost. Scrape every trace of old gasket off the head and the housing with a plastic scraper or a razor held nearly flat, then wipe both faces dry. Pay attention to the recess in the head that the thermostat flange seats into &mdash; if there is gasket residue or corrosion in that pocket, the thermostat sits proud, the housing pinches it, and you get a leak or a thermostat that cannot open properly.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">5. Set the new thermostat in the recess.</strong> Spring toward the engine, flange fully down in the pocket. Two small dabs of RTV on the flange will hold it in place while you position the housing &mdash; this is a well-known trick and it saves you from the thermostat tipping out of the recess as you fumble the housing into place. Fit the gasket, then the housing.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">6. Torque to 15 ft-lb (20 N&middot;m).</strong> With a torque wrench, alternating between the two bolts in stages. This is the specification in the XJ factory service manual and it is lower than most people's instinct. Overtorquing these bolts is the most common reason a thermostat housing leaks after a replacement &mdash; the aluminum distorts, the gasket crushes unevenly, and no amount of retightening will fix it. If it weeps, back off and start over with a new gasket rather than cranking harder.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">7. Reassemble, refill, and burp it.</strong> Hose back on, clamp tight, petcock closed. Fill the radiator, run the engine with the cap off and the heater on full until the thermostat opens and the level drops, then top off and cap it. Watch the gauge through a full warmup cycle. Air trapped in an XJ cooling system will read as an overheat and give you a heater that blows cold, so take the time to get it out.</p>
+
+    <h2>Two things not to do</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Do not gut the thermostat.</strong> Removing it entirely, or drilling it out, is advice that circulates when someone is chasing an overheat. It makes the problem worse. Without a restriction, coolant moves through the radiator too quickly to give up its heat, and the engine will often run hotter under load than it did with a working thermostat &mdash; on top of never reaching operating temperature in winter.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Do not treat this as an overheat fix.</strong> If the truck runs hot, replace the thermostat as part of a full cooling system inspection, not instead of one. The XJ overheating culprits, ranked by how often they turn out to be the answer: a radiator that is clogged internally or packed with debris externally, a fan clutch that no longer locks up, a water pump with an eroded impeller, and air in the system. A new thermostat is a reasonable thing to install while you are in there. It is rarely the thing that was wrong.</p>
+
+    <div style="background:var(--surface-2,rgba(127,127,127,.06));border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin:28px 0">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:12px">Quick reference</div>
+      <ul style="margin:0;padding-left:18px;color:var(--text-dim);font-size:14px;line-height:1.9">
+        <li><strong style="color:var(--text)">Correct rating:</strong> 195&deg;F &mdash; factory spec for XJ 4.0 and 2.5</li>
+        <li><strong style="color:var(--text)">180&deg;F:</strong> only for a built engine with upgraded radiator capacity; does nothing for overheating</li>
+        <li><strong style="color:var(--text)">Housing bolt torque:</strong> 15 ft-lb / 20 N&middot;m &mdash; overtightening is the top cause of housing leaks</li>
+        <li><strong style="color:var(--text)">Stuck open:</strong> no heat, low gauge, worse at highway speed, P0128 on 1996&ndash;2001</li>
+        <li><strong style="color:var(--text)">Stuck closed:</strong> fast temperature spike, cool upper hose on a hot engine &mdash; shut it off</li>
+        <li><strong style="color:var(--text)">Part cost:</strong> $8&ndash;$20 for a Stant SuperStat or Mopar 52028186AC (1997&ndash;2001)</li>
+        <li><strong style="color:var(--text)">System capacity:</strong> roughly 12 quarts; you only need to drain a gallon or two for this job</li>
+        <li><strong style="color:var(--text)">Orientation:</strong> spring side toward the engine, flange fully seated in the head recess</li>
+        <li><strong style="color:var(--text)">Time:</strong> about an hour, cold engine, basic hand tools plus a torque wrench</li>
+      </ul>
+    </div>
+
+    <h2>The honest verdict</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A thermostat is one of the least expensive parts on the truck and one of the few that is worth replacing on suspicion alone. If yours has 100,000 miles on it, or you are already draining coolant for a water pump or hose job, put a new 195&deg;F in while you are there. The wax element in these fails gradually, and plenty of XJs are running around with a thermostat that opens early and an owner who has quietly gotten used to weak heat.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">What it will not do is solve a heat problem. Resist the temptation to buy the cooler thermostat and call it addressed &mdash; that is the version of this job that leaves you on the shoulder of a grade in August with the hood up. Put in the right part, torque the bolts to spec, get the air out, and then go find out why the truck is actually running hot.</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <a href="/blog/xj-overheating-diagnosis/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">XJ Overheating: Diagnosis Sequence</div>
+          <div style="font-size:12px;color:var(--text-dim)">What to check, in what order, when the gauge climbs.</div>
+        </a>
+        <a href="/blog/xj-cooling-system-failures/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">XJ Cooling System Failures</div>
+          <div style="font-size:12px;color:var(--text-dim)">Radiator, water pump, fan clutch &mdash; how each one fails.</div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
+    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/xj-death-wobble-causes/">XJ Death Wobble</a><a href="/db/?v=xj">XJ Database</a></div>
+    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
+</footer>
+
+<script>
+const t = document.getElementById('tm-nav-toggle');
+if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
+</script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
