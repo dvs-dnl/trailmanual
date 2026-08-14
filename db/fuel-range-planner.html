@@ -14,6 +14,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Fuel &amp; Range Planner — Trail, Overland, Off-Road | Trail Manual</title>
+<link rel="canonical" href="https://trailmanual.com/db/fuel-range-planner.html">
 <meta name="description" content="Plan your off-road fuel needs. Enter tank capacity, loaded MPG, terrain type, and aux fuel storage. Outputs a safe planning range with usable-fuel reserve buffer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -176,27 +177,27 @@ main{max-width:860px;margin:0 auto;padding:28px 20px 80px}
     <p class="card-title">Terrain type</p>
     <div class="terrain-grid" id="terrain-grid">
       <button class="terrain-btn" data-mult="1.0" data-id="pavement" onclick="selectTerrain(this)">
-        <span class="terrain-icon">🛣️</span>
+        <span class="terrain-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 21L9 3 M19 21L15 3 M9 3h6"/></svg></span>
         <span class="terrain-name">Pavement</span>
         <span class="terrain-mult">1.0×</span>
       </button>
       <button class="terrain-btn" data-mult="0.80" data-id="dirt" onclick="selectTerrain(this)">
-        <span class="terrain-icon">🪨</span>
+        <span class="terrain-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 17l4-8 4 4 3-6 5 10H3z"/></svg></span>
         <span class="terrain-name">Dirt / Gravel</span>
         <span class="terrain-mult">0.80×</span>
       </button>
       <button class="terrain-btn active" data-mult="0.65" data-id="sand" onclick="selectTerrain(this)">
-        <span class="terrain-icon">🏜️</span>
+        <span class="terrain-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M12 2v2 M12 20v2 M4.22 4.22l1.42 1.42 M18.36 18.36l1.42 1.42 M2 12h2 M20 12h2 M4.22 19.78l1.42-1.42 M18.36 5.64l1.42-1.42"/></svg></span>
         <span class="terrain-name">Sand / Dunes</span>
         <span class="terrain-mult">0.65×</span>
       </button>
       <button class="terrain-btn" data-mult="0.55" data-id="rock" onclick="selectTerrain(this)">
-        <span class="terrain-icon">⛰️</span>
+        <span class="terrain-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M8 3l4 8 5-5 5 15H2L8 3z"/></svg></span>
         <span class="terrain-name">Rock Crawl</span>
         <span class="terrain-mult">0.55×</span>
       </button>
       <button class="terrain-btn" data-mult="0.60" data-id="mud" onclick="selectTerrain(this)">
-        <span class="terrain-icon">🌧️</span>
+        <span class="terrain-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25 M8 19v2 M8 13v2 M16 19v2 M16 13v2 M12 21v2 M12 15v2"/></svg></span>
         <span class="terrain-name">Mud</span>
         <span class="terrain-mult">0.60×</span>
       </button>
