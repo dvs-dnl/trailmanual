@@ -3,12 +3,12 @@
 <head>
 <!-- tm:generated db_static_build -->
 <meta charset="utf-8">
-<title>Auxiliary Fuse Block (Blue Sea Systems) — Jeep Cherokee XJ | Trail Manual</title>
+<title>Auxiliary Fuse Block Installation (Blue Sea 5026) — Jeep Cherokee XJ | Trail Manual</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Install a Blue Sea 5026 or 5025 ATC fuse block to power accessories cleanly instead of running everything off battery posts. Includes negative bus and…">
+<meta name="description" content="Feed every accessory on your XJ from one fused, labeled, properly grounded distribution point instead of stacking ring terminals on the battery post.">
 <link rel="canonical" href="https://trailmanual.com/db/xj/elec-aux-fuse-box/">
-<meta property="og:title" content="Auxiliary Fuse Block (Blue Sea Systems) — Jeep Cherokee XJ">
-<meta property="og:description" content="Install a Blue Sea 5026 or 5025 ATC fuse block to power accessories cleanly instead of running everything off battery posts. Includes negative bus and…">
+<meta property="og:title" content="Auxiliary Fuse Block Installation (Blue Sea 5026) — Jeep Cherokee XJ">
+<meta property="og:description" content="Feed every accessory on your XJ from one fused, labeled, properly grounded distribution point instead of stacking ring terminals on the battery post.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://trailmanual.com/db/xj/elec-aux-fuse-box/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
@@ -30,8 +30,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Auxiliary Fuse Block (Blue Sea Systems)",
-  "description": "Install a Blue Sea 5026 or 5025 ATC fuse block to power accessories cleanly instead of running everything off battery posts. Includes negative bus and\u2026",
+  "headline": "Auxiliary Fuse Block Installation (Blue Sea 5026)",
+  "description": "Feed every accessory on your XJ from one fused, labeled, properly grounded distribution point instead of stacking ring terminals on the battery post.",
   "author": {
     "@type": "Organization",
     "name": "Trail Manual"
@@ -48,8 +48,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  "name": "Auxiliary Fuse Block (Blue Sea Systems)",
-  "description": "Install a Blue Sea 5026 or 5025 ATC fuse block to power accessories cleanly instead of running everything off battery posts. Includes negative bus and\u2026",
+  "name": "Auxiliary Fuse Block Installation (Blue Sea 5026)",
+  "description": "Feed every accessory on your XJ from one fused, labeled, properly grounded distribution point instead of stacking ring terminals on the battery post.",
   "totalTime": "PT5H",
   "estimatedCost": {
     "@type": "MonetaryAmount",
@@ -59,33 +59,139 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   "tool": [
     {
       "@type": "HowToTool",
-      "name": "drill"
+      "name": "Digital multimeter"
     },
     {
       "@type": "HowToTool",
-      "name": "crimper"
+      "name": "Ratcheting crimper for non-insulated terminals"
     },
     {
       "@type": "HowToTool",
-      "name": "wire stripper"
+      "name": "Hydraulic or hammer lug crimper for 4 AWG ring terminals"
     },
     {
       "@type": "HowToTool",
-      "name": "screwdriver"
+      "name": "Gauge-matched wire strippers"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Cable cutter rated for 4 AWG"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Heat gun"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Drill and step bit (for grommet and mounting holes)"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "1/4 in drive inch-pound torque wrench"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Deburring tool or round file"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "Terminal release pick set"
     }
   ],
   "supply": [
     {
       "@type": "HowToSupply",
-      "name": "Blue Sea 5026 12-circuit fuse block"
+      "name": "Blue Sea 5026 ST-Blade fuse block, 12 circuit with negative bus and cover"
     },
     {
       "@type": "HowToSupply",
-      "name": "Blue Sea 5028 6-circuit waterproof"
+      "name": "Blue Sea 5028 ST-Blade fuse block, 6 circuit waterproof (engine-bay alternative)"
     },
     {
       "@type": "HowToSupply",
-      "name": "4 AWG feeder cable + 80A MIDI fuse"
+      "name": "4 AWG welding or marine-grade tinned battery cable, 10 ft red + 6 ft black"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "MIDI/AMI fuse holder with 80A fuse"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Tinned copper ring terminals, 4 AWG to 3/8 in and #10 stud"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Adhesive-lined 3:1 heat shrink, 1/2 in and 3/4 in"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Rubber firewall grommet, 3/4 in or 1 in ID"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Split convoluted loom, 1/2 in, and fleece harness tape"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "40A SPDT relay with socket and pigtail (for a switched second block)"
+    }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Disconnect the battery negative cable and set it aside where it cannot spring back onto the post. Leave it off for the entire install."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Test-fit the block in your chosen location with the cover on and a fuse puller in hand \u2014 confirm you can reach every fuse and swing the cover open after the panel goes back."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Mount the block with #8 (M4) screws into a backing plate or a body seam, not into unsupported plastic trim. Body flex will find any mount that relies on a single sheet-metal screw."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Measure the feeder run from battery positive to the block and add 12 inches of slack for routing. Cut and crimp 4 AWG tinned ring terminals with a hydraulic or hammer crimper, then seal each barrel with adhesive-lined heat shrink."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Route the feeder through the firewall. The large driver-side grommet under the steering column near the pedals is the cleanest existing pass-through on an XJ. If you drill, use a step bit, deburr the hole completely, and fit a rubber grommet \u2014 bare sheet metal will cut through 4 AWG insulation over a few thousand miles."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Keep the feeder away from the exhaust manifold, the steering shaft, and anything that moves. Loom it and secure it every 12 to 18 inches with cushioned clamps or zip ties to existing harness runs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Install the MIDI fuse holder within 7 inches of the battery positive post, on a solid mount. Leave the fuse out for now."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Land the feeder on the block's positive stud. Torque #10-32 studs to 24 in-lb and screw terminals to 18 in-lb \u2014 an inch-pound wrench matters here, since overtorquing strips the stud and undertorquing builds a hot resistive joint."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Run the 4 AWG ground from the negative bus to battery negative or to a bare-metal chassis stud, torqued to the same 24 in-lb. Coat an exposed chassis termination with dielectric grease or paint over it once tight."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Decide whether you want switched circuits. Do not carry accessory load on an ignition wire \u2014 instead, trigger a 40A relay coil from a verified ACC or RUN source (the radio harness ignition lead is a good candidate; confirm it with a multimeter through all key positions) and let that relay feed a second block. The 5026 has one positive bus, so always-on and key-off circuits need two blocks."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Wire each accessory to its own circuit: branch wire sized for the load, ring terminal on the positive stud, return to the negative bus. Use GXL or TXL cross-linked wire, not household hookup wire."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Fuse each circuit at 125% of measured draw, install a fuse in the MIDI holder, and reconnect the battery."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Verify with a meter: battery voltage at the block's positive bus with the engine running, and less than 0.3V drop across the feeder under your heaviest load. More than that means a bad crimp or an undersized run."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Label every circuit on the cover with a paint pen or printed label, photograph the finished panel, and leave two or three circuits empty for the next thing you add."
     }
   ]
 }
@@ -103,32 +209,55 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
 <div class="tm-guide">
   <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/xj/">Jeep Cherokee XJ</a></nav>
-  <h1>Auxiliary Fuse Block (Blue Sea Systems)</h1>
+  <h1>Auxiliary Fuse Block Installation (Blue Sea 5026)</h1>
   <div class="tm-chips"><span class="tm-chip">Difficulty 2/5</span><span class="tm-chip">2–5 hrs</span><span class="tm-chip">$80–250</span><span class="tm-chip">1984-1990, 1991-1995, 1996, 1997-2001</span></div>
-  <p class="tm-lead">Install a Blue Sea 5026 or 5025 ATC fuse block to power accessories cleanly instead of running everything off battery posts. Includes negative bus and optional ground bar.</p>
-<p>Once you have a winch, light bar, fridge, USB charger, dashcam, and rock lights all needing +12V, the battery posts get covered in ring terminals. A dedicated aux fuse block solves this. The Blue Sea 5026 (12 circuit ATC with negative bus) is the XJ community standard at ~$45, or step up to the 5028 (6-circuit waterproof) for engine-bay mounting.</p>
-<p>Mount inside the cabin (under the dash, behind the glovebox) for accessories, or in a sealed engine-bay location for under-hood loads. Feed it with 4 AWG (good for ~85A continuous) from battery+ through a 60-100A MIDI fuse. Run a corresponding 4 AWG ground from the negative bus to a clean chassis ground.</p>
-<p>Label every circuit — future you will thank present you. Leave 2-3 spare circuits. Pair with a Blue Sea ST blade fuse holder array if you want to switch entire circuits at once.</p>
+  <p class="tm-lead">Feed every accessory on your XJ from one fused, labeled, properly grounded distribution point instead of stacking ring terminals on the battery post.</p>
+<p>The moment an XJ has a light bar, a fridge, a compressor, a radio, USB chargers, and rock lights, the battery terminals turn into a bolt-on octopus. Each of those piggybacked wires is an unfused run through a 30-year-old body, and the first one to chafe against a sheet metal edge becomes a dead short with the whole battery behind it. An auxiliary fuse block ends that: one heavy protected feeder from the battery, one heavy ground, and twelve individually fused circuits you can label, test, and add to.</p>
+<p>This is also the fix for the diagnostic nightmare. When something aftermarket quits on the trail, you want to pull one labeled fuse and know immediately whether the problem is upstream or downstream. Wired the way most XJs are, you get to trace a bundle of black wire taped to the harness instead.</p>
+<p>The Blue Sea 5026 is the default for good reason: 12 ATO/ATC circuits, an integrated negative bus, a snap-on cover, and tin-plated copper throughout. It is rated <strong>100A per block, 30A per circuit, 32V DC max</strong>, and it takes 1A to 30A blade fuses. That 100A ceiling is the number that sizes everything else in the install.</p>
+<p>Inside the cabin is the right home for it on an XJ. The engine bay heat-soaks badly, the 5026 cover is not sealed, and cowl drains plus a leaky heater core have already put water in places you would not expect. Three cabin locations work well:</p>
+<ul><li><strong>Passenger kick panel / behind the glovebox</strong> — the most room, the shortest run to the dash, and the easiest to reach. Best all-around choice.</li><li><strong>Driver kick panel above the factory fuse panel</strong> — convenient if most of your loads are dash switches, tighter for 4 AWG.</li><li><strong>Transmission tunnel under the center console</strong> — clean and hidden, but you will be pulling the console every time you add a circuit.</li></ul>
+<p>If a load genuinely has to be fused under the hood — an engine-bay compressor, a hood light — use the sealed 6-circuit <strong>5028</strong> instead and mount it on the driver-side inner fender or on top of the PDC. Do not put a 5026 out there and expect the cover to save it.</p>
+<p>The XJ battery sits in the front passenger corner with the Power Distribution Center right next to it, and the factory link between them is a 150A fusible link or mega fuse. Your aux feeder is a separate, parallel path off the battery positive post — never a tap into the PDC.</p>
+<p>Run <strong>4 AWG</strong> for the feeder. It carries 100A comfortably in this length and service, and it matches Blue Sea&#x27;s own recommendation of 4 or 6 gauge to feed a block of this size. Protect it with an <strong>80A MIDI/AMI fuse</strong> in a holder mounted <strong>within 7 inches of the battery positive post</strong> — that unprotected stub between post and fuse is the one length of wire in the whole install with nothing behind it, so keep it short and keep it sheathed. Never fuse the feeder above 100A: the block itself is the limiting component, not the wire.</p>
+<p>Ground the block&#x27;s negative bus with the same 4 AWG. Two acceptable terminations: back to the battery negative post, or to a dedicated chassis stud you have ground down to bare metal and sealed. XJ chassis grounds are notoriously marginal after three decades, so if you have not refreshed the factory ground straps yet, do that first — a bad body ground turns a clean install into flickering lights and phantom faults.</p>
+<p>Per-circuit sizing follows the standard rule: fuse at <strong>125% of the device&#x27;s continuous draw</strong>, never above <strong>80% of the branch wire&#x27;s ampacity</strong>, and never above 30A on this block. Anything pulling more than 30A — a winch, a big air compressor, a 40A+ light bar — does not belong on the fuse block at all. Those get their own MIDI-fused feed and their own relay.</p>
+<p>One more number worth checking before you load it up: XJ alternators ran roughly 60A on early RENIX trucks, 90 to 100A through the mid-90s, and 117A on 1999–2001. Total continuous aux draw should stay well under what the alternator can spare while driving, and you should assume it charges nothing meaningful at idle.</p>
+<p>Good candidates: LED light bars and pods under 30A, rock lights, a fridge, USB and 12V outlets, a CB or ham radio, dash cam, air horn relay trigger, aux gauges, an inverter under 300W.</p>
+<p>Not on the block: the winch (its own solenoid pack and battery cables), a full-size onboard air compressor (its own relay and MIDI fuse), anything factory-safety-related, and any load whose continuous draw you have not actually measured with a clamp meter. Guessing at draw is how a 30A circuit ends up carrying 34A and cooking the block over a long night of trail lights.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Disconnect the battery negative cable and set it aside where it cannot spring back onto the post. Leave it off for the entire install.</li><li>Test-fit the block in your chosen location with the cover on and a fuse puller in hand — confirm you can reach every fuse and swing the cover open after the panel goes back.</li><li>Mount the block with #8 (M4) screws into a backing plate or a body seam, not into unsupported plastic trim. Body flex will find any mount that relies on a single sheet-metal screw.</li><li>Measure the feeder run from battery positive to the block and add 12 inches of slack for routing. Cut and crimp 4 AWG tinned ring terminals with a hydraulic or hammer crimper, then seal each barrel with adhesive-lined heat shrink.</li><li>Route the feeder through the firewall. The large driver-side grommet under the steering column near the pedals is the cleanest existing pass-through on an XJ. If you drill, use a step bit, deburr the hole completely, and fit a rubber grommet — bare sheet metal will cut through 4 AWG insulation over a few thousand miles.</li><li>Keep the feeder away from the exhaust manifold, the steering shaft, and anything that moves. Loom it and secure it every 12 to 18 inches with cushioned clamps or zip ties to existing harness runs.</li><li>Install the MIDI fuse holder within 7 inches of the battery positive post, on a solid mount. Leave the fuse out for now.</li><li>Land the feeder on the block&#x27;s positive stud. Torque #10-32 studs to <strong>24 in-lb</strong> and screw terminals to <strong>18 in-lb</strong> — an inch-pound wrench matters here, since overtorquing strips the stud and undertorquing builds a hot resistive joint.</li><li>Run the 4 AWG ground from the negative bus to battery negative or to a bare-metal chassis stud, torqued to the same 24 in-lb. Coat an exposed chassis termination with dielectric grease or paint over it once tight.</li><li>Decide whether you want switched circuits. Do not carry accessory load on an ignition wire — instead, trigger a 40A relay coil from a verified ACC or RUN source (the radio harness ignition lead is a good candidate; confirm it with a multimeter through all key positions) and let that relay feed a second block. The 5026 has one positive bus, so always-on and key-off circuits need two blocks.</li><li>Wire each accessory to its own circuit: branch wire sized for the load, ring terminal on the positive stud, return to the negative bus. Use GXL or TXL cross-linked wire, not household hookup wire.</li><li>Fuse each circuit at 125% of measured draw, install a fuse in the MIDI holder, and reconnect the battery.</li><li>Verify with a meter: battery voltage at the block&#x27;s positive bus with the engine running, and <strong>less than 0.3V drop</strong> across the feeder under your heaviest load. More than that means a bad crimp or an undersized run.</li><li>Label every circuit on the cover with a paint pen or printed label, photograph the finished panel, and leave two or three circuits empty for the next thing you add.</li></ol>
 <h2>Why it works</h2>
-<ul><li>clean wiring</li><li>manageable troubleshooting</li><li>future expansion</li></ul>
+<ul><li>One fused, labeled distribution point replaces a stack of unprotected battery-post taps</li><li>Trailside diagnosis becomes pulling one labeled fuse instead of tracing a taped bundle</li><li>Adding the next accessory is a 20-minute job, not another feeder run</li><li>Integrated negative bus keeps grounds off random body screws, which matters on a rust-prone unibody</li><li>Blue Sea hardware and tinned copper hold up far better than generic blocks in a damp XJ footwell</li></ul>
 <h2>Trade-offs</h2>
-<ul><li>adds mounting complexity</li><li>straightforward to over-fuse the feeder if not careful</li></ul>
+<ul><li>4 AWG feeder, MIDI holder, lug crimper, and quality wire push a real install past $150 before the first accessory</li><li>Requires a firewall pass-through and a solid mount — an afternoon of careful work, not a bolt-on</li><li>100A per block and 30A per circuit are hard ceilings; winch and compressor loads still need their own paths</li><li>Cabin mounting eats kick panel or console space and means pulling trim to service it</li><li>The 5026 is not waterproof, so an engine-bay install means stepping up to the sealed 5028 and paying for it</li></ul>
 <h2>Tools required</h2>
-<ul><li>drill</li><li>crimper</li><li>wire stripper</li><li>screwdriver</li></ul>
+<ul><li>Digital multimeter</li><li>Ratcheting crimper for non-insulated terminals</li><li>Hydraulic or hammer lug crimper for 4 AWG ring terminals</li><li>Gauge-matched wire strippers</li><li>Cable cutter rated for 4 AWG</li><li>Heat gun</li><li>Drill and step bit (for grommet and mounting holes)</li><li>1/4 in drive inch-pound torque wrench</li><li>Deburring tool or round file</li><li>Terminal release pick set</li></ul>
 <h2>Parts</h2>
 
-<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Blue Sea 5026 12-circuit fuse block</td><td>Blue Sea Systems</td><td>~$45</td></tr><tr><td>Blue Sea 5028 6-circuit waterproof</td><td>Blue Sea Systems</td><td>~$90</td></tr><tr><td>4 AWG feeder cable + 80A MIDI fuse</td><td>Blue Sea Systems</td><td>~$40</td></tr></tbody></table>
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Blue Sea 5026 ST-Blade fuse block, 12 circuit with negative bus and cover</td><td>Blue Sea Systems / West Marine / Powerwerx</td><td>~$50</td></tr><tr><td>Blue Sea 5028 ST-Blade fuse block, 6 circuit waterproof (engine-bay alternative)</td><td>Blue Sea Systems / Fisheries Supply</td><td>~$90</td></tr><tr><td>4 AWG welding or marine-grade tinned battery cable, 10 ft red + 6 ft black</td><td>Del City / Waytek / local battery shop</td><td>~$55</td></tr><tr><td>MIDI/AMI fuse holder with 80A fuse</td><td>Blue Sea Systems / Powerwerx</td><td>~$30</td></tr><tr><td>Tinned copper ring terminals, 4 AWG to 3/8 in and #10 stud</td><td>Del City / NAPA</td><td>~$15</td></tr><tr><td>Adhesive-lined 3:1 heat shrink, 1/2 in and 3/4 in</td><td>electrical supply</td><td>~$12</td></tr><tr><td>Rubber firewall grommet, 3/4 in or 1 in ID</td><td>hardware store / local parts store</td><td>~$5</td></tr><tr><td>Split convoluted loom, 1/2 in, and fleece harness tape</td><td>local parts store</td><td>~$18</td></tr><tr><td>40A SPDT relay with socket and pigtail (for a switched second block)</td><td>Bosch / Hella / local parts store</td><td>~$20</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Blue Sea Systems 5026 product page&#x27;, &#x27;url&#x27;: &#x27;https://www.bluesea.com/products/5026&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.bluesea.com/products/5026/ST_Blade_Fuse_Block_-_12_Circuits_with_Negative_Bus_and_Cover" target="_blank" rel="noopener nofollow">Blue Sea Systems 5026 — ST Blade Fuse Block, 12 Circuits with Negative Bus and Cover</a></li><li><a href="https://www.bluesea.com/support/articles/Circuit_Protection/1441/Part_2:_Select_a_Fuse_and_Fuse_Holder_For_Your_DC_Product_Installation" target="_blank" rel="noopener nofollow">Blue Sea Systems — Select a Fuse and Fuse Holder For Your DC Product Installation</a></li><li><a href="https://www.cherokeeforum.com/f89/passing-wires-through-firewall-226891/" target="_blank" rel="noopener nofollow">Cherokee Forum — Passing wires through the firewall</a></li><li><a href="https://www.jeepforum.com/forum/f13/running-power-wire-through-firewall-136520/" target="_blank" rel="noopener nofollow">JeepForum — Running power wire through firewall</a></li><li><a href="http://www.lunghd.com/Tech_Articles/Electrical/1997_UP_Fuse_Identification.htm" target="_blank" rel="noopener nofollow">LungHD — 1997-2001 XJ Fuse and Relay Identification</a></li><li><a href="https://www.cherokeetalk.com/threads/mega-fuse-or-fusible-link-oem-amps.29433/" target="_blank" rel="noopener nofollow">Cherokee Talk — Mega fuse / fusible link OEM amps</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/db/xj/elec-switch-panel/">Switch Panel - sPOD vs Switch-Pros vs DIY Carling</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/xj/elec-switch-panel/">Switch Panel - sPOD vs Switch-Pros vs DIY Carling</a></li><li><a href="/db/xj/elec-wire-gauge-guide/">Wire Gauge vs Amperage Chart (12V DC)</a></li><li><a href="/db/xj/elec-relay-basics/">Relay Basics - Bosch 5-Pin Wiring</a></li><li><a href="/db/xj/ground-straps/">Ground Strap Refresh — The Cheap Fix Everyone Skips</a></li><li><a href="/db/xj/elec-dual-battery-isolator/">Dual Battery Setup - DC-DC Isolator (Blue Sea / Redarc)</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
