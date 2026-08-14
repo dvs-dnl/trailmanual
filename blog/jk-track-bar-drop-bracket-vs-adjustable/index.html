@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/jk-track-bar-drop-bracket-vs-adjustable/">
+<title>JK Front Track Bar: Drop Bracket or Adjustable Bar? &mdash; Trail Manual</title>
+<meta name="description" content="Under about 3 inches of lift on a JK, an adjustable front track bar is the right fix and a drop bracket is wasted money. Above roughly 4 inches you need geometry correction too &mdash; a track bar relocation bracket paired with a drag link flip or drop pitman arm, installed together. Costs, torque specs, install order, and the wallowed frame-side bolt hole that ruins both options.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need an adjustable track bar or a drop bracket after lifting my JK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Under roughly 3 inches of lift, an adjustable front track bar is the correct fix and a drop bracket adds nothing. Lifting shifts the front axle toward the driver side; an adjustable bar shortens or lengthens to pull the axle back under the vehicle. At roughly 4 inches and above, the drag link and track bar angles have diverged far enough to cause bump steer, and centering alone no longer solves it. That case calls for a track bar relocation bracket paired with a drag link flip kit or a drop pitman arm, installed together. Between 3 and 4 inches is judgment: start with the adjustable bar, drive it, and add geometry correction only if bump steer persists."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does the front axle shift when you lift a JK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The track bar swings on a fixed arc, so any lift pulls the axle toward the driver side, and more lift means more shift. On a 2.5-inch lift the offset is typically somewhere between a quarter and half an inch, enough to see as uneven tire-to-fender gap side to side. Measure from the same point on each fender lip to the tire sidewall with the vehicle on level ground and its full weight on the tires. The side showing less gap is the side the axle moved toward."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does a lifted JK get bump steer even after the axle is centered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The track bar and the drag link each swing on their own arc as the suspension cycles. When they are close to the same length and roughly parallel, both arcs match and the axle and the steering move together. Lift steepens both, but not equally, so the arcs diverge. Every bump then moves the axle laterally by a different amount than the drag link commands, and the steering wheel twitches. Centering the axle fixes where it sits at rest; it does not change the angle. Correcting the angle is what a relocation bracket and a drag link flip or drop pitman arm do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the torque spec for a JK front track bar bolt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Published figures for the JK front track bar cluster around 125 lb-ft at both the frame-side castellated bolt and the axle-side bolt, with some sources listing 130 lb-ft and others as low as 105 lb-ft. Aftermarket bar instructions override the factory number. Torque with the suspension loaded at ride height, not hanging on jack stands, and re-check after the first 50 to 100 miles. A loose frame-side bolt is how the JK's frame bracket hole gets elongated, and an elongated hole is a death wobble cause on its own."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
+      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script><main class="tm-main">
+  <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">Suspension &middot; Jeep Wrangler JK</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">JK Front Track Bar: Drop Bracket or Adjustable Bar?</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">If your JK is lifted under about 3 inches, buy an adjustable front track bar and skip the drop bracket. The adjustable bar pulls the front axle back under the vehicle, which is the only problem a lift that size creates. A relocation bracket at that height corrects a geometry error small enough that you will not feel it, and it drags a drop pitman arm along as a required companion purchase.</p>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">At roughly 4 inches and above, the answer flips. By then the drag link and track bar angles have diverged far enough to produce real bump steer, and no amount of centering fixes an angle. That build needs a track bar relocation bracket paired with a drag link flip kit or a drop pitman arm &mdash; both, at the same time, because installing one without the other makes the geometry worse than leaving it alone. Between 3 and 4 inches is judgment, and this page walks through how to make the call.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>August 7, 2026</span> &middot; <span>9 min read</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:0 0 28px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0;line-height:1.6"><strong style="color:var(--text)">Up to ~3&Prime; of lift: adjustable front track bar, nothing else. ~4&Prime; and up: relocation bracket <em>plus</em> drag link flip or drop pitman arm, installed together.</strong> Before you buy either, check the frame-side bolt hole for elongation &mdash; a wallowed hole makes both upgrades useless and is a death wobble cause in its own right.</p>
+    </div>
+
+    <h2>What the track bar is doing</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The JK's front axle is located fore and aft by four control arms. Side to side, it is held by exactly one part: the track bar, a single link running from a bracket on the frame to a bracket on the axle. Everything that keeps the axle from wandering laterally under cornering load, under braking, and over every bump goes through that one bar and its two bolts. This is why track bar problems present as steering problems, and why a worn track bar joint sits near the top of every death wobble diagnostic list.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Because the bar is fixed at one end and swings, the axle does not travel straight up and down &mdash; it traces an arc. Lift the vehicle and the axle rides further along that arc, which moves it laterally toward the driver side. That is the shift you notice as uneven tire-to-fender gap after a lift install. It is not an alignment error and an alignment shop cannot fix it.</p>
+
+    <h2>Measuring what your lift actually did</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Park on level ground with full vehicle weight on the tires and the steering wheel straight. Measure from the same reference point on each fender lip straight down to the tire sidewall, both sides. The side with the smaller gap is the side the axle moved toward, and the difference between the two numbers is roughly twice your offset. On a 2.5-inch JK lift, expect somewhere between a quarter and half an inch of shift. It looks minor on paper. It is the reason a freshly lifted JK tracks left, wears the inside of one front tire, and feels like it is walking on grooved pavement.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Second measurement, and this is the one that decides which part you buy: look at the track bar and the drag link from directly in front of the vehicle. Stock, they run close to parallel and close to level. If they still look near-parallel after your lift, an adjustable bar is all you need. If the drag link is climbing sharply toward the pitman arm while the track bar runs at a noticeably different angle, you are into geometry-correction territory regardless of what the lift box claimed.</p>
+
+    <h2>Under 3 inches: the adjustable bar, and only the adjustable bar</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">An adjustable front track bar is the stock bar with a threaded adjuster in the middle. You lengthen or shorten it until the axle sits centered, then lock the jam nut. That is the entire function, and at this lift height it is the entire problem.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Expect roughly <strong style="color:var(--text)">$150 to $250</strong> for a quality JK front unit &mdash; Rock Krawler's HD bar sits near the bottom of that range, Teraflex's forged Monster bar near the top. What separates the good ones from the cheap ones is the joint, not the tube: a rebuildable joint at the axle end and a serviceable bushing or anti-wobble joint at the frame end will still be tight in five years. Heim joints transmit more road noise into the cabin than rubber. That is a real tradeoff, not a defect, and it is worth knowing before you order.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">One installation detail that catches people: most aftermarket JK bars use a 5/8-inch bolt at the frame end, so the factory hole gets drilled out during install. That is by design &mdash; the larger bolt is stronger and it cleans up minor elongation at the same time. Have the correct step drill or reamer on hand before you start, not after the old bar is on the floor.</p>
+
+    <h2>4 inches and up: brackets, and why they come in pairs</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Above roughly 4 inches, centering stops being the issue. The track bar and the drag link each swing on their own arc as the suspension cycles, and when those arcs no longer match, every bump moves the axle laterally by a different amount than the drag link is commanding. The result is bump steer &mdash; the steering wheel twitching on its own over washboard and off-camber sections. It is unsettling on the trail and dangerous at highway speed.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The fix is to bring both links back toward parallel and level. A track bar relocation bracket drops the frame-side mounting point to restore the bar's angle. A drag link flip kit (or a drop pitman arm) does the equivalent for the steering link. <strong style="color:var(--text)">Install one without the other and you have made the divergence worse, not better.</strong> This is the single most common expensive mistake on lifted JKs, and it is why a bracket is never a standalone purchase.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Budget accordingly. A relocation bracket alone runs around <strong style="color:var(--text)">$180</strong>; pairing it with a drop pitman arm or a quality drag link flip kit typically puts the combination in the <strong style="color:var(--text)">$300 to $500</strong> range once you include the frame brace that most kits require. Dropping the frame-side mount also lowers ground clearance at a point that already hangs below the frame rail, so on a rock-oriented build the drag link flip is usually the better half of the pair. And a bracket install on a JK often means the bump stops need extending &mdash; skip that and the tire finds the flare before the suspension runs out of travel.</p>
+
+    <h2>Check the frame-side hole before you spend anything</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The JK's known weak point is the frame-side track bar bracket. If that bolt was ever driven loose &mdash; and on a high-mileage or hard-wheeled JK it frequently was &mdash; the bar hammers the hole oval. Once the hole is elongated, the axle has free lateral play no matter what bar is bolted to it. A brand-new adjustable bar in a wallowed bracket will still wander, and owners chase this for months and hundreds of dollars in parts before they find it.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Check it with the vehicle safely supported on stands, never on a jack alone. Have someone rock the steering wheel back and forth a few degrees while you watch the frame-side joint. Any visible movement of the bolt within the bracket, or any daylight showing at the top or bottom of the hole, means the hole is done. Repair options, cheapest first: drill and step up to the 5/8-inch hardware most aftermarket bars use, add a bolt-on frame bracket brace that sandwiches the mount and restores a round bearing surface, or have the mount TIG-welded and a new insert fitted. Welding is the permanent fix. The brace is the practical one if you do not have access to a welder.</p>
+
+    <h2>Install order that actually works</h2>
+    <ol style="margin:0 0 16px;padding-left:20px;color:var(--text-dim);font-size:15px;line-height:1.85">
+      <li><strong style="color:var(--text)">Inspect both mounts first.</strong> Elongated frame hole, torn axle-side bushing, cracked bracket welds. Fix those before anything bolts on.</li>
+      <li><strong style="color:var(--text)">Install the bar (and bracket, if the build calls for one) with the bolts finger-tight.</strong> Nothing gets final torque yet.</li>
+      <li><strong style="color:var(--text)">Set the vehicle down on level ground at ride height.</strong> Torquing a track bar with the axle hanging preloads the joints and the bar fights the suspension for the rest of its life.</li>
+      <li><strong style="color:var(--text)">Adjust bar length until the axle is centered.</strong> Re-measure fender-to-tire on both sides. This is the step people rush; take the extra measurement.</li>
+      <li><strong style="color:var(--text)">Torque both bolts and lock the jam nut.</strong> Specs below.</li>
+      <li><strong style="color:var(--text)">Then align, and then center the steering wheel.</strong> The drag link sets wheel position, and its correct length depends on where the axle ended up. Aligning before the axle is centered means paying for it twice.</li>
+      <li><strong style="color:var(--text)">Re-check torque at 50 to 100 miles.</strong> Non-negotiable on this joint &mdash; the loose frame bolt is exactly how the hole gets ruined.</li>
+    </ol>
+
+    <h2>Torque specs</h2>
+    <div style="overflow-x:auto;margin:0 0 16px">
+      <table style="width:100%;border-collapse:collapse;font-size:14px;color:var(--text-dim)">
+        <thead>
+          <tr style="border-bottom:2px solid var(--border);text-align:left">
+            <th style="padding:8px 10px;color:var(--text)">Fastener</th>
+            <th style="padding:8px 10px;color:var(--text)">Torque</th>
+            <th style="padding:8px 10px;color:var(--text)">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Front track bar &mdash; frame side (castellated bolt)</td><td style="padding:8px 10px"><strong style="color:var(--text)">~125 lb-ft</strong></td><td style="padding:8px 10px">Published figures range 105&ndash;130; torque at ride height</td></tr>
+          <tr style="border-bottom:1px solid var(--border)"><td style="padding:8px 10px">Front track bar &mdash; axle side</td><td style="padding:8px 10px"><strong style="color:var(--text)">~125 lb-ft</strong></td><td style="padding:8px 10px">Same spread; aftermarket instructions override</td></tr>
+          <tr><td style="padding:8px 10px">Adjuster jam nut</td><td style="padding:8px 10px"><strong style="color:var(--text)">Per manufacturer</strong></td><td style="padding:8px 10px">Varies by brand; do not guess on this one</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Sources disagree on the JK figures &mdash; you will find 105, 125, and 130 lb-ft all cited as factory, and the spread appears to come from model-year revisions and from bushing versus solid-joint variants. If you have the FSM for your year, use it. If you have an aftermarket bar, use the bar manufacturer's number and ignore everything else. What matters more than landing on the exact figure is that the joint is genuinely tight and stays tight, which is what the 50-mile re-check is for.</p>
+
+    <h2>The honest verdict</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Most lifted JKs on the road are running 2 to 3 inches, and most of them need one part: an adjustable front track bar. The bracket-and-pitman-arm conversation belongs to 4-inch-and-up builds, and it belongs there as a pair, never as a single purchase. If a parts list hands you a relocation bracket for a 2.5-inch lift, it is padding the cart.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">And if your JK is wandering with a good bar already installed, stop shopping and go look at that frame-side hole. It is the cheapest thing on this page to check and the most expensive thing to keep ignoring. Steering components are the one system where a marginal part does not stay marginal &mdash; it fails at the worst moment. Take the extra hour with the stands and the flashlight.</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <a href="/blog/jk-bump-steer-after-lift/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Bump Steer After a Lift</div>
+          <div style="font-size:12px;color:var(--text-dim)">What it is, and the order to fix it in.</div>
+        </a>
+        <a href="/blog/jk-death-wobble/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Death Wobble</div>
+          <div style="font-size:12px;color:var(--text-dim)">Diagnosis sequence for the JK front end.</div>
+        </a>
+        <a href="/blog/jk-lift-kit-guide/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Lift Kit Guide</div>
+          <div style="font-size:12px;color:var(--text-dim)">What each lift height actually requires.</div>
+        </a>
+        <a href="/workshop/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Workshop</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Workshop Reference</div>
+          <div style="font-size:12px;color:var(--text-dim)">Torque, technique, and safety fundamentals.</div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
+    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/xj-death-wobble-causes/">XJ Death Wobble</a><a href="/db/?v=xj">XJ Database</a></div>
+    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
+</footer>
+
+<script>
+const t = document.getElementById('tm-nav-toggle');
+if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
+</script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
