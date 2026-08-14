@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -69,6 +79,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Use AGM only. The JL&#x27;s body control module is configured for AGM charging voltage and current profiles. Drop in a flooded lead-acid battery and the BCM will overcharge it on highway runs and undercharge it during ESS stop events, which kills the battery in months and throws &quot;Service Stop/Start System&quot; warnings. Quality H7 AGM options include Mopar OEM (Interstate MTX-94R/H7), Odyssey AGM94R, Optima YELLOWTOP DH7, and the OEM eTorque part 56029720AA. Expect to pay $250–$350 for a quality H7 AGM.</p>
 <p>The auxiliary battery on start-stop and eTorque trims lives on the passenger side firewall under a small cover. It powers electronics during the ESS engine-off pause so cabin power, infotainment, and HVAC don&#x27;t drop out. When it fails, ESS stops working and you&#x27;ll see a service message — but the truck still runs fine on the main battery alone. Replacement AUX14 batteries run $90–$140.</p>
 <p>After replacing either battery, the BCM needs to register the new battery so it can manage charging correctly. On non-eTorque JLs the system usually self-relearns within a few drive cycles. On eTorque trims, a Mopar dealer or aftermarket scan tool (Topdon, Autel, wiTECH) is recommended to perform a battery registration. Without registration, the alternator may not properly charge the new battery, shortening its life by half.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Park on level ground and turn off all accessories. Open the driver door so the BCM stays awake briefly.</li><li>Optional: plug a memory saver into the OBD-II port to preserve radio presets and adaptive transmission learning.</li><li>Open the hood. Loosen the 10mm negative (black) terminal clamp on the main battery first. Tuck the cable aside.</li><li>Loosen the 10mm positive (red) terminal clamp and remove the plastic cover. Tuck the cable aside.</li><li>Remove the 13mm battery hold-down bracket bolt at the front base of the battery.</li><li>Lift the battery straight up — it weighs roughly 50 pounds.</li><li>Clean the tray and terminals with a battery brush. Inspect for corrosion or moisture damage.</li><li>Set the new AGM battery in place with terminals matching the original orientation.</li><li>Reinstall the hold-down bracket and torque the 13mm bolt snug — do not overtighten.</li><li>Connect the positive terminal first, then the negative. Tighten the 10mm clamps until snug.</li><li>For eTorque or start-stop trims, perform a battery registration with a scan tool that supports BCM coding.</li><li>For the auxiliary battery: open the passenger-side firewall cover, disconnect the small terminals (10mm), remove the strap, and swap. Reverse to install.</li></ol>
 <h2>Why it works</h2>
 <ul><li>30–60 minute job in the driveway</li><li>$250 DIY vs. $500+ at the dealer</li><li>Restores start-stop function and clears service messages</li><li>AGM batteries handle deep-cycle abuse better than flooded</li></ul>
 <h2>Trade-offs</h2>
@@ -79,11 +91,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Main AGM H7 battery (94R, 80Ah, 850 CCA)</td><td>Interstate / Mopar</td><td>~$280</td></tr><tr><td>Mopar OEM eTorque main battery</td><td>Mopar</td><td>~$320</td></tr><tr><td>Auxiliary AGM battery (group 400, 200 CCA)</td><td>DieHard / Super Start</td><td>~$110</td></tr><tr><td>Odyssey AGM94R H7</td><td>Odyssey</td><td>~$340</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;JL Wrangler Forums — Main and Aux Battery Size&#x27;, &#x27;url&#x27;: &#x27;https://www.jlwranglerforums.com/forum/threads/main-battery-aux-battery-size.123643/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;2021 3.6 eTorque OEM Battery Specs&#x27;, &#x27;url&#x27;: &#x27;https://www.jlwranglerforums.com/forum/threads/2021-3-6-etorque-oem-battery-specs.122345/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Wrangler Forum — Auxiliary Battery AGM Discussion&#x27;, &#x27;url&#x27;: &#x27;https://www.wranglerforum.com/threads/auxiliary-battery-is-it-an-agm-battery.2442093/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.jlwranglerforums.com/forum/threads/main-battery-aux-battery-size.123643/" target="_blank" rel="noopener nofollow">JL Wrangler Forums — Main and Aux Battery Size</a></li><li><a href="https://www.jlwranglerforums.com/forum/threads/2021-3-6-etorque-oem-battery-specs.122345/" target="_blank" rel="noopener nofollow">2021 3.6 eTorque OEM Battery Specs</a></li><li><a href="https://www.wranglerforum.com/threads/auxiliary-battery-is-it-an-agm-battery.2442093/" target="_blank" rel="noopener nofollow">Wrangler Forum — Auxiliary Battery AGM Discussion</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
