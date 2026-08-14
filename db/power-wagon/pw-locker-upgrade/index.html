@@ -103,6 +103,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -114,16 +124,24 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>The Power Wagon&#x27;s factory Tru-Lok system is genuinely unique:</strong></p>
 <ul><li>Front locker: AAM 9.25&quot; axle, electromagnetic engagement, dash-switched</li><li>Rear locker: AAM 11.5&quot; axle, electromagnetic engagement, dash-switched (auto-engages in 4WD-Low or manually anytime)</li></ul>
 <p>The factory units are NOT &quot;limited slip&quot; — they&#x27;re real selectable lockers. When engaged, 100% of axle torque is split 50/50 between the wheels. Performance is on par with aftermarket ARB or Eaton units.</p>
-<p>**For 95% of Power Wagon owners:** the factory lockers never need upgrading. Common issues are wiring (solenoid faults from corrosion at the connector) or actuator failures — these are repairs, not upgrades. See [[front-locker-elocker-troubleshooting]].</p>
-<p><strong>**The 5% case** where an aftermarket locker swap makes sense:</strong></p>
-<p>1. **Factory locker has physically failed** (cracked case, broken splines) — out of warranty, a new factory unit is $800-1,400 from Mopar. ARB or Eaton replacement is comparable cost, often with longer-term parts availability.</p>
-<p>2. **You want a rebuildable unit for hard rock-crawling.** Factory Tru-Loks are sealed; ARB Air Lockers and Eaton ELockers can be field-rebuilt with replaceable internals. Worth it if you wheel 50+ days/year in rocks.</p>
-<p>3. **You&#x27;ve re-geared and don&#x27;t trust the factory carrier shim stack.** When the diff is open for a re-gear, swapping to ARB or Eaton at the same time saves labor. About $300 extra labor + the locker cost. See [[pw-regear-456]].</p>
-<p>**For ARB Air Lockers** ($1,200 + compressor ~$400) — proven rock-crawl reference, needs an air compressor (Power Wagon owners often install one for tire airing-up anyway, so this is a small marginal cost).</p>
-<p>**For Eaton ELockers** ($1,100, no compressor needed) — electronic activation like the factory unit, more straightforward wiring. The pick if you don&#x27;t want to plumb air lines.</p>
+<p><strong>For 95% of Power Wagon owners:</strong> the factory lockers never need upgrading. Common issues are wiring (solenoid faults from corrosion at the connector) or actuator failures — these are repairs, not upgrades. See <a href="/db/power-wagon/front-locker-elocker-troubleshooting/">front-locker-elocker-troubleshooting</a>.</p>
+<p><strong><strong>The 5% case</strong> where an aftermarket locker swap makes sense:</strong></p>
+<ol><li><strong>Factory locker has physically failed</strong> (cracked case, broken splines) — out of warranty, a new factory unit is $800-1,400 from Mopar. ARB or Eaton replacement is comparable cost, often with longer-term parts availability.</li></ol>
+<ol><li><strong>You want a rebuildable unit for hard rock-crawling.</strong> Factory Tru-Loks are sealed; ARB Air Lockers and Eaton ELockers can be field-rebuilt with replaceable internals. Worth it if you wheel 50+ days/year in rocks.</li></ol>
+<ol><li><strong>You&#x27;ve re-geared and don&#x27;t trust the factory carrier shim stack.</strong> When the diff is open for a re-gear, swapping to ARB or Eaton at the same time saves labor. About $300 extra labor + the locker cost. See <a href="/db/power-wagon/pw-regear-456/">pw-regear-456</a>.</li></ol>
+<p><strong>For ARB Air Lockers</strong> ($1,200 + compressor ~$400) — proven rock-crawl reference, needs an air compressor (Power Wagon owners often install one for tire airing-up anyway, so this is a small marginal cost).</p>
+<p><strong>For Eaton ELockers</strong> ($1,100, no compressor needed) — electronic activation like the factory unit, more straightforward wiring. The pick if you don&#x27;t want to plumb air lines.</p>
 <p>For aftermarket front: don&#x27;t bother. The factory front locker is excellent and rarely fails. If it does fail, replace with factory Mopar.</p>
 <p>For aftermarket rear: ARB or Eaton are both excellent. Choose based on whether you&#x27;re running an air compressor anyway.</p>
 <p>Honest framing: this is a $1,200 swap that 95% of Power Wagon owners will never need. The factory lockers really are that good. Read this entry as &quot;what to do IF a factory unit fails&quot; — not &quot;what to install on a stock truck.&quot;</p>
+<p>A &quot;failed&quot; locker is far more often a wiring or actuator fault than a broken carrier. Before you condemn a sealed Tru-Lok and order a $1,200 ARB, work the cheap causes:</p>
+<ol><li>Pull codes. The Tru-Lok system reports through the BCM; a C-code pointing at the front or rear locker circuit usually means a solenoid or connector fault, not mechanical failure.</li><li>Inspect the axle-mounted connector. The rear locker connector sits low and forward of the AAM 11.5&quot; pumpkin and collects mud and salt. Corrosion here mimics a dead locker exactly — clean it, dielectric-grease it, retest.</li><li>Confirm engagement conditions. The rear auto-engages in 4-Low and can be switched manually; the front only engages in 4-Low with the rear already locked. Owners regularly report a &quot;broken&quot; front locker that is simply being asked to lock in a mode the truck won&#x27;t allow.</li></ol>
+<p>The full electrical walk-through lives in <a href="/db/power-wagon/front-locker-elocker-troubleshooting/">front-locker-elocker-troubleshooting</a>. Only after the wiring and actuator check out clean does an aftermarket carrier enter the conversation.</p>
+<p>Replacing the rear Tru-Lok with an ARB or Eaton is a full third-member rebuild — pull the axle shafts, drop the carrier, and re-set up the ring and pinion. This is the job where most owners pay a shop, and rightly so:</p>
+<ol><li>The AAM 11.5&quot; carrier comes out as an assembly; mark and save the bearing caps and shims in order.</li><li>The new carrier needs backlash and pinion-bearing preload set to spec with a dial indicator and inch-pound torque wrench. Get this wrong and the gearset howls or fails.</li><li>ARB requires an air line plumbed from a compressor to the diff with a bulkhead fitting; Eaton needs a switched 12V feed and ground. Route either away from the exhaust and rotating parts.</li><li>Because the diff is already apart, this is the moment to re-gear if you&#x27;re planning it anyway — combine the labor. See <a href="/db/power-wagon/pw-regear-456/">pw-regear-456</a> for ratio choices on 37s.</li></ol>
+<p>Realistic cost: $1,100-1,200 for the locker, plus $400 for an ARB compressor if you don&#x27;t have one, plus $400-700 shop labor for the setup. Combining with a re-gear adds the gearset but only marginal extra labor.</p>
+<p>Don&#x27;t replace the front with aftermarket. The factory AAM 9.25&quot; front Tru-Lok is excellent and parts-supported through Mopar; an aftermarket front locker buys you nothing but wiring headaches. If the front truly fails out of warranty, a factory replacement is the right call.</p>
+<p>Match the locker to how you actually wheel. ARB&#x27;s air system is the rock-crawl reference and is field-rebuildable, but it adds a compressor and air lines that need maintenance. Eaton&#x27;s ELocker engages electrically like the factory unit with far simpler plumbing — the better pick if you don&#x27;t already run air for tire inflation. Picking ARB purely &quot;because it&#x27;s the best&quot; and then never maintaining the compressor leaves you worse off than the factory unit you removed.</p>
 <h2>Why it works</h2>
 <ul><li>Factory lockers are bulletproof for 95% of use cases</li><li>Aftermarket options exist if needed — not a &quot;factory only&quot; situation</li><li>ARB/Eaton replacements offer rebuildability that the factory unit lacks</li><li>Combining a locker swap with a re-gear saves labor</li></ul>
 <h2>Trade-offs</h2>
@@ -133,10 +151,13 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h2>Parts</h2>
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>(Already factory) Tru-Lok front locker — solenoid + selector switch</td><td>Ram Factory</td><td>~$0</td></tr><tr><td>(Already factory) Tru-Lok rear locker</td><td>Ram Factory</td><td>~$0</td></tr><tr><td>ARB Air Locker rear AAM 11.5&quot; (replacement, if factory rear fails)</td><td>ARB</td><td>~$1200</td></tr><tr><td>Eaton ELocker rear AAM 11.5&quot; (alternative replacement)</td><td>Eaton</td><td>~$1100</td></tr></tbody></table>
+<h2>Sources</h2>
+<ul class="tm-sources"><li><a href="https://www.arbusa.com/air-lockers/" target="_blank" rel="noopener nofollow">ARB Air Locker — AAM 11.5&quot; application (RD188)</a></li><li><a href="https://www.eaton.com/us/en-us/products/differentials/elocker-electronic-locking-differential.html" target="_blank" rel="noopener nofollow">Eaton ELocker — electronic selectable locker overview</a></li><li><a href="https://www.aam.com/" target="_blank" rel="noopener nofollow">American Axle (AAM) 9.25&quot; front / 11.5&quot; rear axle references</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/power-wagon/front-locker-elocker-troubleshooting/">Power Wagon Front E-Locker Won&#x27;t Engage: Diagnosing the Electronic Locking Differentials</a></li><li><a href="/db/power-wagon/pw-regear-456/">Re-gear from 4.10 to 4.56 for 37s on Power Wagon</a></li><li><a href="/power-wagon/">All Ram Power Wagon guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
