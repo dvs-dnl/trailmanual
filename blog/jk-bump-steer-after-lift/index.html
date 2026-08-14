@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/jk-bump-steer-after-lift/">
+<title>JK Bump Steer After a Lift: What Causes It and How to Fix It — Trail Manual</title>
+<meta name="description" content="Bump steer after lifting a JK Wrangler is a geometry problem: the track bar and drag link are no longer parallel, so the axle steers itself over bumps. Here's why it happens, how it differs from death wobble, and the right fix for your lift height.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What causes bump steer on a lifted JK Wrangler?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bump steer is a geometry problem. From the factory the front track bar and drag link sit roughly parallel, so as the suspension cycles they swing through matching arcs and the axle stays pointed straight. Lifting the JK raises the axle-side mounts and tilts those bars out of parallel. Now they sweep different arcs, so every bump or dip forces the axle to steer itself a few degrees. The steering wheel tugs in your hands and the front end darts. It is caused by the lift changing the angles, not by worn parts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "At what lift height does a JK get bump steer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is usually mild or absent up to about 2.5 inches, noticeable from roughly 3 to 4 inches, and a real problem at 4.5 inches and up. The exact threshold depends on the kit and how far off-center the axle sits, but a 4.5-inch-plus lift almost always needs the steering geometry corrected, not just an adjustable track bar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is bump steer the same as death wobble?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Bump steer is a predictable, repeatable deflection of the wheels caused by lift geometry, and it happens even when every joint is tight. Death wobble is a violent resonant oscillation triggered by a bump, almost always caused by worn or loose components such as the track bar, ball joints, or tie rod ends. New parts will not cure bump steer if the geometry is wrong, and corrected geometry will not cure death wobble if the parts are worn."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a drop pitman arm fix JK bump steer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can flatten the drag link angle, but it is not the preferred fix. A drop pitman arm moves the drag link load further from the steering box and increases leverage on the sector shaft, which adds stress to an already weak point on the JK. Raising the track bar mount and flipping the drag link to the top of the knuckle restores parallel geometry without overloading the box, and is the better answer at higher lift heights."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+      <a class="tm-vehicle-chip" href="/jk/"><img src="/images/icon-jk.png" alt="" class="tm-chip-icon" style="height:18px;width:auto;vertical-align:-4px;margin-right:4px">Wrangler JK</a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
+      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script><main class="tm-main">
+  <article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">Wrangler JK · Steering &amp; Suspension</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">JK Bump Steer After a Lift: What Causes It and How to Fix It</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">You lifted the Jeep, the install went clean, and now the front end darts every time you hit a seam in the road. That is bump steer, and it is not a sign you did something wrong — it is a geometry side effect of the lift itself. Here is exactly why it shows up, how to tell it apart from death wobble, and what the correct fix is for your specific lift height.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>June 28, 2026</span> · <span>9 min read</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:0 0 28px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
+      <p style="font-size:14px;color:var(--text-dim);margin:0;line-height:1.6">Bump steer after lifting a JK is a geometry problem: the front track bar and drag link are no longer parallel, so as the suspension cycles the axle steers itself and the wheel tugs in your hands over bumps. It is mild up to about 2.5 inches of lift, noticeable around 3 to 4 inches, and a real problem at 4.5 inches and up. The fix is to restore parallel geometry — re-center the axle with an adjustable track bar at smaller lifts, and at 4.5 inches or more raise the track bar mount and flip the drag link to the top of the knuckle so both bars sweep the same arc again. It is not death wobble, and it is not fixed by a steering stabilizer.</p>
+    </div>
+
+    <h2>What bump steer actually feels like</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Bump steer is the front wheels steering themselves without any input from you. Drive over a pothole, a frost heave, or a bridge expansion joint and the Jeep twitches sideways — the steering wheel pulls one way, then snaps back. Under braking, when the nose dives and the suspension compresses, it can yank toward the next lane. It is repeatable and predictable: the same bump produces the same dart, every time, at any speed. That predictability is the tell. It is the geometry doing exactly what the angles tell it to do.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">This is different from general post-lift wandering, where the Jeep drifts within its lane and needs constant small corrections on the highway. Wandering on a lifted JK usually traces to lost caster — lifting rotates the axle and drops the caster angle, which reduces the self-centering force in the steering. Bump steer is sharper and tied to bumps, not to the steady-state feel of the wheel. You can have both at once on a tall lift, and the fixes overlap, but they are separate problems with separate causes.</p>
+
+    <h2>Why lifting the JK creates it</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The JK uses a solid front axle located side-to-side by a single track bar, and steered through a drag link that runs from the pitman arm on the steering box to the knuckle. From the factory these two bars run close to parallel. That parallelism is the whole trick: when the suspension moves up and down, the track bar swings the axle through an arc, and the drag link swings through a matching arc. Because the arcs match, the axle position and the steering position move together and the wheels stay pointed where you aimed them.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Lift the Jeep and you move the axle down away from the body. The frame-side mounts stay put while the axle-side mounts drop, so both bars tilt to a steeper angle — and they rarely tilt by the same amount. Once the track bar and drag link are no longer parallel, their arcs diverge. Now when the suspension cycles over a bump, the track bar pulls the axle sideways by a different amount than the drag link expects, and that mismatch shows up as toe change — the axle steering itself. The taller the lift, the steeper the angles, and the worse the divergence. That is why a 2-inch lift is usually fine and a 4.5-inch lift almost never is.</p>
+
+    <h2>Bump steer is not death wobble</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">This distinction matters because the wrong diagnosis wastes money. Death wobble is a violent, self-feeding oscillation — the front end shakes so hard the wheel becomes a blur — and it is almost always caused by worn or loose components: a sloppy track bar, bad ball joints, worn tie rod ends, or a loose steering box. It is a looseness problem. Bump steer, by contrast, happens with every joint tight and new. It is a geometry problem. A brand-new JK with a fresh lift and zero worn parts can have textbook bump steer.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The practical consequence: throwing new parts at bump steer will not fix it, because nothing is worn. And correcting geometry will not cure death wobble, because the geometry was never the cause. If your front end shakes itself into a frenzy after a single bump, start with the <a href="/blog/jk-death-wobble/" style="color:var(--accent)">death wobble diagnosis sequence</a> and check for play first. If instead the Jeep darts cleanly and repeatably over bumps with everything tight, you are dealing with bump steer, and the answer is the angles.</p>
+
+    <h2>The fix depends on how much lift you ran</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Up to about 2.5 inches:</strong> Most JKs at this height have little or no bump steer. What they often do have is an axle shifted slightly toward the driver side, because the fixed-length factory track bar can no longer center the axle at the new height. An adjustable front track bar lets you pull the axle back to center, which squares up the geometry and fixes the off-center stance and the rub it can cause. This is a caster and centering correction more than a bump-steer cure, but at this height it is usually all you need.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Roughly 3 to 4 inches:</strong> Bump steer becomes noticeable here. An adjustable track bar to re-center the axle is the baseline, and caster correction starts to matter — adjustable lower control arms or a cast geometry-correction bracket bring the caster back toward the factory 4 to 6 degrees, which settles the highway wander that often rides along with bump steer at this height. Some builds in this range get acceptable results from track bar and caster work alone. If the bump steer persists after centering and caster are dialed, the track bar and drag link angles still are not parallel, and you move to the next step.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">4.5 inches and up:</strong> At this height you have to correct the steering geometry directly, not work around it. The standard answer is a track bar relocation bracket paired with a drag link flip. The relocation bracket raises the axle-side track bar mount — commonly about 3 inches — and the drag link flip moves the drag link to sit on top of the knuckle, raising its angle by a matching amount. Done together, they bring both bars back to parallel and the bump steer goes away. Some owners go further with a full high-steer setup that relocates the tie rod and drag link to the top of the knuckles for the cleanest geometry on tall builds.</p>
+
+    <h2>The one mistake that creates bump steer</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Here is the trap: raising the track bar mount without correcting the drag link makes bump steer worse, not better. The instant you bracket the track bar up 3 inches and leave the drag link where it was, you have forced the two bars further out of parallel than the lift alone did. These parts are a matched set. If you raise one, you raise the other. A relocation bracket and a drag link flip belong together — installing one without the other is a common and frustrating way to chase a problem you just created.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">You will see drop pitman arms sold as a bump steer fix, and they do flatten the drag link angle. They are not the move on a JK. A drop pitman arm increases the leverage on the steering box sector shaft, and the JK box is already a weak point — adding load there trades one problem for a slower, more expensive one. Raise the track bar and flip the drag link instead. It restores the geometry without overworking the box.</p>
+
+    <h2>How to check your geometry yourself</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">You do not need an alignment rack to see whether your bars are parallel. Park on level ground at normal ride height. Run a straight reference — a length of string or a straightedge — along the track bar from mount center to mount center, and do the same along the drag link. Measure the vertical gap between the two reference lines at the axle end and at the frame end. If the bars are parallel, the gap is the same at both ends. If the gap is 3 inches at one end and 1 inch at the other, the bars are 2 inches out of parallel and that difference is your bump steer. The closer you get the two gaps to equal, the more the bump steer disappears.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Work this measurement before and after any change so you can prove the geometry actually improved rather than guessing from the seat of the Jeep. It is the same logic the steering and suspension specialists use, and it turns a vague "it feels twitchy" into a number you can correct.</p>
+
+    <div style="background:var(--surface-2,rgba(127,127,127,.06));border:1px solid var(--border);border-radius:10px;padding:22px 24px;margin:28px 0">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:12px">Quick reference</div>
+      <ul style="margin:0;padding-left:18px;color:var(--text-dim);font-size:14px;line-height:1.9">
+        <li><strong style="color:var(--text)">Cause:</strong> track bar and drag link no longer parallel after lift — axle steers itself over bumps</li>
+        <li><strong style="color:var(--text)">Up to 2.5":</strong> adjustable track bar to re-center the axle; bump steer usually minor</li>
+        <li><strong style="color:var(--text)">3–4":</strong> adjustable track bar + caster correction (control arms or geometry bracket)</li>
+        <li><strong style="color:var(--text)">4.5"+:</strong> track bar relocation bracket + drag link flip (or full high-steer)</li>
+        <li><strong style="color:var(--text)">Never:</strong> raise the track bar mount without correcting the drag link — that creates bump steer</li>
+        <li><strong style="color:var(--text)">Check:</strong> string both bars, measure the gap at each end — equal gaps mean parallel</li>
+        <li><strong style="color:var(--text)">Not the same as:</strong> death wobble (worn parts) or wandering (lost caster)</li>
+      </ul>
+    </div>
+
+    <h2>The honest verdict</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Bump steer after a lift is a solvable geometry problem, and the solution scales with how tall you went. If you ran a modest lift and the Jeep just feels slightly off, an adjustable track bar and a caster check will likely cover it. If you went 4.5 inches or taller, plan from the start to correct the steering geometry with a relocation bracket and a drag link flip — budget for it as part of the lift, not as a surprise afterward. The work is within reach in a home garage with hand tools and a way to support the Jeep safely, and the payoff is a front end that goes where you point it instead of where the road throws it.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Whatever route you take, finish with an alignment to set toe and confirm caster, and re-run the string check to prove the bars are parallel. A lifted JK that tracks straight and shrugs off bumps is the standard to hold out for — anything less is geometry you have not finished correcting yet.</p>
+
+    <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <a href="/blog/jk-death-wobble/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Death Wobble: Diagnose and Fix It</div>
+          <div style="font-size:12px;color:var(--text-dim)">The worn-parts problem people confuse with bump steer.</div>
+        </a>
+        <a href="/blog/jk-lift-kit-guide/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Blog</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">How to Lift a JK Wrangler</div>
+          <div style="font-size:12px;color:var(--text-dim)">Setup, order, and what actually matters.</div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
+    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/jk-death-wobble/">JK Death Wobble</a><a href="/db/?v=jk">JK Database</a></div>
+    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
+</footer>
+
+<script>
+const t = document.getElementById('tm-nav-toggle');
+if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
+</script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
