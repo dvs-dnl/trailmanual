@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -69,6 +79,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Fluid choice is non-negotiable: Toyota Genuine ATF WS (P/N 00289-ATFWS) or a verified equivalent (Idemitsu TLS-LV, Aisin AFW+). Toyota&#x27;s own service manual warns that wrong-spec fluid will harm shift quality and damage the valve body. The cheaper &quot;universal&quot; Dexron/Mercon blends are not interchangeable here — they will shift harshly and shorten the transmission&#x27;s life. Budget 12 quarts of WS to do a full flush.</p>
 <p>A drain-and-fill removes about 4 quarts, leaving roughly 7–8 quarts of old fluid in the torque converter, valve body, and cooler lines. To dilute old fluid effectively, do three drain-and-fills with 100-mile drives in between. After the third, you&#x27;ve cycled the new fluid through every chamber and the system reads about 90% fresh. Skipping the multi-pass cycle leaves you with 60–70% fresh fluid — better than nothing, but not a true service.</p>
 <p>The level-check procedure is the trickiest part. There is no dipstick. Fluid level is verified by draining the overflow tube while the transmission is at exactly 104–113°F (40–45°C). Too cold and you&#x27;ll overfill; too hot and you&#x27;ll underfill. Use an OBD-II scanner that reads transmission temperature (a basic Bluetooth ELM327 + Torque app works) or an infrared thermometer aimed at the pan. Loosen the 5mm hex check plug at temperature and let excess drip until flow reduces to a slow dribble, then torque to 15 ft-lbs.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Drive the vehicle 15 minutes to warm the transmission to operating temperature, then park level.</li><li>Remove the 24mm refill plug FIRST on top of the transmission (under a heat shield on some trims). If you can&#x27;t get it loose, stop — you can&#x27;t refill what you drain.</li><li>Position a drain pan under the transmission. Remove the 14mm drain plug and let fluid drain fully (10 minutes).</li><li>Measure the drained fluid — you&#x27;ll typically capture 3.7–4.0 quarts. Inspect for burnt smell, metal flakes, or discoloration.</li><li>Reinstall and torque the drain plug to 21 ft-lbs.</li><li>Pump in the same quantity of fresh Toyota WS through the refill plug using a transfer pump.</li><li>Reinstall and torque the refill plug to 29 ft-lbs.</li><li>Start the engine. With your foot on the brake, cycle the shifter through P-R-N-D-3-2-L and back to P, pausing 3 seconds in each gear.</li><li>Drive 100 miles of mixed driving to circulate the new fluid through the torque converter and valve body.</li><li>Repeat steps 1–9 twice more for a true flush (three drain-and-fills total).</li><li>After the final fill: with engine idling and transmission at 104–113°F, loosen the 5mm hex check plug.</li><li>Let excess fluid dribble out. When flow slows to drops, torque the check plug to 15 ft-lbs and shut off the engine.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Catches metal debris and fluid breakdown before they damage the valve body</li><li>$100 in fluid vs. $4,000+ for a rebuilt transmission</li><li>A750F responds well to fresh WS — shift quality noticeably improves</li><li>Multi-pass drain-and-fill is safer than a machine flush on high-mileage units</li></ul>
 <h2>Trade-offs</h2>
@@ -79,11 +91,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Toyota Genuine ATF WS (1 qt)</td><td>Toyota</td><td>~$12</td></tr><tr><td>Aftermarket Toyota WS ATF (Idemitsu, Aisin)</td><td>Idemitsu / Aisin</td><td>~$9</td></tr><tr><td>Transmission pan gasket (if dropping pan)</td><td>Toyota / OEM</td><td>~$35</td></tr><tr><td>Transmission filter (if servicing internally)</td><td>Toyota / Aisin</td><td>~$75</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Trail4Runner — Drain and Fill 5th Gen&#x27;, &#x27;url&#x27;: &#x27;https://trail4runner.com/2023/05/07/transmission-fluid-change-5th-gen-4runner/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;BobIsTheOilGuy — Toyota A750E/F DIY Flush Procedure&#x27;, &#x27;url&#x27;: &#x27;https://bobistheoilguy.com/forums/threads/toyota-a750e-f-do-it-yourself-transmission-flush.283617/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;TheTrackAhead — Transmission Fluid Flush 4th Gen 4Runner&#x27;, &#x27;url&#x27;: &#x27;https://thetrackahead.com/projects/4th-gen-toyota-4runner/transmission-fluid-flush-and-fill-4th-gen-toyota-4runner/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://trail4runner.com/2023/05/07/transmission-fluid-change-5th-gen-4runner/" target="_blank" rel="noopener nofollow">Trail4Runner — Drain and Fill 5th Gen</a></li><li><a href="https://bobistheoilguy.com/forums/threads/toyota-a750e-f-do-it-yourself-transmission-flush.283617/" target="_blank" rel="noopener nofollow">BobIsTheOilGuy — Toyota A750E/F DIY Flush Procedure</a></li><li><a href="https://thetrackahead.com/projects/4th-gen-toyota-4runner/transmission-fluid-flush-and-fill-4th-gen-toyota-4runner/" target="_blank" rel="noopener nofollow">TheTrackAhead — Transmission Fluid Flush 4th Gen 4Runner</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/4runner/4runner-transfer-case-fluid-4runner/">Transfer Case Fluid Change</a></li><li><a href="/db/4runner/4runner-front-diff-fluid-4runner/">Front Differential Fluid Change</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
