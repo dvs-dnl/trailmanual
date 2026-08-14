@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/hot-coolant-burns/">
+<title>Hot Coolant Burns — Why the System Must Be Cool Before Opening — The Workshop · Trail Manual</title>
+<meta name="description" content="A pressure cap holds coolant at 250°F as a liquid. Open the system hot and it flash-boils into a scalding geyser. The three checks that tell you it is actually safe to open.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
+  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
+  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
+  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
+  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
+  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
+
+  /* Legacy aliases — light-theme values mapped from canon */
+  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
+  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
+  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
+  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
+  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
+  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
+  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
+  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
+
+  --radius:4px; --radius-lg:6px;
+  --shadow:0 4px 24px rgba(43,58,74,.08);
+  --max:1200px;
+
+  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+/* ═══════════════════════════════════════════════════════
+   TRAIL MANUAL · UNIFIED NAV  v1.0 · May 2026
+   tnav- prefix · self-contained · works with or without _shared.css
+   Reads --paper,--bone,--slate,--slate-l,--clay from page :root.
+   ═══════════════════════════════════════════════════════ */
+.tnav{--nb:var(--paper,#F7F4ED);--nbdr:var(--bone,#E8E2D2);--nt:var(--slate,#2B3A4A);--ntd:var(--slate-light,var(--slate-l,#5B6B7E));--na:var(--clay,#C97E50);--nhov:var(--bone,#E8E2D2);--ndrop:var(--panel,var(--paper,#F7F4ED));--nbdr2:var(--bone,#E8E2D2)}
+.tnav[data-variant=dark]{--nb:var(--slate-d,var(--slate-deep,#1A2330));--nbdr:rgba(43,58,74,.8);--nt:var(--bone,#E8E2D2);--ntd:rgba(232,226,210,.65);--nhov:rgba(255,255,255,.08);--ndrop:#2B3A4A;--nbdr2:rgba(255,255,255,.12)}
+.tnav{position:sticky;top:0;z-index:200;background:var(--nb);border-bottom:1px solid var(--nbdr);font-family:var(--font-sans,'DM Sans',-apple-system,sans-serif);backdrop-filter:blur(8px)}
+.tnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:4px}
+.tnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--nt);flex-shrink:0;margin-right:16px}
+.tnav-brand:hover{text-decoration:none;opacity:.85}
+.tnav-logo{width:28px;height:28px;display:block;flex-shrink:0}
+.tnav-wordmark{font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--nt);line-height:1;white-space:nowrap}
+.tnav-dot{display:inline-block;width:5px;height:5px;background:var(--na);border-radius:50%;margin:0 4px;vertical-align:3px}
+.tnav-center{display:flex;align-items:center;gap:2px;flex:1}
+.tnav-right{margin-left:auto;flex-shrink:0}
+.tnav-link,.tnav-link-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--ntd);background:transparent;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;font-family:inherit;line-height:1}
+.tnav-link:hover,.tnav-link-btn:hover,.tnav-link:focus-visible,.tnav-link-btn:focus-visible{color:var(--nt);background:var(--nhov);text-decoration:none;outline:none}
+.tnav-link.tnav-active,.tnav-link-btn.tnav-active{color:var(--na);background:var(--nhov)}
+.tnav-caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;flex-shrink:0}
+.tnav-item.tnav-open .tnav-caret{transform:rotate(180deg)}
+.tnav-item{position:relative}
+.tnav-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--ndrop);border:1px solid var(--nbdr2);border-radius:8px;box-shadow:0 8px 32px rgba(43,58,74,.16);padding:6px;z-index:300}
+.tnav-drop.tnav-drop-right{left:auto;right:0}
+.tnav-item.tnav-open>.tnav-drop{display:block}
+.tnav-drop-vehicles{min-width:420px;display:none;grid-template-columns:1fr 1fr;gap:0 8px;padding:8px}
+.tnav-item.tnav-open>.tnav-drop-vehicles{display:grid}
+.tnav-drop-section{padding:4px 0 6px}
+.tnav-drop-label{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ntd);padding:6px 10px 4px}
+.tnav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);text-decoration:none;transition:background .12s,color .12s;gap:8px}
+.tnav-drop-link:hover,.tnav-drop-link:focus-visible{background:var(--nhov);color:var(--na);outline:none;text-decoration:none}
+.tnav-drop-years{font-size:11px;color:var(--ntd);flex-shrink:0;font-family:var(--font-mono,'JetBrains Mono',monospace)}
+.tnav-divider{border:none;border-top:1px solid var(--nbdr2);margin:4px 6px}
+.tnav-my-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid var(--nbdr);background:transparent;color:var(--nt);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;transition:border-color .15s,background .15s,color .15s;line-height:1}
+.tnav-my-btn:hover,.tnav-my-btn:focus-visible{border-color:var(--na);background:var(--nhov);outline:none}
+.tnav-item.tnav-open .tnav-my-btn{border-color:var(--na);color:var(--na)}
+.tnav-my-icon{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-vehicle-pill{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:5px;background:var(--nhov);margin-bottom:2px;text-decoration:none;color:var(--nt);transition:filter .12s}
+.tnav-vehicle-pill:hover{filter:brightness(1.05);text-decoration:none}
+.tnav-vehicle-pill img{width:28px;height:28px;object-fit:contain}
+.tnav-vehicle-pill-info{display:flex;flex-direction:column;gap:2px}
+.tnav-vehicle-pill-name{font-size:13px;font-weight:600;color:var(--nt);line-height:1.2}
+.tnav-vehicle-pill-years{font-size:11px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-no-vehicle{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:5px;font-size:13px;color:var(--ntd);text-decoration:none;transition:background .12s}
+.tnav-no-vehicle:hover{background:var(--nhov);color:var(--na);text-decoration:none}
+.tnav-theme-row{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s,color .12s}
+.tnav-theme-row:hover{background:var(--nhov);color:var(--na)}
+.tnav-theme-icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
+.tnav-hamburger{display:none;align-items:center;justify-content:center;width:36px;height:36px;background:transparent;border:1px solid var(--nbdr);border-radius:6px;color:var(--nt);cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color .15s;padding:0}
+.tnav-hamburger:hover,.tnav-hamburger:focus-visible{border-color:var(--na);outline:none}
+.tnav-ham-icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.tnav-drawer{display:none;border-top:1px solid var(--nbdr);background:var(--nb);max-height:calc(100vh - 56px);overflow-y:auto}
+.tnav-drawer.tnav-open{display:block}
+.tnav-drawer-inner{max-width:1200px;margin:0 auto;padding:12px 16px 20px;display:flex;flex-direction:column}
+.tnav-drawer-section{border-bottom:1px solid var(--nbdr);padding:8px 0 12px}
+.tnav-drawer-section:last-child{border-bottom:none}
+.tnav-drawer-label{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ntd);padding:4px 8px 6px}
+.tnav-drawer-vehicles{display:grid;grid-template-columns:1fr 1fr;gap:0 4px}
+@media(max-width:400px){.tnav-drawer-vehicles{grid-template-columns:1fr}}
+.tnav-drawer-link{display:flex;align-items:center;justify-content:space-between;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);text-decoration:none;transition:background .12s;gap:8px}
+.tnav-drawer-link:hover{background:var(--nhov);text-decoration:none;color:var(--na)}
+.tnav-drawer-link.tnav-active{color:var(--na)}
+.tnav-drawer-years{font-size:12px;color:var(--ntd);font-family:var(--font-mono,monospace)}
+.tnav-drawer-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s}
+.tnav-drawer-btn:hover{background:var(--nhov);color:var(--na)}
+@media(max-width:720px){.tnav-center{display:none}.tnav-right{display:none}.tnav-hamburger{display:flex}.tnav-inner{padding:0 16px}}
+.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
+  /* Defensive: explicit color so legacy cascade can't break the hero */
+  .hero{color:var(--text)}
+  .hero h1{color:var(--text)}
+  .hero .lede,.hero p{color:var(--text-dim)}
+
+.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
+.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
+.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
+.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
+.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
+.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
+.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
+.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
+.verdict p+p{margin-top:10px}
+h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
+h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
+p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
+p strong{color:var(--text)}
+ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
+li{margin-bottom:6px;line-height:1.6}
+li strong{color:var(--text)}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
+.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
+.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
+.panel-good{background:var(--good-bg);border-color:var(--good-border)}
+.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
+.panel-warn .panel-label{color:var(--warn)}
+.panel-danger .panel-label{color:var(--danger)}
+.panel-good .panel-label{color:var(--good)}
+.panel p,.panel li{font-size:14px;margin-bottom:4px}
+.panel p:last-child,.panel ul:last-child{margin-bottom:0}
+.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
+.video-section h2{margin-top:0}
+.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
+.video-embed{margin:18px 0 0}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-mute)}
+.video-credit a{color:var(--text-dim);border-bottom:1px dotted var(--text-mute)}
+.video-credit a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
+.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
+.related h2{margin-top:0;font-size:18px}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
+.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
+.footer a{color:var(--text-dim)}
+</style>
+<script src="/_nav.js"></script>
+</head>
+<body>
+
+<header class="tnav" id="tnav" data-variant="light">
+  <div class="tnav-inner">
+
+    <a class="tnav-brand" href="/">
+      <svg class="tnav-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="tnav-wordmark">TRAIL<span class="tnav-dot"></span>MANUAL</span>
+    </a>
+
+    <nav class="tnav-center" aria-label="Primary">
+      <div class="tnav-item" id="tnav-vehicles">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-vehicles">Vehicles <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop tnav-drop-vehicles" id="tnav-drop-vehicles" role="menu">
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Jeep</span>
+            <a class="tnav-drop-link" href="/xj/" role="menuitem">Cherokee XJ <span class="tnav-drop-years">1984–2001</span></a>
+            <a class="tnav-drop-link" href="/tj/" role="menuitem">Wrangler TJ <span class="tnav-drop-years">1997–2006</span></a>
+            <a class="tnav-drop-link" href="/jk/" role="menuitem">Wrangler JK <span class="tnav-drop-years">2007–2018</span></a>
+            <a class="tnav-drop-link" href="/jl/" role="menuitem">Wrangler JL <span class="tnav-drop-years">2018–</span></a>
+            <a class="tnav-drop-link" href="/gladiator/" role="menuitem">Gladiator JT <span class="tnav-drop-years">2019–</span></a>
+          </div>
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Ford</span>
+            <a class="tnav-drop-link" href="/bronco/" role="menuitem">Early Bronco <span class="tnav-drop-years">1966–1977</span></a>
+            <a class="tnav-drop-link" href="/bronco-ii/" role="menuitem">Bronco II <span class="tnav-drop-years">1984–1990</span></a>
+            <a class="tnav-drop-link" href="/full-size-bronco/" role="menuitem">Full-Size Bronco <span class="tnav-drop-years">1978–1996</span></a>
+            <a class="tnav-drop-link" href="/bronco6g/" role="menuitem">New Bronco <span class="tnav-drop-years">2021–</span></a>
+            <a class="tnav-drop-link" href="/raptor/" role="menuitem">F-150 Raptor <span class="tnav-drop-years">Gen 2–3</span></a>
+            <span class="tnav-drop-label">Toyota · Ram</span>
+            <a class="tnav-drop-link" href="/4runner/" role="menuitem">4Runner <span class="tnav-drop-years">3rd–5th Gen</span></a>
+            <a class="tnav-drop-link" href="/tacoma/" role="menuitem">Tacoma <span class="tnav-drop-years">1st–3rd Gen</span></a>
+            <a class="tnav-drop-link" href="/power-wagon/" role="menuitem">Power Wagon <span class="tnav-drop-years">2011–</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="tnav-item" id="tnav-tools">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-tools">Tools <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop" id="tnav-drop-tools" role="menu">
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Vehicle Database</a>
+          <a class="tnav-drop-link" href="/gear-ratio-calculator.html" role="menuitem">Gear Ratio Calculator</a>
+          <a class="tnav-drop-link" href="/jk-wrangler-engine-swap-tool.html" role="menuitem">Engine Swap Tool (JK)</a>
+          <a class="tnav-drop-link" href="/v8-swap-parts-checklist.html" role="menuitem">V8 Parts Checklist</a>
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Pick Your Rig</a>
+        </div>
+      </div>
+      <a class="tnav-link tnav-active" href="/workshop/">Workshop</a>
+      <a class="tnav-link" href="/blog/">Blog</a>
+      <a class="tnav-link" href="/about/">About</a>
+    </nav>
+
+    <div class="tnav-item tnav-right" id="tnav-mymanual">
+      <button class="tnav-my-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-mymanual">
+        <svg class="tnav-my-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        My Manual
+        <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+      </button>
+      <div class="tnav-drop tnav-drop-right" id="tnav-drop-mymanual" role="menu" style="min-width:240px">
+        <div id="tnav-vehicle-slot"></div>
+        <a class="tnav-drop-link" href="/my-garage.html" role="menuitem">
+          <svg style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          My Garage
+        </a>
+        <hr class="tnav-divider">
+        <button class="tnav-theme-row" id="tnav-theme-btn" role="menuitem">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="tnav-hamburger" id="tnav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav-drawer">
+      <svg class="tnav-ham-icon" viewBox="0 0 18 18"><line x1="1" y1="4" x2="17" y2="4"/><line x1="1" y1="9" x2="17" y2="9"/><line x1="1" y1="14" x2="17" y2="14"/></svg>
+    </button>
+  </div>
+
+  <div class="tnav-drawer" id="tnav-drawer" aria-hidden="true">
+    <div class="tnav-drawer-inner">
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Jeep</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/xj/">Cherokee XJ <span class="tnav-drawer-years">1984–2001</span></a>
+          <a class="tnav-drawer-link" href="/tj/">Wrangler TJ <span class="tnav-drawer-years">1997–2006</span></a>
+          <a class="tnav-drawer-link" href="/jk/">Wrangler JK <span class="tnav-drawer-years">2007–2018</span></a>
+          <a class="tnav-drawer-link" href="/jl/">Wrangler JL <span class="tnav-drawer-years">2018–</span></a>
+          <a class="tnav-drawer-link" href="/gladiator/">Gladiator JT <span class="tnav-drawer-years">2019–</span></a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Ford · Toyota · Ram</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/bronco/">Early Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco-ii/">Bronco II</a>
+          <a class="tnav-drawer-link" href="/full-size-bronco/">Full-Size Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco6g/">New Bronco</a>
+          <a class="tnav-drawer-link" href="/raptor/">F-150 Raptor</a>
+          <a class="tnav-drawer-link" href="/4runner/">4Runner</a>
+          <a class="tnav-drawer-link" href="/tacoma/">Tacoma</a>
+          <a class="tnav-drawer-link" href="/power-wagon/">Power Wagon</a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Navigate</span>
+        <a class="tnav-drawer-link tnav-active" href="/workshop/">Workshop</a>
+        <a class="tnav-drawer-link" href="/blog/">Blog</a>
+        <a class="tnav-drawer-link" href="/db/">Vehicle Database</a>
+        <a class="tnav-drawer-link" href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+        <a class="tnav-drawer-link" href="/jk-wrangler-engine-swap-tool.html">Engine Swap Tool</a>
+        <a class="tnav-drawer-link" href="/about/">About</a>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">My Manual</span>
+        <div id="tnav-vehicle-slot-mobile"></div>
+        <a class="tnav-drawer-link" href="/my-garage.html">My Garage</a>
+        <button class="tnav-drawer-btn" id="tnav-theme-btn-mobile">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path-mobile" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label-mobile">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="page"><article>
+  <div class="hero">
+    <div class="hero-eyebrow">The Workshop · Safety</div>
+    <h1>Hot Coolant Burns — Why the System Must Be Cool Before Opening</h1>
+    <p class="lede">Never open a hot cooling system. The pressure cap is the only thing holding coolant that's far above its open-air boiling point in liquid form — release that pressure and the coolant flash-boils into a geyser of steam and scalding liquid aimed at whoever is leaning over the filler neck. Coolant burns are among the most common serious garage and roadside injuries, and nearly every one traces back to the same thirty minutes of impatience. This guide covers what's happening inside the system, the three checks that tell you it's actually cool, and the two-stage way to open a cap even then.</p>
+    <div class="safety-badge">Safety critical</div>
+  </div>
+
+  <div class="verdict">
+    <div class="verdict-label">The short answer</div>
+    <p><strong>Wait until the engine is cool — then check, don't assume.</strong> A minimum of 30 minutes off for a normally warm engine, an hour or more after an overheat. The system is safe to open when the upper radiator hose is soft and no more than warm to a bare hand, and — if you have an infrared thermometer — the radiator tank or filler neck reads below about 120°F.</p>
+    <p><strong>Why the rule has no exceptions:</strong> the cap holds roughly 13–16 psi, which lets the coolant run at 220–250°F as a liquid. Crack the cap and the boiling point drops instantly, the superheated coolant flash-boils, and the expanding steam ejects scalding liquid out of the neck with force. It isn't a splash — it's an eruption.</p>
+    <p><strong>The dash temperature gauge is not a safety instrument.</strong> It reads one sensor, not the pressure stored in the system, and it goes dark the moment the key is off. Time and the hose test are the checks that count.</p>
+  </div>
+
+  <h2>Why this matters</h2>
+  <p>The moment you most want to open a cooling system — right after an overheat, on the shoulder or in the driveway — is exactly when it's most dangerous. The system is at its hottest, the pressure is at its highest, and the coolant may already be sitting at or above its pressurized boiling point with nothing holding it down but the cap. Systems in that state have blown scalding coolant several feet the instant the cap reached its first detent.</p>
+  <p>Coolant also makes the burn worse than plain hot water would. Ethylene glycol is viscous and clings to skin instead of running off, so it keeps transferring heat into the tissue after the splash. Pressurized-coolant scalds routinely reach second and third degree, and the spray pattern means face, eyes, chest, and forearms take the hit — because the eruption follows the path the cap opened: upward and outward, toward whoever is leaning over it.</p>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">Standing at an overheated engine right now?</div>
+    <p><strong>Don't touch the cap.</strong> Shut the engine down, open the hood from the release without reaching near the radiator, and walk away for at least 30 minutes — an hour after a full boil-over. Nothing inside that system needs you sooner, and no repair you're about to make is worth a facial scald. The wait is the repair procedure.</p>
+  </div>
+
+  <h2>What's actually happening inside the system</h2>
+  <p>A cooling system is sealed and pressurized on purpose. Water boils at 212°F in open air, but every psi of pressure raises the boiling point by roughly 3°F. Behind a 15-psi cap, with a 50/50 glycol mix adding its own margin, a healthy system carries coolant at 220–250°F <strong>as a stable liquid</strong>.</p>
+  <p>That stability exists only because of the pressure. Crack the cap and the pressure vanishes, the boiling point falls with it, and coolant that was quietly liquid a second earlier is suddenly far above its new boiling point. It doesn't dribble out — it flash-boils throughout the system at once, expanding violently into steam and driving the liquid above it out of the filler neck. The volume change is enormous: a small amount of flashing coolant produces a large, fast eruption of steam and spray.</p>
+  <p>This is also why a system that "seems fine" can still hurt you. Pressure doesn't drain away the moment the engine goes off — a sealed system can hold significant pressure for a long time after shutdown, especially after an overheat. Heat soak works against you too: for the first several minutes after shutdown, with the water pump stopped and airflow gone, temperatures around the head and upper radiator can actually rise before they fall.</p>
+
+  <h2>How to know it's cool enough</h2>
+  <p>Use all three checks. Any one of them alone can lie to you.</p>
+  <ul>
+    <li><strong>Time.</strong> A minimum of 30 minutes with the engine off for a normally warm engine. After a full overheat or boil-over, plan on an hour or more. An open hood sheds heat much faster than a closed one.</li>
+    <li><strong>The hose test.</strong> Squeeze the upper radiator hose with a bare hand. It should feel soft and no more than warm. A firm, pressurized hose means the system is still hot and still holding pressure — walk away and re-check later.</li>
+    <li><strong>Direct temperature.</strong> If you have an <a href="/workshop/infrared-thermometer/">infrared thermometer</a>, shoot the radiator tank or filler neck. Below about 120°F is workable; below 100°F is better. Don't open anything reading higher.</li>
+  </ul>
+  <p>The dash gauge is not on this list. It reads one sensor in the coolant stream — usually near the thermostat housing — and it says nothing about the pressure still stored in the rest of the system. It also reads nothing at all with the key off, which is precisely when you'll be standing there deciding.</p>
+
+  <h2>Opening the cap the right way</h2>
+  <p>Even on a system that passes every check, treat the cap as if it's holding pressure — sometimes it is.</p>
+  <ol>
+    <li><strong>Confirm the system is cool</strong> using the checks above. This step does the real work; everything after it is backup.</li>
+    <li><strong>Put on eye protection</strong> and lay a thick shop rag over the cap. The rag is a splash barrier for residual pressure — it is not a heat shield, and it does not make a hot system safe to open.</li>
+    <li><strong>Stand to the side</strong> of the filler neck, keep your face out of the path above it, and turn the cap to its <strong>first stop</strong>. Most radiator caps have a safety detent that vents pressure through the overflow before the cap can come free. Let it hiss until it stops completely.</li>
+    <li><strong>Only when the venting has fully stopped,</strong> press down and turn the cap the rest of the way off.</li>
+  </ol>
+
+  <div class="panel panel-warn">
+    <div class="panel-label">Expansion tanks count</div>
+    <p>Most vehicles built since the 1990s put the pressure cap on a plastic expansion tank instead of the radiator. That cap holds the same pressure, and the tank walls are thinner and often hotter to the touch than a radiator tank — every rule on this page applies to it equally. A true overflow bottle (unpressurized, vented, fed by a small hose from the radiator neck) is a different design, but if you aren't certain which type you're looking at, treat it as pressurized.</p>
+  </div>
+
+  <h2>If you're overheating on the road</h2>
+  <p>Pull over as soon as you can do it safely and shut the engine down. Then do the hard part: nothing. Pop the hood from the interior release, open it without reaching over the radiator, and let the system cool on its own schedule. When it finally passes the cool-down checks, top up the coolant — and don't add cold water to an engine that's still hot even with the cap safely off, because the thermal shock can crack the head or block and turn a $20 thermostat problem into a rebuild.</p>
+  <p>Treat the overheat as a symptom to diagnose, not a condition you fixed by adding coolant. Something made the temperature climb — a stuck thermostat, a failed fan or fan clutch, a leak, a bad water pump — and it will do it again. If the gauge climbs back toward the red on the drive home, shut it down again and get a tow. An engine survives a tow; it doesn't survive being driven hot.</p>
+
+  <h2>Common mistakes</h2>
+  <ul>
+    <li><strong>Opening at "warm."</strong> Warm on the outside can still mean well over boiling inside a pressurized system. Warm is not cool. Wait.</li>
+    <li><strong>Trusting the rag.</strong> The rag-over-the-cap trick gets repeated as if it makes hot opening safe. It doesn't. It's a last line of defense against residual pressure on a <em>cool</em> system, nothing more.</li>
+    <li><strong>Leaning over the filler neck.</strong> The eruption path is straight up and out. Position your body and face to the side before the cap moves at all.</li>
+    <li><strong>Spinning the cap straight off.</strong> Skipping the first detent defeats the one mechanical safety built into the cap. The two-stage opening exists because of exactly this injury.</li>
+    <li><strong>Assuming the expansion tank is safe.</strong> On most modern vehicles the tank cap <em>is</em> the pressure cap. Same pressure, thinner plastic.</li>
+    <li><strong>Trusting the temperature gauge as an all-clear.</strong> It reads one sensor while running and nothing at all with the key off. It cannot tell you the system is depressurized.</li>
+    <li><strong>Draining or flushing hot.</strong> A drain petcock or lower hose pulled on a hot system dumps scalding coolant across your hands and forearms. Cooling system service starts with a cold engine, full stop.</li>
+    <li><strong>Adding cold water to a hot engine.</strong> Even with the cap off and the danger to you handled, the thermal shock can crack castings. Let it cool, then fill.</li>
+  </ul>
+
+  <div class="panel panel-danger">
+    <div class="panel-label">If coolant hits skin</div>
+    <p>Get the burn under <strong>cool running water immediately and keep it there for 20 minutes</strong> — no ice, no butter, no ointments on a fresh burn. Remove wet clothing and anything constricting near the burn unless it's stuck to the skin. Glycol clings and keeps transferring heat, so these burns run deeper than they first look: <strong>seek medical care for any burn that blisters, covers more than a small area, or involves the face or eyes.</strong> For eyes, flush continuously with clean water and get medical attention without delay.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related guides</h2>
+    <div class="related-grid">
+      <a class="related-card" href="/workshop/chemical-handling/">Chemical Handling and Ventilation</a>
+      <a class="related-card" href="/workshop/infrared-thermometer/">Infrared Thermometer</a>
+      <a class="related-card" href="/workshop/eye-and-hand-protection/">Eye and Hand Protection</a>
+      <a class="related-card" href="/workshop/when-to-stop/">When to Stop and Go to a Shop</a>
+    </div>
+  </div>
+</article></div>
+
+
+<footer class="footer">
+  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
+  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/channels/">Recommended Channels</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+</footer>
+
+<script>
+(function(){
+  /* Trail Manual Unified Nav v1.0 */
+  var THEME_KEY='tm.theme';
+  var VEHICLE_KEY='tm.currentVehicle';
+  var html=document.documentElement;
+
+  /* ── Theme ── */
+  function isDark(){return html.getAttribute('data-theme')==='dark';}
+  function applyTheme(dark){
+    html.setAttribute('data-theme',dark?'dark':'light');
+    try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch(e){}
+    updateThemeUI(dark);
+  }
+  var SUN='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z';
+  var MOON='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  function updateThemeUI(dark){
+    var p=document.getElementById('tnav-theme-path');
+    var pm=document.getElementById('tnav-theme-path-mobile');
+    var l=document.getElementById('tnav-theme-label');
+    var lm=document.getElementById('tnav-theme-label-mobile');
+    var txt=dark?'Switch to Light':'Switch to Dark';
+    var path=dark?SUN:MOON;
+    if(p)p.setAttribute('d',path);
+    if(pm)pm.setAttribute('d',path);
+    if(l)l.textContent=txt;
+    if(lm)lm.textContent=txt;
+  }
+  /* Init theme — check new key then legacy */
+  var savedTheme='';
+  try{savedTheme=localStorage.getItem(THEME_KEY)||localStorage.getItem('tm-theme')||'';}catch(e){}
+  if(savedTheme==='dark'){html.setAttribute('data-theme','dark');}
+  updateThemeUI(isDark());
+  var themeBtn=document.getElementById('tnav-theme-btn');
+  var themeBtnM=document.getElementById('tnav-theme-btn-mobile');
+  if(themeBtn)themeBtn.addEventListener('click',function(){applyTheme(!isDark());closeAll();});
+  if(themeBtnM)themeBtnM.addEventListener('click',function(){applyTheme(!isDark());closeDrawer();});
+
+  /* ── Current vehicle slot ── */
+  function renderVehicleSlots(){
+    var v=null;
+    try{v=JSON.parse(localStorage.getItem(VEHICLE_KEY)||'null');}catch(e){}
+    [['tnav-vehicle-slot',false],['tnav-vehicle-slot-mobile',true]].forEach(function(pair){
+      var slot=document.getElementById(pair[0]);
+      if(!slot)return;
+      slot.innerHTML='';
+      if(v&&v.name){
+        var a=document.createElement('a');
+        a.href=v.path||'/';
+        a.className='tnav-vehicle-pill';
+        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display=&#39;none&#39;">':'')+
+          '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
+          (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
+        slot.appendChild(a);
+      }else{
+        var b=document.createElement('a');
+        b.href='/vehicle-select.html';
+        b.className='tnav-no-vehicle';
+        b.textContent='Pick your rig →';
+        slot.appendChild(b);
+      }
+    });
+  }
+  renderVehicleSlots();
+
+  /* ── Dropdowns ── */
+  function closeAll(){
+    document.querySelectorAll('.tnav-item.tnav-open').forEach(function(el){
+      el.classList.remove('tnav-open');
+      var btn=el.querySelector('[aria-haspopup]');
+      if(btn)btn.setAttribute('aria-expanded','false');
+    });
+  }
+  document.querySelectorAll('.tnav-item[id]').forEach(function(item){
+    var btn=item.querySelector('[aria-haspopup]');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var wasOpen=item.classList.contains('tnav-open');
+      closeAll();
+      if(!wasOpen){item.classList.add('tnav-open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  var navEl=document.getElementById('tnav');
+  if(navEl)navEl.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();closeDrawer();}});
+
+  /* ── Hamburger / drawer ── */
+  var hamburger=document.getElementById('tnav-hamburger');
+  var drawer=document.getElementById('tnav-drawer');
+  function closeDrawer(){
+    if(drawer){drawer.classList.remove('tnav-open');drawer.setAttribute('aria-hidden','true');}
+    if(hamburger)hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger&&drawer){
+    hamburger.addEventListener('click',function(){
+      var isOpen=drawer.classList.toggle('tnav-open');
+      drawer.setAttribute('aria-hidden',isOpen?'false':'true');
+      hamburger.setAttribute('aria-expanded',isOpen?'true':'false');
+      closeAll();
+    });
+  }
+})();
+</script>
+</body>
+</html>
