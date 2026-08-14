@@ -14,6 +14,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tire Pressure &amp; Airdown Calculator | Trail Manual</title>
+<link rel="canonical" href="https://trailmanual.com/db/tire-pressure-airdown.html">
 <meta name="description" content="Recommended tire pressures for off-road terrain by surface type: sand, rocks, mud, snow, and pavement. Adjusted for tire size and vehicle weight. Includes airing-back-up targets.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -172,19 +173,19 @@ table.surfaces-table tr.active-row td{background:rgba(201,126,80,.06)}
     <p class="card-title">Select terrain</p>
     <div class="surface-grid" id="surface-grid">
       <button class="surface-btn active" data-id="sand" onclick="selectSurface(this)">
-        <span class="s-icon">🏜️</span><span class="s-name">Sand / Dunes</span>
+        <span class="s-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M12 2v2 M12 20v2 M4.22 4.22l1.42 1.42 M18.36 18.36l1.42 1.42 M2 12h2 M20 12h2 M4.22 19.78l1.42-1.42 M18.36 5.64l1.42-1.42"/></svg></span><span class="s-name">Sand / Dunes</span>
       </button>
       <button class="surface-btn" data-id="rock" onclick="selectSurface(this)">
-        <span class="s-icon">⛰️</span><span class="s-name">Rock Crawl</span>
+        <span class="s-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M8 3l4 8 5-5 5 15H2L8 3z"/></svg></span><span class="s-name">Rock Crawl</span>
       </button>
       <button class="surface-btn" data-id="mud" onclick="selectSurface(this)">
-        <span class="s-icon">🌧️</span><span class="s-name">Mud</span>
+        <span class="s-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25 M8 19v2 M8 13v2 M16 19v2 M16 13v2 M12 21v2 M12 15v2"/></svg></span><span class="s-name">Mud</span>
       </button>
       <button class="surface-btn" data-id="snow" onclick="selectSurface(this)">
-        <span class="s-icon">❄️</span><span class="s-name">Snow / Ice</span>
+        <span class="s-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M2 12h20 M12 2v20 M4.93 4.93l14.14 14.14 M19.07 4.93L4.93 19.07"/></svg></span><span class="s-name">Snow / Ice</span>
       </button>
       <button class="surface-btn" data-id="dirt" onclick="selectSurface(this)">
-        <span class="s-icon">🪨</span><span class="s-name">Dirt / Gravel</span>
+        <span class="s-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 17l4-8 4 4 3-6 5 10H3z"/></svg></span><span class="s-name">Dirt / Gravel</span>
       </button>
     </div>
   </div>
@@ -233,7 +234,7 @@ table.surfaces-table tr.active-row td{background:rgba(201,126,80,.06)}
 // format: { name, icon, basePsi: [by size idx], rangeOffset, riskTag, why, lowRisk }
 const SURFACES = {
   sand: {
-    name: 'Sand / Dunes', icon: '🏜️',
+    name: 'Sand / Dunes', icon: '',
     // Base psi for [27,29,31,33,37,40] tires, mid-weight vehicle
     basePsi: [12, 11, 10, 9, 8, 6],
     rangeOffset: 2,
@@ -242,7 +243,7 @@ const SURFACES = {
     lowRisk: 'Bead separation on loose turns, rim damage on buried obstacles',
   },
   rock: {
-    name: 'Rock Crawl', icon: '⛰️',
+    name: 'Rock Crawl', icon: '',
     basePsi: [18, 16, 15, 13, 12, 10],
     rangeOffset: 3,
     riskTag: 'high',
@@ -250,7 +251,7 @@ const SURFACES = {
     lowRisk: 'Sidewall puncture, rim pinch on sharp edges — go no lower than your tire minimum',
   },
   mud: {
-    name: 'Mud', icon: '🌧️',
+    name: 'Mud', icon: '',
     basePsi: [20, 18, 16, 14, 12, 10],
     rangeOffset: 3,
     riskTag: 'low',
@@ -258,7 +259,7 @@ const SURFACES = {
     lowRisk: 'Tire de-beading in deep suction mud',
   },
   snow: {
-    name: 'Snow / Ice', icon: '❄️',
+    name: 'Snow / Ice', icon: '',
     basePsi: [22, 20, 18, 16, 14, 12],
     rangeOffset: 3,
     riskTag: 'low',
@@ -266,7 +267,7 @@ const SURFACES = {
     lowRisk: 'Handling degradation at speed, bead issues in extreme cold',
   },
   dirt: {
-    name: 'Dirt / Gravel', icon: '🪨',
+    name: 'Dirt / Gravel', icon: '',
     basePsi: [26, 24, 22, 20, 18, 15],
     rangeOffset: 4,
     riskTag: 'low',
