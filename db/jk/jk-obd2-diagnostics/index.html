@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -67,21 +77,14 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <p class="tm-lead">A check-engine light on the JK is not an emergency — but driving blind to what the code is, is. A $25 Bluetooth adapter and a free phone app tell you exactly what the vehicle is complaining about before you spend money at a shop.</p>
 <p>The 2007–2018 JK uses the CAN (Controller Area Network) bus architecture, which means every module — PCM, TCM, BCM, TIPM — broadcasts fault codes that an OBD2 scanner can read. The OBD2 port is under the driver&#x27;s side dash, to the left of the steering column. All JKs have it at the same location.</p>
 <p>What matters in scanner selection is depth of coverage. A basic $25 Veepeak reads generic P0xxx powertrain codes fine, which handles most check-engine situations. For ABS, airbag, transmission, and TIPM faults, you need an enhanced scanner that reads Chrysler-specific codes. The BlueDriver is the sweet spot at $99 — it reads enhanced Chrysler codes on the JK, generates repair reports, and works from your phone. The Autel MK808 is the step-up if you&#x27;re doing your own brake work, live data monitoring, or oil-life resets — it is a genuine shop-quality scanner at a reasonable price. Dealer-level WiTech access requires a $300+/year subscription and the correct hardware — not necessary for DIY diagnostics.</p>
-<p>**JK-specific code categories:**</p>
-<ul><li>**P0xxx** — Generic powertrain (emissions, engine management, transmission)</li><li>**B0xxx/B1xxx** — Body (TIPM, airbag, BCM — requires enhanced scanner)</li><li>**C0xxx** — Chassis (ABS, traction control — requires enhanced scanner)</li><li>**U0xxx** — Network communication faults (module communication failures)</li></ul>
-<p>**Hardware:** OBD2 scanner (bluetooth adapter + phone app, or dedicated handheld), USB cable or Bluetooth pairing to phone</p>
-<p>**Apps (for Bluetooth adapters):** BlueDriver app (iOS/Android, required for BlueDriver hardware), OBD Fusion ($9.99), Torque Pro (Android, $4.99)</p>
-<p>1. With the engine off and the ignition key in the &quot;off&quot; position, locate the OBD2 port under the driver&#x27;s side dash (lower left of the steering column).</p>
-<p>2. Plug in the scanner or Bluetooth adapter.</p>
-<p>3. Turn the ignition key to &quot;on&quot; (not crank). The OBD2 system powers up with the ignition on.</p>
-<p>4. On a Bluetooth adapter, pair the device in your phone&#x27;s Bluetooth settings first, then open the app.</p>
-<p>5. Select &quot;Read Codes&quot; or &quot;Scan&quot; in the app/scanner interface. Wait for the scan to complete.</p>
-<p>6. Note all codes — write them down. A code is a starting point for diagnosis, not a confirmed parts list.</p>
-<p>7. Look up each code: the BlueDriver app provides vehicle-specific repair reports; generic scanners give you the code definition only. Cross-reference the code with forums (JKowners.com is the best resource for JK-specific code behavior).</p>
-<p>8. To clear codes: only clear a code after you&#x27;ve resolved the underlying cause. Clearing a code without fixing the root cause will have it return within one to three drive cycles.</p>
+<p><strong>JK-specific code categories:</strong></p>
+<ul><li><strong>P0xxx</strong> — Generic powertrain (emissions, engine management, transmission)</li><li><strong>B0xxx/B1xxx</strong> — Body (TIPM, airbag, BCM — requires enhanced scanner)</li><li><strong>C0xxx</strong> — Chassis (ABS, traction control — requires enhanced scanner)</li><li><strong>U0xxx</strong> — Network communication faults (module communication failures)</li></ul>
+<p><strong>Hardware:</strong> OBD2 scanner (bluetooth adapter + phone app, or dedicated handheld), USB cable or Bluetooth pairing to phone</p>
+<p><strong>Apps (for Bluetooth adapters):</strong> BlueDriver app (iOS/Android, required for BlueDriver hardware), OBD Fusion ($9.99), Torque Pro (Android, $4.99)</p>
+<ol><li>With the engine off and the ignition key in the &quot;off&quot; position, locate the OBD2 port under the driver&#x27;s side dash (lower left of the steering column).</li><li>Plug in the scanner or Bluetooth adapter.</li><li>Turn the ignition key to &quot;on&quot; (not crank). The OBD2 system powers up with the ignition on.</li><li>On a Bluetooth adapter, pair the device in your phone&#x27;s Bluetooth settings first, then open the app.</li><li>Select &quot;Read Codes&quot; or &quot;Scan&quot; in the app/scanner interface. Wait for the scan to complete.</li><li>Note all codes — write them down. A code is a starting point for diagnosis, not a confirmed parts list.</li><li>Look up each code: the BlueDriver app provides vehicle-specific repair reports; generic scanners give you the code definition only. Cross-reference the code with forums (JKowners.com is the best resource for JK-specific code behavior).</li><li>To clear codes: only clear a code after you&#x27;ve resolved the underlying cause. Clearing a code without fixing the root cause will have it return within one to three drive cycles.</li></ol>
 <p>Enhanced scanners like the BlueDriver and Autel MK808 display live parameter data — a critical diagnostic tool for intermittent problems. Useful PIDs to monitor on the JK:</p>
-<ul><li>**Coolant temp:** should reach 195–205°F at normal operating temp</li><li>**Short-term and long-term fuel trim:** values outside ±10% indicate vacuum leaks, injector issues, or MAF sensor problems</li><li>**O2 sensor voltage:** fluctuating between 0.1–0.9V at normal operating temp indicates healthy sensor function</li><li>**Battery voltage:** 13.5–14.5V at idle with a healthy alternator</li></ul>
-<ul><li>**TIPM codes:** U0100 and related network codes on JKs often indicate a failing TIPM rather than the module it communicates with. The TIPM is a documented JK failure point — confirm with multiple code scans before replacing a module it points to.</li><li>**Multiple codes at once:** A single root cause often throws multiple codes. Look for the oldest stored code (P0xxx codes flagged as &quot;pending&quot; vs. &quot;confirmed&quot;) to identify the origin.</li><li>**Misfire codes after CAI or tune:** P0300/P030x codes after an aftermarket intake or tune often clear after 2–3 drive cycles as the ECU adapts. If they persist, recheck intake connections and injector function.</li></ul>
+<ul><li><strong>Coolant temp:</strong> should reach 195–205°F at normal operating temp</li><li><strong>Short-term and long-term fuel trim:</strong> values outside ±10% indicate vacuum leaks, injector issues, or MAF sensor problems</li><li><strong>O2 sensor voltage:</strong> fluctuating between 0.1–0.9V at normal operating temp indicates healthy sensor function</li><li><strong>Battery voltage:</strong> 13.5–14.5V at idle with a healthy alternator</li></ul>
+<ul><li><strong>TIPM codes:</strong> U0100 and related network codes on JKs often indicate a failing TIPM rather than the module it communicates with. The TIPM is a documented JK failure point — confirm with multiple code scans before replacing a module it points to.</li><li><strong>Multiple codes at once:</strong> A single root cause often throws multiple codes. Look for the oldest stored code (P0xxx codes flagged as &quot;pending&quot; vs. &quot;confirmed&quot;) to identify the origin.</li><li><strong>Misfire codes after CAI or tune:</strong> P0300/P030x codes after an aftermarket intake or tune often clear after 2–3 drive cycles as the ECU adapts. If they persist, recheck intake connections and injector function.</li></ul>
 <p>Veepeak Bluetooth adapter: $25 (generic P-codes only). BlueDriver Pro: $99 (full Chrysler enhanced coverage, best value for a JK owner). Autel MK808: $349 (shop-quality, justifiable if you&#x27;re doing your own brake and ABS work). OBD Fusion app with Chrysler enhancement pack: $20 total — adequate for most JK diagnostics if you already have a compatible ELM327 adapter.</p>
 <h2>Tools required</h2>
 <ul><li>OBD2 scanner or smartphone adapter</li></ul>
@@ -89,11 +92,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>BlueDriver Pro Bluetooth OBD2 Scanner</td><td>BlueDriver</td><td>~$99</td></tr><tr><td>Autel MaxiCOM MK808 Scan Tool</td><td>Autel</td><td>~$349</td></tr><tr><td>Veepeak Mini Bluetooth OBD2 Adapter</td><td>Veepeak</td><td>~$25</td></tr><tr><td>Mopar DRB-III (dealer-level, legacy)</td><td>Mopar/Witech</td><td>~$0</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Chrysler OBD2 Code Definitions — JKowners.com&#x27;, &#x27;url&#x27;: &#x27;https://www.jkowners.com/forum/stock-jk-wrangler-tech-dept/obd2-codes.html&#x27;}</li><li>{&#x27;title&#x27;: &#x27;BlueDriver JK Compatibility List&#x27;, &#x27;url&#x27;: &#x27;https://www.bluedriver.com/compatibility&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.jkowners.com/forum/stock-jk-wrangler-tech-dept/obd2-codes.html" target="_blank" rel="noopener nofollow">Chrysler OBD2 Code Definitions — JKowners.com</a></li><li><a href="https://www.bluedriver.com/compatibility" target="_blank" rel="noopener nofollow">BlueDriver JK Compatibility List</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/jk/jk-battery-cables-jk/">Battery Cable Inspection and Replacement</a></li><li><a href="/db/jk/jk-death-wobble-deep/">Death Wobble — Root Causes and Systematic Fix</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
