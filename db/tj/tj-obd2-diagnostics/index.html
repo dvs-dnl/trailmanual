@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -67,23 +77,26 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <p class="tm-lead">The TJ has been OBD-II compliant since 1997. Plug in a $20 code reader, pull the fault code, and you have the starting point for any check engine light diagnosis — don&#x27;t pay a shop $80 to do that part.</p>
 <p>The TJ Wrangler uses Chrysler&#x27;s OBD-II system through the PCM (powertrain control module). The diagnostic port (DLC) is under the dash on the driver&#x27;s side, near the steering column. Any generic OBD-II scanner reads it.</p>
 <p>A check engine light on a TJ means the PCM has stored a Diagnostic Trouble Code (DTC). Some codes are serious; most are not. Reading the code is step one — it tells you where to look, not necessarily what to replace.</p>
-<p>**Common TJ fault codes and their realistic meaning:**</p>
-<ul><li>**P0300–P0306** (Random/cylinder misfire): Ignition system first — cap, rotor, plug wires, plugs. The 4.0L burns through plug wires every 60–80K miles. Cap and rotor failure is also common.</li><li>**P0171** (System lean, Bank 1): Check for vacuum leaks (cracked intake boot, cracked TPS-area hoses), a dirty MAF sensor, or a weak fuel pump. On high-mileage engines it can also be worn injectors.</li><li>**P0122/P0123** (Throttle Position Sensor range): TPS failure is common on the TJ 4.0L. Erratic idle, hesitation on acceleration, and transmission shift points that feel off are the symptoms. New TPS is a $15–$30 part.</li><li>**P0351–P0356** (Ignition coil circuit): The TJ 4.0L uses a distributor-based ignition. A failing ASD (automatic shutdown) relay can trigger these. Also check spark plug wires for shorts to ground.</li><li>**P0138/P0141** (O2 sensor downstream): The downstream (post-cat) O2 sensor on TJs fails regularly at 100,000+ miles. It monitors catalyst efficiency and this code often appears with no drivability symptoms — the light.</li><li>**P0340** (Camshaft position sensor circuit): The cam position sensor on the 4.0L is inside the distributor. If this code is active with hard starting or stalling, the distributor may need replacement.</li><li>**P1391** (Intermittent loss of CMP or CKP): This TJ-specific code is almost always the crankshaft position sensor or its wiring. Common failure mode on high-mileage 4.0Ls.</li></ul>
+<p><strong>Common TJ fault codes and their realistic meaning:</strong></p>
+<ul><li><strong>P0300–P0306</strong> (Random/cylinder misfire): Ignition system first — cap, rotor, plug wires, plugs. The 4.0L burns through plug wires every 60–80K miles. Cap and rotor failure is also common.</li><li><strong>P0171</strong> (System lean, Bank 1): Check for vacuum leaks (cracked intake boot, cracked TPS-area hoses), a dirty MAF sensor, or a weak fuel pump. On high-mileage engines it can also be worn injectors.</li><li><strong>P0122/P0123</strong> (Throttle Position Sensor range): TPS failure is common on the TJ 4.0L. Erratic idle, hesitation on acceleration, and transmission shift points that feel off are the symptoms. New TPS is a $15–$30 part.</li><li><strong>P0351–P0356</strong> (Ignition coil circuit): The TJ 4.0L uses a distributor-based ignition. A failing ASD (automatic shutdown) relay can trigger these. Also check spark plug wires for shorts to ground.</li><li><strong>P0138/P0141</strong> (O2 sensor downstream): The downstream (post-cat) O2 sensor on TJs fails regularly at 100,000+ miles. It monitors catalyst efficiency and this code often appears with no drivability symptoms — the light.</li><li><strong>P0340</strong> (Camshaft position sensor circuit): The cam position sensor on the 4.0L is inside the distributor. If this code is active with hard starting or stalling, the distributor may need replacement.</li><li><strong>P1391</strong> (Intermittent loss of CMP or CKP): This TJ-specific code is almost always the crankshaft position sensor or its wiring. Common failure mode on high-mileage 4.0Ls.</li></ul>
 <p>A code reader (Autel AL319, $22) pulls stored and pending codes and clears the light. That&#x27;s enough for most diagnostics. A scanner with live data (Innova 3100j, BlueDriver) lets you watch O2 sensor response, MAP pressure, coolant temp, and fuel trims in real time — worth the extra $30–$50 if you&#x27;re doing your own maintenance regularly.</p>
 <p>Bluetooth adapters (BAFX, Veepeak) pair with free apps like Torque Pro on Android. They can&#x27;t do everything a dedicated scanner does, but for code reading and live PIDs they&#x27;re fully functional.</p>
 <ul><li>Clearing codes without fixing the underlying issue is pointless — the light will return within one drive cycle.</li><li>Multiple codes together tell a better story than one code in isolation. P0171 + P0174 together means fuel delivery or a large vacuum leak; P0171 alone could be one small vacuum leak or a lazy O2 sensor.</li><li>The Jeep has to complete a &quot;drive cycle&quot; for monitors to reset after clearing. Most monitors require highway and city driving, several cold starts, and some idle time. Inspection stations will fail the Jeep for an incomplete monitor even if no codes are present.</li></ul>
 <ul><li>Autel AL319 (basic): $20–$25 on Amazon</li><li>Innova 3100j (with live data): $50–$60 on Amazon</li><li>BlueDriver (full diagnostics + repair reports): $100 on Amazon or Best Buy</li><li>Many auto parts stores (AutoZone, O&#x27;Reilly) will read codes for free with their loaner scanner</li></ul>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Locate the DLC port — driver&#x27;s side, under the dash, near the steering column.</li><li>Plug in the scanner with the ignition OFF.</li><li>Turn key to ON (don&#x27;t crank). The scanner will power on.</li><li>Select &quot;Read Codes&quot; on the scanner menu.</li><li>Note all stored codes (confirmed faults) and pending codes (one-trip faults that haven&#x27;t reached confirmed threshold).</li><li>Research the specific code before replacing parts. The code points to a system or circuit, not always to the failed component.</li><li>After diagnosis and repair, clear codes and drive through one full drive cycle to confirm the light doesn&#x27;t return.</li></ol>
 <h2>Tools required</h2>
 <ul><li>OBD-II scanner or code reader</li></ul>
 <h2>Parts</h2>
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Autel AL319 basic code reader</td><td>Autel</td><td>~$22</td></tr><tr><td>BlueDriver Bluetooth OBD-II scanner (iOS/Android)</td><td>BlueDriver</td><td>~$100</td></tr><tr><td>BAFX Products Bluetooth OBD-II adapter (Android)</td><td>BAFX</td><td>~$22</td></tr><tr><td>Innova 3100j code reader with live data</td><td>Innova</td><td>~$55</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Jeep Wrangler TJ OBD-II Code List — Jeep Service Manual&#x27;, &#x27;url&#x27;: &#x27;https://wranglertjforum.com/threads/obd-ii-codes-and-descriptions.html&#x27;}</li><li>{&#x27;title&#x27;: &#x27;TJ PCM Diagnostics Overview — QuadraJeep&#x27;, &#x27;url&#x27;: &#x27;https://www.quadratec.com/jeep-wrangler-tech/obd2-diagnostics&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://wranglertjforum.com/threads/obd-ii-codes-and-descriptions.html" target="_blank" rel="noopener nofollow">Jeep Wrangler TJ OBD-II Code List — Jeep Service Manual</a></li><li><a href="https://www.quadratec.com/jeep-wrangler-tech/obd2-diagnostics" target="_blank" rel="noopener nofollow">TJ PCM Diagnostics Overview — QuadraJeep</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
