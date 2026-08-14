@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -69,6 +79,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The failure pattern is consistent. The dash light flashes faster than normal or stays solid. Sometimes the sway bar refuses to reconnect on the highway, which the PCM will not allow above ~18 mph. Sometimes the dash throws other CAN errors that look unrelated — locker buttons go dead, the steering wheel controls quit, even check-engine lights — because the shorted e-disco is corrupting the CAN bus. Before condemning the actuator, check the straightforward stuff first.</p>
 <p>Start with the connector. Disconnect the harness from the sway bar, look for green corrosion or water inside, and clean it out with electrical contact cleaner. Pack the pins with dielectric grease and reseal. Then check the actuator itself: pull the four T20 screws holding the motor housing, peek inside for water and rust on the gears. If you find dry rusty gears, the grease is gone. Clean the assembly, repack with marine-grade grease, and reassemble. That repair alone fixes a high share of e-disco complaints, and the only cost is grease and an afternoon.</p>
 <p>If the motor genuinely no longer cycles, a Mopar replacement actuator runs about $320. At that price point, most owners take a hard look at swapping to a manual disconnect setup. The EVO No Limits Manual Disconnect at roughly $350 replaces the entire sway bar with a fixed bar plus a pin-style disconnect — bombproof, no electronics, but you have to get out and pull a pin. The EVO No-Limits On Demand at roughly $650 is air-actuated from the cab, which keeps the convenience without the CAN-bus fragility.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Park on level ground, chock the rear wheels, and lower the front to a stable height. You need access to the front sway bar.</li><li>Unplug the harness connector at the actuator. Inspect for moisture, corrosion, and bent pins.</li><li>Spray the connector and pins with electrical contact cleaner, dry thoroughly, then pack with dielectric grease and reseat.</li><li>Remove the four T20 screws from the actuator motor cover. Inspect the gear assembly inside for water, rust, or dried grease.</li><li>Clean any rust from the gears with a wire brush, repack with marine-grade grease, and reassemble. Torque the cover screws snug — they thread into plastic, do not overtighten.</li><li>Reconnect, cycle the disconnect button several times, and verify the dash light goes solid (connected) and off (disconnected) without flashing rapidly.</li><li>If the symptoms return, replace the actuator motor or convert to a manual or air disconnect.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores stock disconnect function for the cost of grease</li><li>Catches the CAN-bus side effects (dead locker buttons, dead steering wheel controls)</li><li>Annual cleaning prevents most failures</li><li>Manual or air conversion eliminates the failure mode entirely</li></ul>
 <h2>Trade-offs</h2>
@@ -79,11 +91,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>EVO Manufacturing No Limits Manual Disconnect</td><td>EVO MFG</td><td>~$350</td></tr><tr><td>EVO No-Limits On Demand (air actuated)</td><td>EVO MFG</td><td>~$650</td></tr><tr><td>Mopar sway bar actuator motor</td><td>Mopar</td><td>~$320</td></tr><tr><td>Marine-grade grease (tub)</td><td>Lucas / Sta-Lube</td><td>~$12</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Sway Bar Issues — Native Jeeps&#x27;, &#x27;url&#x27;: &#x27;https://jeeptourscolorado.com/jeep-blog/sway-bar/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Rubicon Manual Sway Bar Disconnects — JK-Forum&#x27;, &#x27;url&#x27;: &#x27;https://www.jk-forum.com/articles/rubicon-manual-sway-bar-disconnects/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://jeeptourscolorado.com/jeep-blog/sway-bar/" target="_blank" rel="noopener nofollow">Sway Bar Issues — Native Jeeps</a></li><li><a href="https://www.jk-forum.com/articles/rubicon-manual-sway-bar-disconnects/" target="_blank" rel="noopener nofollow">Rubicon Manual Sway Bar Disconnects — JK-Forum</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-shocks-upgrade/">Shock Absorber Upgrade — Bilstein, Fox, and King Options</a></li><li><a href="/db/jk/jk-track-bar/">Front Track Bar Upgrade — Lifted JK Wrangler</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
