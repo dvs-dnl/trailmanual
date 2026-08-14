@@ -119,6 +119,56 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       "@type": "HowToSupply",
       "name": "Idle Air Control (IAC) valve"
     }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "text": "Park on level ground, set the parking brake, and let the engine cool. Disconnect the negative battery cable (10mm) \u2014 you'll be unplugging sensors, and you don't want the ECU storing false codes or the IAC moving while you work."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Remove the air intake tube from the throttle body. Loosen the hose clamp at the throttle body (flat-blade or 7mm), disconnect the crankcase breather and any vacuum lines attached to the tube, and set it aside. You now have clear access to the throttle bore."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Inspect the bore and butterfly. Open the throttle by hand using the cable linkage and look at the back side of the plate and the bore wall. Black, oily carbon is normal and is what you're removing. Heavy hard deposits mean it's been a long time."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Clean the throttle body. Hold the throttle open by hand, spray CRC throttle body cleaner onto the plate and bore, and wipe with a lint-free rag. Use throttle body cleaner specifically \u2014 not carburetor cleaner, which is harsher and can attack the bore coating and the TPS shaft seal. Work the rag around the bore until the metal is clean. Do not jam rags or spray hard into the small cylindrical passage where the IAC pintle sits."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Keep cleaner off the TPS. The throttle position sensor's shaft is poorly sealed, and solvent or water wicking past it ruins the sensor. Never spray directly at it. If you're removing the throttle body from the manifold for a deeper clean (often easier on 1991-2001 trucks), unbolt it, use a fresh throttle body-to-manifold gasket on reinstall, and torque the throttle body bolts to roughly 14 ft-lb."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Service the IAC valve. The idle air control valve mounts on the throttle body with two Torx screws (T20/T25). Remove it gently \u2014 do not pull, twist, or pry on the pintle that sticks out, it's fragile. Wipe carbon off the pintle and seat with a rag dampened in cleaner. If the idle has been hunting badly and the valve is heavily fouled or worn, replace it rather than fighting it. Reinstall with the screws snug, not gorilla-tight."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Identify your TPS before going further. Renix (1987-1990): the sensor sits on the throttle body with slotted mounting holes and a flat 3-wire connector to the ECU; automatics add a second square 4-wire connector for the transmission controller. HO (1991-2001): a single connector, two fixed mounting screws, no slots."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "HO trucks (1991-2001) \u2014 verify, don't adjust. Reconnect the battery. With the key on and engine off, back-probe the TPS signal wire to ground and read voltage on a multimeter. At closed throttle you should see roughly 0.6-1.0 volts. Slowly open the throttle by hand to wide open and watch the voltage climb smoothly to about 3.5-4.0 volts with no jumps, drops, or dead spots. A smooth sweep means the sensor is good and you're done \u2014 there's nothing to adjust. A flat spot, a jump to zero, or an erratic reading means replace the sensor. The HO TPS only fits one way; bolt the new one on and re-test."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Renix trucks (1987-1990) \u2014 set the voltage. With the key on and engine off, back-probe the flat 3-wire connector. Measure the reference voltage across the outer two terminals (A positive to B ground) and write it down \u2014 it's usually around 4.8-5.0 volts. Then measure the output voltage on the signal terminal relative to ground at closed throttle. Loosen the two T20 Torx screws in the slotted holes and rotate the sensor until the output reads 83 percent of your reference voltage (example: 4.8 V reference \u00d7 0.83 = 3.98 V output). Tighten the screws while watching the meter so the reading doesn't drift. This is the cruiser54 method and it's the accepted spec for Renix XJs and MJs."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Renix automatics \u2014 check the second connector. If you have an automatic, the square 4-wire connector feeds the transmission controller and follows the same 83-percent-of-reference target on its own circuit. Setting only the ECU side and ignoring the TCU side leaves you with correct fueling but wonky shifts. Set both."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Reconnect everything: TPS connector(s), IAC, vacuum lines, breather hose, and the air intake tube. Double-check no hose was left off \u2014 an open vacuum port will cause a high idle or stall that mimics the problem you fixed."
+    },
+    {
+      "@type": "HowToStep",
+      "text": "Reconnect the battery, start the engine, and let it idle. On HO trucks the ECU relearns idle over a few minutes; a short drive cycle with some stop-and-go locks in the adaptive idle. On Renix trucks, confirm the idle settles and there's no hesitation when you blip the throttle. If the idle still hunts after a clean IAC and an in-spec TPS, look next at vacuum leaks and the IAC's electrical connector."
+    }
   ]
 }
 </script>
@@ -135,6 +185,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -144,7 +204,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <div class="tm-chips"><span class="tm-chip">Difficulty 2/5</span><span class="tm-chip">1–2 hrs</span><span class="tm-chip">$15–120</span><span class="tm-chip">1987-1990, 1991-1995, 1996, 1997-2001</span></div>
   <p class="tm-lead">A full throttle body service on the 4.0L means cleaning the bore and butterfly, servicing the IAC, and confirming the throttle position sensor reads where it should. On Renix Jeeps (1987-1990) the TPS is adjustable and has to be set; on HO Jeeps (1991-2001) it isn&#x27;t, so you verify it instead. This guide covers both.</p>
 <p>Carbon builds on the back of the throttle plate and around the bore from PCV vapors, and over a few years that buildup narrows the idle bypass enough to make the engine hunt, stall at stops, or idle high. Cleaning the throttle body fixes that. But cleaning is only half the job — if the throttle position sensor is out of spec or has a dead spot, you get the same symptoms plus hesitation off idle, hard shifts on automatics, and sometimes a check engine light. The TPS tells the ECU exactly how far the throttle is open, and on the automatic-equipped Renix trucks it also feeds the transmission controller, so a sensor that&#x27;s reading wrong can confuse both at once.</p>
-<p>The single most important fact to get straight before you start: **the Renix TPS (1987-1990) is adjustable and the HO TPS (1991-2001) is not.** Renix sensors mount with slotted holes and have to be dialed in with a multimeter to a target voltage. HO sensors bolt on one way only and are either in spec or replaced — there&#x27;s nothing to turn. Confirm which one you have before you order a part or reach for a Torx driver, because the procedures diverge completely at the sensor.</p>
+<p>The single most important fact to get straight before you start: <strong>the Renix TPS (1987-1990) is adjustable and the HO TPS (1991-2001) is not.</strong> Renix sensors mount with slotted holes and have to be dialed in with a multimeter to a target voltage. HO sensors bolt on one way only and are either in spec or replaced — there&#x27;s nothing to turn. Confirm which one you have before you order a part or reach for a Torx driver, because the procedures diverge completely at the sensor.</p>
+<h2>Steps</h2>
+<ol class="tm-steps"><li>Park on level ground, set the parking brake, and let the engine cool. Disconnect the negative battery cable (10mm) — you&#x27;ll be unplugging sensors, and you don&#x27;t want the ECU storing false codes or the IAC moving while you work.</li><li>Remove the air intake tube from the throttle body. Loosen the hose clamp at the throttle body (flat-blade or 7mm), disconnect the crankcase breather and any vacuum lines attached to the tube, and set it aside. You now have clear access to the throttle bore.</li><li>Inspect the bore and butterfly. Open the throttle by hand using the cable linkage and look at the back side of the plate and the bore wall. Black, oily carbon is normal and is what you&#x27;re removing. Heavy hard deposits mean it&#x27;s been a long time.</li><li>Clean the throttle body. Hold the throttle open by hand, spray CRC throttle body cleaner onto the plate and bore, and wipe with a lint-free rag. Use throttle body cleaner specifically — not carburetor cleaner, which is harsher and can attack the bore coating and the TPS shaft seal. Work the rag around the bore until the metal is clean. Do not jam rags or spray hard into the small cylindrical passage where the IAC pintle sits.</li><li>Keep cleaner off the TPS. The throttle position sensor&#x27;s shaft is poorly sealed, and solvent or water wicking past it ruins the sensor. Never spray directly at it. If you&#x27;re removing the throttle body from the manifold for a deeper clean (often easier on 1991-2001 trucks), unbolt it, use a fresh throttle body-to-manifold gasket on reinstall, and torque the throttle body bolts to roughly 14 ft-lb.</li><li>Service the IAC valve. The idle air control valve mounts on the throttle body with two Torx screws (T20/T25). Remove it gently — do not pull, twist, or pry on the pintle that sticks out, it&#x27;s fragile. Wipe carbon off the pintle and seat with a rag dampened in cleaner. If the idle has been hunting badly and the valve is heavily fouled or worn, replace it rather than fighting it. Reinstall with the screws snug, not gorilla-tight.</li><li><strong>Identify your TPS before going further.</strong> Renix (1987-1990): the sensor sits on the throttle body with slotted mounting holes and a flat 3-wire connector to the ECU; automatics add a second square 4-wire connector for the transmission controller. HO (1991-2001): a single connector, two fixed mounting screws, no slots.</li><li><strong>HO trucks (1991-2001) — verify, don&#x27;t adjust.</strong> Reconnect the battery. With the key on and engine off, back-probe the TPS signal wire to ground and read voltage on a multimeter. At closed throttle you should see roughly 0.6-1.0 volts. Slowly open the throttle by hand to wide open and watch the voltage climb smoothly to about 3.5-4.0 volts with no jumps, drops, or dead spots. A smooth sweep means the sensor is good and you&#x27;re done — there&#x27;s nothing to adjust. A flat spot, a jump to zero, or an erratic reading means replace the sensor. The HO TPS only fits one way; bolt the new one on and re-test.</li><li><strong>Renix trucks (1987-1990) — set the voltage.</strong> With the key on and engine off, back-probe the flat 3-wire connector. Measure the reference voltage across the outer two terminals (A positive to B ground) and write it down — it&#x27;s usually around 4.8-5.0 volts. Then measure the output voltage on the signal terminal relative to ground at closed throttle. Loosen the two T20 Torx screws in the slotted holes and rotate the sensor until the output reads 83 percent of your reference voltage (example: 4.8 V reference × 0.83 = 3.98 V output). Tighten the screws while watching the meter so the reading doesn&#x27;t drift. This is the cruiser54 method and it&#x27;s the accepted spec for Renix XJs and MJs.</li><li><strong>Renix automatics — check the second connector.</strong> If you have an automatic, the square 4-wire connector feeds the transmission controller and follows the same 83-percent-of-reference target on its own circuit. Setting only the ECU side and ignoring the TCU side leaves you with correct fueling but wonky shifts. Set both.</li><li>Reconnect everything: TPS connector(s), IAC, vacuum lines, breather hose, and the air intake tube. Double-check no hose was left off — an open vacuum port will cause a high idle or stall that mimics the problem you fixed.</li><li>Reconnect the battery, start the engine, and let it idle. On HO trucks the ECU relearns idle over a few minutes; a short drive cycle with some stop-and-go locks in the adaptive idle. On Renix trucks, confirm the idle settles and there&#x27;s no hesitation when you blip the throttle. If the idle still hunts after a clean IAC and an in-spec TPS, look next at vacuum leaks and the IAC&#x27;s electrical connector.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores smooth idle and crisp off-idle throttle response for the cost of a can of cleaner, if the TPS turns out to be fine.</li><li>The TPS check rules in or out a sensor that causes hesitation, stalling, and (on autos) bad shifts — symptoms people often chase in the wrong places.</li><li>Setting a Renix TPS correctly fixes fueling and transmission shift quality at the same time, since both controllers read that sensor.</li><li>No special tools beyond a multimeter; it&#x27;s a driveway job on a cold engine.</li></ul>
 <h2>Trade-offs</h2>
@@ -155,11 +217,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p class="tm-affiliate-note">Some parts links are Amazon affiliate links — if you buy through them Trail Manual may earn a small commission at no extra cost to you. We only list parts we’d run on our own rig, and never on safety-critical pages.</p>
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td><a href="https://www.amazon.com/s?k=CRC+throttle+body+cleaner&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">CRC throttle body cleaner</a></td><td>Amazon / auto parts</td><td>~$9</td></tr><tr><td><a href="https://www.amazon.com/s?k=Jeep+4.0+throttle+body+gasket&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Throttle body to intake manifold gasket (4.0L)</a></td><td>Mopar / Fel-Pro / RockAuto</td><td>~$10</td></tr><tr><td><a href="https://www.amazon.com/s?k=Jeep+Cherokee+4.0+throttle+position+sensor&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Throttle Position Sensor (1991-2001 HO, non-adjustable)</a></td><td>Mopar / Standard Motor / RockAuto</td><td>~$35</td></tr><tr><td><a href="https://www.amazon.com/s?k=Jeep+Renix+throttle+position+sensor+adjustable&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Throttle Position Sensor (1987-1990 Renix, adjustable)</a></td><td>RockAuto / Crown Automotive</td><td>~$45</td></tr><tr><td><a href="https://www.amazon.com/s?k=Jeep+Cherokee+4.0+idle+air+control+valve&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Idle Air Control (IAC) valve</a></td><td>Mopar / Standard Motor / RockAuto</td><td>~$40</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;cruiser54.com — Renix TPS Adjustment&#x27;, &#x27;url&#x27;: &#x27;https://cruiser54.com/?p=54&#x27;}</li><li>{&#x27;title&#x27;: &#x27;cruiser54.com — Throttle Body and IAC Cleaning&#x27;, &#x27;url&#x27;: &#x27;https://cruiser54.com/?p=60&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Comanche Club Forums — Renix Throttle Position Sensor (TPS) testing / adjustment&#x27;, &#x27;url&#x27;: &#x27;https://comancheclub.com/topic/11634-renix-throttle-position-sensor-tps-testing-adjustment/&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Cherokee Forum — Jeep Cherokee 1984-2001 How to Replace Throttle Position Sensor&#x27;, &#x27;url&#x27;: &#x27;https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-replace-throttle-position-sensor-398991&#x27;}</li><li>{&#x27;title&#x27;: &#x27;NAXJA Forums — Throttle body and IAC cleaning question&#x27;, &#x27;url&#x27;: &#x27;https://naxja.org/threads/throttle-body-and-iac-cleaning-question.1038352/&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://cruiser54.com/?p=54" target="_blank" rel="noopener nofollow">cruiser54.com — Renix TPS Adjustment</a></li><li><a href="https://cruiser54.com/?p=60" target="_blank" rel="noopener nofollow">cruiser54.com — Throttle Body and IAC Cleaning</a></li><li><a href="https://comancheclub.com/topic/11634-renix-throttle-position-sensor-tps-testing-adjustment/" target="_blank" rel="noopener nofollow">Comanche Club Forums — Renix Throttle Position Sensor (TPS) testing / adjustment</a></li><li><a href="https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-replace-throttle-position-sensor-398991" target="_blank" rel="noopener nofollow">Cherokee Forum — Jeep Cherokee 1984-2001 How to Replace Throttle Position Sensor</a></li><li><a href="https://naxja.org/threads/throttle-body-and-iac-cleaning-question.1038352/" target="_blank" rel="noopener nofollow">NAXJA Forums — Throttle body and IAC cleaning question</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/xj/maint-throttle-body-clean/">Throttle Body Cleaning</a></li><li><a href="/db/xj/fuel-aux-tank/">Aux Fuel Tank for Overland</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
