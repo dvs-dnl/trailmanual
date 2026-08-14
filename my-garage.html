@@ -1477,6 +1477,11 @@ function activeVehicle() {
    target URL (where the project opens), and helper for counts.
    ========================================================= */
 const PROJECT_TYPES = {
+  'rig-builder': {
+    label: 'RIG BUILDER',
+    tool: 'xj-database.html#/builder',
+    paths: {}
+  },
   'v8-swap': {
     label: 'ENGINE SWAP',
     tool: 'v8-swap-parts-checklist.html',
@@ -1765,7 +1770,7 @@ function renderProjects(v) {
   const projects = v.projects || [];
   head.appendChild(el('div', { class: 'section-help' },
     projects.length === 0
-      ? 'No projects yet. Start one from the Engine Swap Decision tool.'
+      ? 'No projects yet. Start one from the Engine Swap tool or save a Rig Builder plan.'
       : projects.length + ' project' + (projects.length === 1 ? '' : 's')
   ));
   section.appendChild(head);
@@ -1773,7 +1778,7 @@ function renderProjects(v) {
   if (projects.length === 0) {
     const empty = el('div', { class: 'empty-card' });
     empty.appendChild(el('div', { style: 'margin-bottom:8px' }, 'No projects on this rig yet.'));
-    empty.appendChild(el('div', { style: 'color:var(--text-faint);font-size:12px' }, 'Open the Engine Swap Decision tool, pick an engine path, and click "Start My Build" to attach a parts checklist to this rig.'));
+    empty.appendChild(el('div', { style: 'color:var(--text-faint);font-size:12px' }, 'Open the Rig Builder in the XJ database to build a phased plan, or open the Engine Swap Decision tool and click “Start My Build” to attach a checklist.'));
     const link = el('a', { href: '/jk-wrangler-engine-swap-tool.html', style: 'display:inline-block;margin-top:12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--clay-light)' }, 'Open Engine Swap Decision tool →');
     empty.appendChild(link);
     section.appendChild(empty);
@@ -1797,20 +1802,33 @@ function renderProjects(v) {
     card.appendChild(el('div', { class: 'proj-title' }, pathName));
     if (proj.notes) card.appendChild(el('div', { class: 'proj-notes' }, proj.notes));
 
-    const stats = el('div', { class: 'proj-stats' });
-    stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Purchased</span><span class="val">' + counts.purchased + '</span>' }));
-    stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Installed</span><span class="val">' + counts.installed + '</span>' }));
-    card.appendChild(stats);
-
-    const actions = el('div', { class: 'proj-actions' });
-    const openUrl = '/' + type.tool + '?project=' + encodeURIComponent(proj.id) + '&vehicle=' + encodeURIComponent(v.id);
-    const openBtn = el('a', { class: 'btn btn-primary', href: openUrl }, 'Open checklist →');
-    actions.appendChild(openBtn);
-    const editNotes = el('button', { class: 'btn btn-ghost btn-sm', on: { click: () => openProjectNotes(proj.id) } }, 'Edit notes');
-    actions.appendChild(editNotes);
-    const del = el('button', { class: 'btn btn-danger btn-sm', on: { click: () => confirmDeleteProject(v.id, proj.id) } }, 'Delete');
-    actions.appendChild(del);
-    card.appendChild(actions);
+    if (proj.type === 'rig-builder') {
+      const stats = el('div', { class: 'proj-stats' });
+      stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Goal</span><span class="val">' + (proj.tierLabel || proj.tier || '\u2014') + '</span>' }));
+      stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Budget</span><span class="val">$' + (proj.budget ? proj.budget.toLocaleString() : '\u2014') + '</span>' }));
+      stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Items</span><span class="val">' + (proj.itemCount || 0) + '</span>' }));
+      stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Est. cost</span><span class="val">$' + (proj.totalCost ? proj.totalCost.toLocaleString() : '\u2014') + '</span>' }));
+      card.appendChild(stats);
+      const actions = el('div', { class: 'proj-actions' });
+      actions.appendChild(el('a', { class: 'btn btn-primary', href: '/' + type.tool }, 'Open Rig Builder \u2192'));
+      const del = el('button', { class: 'btn btn-danger btn-sm', on: { click: () => confirmDeleteProject(v.id, proj.id) } }, 'Delete');
+      actions.appendChild(del);
+      card.appendChild(actions);
+    } else {
+      const stats = el('div', { class: 'proj-stats' });
+      stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Purchased</span><span class="val">' + counts.purchased + '</span>' }));
+      stats.appendChild(el('div', { class: 'proj-stat', html: '<span class="lbl">Installed</span><span class="val">' + counts.installed + '</span>' }));
+      card.appendChild(stats);
+      const actions = el('div', { class: 'proj-actions' });
+      const openUrl = '/' + type.tool + '?project=' + encodeURIComponent(proj.id) + '&vehicle=' + encodeURIComponent(v.id);
+      const openBtn = el('a', { class: 'btn btn-primary', href: openUrl }, 'Open checklist \u2192');
+      actions.appendChild(openBtn);
+      const editNotes = el('button', { class: 'btn btn-ghost btn-sm', on: { click: () => openProjectNotes(proj.id) } }, 'Edit notes');
+      actions.appendChild(editNotes);
+      const del = el('button', { class: 'btn btn-danger btn-sm', on: { click: () => confirmDeleteProject(v.id, proj.id) } }, 'Delete');
+      actions.appendChild(del);
+      card.appendChild(actions);
+    }
 
     grid.appendChild(card);
   });
