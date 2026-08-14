@@ -57,6 +57,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-guide ul{padding-left:20px}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
 .tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
 </style>
 </head>
 <body>
@@ -66,31 +76,25 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <div class="tm-chips"><span class="tm-chip">Difficulty 1/5</span><span class="tm-chip">0.5–1 hrs</span><span class="tm-chip">$250–450</span><span class="tm-chip">2012-2018</span></div>
   <p class="tm-lead">A tune on the JK 3.6L Pentastar is worth doing once you&#x27;ve changed the tire size — the stock PCM calibration runs fuel trim and shift points for the factory tire circumference, and big tires throw all of it off. Without a tire-size correction tune, the speedometer reads incorrectly, fuel economy drops, and transmission shift points are poorly timed for the new rolling resistance.</p>
 <p>The case for tuning a stock-height, stock-tire JK is weak. The Pentastar is well-calibrated from the factory and does not respond dramatically to a tune on its own — gains are typically 10–15 hp and 10–12 ft-lbs of torque, noticeable on a dyno but subtle in traffic. The real value of a Pentastar tune is in correcting for modifications:</p>
-<p>**When a tune is worth it:**</p>
+<p><strong>When a tune is worth it:</strong></p>
 <ul><li>Tire size change (33s or larger) — speedometer correction is essential, and fuel trim optimization for the new rolling resistance recaptures fuel economy</li><li>Regear — shift point correction after changing axle ratio is significant; the transmission thinks it&#x27;s in the wrong gear without a tune to match</li><li>CAI + exhaust combination — the tune recalibrates the MAF and fueling for improved airflow</li></ul>
-<p>**Tuner comparison:** The Superchips Flashpaq F5 is the cleanest option for JK owners who want a set-it-and-forget-it device. It stores the stock tune, allows tire size input, and handles axle ratio correction through the device menu without requiring a laptop. The Diablo Sport i3 offers more data logging and custom tune capability if you want dealer-level data access. Neither requires sending the PCM out — they are OBD2 port plug-in devices.</p>
+<p><strong>Tuner comparison:</strong> The Superchips Flashpaq F5 is the cleanest option for JK owners who want a set-it-and-forget-it device. It stores the stock tune, allows tire size input, and handles axle ratio correction through the device menu without requiring a laptop. The Diablo Sport i3 offers more data logging and custom tune capability if you want dealer-level data access. Neither requires sending the PCM out — they are OBD2 port plug-in devices.</p>
 <p>Note that a canned tune from these devices is not the same as a professional dyno tune. For most JK owners running stock engine internals and a CAI, the canned tune is adequate. For forced induction or engine builds with significant airflow changes, a custom dyno tune is the correct approach.</p>
-<p>**Hardware:** Tuner device (Superchips Flashpaq or Diablo i3), USB cable for firmware updates before first use</p>
-<p>1. Update the tuner&#x27;s firmware via the manufacturer&#x27;s software before using it on the vehicle.</p>
-<p>2. Plug the tuner into the OBD2 port under the driver&#x27;s dash with the ignition off.</p>
-<p>3. Turn the ignition to &quot;on&quot; (do not crank). Follow the device prompts.</p>
-<p>4. Select your modifications from the menu: tire size (measure actual circumference, not nominal size), axle ratio (if regeated), CAI (if installed).</p>
-<p>5. Select the tune level — most offer stock, performance, and economy profiles. Performance on a trail rig; economy for a daily driver.</p>
-<p>6. The device writes the new tune to the PCM (approximately 5 minutes). Do not start the engine during the write.</p>
-<p>7. Remove the tuner. Start the engine and verify normal idle.</p>
-<p>8. Drive through a full stop-and-go cycle to allow the transmission to relearn shift points.</p>
-<ul><li>**PCM &quot;locked&quot; after aftermarket tune:** Some dealerships detect a flashed PCM and void warranty claims on engine and transmission. The Superchips Flashpaq stores the factory tune and can restore it before any dealer visit.</li><li>**Tire size input:** Enter the actual measured circumference of your mounted tires inflated to operating pressure — not the sidewall nominal size. A 35x12.50R17 typically measures 34.5 inches in circumference, not 35 inches.</li><li>**Transmission relearn:** After any tune, allow the transmission 100–200 miles to relearn shift patterns. Hard or erratic shifts in the first 50 miles are normal.</li></ul>
+<p><strong>Hardware:</strong> Tuner device (Superchips Flashpaq or Diablo i3), USB cable for firmware updates before first use</p>
+<ol><li>Update the tuner&#x27;s firmware via the manufacturer&#x27;s software before using it on the vehicle.</li><li>Plug the tuner into the OBD2 port under the driver&#x27;s dash with the ignition off.</li><li>Turn the ignition to &quot;on&quot; (do not crank). Follow the device prompts.</li><li>Select your modifications from the menu: tire size (measure actual circumference, not nominal size), axle ratio (if regeated), CAI (if installed).</li><li>Select the tune level — most offer stock, performance, and economy profiles. Performance on a trail rig; economy for a daily driver.</li><li>The device writes the new tune to the PCM (approximately 5 minutes). Do not start the engine during the write.</li><li>Remove the tuner. Start the engine and verify normal idle.</li><li>Drive through a full stop-and-go cycle to allow the transmission to relearn shift points.</li></ol>
+<ul><li><strong>PCM &quot;locked&quot; after aftermarket tune:</strong> Some dealerships detect a flashed PCM and void warranty claims on engine and transmission. The Superchips Flashpaq stores the factory tune and can restore it before any dealer visit.</li><li><strong>Tire size input:</strong> Enter the actual measured circumference of your mounted tires inflated to operating pressure — not the sidewall nominal size. A 35x12.50R17 typically measures 34.5 inches in circumference, not 35 inches.</li><li><strong>Transmission relearn:</strong> After any tune, allow the transmission 100–200 miles to relearn shift patterns. Hard or erratic shifts in the first 50 miles are normal.</li></ul>
 <h2>Tools required</h2>
 <ul><li>OBD2 tuner device (Superchips, Diablo)</li></ul>
 <h2>Parts</h2>
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Superchips Flashpaq F5 (JK 3.6L)</td><td>Superchips</td><td>~$399</td></tr><tr><td>Diablo Sport InTune i3 (JK 3.6L)</td><td>Diablo Sport</td><td>~$349</td></tr><tr><td>Bully Dog GT Platinum Tuner (JK)</td><td>Bully Dog</td><td>~$299</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul><li>{&#x27;title&#x27;: &#x27;Superchips Flashpaq JK Compatibility&#x27;, &#x27;url&#x27;: &#x27;https://www.superchips.com/jeep-wrangler-jk-flashpaq&#x27;}</li><li>{&#x27;title&#x27;: &#x27;Diablo Sport JK Tuner Page&#x27;, &#x27;url&#x27;: &#x27;https://www.diablosport.com/jeep-jk-tuner&#x27;}</li></ul>
+<ul class="tm-sources"><li><a href="https://www.superchips.com/jeep-wrangler-jk-flashpaq" target="_blank" rel="noopener nofollow">Superchips Flashpaq JK Compatibility</a></li><li><a href="https://www.diablosport.com/jeep-jk-tuner" target="_blank" rel="noopener nofollow">Diablo Sport JK Tuner Page</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/db/jk/jk-cold-air-intake/">Cold Air Intake Upgrade — 3.6L Pentastar (JK Wrangler)</a></li><li><a href="/db/jk/jk-regear/">Re-Gearing the JK — 4.56, 4.88, and 5.13 Ratios</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+<ul><li><a href="/db/jk/jk-cold-air-intake/">Cold Air Intake Upgrade — 3.6L Pentastar (JK Wrangler)</a></li><li><a href="/db/jk/jk-regear/">Re-Gearing the JK — 4.56, 4.88, and 5.13 Ratios</a></li><li><a href="/db/jk/jk-obd2-diagnostics/">OBD2 Diagnostics and Code Reading (JK Wrangler)</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
   <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
   <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
 </div>
 </body>
 </html>
