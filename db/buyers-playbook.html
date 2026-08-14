@@ -311,13 +311,317 @@ var PLAYBOOKS = {
     sources: "Known-issue and year-change detail cross-checked against JK-Forum / WranglerForum archives, the Jeep JK FSM, NHTSA TIPM complaints, and FCA's extended-warranty notice for the 3.6L cylinder head. Price ranges reflect 2026 listings across Facebook Marketplace, Bring a Trailer, Cars & Bids, and dealer used inventory."
   },
 
-  jl: { status:"soon", label:"Wrangler JL" },
-  "4runner": { status:"soon", label:"4Runner" },
-  tacoma: { status:"soon", label:"Tacoma" },
-  bronco: { status:"soon", label:"Bronco" },
-  gladiator: { status:"soon", label:"Gladiator" },
-  raptor: { status:"soon", label:"Raptor" },
-  "power-wagon": { status:"soon", label:"Power Wagon" }
+  jl: {
+    status: "live",
+    label: "Wrangler JL",
+    name: "Jeep Wrangler JL",
+    years: "2018–present",
+    focus: "The engine year and the recall history decide this one. A 2020+ Pentastar Rubicon or Sahara with the steering and (if applicable) battery recalls confirmed is the safe used buy. The EcoDiesel and 4xe carry the biggest repair tail.",
+    answer: "The JL is the most refined solid-axle Wrangler yet, and the four-door JLU is still the easiest path into a modern, factory-locked, well-supported off-road rig. <strong>Two things decide whether a given JL is a good buy: which engine it has, and whether its recalls were actually completed.</strong> The 3.6L Pentastar is the no-drama choice; the 2.0L turbo is fine with a clean coolant history; the 3.0L EcoDiesel and the 4xe plug-in hybrid are where the expensive failures live. And every JL needs the death-wobble and (on 4xe) battery-fire recall work verified before money changes hands — a damper that masks a worn front end is not a fix.",
+    knownIssues: [
+      {sys:"Steering — death wobble", sev:"critical", issue:"Violent front-end oscillation after a highway bump; the JL became infamous for it at launch", cost:"$0 if damper recall done, $2,000–$3,500 for a real front-end cure", note:"Safety-critical. 2018–2019 cars had a steering-damper TSB and a separate frame-weld recall (NHTSA 18V-675) where the front track-bar bracket could separate from the frame. A later batch built 9/2020–8/2021 added loose lower ball joints as a cause. The recall damper masks wobble; it returns if the track bar, ball joints, or tie rod are worn. Test at 55–65 mph over expansion joints and confirm every steering recall was completed."},
+      {sys:"Engine — 3.0L EcoDiesel (2020–23)", sev:"critical", issue:"CP4 high-pressure fuel pump can self-destruct and contaminate the entire fuel system; oil-cooler failure mixes oil and coolant", cost:"$8,000+ for CP4 fallout, $1,100–$3,500+ for the oil cooler", note:"The CP4 pump sends metal shavings through injectors, lines, and rails when it fails — a five-figure repair. The oil cooler is a separate known failure that can kill the engine. Buy an EcoDiesel only with full service records and budget for a CP4 mitigation kit. Otherwise this is the riskiest engine in the lineup."},
+      {sys:"4xe plug-in hybrid (2021+)", sev:"critical", issue:"High-voltage battery may fail internally and catch fire; large 2024 recall", cost:"$0 if recall remedy done", note:"NHTSA recall (Sept 2024) covered ~154,000 Wrangler/Grand Cherokee 4xe vehicles — owners were told to park outside and stop charging until repaired. Confirm the battery recall remedy is complete on any 4xe, and watch for degraded electric range or 'Service Hybrid Charging System' history. The discount 4xes carry is leverage if the recall is done."},
+      {sys:"Engine — 2.0L turbo (eTorque)", sev:"major", issue:"Recurring coolant loss; early 2018–2019 builds the worst", cost:"$200–$1,500", note:"The turbo four loses coolant in a way owners and dealers have struggled to pin down — often traced to water-pump inlet-tube fasteners, occasionally the eTorque battery cooling. Quality settled down on 2020+ cars. A clean coolant history makes this a fine engine; a mystery coolant loss is a bargaining point and a watch item."},
+      {sys:"Sky One-Touch power top", sev:"major", issue:"Power roof leaks at the seals and can fail mid-cycle with no manual override", cost:"$500–$2,500+", note:"The Sky One-Touch is a great feature when it works and a costly headache when it doesn't. Leaks drip onto seats, dash, and electronics; the motor can stop mid-open. Cycle it fully open and closed and check the headliner and floor for water staining before you trust it."},
+      {sys:"Frame / corrosion", sev:"major", issue:"Frame rails and welds rust, sometimes on relatively new trucks", cost:"$0–$2,000+", note:"The JL's frame corrosion is better documented than its age would suggest — surface rust and weld scaling show up even on 2021 cars. Inspect the frame rails and the track-bar bracket welds directly. Structural rust here ties back to the steering safety story, so don't wave it off."},
+      {sys:"Axles", sev:"good", issue:"Rubicon, EcoDiesel, and 392 came with the heavier 3rd-gen Dana 44s", cost:"—", note:"Sport and Sahara run a Dana 30 front / Dana 35 rear — fine stock, the limiter on 37s and lockers. Rubicons got wide-track 3rd-gen Dana 44s front and rear, 4.10 gears, Tru-Lok lockers, the Rock-Trac 4:1 case, and a sway-bar disconnect. EcoDiesel JLUs got Dana 44s regardless of trim; the 392 uses an even heavier HD front. For a serious build, the Rubicon hardware is worth the premium."},
+      {sys:"8-speed 850RE automatic", sev:"good", issue:"The TorqueFlite eight behind every engine is generally robust", cost:"—", note:"No systemic failure pattern. A few owners report slipping under heavy load on steep climbs, more so on early units, but the 850RE is a durable box. Confirm clean, regular fluid service on a higher-mile truck."}
+    ],
+    yearDelta: [
+      {years:"2018", change:"All-new JL launches; overlapped with the outgoing JK", note:"Both were sold as 2018s — the older one wears 'Wrangler JK' badging. New tub, aluminum doors/hood/fenders, 3.6L Pentastar and 2.0L turbo at launch. This is the start of the death-wobble and frame-weld recall era; buy only with those recalls confirmed."},
+      {years:"2019", change:"Death-wobble complaints peak; recalls issued", note:"Steering-damper TSB and the frame-weld recall (18V-675) land here. A 2018–2019 car is buyable, but only with the recall work documented and the front end inspected on a test drive."},
+      {years:"2020", change:"3.0L EcoDiesel V6 added", note:"The diesel option arrives (offered 2020–2023). Strong torque and range, but the CP4 and oil-cooler risks make it the engine to vet hardest."},
+      {years:"2021", change:"Rubicon 392 (6.4L HEMI V8) and 4xe plug-in hybrid both launch", note:"The first V8 Wrangler (~470 hp) and the plug-in hybrid arrive together. The ball-joint death-wobble build window (9/2020–8/2021) falls in this period — check the build date."},
+      {years:"2024", change:"Mid-cycle refresh: standard 12.3-inch screen, slimmer grille, added safety tech; eTorque options dropped", note:"The most modern JLs. EcoDiesel ended after 2023. The refreshed cars carry the best infotainment and the wobble story largely sorted on later builds."}
+    ],
+    priceRanges: [
+      {tier:"High-mile / base 2-door (2018–19 Sport)", range:"$11,000–$18,000", note:"An early two-door with miles. Cheapest way in, but you're buying the launch-year electronics and the recall-history homework. Confirm the steering work was done."},
+      {tier:"Honest driver 4-door (JLU Sport/Sahara)", range:"$20,000–$30,000", note:"A clean 2019–2021 JLU, stock or lightly built, recalls sorted. The realistic daily-able buy for most people."},
+      {tier:"Clean low-mile / Rubicon (2020–22)", range:"$30,000–$40,000", note:"Rust-free, documented, lower-mile, or a real Rubicon with the Dana 44s and Rock-Trac. Verify the hardware, not the badge."},
+      {tier:"Rubicon 392 / 4xe (2021–23)", range:"$30,000–$70,000+", note:"The 392 V8 holds value hard and sits at the top. The 4xe trades softer because of the battery-recall overhang — fine leverage if the recall remedy is confirmed."}
+    ],
+    walkAway: [
+      {head:"Death wobble that returns after the recall, or recalls not completed", body:"A 2018–2019 car with the steering recalls undone, or a wobble that comes back on the test drive at 55–65 mph, means a worn front end ($2,000–$3,500) — not a free damper. Confirm every steering recall was performed."},
+      {head:"EcoDiesel with no service records", body:"The CP4 pump is an $8,000-plus landmine and the oil cooler can kill the engine. Walk unless the price reflects the risk and you'll fit a CP4 mitigation kit."},
+      {head:"4xe with the 2024 battery recall unconfirmed", body:"The high-voltage battery fire recall covered ~154,000 vehicles. No proof the remedy was done, degraded EV range, or charging-system repair history all mean assume the worst."},
+      {head:"Sky One-Touch top that leaks or won't cycle", body:"Water intrusion plus damaged electronics, with no manual override and a costly motor or seal repair. Cycle it fully before you trust it."},
+      {head:"Frame or weld rust at the track-bar bracket", body:"Structural and tied directly to the steering safety story. A lifted, freshly painted truck with no alignment after the lift is a related flag — lifts aggravate wobble."}
+    ],
+    related: [
+      {label:"JK Death Wobble Guide (shared solid-axle cure)", url:"/db/jk-death-wobble-guide.html"},
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"JL Database", url:"/db/#/jl/home"}
+    ],
+    sources: "Known-issue and year-change detail cross-checked against JLWranglerForums, NHTSA recall 18V-675 and the 2024 4xe battery recall, FCA/Stellantis steering-damper and cylinder-head service notices, owner reliability aggregations, and the Jeep JL FSM. Axle detail per JLWranglerForums and Hagerty's 392 teardown. Price ranges reflect 2026 KBB/Edmunds appraisal spans and Bring a Trailer comps; verify a specific VIN's recall status before buying."
+  },
+
+  "4runner": {
+    status: "live",
+    label: "4Runner",
+    name: "Toyota 4Runner (5th Gen)",
+    years: "2010–2024",
+    focus: "Buy the cleanest frame you can find and let the drivetrain take care of itself. The 1GR-FE V6 and 5-speed auto are the durability anchor; the money pits are salt-belt frame rust and KDSS leaks. A Phoenix-market truck sidesteps the worst of the rust.",
+    answer: "The 5th-gen 4Runner ran fifteen years on one body-on-frame chassis with a naturally aspirated V6, and that conservatism is exactly why it's one of the safest used 4x4 bets on the road. <strong>The drivetrain is not the question — the frame and the suspension hardware are.</strong> The 1GR-FE 4.0L and the A750F 5-speed routinely pass 250k miles, so your inspection energy goes to frame rust (a real risk on salt-belt trucks, with no recall backstop), a KDSS leak on the off-road trims, and the secondary-air-injection codes that bite the V6. Match the trim to how you'll use it, confirm the fuel-pump recall by VIN, and you're buying a truck that holds value because it earns it.",
+    knownIssues: [
+      {sys:"Frame / rust", sev:"critical", issue:"Salt-belt frames rust at the rails, body mounts, and suspension brackets — and there is no 4Runner frame recall", cost:"$0–$total loss", note:"Unlike the Tacoma and Tundra, the 4Runner was excluded from Toyota's frame-corrosion program; a defect petition was denied and the class-action dismissed. So there's no factory backstop. A rotted frame totals the truck. A desert-kept Phoenix truck is the prize here — be wary of a 4Runner that recently moved from the Northeast or Midwest, and put any suspect one on a lift."},
+      {sys:"Secondary Air Injection (SAI)", sev:"major", issue:"SAI pump and air-switching valves fail on the 1GR-FE, throwing P2440 / P2442 / P2445", cost:"$2,000–$2,800 dealer, less with a delete where legal", note:"Covered by Toyota TSB EG1709. Moisture and carbon kill the pump and valves; cold, humid climates accelerate it but it shows up everywhere. Scan for stored or pending P244x codes before you buy — this is the V6's one notable wart and a real bill if ignored."},
+      {sys:"KDSS suspension (Trail / TRD Off-Road / TRD Pro)", sev:"major", issue:"Kinetic Dynamic Suspension System hydraulics leak", cost:"~$4,000", note:"The hydraulic sway-bar system is excellent when healthy and expensive when it isn't. Look for weeping at the KDSS cylinders and the center valve body, and confirm the truck sits level — a lean can signal a leak. A botched lift on a KDSS truck (wrong bleed procedure) is a tell of amateur work."},
+      {sys:"Fuel pump (2014–15, 2018–19)", sev:"major", issue:"Denso low-pressure fuel pump impeller can deform and cause stall or no-start", cost:"$0 under recall", note:"Part of the massive Denso recall across Toyota/Lexus. The fix is free — verify by VIN at the recall lookup that it was performed on an affected-year truck before you buy."},
+      {sys:"CV axles / ball joints", sev:"minor", issue:"CV boots tear (worse on lifted trucks); lower ball joints are a normal wear item", cost:"$150–$400 per side", note:"Not the catastrophic ball-joint story of the older 4Runner — inspect for play and torn boots. A clicking CV joint or a long-ignored torn boot is a price lever, not a dealbreaker."},
+      {sys:"Brakes (2014–17)", sev:"minor", issue:"Premature pad and rotor wear, occasional warping", cost:"$300–$700", note:"The 2014–2017 cars drew the most brake complaints — mostly wear and maintenance, not a structural defect. Budget for pads and rotors as normal consumables."},
+      {sys:"Entune infotainment", sev:"minor", issue:"Dated UI; pre-2020 cars lack Apple CarPlay / Android Auto", cost:"$200–$800 for an aftermarket head unit", note:"An annoyance, not a reliability problem. CarPlay and Android Auto arrived for 2020. Earlier units can be swapped; factor it if smartphone integration matters to you."},
+      {sys:"Drivetrain", sev:"good", issue:"1GR-FE 4.0L V6 and A750F 5-speed auto are genuinely tough", cost:"—", note:"Timing chain (no belt service), port injection (no carbon-buildup problem), and a conventional torque-converter automatic — no CVT, no dual-clutch. This combo routinely passes 250k miles and is the whole reason the platform holds value. Drain-and-fill the 'lifetime' trans fluid anyway; ask if it's been done."}
+    ],
+    yearDelta: [
+      {years:"2010–2013", change:"5th gen (N280) launches; 1GR-FE 4.0 V6 + A750F 5-speed across the board", note:"Pre-facelift front end. SR5, Trail, and Limited trims. The mechanical package that carries the whole generation is set here."},
+      {years:"2014–2016", change:"Major facelift; Trail becomes TRD Off-Road; TRD Pro introduced (2015)", note:"New front fascia, projector headlights, refreshed interior. The 2015 TRD Pro brings Bilstein shocks, a locking rear diff, CRAWL Control, and Multi-Terrain Select — the off-road halo trim. (2014–2015 are fuel-pump-recall years.)"},
+      {years:"2017–2019", change:"Running updates; TRD Pro moves to Fox shocks (2019)", note:"Minor feature and trim shuffles. The off-road trims keep gaining hardware; 2018–2019 are the other fuel-pump-recall years to check."},
+      {years:"2020", change:"Standard Toyota Safety Sense P and 8-inch Entune 3.0 with CarPlay / Android Auto", note:"The biggest tech year and the value sweet spot for buyers who want driver-assist plus smartphone integration. Venture Edition added."},
+      {years:"2021–2024", change:"Largely carryover; TRD Sport added (2022); 2024 is the final 5th gen", note:"2024 is the last naturally aspirated, last 5th-gen 4Runner — meaningful for buyers who specifically want the proven, uncomplicated NA V6 over the 2025 turbo/hybrid 6th gen."}
+    ],
+    priceRanges: [
+      {tier:"High-mile early 5th-gen SR5 (2010–12)", range:"$11,000–$16,000", note:"Even at 150k-plus miles these don't fall off a cliff. A clean, documented early truck is a lot of durability for the money."},
+      {tier:"Honest driver SR5 / Trail / TRD Off-Road (2014–17)", range:"$22,000–$32,000", note:"Mid-mile, post-facelift, the realistic buy. Confirm the SAI codes are clear and the fuel-pump recall is done."},
+      {tier:"Clean low-mile (2018–21, SR5/Limited)", range:"$33,000–$42,000", note:"Sub-80k, documented. The 4Runner's slow depreciation really shows in this band."},
+      {tier:"TRD Off-Road / TRD Pro (2019–24, low-mile)", range:"$38,000–$55,000+", note:"TRD Off-Road in the high $30s to high $40s; the TRD Pro commands a clear premium, with the cleanest late ones approaching new-car money. Bring a Trailer routinely shows low-mile Pros at or above original MSRP."}
+    ],
+    walkAway: [
+      {head:"Salt-belt frame rust", body:"Flaking, scaling, or perforation on the frame rails, body mounts, or suspension brackets. There's no recall backstop, so a rotted frame totals the truck. Be especially wary of a 4Runner that recently relocated from a salt state."},
+      {head:"KDSS leaking", body:"Visible hydraulic weep at the cylinders or valve body, or an uneven stance, on a Trail/TRD Off-Road/Pro. That's a roughly $4,000 fix — walk or negotiate hard."},
+      {head:"Stored P2440 / P2442 / P2445 codes with no repair history", body:"The SAI failure is a $2,000-plus job. At minimum it's a price lever; at worst the seller is hoping you don't scan it."},
+      {head:"Unperformed fuel-pump recall on a 2014–15 or 2018–19 truck", body:"Stall and no-start risk. The fix is free — confirm it by VIN or walk until it's done."},
+      {head:"Botched off-road build or branded title", body:"Incorrect KDSS handling, clicking CV joints, hacked wiring, or a salvage history on a vehicle this off-road-popular. Verify a clean title and inspect the frame."}
+    ],
+    related: [
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"4Runner Database", url:"/db/#/4runner/home"}
+    ],
+    sources: "Known-issue and year-change detail cross-checked against Toyota-4runner.org and IH8MUD forums, Toyota TSB EG1709 (SAI), NHTSA's denied 4Runner frame petition and dismissed class-action, the Denso fuel-pump recall notices, and the Toyota 4Runner FSM. Price ranges reflect 2026 KBB/Edmunds data and Bring a Trailer results, where late 5th-gen and TRD Pro values have stayed exceptionally firm."
+  },
+
+  tacoma: {
+    status: "live",
+    label: "Tacoma",
+    name: "Toyota Tacoma (2nd & 3rd Gen)",
+    years: "2005–2023",
+    focus: "On a 2nd gen, the frame is the whole inspection — Toyota's rust coverage has now closed, so you're on your own. On a 3rd gen, the engine is bulletproof and the 6-speed automatic is the known weak spot. A clean Southwest truck is worth paying up for.",
+    answer: "The Tacoma holds value better than almost anything with a bed, which means you'll pay real money for a used one and should make every dollar earn its keep. <strong>The 2nd gen (2005–2015) lives or dies on its frame; the 3rd gen (2016–2023) lives or dies on its transmission.</strong> Toyota's frame-rust replacement program has now timed out for nearly every 2005–2010 truck, so a 2nd-gen frame inspection is mandatory, not optional. On the 3rd gen, the 3.5L V6 is genuinely robust — the complaints are about a 6-speed automatic that hunts for gears and a stiff ride, not about the engine grenading. For a Phoenix buyer, the clean-frame Southwest market is the right place to shop.",
+    knownIssues: [
+      {sys:"Frame / rust (2nd gen, 2005–10)", sev:"critical", issue:"Boxed frames rust from the inside out; Toyota's replacement program has now closed for nearly all of these trucks", cost:"$4,000–$10,000+ out of pocket, often a total loss", note:"Toyota's settlement replaced perforated frames free, but coverage ran ~15 years from in-service date — a late-built 2010 timed out in 2024–2025. Assume no remaining coverage in 2026. The frame can look fine on the surface while perforating inside, so probe the rails behind the rear wheels, the spring hangers, and the crossmembers. Structural perforation is fatal. This is the single most important check on any 2nd gen."},
+      {sys:"Coolant-into-transmission (2nd gen autos)", sev:"critical", issue:"Radiator-integrated trans cooler ruptures; ATF and coolant mix into a 'pink milkshake'", cost:"$300–$600 radiator, $2,500–$4,000+ if the trans is contaminated", note:"On 2005–2012 automatics the internal cooler wall corrodes and high-pressure fluid cross-contaminates. Coolant in the transmission can destroy it. Check the coolant reservoir and the trans dipstick for pink froth before you buy — it's a walk-away or a major negotiation lever."},
+      {sys:"Transmission — 6-speed auto (3rd gen)", sev:"major", issue:"Gear hunting on grades, harsh 1–2 upshift, delayed engagement from Park", cost:"$0 for the ECM re-flash TSB", note:"The headline 3rd-gen complaint. The Atkinson-tuned 3.5L is soft at low RPM, so the AC60 six-speed downshifts constantly to compensate. Toyota's fix is an ECM software re-flash plus a fluid-level check — it improves the behavior without eliminating it. Confirm the re-flash was applied, or budget the dealer visit."},
+      {sys:"Rear differential (2016–17)", sev:"major", issue:"Carrier fasteners under-torqued; the diff can leak, run dry, and lock the rear wheels", cost:"$0 under recall (NHTSA 17V285)", note:"~228,000 trucks recalled. The remedy inspects, re-torques, and replaces the carrier if it's internally damaged — free. Verify it was done by VIN. A separate diff-whine complaint exists that Toyota addressed with sound-dampening rather than re-gearing."},
+      {sys:"Lower ball joints & rear leaf springs (2nd gen)", sev:"major", issue:"Premature lower ball-joint wear (subject of an earlier recall) and leaf packs that flatten and crack", cost:"$150–$400 per side for ball joints, $300–$700+ for leaf packs", note:"Inspect the front ball joints for play and the rear leaf packs for flattening or cracks, especially on a truck that's carried weight. Both are negotiable wear items, not dealbreakers — factor the cost."},
+      {sys:"Secondary Air Injection (2nd gen 2.7L)", sev:"minor", issue:"SAIS pump and valves fail and throw codes", cost:"$0 if recall 20TC01 done, ~$50–$70 aftermarket pump", note:"Primarily the 2.7L four-cylinder trucks (recall 20TC01). Verify recall completion by VIN; the aftermarket pumps are cheap if you're handling it yourself."},
+      {sys:"Dashboard (sun-belt)", sev:"minor", issue:"Sun-fade and surface cracking — and the Tacoma was NOT in Toyota's melting-dash warranty program", cost:"$60–$200 for a dash cap", note:"Relevant to a baked Arizona truck. The Tacoma was excluded from the melting-dashboard enhancement that covered the 4Runner and the cars, so there's no factory remedy. Cosmetic — budget a cap if it bothers you."},
+      {sys:"Engines", sev:"good", issue:"4.0L 1GR-FE V6 (2nd gen) and 3.5L 2GR-FKS V6 (3rd gen) are both durable", cost:"—", note:"The 2nd-gen 4.0L is the one to want — 250k–300k miles is routine. The 3rd-gen 3.5L has no widespread head-gasket or oil-consumption defect; the platform's reputation problems are the transmission and ride refinement, not the engine. The 2.7L four is reliable but underpowered for a loaded off-road rig."}
+    ],
+    yearDelta: [
+      {years:"2005–2008", change:"All-new 2nd gen; longer wheelbase, 4.0L 1GR-FE V6 and 2.7L 2TR-FE four", note:"The frame-rust years. X-Runner and TX Baja trims appear. Every truck in this window needs a frame inspection and a check that the coverage has — as it now has — expired."},
+      {years:"2009–2012", change:"Stability control and side/curtain airbags standard (2009); mild refresh (2012)", note:"Safety content steps up. Still 2nd gen, still frame-first on inspection, and the pink-milkshake trans-cooler risk applies to the automatics through 2012."},
+      {years:"2013–2015", change:"Final 2nd-gen years; regular cab dropped after 2014", note:"The most-refined 2nd gen. A clean, rust-free example from these years is a strong buy in the Southwest market."},
+      {years:"2016–2019", change:"All-new 3rd gen; 3.5L 2GR-FKS V6, new 6-speed auto, available 6-speed manual", note:"The redesign. The transmission hunting and the 2016–2017 rear-diff recall are the watch items. The 6-speed manual is well-liked — its rev-hang clunk is a tuning quirk, not a defect."},
+      {years:"2020–2023", change:"Midlife refresh: CarPlay / Android Auto, infotainment and suspension tweaks; 2023 is the final 3rd gen", note:"The sweet spot for a 3rd-gen buyer — after the trans re-flashes and the diff recall are sorted. 2024 brought the all-new turbo 4th gen, so 2023 is the last naturally aspirated V6 Tacoma."}
+    ],
+    priceRanges: [
+      {tier:"High-mile 2nd gen (2005–11)", range:"$8,000–$15,000", note:"Clean SR5/V6 examples. Rough or high-rust trucks list lower, but those are frame-risk gambles — the cheap ones are cheap for a reason."},
+      {tier:"Honest driver SR5 / TRD Sport (2012–19)", range:"$15,000–$26,000", note:"Late 2nd gen or early 3rd gen with average miles. Confirm the frame on the 2nd gen and the trans re-flash on the 3rd gen."},
+      {tier:"Clean low-mile 3rd gen (2020–23 SR5/TRD Sport)", range:"$28,000–$38,000", note:"Documented, lower-mile, post-refresh. The Tacoma's slow depreciation is on full display here."},
+      {tier:"TRD Off-Road / TRD Pro", range:"$30,000–$57,000+", note:"TRD Off-Road in the $30s to low $40s; the 3rd-gen TRD Pro reaches the mid-$50s, with clean examples selling near new-truck money. Verify the locker, Crawl Control, and Multi-Terrain Select all function."}
+    ],
+    walkAway: [
+      {head:"Rotted or perforated frame", body:"Probe the boxed rails behind the rear wheels, the spring hangers, and the crossmembers. Flaking scale, perforation, or a frame that crunches is fatal — and there's no remaining factory coverage in 2026. Surface rust is normal; structural rust is a walk."},
+      {head:"Pink milkshake in the coolant or on the trans dipstick", body:"On a 2nd-gen automatic, that's radiator-to-trans cross-contamination. Assume the transmission is contaminated and price accordingly — or hand back the keys."},
+      {head:"Open safety recalls", body:"Verify by VIN that the 2016–2017 rear-diff recall, the SAIS recall, and the floor-mat/acceleration recall were completed. The diff one can lock the rear wheels."},
+      {head:"3rd gen that clunks into gear or hunts violently with no re-flash", body:"Confirm the ECM software TSB was applied. Without it you're buying the worst of the transmission's behavior and a dealer visit."},
+      {head:"Salt-belt truck dressed up as a deal", body:"Geography is the biggest condition variable on the 2nd gen. A clean Southwest frame is worth paying up for; a cheap Northeast or Midwest truck usually isn't worth the gamble."}
+    ],
+    related: [
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"Tacoma Database", url:"/db/#/tacoma/home"}
+    ],
+    sources: "Known-issue and year-change detail cross-checked against TacomaWorld forums, Toyota's 2005–2010 frame-corrosion settlement documents, NHTSA recall 17V285 (rear differential) and the SAIS and floor-mat recalls, Consumer Reports reliability data, and the Toyota Tacoma FSM. The pink-milkshake trans-cooler failure is documented across 2005–2012 automatics. Price ranges reflect 2026 KBB/Edmunds listings — KBB named the Tacoma a Best Resale Value winner — with a clear rust-belt vs. Southwest split."
+  },
+  bronco: {
+    status: "live",
+    label: "Bronco",
+    name: "Ford Bronco (6th Gen)",
+    years: "2021–present",
+    focus: "The reborn Bronco is a genuine trail rig — solid rear axle, available front and rear lockers, sway-bar disconnect, and 35s from the factory on Sasquatch. The early-build asterisks are the 2.7L EcoBoost intake-valve recall and the MIC hardtop that can crack and delaminate. A 2023+ truck with both sorted is the one to chase.",
+    answer: "The 6th-gen Bronco delivers what the badge promised: removable doors and roof, real low-range, available front and rear lockers and an electronic sway-bar disconnect on Sasquatch/Badlands trucks, and a chassis that wheels with the Wrangler. <strong>The catch is the early-build engine and roof.</strong> 2021–2022 trucks with the 2.7L EcoBoost are covered by a recall for cracking intake valves that can grenade the engine, and the first molded-in-color (MIC) hardtops crack and delaminate. Confirm the valve recall is closed and the hardtop is sorted, and you've removed the two costliest unknowns. Everything else is trim and taste.",
+    knownIssues: [
+      {sys:"Engine — 2.7L EcoBoost (2021–22)", sev:"critical", issue:"Cracking intake valves (Silchrome Lite alloy) cause rough running and can lead to catastrophic failure, often under 20k miles", cost:"$0 under recall, $5,000+ if out", note:"NHTSA-investigated and recalled. Ford switched the valve alloy to Silchrome 1 in October 2021. On a 2021–early-2022 2.7L, confirm the recall remedy (interim notices mailed Oct 2024) is documented. Over half of reported failures hit within 5,000 miles — verify before you buy, not after."},
+      {sys:"Hardtop — MIC (2021–22)", sev:"major", issue:"Molded-in-color hardtop panels crack and delaminate; outer skin can detach while driving", cost:"$0 under replacement program", note:"Affects 3-door tops built 9/23/2020–1/13/2022 and 5-door tops 9/23/2020–10/22/2021. Ford ran a replacement program. Look for bubbling, cracking, or peeling on the roof skin, and ask whether the top was swapped for a corrected or painted unit."},
+      {sys:"Hardtop fitment", sev:"minor", issue:"Uneven front roof panels causing wind noise, water leaks, and hard latching", cost:"$0–$300 adjust", note:"Separate from the delamination recall. Panels that sit at different heights leak and howl on the highway. Check the seals and latch effort on the test drive — many are a dealer adjustment."},
+      {sys:"Transmission — 7-speed manual", sev:"minor", issue:"Getrag 7MTI550 manual: notchy shifts and clutch wear on hard-driven trucks", cost:"varies", note:"The 7-speed (1st is a crawler gear) pairs only with the 2.3L. Fine for most, but a manual that's been wheeled hard can show clutch wear. The 10-speed auto is the durable, resale-friendly choice most buyers want."},
+      {sys:"Drivetrain", sev:"good", issue:"Dana 44 rear (Dana 50 on Sasquatch), available lockers, 4.7:1 low range", cost:"—", note:"Badlands and Sasquatch trucks get real off-road hardware — front and rear lockers, electronic sway-bar disconnect, and 35s from the factory on Sasquatch. This is the genuine off-road value in the lineup."},
+      {sys:"Electronics / SYNC 4", sev:"minor", issue:"Early infotainment glitches and software bugs", cost:"$0 with updates", note:"Early trucks shipped with buggy SYNC 4 software, mostly resolved with dealer updates. Confirm the screen, cameras, and G.O.A.T. mode selector all work."},
+      {sys:"Body / water intrusion", sev:"minor", issue:"Water leaks at door and roof seals on removable-top trucks", cost:"$50–$400", note:"Any open-top vehicle leaks if seals are tired or the top was reinstalled carelessly. Check carpets and footwells for damp. Common and usually a seal or alignment fix."}
+    ],
+    yearDelta: [
+      {years:"2021", change:"Launch year; 2.7L valve issue and MIC hardtop problems", note:"First-year truck with the most teething issues — engine valves and hardtop both. Buy one only with both items documented as resolved. Heavy dealer-markup era inflated new prices."},
+      {years:"2022", change:"Bronco Raptor arrives (3.0L EcoBoost); valve fix phased in", note:"Mid-year 2.7L trucks got the corrected valves. The Bronco Raptor (37s, 3.0L twin-turbo, ~418 hp) debuts — a different animal and a different budget."},
+      {years:"2023", change:"Hardtop quality improved; broader availability", note:"By 2023 the hardtop and valve issues are largely behind the platform. A 2023+ truck is the lower-risk used buy."},
+      {years:"2024–2025", change:"Tech refresh, 12-inch screen, trim shuffle", note:"Updated infotainment and feature content. Newer, pricier, fewer used examples — but the cleanest ownership story."}
+    ],
+    priceRanges: [
+      {tier:"High-mile / base 2-door", range:"$28,000–$36,000", note:"Base or Big Bend 2-door, 2.3L, higher miles. Confirm any recalls are closed before you celebrate the price."},
+      {tier:"Clean mid-trim 4-door", range:"$36,000–$48,000", note:"Black Diamond / Outer Banks 4-door, reasonable miles. The realistic family-trail buy."},
+      {tier:"Badlands / Sasquatch", range:"$45,000–$60,000", note:"Lockers, disconnect, 35s. The trims worth paying for if you actually wheel. Verify the hardware matches the badge."},
+      {tier:"Bronco Raptor", range:"$65,000–$90,000+", note:"3.0L, 37s, fully boxed. A separate market — used examples run roughly $67k–$95k. Treat it as its own purchase."}
+    ],
+    walkAway: [
+      {head:"2021–22 2.7L with an open valve recall", body:"If the recall remedy isn't documented and the engine has any rough-running history, you could be buying a grenade. Confirm the fix or walk."},
+      {head:"Cracking or delaminating MIC hardtop not yet replaced", body:"Bubbling or peeling roof skin can detach at speed. If the replacement program wasn't used, that's an open safety item and your problem after purchase."},
+      {head:"Wheeled-hard truck with no maintenance records", body:"Removable doors and a locker-equipped chassis invite abuse. Bent rockers, trail rash on the frame, and a thrashed clutch hide behind a clean wrap. No records, assume the worst."},
+      {head:"Flood or water-damage signs", body:"Open-top vehicles and standing water are a bad mix. Musty smell, corroded under-seat connectors, or damp carpet point to intrusion — electronics will haunt you."},
+      {head:"Salvage / branded title with a fresh respray", body:"Bronco demand drew flippers. A rebuilt title under shiny paint can hide frame or airbag history. Documented or walk."}
+    ],
+    related: [
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Bronco Death Wobble Guide", url:"/db/death-wobble-guide.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"Bronco Database", url:"/db/#/bronco6g/home"}
+    ],
+    sources: "Engine and hardtop detail cross-checked against NHTSA recall and investigation records for the 2.7L/3.0L EcoBoost intake valves, Ford's MIC hardtop replacement program documentation, and the Bronco6G owner community (bronco6g.com). Price ranges reflect 2026 listings via KBB, Edmunds, and CARFAX, where the Bronco's resale trails only the 4Runner in its class."
+  },
+
+  gladiator: {
+    status: "live",
+    label: "Gladiator",
+    name: "Jeep Gladiator (JT)",
+    years: "2020–present",
+    focus: "The only open-top, solid-axle midsize pickup — a JL Wrangler with a bed and a real tow rating. Buy on a clean front end and a documented recall/steering-damper history; the death wobble and a string of safety recalls are the story, not the 3.6L.",
+    answer: "The Gladiator is genuinely one of a kind: removable doors and roof, Dana 44s, available Rubicon lockers and disconnect, and a usable bed. The 3.6L Pentastar and 8-speed auto are proven. <strong>What should drive your buy is the front end and the recall record.</strong> The JT shares the JL's susceptibility to death wobble — a violent front-end shimmy after a bump — and the platform carries a stack of recalls including manual-clutch fire risk, an electric power-steering pump fire risk, and an ongoing underhood-fire investigation. None of that makes it a bad truck; it makes it a truck you verify carefully. A Rubicon with the death-wobble settlement warranty intact and recalls closed is the confident buy.",
+    knownIssues: [
+      {sys:"Steering", sev:"critical", issue:"Death wobble — violent front-end shimmy after a bump, even on stock low-mile trucks", cost:"$200–$1,200", note:"Safety-critical. The solid-front-axle JT shares the JL's death-wobble tendency. A 2023 class-action settlement (final approval June 2023, ~$30M) added an 8yr/90k extended warranty covering steering-damper replacement. Test at 45–55 mph over a seam or bump and confirm whether the truck is still in the warranty window."},
+      {sys:"Recall — clutch (manual)", sev:"critical", issue:"6-speed manual clutch pressure plate can overheat and fracture — fire risk (2020–2023)", cost:"$0 under recall", note:"Manual Gladiators were recalled for a pressure plate that can overheat and crack, creating a fire risk. On any manual JT, confirm the recall remedy is documented before you drive it home."},
+      {sys:"Recall — power steering", sev:"critical", issue:"Electric hydraulic power-steering pump can overheat and spark a fire, even parked (2021–2025)", cost:"$0 under recall", note:"A high-resistance condition in the EPS pump can generate heat and a fire even with the truck off. Check the VIN against open recalls and confirm any remedy was performed."},
+      {sys:"Engine — valvetrain / fuel", sev:"major", issue:"3.6L Pentastar lifter/rocker ticking on some trucks; fuel-pump failures reported", cost:"$300–$3,000", note:"A persistent top-end tick can mean a failing lifter or rocker. High-pressure fuel-pump failures (worst on the 3.0L EcoDiesel) can strand the truck. Listen at cold start and ask for any driveability history."},
+      {sys:"Underhood fire investigation", sev:"major", issue:"~781,000 2021–2023 Wrangler/Gladiator under NHTSA investigation for underhood fires", cost:"unknown", note:"An open investigation, not a closed recall as of this writing — it overlaps the power-steering pump issue. Check current recall status on the specific VIN before buying."},
+      {sys:"Drivetrain (Rubicon)", sev:"good", issue:"Dana 44s, Tru-Lok lockers, electronic sway-bar disconnect, 4:1 Rock-Trac", cost:"—", note:"The Rubicon's hardware is the real deal and the reason to pay the premium. Verify the lockers and disconnect actually function — that's the value."},
+      {sys:"Tow / payload reality", sev:"minor", issue:"Best-in-class tow (up to ~7,650 lb properly equipped) but modest payload", cost:"—", note:"Great for towing, tighter on payload than a conventional midsize. Match the truck's actual configuration to what you'll haul — the Max Tow package matters."},
+      {sys:"Body / water intrusion", sev:"minor", issue:"Leaks at the freedom-top and door seals on open-top trucks", cost:"$50–$400", note:"Same as any removable-top Jeep. Check footwells and behind seats for damp and musty smell. Usually a seal or reinstall fix."}
+    ],
+    yearDelta: [
+      {years:"2020", change:"Launch year; 3.6L Pentastar, 6-speed manual or 8-speed auto", note:"First model year — confirm the clutch recall on manuals and any early-build fixes. Strong launch demand kept prices high new."},
+      {years:"2021", change:"EcoDiesel 3.0L option added (through 2023); trim expansion", note:"The 3.0L EcoDiesel adds torque and tow but brings HPFP recall exposure and diesel-specific upkeep. The power-steering-pump recall era begins."},
+      {years:"2022", change:"Mojave and high-altitude packages mature; minor updates", note:"Mojave is the desert-runner (Fox shocks, reinforced frame) — a different mission than the rock-focused Rubicon. Pick by terrain."},
+      {years:"2023", change:"Final pre-refresh JT before the 2024 update", note:"Refined version of the original. 2024 brought a facelift (new grille, standard side-curtain airbags, updated tech). Pre-refresh trucks are the value."}
+    ],
+    priceRanges: [
+      {tier:"High-mile / base Sport", range:"$24,000–$32,000", note:"Sport or Sport S, higher miles. Confirm recalls closed and no death wobble."},
+      {tier:"Clean Overland / Sport S 4x4", range:"$32,000–$44,000", note:"Well-kept mid-trim, reasonable miles. The realistic do-everything buy."},
+      {tier:"Rubicon / Mojave", range:"$42,000–$58,000", note:"Lockers and disconnect (Rubicon) or desert suspension (Mojave). Verify the hardware matches the badge."},
+      {tier:"Built / low-mile loaded", range:"$50,000–$70,000+", note:"Quality lift, 37s, lockers, low miles. Pay for real, documented build quality — not bolt-ons over a tired front end."}
+    ],
+    walkAway: [
+      {head:"Active death wobble the seller minimizes", body:"If it shakes on the test drive and they call it a Jeep thing, the front-end rebuild is on you. Confirm the settlement warranty status before you even consider it."},
+      {head:"Open fire-risk recall (clutch or power steering)", body:"These are fire hazards, not annoyances. An unremedied recall on a manual clutch or EPS pump is a hard stop until it's fixed."},
+      {head:"'Rubicon' badge without the hardware", body:"Verify the Dana 44s, the lockers, and the electronic disconnect all engage. Stickers are cheap; the hardware is what you're paying for."},
+      {head:"Wheeled-hard truck, no records", body:"Removable everything plus lockers invites abuse. Frame rash, bent skids, and a beaten drivetrain hide under a clean wrap. No history, assume the worst."},
+      {head:"Salvage / branded title with fresh paint", body:"High demand drew flippers. Rebuilt titles hide frame and airbag history. Documented repair or walk."}
+    ],
+    related: [
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Gladiator Death Wobble Guide", url:"/gladiator/death-wobble-guide.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"Gladiator Database", url:"/db/#/gladiator/home"}
+    ],
+    sources: "Known-issue, recall, and death-wobble detail cross-checked against JeepGladiatorForum.com, NHTSA recall and investigation records (manual-clutch fire, EPS-pump fire, and the 2021–2023 underhood-fire investigation), the 2023 Jeep death-wobble class-action settlement documents, and Jeep service literature. Price ranges reflect 2026 listings across Facebook Marketplace, KBB, and Edmunds."
+  },
+
+  raptor: {
+    status: "live",
+    label: "Raptor",
+    name: "Ford F-150 Raptor",
+    years: "2010–2014 (Gen 1) · 2017–2020 (Gen 2) · 2021–present (Gen 3)",
+    focus: "A factory desert-runner with Fox internal-bypass shocks and a foot-plus of travel. Pick your generation by engine: the Gen 1 6.2L V8 is the low-tech, durable, thirsty choice; the Gen 2/3 3.5L EcoBoost makes huge power but carries the cam-phaser 'death rattle'; and the 5.2L Raptor R is a supercharged halo with its own budget.",
+    answer: "The Raptor created the factory-prerunner segment — long-travel Fox shocks, a wide track, and a chassis built to be driven hard in the dirt. <strong>Buy it by generation and engine.</strong> Gen 1 (2010–2014) runs the durable 6.2L V8 but drinks fuel and uses the 6R80 auto with a known leadframe issue. Gen 2/3 (2017+) switched to the 3.5L EcoBoost — far more capable, but the cam phasers rattle on cold start and can fail, covered for Gen 2 by Ford's 21N03 extended-coverage program. Confirm the cam phasers and the IWEs (the 4WD wheel-end actuators) are sorted, and you've handled the Raptor's two signature weak points. The rest is condition and how hard it was launched.",
+    knownIssues: [
+      {sys:"Engine — cam phasers (3.5L EcoBoost, Gen 2/3)", sev:"major", issue:"Cam-phaser 'death rattle' on cold start; can progress to failure", cost:"$0 if covered, $2,000–$4,000 if not", note:"The 3.5L's phasers rely on oil pressure and rattle when worn or oil-starved. Ford's Customer Satisfaction Program 21N03 extended coverage on 2017–2020 F-150/Raptor 3.5L phasers (to Jan 1, 2023). A cold-start rattle that fades is the tell — get it checked and budget for it if out of coverage."},
+      {sys:"Transmission — 6R80 leadframe (Gen 1)", sev:"major", issue:"6R80 6-speed hard shifts, shudder, surprise downshifts (2010–2014)", cost:"$300–$1,500", note:"A known F-150-wide leadframe/valve-body issue on the Gen 1's 6R80. Hard or jerky shifts and shudder under acceleration point here — often a leadframe or fluid/solenoid fix rather than a full rebuild."},
+      {sys:"Drivetrain — IWE (all gens)", sev:"major", issue:"Integrated Wheel End actuators fail; grinding/clunk in 4WD, no front engagement", cost:"$150–$600", note:"The IWE locks the front hubs. Failed actuators or a leaking vacuum line cause grinding from the front end and loss of 4WD. A common Raptor/F-150 weak point — test 4WD engagement on every truck."},
+      {sys:"Transmission — 10R80 (Gen 2/3)", sev:"minor", issue:"10-speed harsh/jerky shifts and valve-body concerns on 2017–2023", cost:"$0–$1,500", note:"The 10R80 can shift harshly, especially toward Sport mode on early trucks; adaptive learning and reflashes help. Valve-body issues persist on 2021–2023; 2024+ improved. Note any clunks on the test drive."},
+      {sys:"Suspension — Fox shocks", sev:"minor", issue:"Internal-bypass shocks wear; leaks and fade on hard-run trucks", cost:"$1,200–$3,000 to rebuild/replace", note:"The Fox shocks are the Raptor's signature and a wear item if the truck was actually jumped. Check for oil weeping at the shock bodies and a floaty or harsh ride. Rebuildable, but not cheap."},
+      {sys:"Engine — 6.2L V8 (Gen 1)", sev:"good", issue:"6.2L 'Boss' V8 is durable and low-tech — no turbos, no phaser drama", cost:"—", note:"411 hp, naturally aspirated, genuinely tough. The trade is ~12–14 mpg. If you want the fewest engine surprises, the Gen 1 6.2L is the one — price the fuel in."},
+      {sys:"Engine — 5.2L Raptor R (2023+)", sev:"minor", issue:"Supercharged 'Carnivore' V8; early secondary timing-chain-tensioner recall", cost:"$0 under recall", note:"700+ hp halo truck. Too new for a long failure record, but a recall addressed an incorrectly installed secondary timing-chain tensioner on some units — verify it was performed. Owners note durability concerns when tuned past ~650 hp."},
+      {sys:"Body / frame (all gens)", sev:"major", issue:"Trail and jump abuse: bent control arms, cracked welds, frame damage", cost:"varies", note:"This truck is bought to be launched. Inspect for bent arms, fresh undercoating hiding repairs, cracked spot welds, and uneven tire wear from a tweaked alignment. A garage-queen Raptor and a jumped one wear very differently."}
+    ],
+    yearDelta: [
+      {years:"2010–2014 (Gen 1)", change:"6.2L V8, 6R80 auto; 2014 is the pick", note:"The original. 6.2L is durable but thirsty; watch the 6R80 and IWEs. The 2014 is widely considered the best-sorted Gen 1. Plastic oil pan in this era (aluminum came in 2018)."},
+      {years:"2017–2020 (Gen 2)", change:"3.5L EcoBoost (450 hp), 10R80 10-speed", note:"A huge capability jump and the cam-phaser era. 21N03 covers 2017–2020 phasers. 2020 drew the least negative feedback of the generation."},
+      {years:"2021–2023 (Gen 3)", change:"Updated 3.5L, 5-link rear, optional 37s; Raptor R (5.2L) from 2023", note:"New rear suspension and an available 37-inch package. 10R80 valve-body concerns linger. The Raptor R brings the supercharged V8."},
+      {years:"2024+", change:"Facelift, transmission improvements, tech update", note:"Better-sorted 10-speed and refreshed tech. Newest, priciest, cleanest ownership story."}
+    ],
+    priceRanges: [
+      {tier:"Gen 1 (2010–2014, 6.2L)", range:"$28,000–$48,000", note:"Higher miles to clean low-mile. Verify 6R80 health and IWE function. Fuel cost is the ownership tax."},
+      {tier:"Gen 2 (2017–2020, 3.5L)", range:"$40,000–$62,000", note:"Confirm cam-phaser status (21N03) and IWEs. The sweet spot for capability per dollar."},
+      {tier:"Gen 3 (2021–2023, 3.5L)", range:"$55,000–$80,000", note:"37s and the 5-link rear command more. Check 10R80 behavior and any phaser history."},
+      {tier:"Raptor R (2023+, 5.2L SC)", range:"$90,000–$115,000+", note:"Supercharged halo. Confirm the timing-tensioner recall and steer clear of aggressively tuned trucks."}
+    ],
+    walkAway: [
+      {head:"3.5L with a loud, persistent cam-phaser rattle out of coverage", body:"A rattle that doesn't fade on a truck past 21N03 coverage means a multi-thousand-dollar repair is yours. Price it in or walk."},
+      {head:"4WD that won't engage / grinding front end", body:"Failed IWEs or worse. If 4WD won't lock in cleanly on the test drive, you don't know what else in the driveline is tired."},
+      {head:"Evidence of hard jumping with no records", body:"Bent arms, cracked welds, blown or weeping Fox shocks, and a tweaked alignment. A truck that was actually sent and never serviced is a money pit under clean paint."},
+      {head:"Salvage / branded title on a hard-use truck", body:"Raptors get wrecked off-road and on. A rebuilt title plus jump history is a frame-integrity gamble. Documented or walk."},
+      {head:"Heavily tuned Raptor R", body:"Owners report durability issues past ~650 hp. A tune-happy R with no engine records is borrowing trouble at six figures."}
+    ],
+    related: [
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"Raptor Database", url:"/db/#/raptor/home"}
+    ],
+    sources: "Generation, engine, and cam-phaser detail cross-checked against the Ford Raptor owner forums (fordraptorforum.com, f150gen14.com), Ford Customer Satisfaction Program 21N03 documentation, CarBuzz and DrivingLine generation guides, and reporting on the Raptor R 5.2L timing-tensioner recall. Price ranges reflect 2026 listings across KBB, Edmunds, and CARFAX."
+  },
+
+  "power-wagon": {
+    status: "live",
+    label: "Power Wagon",
+    name: "Ram Power Wagon (2500)",
+    years: "2014–present (4th gen 2014–2018, 5th gen 2019+)",
+    focus: "The only factory 3/4-ton with front and rear lockers, a disconnecting sway bar, and a 12,000-lb Warn winch built in. It's gas-only — the 6.4L Hemi, no Cummins in this trim — so your homework is the 6.4's lifter and oil-consumption risk, the 66RFE transmission on 2014–2018 trucks, and exhaust-manifold bolts.",
+    answer: "Nothing else from the factory does what a Power Wagon does: electronic front and rear lockers, an electronic sway-bar disconnect on a 2500 chassis, 33-inch tires, and an integrated 12k Warn winch. <strong>The drivetrain is where your money is at risk.</strong> The 6.4L Hemi (the Power Wagon is gas-only — the Cummins isn't offered in this trim) can develop lifter failure tied to the MDS cylinder-deactivation system plus notable oil consumption, and the 2014–2018 trucks pair it with the 66RFE 6-speed, a known weak point behind this much engine. Add the Hemi's broken exhaust-manifold bolts and the solid-front-axle death-wobble risk, and you have a truck that's spectacular when sorted and expensive when not. Buy maintenance records, not just a clean body.",
+    knownIssues: [
+      {sys:"Engine — 6.4L Hemi lifters/MDS", sev:"critical", issue:"Lifter failure linked to the Multi-Displacement System; can cascade to the camshaft and major damage", cost:"$3,000–$7,000+", note:"The dreaded 'Hemi tick' on the 6.4 traces to MDS lifter failure and can take out the cam. Listen for a persistent tick that doesn't clear with warm-up. Many owners run an MDS delete as insurance. A documented tick with no repair is a major liability."},
+      {sys:"Engine — oil consumption", sev:"major", issue:"6.4L burns oil — a quart or more between 5,000-mile changes on many trucks", cost:"monitoring + oil", note:"A widespread complaint. Check the dipstick and ask how much oil it uses. Heavy consumption can precede or accompany lifter trouble. Some 2014 engines also had factory piston-slap from undersized wrist pins."},
+      {sys:"Transmission — 66RFE (2014–2018)", sev:"critical", issue:"6-speed 66RFE is a weak point behind the 6.4; failures reported, rebuilds run deep", cost:"$4,000–$8,000+ (dealer quotes far higher)", note:"One owner reported catastrophic failure at 92k with a dealer quote near $17,000. On a 2014–2018 truck, get a transmission service history and feel for harsh or slipping shifts. The 2019+ trucks moved to the 8-speed 8HP75 — a meaningful upgrade."},
+      {sys:"Exhaust manifold bolts", sev:"major", issue:"Hemi exhaust-manifold bolts shear off, causing a ticking exhaust leak", cost:"$400–$1,500", note:"A classic Hemi issue. Starts as a cold-start tick that fades, then worsens. Broken bolts in the head make the repair labor-intensive. A persistent exhaust tick is a fair, real negotiating point."},
+      {sys:"Steering", sev:"critical", issue:"Death wobble on the solid front axle — track bar, ball joints, tie rods, steering knuckle", cost:"$300–$1,500", note:"Safety-critical. Heavy 2500 solid-axle trucks are prone to a violent front-end shimmy after a bump. Worn track bar, ball joints, or a damaged knuckle are typical causes. Test at 45–55 mph and inspect the front end closely, especially on lifted or big-tire trucks."},
+      {sys:"Off-road hardware", sev:"good", issue:"Factory front/rear lockers, sway-bar disconnect, integrated 12k Warn winch", cost:"—", note:"The reason to buy one. Verify both lockers engage, the disconnect works, and the winch spools in and out. Replacing this hardware aftermarket costs thousands — working examples are the value."},
+      {sys:"Payload reality", sev:"minor", issue:"Power Wagon trades some payload/tow for the off-road gear and softer springs", cost:"—", note:"It's the off-road 2500, not the max-hauler. Tow and payload trail a standard 2500 with the same engine. If you tow heavy daily, a regular 2500 or a Cummins truck may fit better."},
+      {sys:"4th vs 5th gen interior/tech", sev:"minor", issue:"2019+ brought a bigger interior, more tech, and the 8-speed", cost:"—", note:"The 2019 redesign improved the cabin, infotainment (available 12-inch screen), and the transmission. 2014–2018 trucks are cheaper but older inside and saddled with the 66RFE."}
+    ],
+    yearDelta: [
+      {years:"2014–2018 (4th gen)", change:"6.4L Hemi + 66RFE 6-speed", note:"The value-priced era, but the 66RFE is the soft spot and the 6.4 lifter/oil risk applies. Buy with transmission and engine records."},
+      {years:"2019–2022 (5th gen)", change:"Redesign: 8-speed 8HP75, new interior and tech, 12k winch continues", note:"The transmission upgrade alone makes these the more confident buy. Better cabin and infotainment too."},
+      {years:"2023+", change:"Trim and tech refinements; still gas-only 6.4", note:"Newest examples, cleanest ownership. Still the 6.4 — the lifter and oil-consumption homework never goes away."}
+    ],
+    priceRanges: [
+      {tier:"4th gen (2014–2018), higher miles", range:"$28,000–$42,000", note:"The cheapest way in, but you're taking on the 66RFE and the 6.4 lifter risk. Records are everything here."},
+      {tier:"4th gen, clean / lower miles", range:"$38,000–$50,000", note:"Well-kept 2016–2018 with service history and no tick. Verify the lockers, disconnect, and winch all work."},
+      {tier:"5th gen (2019–2022)", range:"$45,000–$68,000", note:"The 8-speed and updated cabin justify the step up. The realistic buy if you want fewer drivetrain unknowns."},
+      {tier:"Low-mile 2023+ / loaded", range:"$60,000–$85,000+", note:"Newest trucks with the full feature set. Pay for documentation and a clean engine, not just the badge."}
+    ],
+    walkAway: [
+      {head:"Persistent Hemi tick with no repair history", body:"MDS lifter failure on the 6.4 can take the camshaft with it — a five-figure engine job. A tick that won't clear and no records is a hard pass."},
+      {head:"2014–2018 with a slipping or harsh 66RFE", body:"This transmission fails behind the 6.4 and rebuilds are deep. No service history plus bad shifts means budgeting for a rebuild — or walking."},
+      {head:"Active death wobble the seller shrugs off", body:"On a heavy 2500 this is genuinely dangerous. If it shakes on the test drive and they call it normal, the front-end work is yours."},
+      {head:"Heavy oil consumption plus a tick", body:"Together these often foreshadow lifter trouble. Don't buy the 'they all use a little oil' version when there's also a knock."},
+      {head:"Salvage / branded title on a worked truck", body:"Lockers and a winch invite hard use and recovery damage. A rebuilt title plus trail abuse is a frame and driveline gamble. Documented or walk."}
+    ],
+    related: [
+      {label:"Lift vs. Tire Fitment Matrix", url:"/db/lift-tire-fitment.html"},
+      {label:"Power Wagon Death Wobble Guide", url:"/power-wagon/death-wobble-guide.html"},
+      {label:"Out-the-Door Price Calculator", url:"/db/otd-pricing-calculator.html"},
+      {label:"Power Wagon Database", url:"/db/#/power-wagon/home"}
+    ],
+    sources: "6.4L Hemi, 66RFE, exhaust-manifold, and death-wobble detail cross-checked against RamForum.com and RamForumZ owner communities, the Power Wagon Registry, 6.4L Hemi reliability reporting, and Ram service literature. The Power Wagon is gas-only (6.4L Hemi); the Cummins is not offered in this trim. Price ranges reflect 2026 listings across KBB, Edmunds, and Facebook Marketplace."
+  }
 };
 
 var ORDER = ["xj","tj","jk","jl","4runner","tacoma","bronco","gladiator","raptor","power-wagon"];
