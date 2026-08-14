@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- tm:generated db_static_build -->
+<meta charset="utf-8">
+<title>OBD-II Scanner Basics for XJ (1996+) — Jeep Cherokee XJ | Trail Manual</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="On a 1996–2001 XJ you can read engine trouble codes two ways: plug a cheap OBD-II scanner into the port under the dash, or skip the tool entirely and…">
+<link rel="canonical" href="https://trailmanual.com/db/xj/obd2-scanner/">
+<meta property="og:title" content="OBD-II Scanner Basics for XJ (1996+) — Jeep Cherokee XJ">
+<meta property="og:description" content="On a 1996–2001 XJ you can read engine trouble codes two ways: plug a cheap OBD-II scanner into the port under the dash, or skip the tool entirely and…">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://trailmanual.com/db/xj/obd2-scanner/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="stylesheet" href="/_shared.css">
+<script>
+(function(){try{var s=localStorage.getItem('tm-theme');
+if(s==='dark')document.documentElement.setAttribute('data-theme','dark');
+else if(s!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)
+document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-639VVRC92N');
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.tm-aff');
+if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname});});
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "OBD-II Scanner Basics for XJ (1996+)",
+  "description": "On a 1996\u20132001 XJ you can read engine trouble codes two ways: plug a cheap OBD-II scanner into the port under the dash, or skip the tool entirely and\u2026",
+  "author": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Trail Manual"
+  },
+  "mainEntityOfPage": "https://trailmanual.com/db/xj/obd2-scanner/",
+  "about": "Jeep Cherokee XJ"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "OBD-II Scanner Basics for XJ (1996+)",
+  "description": "On a 1996\u20132001 XJ you can read engine trouble codes two ways: plug a cheap OBD-II scanner into the port under the dash, or skip the tool entirely and\u2026",
+  "totalTime": "PT0H",
+  "estimatedCost": {
+    "@type": "MonetaryAmount",
+    "currency": "USD",
+    "value": "80"
+  },
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "ignition key"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "OBD-II scan tool or basic code reader (optional \u2014 the odometer trick is free)"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "notepad or phone to record codes"
+    }
+  ],
+  "supply": [
+    {
+      "@type": "HowToSupply",
+      "name": "Basic plug-in OBD-II code reader (Innova 3030 / Autel AL319 class)"
+    },
+    {
+      "@type": "HowToSupply",
+      "name": "Bluetooth OBD-II dongle with phone app (BlueDriver or ELM327 class \u2014 confirm ISO 9141 support)"
+    }
+  ]
+}
+</script>
+<style>
+.tm-guide{max-width:760px;margin:0 auto;padding:24px 20px 64px}
+.tm-bc{font-size:13px;color:var(--text-dim);margin:8px 0 4px}
+.tm-bc a{color:var(--text-dim)}
+.tm-guide h1{font-size:30px;line-height:1.2;margin:8px 0 12px}
+.tm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
+.tm-chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
+.tm-lead{font-size:18px;line-height:1.55;font-weight:500;margin:0 0 20px}
+.tm-guide h2{font-size:20px;margin:28px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
+.tm-guide p,.tm-guide li{line-height:1.65}
+.tm-guide ul{padding-left:20px}
+.tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
+.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+.tm-guide h3{font-size:17px;margin:24px 0 8px}
+.tm-guide ol{padding-left:22px}
+.tm-guide ol li,.tm-guide ul li{margin:5px 0}
+.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-table-wrap{overflow-x:auto;margin:14px 0}
+.tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th{font-weight:600;color:var(--text-dim)}
+.tm-steps li{margin:8px 0}
+.tm-sources{font-size:14px}
+</style>
+</head>
+<body>
+<div class="tm-guide">
+  <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/xj/">Jeep Cherokee XJ</a></nav>
+  <h1>OBD-II Scanner Basics for XJ (1996+)</h1>
+  <div class="tm-chips"><span class="tm-chip">Difficulty 1/5</span><span class="tm-chip">0.1–0.5 hrs</span><span class="tm-chip">$0–80</span><span class="tm-chip">1996-2001</span></div>
+  <p class="tm-lead">On a 1996–2001 XJ you can read engine trouble codes two ways: plug a cheap OBD-II scanner into the port under the dash, or skip the tool entirely and flash the codes through the odometer with the key. Both get you a &quot;P&quot; code — a pointer to which circuit is unhappy, not a verdict on which part is bad.</p>
+<p>When the Check Engine Light comes on, the first move is to find out what the PCM is complaining about before you spend a dime on parts. The 1996-and-up XJ runs standardized OBD-II, so any basic code reader works — and the truck will even hand you the codes with no tool at all if you know the key sequence. A code names a circuit. The sensor, its wiring, its connector, and its ground are all suspects until you test them. This guide covers where the port is, the free odometer method, how to read and clear codes, and the handful of codes XJ owners see most.</p>
+<p>The cutoff is 1996, but it&#x27;s not perfectly clean. Every XJ from 1997 on is OBD-II. Most 1996 trucks are OBD-II, but a few very early 1996 builds left the factory with the older OBD-I system on the 4.0L. If your scanner powers up but reports &quot;no communication,&quot; or there&#x27;s no 16-pin port under the dash, you may have one of those transitional trucks — read OBD-I codes with the key-dance flash method instead (see &quot;Reading OBD-I Codes on the XJ&quot;). The quickest tell is the port itself: a 16-pin trapezoidal connector under the dash means OBD-II.</p>
+<p>The OBD-II data link connector is under the dash, to the left of the steering column, usually right above the pedals near the lower edge of the dash panel. It&#x27;s a 16-pin trapezoidal socket. On most XJs it hangs free or clips to a bracket — you may have to duck your head under the wheel to see it. The port is powered through a fuse; if a scanner won&#x27;t light up at all when plugged in, check the fuse feeding the connector before assuming the tool or the truck is dead.</p>
+<p>Chrysler built a code-flash routine into the cluster, so you can pull P-codes with nothing but the key:</p>
+<ol><li>With the engine <strong>off</strong>, press and hold the odometer <strong>trip reset</strong> button.</li><li>Keep holding it and turn the key to <strong>ON</strong> (run) — do not start the engine.</li><li>Release the button. The odometer display cycles through a segment check, then shows any stored trouble codes in sequence, ending with <strong>done</strong> or <strong>end</strong>.</li><li>Write down each P-code as it appears. If it only shows &quot;done,&quot; the PCM has nothing stored.</li></ol>
+<p>This won&#x27;t give you live sensor data or let you clear codes, but for a quick &quot;what&#x27;s the light about?&quot; in a parking lot, it costs nothing and needs no hardware.</p>
+<ol><li>Key <strong>off</strong>. Plug the scanner into the 16-pin port.</li><li>Turn the key to <strong>ON</strong> (engine off) and let the tool power up and link to the PCM.</li><li>Select <strong>Read Codes</strong>. The tool lists stored and pending codes as &quot;P&quot; numbers (e.g., P0138).</li><li>Record every code, including pending ones — pending codes are faults the PCM has seen once but not yet confirmed, and they often show up before the light does.</li><li>Look the codes up and test the named circuit before buying anything.</li></ol>
+<p>A note on scanners and the XJ: Chrysler used the <strong>ISO 9141-2</strong> protocol on these trucks, not the GM-style J1850. A bargain-bin reader built only for GM/Ford protocols may connect to your buddy&#x27;s truck and refuse to talk to your XJ. Any scanner that lists ISO 9141 support — which covers nearly all modern universal readers and Bluetooth dongles — will work. If a tool won&#x27;t link, suspect protocol support or the port fuse before the PCM.</p>
+<p>Most scan tools have an <strong>Erase Codes</strong> function that clears the stored code and turns the light off. Clear a code only after you&#x27;ve actually fixed the underlying fault — erasing it doesn&#x27;t repair anything, and if the problem is still there the light comes back, often within a drive cycle or two. Clearing also wipes the readiness monitors, which matters if you&#x27;re heading to an emissions test: the truck needs a few drive cycles to re-run its self-tests before it&#x27;ll pass. The odometer method can&#x27;t clear codes; you need a tool for that.</p>
+<ul><li><strong>P1391 — Intermittent loss of CMP or CKP signal.</strong> The classic 4.0L gremlin. Causes stumbling, bucking, or stalling, often over bumps, on right-hand turns, or when shifting into reverse. Usually the crankshaft position sensor (mounted on the bellhousing) or its wiring; sometimes the camshaft position sensor inside the distributor. This is the code behind a huge share of &quot;my XJ randomly dies&quot; threads.</li><li><strong>P0138 — Downstream O2 sensor (Bank 1, Sensor 2) high voltage.</strong> Very common as these trucks age. Usually the rear oxygen sensor itself. NGK/NTK is the OEM-quality choice.</li><li><strong>P0123 / P0122 — Throttle position sensor voltage high (123) or low (122).</strong> Points at the TPS, its connector, or the wiring. Can cause erratic idle and shifting.</li><li><strong>P0300 — Random/multiple-cylinder misfire.</strong> Broad by nature. On the 4.0L, walk the usual suspects: cap and rotor (pre-2000 distributor trucks), plugs and wires, then the crank position sensor.</li><li><strong>P0700 / P1694 — Transmission control / PCM-to-TCM communication.</strong> P0700 is the PCM flagging that the trans controller has set its own code; P1694 is a communication fault between the two. Often appear together.</li><li><strong>P0320 — No crank position signal.</strong> A harder failure of the same sensor circuit behind P1391; can cause a no-start.</li></ul>
+<p>A code is a starting point, not an answer. P0138 means the rear O2 circuit is reading high — that&#x27;s almost always the sensor, but it can also be wiring or an exhaust leak near the sensor. Test before you buy.</p>
+<h2>Why it works</h2>
+<ul><li>The odometer trick reads codes for free, with no tool and no app — works in a trailhead parking lot.</li><li>Any ISO 9141-capable scanner works; you don&#x27;t need a Jeep-specific tool, and a $35 reader covers the engine codes most XJ owners need.</li><li>A scan tool adds live sensor data and the ability to clear codes — worth owning if you wrench on the truck regularly.</li></ul>
+<h2>Trade-offs</h2>
+<ul><li>OBD-II names a circuit, not a failed part — you still need a multimeter and some testing to confirm the actual fault.</li><li>A few early 1996 builds are OBD-I and won&#x27;t talk to an OBD-II tool; you have to fall back to the key-dance flash method.</li><li>Cheap GM/Ford-only readers may not support the XJ&#x27;s ISO 9141 protocol and will report &quot;no communication&quot; — check protocol support before buying.</li><li>The odometer method reads codes but can&#x27;t clear them or show live data; for that you need a tool.</li></ul>
+<h2>Tools required</h2>
+<ul><li>ignition key</li><li>OBD-II scan tool or basic code reader (optional — the odometer trick is free)</li><li>notepad or phone to record codes</li></ul>
+<h2>Parts</h2>
+<p class="tm-affiliate-note">Some parts links are Amazon affiliate links — if you buy through them Trail Manual may earn a small commission at no extra cost to you. We only list parts we’d run on our own rig, and never on safety-critical pages.</p>
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td><a href="https://www.amazon.com/s?k=innova+3030+obd2+code+reader&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Basic plug-in OBD-II code reader (Innova 3030 / Autel AL319 class)</a></td><td>auto parts store / Amazon</td><td>~$35</td></tr><tr><td><a href="https://www.amazon.com/s?k=bluedriver+obd2+bluetooth+scanner&amp;tag=trailmanual0b-20" rel="sponsored nofollow" target="_blank" class="tm-aff">Bluetooth OBD-II dongle with phone app (BlueDriver or ELM327 class — confirm ISO 9141 support)</a></td><td>Amazon</td><td>~$60</td></tr></tbody></table>
+<h2>Sources</h2>
+<ul class="tm-sources"><li><a href="https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-read-obd-trouble-codes-399060" target="_blank" rel="noopener nofollow">Cherokee Forum — How to Read OBD Trouble Codes (1984–2001)</a></li><li><a href="https://www.scantool.net/blog/which-obd-ii-protocol-is-supported-by-my-vehicle/" target="_blank" rel="noopener nofollow">ScanTool.net — Which OBD-II Protocol Is Supported By My Vehicle?</a></li><li><a href="https://www.autocodes.com/p1391_jeep.html" target="_blank" rel="noopener nofollow">AutoCodes — P1391 Jeep: CMP or CKP Signal Intermittent Condition</a></li><li><a href="https://naxja.org/threads/1996-xj-is-it-obd-i-or-odb-ii.1079114/" target="_blank" rel="noopener nofollow">NAXJA Forums — 1996 XJ: is it OBD-I or OBD-II?</a></li></ul>
+<h2>Related</h2>
+<ul><li><a href="/db/xj/obd1-codes/">Reading OBD-I Codes on the XJ (Renix and OBD-I)</a></li><li><a href="/db/xj/compression-test/">Compression Test and Leak-Down Test on the XJ 4.0L</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+  <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
+  <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
+</div>
+</body>
+</html>
