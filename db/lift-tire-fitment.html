@@ -14,6 +14,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lift vs. Tire Fitment Matrix — Jeep, Toyota, Ford | Trail Manual</title>
+<link rel="canonical" href="https://trailmanual.com/db/lift-tire-fitment.html">
 <meta name="description" content="Find the right tire size for your lift height. Per-vehicle fitment charts for Jeep XJ, JK, JL, TJ, YJ, Gladiator, Toyota 4Runner, Tacoma, Ford Bronco (Early, II, Full-size, 6G), and F-150 Raptor — with rubbing notes, trimming requirements, and gear ratio recommendations.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,7 +222,7 @@ table.fitment-matrix tr:hover td{background:rgba(201,126,80,.04)}
   <div class="hero-section">
     <h1>Lift vs. Tire Fitment Matrix</h1>
     <p class="lede">What tire fits your lift height — and what it takes to make it work. Per-vehicle charts with rubbing notes, required modifications, and gear ratio recommendations for Jeep Wrangler, Cherokee, Gladiator, Toyota 4Runner, Tacoma, Ford Bronco family, and F-150 Raptor.</p>
-    <div class="hero-caveat">⚠️ Every build is different. These numbers represent what works for most owners at each lift height. Suspension brand, wheel backspacing, and factory vs. aftermarket flares all shift the limits. Measure yours before buying rubber.</div>
+    <div class="hero-caveat">Every build is different. These numbers represent what works for most owners at each lift height. Suspension brand, wheel backspacing, and factory vs. aftermarket flares all shift the limits. Measure yours before buying rubber.</div>
   </div>
 
   <div class="section-label">Select your vehicle</div>
@@ -1152,10 +1153,10 @@ const VEHICLES = {
 
 // ─── STATUS LABELS ────────────────────────────────────────────────────────────
 const STATUS_META = {
-  clean: { label: "Clean fit", dot: "🟢" },
-  minor: { label: "Minor trimming", dot: "🟡" },
-  mod: { label: "Modifications needed", dot: "🟠" },
-  heavy: { label: "Significant mods", dot: "🔴" }
+  clean: { label: "Clean fit", dot: "&#9679;" },
+  minor: { label: "Minor trimming", dot: "&#9679;" },
+  mod: { label: "Modifications needed", dot: "&#9679;" },
+  heavy: { label: "Significant mods", dot: "&#9679;" }
 };
 
 // ─── TRIM & BUMPSTOP RULES ────────────────────────────────────────────────────
@@ -1437,7 +1438,7 @@ function renderPanel(vid) {
           <div class="cell-status status-${row.status}">${st.dot} ${st.label}</div>
         </td>
         <td>
-          <span class="gear-pill">⚙ ${row.gear}</span>
+          <span class="gear-pill">${row.gear}</span>
         </td>
         <td class="cell-note">${row.note}</td>
         <td class="cell-trim"><div class="trim-line"><span class="trim-k">Fender</span>${trim.fender}</div><div class="trim-line"><span class="trim-k">Bumpstops</span>${trim.bumpstop}</div></td>
@@ -1460,7 +1461,7 @@ function renderPanel(vid) {
     ${metaHtml}
 
     <div class="callout warn" style="margin-bottom:20px">
-      <span class="callout-icon">⚠️</span>
+      <span class="callout-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
       <span class="callout-body"><strong>Wheel backspacing matters as much as lift height.</strong> For most platforms here, 3.5\"–3.75\" backspacing is the target on a lifted rig. Too much backspacing (factory 5.5\") tucks the tire into the fender at full droop. Too little pushes past the flares and puts lateral load on the wheel bearings.</span>
     </div>
 
@@ -1490,7 +1491,7 @@ function renderPanel(vid) {
     ${buildWheelSection(vid)}
 
     <div class="callout good">
-      <span class="callout-icon">✅</span>
+      <span class="callout-icon">&#10003;</span>
       <span class="callout-body"><strong>Trimming fender liners is not the same as cutting your fenders.</strong> On most lifted platforms, the first step to clearing bigger tires is trimming the plastic inner fender liner — a 20-minute job with tin snips. Only when that's done and still rubbing do you touch the metal.</span>
     </div>
 
