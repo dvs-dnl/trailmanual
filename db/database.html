@@ -16,6 +16,7 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Trail Manual — DIY reference for off-road vehicles</title>
+<link rel="canonical" href="https://trailmanual.com/db/database.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -185,6 +186,15 @@
   .filter-chip:hover{color:var(--text)}
   .results-meta{color:var(--text-mute);font-size:13px;margin-bottom:12px}
 
+  .md-body p,.md-body li{line-height:1.65}
+  .md-body h4.md-h,h4.md-h{font-size:15px;margin:18px 0 6px;color:var(--text)}
+  .md-body ul,.md-body ol{padding-left:20px;margin:8px 0}
+  .md-body li{margin:4px 0}
+  .md-body code,.step code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+  .tm-table-wrap{overflow-x:auto;margin:12px 0}
+  .tm-md-table{width:100%;border-collapse:collapse;font-size:13px}
+  .tm-md-table th,.tm-md-table td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--border);vertical-align:top}
+  .tm-md-table th{font-weight:600;color:var(--text-dim)}
   .citations{font-size:12px;color:var(--text-dim)}
   .citations a{display:block;margin:4px 0}
   hr.sep{border:0;border-top:1px solid var(--border);margin:18px 0}
@@ -441,6 +451,71 @@
       n.appendChild(typeof k === 'string' ? document.createTextNode(k) : k);
     }
     return n;
+  };
+  // ---- markdown ----
+  // Guide bodies are markdown. Mirror of desc_to_html/md_inline in
+  // db_static_build.py — keep the two in sync so the SPA and the static
+  // /db/<vehicle>/<slug>/ pages render identically.
+  const mdEsc = s => String(s == null ? '' : s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  const MD_SAFE_URL = /^(?:https?:\/\/|\/|#|mailto:)/i;
+  const mdInline = (text, resolve) => {
+    if (text == null) return '';
+    const codes = [];
+    // Sentinel uses an explicit \uE000 escape (Unicode private-use area). A raw
+    // control character here was stripped in a past edit, which truncated the
+    // string literal and made this whole <script> block a SyntaxError.
+    let s = String(text).replace(/`([^`\n]+)`/g, (_, c) => { codes.push(c); return '\uE000c' + (codes.length - 1) + '\uE000'; });
+    s = mdEsc(s);
+    s = s.replace(/\[\[\s*([^\]|]+?)\s*(?:\|\s*([^\]]+?)\s*)?\]\]/g, (_, id, label) => {
+      const href = resolve ? resolve(id) : null;
+      const txt = label || id;
+      return href ? '<a href="' + mdEsc(href) + '">' + txt + '</a>' : txt;
+    });
+    s = s.replace(/\[([^\]\[]+)\]\(\s*([^)\s]+)\s*\)/g, (m, label, url) => {
+      if (!MD_SAFE_URL.test(url)) return label;
+      const ext = /^https?:/i.test(url) && url.toLowerCase().indexOf('trailmanual.com') === -1;
+      return '<a href="' + url + '"' + (ext ? ' target="_blank" rel="noopener nofollow"' : '') + '>' + label + '</a>';
+    });
+    s = s.replace(/\*\*(\S(?:[\s\S]*?\S)?)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/(^|[^*\w])\*(\S[^*\n]*?\S|\S)\*(?![*\w])/g, '$1<em>$2</em>');
+    codes.forEach((c, i) => { s = s.split('\uE000c' + i + '\uE000').join('<code>' + mdEsc(c) + '</code>'); });
+    return s;
+  };
+  const mdToHtml = (text, resolve) => {
+    if (!text) return '';
+    const out = []; let ul = [], ol = [], tbl = [];
+    const flushUl = () => { if (ul.length) { out.push('<ul>' + ul.map(x => '<li>' + mdInline(x, resolve) + '</li>').join('') + '</ul>'); ul = []; } };
+    const flushOl = () => { if (ol.length) { out.push('<ol>' + ol.map(x => '<li>' + mdInline(x, resolve) + '</li>').join('') + '</ol>'); ol = []; } };
+    const flushTbl = () => {
+      if (!tbl.length) return;
+      let rows = tbl.map(r => r.trim().replace(/^\||\|$/g,'').split('|').map(c => c.trim()));
+      let head = null;
+      if (rows.length >= 2 && /^\|[\s:|-]+\|$/.test(tbl[1].trim())) { head = rows[0]; rows = rows.slice(2); }
+      const thead = head ? '<thead><tr>' + head.map(c => '<th>' + mdInline(c, resolve) + '</th>').join('') + '</tr></thead>' : '';
+      const tbody = rows.map(r => '<tr>' + r.map(c => '<td>' + mdInline(c, resolve) + '</td>').join('') + '</tr>').join('');
+      out.push('<div class="tm-table-wrap"><table class="tm-md-table">' + thead + '<tbody>' + tbody + '</tbody></table></div>');
+      tbl = [];
+    };
+    const flushAll = () => { flushUl(); flushOl(); flushTbl(); };
+    String(text).split('\n').forEach(raw => {
+      const line = raw.trim();
+      if (!line) { flushAll(); return; }
+      if (line.length > 1 && line[0] === '|' && line[line.length-1] === '|') { flushUl(); flushOl(); tbl.push(line); return; }
+      flushTbl();
+      const h = line.match(/^(#{2,5})\s+(.*\S)\s*$/);
+      if (h) { flushAll(); out.push('<h4 class="md-h">' + mdInline(h[2], resolve) + '</h4>'); return; }
+      if (line === '---' || line === '***' || line === '___') { flushAll(); return; }
+      if (line.startsWith('- ') || line.startsWith('* ')) { flushOl(); ul.push(line.slice(2).trim()); return; }
+      const o = line.match(/^(\d{1,3})[.)]\s+(.*)$/);
+      if (o) { flushUl(); ol.push(o[2].trim()); return; }
+      flushAll();
+      if (line.endsWith(':') && line.length < 80) out.push('<p><strong>' + mdInline(line, resolve) + '</strong></p>');
+      else out.push('<p>' + mdInline(line, resolve) + '</p>');
+    });
+    flushAll();
+    return out.join('\n');
   };
   const moneyRange = c => {
     if (!c) return '';
@@ -1123,7 +1198,7 @@
     const cost = moneyRange(e.cost_usd);
     return el('div', {class:'entry-card', on:{click:()=>go('#/'+vid+'/entry/'+encodeURIComponent(e.id))}},
       el('div', {class:'title'}, e.title),
-      el('div', {class:'summary'}, e.summary || ''),
+      el('div', {class:'summary', html: mdInline(e.summary || '')}),
       el('div', {class:'meta'},
         el('span', {class:'badge', style:`color:${m.color}`}, m.icon + ' ' + m.label),
         e.difficulty ? el('span', {class:'badge diff'}, diffStars(e.difficulty)) : null,
@@ -1138,6 +1213,11 @@
     const e = byId(vid, id);
     if (!e) return app.appendChild(el('div', {class:'empty'}, el('h3',{},'Entry not found'), el('button',{class:'back-btn',on:{click:()=>history.back()}},'← Back')));
     const m = catMeta(e.category);
+    // [[wiki-link]] target -> in-app entry route, scoped to this vehicle.
+    const mdResolve = t => {
+      const key = String(t).trim();
+      return byId(vid, key) ? '#/' + vid + '/entry/' + encodeURIComponent(key) : null;
+    };
     const wrap = el('div', {class:'detail'});
     wrap.appendChild(el('div', {class:'detail-head'},
       el('div', {},
@@ -1158,15 +1238,23 @@
     if (e.cost_usd) statRow.appendChild(el('div', {class:'stat'}, el('div',{class:'l'},'Est. cost'), el('div',{class:'v'}, moneyRange(e.cost_usd))));
     wrap.appendChild(statRow);
 
-    if (e.summary) wrap.appendChild(el('p', {style:'font-size:16px;color:var(--text-dim);margin:18px 0 0;font-style:italic'}, e.summary));
+    // Summaries are markdown like every other body field. Rendered as plain
+    // text the SPA printed literal ** while the static page bolded it.
+    if (e.summary) wrap.appendChild(el('p', {style:'font-size:16px;color:var(--text-dim);margin:18px 0 0;font-style:italic', html: mdInline(e.summary, mdResolve)}));
     if (e.description) {
       const sec = el('div', {class:'detail-section'}, el('h3',{},'Detail'));
-      e.description.split(/\n\n+/).forEach(p => sec.appendChild(el('p',{}, p)));
+      sec.appendChild(el('div', {class:'md-body', html: mdToHtml(e.description, mdResolve)}));
       wrap.appendChild(sec);
     }
     if (e.steps && e.steps.length) {
       const sec = el('div', {class:'detail-section'}, el('h3',{},'Steps'));
-      e.steps.forEach((s,i) => sec.appendChild(el('div', {class:'step'}, el('div',{class:'step-num'},String(i+1)), el('div',{},s))));
+      let sn = 0;
+      e.steps.forEach(s => {
+        const h = String(s).match(/^(#{2,5})\s+(.*\S)\s*$/);
+        if (h) { sn = 0; sec.appendChild(el('h4', {class:'md-h', html: mdInline(h[2], mdResolve)})); return; }
+        sn++;
+        sec.appendChild(el('div', {class:'step'}, el('div',{class:'step-num'},String(sn)), el('div',{html: mdInline(s, mdResolve)})));
+      });
       wrap.appendChild(sec);
     }
     if ((e.tools_required||[]).length || (e.skills_required||[]).length) {
