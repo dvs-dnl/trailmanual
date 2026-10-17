@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/jk-tipm-fuel-pump-relay/">
+<title>JK Cranks But Won&rsquo;t Start: The TIPM Fuel Pump Relay, Not the Pump &mdash; Trail Manual</title>
+<meta name="description" content="An intermittent no-start on a JK that cranks but won't fire is more often the fuel pump relay inside the TIPM than the pump itself. Turn the key to ON and listen for the prime: no hum, especially cold, points at the relay. It is soldered to the TIPM board, but a $25 bypass cable routes the pump around it in ten minutes and proves the diagnosis before you drop a tank. The symptom sort, the fix ladder from $25 to a $480 module exchange, and why the Wrangler was never in the recall.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my Jeep JK crank but not start?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If a JK cranks but will not fire and you hear no fuel pump hum when you turn the key to ON, the fuel pump relay inside the TIPM is the most likely cause - not the pump. The relay is soldered to the TIPM's circuit board, so it cannot be swapped on its own, but a $25 bypass cable routes the pump around it in about ten minutes. If the Jeep starts with the cable installed, the relay was the fault and your pump is fine. If you do hear a two-to-three-second prime and it still will not start, the problem is downstream - fuel filter, lines, injectors, spark, or a pump that primes but cannot hold pressure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a TIPM and why is the fuel pump relay inside it a problem?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Totally Integrated Power Module is the fuse box and the body control module combined into one housing under the hood on the driver's side of a JK. The fuel pump relay is soldered to the TIPM's internal circuit board rather than plugged into a socket, so when its contacts degrade there is no relay to pull and replace. That single design decision is the reason this failure turns into a four-figure dealer quote and the reason the aftermarket bypass exists at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I tell if it is the fuel pump or the TIPM on a JK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Listen first, then bypass. With the radio off and a window down, turn the key to ON without cranking and listen at the rear seat for a two-to-three-second hum from the tank. A hum means the relay closed and the pump ran, so look downstream. No hum at all, worst on a cold morning, points at the relay. To settle it, install a TIPM bypass cable in the fuel pump fuse slot: it feeds the pump through an external relay and takes the TIPM's internal relay out of the circuit. The Jeep starting normally with the cable in is proof the relay was the fault. It installs in five to ten minutes with no cutting and no soldering, and it comes back out, so a negative result costs only the cable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a recall on the Jeep Wrangler TIPM fuel pump relay?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Chrysler recalled the same TIPM-7 fuel pump relay on other vehicles, but the Wrangler was never included. NHTSA 14V-530 covers 188,757 2011 Dodge Durango and 2011 Jeep Grand Cherokee vehicles with the 3.6L or 5.7L engine, and NHTSA 15V-115 (Chrysler recall R09) covers about 335,000 2012-2013 Durango and Grand Cherokee vehicles. No Wrangler appears in either. Articles telling JK owners to check whether they are covered are sending them to a dealer to be told no. Run the VIN anyway because it costs nothing and goodwill repairs happen, but do not plan around coverage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use a used TIPM from a salvage yard on my JK?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plan on it needing programming. JK-era TIPMs are configured to the vehicle they were built for, which is why the mail-order exchange services ask for your VIN and ship a unit already programmed to it. A yard unit carries the programming of the Jeep it came out of, so at minimum budget a dealer trip to have it configured. Forum reports conflict on whether particular year ranges will function unprogrammed, and that conflict is the reason not to build a repair plan on it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is leaving a TIPM bypass cable installed permanently safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treat it as an interim fix, not a finished repair. The factory circuit you are bypassing also performs automatic shutdown, cutting fuel pump power when the engine stops rotating - which is what you want in a crash or a rollover. The vendor's own product line makes the point: the top plug-in relay system is marketed specifically on restoring that crash shutoff, which tells you the plain cable does not. The cable is the right first spend because it is cheap, reversible and diagnostic. If the relay turns out to be the fault, move to a relay system that keeps the shutdown function or have the module repaired."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
+      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+
+<script src="/_nav.js"></script><main class="tm-main">
+<article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">JK Wrangler &middot; Electrical</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">Your JK Cranks But Won&rsquo;t Start: The TIPM Fuel Pump Relay (and the $25 Test That Proves It)</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">An intermittent no-start on a JK that cranks strong but will not fire is more often <strong style="color:var(--text)">the fuel pump relay inside the TIPM than the fuel pump itself</strong>. The test is free and takes ten seconds: turn the key to ON without cranking and listen at the rear seat for a two-to-three-second hum from the tank. Hear the prime and the relay closed &mdash; look downstream. <strong style="color:var(--text)">No hum at all, worst on a cold morning, and the relay is the first suspect.</strong></p>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">That relay is soldered to the TIPM&rsquo;s circuit board, so there is nothing to pull and replace &mdash; which is exactly why this failure turns into a four-figure dealer quote. But a <strong style="color:var(--text)">$25 bypass cable</strong> plugs into the fuel pump fuse slot and feeds the pump through an external relay, taking the TIPM&rsquo;s internal relay out of the circuit in about ten minutes with no cutting and no soldering. If the Jeep starts normally with the cable in, the relay was the fault and your pump was never the problem. It comes back out, so being wrong costs you the price of the cable. Dropping the tank on a hunch is the most expensive possible first move on this symptom, and the people who do it usually replace a pump that tested fine.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>October 12, 2026</span> &middot; <span>12 min read</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:0 0 28px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
+      <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0">Listen, rule out, bypass, then buy. Key to ON, no crank, listen for the prime at the rear seat. No prime on a JK that cranks fine points at the TIPM&rsquo;s internal fuel pump relay. Before spending anything, check battery voltage and do a voltage-drop test on the main cables and grounds, because voltage sag at the TIPM mimics this failure exactly. Then install a $25&ndash;36 bypass cable: it starts, the relay was bad; it does not, keep diagnosing and you are out a cable. The long-term options run $59&ndash;99 for an external plug-in relay system or roughly $299&ndash;500 to have the module repaired or exchanged &mdash; against a shop fuel pump job that RepairPal estimates at $1,417&ndash;$1,610 on a 2018 JK, for a pump that is probably healthy.</p>
+    </div>
+
+    <h2>Listen for the prime &mdash; the one test that sorts this</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Nothing else you can do in the driveway narrows the field as fast. Radio off, window down, key to ON but <em>not</em> to START. A healthy circuit runs the pump for two to three seconds to build rail pressure, and you can hear it from the rear seat or standing at the left rear quarter. That one observation splits the diagnosis in two, and it is worth repeating on a cold morning, because this failure is temperature-sensitive and a warm-engine test can come back clean on a Jeep that strands you at 6 a.m.</p>
+    <div style="overflow-x:auto;margin:0 0 16px">
+    <table style="width:100%;border-collapse:collapse;font-size:14px">
+      <thead><tr style="border-bottom:2px solid var(--border)">
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">What you hear and see</th>
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Where to look first</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Cranks strong, <strong style="color:var(--text)">no prime hum</strong>, worse cold or first start of the day</td><td style="padding:10px 12px;color:var(--text-dim)">TIPM internal fuel pump relay. Rule out battery and grounds, then bypass to confirm.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Cranks strong, <strong style="color:var(--text)">prime hum present</strong>, still no fire</td><td style="padding:10px 12px;color:var(--text-dim)">Downstream of the relay: filter, lines, injectors, spark, or a pump that primes but will not hold pressure.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Whine or growl from the tank, erratic gauge, sputter under load</td><td style="padding:10px 12px;color:var(--text-dim)">Genuinely the in-tank pump. High-mileage JKs do kill pumps.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)"><strong style="color:var(--text)">No crank</strong> &mdash; starter silent, dash lights dim or drop out</td><td style="padding:10px 12px;color:var(--text-dim)">Not this failure. Battery, cables, grounds, starter relay. Different diagnosis entirely.</td></tr>
+        <tr><td style="padding:10px 12px;color:var(--text-dim)">Battery flat overnight, pump audible with the Jeep shut off</td><td style="padding:10px 12px;color:var(--text-dim)">Same relay, opposite failure &mdash; stuck closed. Commonly misread as a parasitic draw.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Keeping <em>crank/no-start</em> and <em>no-crank</em> straight is the single most useful thing you can do for yourself here, because both phrasings land on the same search results and the two problems share almost nothing. If the starter is silent, stop reading this and go check the battery, the cables and the grounds.</p>
+
+    <h2>What the TIPM actually is, and why one relay strands the whole Jeep</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The Totally Integrated Power Module sits under the hood on the driver&rsquo;s side and does two jobs at once: it is the fuse and relay box, and it is the body control module. Door locks, wipers, washer pump, horn, backup lights and the fuel pump all run through it. The JK carried the TIPM-7 generation across the 2007&ndash;2018 run.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Here is the detail that explains everything else about this repair: <strong style="color:var(--text)">the fuel pump relay is soldered to the TIPM&rsquo;s internal circuit board, not plugged into a socket.</strong> On an older Jeep you would pull a relay out of the fuse box, push a new one in, and drive away for twenty dollars. On a JK the equivalent part is a surface-mounted component inside a sealed module. When its contacts degrade there is nothing to swap, and the factory-level answer is to replace the whole module. Understand &ldquo;soldered, not socketed&rdquo; and the entire price structure below stops being mysterious.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The failure mechanism is documented, because Chrysler documented it on other vehicles carrying the same module. In its own recall filing for the 2011 Durango and Grand Cherokee, the cause is given as deformation of a contact spring inside the TIPM-7 fuel pump relay, driven by heat from electrical contact power, ambient temperature and battery voltage. A deformed contact spring is also why the symptom is intermittent and why it favours cold mornings &mdash; you are dealing with a mechanical contact that has lost its tension, not a chip that has died.</p>
+
+    <h2>The symptom pattern, including the one that looks like something else</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Roughly three cases out of four look the same way. Hardest start first thing in the morning or after the Jeep has sat overnight. Cranks and cranks, catches on the second or third attempt, then runs perfectly all day and gives no hint anything is wrong. Fine through the summer, noticeably worse as the weather turns &mdash; which is why October is when this post gets read. Some owners find a jump start or a remote start &ldquo;fixes&rdquo; it, which is a clue rather than a cure: both change the voltage and timing the relay sees.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The other case is the same relay failing the other direction &mdash; <strong style="color:var(--text)">stuck closed</strong>. The pump keeps running after you shut the Jeep off, and you come out in the morning to a flat battery. This one gets chased for weeks as a parasitic draw, with people pulling fuses one at a time, because nobody expects the answer to be the fuel pump relay on a Jeep that starts fine. If your JK drains overnight, stand at the rear quarter after you lock it and listen. A pump you can hear with the key out is the diagnosis.</p>
+    <h2>Rule out the cheap stuff before you order anything</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A TIPM needs clean voltage to behave. Sag at its supply corrupts module communication and counterfeits a TIPM failure well enough that owners buy modules to fix cable problems. So start with a resting battery voltage check and a voltage-drop test across the main cables and the engine and body grounds. Our <a href="/db/jk/jk-battery-cables-jk/">JK battery cable and ground entry</a> walks the $15 ground refresh that resolves a surprising share of &ldquo;electrical gremlin&rdquo; complaints. Be clear on the logic in both directions: <strong style="color:var(--text)">bad cables will fake a TIPM fault, and a genuine TIPM fault will not be cured by new cables.</strong> Doing the cheap test first means you never find out the hard way.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Then pull codes &mdash; with the right tool. A $25 generic reader sees powertrain codes and misses the TIPM-side faults entirely, so a clean scan from a cheap reader tells you almost nothing here. An enhanced Chrysler-capable scanner around $99 is the entry point that can actually see body and module data; the tiering is in our <a href="/db/jk/jk-obd2-diagnostics/">JK OBD2 diagnostics entry</a>. If the prime hum is present and you are now working downstream, the <a href="/db/jk/jk-fuel-filter-replacement/">fuel filter entry</a> is the next stop rather than this post.</p>
+
+    <h2>The $25 cable that ends the argument</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A TIPM bypass cable plugs into the fuel pump fuse slot in the TIPM and routes pump power through an external relay instead of the soldered internal one. Install is five to ten minutes, nothing is cut, nothing is soldered, and it lifts straight back out. <strong style="color:var(--text)">If the Jeep starts normally with the cable installed, the internal relay was the fault and the pump is healthy.</strong> That is a binary result on a $25 part, which makes it the correct first spend on this symptom &mdash; ahead of a pump, ahead of a filter, ahead of a scan tool.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Two details to get right before you order. First, the cables come in <strong style="color:var(--text)">mini-blade</strong> and <strong style="color:var(--text)">Micro2</strong> fuse-slot styles and the wrong one will not seat. Vertical Visions, who hold the patent on the plug-in relay version, list the 2007&ndash;2018 Wrangler under their <em>mini-blade</em> cable, with the Micro2 version covering 2013&ndash;2021 Dodge and Jeep applications that are not the JK. That makes mini-blade the JK answer across the whole run &mdash; but open the TIPM lid and look at the fuse you are replacing before you pay for shipping twice. Second, the &ldquo;Simple&rdquo; cable at $25 does the job; the $35 &ldquo;Standard&rdquo; adds an LED that lights when power passes through, which is worth the ten dollars if you are diagnosing an intermittent rather than confirming a dead relay. Micro2 versions run a dollar more each.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">One safety point that forum threads skip, and it matters more than the price: <strong style="color:var(--text)">the factory circuit you are bypassing also performs automatic shutdown</strong>, cutting power to the fuel pump when the engine stops rotating. That is the behaviour you want in a crash or a rollover. The same vendor&rsquo;s top plug-in relay system is marketed specifically on restoring that crash shutoff, which tells you plainly that the plain bypass cable does not have it. Use the cable as what it is &mdash; a diagnostic and a get-home fix. If it proves the relay is bad, move to something that keeps the shutdown function.</p>
+
+    <h2>The fix ladder, and what each rung actually buys you</h2>
+    <div style="overflow-x:auto;margin:0 0 16px">
+    <table style="width:100%;border-collapse:collapse;font-size:14px">
+      <thead><tr style="border-bottom:2px solid var(--border)">
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Option</th>
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Cost</th>
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Interim or permanent</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Bypass cable, mini-blade (Simple / with LED)</td><td style="padding:10px 12px;color:var(--text-dim)">$25 / $35</td><td style="padding:10px 12px;color:var(--text-dim)">Interim. Proof of diagnosis; gives up automatic shutdown.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Plug-in external relay system (Lite)</td><td style="padding:10px 12px;color:var(--text-dim)">$59</td><td style="padding:10px 12px;color:var(--text-dim)">Permanent in practice. Where most JK owners land.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Plug-in external relay system with diagnostic LEDs and crash shutoff</td><td style="padding:10px 12px;color:var(--text-dim)">$99</td><td style="padding:10px 12px;color:var(--text-dim)">Permanent. The version that restores the shutdown function.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Board-level repair of your own TIPM, mailed out and returned</td><td style="padding:10px 12px;color:var(--text-dim)">~$299</td><td style="padding:10px 12px;color:var(--text-dim)">Permanent. Keeps your original module and its programming.</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text-dim)">Pre-programmed exchange module, core returned</td><td style="padding:10px 12px;color:var(--text-dim)">~$480&ndash;500</td><td style="padding:10px 12px;color:var(--text-dim)">Permanent. Plug-and-play, typically a 1-year warranty.</td></tr>
+        <tr><td style="padding:10px 12px;color:var(--text-dim)">New TIPM from a dealer, installed</td><td style="padding:10px 12px;color:var(--text-dim)">Four figures &mdash; get it in writing</td><td style="padding:10px 12px;color:var(--text-dim)">The only path when the failure is <em>not</em> the fuel relay.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Read that table honestly. Everything above the dealer line is work you can do in a driveway with hand tools, and the $59 plug-in relay system is where most JK owners with a confirmed relay failure settle &mdash; it is a real fix, not a bodge. The mail-in repair at around $299 keeps your original module, which matters if you would rather not introduce a second-hand board into the Jeep. The pre-programmed exchange units run roughly $480&ndash;500 with a one-year warranty and arrive configured to your VIN, so install is plug-and-play; expect a core-return deadline of about two weeks with a penalty if you miss it, which is reasonable but is a date on your calendar.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The honest objection to the cheap end is not reliability, it is aesthetics and principle: an external relay system is a part hanging outside the factory housing, and some owners dislike that on a vehicle they intend to keep stock. That is a fair position. It is also worth knowing that <strong style="color:var(--text)">Chrysler&rsquo;s own recall remedy for this exact relay on other vehicles was to disable the internal relay and mount a new one externally</strong> &mdash; the factory fix and the aftermarket fix are the same idea. If a dealer quotes you a new module, you are paying four figures for the same outcome the $59 part produces, so ask for the quote in writing and compare it against the numbers above before you agree to anything.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">And if you were going to have a shop fit the external relay for you: that is commonly a $400&ndash;600 job against roughly $50 and an afternoon doing it yourself. For a part that plugs in, that gap is hard to defend.</p>
+
+    <h2>There is no Wrangler recall, and the top search results get this wrong</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">This needs saying plainly because a lot of pages imply otherwise. Chrysler did recall the TIPM-7 fuel pump relay &mdash; <strong style="color:var(--text)">on other vehicles.</strong> NHTSA campaign 14V-530 covers 188,757 2011 Dodge Durango and 2011 Jeep Grand Cherokee vehicles with the 3.6L or 5.7L engine, built between January 5, 2010 and July 20, 2011, with the remedy being a more robust relay mounted externally to the TIPM-7. NHTSA 15V-115, Chrysler recall R09, covers roughly 335,000 2012&ndash;2013 Durango and Grand Cherokee vehicles, with the remedy being to disable the internal relay and install an external fuel pump relay package. <strong style="color:var(--text)">The Wrangler appears in neither campaign.</strong></p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Run your VIN through the NHTSA lookup anyway, because it costs nothing and goodwill repairs do happen on documented module failures. Go in without expecting coverage, though. An article that tells a JK owner to &ldquo;check if you&rsquo;re covered&rdquo; is sending them to a service counter to be told no, and then to be quoted for a module.</p>
+
+    <h2>When it genuinely is the pump &mdash; and when it is neither</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The in-tank pump does fail on high-mileage JKs, and this post is not an argument that it never does. The pattern looks different: a whine or growl from the tank, a prime you can hear but fuel pressure that is weak or falls off, an erratic fuel gauge, sputtering or power loss under load, and a condition that gets worse with heat and running time rather than better. That is a pump, and it is a genuine job &mdash; RepairPal estimates $1,417&ndash;$1,610 for fuel pump replacement on a 2018 JK at a shop, which is the number that makes the $25 test worth ten minutes of your time first.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">And if the Jeep does not crank at all &mdash; starter silent, not merely failing to catch &mdash; none of this applies. Go to battery, cables, grounds and the starter relay. <a href="/blog/xj-fuel-pump-symptoms/">Our XJ fuel pump post</a> covers the real-pump-failure symptom set in more depth, and the logic transfers; what does not transfer is the relay, because the XJ&rsquo;s is a plug-in part in a conventional fuse box and costs about what a sandwich costs.</p>
+
+    <h2>What not to do</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Do not drop the tank on a hunch. It is the most expensive first move available to you on this symptom, it is the one most commonly taken, and the forums are full of owners who did it and still had a no-start the following week. Do not fit a salvage-yard TIPM expecting it to work: JK-era modules are configured to the vehicle they came from, which is why the mail-order exchange services ask for your VIN and ship a unit already programmed to it. Reports conflict on whether particular year ranges will run unprogrammed, and that conflict is precisely the reason not to build a plan around it &mdash; budget a dealer programming trip at minimum. And do not publish-chase part numbers from a forum post: the TIPM carries multiple suffixes across the 2007&ndash;2018 run, so verify any number against a Mopar catalog for your year before money changes hands.</p>
+
+    <h2>What this looks like as a weekend</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Tonight: turn the key to ON and listen. Tomorrow morning, cold, do it again &mdash; that is the test that matters. Saturday: a multimeter on the battery and a voltage-drop check on the cables and grounds, which is an hour and costs nothing if you own the meter. If the Jeep cranks healthy and never primes, order the cable. It arrives, you pull the TIPM lid, swap one fuse slot for the cable, and turn the key. The Jeep either starts or it does not, and either answer is worth $25.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">That is the whole point of this repair being on the site. The JK&rsquo;s most notorious failure has a reputation as a dealer-only, four-figure problem, and for the module as a whole that reputation is earned. But the specific failure that strands the most JKs is one relay, and there is a ten-minute, twenty-five-dollar test that tells you whether that is what you have &mdash; before anyone drops a tank, and before anyone quotes you for a module. Do the listening first. It is free, and it is the part most people skip.</p>
+    <div style="margin:44px 0 0;border-top:1px solid var(--border);padding-top:28px">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <a href="/db/jk/jk-battery-cables-jk/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Battery Cables &amp; Grounds</div>
+          <div style="font-size:12px;color:var(--text-dim)">The $15 rule-out step. Bad cables fake a module failure.</div>
+        </a>
+        <a href="/db/jk/jk-obd2-diagnostics/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK OBD2 Diagnostics</div>
+          <div style="font-size:12px;color:var(--text-dim)">Why a $25 reader cannot see TIPM-side faults.</div>
+        </a>
+        <a href="/db/jk/jk-fuel-filter-replacement/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Fuel Filter Replacement</div>
+          <div style="font-size:12px;color:var(--text-dim)">The &ldquo;it primed, so look downstream&rdquo; branch.</div>
+        </a>
+        <a href="/blog/xj-fuel-pump-symptoms/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">XJ Cherokee</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">XJ Fuel Pump Symptoms</div>
+          <div style="font-size:12px;color:var(--text-dim)">What a real pump failure looks like, on a simpler circuit.</div>
+        </a>
+        <a href="/blog/jk-pentastar-cylinder-head-failure/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">JK Wrangler</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">The 2012&ndash;2013 JK Cylinder Head Failure</div>
+          <div style="font-size:12px;color:var(--text-dim)">The other known JK failure worth knowing before you buy.</div>
+        </a>
+        <a href="/blog/jk-engine-oil-leaks/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">JK Wrangler</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Engine Oil Leaks</div>
+          <div style="font-size:12px;color:var(--text-dim)">Where the 3.8 and 3.6 actually leak, and which matter.</div>
+        </a>
+        <a href="/blog/jk-buyers-guide/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">JK Wrangler</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Buying a Used JK Wrangler</div>
+          <div style="font-size:12px;color:var(--text-dim)">Add &ldquo;has the fuel pump relay been dealt with?&rdquo; to the list.</div>
+        </a>
+        <a href="/db/jk/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">JK Wrangler Database</div>
+          <div style="font-size:12px;color:var(--text-dim)">Every JK repair and upgrade entry on the site.</div>
+        </a>
+      </div>
+    </div>
+
+    <div style="margin:36px 0 0;border-top:1px solid var(--border);padding-top:20px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--text-mute);margin-bottom:8px">Sources</div>
+      <p style="color:var(--text-mute);font-size:12.5px;line-height:1.7;margin:0">Pricing and fitment for bypass cables, plug-in relay systems and board-level repair from Vertical Visions product listings (October 2026). Pre-programmed exchange pricing, coverage and core terms from Circuit Board Medics (October 2026). Recall scope, defect mechanism and remedy from NHTSA Part 573 reports 14V-530 and 15V-115 (Chrysler recall R09). Shop labour estimate for JK fuel pump replacement from RepairPal. Prices are market figures from the vendors named, not Trail Manual estimates, and they move &mdash; verify before ordering.</p>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
+    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/xj-death-wobble-causes/">XJ Death Wobble</a><a href="/db/?v=xj">XJ Database</a></div>
+    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
+</footer>
+
+<script>
+const t = document.getElementById('tm-nav-toggle');
+if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
+</script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
