@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/workshop/soldering-basics/">
+<title>Soldering Basics &mdash; Automotive Electrical &mdash; Trail Manual Workshop</title>
+<meta name="description" content="How to solder automotive wiring that survives vibration and weather - iron selection, rosin-core solder, the Western Union splice, adhesive-lined heat shrink, and the joints where you should crimp instead.">
+<link rel="stylesheet" href="/_shared.css">
+<script src="/_nav.js"></script>
+<style>
+body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
+.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
+.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
+.back-link:hover { color: var(--accent); }
+.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
+.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
+.tm-theme-icon-sun{display:none}
+.tm-theme-icon-moon{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
+[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
+@media(max-width:700px){.tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
+.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
+.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
+.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
+.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
+.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
+.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
+.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
+.guide-body strong { color: var(--text); font-weight: 600; }
+.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
+.callout.warn { border-left-color: #e05555; }
+.callout strong { color: var(--text); }
+.callout a { color: var(--accent); }
+.tool-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 14px; }
+.tool-table th { text-align: left; padding: 10px 12px; background: var(--bg-2); border-bottom: 2px solid var(--border); color: var(--text); font-weight: 600; font-size: 13px; }
+.tool-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
+.tool-table tr:last-child td { border-bottom: none; }
+.tool-table a { color: var(--accent); }
+.guide-body a { color: var(--accent); }
+.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
+.video-section h2{margin-top:0;font-size:20px;font-weight:700}
+.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
+.video-embed{margin:18px 0 0}
+.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;background:#000;border:1px solid var(--border)}
+.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-dim)}
+.video-credit a{color:var(--accent);text-decoration:none}
+footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
+footer a { color: var(--accent); text-decoration: none; }
+@media (max-width: 500px) {
+  .guide-title { font-size: 26px; }
+  .guide-lede { font-size: 16px; }
+  .brand-sub { display: none; }
+  .back-link { font-size: 12px; }
+  .tool-table { font-size: 13px; }
+  .tool-table th, .tool-table td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="/">
+    <div class="brand-mark">TM</div>
+    <div>
+      <div class="brand-text">Trail Manual</div>
+      <div class="brand-sub">The Workshop</div>
+    </div>
+  </a>
+  <button class="tm-theme-btn" aria-label="Toggle dark mode" onclick="(function(){var h=document.documentElement,d='data-theme',c=h.getAttribute(d)==='dark';h.setAttribute(d,c?'light':'dark');try{localStorage.setItem('tm-theme',c?'light':'dark');}catch(e){}})()">
+    <svg class="tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+  <a class="back-link" href="/workshop/">&larr; Workshop</a>
+  <button class="hamburger" aria-label="Menu" onclick="this.setAttribute('aria-expanded',document.getElementById('ws-nav').classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  <nav id="ws-nav" class="ws-nav" aria-label="Site"><a href="/">Home</a><a href="/db/">Vehicles</a><a href="/workshop/">Workshop</a><a href="/blog/">Blog</a></nav>
+</header>
+
+<article>
+<div class="guide-wrap">
+  <div class="guide-eyebrow">Workshop &middot; Technique</div>
+  <h1 class="guide-title">Soldering Basics &mdash; Automotive Electrical</h1>
+
+  <p class="guide-lede">
+    A good solder joint is made by heating the wire until the wire melts the solder &mdash; not by melting solder onto cold copper with the iron. Get that one thing right and the rest is detail. Use 60/40 or 63/37 rosin-core solder, a 40-watt-or-better iron, and seal the finished joint in adhesive-lined heat shrink. Skip that last step and the splice wicks moisture up under the insulation and corrodes from the inside out.
+  </p>
+
+  <div class="guide-body">
+
+    <h2>Why this matters</h2>
+    <p>Most electrical faults on an off-road rig are connection faults, not component faults. A splice made in a hurry with twisted wire and electrical tape works fine in the driveway and fails three hundred miles from pavement, usually at night, usually in the rain. Soldering is what turns a repair into a permanent one: the joint becomes continuous copper, with no oxide layer between the two halves and no mechanical gap for vibration to work on.</p>
+    <p>It is also the technique people most often do badly without knowing it. A cold joint looks finished. It survives a tug. It reads near-zero ohms on a multimeter. Then it develops resistance under load, heats up, and fails. Knowing the difference between a proper joint and a convincing-looking bad one is most of the skill.</p>
+
+    <div class="callout">
+      <strong>Key point:</strong> Heat the joint, then touch the solder to the joint &mdash; never to the iron tip. If the solder melts on the wire rather than on the iron, the copper is hot enough for the solder to actually bond to it.
+    </div>
+
+    <h2>What you need</h2>
+
+    <table class="tool-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>What to get</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Soldering iron</strong></td>
+          <td>40&ndash;60W pencil iron, ideally temperature-controlled (700&ndash;750&deg;F / 370&ndash;400&deg;C)</td>
+          <td>A 25W hobby iron cannot keep up with the heat a 14 AWG wire pulls away from the tip. Underpowered irons are a leading cause of cold joints.</td>
+        </tr>
+        <tr>
+          <td><strong>Solder</strong></td>
+          <td>60/40 or 63/37 tin-lead rosin-core, 0.032 in (0.8 mm)</td>
+          <td>63/37 is eutectic &mdash; it goes straight from liquid to solid with no pasty stage, so a small bump while it cools is less likely to wreck the joint.</td>
+        </tr>
+        <tr>
+          <td><strong>Heat shrink</strong></td>
+          <td>Adhesive-lined (dual-wall), 3:1 shrink ratio</td>
+          <td>The inner adhesive melts and seals both ends. Plain single-wall tubing does not keep water out.</td>
+        </tr>
+        <tr>
+          <td><strong>Heat source</strong></td>
+          <td>Heat gun</td>
+          <td>A lighter scorches the tubing and leaves soot trapped under the seal. See the <a href="/workshop/heat-gun/">heat gun guide</a>.</td>
+        </tr>
+        <tr>
+          <td><strong>Helping hands or clamps</strong></td>
+          <td>Any stand that holds both wires steady</td>
+          <td>You need two hands for the iron and the solder. A joint that moves while it solidifies cracks internally.</td>
+        </tr>
+        <tr>
+          <td><strong>Tip cleaner</strong></td>
+          <td>Damp sponge or brass wool</td>
+          <td>An oxidized tip transfers almost no heat. This is the number-one reason people think their iron is underpowered.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>On lead-free solder:</strong> lead-free alloys melt hotter, wet less readily, and leave a dull grainy joint that is harder to inspect. Lead-free is a manufacturing requirement for consumer electronics, not a rule for a home garage repair. If you use 60/40 or 63/37, work in a ventilated space, keep food off the bench, and wash your hands afterward. The smoke coming off the joint is burning rosin flux rather than lead vapor &mdash; but rosin fumes are a respiratory irritant, so keep your face out of the plume.</p>
+
+    <h2>Prep &mdash; most of the work happens before the iron comes out</h2>
+    <ol>
+      <li><strong>Disconnect the battery.</strong> Negative terminal off before you cut into any circuit. On a vehicle with airbags or a body control module this is not optional.</li>
+      <li><strong>Slide the heat shrink on first.</strong> Cut a piece long enough to overlap half an inch of undamaged insulation on each side, and slide it well down one wire so iron heat cannot shrink it early. Everyone forgets this once. Once is usually enough.</li>
+      <li><strong>Strip clean.</strong> About 1/2 to 3/4 inch on each wire, with a proper stripper &mdash; see <a href="/workshop/wire-stripper-crimper/">wire strippers and crimpers</a>. Nicked strands become the fatigue point later.</li>
+      <li><strong>Check that the copper is bright.</strong> Green or dull-brown copper is oxidized and will not take solder. Cut back to clean wire rather than fighting corroded strands.</li>
+      <li><strong>Tin the tip.</strong> With the iron at temperature, wipe it on the sponge and flow a little solder onto the tip until it is shiny. A tinned tip moves several times the heat of a dry one.</li>
+    </ol>
+
+    <h2>The splice &mdash; Western Union vs. lap</h2>
+    <p>For an inline repair where both wire ends are free, the <strong>Western Union (lineman's) splice</strong> is the standard. Lay the two stripped ends alongside each other pointing opposite directions, cross them at the midpoint, and wrap each end tightly around the opposite wire four to six turns. The result is mechanically strong before any solder touches it &mdash; that is the point. Solder makes the joint electrically continuous and corrosion-proof; it is not what holds the wires together.</p>
+    <p>A finished Western Union splice leaves a bulge about twice the wire diameter and stays reasonably flexible. Do not twist the two ends into a pigtail and fold it over instead: that puts a stress riser right at the fold and roughly doubles the stiffness at one point in the run, which is exactly where it eventually breaks.</p>
+    <p>For a <strong>tap splice</strong> &mdash; joining a new circuit to an existing wire without cutting it &mdash; strip a half-inch window in the existing insulation, wrap the new conductor tightly around the exposed section five or six turns, and solder that.</p>
+    <p>A <strong>lap joint</strong>, where you tin both ends and lay them parallel, puts all the mechanical strength in the solder itself. That is fine for terminal cups and circuit-board pads. It is not acceptable for an inline splice in a vehicle harness.</p>
+
+    <h2>Making the joint</h2>
+    <ol>
+      <li><strong>Tin each wire separately</strong> if the gauge is heavy or the strands are loose. Heat the stripped end, feed solder in, let it wick between the strands. Tinned ends splice more cleanly.</li>
+      <li><strong>Hold the iron underneath the joint.</strong> Heat rises, so contacting from below brings the whole splice up faster. Press the flat of the tip against the wire, not the point.</li>
+      <li><strong>Wait two to four seconds</strong> for the copper to reach temperature.</li>
+      <li><strong>Touch the solder to the far side of the joint</strong> &mdash; the side opposite the iron. When it melts and flows on contact with the wire, the joint is hot enough. If you have to push solder against the iron to melt it, back off and let the wire heat longer.</li>
+      <li><strong>Feed until the solder wicks through the whole splice</strong> and you can still see the outline of individual strands under a shiny coating. Stop there. A smooth blob that hides the wire is too much solder.</li>
+      <li><strong>Pull the iron away and hold everything still</strong> for five to ten seconds. Movement during solidification is what creates internal cracks.</li>
+    </ol>
+
+    <div class="callout">
+      <strong>Reading the joint:</strong> A good joint is shiny, slightly concave, and shows the shape of the wire through the solder. A cold joint is dull, grainy, and lumpy &mdash; the solder is sitting on the copper instead of flowing into it. If you see one, reheat until the solder flows properly, adding a touch of fresh solder to bring new flux in if it will not wet.
+    </div>
+
+    <h2>Sealing it</h2>
+    <p>Let the joint cool completely, slide the heat shrink over it, center it so there is at least half an inch of overlap onto undamaged insulation on both sides, and hit it with the heat gun &mdash; moving constantly, working from the center outward so air is pushed out both ends. You are done when a small bead of adhesive squeezes out at each end. That bead is the seal.</p>
+    <p>For a splice in a wet or high-vibration location &mdash; frame rail, engine bay, anything in the wheel wells &mdash; add a second layer: a piece of larger adhesive-lined tubing over the first, or self-fusing silicone tape wrapped over the finished joint. On a rig that sees water crossings, that is two minutes well spent.</p>
+
+    <h2>When to crimp instead</h2>
+    <p>Soldering is not the right answer everywhere. A soldered joint is rigid, and the solder wicks a short distance up under the insulation. Where that stiffened section meets flexible wire, you have created a stress concentration &mdash; and under constant vibration, a stress concentration is a fatigue point.</p>
+    <ul>
+      <li><strong>Crimp</strong> at battery posts, starter studs, and alternator connections. A properly crimped lug is gas-tight and does not soften with heat; solder in a high-current terminal can reflow if the joint gets hot enough.</li>
+      <li><strong>Crimp</strong> OEM-style connector pins (Deutsch, Weather Pack, Metri-Pack). Those terminals are engineered around a specific crimp geometry and will not seat correctly in the connector body once you have soldered them.</li>
+      <li><strong>Crimp</strong> anywhere the wire is unsupported and free to flex, unless you can add strain relief.</li>
+      <li><strong>Solder</strong> inline splices, harness repairs, added accessory circuits, and anything you want sealed against moisture permanently.</li>
+      <li><strong>Both</strong> is common and fine: crimp the terminal for mechanical grip, then flow a small amount of solder into the back of the barrel &mdash; as long as it does not wick past the crimp into the flexible wire.</li>
+    </ul>
+    <p>Aviation and motorsport practice leans toward crimping, for exactly the vibration reason. For a DIY harness repair on a street-and-trail vehicle, a well-made soldered splice with adhesive-lined heat shrink and proper strain relief will outlast the vehicle. Either method done well beats the other done badly.</p>
+
+    <h2>Common mistakes</h2>
+    <ul>
+      <li><strong>Forgetting the heat shrink.</strong> It has to go on before the splice. There is no fix except cutting the joint apart and starting over.</li>
+      <li><strong>Melting solder on the tip and dripping it on.</strong> That is the definition of a cold joint. The solder never bonds to the copper; it sits there looking like a connection.</li>
+      <li><strong>Acid-core solder or plumbing flux.</strong> Acid flux belongs on copper pipe. On wire it keeps eating copper for years after the repair, and the corrosion travels up under the insulation. Rosin-core electrical solder only.</li>
+      <li><strong>Too much solder.</strong> A joint buried in solder cannot be inspected, is stiffer than it needs to be, and usually means the wire never got hot enough to wick properly in the first place.</li>
+      <li><strong>Moving the joint while it cools.</strong> A joint that solidifies while flexing develops internal fractures that read fine on a meter and fail under load.</li>
+      <li><strong>An oxidized tip.</strong> If solder will not stick to the tip, the tip will not transfer heat to the wire either. Clean and re-tin before every session.</li>
+      <li><strong>Electrical tape as the seal.</strong> Tape adhesive lets go with underhood heat and unwinds into a sticky mess that traps water against the joint. Adhesive-lined heat shrink, every time.</li>
+      <li><strong>Soldering with the battery connected.</strong> Shorting a live circuit with a grounded iron tip is how you take out a module.</li>
+    </ul>
+
+    <div class="callout warn">
+      <strong>Stop.</strong> Airbag and SRS wiring is off limits. Do not splice, solder, or repair any wire in the yellow-sheathed supplemental restraint circuits. Those harnesses get replaced, not repaired, and their connectors contain shorting bars specifically so stray current does not deploy a bag into your face. If a yellow connector is involved, read <a href="/workshop/when-to-stop/">when to stop and go to a shop</a>.
+    </div>
+
+    <h2>Practicing before it counts</h2>
+    <p>Buy a few feet of cheap 16 AWG primary wire and make ten splices on the bench before you touch the vehicle. Cut each one open lengthwise with side cutters and look at the cross-section: the solder should have penetrated between every strand, not merely coated the outside. Ten practice joints costs about two dollars and turns this from a technique you have read about into one you can do in a dark engine bay with one hand.</p>
+
+  </div>
+
+  <div class="video-section">
+    <h2>Watch It Done</h2>
+    <p class="video-context">Seeing solder wick into a splice once is worth more than reading about it twice.</p>
+    <div class="video-embed">
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/Zu3TYBs65FM?rel=0"
+                title="How to Solder Wires Together (Best tips and tricks) - ChrisFix"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <p class="video-credit">Video: <a href="https://www.youtube.com/channel/UCes1EvRjcKU4sY_UEavndBw" target="_blank" rel="noopener">ChrisFix</a> &mdash; "How to Solder Wires Together (Best tips and tricks)"</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/workshop/">&larr; Back to Workshop</a> &nbsp;&middot;&nbsp;
+  <a href="/channels/">Recommended Channels</a> &nbsp;&middot;&nbsp;
+  <a href="/">Trail Manual</a>
+</footer>
+
+</article>
+</body>
+</html>
