@@ -30,7 +30,7 @@
   window.tmExplore=tmExplore;
   document.addEventListener('click',function(e){
     if(!e.target.closest('#tm-topbar')){
-      ['build','learn','garage'].forEach(function(x){
+      ['build','learn','garage','vehicles'].forEach(function(x){
         var p=document.getElementById('tm-dd-'+x),b=document.getElementById('tm-btn-'+x);
         if(p)p.classList.remove('open');if(b)b.classList.remove('tm-active');
       });
@@ -38,4 +38,27 @@
   });
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',tmInitGarage);
   else tmInitGarage();
+})();
+/* Mobile sub-nav: hamburger clears open panels; each panel gets a back control */
+(function(){
+  var ids=['build','learn','garage','vehicles'];
+  function init(){
+    document.querySelectorAll('.tm-hamburger').forEach(function(h){
+      h.addEventListener('click',function(){
+        ids.forEach(function(x){
+          var p=document.getElementById('tm-dd-'+x),b=document.getElementById('tm-btn-'+x);
+          if(p)p.classList.remove('open');if(b)b.classList.remove('tm-active');
+        });
+      });
+    });
+    ids.forEach(function(x){
+      var p=document.getElementById('tm-dd-'+x);
+      if(!p||p.querySelector('.tm-dd-back'))return;
+      var btn=document.createElement('button');
+      btn.className='tm-dd-back';btn.type='button';btn.textContent='Menu';
+      btn.addEventListener('click',function(e){e.stopPropagation();tmDrop(x);});
+      p.insertBefore(btn,p.firstChild);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
