@@ -838,7 +838,10 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
   }
   .tm-nav-menu.open{display:flex}
   .tm-nav-btn,.tm-garage-btn,.tm-explore-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 14px}
-  .tm-dd-panel{position:static;box-shadow:none;border:none;background:var(--bg-2);border-radius:6px;margin:2px 0}
+  .tm-dd-panel{position:absolute;top:100%;left:0;right:0;background:var(--panel);border:none;border-bottom:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08);border-radius:0;margin:0;max-height:calc(100dvh - 100%);overflow-y:auto;-webkit-overflow-scrolling:touch}
+  .tm-topbar:has(.tm-dd-panel.open) .tm-nav-menu{display:none}
+  .tm-dd-back{display:flex;align-items:center;gap:8px;width:100%;padding:12px 14px;margin:0 0 4px;background:transparent;border:none;border-bottom:1px solid var(--border);font:inherit;font-size:13px;font-weight:500;color:var(--text-dim);cursor:pointer;text-align:left}
+  .tm-dd-back::before{content:'\2039';font-size:18px;line-height:1}
   .tm-dd-inner{flex-direction:column;gap:0;padding:8px 12px}
   .tm-dd-col{margin-bottom:8px}
   .tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}
@@ -939,3 +942,6 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
   margin:16px 0;
 }
 .tm-affiliate-note a{color:var(--accent)}
+
+/* Sub-nav back control is mobile-only */
+@media(min-width:701px){.tm-dd-back{display:none}}
