@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/blog/driveline-vibration-after-lift/">
+<title>Driveline Vibration After a Lift: How to Find Which Angle Is Wrong &mdash; Trail Manual</title>
+<meta name="description" content="A vibration right after a lift is almost always a u-joint operating angle problem, not a bad part. Sort it by road speed vs. engine RPM, then measure: Spicer's rule is at least 0.5 degrees at each end, within 1 degree of each other, under 3 degrees at highway speed. The three-reading procedure, the CV vs. non-CV pinion rule, the free checks, and the fix ladder from a $39 transfer case drop to an SYE.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why does my Jeep vibrate after a lift?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A vibration that appears right after a lift is almost always a u-joint operating angle problem, not a failed part. A u-joint running at an angle does not turn at a constant speed - it speeds up and slows down twice per revolution. Stock geometry cancels that out by giving both ends of the driveshaft the same operating angle in opposite directions. Lifting raises the body and the transfer case output while the axle stays where it was, which steepens one end and breaks the cancellation. What you feel is that uncancelled velocity wave. Nothing is broken; the geometry changed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should driveline operating angles be?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Spicer publishes three rules. Each end of the driveshaft should run at least half a degree of operating angle - a joint at true zero angle lets the needle bearings brinell into one spot instead of rolling. The two ends should be equal within one degree of each other, tightened to half a degree for shafts ahead of a transfer case or auxiliary device. And for vibration-free operation at highway driveshaft speed, angles should stay at or under three degrees. Spicer's own table allows more at lower shaft RPM: about 4.2 degrees at 4000 RPM, 5.8 degrees at 3000, and 8.7 degrees at 2000."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you measure pinion angle and driveline operating angle?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Park on level ground at ride height with the full weight of the vehicle on the suspension. Measuring on jack stands is the single most common reason a reader's numbers come out wrong, because the axle hangs at droop instead of sitting where it drives. Take three readings with a digital angle finder: the transfer case output flange, the driveshaft tube, and the pinion yoke face. The operating angle is the difference between two adjoining members, not the angle of the shaft by itself. So a driveshaft reading 12 degrees with a transfer case output at 9 degrees gives a 3 degree operating angle at the front joint."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a transfer case drop fix driveline vibration?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It often does, and it is the cheapest thing on the list at roughly $39 to $60 for a bolt-in spacer kit, but it is a trade rather than a repair. A transfer case drop restores the driveline geometry by lowering the transfer case back toward where it sat before the lift, which gives back an inch of the ground clearance the lift was bought for and leaves the skid plate and crossmember hanging lower on obstacles. On a mild lift that is a reasonable interim call. On a build meant for rocks, correcting the pinion angle or moving to an SYE and a CV shaft is the answer that does not cost clearance."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the pinion angle rule different with a CV driveshaft?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, and reversing it is the classic error. On a stock two-joint shaft the pinion runs parallel to the transfer case output so the two angles cancel each other. After a slip yoke eliminator and a double-cardan CV shaft the rule inverts: the pinion must point at the transfer case output, typically 1 to 2 degrees below the driveshaft centerline at ride height. Apply the non-CV rule to a CV shaft and you get a vibration no balance shop can fix, because the shaft is not the problem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Could the vibration after my lift be something other than the driveline?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A vibration that arrived with the lift is not automatically caused by the lift, because new tires and wheels usually went on at the same time. Rule out a wheel weight that fell off, a shifted belt inside a new tire, a bent wheel, lug nuts torqued out of sequence, and a failing unit bearing. On the front of a lifted solid-axle Jeep, worn steering components produce a shimmy you feel through the wheel rather than a true vibration through the floor - that is a death wobble question, not a driveline one, and it belongs in a different diagnosis."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+
+<body>
+
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
+      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div><span>My Garage</span></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>
+      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+
+<script src="/_nav.js"></script><main class="tm-main">
+<article style="max-width:780px;margin:0 auto;padding:40px 20px 80px">
+    <div style="margin-bottom:32px">
+      <span style="font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700">Drivetrain &middot; Diagnostics</span>
+      <h1 style="font-size:34px;letter-spacing:-.5px;margin:10px 0 14px;line-height:1.2">Your Jeep Vibrates After the Lift: How to Find Which Angle Is Wrong</h1>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">A vibration that shows up right after a lift is almost always a <strong style="color:var(--text)">u-joint operating angle problem, not a failed part</strong>. Lifting raises the body and the transfer case output while the axle stays where it was, which steepens one end of the driveshaft and breaks the geometry that let the two ends cancel each other out. Nothing wore out. The angles changed, and you are feeling what that costs.</p>
+      <p style="font-size:17px;color:var(--text-dim);line-height:1.65;margin:0 0 16px">Spicer publishes the numbers that settle it: the operating angle at each end of the shaft should be <strong style="color:var(--text)">at least half a degree, within one degree of the other end, and under three degrees at highway speed</strong>. A $25&ndash;40 digital angle finder measures all three in about fifteen minutes, at ride height, before you spend anything. Before you even do that, sort the vibration with two questions &mdash; does it track road speed or engine RPM, and does it change when you get on and off the throttle. Those two answers eliminate most of the parts list for free.</p>
+      <div style="font-size:12px;color:var(--text-mute);border-top:1px solid var(--border);padding-top:12px">
+        <span>October 5, 2026</span> &middot; <span>11 min read</span>
+      </div>
+    </div>
+
+    <div style="background:rgba(107,174,54,.07);border:1px solid rgba(107,174,54,.3);border-radius:8px;padding:18px 20px;margin:0 0 28px">
+      <div style="font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;color:var(--accent);margin-bottom:8px">The direct answer</div>
+      <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0">Sort first, then measure, then buy. A vibration that rises with <em>road speed</em> and gets worse under load or on deceleration is a driveline operating angle &mdash; pinion angle or transfer case output. A vibration that tracks <em>engine RPM</em> and ignores the throttle is not the driveline. Measure the three angles at ride height with an angle finder, compare them against Spicer&rsquo;s half-degree minimum, one-degree equality and three-degree limit, and fix whichever end is out. The free checks &mdash; driveshaft phasing, u-joint play, wheel weights, lug torque &mdash; come before any parts order.</p>
+    </div>
+
+    <h2>Sort it with two questions before you touch anything</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Almost every case separates on two observations you can make on your next drive. First: does the vibration rise and fall with road speed, or with engine RPM? Hold a steady speed and shift up or down &mdash; if the vibration stays with the speed while the RPM changes, it is downstream of the transmission. Second: does it change when you get on and off the throttle? Coast down from 60 and then feed power back in at the same speed. A vibration that worsens under load or on deceleration is a joint working at an angle it does not like.</p>
+    <div style="overflow-x:auto;margin:0 0 16px">
+    <table style="width:100%;border-collapse:collapse;font-size:14px">
+      <thead><tr style="border-bottom:2px solid var(--border)">
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">What you feel</th>
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Where to look</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:12px;color:var(--text)"><strong>Tracks road speed, indifferent to throttle</strong></td>
+          <td style="padding:12px;color:var(--text-dim)">Balance, driveshaft phasing, a tire or wheel. Starts around 45&ndash;55 mph and builds.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:12px;color:var(--text)"><strong>Tracks road speed, worse under load or on decel</strong></td>
+          <td style="padding:12px;color:var(--text-dim)">U-joint operating angle &mdash; pinion angle or transfer case output. This is the post-lift signature.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border)">
+          <td style="padding:12px;color:var(--text)"><strong>Tracks engine RPM, unchanged in neutral coast</strong></td>
+          <td style="padding:12px;color:var(--text-dim)">Engine or accessory side. Not a driveline geometry problem.</td>
+        </tr>
+        <tr>
+          <td style="padding:12px;color:var(--text)"><strong>Shimmy through the steering wheel, triggered by a bump</strong></td>
+          <td style="padding:12px;color:var(--text-dim)">Steering and front suspension. Read the <a href="/blog/xj-death-wobble-causes/">death wobble diagnosis</a> instead &mdash; different failure, different fix list.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">That fork is the whole reason this post exists. The component-level answers have been published a thousand times. What nobody writes down is which one is yours.</p>
+
+    <h2>Why lifting causes this at all</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A universal joint running at an angle does not transmit rotation at a constant speed. The output end <strong style="color:var(--text)">accelerates and decelerates twice per revolution</strong>, because the driven yoke traces an ellipse while the input turns through a circle. At stock ride height that fluctuation is invisible to you, and not because it is small &mdash; it is because it gets cancelled. The factory sets the transfer case output angled down and the pinion angled up by the same amount, so the rear joint decelerates at very near the moment and rate the front joint accelerates. The waves subtract and power arrives at the pinion smooth.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A lift raises the body, the frame and the transfer case output. The axle stays on the ground where it always was. One end of the shaft now runs steeper than the other, the cancellation stops being symmetric, and the leftover velocity wave reaches the floor pan as a vibration that builds with speed. Understanding that this is geometry and not wear is what keeps you from buying a second driveshaft to fix the first one.</p>
+
+    <h2>The three numbers that define a healthy driveline</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Spicer &mdash; the company that makes a large share of the u-joints under these vehicles &mdash; publishes hard limits, which turns &ldquo;it&rsquo;s your angles&rdquo; into a test you can run. Their three rules:</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">At least 0.5&deg; at each end.</strong> A joint running at true zero angle never rotates its needle bearings through a cycle, so they brinell into one spot in the cup and the joint fails from sitting still. Flat zero is a defect, not a target.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Within 1&deg; of each other.</strong> Equality between the two ends is what produces the cancellation. Spicer tightens this to 0.5&deg; for shafts running ahead of a transfer case or auxiliary device.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Under 3&deg; at highway shaft speed.</strong> Spicer&rsquo;s guidance is that any operating angle over 3&deg; lowers u-joint life and may cause vibration. Higher angles survive at lower shaft RPM, which is why a rig that is smooth on the trail buzzes on the interstate:</p>
+    <div style="overflow-x:auto;margin:0 0 16px">
+    <table style="width:100%;border-collapse:collapse;font-size:14px">
+      <caption style="caption-side:bottom;text-align:left;font-size:12px;color:var(--text-mute);padding-top:10px">Spicer&rsquo;s published maximum u-joint operating angle by driveshaft RPM. These are Spicer&rsquo;s figures, not Trail Manual&rsquo;s.</caption>
+      <thead><tr style="border-bottom:2px solid var(--border)">
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Driveshaft RPM</th>
+        <th style="text-align:left;padding:10px 12px;color:var(--text);font-size:12px;text-transform:uppercase;letter-spacing:.5px">Max operating angle</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">5000</td><td style="padding:10px 12px;color:var(--text-dim)">3.2&deg;</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">4500</td><td style="padding:10px 12px;color:var(--text-dim)">3.7&deg;</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">4000</td><td style="padding:10px 12px;color:var(--text-dim)">4.2&deg;</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">3500</td><td style="padding:10px 12px;color:var(--text-dim)">5.0&deg;</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">3000</td><td style="padding:10px 12px;color:var(--text-dim)">5.8&deg;</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">2500</td><td style="padding:10px 12px;color:var(--text-dim)">7.0&deg;</td></tr>
+        <tr style="border-bottom:1px solid var(--border)"><td style="padding:10px 12px;color:var(--text)">2000</td><td style="padding:10px 12px;color:var(--text-dim)">8.7&deg;</td></tr>
+        <tr><td style="padding:10px 12px;color:var(--text)">1500</td><td style="padding:10px 12px;color:var(--text-dim)">11.5&deg;</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Worth saying plainly: not every source is this conservative. Driveshaft builders who work on lifted trucks routinely tolerate more, and some publish 7&deg; as a working ceiling with the note that automotive joints survive well past it. Both positions can be true, because Spicer is writing for u-joint service life measured in hundreds of thousands of highway miles and a driveshaft shop is writing for a weekend rig. Use Spicer&rsquo;s numbers as the target. If yours land at 4&deg; and the Jeep is smooth, you have a durability question rather than an emergency.</p>
+
+    <div class="tm-affiliate-note">Some links below are affiliate links (Amazon Associates). Buying through one may earn us a commission at no extra cost to you &mdash; it never changes what we recommend. <a href="/terms/#affiliate">How we handle this</a>.</div>
+
+    <h2>How to measure it, in one pass</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Park level, at ride height, with the full weight of the vehicle on the suspension.</strong> Measuring on jack stands is the single most common reason numbers come out wrong, because a drooped axle sits at an angle it never sees while driving. Tires at normal pressure, on flat concrete. If the only way under your rig is on stands, get the measurement on the ground by other means &mdash; a drive-on ramp set, a pit, or a friend&rsquo;s level driveway with enough room to lie beside the shaft.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">The whole diagnostic investment is a <a href="https://www.amazon.com/s?k=digital%20angle%20finder%20magnetic%20inclinometer&amp;tag=trailmanual0b-20" rel="sponsored noopener">digital angle finder</a>, roughly $25&ndash;40 for a magnetic-base unit that reads to a tenth of a degree. That is the entire tool list, and it is worth owning before you price a single part. Take three readings:</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">1. The transfer case output flange</strong> &mdash; the machined face the driveshaft bolts to, or the yoke centerline on a slip-yoke case.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">2. The driveshaft tube</strong> &mdash; a clean flat spot on the tube itself, away from weld seams and balance weights.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">3. The pinion yoke face</strong> &mdash; the flat front face of the yoke at the axle.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Here is the part people get wrong: <strong style="color:var(--text)">the operating angle is the difference between two adjoining members, not the angle of the shaft by itself.</strong> Walk it once with real numbers. Say the transfer case output reads 9.0&deg;, the driveshaft tube reads 12.0&deg;, and the pinion yoke reads 15.0&deg;. The front joint is working at 12.0 &minus; 9.0 = <strong style="color:var(--text)">3.0&deg;</strong>. The rear joint is working at 15.0 &minus; 12.0 = <strong style="color:var(--text)">3.0&deg;</strong>. Both ends are above the 0.5&deg; minimum, they are equal to each other, and they sit right at the 3&deg; ceiling. That driveline is set up correctly and your vibration is somewhere else. Change the pinion reading to 18.0&deg; and the rear joint is now at 6.0&deg; against the front&rsquo;s 3.0&deg; &mdash; 3&deg; of mismatch, double the limit, and you have found your problem without buying anything.</p>
+
+    <h2>CV versus non-CV inverts the rule &mdash; getting this backwards is the classic error</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">On a stock two-joint shaft the pinion runs <em>parallel</em> to the transfer case output, so the two angles are equal and opposite and they cancel. After a slip yoke eliminator and a double-cardan CV shaft, the rule flips: <strong style="color:var(--text)">the pinion must point at the transfer case output</strong>, typically 1&ndash;2&deg; below the driveshaft centerline at ride height. The CV joint absorbs the angle at the transfer case end, so the pinion no longer has an opposite angle to cancel against &mdash; it needs to be aimed.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Apply the non-CV rule to a CV shaft and you produce a vibration that no balance shop can fix, because the shaft was never the problem. Our <a href="/db/xj/drive-pinion-angle/">pinion angle setup entry</a> has the full procedure and the shim math; the <a href="/db/xj/tcase-cv-driveshaft/">CV driveshaft entry</a> covers measurement and vendors. Readers who are not sure which camp they are in should start with <a href="/blog/do-you-need-a-slip-yoke-eliminator/">do you need a slip yoke eliminator</a> &mdash; that post answers whether you need one, this one answers whether that is even your problem.</p>
+
+    <h2>Check the free things before you buy anything</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">In this order, because each one is free and each one is a real cause:</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Driveshaft phasing.</strong> Both yokes on a conventional shaft must open in the same plane. A 90&deg; phase error vibrates harshly on its own and survives any number of rebalances. It is a visual check with the shaft on a bench, and it bites rigs whose shaft was ever apart or reshortened. Full procedure in the <a href="/db/xj/drive-driveshaft-phasing/">phasing entry</a>.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">U-joint condition by hand.</strong> With the shaft out, articulate each joint through its range feeling for notchiness, dry spots or play. A joint that has been running at a steep angle since the lift may already be damaged, in which case fixing the angle without replacing the joint leaves you with half a repair.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Wheel weights and a rebalance.</strong> New heavy off-road tires almost always go on at the same time as the lift, which makes them a frequent false positive. Look for a missing weight, check for a shifted belt, and have the set rebalanced before you crawl under the Jeep.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">Lug torque and hub runout.</strong> Uneven or out-of-sequence lug torque distorts a rotor and reads as a speed-linked vibration. Re-torque to spec in a star pattern &mdash; the <a href="/blog/how-to-torque-lug-nuts/">lug torque post</a> covers the sequence and why it matters.</p>
+
+    <h2>The fix ladder, cheapest to most involved</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Transfer case drop &mdash; roughly $39&ndash;60.</strong> Bolt-in spacers that lower the transfer case back toward where it started, restoring the geometry the lift broke. BDS lists a 1&Prime; XJ kit at $38.95; Rough Country&rsquo;s TJ kit runs $59.95. Be clear about what you are buying: a <a href="https://www.amazon.com/s?k=jeep%20transfer%20case%20drop%20kit&amp;tag=trailmanual0b-20" rel="sponsored noopener">transfer case drop kit</a> gives back an inch of the ground clearance you bought the lift for, and leaves the skid plate and crossmember hanging lower on obstacles. On a 2&ndash;3&Prime; street-and-dirt build that trade is defensible and the cheapest path to a smooth highway. On a rig built for rocks, it is an interim fix and you should treat it as one.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Rotate the pinion &mdash; about $25 for shims, about $180 for an adjustable arm.</strong> On leaf-sprung rigs, 4&ndash;6&deg; wedge shims under the spring pads run roughly $25 a pair and tilt the pinion without touching ride height. On coil-sprung and long-arm setups, an adjustable rear upper control arm around $180 does the same job and is adjustable afterward. This is the fix that corrects the cause and costs no clearance, which is why it sits above the drop kit on merit even though it is more work.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">Rephase or rebalance the shaft &mdash; call two shops.</strong> The public price guides for driveshaft balancing are low-quality aggregator pages and we are not going to publish a scraped number. Call two local driveshaft shops with your shaft length and joint series; they quote this work daily and the real figure in your area beats anything online.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 8px"><strong style="color:var(--text)">A longer or double-cardan shaft &mdash; $150&ndash;700.</strong> A built-to-length CV shaft from Tom Wood&rsquo;s runs about $350&ndash;550 and has been the standard answer for two decades; Adams&rsquo; heavy-duty Wrangler-grade builds run $450&ndash;700 and are more shaft than most XJs need. A used CV shaft measured, cut and rebalanced locally lands at $150&ndash;300 if you do the legwork. Specs and vendor notes are in the <a href="/db/xj/tcase-cv-driveshaft/">CV driveshaft entry</a>.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px"><strong style="color:var(--text)">SYE plus CV shaft &mdash; once lift passes 3&ndash;4&Prime;.</strong> On an NP231-equipped Jeep, past roughly 3 to 4 inches of lift (as little as 3 on a short-wheelbase rig) the slip yoke runs out of its ability to absorb the angle, and no amount of shimming recovers it. At that point the SYE and the CV shaft are a package &mdash; installing the SYE and reusing the stock shaft is the most common expensive mistake on this subject. Our <a href="/blog/do-you-need-a-slip-yoke-eliminator/">SYE threshold post</a> has the platform-by-platform list, including which Jeeps already have a fixed yoke and need none of this.</p>
+
+    <h2>When it is not the driveline at all</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">A vibration that arrived with the lift was not necessarily caused by the lift. Tires, wheels, an alignment and sometimes a steering stabilizer all changed on the same afternoon. Rule out a bent wheel, a shifted belt inside a new tire, a failing unit or wheel bearing, and &mdash; on the front of a lifted solid-axle Jeep &mdash; worn steering components. That last one matters because it presents differently: a steering shimmy triggered by a bump and felt through the wheel is <a href="/blog/xj-death-wobble-causes/">death wobble</a> territory on an XJ or a <a href="/blog/jk-death-wobble/">JK</a>, not a driveline angle, and chasing it with shims wastes a weekend. Post-lift geometry on a JK has its own companion problem too &mdash; see <a href="/blog/jk-bump-steer-after-lift/">bump steer after a lift</a>.</p>
+
+    <h2>What this looks like as a weekend</h2>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">Drive it once deliberately and answer the two sorting questions. Spend $30 on an angle finder. Take three readings on level concrete and do two subtractions. By Saturday afternoon you will know whether you are looking at a $25 pair of shims, a $40 spacer kit with a clearance cost attached, or a conversation with a driveshaft shop &mdash; and you will know it from numbers rather than from a forum thread where the original poster bought four parts and never said which one worked.</p>
+    <p style="color:var(--text-dim);font-size:15px;line-height:1.7;margin:0 0 16px">That is the whole value of measuring. Driveline vibration has a reputation for being unknowable, and it is not. It is arithmetic with a $30 tool, and the published limits that make the arithmetic mean something have been sitting in a Spicer manual the entire time.</p>
+
+    <div style="margin:44px 0 0;border-top:1px solid var(--border);padding-top:28px">
+      <h2 style="font-size:16px;margin:0 0 14px;color:var(--text)">Related guides</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <a href="/blog/do-you-need-a-slip-yoke-eliminator/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Drivetrain</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Do You Need a Slip Yoke Eliminator?</div>
+          <div style="font-size:12px;color:var(--text-dim)">The lift threshold, and which Jeeps already have a fixed yoke.</div>
+        </a>
+        <a href="/db/xj/drive-pinion-angle/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Pinion Angle Setup</div>
+          <div style="font-size:12px;color:var(--text-dim)">Measuring and shimming, CV and non-CV targets.</div>
+        </a>
+        <a href="/db/xj/drive-driveshaft-phasing/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Rear Driveshaft Phasing</div>
+          <div style="font-size:12px;color:var(--text-dim)">The free first check that a rebalance cannot fix.</div>
+        </a>
+        <a href="/db/xj/tcase-cv-driveshaft/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">Database</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">CV Driveshaft Upgrade</div>
+          <div style="font-size:12px;color:var(--text-dim)">Double-cardan shafts, measurement and real pricing.</div>
+        </a>
+        <a href="/blog/how-to-torque-lug-nuts/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">All Platforms</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">How to Torque Lug Nuts</div>
+          <div style="font-size:12px;color:var(--text-dim)">The rule-out step, and why the sequence matters.</div>
+        </a>
+        <a href="/blog/xj-death-wobble-causes/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">XJ Steering</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Death Wobble: What&rsquo;s Causing It</div>
+          <div style="font-size:12px;color:var(--text-dim)">If it is a shimmy through the wheel, start here instead.</div>
+        </a>
+        <a href="/blog/jk-bump-steer-after-lift/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">JK</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">Bump Steer After a Lift</div>
+          <div style="font-size:12px;color:var(--text-dim)">The other post-lift geometry problem on a JK.</div>
+        </a>
+        <a href="/blog/xj-lift-kit-guide/" style="display:block;border:1px solid var(--border);border-radius:8px;padding:14px 16px;text-decoration:none">
+          <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px">XJ</div>
+          <div style="font-weight:700;font-size:14px;color:var(--text);margin-bottom:3px">XJ Lift Kit Guide</div>
+          <div style="font-size:12px;color:var(--text-dim)">The right setup in the right order, driveline included.</div>
+        </a>
+      </div>
+    </div>
+
+  </article>
+
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span><div class="tm-brand-sub">trailmanual.com</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div><h4>Tools</h4><a href="/db/">DIY Database</a><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a><a href="/tools/">All tools →</a></div>
+    <div><h4>Blog</h4><a href="/blog/">All posts</a><a href="/blog/xj-death-wobble-causes/">XJ Death Wobble</a><a href="/db/?v=xj">XJ Database</a></div>
+    <div><h4>About</h4><a href="/about/">About Trail Manual</a><a href="/about/#sources">Sources &amp; method</a></div>
+  </div>
+  <div class="disclaimer">Modifications affect vehicle safety and warranty — work at your own risk. © Trail Manual, 2026.</div>
+</footer>
+
+<script>
+const t = document.getElementById('tm-nav-toggle');
+if (t) t.addEventListener('click', () => document.querySelector('.tm-nav').classList.toggle('open'));
+</script>
+<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+</body>
+</html>
