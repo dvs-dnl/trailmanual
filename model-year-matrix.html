@@ -1,0 +1,1036 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/model-year-matrix.html">
+<title>Model Year Buyer's Guide — Which Year to Buy | Trail Manual</title>
+<meta name="description" content="Year-by-year buyer's matrix for off-road platforms. Compare drivetrain, off-road hardware, safety equipment and documented defects by model year, with recall campaign numbers and a sourcing tag on every claim. Jeep Wrangler JL 2018-2026 live.">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+:root{
+  --myx-border:1px solid var(--border);
+  --myx-radius:10px;
+}
+
+.myx-page{max-width:1140px;margin:0 auto;padding:40px 20px 80px}
+
+/* ── Hero ───────────────────────────────────────────── */
+.myx-hero{margin-bottom:30px;padding-bottom:26px;border-bottom:var(--myx-border)}
+.myx-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.myx-hero h1{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.6px;margin:0 0 12px;color:var(--text);font-weight:600}
+.myx-hero p{font-size:16px;color:var(--text-dim);max-width:680px;line-height:1.65;margin:0}
+
+/* ── Vehicle picker ─────────────────────────────────── */
+.myx-picker{margin:0 0 30px}
+.myx-picker-label{font-size:12px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:.4px;margin:0 0 10px}
+.myx-veh-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.myx-veh{background:var(--panel);border:var(--myx-border);border-radius:8px;padding:11px 13px;text-align:left;cursor:pointer;font-family:inherit;font-size:13px;color:var(--text);transition:border-color .15s,background .15s;line-height:1.35}
+.myx-veh:hover{border-color:var(--accent)}
+.myx-veh[aria-pressed=true]{border-color:var(--accent);background:var(--bg-2);box-shadow:inset 3px 0 0 var(--accent)}
+.myx-veh-name{display:block;font-weight:600}
+.myx-veh-sub{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:.3px;margin-top:3px}
+.myx-veh[disabled]{opacity:.5;cursor:not-allowed}
+.myx-veh[disabled]:hover{border-color:var(--border)}
+
+/* ── Verdict strip ──────────────────────────────────── */
+.myx-verdicts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:0 0 30px}
+.myx-verdict{border:var(--myx-border);border-radius:var(--myx-radius);padding:16px 18px;background:var(--panel)}
+.myx-verdict-k{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.9px;font-weight:500;margin:0 0 7px}
+.myx-verdict-v{font-size:19px;font-weight:600;letter-spacing:-.3px;margin:0 0 6px;color:var(--text)}
+.myx-verdict-w{font-size:13px;color:var(--text-dim);line-height:1.55;margin:0}
+.myx-v-good{border-left:3px solid var(--good)}   .myx-v-good .myx-verdict-k{color:var(--good)}
+.myx-v-safe{border-left:3px solid var(--info)}   .myx-v-safe .myx-verdict-k{color:var(--info)}
+.myx-v-warn{border-left:3px solid var(--warn)}   .myx-v-warn .myx-verdict-k{color:var(--warn)}
+.myx-v-bad{border-left:3px solid var(--safety)}  .myx-v-bad .myx-verdict-k{color:var(--safety)}
+
+/* ── Controls ───────────────────────────────────────── */
+.myx-controls{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin:0 0 16px;padding:16px 18px;background:var(--bg-2);border-radius:var(--myx-radius)}
+.myx-filters{display:flex;flex-wrap:wrap;gap:6px}
+.myx-chip{background:var(--panel);border:var(--myx-border);border-radius:20px;padding:6px 14px;font-family:inherit;font-size:12px;font-weight:500;color:var(--text-dim);cursor:pointer;transition:all .15s}
+.myx-chip:hover{border-color:var(--accent);color:var(--text)}
+.myx-chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.myx-ctrl-label{font-size:11px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:.4px;margin:0 0 8px;display:block}
+
+/* ── Matrix table ───────────────────────────────────── */
+.myx-table-wrap{overflow-x:auto;border:var(--myx-border);border-radius:var(--myx-radius);background:var(--panel);margin:0 0 14px}
+table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
+.myx-table th,.myx-table td{text-align:left;vertical-align:top;padding:13px 15px;border-bottom:1px solid var(--border)}
+.myx-table thead th{position:sticky;top:0;z-index:2;background:var(--bg-2);font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:500;color:var(--text-dim);white-space:nowrap}
+.myx-table tbody tr:last-child td{border-bottom:none}
+.myx-table tbody tr:hover{background:var(--bg-2)}
+.myx-table tbody tr.myx-sel{background:var(--bg-2);box-shadow:inset 3px 0 0 var(--accent)}
+.myx-yr{white-space:nowrap;width:1%}
+.myx-yr-n{font-size:19px;font-weight:600;letter-spacing:-.4px;color:var(--text);display:block}
+.myx-cell ul{margin:0;padding:0;list-style:none}
+.myx-cell li{margin:0 0 7px;line-height:1.5}
+.myx-cell li:last-child{margin-bottom:0}
+.myx-cell strong{font-weight:600}
+
+/* Grade badge */
+.myx-grade{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.7px;padding:3px 7px;border-radius:3px;border:1px solid;margin-top:6px;white-space:nowrap}
+.myx-g-best{color:var(--good);border-color:var(--good);background:rgba(94,140,90,.09)}
+.myx-g-good{color:var(--info);border-color:var(--info);background:rgba(79,119,149,.09)}
+.myx-g-split{color:var(--warn);border-color:var(--warn);background:rgba(216,144,53,.1)}
+.myx-g-caution{color:var(--safety);border-color:var(--safety);background:rgba(178,59,47,.08)}
+
+/* Confidence tag */
+.myx-c{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:1px;white-space:nowrap;border:1px solid}
+.myx-c-oem{color:var(--info);border-color:rgba(79,119,149,.4)}
+.myx-c-nhtsa{color:var(--accent-3);border-color:rgba(138,78,44,.4)}
+.myx-c-iihs{color:var(--accent-2);border-color:rgba(61,91,71,.4)}
+.myx-c-owner{color:var(--text-mute);border-color:var(--border)}
+.myx-c-disputed{color:var(--safety);border-color:rgba(178,59,47,.45);background:rgba(178,59,47,.06)}
+
+/* Legend */
+.myx-legend{display:flex;flex-wrap:wrap;gap:16px;padding:14px 18px;background:var(--bg-2);border-radius:var(--myx-radius);margin:0 0 34px;font-size:12px;color:var(--text-dim);line-height:1.5}
+.myx-legend div{display:flex;gap:7px;align-items:baseline}
+
+/* ── Compare panel ──────────────────────────────────── */
+.myx-compare{border:var(--myx-border);border-radius:var(--myx-radius);background:var(--panel);padding:22px;margin:0 0 34px}
+.myx-compare h2{font-size:22px;font-weight:600;letter-spacing:-.3px;margin:0 0 4px;color:var(--text)}
+.myx-compare-hint{font-size:13px;color:var(--text-mute);margin:0 0 18px}
+.myx-cmp-grid{display:grid;gap:14px}
+.myx-cmp-col{border:var(--myx-border);border-radius:8px;padding:16px;background:var(--bg)}
+.myx-cmp-col h3{font-size:17px;font-weight:600;margin:0 0 3px;color:var(--text)}
+.myx-cmp-sec{margin:14px 0 0}
+.myx-cmp-sec h4{font-family:'JetBrains Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:0 0 6px;font-weight:500}
+.myx-cmp-sec ul{margin:0;padding:0;list-style:none;font-size:12.5px;line-height:1.5}
+.myx-cmp-sec li{margin-bottom:6px}
+
+/* ── Section blocks ─────────────────────────────────── */
+.myx-sec{margin:0 0 34px}
+.myx-sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 16px;padding-bottom:9px;border-bottom:1px solid var(--bg-3)}
+.myx-sec-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:.8px;white-space:nowrap}
+.myx-sec-head h2{font-size:23px;font-weight:600;letter-spacing:-.4px;margin:0;color:var(--text)}
+
+/* Recall list */
+.myx-recalls{display:grid;gap:9px}
+.myx-recall{border:var(--myx-border);border-left:3px solid var(--accent-3);border-radius:7px;padding:13px 16px;background:var(--panel)}
+.myx-recall-top{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;margin-bottom:5px}
+.myx-recall-id{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--text)}
+.myx-recall-yrs{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:.4px}
+.myx-recall-t{font-size:13.5px;color:var(--text);font-weight:600;margin:0 0 4px;line-height:1.45}
+.myx-recall-d{font-size:13px;color:var(--text-dim);line-height:1.55;margin:0}
+.myx-recall.myx-fire{border-left-color:var(--safety)}
+.myx-flag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:var(--safety);color:var(--paper)}
+
+/* Checklist */
+.myx-check{display:grid;gap:2px;border:var(--myx-border);border-radius:var(--myx-radius);background:var(--panel);padding:8px}
+.myx-check label{display:flex;gap:12px;align-items:flex-start;padding:11px 13px;border-radius:7px;cursor:pointer;font-size:14px;line-height:1.55;color:var(--text);transition:background .12s}
+.myx-check label:hover{background:var(--bg-2)}
+.myx-check input{margin:3px 0 0;accent-color:var(--accent);width:16px;height:16px;flex-shrink:0}
+.myx-check input:checked + span{color:var(--text-mute);text-decoration:line-through}
+.myx-check-note{font-size:12px;color:var(--text-mute);margin:10px 0 0;font-style:normal}
+
+/* Callout */
+.myx-note{border-left:3px solid var(--warn);background:rgba(216,144,53,.07);padding:15px 18px;border-radius:0 7px 7px 0;margin:0 0 20px}
+.myx-note p{margin:0;font-size:13.5px;line-height:1.6;color:var(--text)}
+.myx-note p + p{margin-top:9px}
+.myx-note-k{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:var(--warn);font-weight:500;display:block;margin-bottom:6px}
+
+/* Myth list */
+.myx-myths{display:grid;gap:11px}
+.myx-myth{border:var(--myx-border);border-radius:8px;padding:15px 17px;background:var(--panel)}
+.myx-myth-claim{font-size:14px;font-weight:600;color:var(--text-mute);margin:0 0 7px;text-decoration:line-through}
+.myx-myth-real{font-size:13.5px;color:var(--text);line-height:1.6;margin:0}
+.myx-myth-real b{color:var(--accent-2);font-weight:600}
+
+/* ── Empty state ────────────────────────────────────── */
+.myx-empty{border:1px dashed var(--bg-3);border-radius:var(--myx-radius);padding:44px 26px;text-align:center;background:var(--bg-2)}
+.myx-empty h2{font-size:20px;font-weight:600;margin:0 0 9px;color:var(--text)}
+.myx-empty p{font-size:14px;color:var(--text-dim);max-width:460px;margin:0 auto;line-height:1.6}
+.myx-empty a{color:var(--accent)}
+
+/* ── Blog post ──────────────────────────────────────── */
+.myx-article{max-width:740px;margin:0 auto;padding-top:14px;border-top:3px solid var(--bg-3)}
+.myx-article-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent);margin:26px 0 12px}
+.myx-article h2.myx-art-title{font-size:clamp(24px,3.2vw,32px);font-weight:600;letter-spacing:-.6px;line-height:1.25;margin:0 0 14px;color:var(--text)}
+.myx-article .myx-lede{font-size:17px;line-height:1.65;color:var(--text-dim);margin:0 0 8px}
+.myx-byline{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-mute);letter-spacing:.4px;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.myx-article h3{font-size:20px;font-weight:600;letter-spacing:-.3px;margin:34px 0 12px;color:var(--text)}
+.myx-article h4{font-size:16px;font-weight:600;margin:24px 0 9px;color:var(--text)}
+.myx-article p{font-size:15.5px;line-height:1.7;color:var(--text);margin:0 0 15px}
+.myx-article ul,.myx-article ol{font-size:15.5px;line-height:1.7;color:var(--text);padding-left:22px;margin:0 0 15px}
+.myx-article li{margin-bottom:8px}
+.myx-article a{color:var(--accent)}
+.myx-verdict-box{border-left:3px solid var(--accent);background:var(--bg-2);padding:17px 20px;border-radius:0 7px 7px 0;margin:0 0 24px}
+.myx-verdict-box p{font-size:16px;font-weight:500;line-height:1.6;margin:0;color:var(--text)}
+.myx-sources{margin:38px 0 0;padding-top:22px;border-top:1px solid var(--border)}
+.myx-sources h3{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin:0 0 12px;color:var(--text-mute)}
+.myx-sources ol{font-size:13px;line-height:1.65;color:var(--text-dim);padding-left:20px;margin:0}
+.myx-sources li{margin-bottom:7px}
+.myx-author{margin:30px 0 0;padding:16px 18px;background:var(--bg-2);border-radius:8px;font-size:13px;color:var(--text-dim);line-height:1.6}
+
+/* Related */
+.myx-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--bg-3);border-radius:var(--myx-radius);overflow:hidden;margin:34px 0 0}
+.myx-related a{display:block;background:var(--panel);padding:19px;text-decoration:none;transition:background .15s}
+.myx-related a:hover{background:var(--bg-2)}
+.myx-related-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:0 0 6px}
+.myx-related-t{font-size:15px;font-weight:600;color:var(--text);margin:0 0 4px}
+.myx-related-d{font-size:12.5px;color:var(--text-dim);line-height:1.5;margin:0}
+
+@media (max-width:640px){
+  .myx-page{padding:28px 16px 60px}
+  .myx-controls{padding:14px}
+  .myx-legend{gap:10px;padding:12px 14px}
+}
+</style>
+</head>
+<body>
+<header class="tnav" id="tnav" data-variant="light">
+  <div class="tnav-inner">
+
+    <a class="tnav-brand" href="/">
+      <svg class="tnav-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="tnav-wordmark">TRAIL<span class="tnav-dot"></span>MANUAL</span>
+    </a>
+
+    <nav class="tnav-center" aria-label="Primary">
+      <div class="tnav-item" id="tnav-vehicles">
+        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-vehicles">Vehicles <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop tnav-drop-vehicles" id="tnav-drop-vehicles" role="menu">
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Jeep</span>
+            <a class="tnav-drop-link" href="/xj/" role="menuitem">Cherokee XJ <span class="tnav-drop-years">1984–2001</span></a>
+            <a class="tnav-drop-link" href="/tj/" role="menuitem">Wrangler TJ <span class="tnav-drop-years">1997–2006</span></a>
+            <a class="tnav-drop-link" href="/jk/" role="menuitem">Wrangler JK <span class="tnav-drop-years">2007–2018</span></a>
+            <a class="tnav-drop-link" href="/jl/" role="menuitem">Wrangler JL <span class="tnav-drop-years">2018–</span></a>
+            <a class="tnav-drop-link" href="/gladiator/" role="menuitem">Gladiator JT <span class="tnav-drop-years">2019–</span></a>
+          </div>
+          <div class="tnav-drop-section">
+            <span class="tnav-drop-label">Ford</span>
+            <a class="tnav-drop-link" href="/bronco/" role="menuitem">Early Bronco <span class="tnav-drop-years">1966–1977</span></a>
+            <a class="tnav-drop-link" href="/bronco-ii/" role="menuitem">Bronco II <span class="tnav-drop-years">1984–1990</span></a>
+            <a class="tnav-drop-link" href="/full-size-bronco/" role="menuitem">Full-Size Bronco <span class="tnav-drop-years">1978–1996</span></a>
+            <a class="tnav-drop-link" href="/bronco6g/" role="menuitem">New Bronco <span class="tnav-drop-years">2021–</span></a>
+            <a class="tnav-drop-link" href="/raptor/" role="menuitem">F-150 Raptor <span class="tnav-drop-years">Gen 2–3</span></a>
+            <span class="tnav-drop-label">Toyota · Ram</span>
+            <a class="tnav-drop-link" href="/4runner/" role="menuitem">4Runner <span class="tnav-drop-years">3rd–5th Gen</span></a>
+            <a class="tnav-drop-link" href="/tacoma/" role="menuitem">Tacoma <span class="tnav-drop-years">1st–3rd Gen</span></a>
+            <a class="tnav-drop-link" href="/power-wagon/" role="menuitem">Power Wagon <span class="tnav-drop-years">2011–</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="tnav-item" id="tnav-tools">
+        <button class="tnav-link-btn tnav-active" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-tools">Tools <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
+        <div class="tnav-drop" id="tnav-drop-tools" role="menu">
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Vehicle Database</a>
+          <a class="tnav-drop-link" href="/model-year-matrix.html" role="menuitem">Model Year Buyer's Guide</a>
+          <a class="tnav-drop-link" href="/gear-ratio-calculator.html" role="menuitem">Gear Ratio Calculator</a>
+          <a class="tnav-drop-link" href="/jk-wrangler-engine-swap-tool.html" role="menuitem">Engine Swap Tool (JK)</a>
+          <a class="tnav-drop-link" href="/v8-swap-parts-checklist.html" role="menuitem">V8 Parts Checklist</a>
+          <a class="tnav-drop-link" href="/db/" role="menuitem">Pick Your Rig</a>
+        </div>
+      </div>
+      <a class="tnav-link" href="/workshop/">Workshop</a>
+      <a class="tnav-link" href="/blog/">Blog</a>
+      <a class="tnav-link" href="/about/">About</a>
+    </nav>
+
+    <div class="tnav-item tnav-right" id="tnav-mymanual">
+      <button class="tnav-my-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-mymanual">
+        <svg class="tnav-my-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        My Manual
+        <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
+      </button>
+      <div class="tnav-drop tnav-drop-right" id="tnav-drop-mymanual" role="menu" style="min-width:240px">
+        <div id="tnav-vehicle-slot"></div>
+        <a class="tnav-drop-link" href="/my-garage.html" role="menuitem">
+          <svg style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          My Garage
+        </a>
+        <hr class="tnav-divider">
+        <button class="tnav-theme-row" id="tnav-theme-btn" role="menuitem">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+
+    <button class="tnav-hamburger" id="tnav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav-drawer">
+      <svg class="tnav-ham-icon" viewBox="0 0 18 18"><line x1="1" y1="4" x2="17" y2="4"/><line x1="1" y1="9" x2="17" y2="9"/><line x1="1" y1="14" x2="17" y2="14"/></svg>
+    </button>
+  </div>
+
+  <div class="tnav-drawer" id="tnav-drawer" aria-hidden="true">
+    <div class="tnav-drawer-inner">
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Jeep</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/xj/">Cherokee XJ <span class="tnav-drawer-years">1984–2001</span></a>
+          <a class="tnav-drawer-link" href="/tj/">Wrangler TJ <span class="tnav-drawer-years">1997–2006</span></a>
+          <a class="tnav-drawer-link" href="/jk/">Wrangler JK <span class="tnav-drawer-years">2007–2018</span></a>
+          <a class="tnav-drawer-link" href="/jl/">Wrangler JL <span class="tnav-drawer-years">2018–</span></a>
+          <a class="tnav-drawer-link" href="/gladiator/">Gladiator JT <span class="tnav-drawer-years">2019–</span></a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Vehicles — Ford · Toyota · Ram</span>
+        <div class="tnav-drawer-vehicles">
+          <a class="tnav-drawer-link" href="/bronco/">Early Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco-ii/">Bronco II</a>
+          <a class="tnav-drawer-link" href="/full-size-bronco/">Full-Size Bronco</a>
+          <a class="tnav-drawer-link" href="/bronco6g/">New Bronco</a>
+          <a class="tnav-drawer-link" href="/raptor/">F-150 Raptor</a>
+          <a class="tnav-drawer-link" href="/4runner/">4Runner</a>
+          <a class="tnav-drawer-link" href="/tacoma/">Tacoma</a>
+          <a class="tnav-drawer-link" href="/power-wagon/">Power Wagon</a>
+        </div>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">Navigate</span>
+        <a class="tnav-drawer-link" href="/workshop/">Workshop</a>
+        <a class="tnav-drawer-link" href="/blog/">Blog</a>
+        <a class="tnav-drawer-link" href="/db/">Vehicle Database</a>
+        <a class="tnav-drawer-link" href="/model-year-matrix.html">Model Year Buyer's Guide</a>
+        <a class="tnav-drawer-link tnav-active" href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+        <a class="tnav-drawer-link" href="/jk-wrangler-engine-swap-tool.html">Engine Swap Tool</a>
+        <a class="tnav-drawer-link" href="/about/">About</a>
+      </div>
+      <div class="tnav-drawer-section">
+        <span class="tnav-drawer-label">My Manual</span>
+        <div id="tnav-vehicle-slot-mobile"></div>
+        <a class="tnav-drawer-link" href="/my-garage.html">My Garage</a>
+        <button class="tnav-drawer-btn" id="tnav-theme-btn-mobile">
+          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path-mobile" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <span id="tnav-theme-label-mobile">Switch to Dark</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="myx-page">
+
+  <div class="myx-hero">
+    <p class="myx-eyebrow">Buyer's Guide · Model Year Matrix</p>
+    <h1>Which model year should you buy?</h1>
+    <p>Every generation has years worth paying more for and years worth walking away from. This matrix lays out what actually changed between model years — drivetrain, off-road hardware, safety equipment and documented defects — with a sourcing tag on every claim so you can see which facts come from the manufacturer, which come from federal recall records, and which are owner-reported patterns nobody has confirmed.</p>
+  </div>
+
+  <div class="myx-picker">
+    <p class="myx-picker-label">Pick a platform</p>
+    <div class="myx-veh-grid" id="myx-veh-grid"></div>
+  </div>
+
+  <div id="myx-live">
+
+    <div class="myx-verdicts" id="myx-verdicts"></div>
+
+    <div class="myx-sec">
+      <div class="myx-sec-head">
+        <span class="myx-sec-num">01 / Matrix</span>
+        <h2>Year-by-year comparison</h2>
+      </div>
+
+      <div class="myx-controls">
+        <div>
+          <span class="myx-ctrl-label">Show</span>
+          <div class="myx-filters" id="myx-filters">
+            <button class="myx-chip" data-dim="all" aria-pressed="true">Everything</button>
+            <button class="myx-chip" data-dim="powertrain" aria-pressed="false">Powertrain</button>
+            <button class="myx-chip" data-dim="drivetrain" aria-pressed="false">Drivetrain</button>
+            <button class="myx-chip" data-dim="offroad" aria-pressed="false">Off-road</button>
+            <button class="myx-chip" data-dim="safety" aria-pressed="false">Safety</button>
+            <button class="myx-chip" data-dim="issues" aria-pressed="false">Known issues</button>
+          </div>
+        </div>
+        <div>
+          <span class="myx-ctrl-label">Compare</span>
+          <button class="myx-chip" id="myx-cmp-clear" aria-pressed="false">Clear selection</button>
+        </div>
+      </div>
+
+      <div class="myx-table-wrap">
+        <table class="myx-table" id="myx-table">
+          <thead id="myx-thead"></thead>
+          <tbody id="myx-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="myx-legend">
+        <div><span class="myx-c myx-c-oem">OEM</span> <span>Manufacturer press material or official spec sheet</span></div>
+        <div><span class="myx-c myx-c-nhtsa">NHTSA</span> <span>Federal recall or investigation record</span></div>
+        <div><span class="myx-c myx-c-iihs">IIHS</span> <span>Published crash-test rating</span></div>
+        <div><span class="myx-c myx-c-owner">OWNER</span> <span>Owner-reported pattern, no manufacturer document</span></div>
+        <div><span class="myx-c myx-c-disputed">DISPUTED</span> <span>Credible sources disagree</span></div>
+      </div>
+    </div>
+
+    <div class="myx-compare" id="myx-compare" hidden>
+      <h2>Side by side</h2>
+      <p class="myx-compare-hint" id="myx-cmp-hint">Pick up to three years in the matrix above.</p>
+      <div class="myx-cmp-grid" id="myx-cmp-grid"></div>
+    </div>
+
+    <div class="myx-sec">
+      <div class="myx-sec-head">
+        <span class="myx-sec-num">02 / Recalls</span>
+        <h2>Open and historical campaigns</h2>
+      </div>
+      <div class="myx-note">
+        <span class="myx-note-k">How to use this</span>
+        <p>Run the VIN through <a href="https://www.nhtsa.gov/recalls" rel="noopener" target="_blank">nhtsa.gov/recalls</a> before you buy. It reports <em>open</em> recalls only, so a clean result is evidence the work was done. It will not show technical service bulletins — those are not recalls and have to be confirmed visually or through a dealer service-history pull on the VIN.</p>
+        <p>Where a campaign supersedes an earlier one, a vehicle repaired under the older campaign is <strong>not finished</strong> and has to go back.</p>
+      </div>
+      <div class="myx-recalls" id="myx-recalls"></div>
+    </div>
+
+    <div class="myx-sec">
+      <div class="myx-sec-head">
+        <span class="myx-sec-num">03 / Inspection</span>
+        <h2>What to check on a used one</h2>
+      </div>
+      <div class="myx-check" id="myx-check"></div>
+      <p class="myx-check-note">Checked items are remembered in this browser only. Nothing is sent anywhere.</p>
+    </div>
+
+    <div class="myx-sec">
+      <div class="myx-sec-head">
+        <span class="myx-sec-num">04 / Corrections</span>
+        <h2>Claims that circulate and don't hold up</h2>
+      </div>
+      <div class="myx-myths" id="myx-myths"></div>
+    </div>
+
+    <div class="myx-sec" id="myx-open-sec">
+      <div class="myx-sec-head">
+        <span class="myx-sec-num">05 / Unresolved</span>
+        <h2>What we could not verify</h2>
+      </div>
+      <div class="myx-note">
+        <span class="myx-note-k">Read before acting on any of it</span>
+        <p id="myx-open-intro"></p>
+      </div>
+      <ul id="myx-open-list" style="font-size:14px;line-height:1.7;color:var(--text);padding-left:22px;margin:0"></ul>
+    </div>
+
+  </div>
+
+  <div id="myx-pending" hidden></div>
+
+</div>
+
+<div class="myx-page" style="padding-top:0">
+<article class="myx-article">
+
+  <p class="myx-article-kicker">Buyer's Guide · Jeep Wrangler JL</p>
+  <h2 class="myx-art-title">Which Jeep Wrangler JL Year Should You Buy?</h2>
+
+  <p class="myx-lede">Buy a 2021 through 2023 if you want the most vehicle for the money, and a 2024 or newer if the Jeep carries passengers you care about — because the JL shipped for six model years with no side curtain airbags at all, and the steering gearbox that causes most of the generation's complaints was replaced with a steel unit partway through 2020.</p>
+
+  <p class="myx-byline">Written and maintained by an AZ wheeler and driveway wrencher · Updated September 2026</p>
+
+  <div class="myx-verdict-box">
+    <p>Best used value: <strong>2021–2023</strong>. Best safety: <strong>2024 and newer</strong>, and <strong>2026 built after October 2025</strong> for the revised crash structure. Approach with caution: <strong>2018</strong>, and any manual-transmission 2018–2023 until the clutch recall is confirmed complete.</p>
+  </div>
+
+  <h3>The short answer, and why it splits in two</h3>
+
+  <p>There is no single best JL year, because the two things buyers care about most improved at different times. Mechanical steering quality improved in 2021. Occupant protection improved in 2024. Those are three model years apart, and which one matters more depends on what the vehicle does for you.</p>
+
+  <p>If it is a weekend trail rig and a second car, the 2021–2023 window is the value sweet spot: it has the corrected steering gearbox, it predates the price increases, and it avoids the first-year quirks of the refreshed car. If it is a daily driver with a family in it, the 2024 refresh closed a real and unusual gap — six model years of Wranglers left the factory with four airbags and nothing protecting heads in a side impact.</p>
+
+  <h3>Why 2021 is the dividing line for steering</h3>
+
+  <p>Death wobble dominates the JL's reputation, and the complaint data backs that up: 2018 generated 1,806 NHTSA complaints, more than double any other model year, with steering as the largest category and an average repair cost around $2,300 arriving at roughly 3,000 miles. 2019 and 2020 follow the same pattern with loose and wandering steering as the leading complaint.</p>
+
+  <p>The mechanism is less dramatic than the name suggests. The original steering gearbox used an aluminum housing around steel internals, and the two materials expand at different rates. Technical service bulletin 08-074-20 replaces it with a steel-cased box, and cars built from the 2021 model year carry the steel unit from the factory. From 2022 onward, steering falls out of the top complaint categories entirely — 2024 logged eleven steering complaints against fifty-two electrical.</p>
+
+  <p><strong>2020 is a split year, and this is the most useful thing on this page.</strong> An owner-documented February 2020 build still had the aluminum box; a June 2020 build had steel. You can tell them apart by eye without a VIN lookup: the corrected box is <strong>black painted steel</strong>, the original is <strong>bare silver aluminum</strong>. Look under there before you agree on a price.</p>
+
+  <p>Two honest caveats. First, a substantial group of experienced owners argue the gearbox is not the root cause at all, pointing out that plenty of people run 37-inch tires on the original aluminum box without trouble, and that worn tie rods, drag links and ball joints are the real culprits. Second, steering complaints did not stop in 2021 — owners of cars through 2025 still report highway wander. The 2021 box is an improvement, not a cure. Our <a href="/db/death-wobble-guide.html">death wobble diagnostic</a> walks the actual diagnostic order.</p>
+
+  <h3>Why 2024 is the dividing line for safety</h3>
+
+  <p>From 2018 through 2023, every JL — both body styles, every trim, including the Rubicon and the 392 — shipped with four airbags: two frontal and two front seat-mounted side units. No curtain airbags in either row. Stellantis's position was that removable doors and a removable roof exempt the Wrangler from the federal requirements that normally drive curtain airbags, which means their arrival in 2024 was a voluntary change rather than a mandated one.</p>
+
+  <p>The 2024 refresh added first- and second-row side curtain airbags, second-row belt pretensioners and load limiters, and structural work for side impact. The crash-test results moved accordingly: the IIHS updated side test went from Marginal to Good, and the updated moderate overlap front test went from Poor to Good. Forward collision warning and adaptive cruise control became standard on Sport S and above at the same time, and the 12.3-inch Uconnect 5 screen became standard across the lineup.</p>
+
+  <p>One point gets reported both ways, and it is worth settling. Edmunds and Automoblog both describe the curtain airbags as standard on every trim <em>except</em> the base Sport. We go with the manufacturer here: three separate Stellantis documents state they are standard on all 2024 models, and the 2024 pricing release lists side curtain airbags for the first and second rows inside the base Sport's own standard-equipment block. That is a primary source being specific about the exact trim in question, against secondary reporting that most likely traces back to one pre-production briefing. Treat a base 2024 Sport as having them. If you want certainty on one particular car, the window sticker settles it in ten seconds.</p>
+
+  <h3>The 2026 frame rail, and the crash test the Wrangler kept failing</h3>
+
+  <p>This one deserves its own heading because it ran for seven years. In the IIHS driver-side small overlap front test, the 2019 four-door tipped onto its passenger side — the front axle tucked under the structure and the vehicle rode over its own axle. Stellantis modified the structure, and the 2022 retest tipped again. IIHS tied the added injury risk to the removable roof and doors and to the missing curtain airbags.</p>
+
+  <p>A revised front frame rail fixed it. Units built after October 2025 stay upright, and the rating moved from Marginal to Acceptable, with Good on the driver side and Acceptable on the passenger side. That makes a late-build 2026 the first JL that does not partially roll in that test.</p>
+
+  <p>Do not confuse this with the rollover star rating. NHTSA rates every JL at three stars for rollover across all nine model years, and every single configuration returns "No Tip" in NHTSA's fishhook maneuver. The three stars reflect a tall, narrow vehicle's static stability, not a tip-up. The tipping story belongs entirely to the IIHS frontal barrier test.</p>
+
+  <h3>What each year gives you under the hood</h3>
+
+  <p>The 3.6-liter V6 ran unchanged at 285 hp and 260 lb-ft for all nine model years, so it is not a reason to pick one year over another. The interesting windows are narrower:</p>
+
+  <ul>
+    <li><strong>2020–2023</strong> is the only window for the 3.0-liter EcoDiesel — 260 hp and 442 lb-ft, four-door only, ending with the 2023 Rubicon FarOut Edition. Owners who have them recommend them, with 23 to 26 mpg reported even on oversized tires. The failure to check for is the high-pressure fuel pump, covered by recalls on 2020–2022 and 2021–2023 diesels.</li>
+    <li><strong>2021–2025</strong> is the 4xe window, and 2021 onward for the 392. The 6.4-liter V8 ran continuously and returned for 2026 as the Moab 392 — despite two separate "Final Edition" announcements in 2024 and 2025, there is no gap year.</li>
+    <li><strong>2024 onward</strong> is where the Rubicon gets the Dana 44 HD full-float rear axle, which lets you replace a broken axle shaft with the tire still on the ground. That is Rubicon, Rubicon X and 392 only — not Sport, Willys or Sahara.</li>
+    <li><strong>2024 onward</strong> is also when the Willys finally gets a rear locker and 33-inch tires. A 2021–2023 Willys has a limited-slip differential, not a locker, which catches a lot of used buyers out.</li>
+  </ul>
+
+  <p>If you are planning tires larger than stock on whatever you buy, the <a href="/gear-ratio-calculator.html">gear ratio calculator</a> will tell you whether the axle ratio in that particular year and trim works with them.</p>
+
+  <h3>If you are looking at a 4xe</h3>
+
+  <p>Read the recall situation first. The high-voltage battery fire recall has been issued three times — 2023, 2024 and again in 2025 — and the current campaign covers 2020 through 2025 Wrangler 4xe models. A vehicle repaired under either earlier campaign has to return for the current one, and the guidance to park outside and away from structures still applies until that work is done. Separately, NHTSA opened an investigation after 68 complaints of power loss, including in vehicles already remedied under an earlier software recall.</p>
+
+  <p>Owner sentiment on the drivetrain itself is more positive than that paragraph suggests, and the split is about use case rather than quality: owners who charge at home and drive short distances like them a great deal, while those covering long distances find the total range and fuel planning frustrating. Instant electric torque at crawling speed is genuinely well regarded off-road.</p>
+
+  <h3>If you want the manual</h3>
+
+  <p>Only the 3.6-liter V6 was ever offered with the six-speed, in any year. The clutch pressure plate recall covers 2018–2023 manual Wranglers — the plate can overheat and fracture, with a fire risk — and the current remedy replaces the clutch assembly, superseding a 2021 software-only attempt. Confirm by VIN that the newer campaign was completed, then ask whether the symptoms came back, because owners report continuing transmission warnings and reduced power afterward.</p>
+
+  <p>The 2025 story gets reported backwards constantly. Jeep did not drop the manual that year — it briefly dropped the <em>automatic</em> from the V6, then reversed course in December 2024 and brought the eight-speed back as a $4,500 option on four-door V6 models. A 2025 V6 might be a manual because that was the only choice when it was ordered. Confirm which one you are looking at before you drive out.</p>
+
+  <h3>Before you hand over money</h3>
+
+  <p>Run the VIN at nhtsa.gov/recalls, look at the steering box, and drive it at highway speed watching for wander and play. Then check the auxiliary battery behavior, because the start-stop battery is a cross-year weak point: symptoms are a "Stop/Start Unavailable" message, phantom airbag and ABS warnings, radio resets and overnight drain, and a dealer replacing both batteries runs past $900. Push every fuse down in the fuse box while you are in there — factory fuses are frequently not fully seated, and that resolves a surprising share of what gets diagnosed as electrical gremlins. The full inspection list is in section 03 above, and the <a href="/jl/">JL platform hub</a> has the repair guides for whatever you find.</p>
+
+  <div class="myx-sources">
+    <h3>Sources &amp; method</h3>
+    <ol>
+      <li>Stellantis / FCA media releases and official specification sheets, model years 2018 through 2026 — engine, transmission, axle, transfer case, trim and equipment availability.</li>
+      <li>NHTSA recall database (nhtsa.gov/recalls) — campaign numbers, affected model years, defect descriptions and remedies, retrieved September 2026.</li>
+      <li>NHTSA Office of Defects Investigation — PE19-012 opening and closing resolutions; RQ24012 opening resolution.</li>
+      <li>NHTSA Safety Ratings API — frontal, side and rollover star ratings and dynamic tip results by model year.</li>
+      <li>IIHS published vehicle ratings, Wrangler 4-door and 2-door, 2018 through 2026, plus IIHS news releases on the 2022 retest and the 2026 frame-rail modification.</li>
+      <li>CarComplaints.com per-model-year complaint totals and category breakdowns.</li>
+      <li>FCA technical service bulletins hosted by NHTSA, including the steering damper customer satisfaction notification and TSB 08-074-20.</li>
+      <li>Owner-reported patterns from jlwranglerforums.com, tagged as owner-sourced throughout and never presented as manufacturer-confirmed.</li>
+    </ol>
+  </div>
+
+  <div class="myx-author">
+    Every claim in the matrix above carries a sourcing tag. Where two credible sources disagree, both positions are shown rather than one being picked — the disputed items are listed in section 05. Found something wrong? Corrections are welcome and get fixed.
+  </div>
+
+  <div class="myx-related">
+    <a href="/jl/">
+      <p class="myx-related-k">Platform</p>
+      <p class="myx-related-t">Wrangler JL hub</p>
+      <p class="myx-related-d">Repair guides, specs and tools for the 2018–2026 JL.</p>
+    </a>
+    <a href="/db/death-wobble-guide.html">
+      <p class="myx-related-k">Diagnostic</p>
+      <p class="myx-related-t">Death Wobble Guide</p>
+      <p class="myx-related-d">Work the causes in order instead of replacing parts at random.</p>
+    </a>
+    <a href="/gear-ratio-calculator.html">
+      <p class="myx-related-k">Tool</p>
+      <p class="myx-related-t">Gear Ratio Calculator</p>
+      <p class="myx-related-d">Match axle ratio to tire size by vehicle and trim.</p>
+    </a>
+  </div>
+
+</article>
+</div>
+</main>
+
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:rgba(255,255,255,.35);font-size:13px;max-width:260px;margin:0">Free DIY reference for off-road vehicle owners.</p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/db/">XJ Database</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/tools/">All tools →</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/blog/">Blog</a>
+      <a href="/workshop/">Workshop</a>    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Verify specs against your factory service manual before purchasing parts. © Trail Manual, 2026.
+  </div>
+</footer>
+
+<script>
+// ─── MODEL YEAR MATRIX DATA ──────────────────────────────────────────────────
+// Fact tuples are [text, confidence] where confidence is one of:
+// oem | nhtsa | iihs | owner | disputed
+var MATRIX = {
+  jl: {
+    name: 'Jeep Wrangler JL', sub: '2018–2026', hub: '/jl/', live: true,
+    verdicts: [
+      { cls:'myx-v-good', k:'Best used value', v:'2021–2023', w:'Factory steel steering gearbox, steering complaints collapsing, pre-refresh pricing. 2023 is also the last EcoDiesel.' },
+      { cls:'myx-v-safe', k:'Best safety', v:'2024 and newer', w:'First years with side curtain airbags. 2026 built after Oct 2025 adds the revised frame rail.' },
+      { cls:'myx-v-warn', k:'Split year', v:'2020', w:'Steering gearbox changed mid-year. Check the box itself, not the model year.' },
+      { cls:'myx-v-bad', k:'Approach with caution', v:'2018', w:'Aluminum steering box, original damper, two weld recalls, and 1,806 NHTSA complaints — more than double any other year.' }
+    ],
+    years: [
+      { y:'2018', grade:['caution','Caution'],
+        powertrain:[['3.6L V6 — 285 hp / 260 lb-ft','oem'],['2.0L Turbo + eTorque — 270 hp / 295 lb-ft','oem'],['6-speed manual or 850RE 8-speed auto (V6 only)','oem']],
+        drivetrain:[['Command-Trac 2.72:1 standard; Rock-Trac 4:1 on Rubicon','oem'],['Selec-Trac full-time offered on Sahara','oem'],['Rubicon: Dana 44 front and rear, semi-float','oem'],['Sport/Sahara: Dana 30 / Dana 35 — M220 rear on manual or Trac-Lok cars','owner']],
+        offroad:[['Rubicon 4dr: 10.9 in clearance, 44.0° / 27.8° / 37.0°, 30 in fording','oem'],['Crawl ratio 84.2:1 manual, 77.2:1 auto','oem'],['33 in tires on Rubicon; front and rear lockers plus sway bar disconnect','oem']],
+        safety:[['Four airbags — <strong>no curtain airbags in any row</strong>','oem'],['ParkView rear camera standard from launch','oem'],['IIHS small overlap Marginal; updated side test Marginal','iihs'],['NHTSA rollover 3 stars, No Tip in fishhook','nhtsa'],['Blind spot and ParkSense optional','oem']],
+        issues:[['<strong>Death wobble</strong> — the #1 complaint, ~$2,300 average repair, onset around 3,000 mi','owner'],['1,806 NHTSA complaints — highest of any JL year','nhtsa'],['Aluminum-cased steering gearbox','owner']] },
+
+      { y:'2019', grade:['caution','Caution'],
+        powertrain:[['3.6L V6 eTorque becomes orderable','disputed'],['Otherwise unchanged from 2018','oem']],
+        drivetrain:[['Unchanged','oem']],
+        offroad:[['Unchanged','oem']],
+        safety:[['Still no curtain airbags','oem'],['Adaptive cruise and forward collision warning join the Advanced Safety Group','oem'],['<strong>The 4-door tipped onto its passenger side</strong> in the IIHS driver-side small overlap test','iihs'],['Frontal 4 stars (4-door)','nhtsa']],
+        issues:[['Loose steering is the #1 complaint, onset around 3,000 mi','owner'],['732 NHTSA complaints','nhtsa']] },
+
+      { y:'2020', grade:['split','Split year'],
+        powertrain:[['<strong>3.0L EcoDiesel arrives</strong> — 260 hp / 442 lb-ft, 4-door only, ZF 8HP75','oem'],['2.0L Turbo still carries eTorque','oem']],
+        drivetrain:[['<strong>Steel steering gearbox phases in mid-year</strong> — a Feb 2020 build had aluminum, a June 2020 build had steel','owner']],
+        offroad:[['Unchanged','oem']],
+        safety:[['Still no curtain airbags','oem'],['Automatic high beams available with the 8.4 in screen and nav','oem']],
+        issues:[['Steering wander is the #1 complaint, ~$4,000 average repair','owner'],['600 NHTSA complaints','nhtsa'],['Recall records list a 2020 Wrangler 4xe though the 4xe is documented as a 2021 launch','disputed']] },
+
+      { y:'2021', grade:['best','Strong pick'],
+        powertrain:[['<strong>Rubicon 392 arrives</strong> — 6.4L V8, 470 hp / 470 lb-ft','oem'],['<strong>4xe arrives</strong> — 375 hp / 470 lb-ft, 17.0 kWh, 21 mi electric','oem'],['2.0L Turbo loses eTorque, same output','oem']],
+        drivetrain:[['Selec-Trac full-time is optional, not standard, on Sahara','oem'],['392: 3.73 gears, 2.72:1 case, 48:1 crawl','oem'],['<strong>Factory steel steering gearbox</strong>','owner']],
+        offroad:[['<strong>Xtreme Recon debuts</strong> — 35 in tires, 4.56 gears, 1.5 in lift, 12.9 in clearance, 33.6 in fording','oem'],['TrailCam available — requires the 8.4 in screen','oem'],['100:1 crawl available with the manual and 4.88 gears','oem']],
+        safety:[['Still no curtain airbags','oem'],['IIHS updated moderate overlap front: Poor','iihs'],['Best-available headlights rate Marginal','iihs']],
+        issues:[['906 NHTSA complaints — 4xe electrical reports begin','nhtsa'],['Falls inside the 2021–2025 power steering pump fire recall','nhtsa']] },
+
+      { y:'2022', grade:['best','Strong pick'],
+        powertrain:[['Unchanged','oem']],
+        drivetrain:[['Xtreme Recon extends to the Willys','owner']],
+        offroad:[['Unchanged','oem']],
+        safety:[['Still no curtain airbags','oem'],['<strong>The 4-door tipped again</strong> in the IIHS small overlap retest after structural modifications','iihs'],['Seat belt reminders: Marginal','iihs'],['7 in screen standard on Sport and Sport S; 8.4 in standard on Sahara and Rubicon','oem']],
+        issues:[['383 NHTSA complaints — <strong>electrical overtakes steering</strong> as the largest category','nhtsa'],['Manual cars: gear position sensor failure kills the reverse camera and reverse lights','nhtsa']] },
+
+      { y:'2023', grade:['best','Strong pick'],
+        powertrain:[['<strong>Final EcoDiesel year</strong> — ends with the Rubicon FarOut Edition','oem'],['Rubicon 20th Anniversary edition','oem']],
+        drivetrain:[['Unchanged','oem']],
+        offroad:[['Unchanged','oem']],
+        safety:[['Still no curtain airbags — last year without them','oem'],['Steering column control module welding may prevent driver airbag deployment (2023–24)','nhtsa']],
+        issues:[['342 NHTSA complaints — electrical largest category','nhtsa'],['Last year inside the 2018–2023 manual clutch fire recall','nhtsa']] },
+
+      { y:'2024', grade:['best','Best upgrade'],
+        powertrain:[['EcoDiesel and 3.6L eTorque both dropped','owner'],['3.6L V6, 2.0L Turbo, 392 and 4xe continue','oem'],['392 moves to 4.56 gears with Xtreme 35 standard','oem']],
+        drivetrain:[['<strong>Dana 44 HD full-float rear axle</strong> — Rubicon, Rubicon X and 392 only','oem'],['<strong>Sahara loses Selec-Trac</strong> and moves to part-time Command-Trac','oem'],['Willys gains a Tru-Lok rear locker and 33 in tires','oem'],['Rubicon X is new, with full-time Rock-Trac','oem']],
+        offroad:[['Towing claimed at 5,000 lb with the automatic, 33s and the full-float axle','oem'],['Owner’s manual reportedly shows 3,500 lb across all configurations; factory receiver is a Class II 3,500 lb unit','disputed']],
+        safety:[['<strong>Side curtain airbags arrive — first and second row, standard on every trim including the base Sport</strong>','oem'],['Second-row belt pretensioners and load limiters; side-impact structural work','oem'],['IIHS updated side test Marginal → <strong>Good</strong>; moderate overlap Poor → <strong>Good</strong>','iihs'],['Forward collision warning and adaptive cruise standard on Sport S and above','oem'],['12.3 in Uconnect 5 standard with wireless CarPlay','oem'],['Pedestrian AEB not available — IIHS rates it Poor','iihs']],
+        issues:[['Instrument cluster internal short (2018–2024 recall)','nhtsa'],['Antenna moves into the windshield — a cracked windshield now affects radio reception','oem'],['196 complaints, but also the least time on the road','nhtsa']] },
+
+      { y:'2025', grade:['good','Solid'],
+        powertrain:[['<strong>Final 4xe year</strong>','oem'],['Automatic pulled from the V6 at launch, then <strong>restored in Dec 2024</strong> as a $4,500 option on 4-door V6 models','oem'],['Manual remained standard on the V6 throughout','oem']],
+        drivetrain:[['Sahara still without Selec-Trac','oem']],
+        offroad:[['Unchanged','oem']],
+        safety:[['Curtain airbags standard, first and second row','oem'],['Blind spot and rear cross path standard on 4xe','oem'],['No change to crash ratings from 2024','iihs']],
+        issues:[['Inside the power steering pump fire recall window; letters only mailed July 2026','nhtsa'],['4xe battery fire recall covers through 2025','nhtsa'],['Power locks and windows standard — manual versions eliminated','oem']] },
+
+      { y:'2026', grade:['best','Best safety'],
+        powertrain:[['<strong>4xe deleted entirely</strong>','oem'],['<strong>Moab 392 returns</strong> — 4-door only','oem'],['V6 available with manual or automatic again','oem']],
+        drivetrain:[['Moab 392 uses the 2.72:1 Selec-Trac full-time case','oem'],['Whether Sahara regains Selec-Trac is unconfirmed','disputed']],
+        offroad:[['Willys 2-door gains steel bumpers and a Warn winch option','oem']],
+        safety:[['<strong>Revised front frame rail — the 4-door stays upright</strong> in IIHS small overlap','iihs'],['Small overlap Marginal → <strong>Acceptable</strong> (driver Good, passenger Acceptable), builds after Oct 2025','iihs'],['Curtain airbags standard, first and second row','oem'],['Still no pedestrian AEB or lane departure warning','iihs']],
+        issues:[['Rearview camera software recall — 844,027 units, fixable over the air','nhtsa'],['Steel wheel walls may crack or detach (641 units)','nhtsa'],['Right-side seat frame child tether anchor welds','nhtsa']] }
+    ],
+    recalls: [
+      { id:'26V363000', code:'21D', yrs:'2021–2025', fire:true, title:'Power steering pump wiring may overheat and cause a fire', desc:'1,076,999 units across Wrangler, Wrangler 4xe and Gladiator. Can ignite while parked with the ignition off. Owners are told to park outside, away from structures. Owner letters mailed July 2026, so many remain unremedied.' },
+      { id:'25V741000', code:'68C', yrs:'2020–2025 4xe', fire:true, title:'High-voltage battery may fail internally and cause a fire', desc:'320,068 units. Supersedes campaigns 23V787000 (89A) and 24V720000 (95B) — a vehicle repaired under either of those is not finished and must return. Park outside and do not charge until the current remedy is complete.' },
+      { id:'23V116000', code:'19A', yrs:'2018–2023 manual', fire:true, title:'Clutch pressure plate may overheat and fracture', desc:'69,201 units. Fire risk plus debris on the roadway. Replaces the clutch assembly and updates software, superseding the 2021 software-only attempt (21V028000). Owners report continuing transmission warnings and reduced power after the remedy.' },
+      { id:'24V652000', code:'30B', yrs:'2018–2024', title:'Instrument panel cluster internal short circuit', desc:'32,863 units. Complete cluster failure, losing the speedometer and warning lights. The dominant JL electrical defect.' },
+      { id:'26V531000', code:'78D', yrs:'2026–2027', title:'Rearview camera image fails to display in reverse', desc:'844,027 units across most of the Jeep, Ram, Chrysler and Dodge lineup. Radio software fix, deliverable over the air.' },
+      { id:'V41', code:'V41', yrs:'2018–2019', title:'Steering damper does not adequately reduce oscillations', desc:'Customer satisfaction notification, roughly 192,000 vehicles. Sustained shake or shimmy above 55 mph on rough roads below 40°F. A separate class-action settlement extends damper coverage to 8 years / 90,000 miles for 2018–2020. Commonly and wrongly cited as "W44".' },
+      { id:'18V675000', code:'UA5', yrs:'2018–2019', title:'Front track bar bracket welds may separate from the frame', desc:'18,055 units. Reduces steering capability. Inspect and repair welds.' },
+      { id:'19V201000', code:'V29', yrs:'2019', title:'Steering column stub shaft may break — wheel may detach', desc:'52 units. Improperly machined stub shaft. Inspect and replace the steering column.' },
+      { id:'22V638000', code:'Z86', yrs:'2020–2021', title:'Radio software prevents the rearview image from displaying', desc:'7,895 units. Software update.' },
+      { id:'23V641000', code:'—', yrs:'2022–2023 manual', title:'Gear position sensor kills the camera and reverse lights', desc:'A transmission sensor failure that presents as a camera fault. Replace the gear position sensor.' },
+      { id:'22V865000', code:'ZB7', yrs:'2021–2023 4xe', title:'Loss of communication may shut the engine down', desc:'62,909 units. Software update changes the fail-safe from shutdown to limp-home. NHTSA later opened investigation RQ24012 after 68 power-loss complaints, including vehicles already remedied under this campaign.' },
+      { id:'22V767000 / 23V263000', code:'—', yrs:'2020–2023 diesel', title:'High-pressure fuel pump may fail and stall the engine', desc:'The EcoDiesel recall that actually applies to the Wrangler. The widely-cited EGR cooler fire recall (20V699000) covers the Grand Cherokee only.' },
+      { id:'24V199000', code:'—', yrs:'2023–2024', title:'Steering column module welding may prevent driver airbag deployment', desc:'Inspect and replace the steering column control module.' },
+      { id:'26V456000', code:'05D', yrs:'2026', title:'Steel wheel walls may be too thin and crack or detach', desc:'641 units across Wrangler and Gladiator. Inspect and replace steel wheels and valve stems.' }
+    ],
+    checklist: [
+      'Run the VIN at nhtsa.gov/recalls — it shows open recalls only, so a clean result means the work was done.',
+      'Look at the steering gearbox: black painted steel is the corrected unit, bare silver aluminum is the original. Decisive on any 2020.',
+      'Drive it at highway speed and watch for wander, vague on-center feel and play before anything else.',
+      'On a 2018–2023 manual, confirm clutch recall 19A / 23V116000 was completed — then ask whether the symptoms came back.',
+      'On any 4xe, confirm the current battery campaign 68C / 25V741000 was done, not one of the two superseded attempts.',
+      'On a 2021–2025, check whether the power steering pump recall 26V363000 has been performed.',
+      'Check the auxiliary start-stop battery: "Stop/Start Unavailable", phantom airbag or ABS lights, radio resets, overnight drain. Budget $900+ for a dealer to do both batteries.',
+      'Push every fuse down in the fuse box — factory fuses are often not fully seated, which resolves a lot of what gets called electrical gremlins.',
+      'Inspect the Uconnect screen for delamination, bubbling and ghost-touch.',
+      'Check tailgate hinges for sag and creak, especially if a heavier spare was fitted without a reinforcement bracket.',
+      'On a 2024 or newer with a replaced windshield, verify radio reception — the antenna lives in the glass.',
+      'On a 2025 V6, confirm which transmission it has. Early-order cars may be manual-only.',
+      'On a 2021–2023 Willys, confirm whether it has a rear locker — most have a limited-slip differential instead.',
+      'On a Sky One-Touch roof, run it through a full cycle and check the rails and seals for leaks.'
+    ],
+    myths: [
+      { claim:'The steering damper campaign is W44.', real:'It is <b>V41</b>. No source ties W44 to the JL steering damper. A separate class-action settlement extends damper coverage to 8 years / 90,000 miles on 2018–2020 vehicles.' },
+      { claim:'2024 brought AdvanTEK axles to the Wrangler.', real:'AdvanTEK is <b>Dana’s aftermarket and Mopar crate-axle branding</b>. Jeep calls the factory unit a third-generation Dana 44 HD. The verifiable 2024 change is the <b>full-float rear axle</b>, on Rubicon trims only.' },
+      { claim:'The EcoDiesel EGR cooler fire recall covers the Wrangler.', real:'It does not — <b>20V699000 is Grand Cherokee only</b>. The Wrangler diesel’s actual recalls are for the high-pressure fuel pump.' },
+      { claim:'Jeep killed the manual transmission in 2025.', real:'Backwards. Jeep pulled the <b>automatic</b> from the V6 for 2025, then restored it in December 2024. The manual has been continuously available on the 3.6L every year from 2018 to 2026. The Gladiator is the model that lost its manual.' },
+      { claim:'PE19-012 was the death wobble investigation.', real:'It was opened as a <b>frame weld</b> investigation and closed in 2023 explicitly de-linking steering complaints from weld defects, with no new recall.' },
+      { claim:'TIPM failures and Pentastar cylinder head replacement are JL problems.', real:'Both are <b>JK-era issues</b>, centred on 2012. The JL’s equivalent electrical defect is the instrument cluster.' },
+      { claim:'Xtreme Recon and the Xtreme 35 package are the same thing.', real:'Xtreme 35 is <b>wheels and tires</b>. Only Xtreme Recon carries the 1.5 in lift and the 4.56 gears.' },
+      { claim:'The Wrangler tips over in rollover testing.', real:'NHTSA returns <b>"No Tip" for every JL configuration in every model year</b>, with a flat 3-star rollover rating reflecting a tall, narrow vehicle’s stability factor. The tipping result belongs to the IIHS frontal barrier test, which was fixed for 2026.' }
+    ],
+    openIntro: 'These items could not be pinned down to a primary source. They are listed rather than guessed at, because a buyer’s guide that quietly fills gaps is worse than one that admits them.',
+    open: [
+      'How the curtain airbags behave with the doors or roof removed. No manufacturer engineering statement exists — likely the single most relevant open question for an off-road audience.',
+      'The non-Rubicon axle ratio: two Stellantis documents give 3.45 and 3.73. No single figure should be published.',
+      '2024 towing: the 5,000 lb marketing claim against a 3,500 lb owner’s manual and a Class II receiver.',
+      'The 2021 factory steel gearbox rests on owner inspection of dealer-lot vehicles. No FCA document confirms the production change.',
+      'All reported 2024 refresh steering and suspension changes — revised box, stiffer damper, harder bushings, larger sway bar hardware — are forum-sourced only.',
+      'Whether the 2026 steering genuinely improved. One owner reports better tracking; a veteran response notes no hardware changed. Treat as unresolved.',
+      'Recall records list a 2020 Wrangler 4xe, though the 4xe is documented as a 2021 launch.',
+      'Real-world electric-only range against the 21-mile claim. Owner logs cover combined and fuel-only economy only.',
+      'Curtain airbag confirmation for the 2-door. All evidence is body-style-agnostic; no document enumerates 2-door airbag content separately.',
+      '2025 and 2026 complaint data is not yet meaningful. Absence of complaints is not evidence of quality.'
+    ]
+  },
+
+  xj:{name:'Jeep Cherokee XJ',sub:'1984–2001',hub:'/xj/',live:false},
+  tj:{name:'Jeep Wrangler TJ',sub:'1997–2006',hub:'/tj/',live:false},
+  jk:{name:'Jeep Wrangler JK',sub:'2007–2018',hub:'/jk/',live:false},
+  gladiator:{name:'Jeep Gladiator JT',sub:'2019–',hub:'/gladiator/',live:false},
+  bronco6g:{name:'Ford Bronco',sub:'2021–',hub:'/bronco6g/',live:false},
+  raptor:{name:'Ford F-150 Raptor',sub:'Gen 2–3',hub:'/raptor/',live:false},
+  '4runner':{name:'Toyota 4Runner',sub:'3rd–5th Gen',hub:'/4runner/',live:false},
+  tacoma:{name:'Toyota Tacoma',sub:'1st–3rd Gen',hub:'/tacoma/',live:false},
+  'power-wagon':{name:'Ram Power Wagon',sub:'2011–',hub:'/power-wagon/',live:false}
+};
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+(function(){
+  var DIMS = [
+    {k:'powertrain', label:'Powertrain'},
+    {k:'drivetrain', label:'Drivetrain'},
+    {k:'offroad',    label:'Off-road'},
+    {k:'safety',     label:'Safety'},
+    {k:'issues',     label:'Known issues'}
+  ];
+  var CONF = {oem:'OEM', nhtsa:'NHTSA', iihs:'IIHS', owner:'Owner', disputed:'Disputed'};
+
+  var vid = 'jl';
+  var dim = 'all';
+  var picked = [];
+
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s); }
+
+  function factList(arr){
+    if(!arr || !arr.length) return '<ul><li style="color:var(--text-mute)">—</li></ul>';
+    return '<ul>' + arr.map(function(f){
+      return '<li>' + esc(f[0]) + ' <span class="myx-c myx-c-' + f[1] + '">' + CONF[f[1]] + '</span></li>';
+    }).join('') + '</ul>';
+  }
+
+  // Vehicle picker
+  function renderVehicles(){
+    var g = $('myx-veh-grid');
+    g.innerHTML = Object.keys(MATRIX).map(function(k){
+      var v = MATRIX[k];
+      return '<button class="myx-veh" data-v="' + k + '" aria-pressed="' + (k===vid) + '"' +
+        (v.live ? '' : ' disabled') + '>' +
+        '<span class="myx-veh-name">' + v.name + '</span>' +
+        '<span class="myx-veh-sub">' + v.sub + (v.live ? '' : ' · depth coming') + '</span></button>';
+    }).join('');
+    g.querySelectorAll('.myx-veh').forEach(function(b){
+      b.addEventListener('click', function(){
+        if(b.hasAttribute('disabled')) return;
+        vid = b.dataset.v; picked = [];
+        renderVehicles(); renderAll();
+        if(window.gtag) gtag('event','myx_vehicle_select',{vehicle:vid});
+      });
+    });
+  }
+
+  function renderVerdicts(){
+    var d = MATRIX[vid];
+    $('myx-verdicts').innerHTML = d.verdicts.map(function(v){
+      return '<div class="myx-verdict ' + v.cls + '">' +
+        '<p class="myx-verdict-k">' + v.k + '</p>' +
+        '<p class="myx-verdict-v">' + v.v + '</p>' +
+        '<p class="myx-verdict-w">' + v.w + '</p></div>';
+    }).join('');
+  }
+
+  function renderTable(){
+    var d = MATRIX[vid];
+    var cols = (dim === 'all') ? DIMS : DIMS.filter(function(x){ return x.k === dim; });
+    $('myx-table').style.minWidth = (dim === 'all') ? '1320px' : '720px';
+
+    $('myx-thead').innerHTML = '<tr><th>Year</th>' +
+      cols.map(function(c){ return '<th>' + c.label + '</th>'; }).join('') + '</tr>';
+
+    $('myx-tbody').innerHTML = d.years.map(function(yr){
+      var sel = picked.indexOf(yr.y) > -1;
+      return '<tr data-y="' + yr.y + '" class="' + (sel ? 'myx-sel' : '') + '" style="cursor:pointer">' +
+        '<td class="myx-yr"><span class="myx-yr-n">' + yr.y + '</span>' +
+        '<span class="myx-grade myx-g-' + yr.grade[0] + '">' + yr.grade[1] + '</span></td>' +
+        cols.map(function(c){ return '<td class="myx-cell">' + factList(yr[c.k]) + '</td>'; }).join('') +
+        '</tr>';
+    }).join('');
+
+    $('myx-tbody').querySelectorAll('tr').forEach(function(tr){
+      tr.addEventListener('click', function(){
+        var y = tr.dataset.y, i = picked.indexOf(y);
+        if(i > -1) picked.splice(i,1);
+        else { if(picked.length >= 3) picked.shift(); picked.push(y); }
+        renderTable(); renderCompare();
+      });
+    });
+  }
+
+  function renderCompare(){
+    var d = MATRIX[vid], box = $('myx-compare');
+    if(!picked.length){ box.hidden = true; return; }
+    box.hidden = false;
+    $('myx-cmp-hint').textContent = picked.length === 1
+      ? 'Pick up to two more years to compare. Click a selected row to remove it.'
+      : 'Click a row to add or remove a year. Three maximum.';
+    var g = $('myx-cmp-grid');
+    g.style.gridTemplateColumns = 'repeat(auto-fit,minmax(260px,1fr))';
+    var ordered = d.years.filter(function(y){ return picked.indexOf(y.y) > -1; });
+    g.innerHTML = ordered.map(function(yr){
+      return '<div class="myx-cmp-col"><h3>' + yr.y + '</h3>' +
+        '<span class="myx-grade myx-g-' + yr.grade[0] + '">' + yr.grade[1] + '</span>' +
+        DIMS.map(function(c){
+          return '<div class="myx-cmp-sec"><h4>' + c.label + '</h4>' + factList(yr[c.k]) + '</div>';
+        }).join('') + '</div>';
+    }).join('');
+  }
+
+  function renderRecalls(){
+    var d = MATRIX[vid];
+    $('myx-recalls').innerHTML = d.recalls.map(function(r){
+      return '<div class="myx-recall' + (r.fire ? ' myx-fire' : '') + '">' +
+        '<div class="myx-recall-top">' +
+          '<span class="myx-recall-id">' + r.id + '</span>' +
+          '<span class="myx-recall-yrs">' + r.yrs + (r.code && r.code !== '—' && r.code !== r.id ? ' · ' + r.code : '') + '</span>' +
+          (r.fire ? '<span class="myx-flag">Fire risk</span>' : '') +
+        '</div>' +
+        '<p class="myx-recall-t">' + r.title + '</p>' +
+        '<p class="myx-recall-d">' + r.desc + '</p></div>';
+    }).join('');
+  }
+
+  function renderChecklist(){
+    var d = MATRIX[vid], key = 'tm.myx.check.' + vid, saved = {};
+    try { saved = JSON.parse(localStorage.getItem(key) || '{}'); } catch(e){ saved = {}; }
+    $('myx-check').innerHTML = d.checklist.map(function(t,i){
+      return '<label><input type="checkbox" data-i="' + i + '"' + (saved[i] ? ' checked' : '') + '><span>' + t + '</span></label>';
+    }).join('');
+    $('myx-check').querySelectorAll('input').forEach(function(cb){
+      cb.addEventListener('change', function(){
+        saved[cb.dataset.i] = cb.checked;
+        try { localStorage.setItem(key, JSON.stringify(saved)); } catch(e){}
+      });
+    });
+  }
+
+  function renderMyths(){
+    var d = MATRIX[vid];
+    $('myx-myths').innerHTML = d.myths.map(function(m){
+      return '<div class="myx-myth"><p class="myx-myth-claim">' + m.claim + '</p>' +
+        '<p class="myx-myth-real">' + m.real + '</p></div>';
+    }).join('');
+  }
+
+  function renderOpen(){
+    var d = MATRIX[vid];
+    $('myx-open-intro').textContent = d.openIntro;
+    $('myx-open-list').innerHTML = d.open.map(function(o){ return '<li>' + o + '</li>'; }).join('');
+  }
+
+  function renderAll(){
+    var d = MATRIX[vid];
+    if(!d.live){
+      $('myx-live').hidden = true;
+      var p = $('myx-pending');
+      p.hidden = false;
+      p.innerHTML = '<div class="myx-empty"><h2>' + d.name + ' year matrix is not built yet</h2>' +
+        '<p>This matrix is researched one platform at a time against manufacturer documents, federal recall records and crash-test data rather than generated in bulk. ' +
+        'The <a href="' + d.hub + '">' + d.name + ' hub</a> has the repair guides and specs in the meantime.</p></div>';
+      return;
+    }
+    $('myx-pending').hidden = true;
+    $('myx-live').hidden = false;
+    renderVerdicts(); renderTable(); renderCompare();
+    renderRecalls(); renderChecklist(); renderMyths(); renderOpen();
+  }
+
+  // Filters
+  $('myx-filters').querySelectorAll('.myx-chip').forEach(function(b){
+    b.addEventListener('click', function(){
+      dim = b.dataset.dim;
+      $('myx-filters').querySelectorAll('.myx-chip').forEach(function(x){
+        x.setAttribute('aria-pressed', String(x === b));
+      });
+      renderTable();
+      if(window.gtag) gtag('event','myx_filter',{dimension:dim});
+    });
+  });
+
+  $('myx-cmp-clear').addEventListener('click', function(){
+    picked = []; renderTable(); renderCompare();
+  });
+
+  // Deep link: ?v=jl
+  try {
+    var q = new URLSearchParams(location.search).get('v');
+    if(q && MATRIX[q] && MATRIX[q].live) vid = q;
+  } catch(e){}
+
+  renderVehicles();
+  renderAll();
+})();
+</script>
+
+<script>
+(function(){
+  /* Trail Manual Unified Nav v1.0 */
+  var THEME_KEY='tm.theme';
+  var VEHICLE_KEY='tm.currentVehicle';
+  var html=document.documentElement;
+
+  /* ── Theme ── */
+  function isDark(){return html.getAttribute('data-theme')==='dark';}
+  function applyTheme(dark){
+    html.setAttribute('data-theme',dark?'dark':'light');
+    try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch(e){}
+    updateThemeUI(dark);
+  }
+  var SUN='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z';
+  var MOON='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
+  function updateThemeUI(dark){
+    var p=document.getElementById('tnav-theme-path');
+    var pm=document.getElementById('tnav-theme-path-mobile');
+    var l=document.getElementById('tnav-theme-label');
+    var lm=document.getElementById('tnav-theme-label-mobile');
+    var txt=dark?'Switch to Light':'Switch to Dark';
+    var path=dark?SUN:MOON;
+    if(p)p.setAttribute('d',path);
+    if(pm)pm.setAttribute('d',path);
+    if(l)l.textContent=txt;
+    if(lm)lm.textContent=txt;
+  }
+  /* Init theme — check new key then legacy */
+  var savedTheme='';
+  try{savedTheme=localStorage.getItem(THEME_KEY)||localStorage.getItem('tm-theme')||'';}catch(e){}
+  if(savedTheme==='dark'){html.setAttribute('data-theme','dark');}
+  updateThemeUI(isDark());
+  var themeBtn=document.getElementById('tnav-theme-btn');
+  var themeBtnM=document.getElementById('tnav-theme-btn-mobile');
+  if(themeBtn)themeBtn.addEventListener('click',function(){applyTheme(!isDark());closeAll();});
+  if(themeBtnM)themeBtnM.addEventListener('click',function(){applyTheme(!isDark());closeDrawer();});
+
+  /* ── Current vehicle slot ── */
+  function renderVehicleSlots(){
+    var v=null;
+    try{v=JSON.parse(localStorage.getItem(VEHICLE_KEY)||'null');}catch(e){}
+    [['tnav-vehicle-slot',false],['tnav-vehicle-slot-mobile',true]].forEach(function(pair){
+      var slot=document.getElementById(pair[0]);
+      if(!slot)return;
+      slot.innerHTML='';
+      if(v&&v.name){
+        var a=document.createElement('a');
+        a.href=v.path||'/';
+        a.className='tnav-vehicle-pill';
+        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display=&#39;none&#39;">':'')+
+          '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
+          (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
+        slot.appendChild(a);
+      }else{
+        var b=document.createElement('a');
+        b.href='/vehicle-select.html';
+        b.className='tnav-no-vehicle';
+        b.textContent='Pick your rig →';
+        slot.appendChild(b);
+      }
+    });
+  }
+  renderVehicleSlots();
+
+  /* ── Dropdowns ── */
+  function closeAll(){
+    document.querySelectorAll('.tnav-item.tnav-open').forEach(function(el){
+      el.classList.remove('tnav-open');
+      var btn=el.querySelector('[aria-haspopup]');
+      if(btn)btn.setAttribute('aria-expanded','false');
+    });
+  }
+  document.querySelectorAll('.tnav-item[id]').forEach(function(item){
+    var btn=item.querySelector('[aria-haspopup]');
+    if(!btn)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      var wasOpen=item.classList.contains('tnav-open');
+      closeAll();
+      if(!wasOpen){item.classList.add('tnav-open');btn.setAttribute('aria-expanded','true');}
+    });
+  });
+  document.addEventListener('click',function(){closeAll();});
+  var navEl=document.getElementById('tnav');
+  if(navEl)navEl.addEventListener('click',function(e){e.stopPropagation();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();closeDrawer();}});
+
+  /* ── Hamburger / drawer ── */
+  var hamburger=document.getElementById('tnav-hamburger');
+  var drawer=document.getElementById('tnav-drawer');
+  function closeDrawer(){
+    if(drawer){drawer.classList.remove('tnav-open');drawer.setAttribute('aria-hidden','true');}
+    if(hamburger)hamburger.setAttribute('aria-expanded','false');
+  }
+  if(hamburger&&drawer){
+    hamburger.addEventListener('click',function(){
+      var isOpen=drawer.classList.toggle('tnav-open');
+      drawer.setAttribute('aria-hidden',isOpen?'false':'true');
+      hamburger.setAttribute('aria-expanded',isOpen?'true':'false');
+      closeAll();
+    });
+  }
+})();
+
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Which Jeep Wrangler JL Year Should You Buy?",
+  "description": "Year-by-year buyer's guide to the 2018-2026 Jeep Wrangler JL: the 2021 steering gearbox change, the 2024 side curtain airbag addition, the 2026 frame rail fix, and the recalls that matter by model year.",
+  "author": { "@type": "Organization", "name": "Trail Manual" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Trail Manual",
+    "url": "https://trailmanual.com/"
+  },
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://trailmanual.com/model-year-matrix.html" },
+  "about": { "@type": "Car", "name": "Jeep Wrangler JL", "vehicleModelDate": "2018-2026" },
+  "isAccessibleForFree": true
+}
+</script>
+</body>
+</html>
