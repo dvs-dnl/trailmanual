@@ -682,13 +682,7 @@ function render() {
 
 function renderVehicleScreen() {
   const cards = Object.entries(COMPAT).map(([key, v]) => {
-    if (v.coming_soon) {
-      return `<div class="vehicle-card soon">
-        <div class="vc-tag">Coming Soon</div>
-        <h3>${v.label} <span class="soon-badge">Soon</span></h3>
-        <div class="vc-years">${v.years}</div>
-      </div>`;
-    }
+    if (v.coming_soon) return "";
     const cats = Object.keys(v.categories).map(c => `<span class="vc-cat">${v.categories[c].label}</span>`).join("");
     return `<div class="vehicle-card" onclick="selectVehicle('${key}')">
       <div class="vc-tag">Select vehicle</div>
@@ -708,7 +702,6 @@ function renderVehicleScreen() {
     ${renderSteps()}
     <div class="section-head">
       <h2>Select your vehicle</h2>
-      <p>TJ and JL data is coming soon — XJ and JK are fully populated.</p>
     </div>
     <div class="vehicle-grid">${cards}</div>`;
 }

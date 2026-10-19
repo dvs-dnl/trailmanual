@@ -1119,7 +1119,7 @@
         { label:'Gladiator', meta:'JT', ids:['gladiator'] },
       ]},
       { name:'Ford', families:[
-        { label:'Bronco', meta:'Early · II · Full-Size · 6G', ids:['bronco','bronco-ii','full-size-bronco','bronco6g'] },
+        { label:'Bronco', ids:['bronco','bronco-ii','full-size-bronco','bronco6g'] },
         { label:'F-150',  meta:'Raptor', ids:['raptor'] },
       ]},
       { name:'Toyota', families:[
@@ -1134,17 +1134,14 @@
       ]},
     ];
 
-    // Platforms held out of the index until built out (GTM plan A) — honest badge.
-    var EARLY = {cj5:1,cj7:1,yj:1,zj:1,wj:1,wk:1,'bronco-ii':1,bronco6g:1,'full-size-bronco':1,pathfinder:1};
 
     // Hero
     var hero = el('div', {class:'picker-hero'});
     hero.appendChild(el('h1', {}, 'Pick your platform'));
-    hero.appendChild(el('p', {}, 'Trail Manual goes deep on Jeep first \u2014 the Cherokee XJ, the Wrangler family, and the Gladiator. Other platforms are covered and growing. Pick a vehicle to browse guides, build paths, and diagnostic tools.'));
+    hero.appendChild(el('p', {}, 'Trail Manual goes deep on Jeep first \u2014 the Cherokee XJ, the Wrangler family, and the Gladiator. Ford, Toyota and Ram platforms are covered too. Pick a vehicle to browse guides, build paths, and diagnostic tools.'));
     var stats = el('div', {class:'picker-stats'});
     stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.total_entries||0)), el('div',{class:'l'},'Entries')));
     stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return v.active && !v.hidden;}).length)), el('div',{class:'l'},'Active vehicles')));
-    stats.appendChild(el('div', {class:'picker-stat'}, el('div',{class:'n'},String(M.vehicles.filter(function(v){return !v.hidden;}).length)), el('div',{class:'l'},'On the roadmap')));
     hero.appendChild(stats);
     app.appendChild(hero);
 
@@ -1176,7 +1173,7 @@
       brandEl.appendChild(brandRow);
 
       brand.families.forEach(function(family) {
-        var knownIds = family.ids.filter(function(id){ return vmap[id]; });
+        var knownIds = family.ids.filter(function(id){ return vmap[id] && vmap[id].active; });
         if (!knownIds.length) return;
 
         var famEl = el('div', {class:'family-block'});
@@ -1209,9 +1206,6 @@
           card.appendChild(el('div', {class:'vp-name'}, v.label||id));
           if (active) {
             card.appendChild(el('div', {class:'vp-count'}, (v.entry_count||0) + ' guides'));
-            card.appendChild(el('div', {class:'vp-badge' + (EARLY[id]?' early':'')}, EARLY[id]?'Early':'Open'));
-          } else {
-            card.appendChild(el('div', {class:'vp-badge soon'}, 'Coming soon'));
           }
           grid.appendChild(card);
         });
@@ -1896,14 +1890,9 @@
     app.appendChild(el('div', {class:'detail'},
       el('h2', {style:'margin-top:0'}, 'About Trail Manual'),
       el('p', {}, 'Trail Manual is a community-style DIY reference for off-road vehicles — maintenance procedures, common failures, off-road suspension and axle upgrades, engine and drivetrain work, electrical/lighting/interior modifications, and overland/recovery gear.'),
-      el('p', {}, 'The database is multi-vehicle and growing. The architecture deliberately keeps each vehicle as a separate data shard so the viewer stays fast even as more platforms come online.'),
-      el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'Roadmap'),
-      el('ul', {},
-        el('li',{}, el('strong',{},'Phase 1: '), 'Jeep Cherokee XJ ', el('span',{style:'color:var(--good)'},'(open now)')),
-        el('li',{}, el('strong',{},'Phase 2: '), 'Wrangler family — TJ, YJ, JK, JL, CJ-7, CJ-5'),
-        el('li',{}, el('strong',{},'Phase 3: '), 'Other Jeeps — ZJ, WJ, WK'),
-        el('li',{}, el('strong',{},'Phase 4: '), 'Other platforms — Toyota 4Runner, Tacoma, Nissan Pathfinder, and more')
-      ),
+      el('p', {}, 'Each vehicle is a separate data shard, so the viewer stays fast.'),
+      el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'Vehicles covered'),
+      el('ul', {}, M.vehicles.filter(function(v){return v.active && !v.hidden;}).map(function(v){ return el('li', {}, (v.label||v.id) + (v.years ? ' (' + v.years + ')' : '')); })),
       el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'How content is sourced'),
       el('p', {}, 'Compiled from community knowledge bases (NAXJA, Cherokee Forum, JeepForum, Pirate4x4) and vendor documentation. Where individual sources are cited, follow the ↗ link.'),
       el('h3', {style:'color:var(--accent);font-size:14px;text-transform:uppercase;letter-spacing:.5px;margin:24px 0 10px'}, 'Caveats'),

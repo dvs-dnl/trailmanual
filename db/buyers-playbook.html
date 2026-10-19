@@ -169,8 +169,7 @@ footer{border-top:1px solid var(--border);margin-top:40px}
 // ─── PER-MODEL BUYER'S PLAYBOOK DATA ────────────────────────────────────────
 // Template (UVT-013). Each vehicle is one PLAYBOOKS entry. The render() function
 // below turns any complete entry into a printable page. Entries with
-// status:"soon" show in the picker but aren't selectable yet — batch runs fill
-// them in. Severity values: "critical" (structural/safety/walk-away),
+// status:"soon" are hidden from the picker until filled in. Severity values: "critical" (structural/safety/walk-away),
 // "major" (expensive but fixable), "minor" (normal wear), "good" (a strength).
 // Prices reflect 2026 used-market reality. No affiliate links on this page —
 // it's a buyer's reference, and it stays clean.
@@ -633,7 +632,7 @@ function buildPicker(active){
   bar.innerHTML = "";
   ORDER.forEach(function(id){
     var pb = PLAYBOOKS[id];
-    if(!pb) return;
+    if(!pb || pb.status !== "live") return;
     var b = document.createElement("button");
     b.textContent = pb.label;
     b.setAttribute("data-id", id);
@@ -646,9 +645,8 @@ function buildPicker(active){
     }
     bar.appendChild(b);
   });
-  var liveCount = ORDER.filter(function(id){ return PLAYBOOKS[id] && PLAYBOOKS[id].status === "live"; }).length;
   document.getElementById("pick-sub").textContent =
-    liveCount + " of " + ORDER.length + " playbooks live. The rest are in progress — check back as platforms come online.";
+    "Pick your platform.";
 }
 
 function rowIssues(list){
@@ -695,7 +693,7 @@ function render(id){
   var pb = PLAYBOOKS[id];
   var out = document.getElementById("playbook");
   if(!pb || pb.status !== "live"){
-    out.innerHTML = "<div class='card'><p class='sub'>This playbook is in progress. Pick a live platform above.</p></div>";
+    out.innerHTML = "<div class='card'><p class='sub'>Pick a platform above.</p></div>";
     return;
   }
   var html = "";

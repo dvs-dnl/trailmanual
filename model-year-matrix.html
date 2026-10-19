@@ -747,12 +747,12 @@ var MATRIX = {
   // Vehicle picker
   function renderVehicles(){
     var g = $('myx-veh-grid');
-    g.innerHTML = Object.keys(MATRIX).map(function(k){
+    g.innerHTML = Object.keys(MATRIX).filter(function(k){ return MATRIX[k].live; }).map(function(k){
       var v = MATRIX[k];
       return '<button class="myx-veh" data-v="' + k + '" aria-pressed="' + (k===vid) + '"' +
         (v.live ? '' : ' disabled') + '>' +
         '<span class="myx-veh-name">' + v.name + '</span>' +
-        '<span class="myx-veh-sub">' + v.sub + (v.live ? '' : ' · depth coming') + '</span></button>';
+        '<span class="myx-veh-sub">' + v.sub + '</span></button>';
     }).join('');
     g.querySelectorAll('.myx-veh').forEach(function(b){
       b.addEventListener('click', function(){
