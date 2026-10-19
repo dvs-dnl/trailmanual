@@ -15,9 +15,9 @@
 <script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Blog — Trail Manual</title>
+<title>Off-Road DIY Blog: Fixes, Buyer’s Guides and Build Decisions | Trail Manual</title>
 <link rel="canonical" href="https://trailmanual.com/blog/">
-<meta name="description" content="Off-road DIY guides, build write-ups, and honest maintenance advice for Jeep Cherokee XJ and Wrangler JK owners. No sponsored takes, no paid placements.">
+<meta name="description" content="Answer-first fixes, buyer’s guides and build decisions for the Jeep Cherokee XJ and Wrangler, Gladiator, Toyota 4Runner and Tacoma, Ford Bronco and Raptor, and Ram Power Wagon. No sponsored content.">
 <link rel="stylesheet" href="/_shared.css">
 <style>
   /* Vehicle-aware blog filter */
@@ -48,21 +48,28 @@
   .tm-blog-filter-empty[hidden]{display:none !important;}
   .tm-blog-card[hidden]{display:none !important;}
 </style>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trail Manual blog — fixes, buyer’s guides and build decisions">
+<meta property="og:description" content="Answer-first fixes, buyer’s guides and build decisions for the Jeep Cherokee XJ and Wrangler, Gladiator, Toyota 4Runner and Tacoma, Ford Bronco and Raptor, and Ram Power Wagon. No sponsored content.">
+<meta property="og:url" content="https://trailmanual.com/blog/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-jk-vs-jl-wrangler-off-road.webp">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
-      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG
-      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-    </div><span>My Garage</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </div>
   <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
@@ -96,9 +103,13 @@
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
       <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
@@ -108,47 +119,54 @@
     <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
     </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
     <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
-      <a class="tm-dd-link tm-dd-link--sm" href="/pathfinder/"><strong>Pathfinder</strong></a>
     </div>
+    -->
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
       <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
     </div>
   </div></div>
 </header>
-<script src="/_nav.js"></script><main class="tm-main">
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END --><main class="tm-main">
 
   <section class="tm-hero">
-    <h1>From the shop floor.</h1>
-    <p>Off-road DIY guides, build write-ups, and honest maintenance advice. No sponsored takes, no paid placements — just what actually works.</p>
+    <div class="tm-hero-eyebrow">Trail Manual blog</div>
+    <h1>Fixes, buyer’s guides, and build decisions.</h1>
+    <p>Each post answers one question up front, then shows the work: part numbers, costs, and the sources behind them. No sponsored takes, no paid placements.</p>
   </section>
 
-  <div class="tm-blog-filter" id="tm-blog-filter" hidden>
-    <span class="tm-blog-filter-pill">
-      Showing posts for <strong id="tm-blog-filter-label">your rig</strong>
-    </span>
-    <button type="button" class="tm-blog-filter-clear" id="tm-blog-filter-clear">Show all posts</button>
-  </div>
-
+  <nav class="tm-chips" id="tm-blog-chips" aria-label="Filter posts by vehicle"></nav>
   <div class="tm-blog-filter-empty" id="tm-blog-filter-empty" hidden>
     No vehicle-specific posts here yet for this rig. <button type="button" class="tm-blog-filter-clear" data-clear="1">Show all posts</button>
   </div>
 
   <div style="max-width:980px;margin:0 auto;padding:0 20px 80px">
     <div class="tm-blog-grid">
+      <a class="tm-blog-card" data-vehicle="jl" href="/blog/jk-vs-jl-wrangler-off-road/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-vs-jl-wrangler-off-road.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">JK vs JL</span>
+        <h3>JK vs JL Wrangler: What Actually Changed Off-Road (and What Got Worse)</h3>
+        <p>Stock against stock the JL Rubicon wins &mdash; 10.9&Prime; of clearance against 10.2, 2.4&deg; more breakover, factory 33s and 4.10s, and a 77.2:1 automatic crawl ratio against roughly 59:1 for the JK&rsquo;s five-speed. But the JL gave up 3.4&deg; of departure angle, both Rubicon ring gears got smaller (210/220&nbsp;mm against 216/226), and a base JL Sport has less rear axle than a 2018 JK Sport did. The geometry table, the axle table nobody puts in a comparison video, what the JL has that no JK can be given, and the three cases that decide it.</p>
+        <div class="tm-blog-meta"><span>October 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-tipm-fuel-pump-relay/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-tipm-fuel-pump-relay.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JK Wrangler</span>
         <h3>Your JK Cranks But Won&rsquo;t Start: The TIPM Fuel Pump Relay (and the $25 Test That Proves It)</h3>
         <p>An intermittent no-start on a JK that cranks strong is more often the fuel pump relay inside the TIPM than the pump itself &mdash; and the sort is free: key to ON, listen at the rear seat for a two-to-three-second prime. No hum, worst on a cold morning, points at the relay. It is soldered to the TIPM board so there is nothing to swap, but a $25 bypass cable routes the pump around it in ten minutes and gives a binary answer before anyone drops a tank. The symptom table including the stuck-closed battery drain nobody expects, the cable&rsquo;s one safety catch, the fix ladder from $25 to a $480 exchange module, and why the Wrangler was in neither NHTSA recall.</p>
@@ -156,6 +174,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/driveline-vibration-after-lift/">
+        <img class="tm-blog-thumb" src="/images/photo-driveline-vibration-after-lift.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Drivetrain</span>
         <h3>Your Jeep Vibrates After the Lift: How to Find Which Angle Is Wrong</h3>
         <p>A vibration that shows up right after a lift is almost always a u-joint operating angle problem, not a failed part &mdash; lifting raises the transfer case output while the axle stays put, and the two ends of the driveshaft stop cancelling each other. Sort it by road speed vs. engine RPM, then measure against Spicer&rsquo;s published rule: at least 0.5&deg; at each end, within 1&deg; of each other, under 3&deg; at highway speed. The three-reading procedure with the arithmetic worked out, why CV shafts invert the pinion rule, the four free checks, and the fix ladder from a $39 transfer case drop (and what it costs you in clearance) to an SYE past 3&ndash;4&Prime;.</p>
@@ -163,6 +182,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-pentastar-cylinder-head-failure/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-pentastar-cylinder-head-failure.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JK Wrangler</span>
         <h3>The 2012&ndash;2013 JK Cylinder Head Failure: How to Spot It, and What It Costs</h3>
         <p>A driver&rsquo;s-side tick plus misfire codes on cylinders 2, 4 or 6 points to the known left cylinder head failure &mdash; worn valve guides and seats &mdash; not plugs or coils. Those three cylinders are all on the left bank. How to confirm it for the price of a coil swap and a leak-down test (25% leakage was Chrysler&rsquo;s own threshold), how to read the 2062 Julian date code that separates the original casting from the revised one, why the X56 warranty extension has run out on every affected JK, and the $725-part vs. $2,800-shop math.</p>
@@ -170,6 +190,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>Buying a Used XJ Cherokee: What to Inspect Before You Pay</h3>
         <p>Rust decides an XJ purchase and almost nothing else does &mdash; the Cherokee is a unibody with no separate frame, so rot at the rear leaf spring hangers, the front control arm mounts or the steering box mount is structural and terminal. The ten-minute rust crawl in order, which years to target (1997&ndash;99, and what the 0331 head means for 2000&ndash;01), the 4.0 and AW4 checks, 2026 price ranges, repair costs to negotiate against, and the five-item walk-away list.</p>
@@ -177,6 +198,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/kinetic-rope-vs-snatch-strap/">
+        <img class="tm-blog-thumb" src="/images/photo-kinetic-rope-vs-snatch-strap.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Recovery</span>
         <h3>Kinetic Rope or Snatch Strap? The Recovery Gear Decision That Actually Matters</h3>
         <p>A kinetic rope stretches 20&ndash;30% and stores energy for a smooth pull on a vehicle that&rsquo;s stuck and not moving; a snatch strap stretches less and suits a rolling tow-assist. Neither belongs on a factory tow hook &mdash; most recovery injuries come from an unrated anchor point failing, not the line. Sizing by gross weight (3/4&Prime; &times; 30&prime; at ~19,000 lb covers XJ through Gladiator), 2026 price ranges, soft shackles vs. steel, and the order to actually buy in.</p>
@@ -184,6 +206,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/at-vs-mt-tires-explained/">
+        <img class="tm-blog-thumb" src="/images/photo-at-vs-mt-tires-explained.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Tires</span>
         <h3>All-Terrain vs. Mud-Terrain Tires: Which One You Actually Need</h3>
         <p>For about nine out of ten builds the answer is all-terrain &mdash; modern A/Ts give up very little on rock, dirt and sand, run 45,000&ndash;65,000 miles against 35,000&ndash;45,000 for an M/T, cost $50&ndash;$100 less per tire, and usually carry the 3PMSF snow rating mud-terrains do not. The four situations where an M/T genuinely earns its keep, what it costs you the other 360 days (noise, wet braking, ~1 MPG, rotating mass), where hybrids fit &mdash; and the four things that move traction more than the tread pattern does.</p>
@@ -191,6 +214,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="4runner" href="/blog/4runner-re-gear-35s/">
+        <img class="tm-blog-thumb" src="/images/photo-4runner-re-gear-35s.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">4Runner</span>
         <h3>4Runner Re-Gear for 35s: What Ratio, What It Costs</h3>
         <p>On a 5th gen 4Runner running 35s, 4.88 is the ratio for most builds &mdash; stock 3.727 gears with a 35&Prime; tire behave like 3.37, a 10% loss before you add a single pound of armor. 4.56 only if the rig is light and mostly on pavement; 4.10 and 4.30 just buy back a compromise. Full ratio math, 2026 costs ($1,600&ndash;$2,600 for both ends), the carrier break and factory-locker traps, break-in fluid schedule &mdash; and the speedometer error that re-gearing does not fix.</p>
@@ -198,6 +222,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-track-bar-drop-bracket-vs-adjustable/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-track-bar-drop-bracket-vs-adjustable.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Wrangler JK</span>
         <h3>JK Front Track Bar: Drop Bracket or Adjustable Bar?</h3>
         <p>Under about 3&Prime; of lift, buy the adjustable track bar and skip the drop bracket &mdash; centering the axle is the only problem a lift that size creates. At roughly 4&Prime; and up the answer flips: you need a relocation bracket <em>and</em> a drag link flip or drop pitman arm, installed together, because one without the other makes the geometry worse. Costs ($150&ndash;$250 for a bar, $300&ndash;$500 for the bracket pair), torque specs, install order &mdash; and the wallowed frame-side bolt hole that makes both upgrades useless until it&rsquo;s fixed.</p>
@@ -205,6 +230,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/how-to-torque-lug-nuts/">
+        <img class="tm-blog-thumb" src="/images/photo-how-to-torque-lug-nuts.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">All Platforms</span>
         <h3>How to Torque Lug Nuts (and Why the Sequence Matters)</h3>
         <p>Star pattern, two passes, torque wrench, dry threads, final pass with the tire on the ground, re-check at 50&ndash;100 miles. Tightening in a circle pulls the wheel onto the hub crooked &mdash; that&rsquo;s how rotors get distorted and how wheels come loose. Specs for every platform we cover, from 83 lb-ft on a Tacoma to 150 on a Raptor, plus why the impact gun never gets the last word and why oiled threads over-stretch studs at the &ldquo;correct&rdquo; reading.</p>
@@ -212,6 +238,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="bronco6g" href="/blog/bronco-sasquatch-worth-it/">
+        <img class="tm-blog-thumb" src="/images/photo-bronco-sasquatch-worth-it.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Ford Bronco</span>
         <h3>Is the Bronco Sasquatch Package Worth It? The Honest Math</h3>
         <p>If you intend to run 35s, buy it from the factory &mdash; the 4.70 gears, front electronic locker and Dana M210 front axle cost more to add later than the package costs new. Roughly $4,180&ndash;$8,460 depending on trim against $9,700&ndash;$18,000 to replicate in the aftermarket. If the truck mostly sees pavement, skip it: you pay the fuel economy, noise and steering-effort penalty every mile. Plus the 37-inch question and how to verify a used Sasquatch is real.</p>
@@ -219,30 +246,35 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/what-axle-do-i-have/">
+        <img class="tm-blog-thumb" src="/images/photo-what-axle-do-i-have.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">All Platforms</span>
         <h3>What Axle Do I Have? Identify It in Five Minutes Without Pulling the Cover</h3>
         <p>The differential cover is the answer. A Dana 30 is a rounded square, ~9&Prime; wide, front-only on a Jeep. A Dana 35 is a smooth oval with a snap-in plastic fill plug. A Chrysler 8.25 looks identical until you find the 3&ndash;4&Prime; flat section across the bottom. A Dana 44 is an irregular hexagon with a steel screw-in plug. Plus decoding Dana BOM tags, the JL/JT M186&ndash;M220 metric names, Bronco and Toyota axle splits, and how to measure your gear ratio with chalk and a tape measure.</p>
         <div class="tm-blog-meta"><span>August 2026</span><span class="read-more">Read &rarr;</span></div>
       </a>
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-thermostat-replacement/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-thermostat-replacement.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Thermostat Replacement: 195&deg;F or 180&deg;F, and How to Do It Right</h3>
         <p>Run the 195&deg;F thermostat &mdash; it&rsquo;s the factory spec for the 4.0 and 2.5, and a 180 fixes nothing. A thermostat sets the minimum operating temperature, not the maximum: once coolant is past the rating it&rsquo;s fully open, and the radiator, fan clutch, and water pump own the outcome. The part runs $8&ndash;$20, the job is two bolts and about an hour, and the housing torques to 15 ft-lb (20 N&middot;m) &mdash; overtightening those bolts is the most common reason a housing leaks afterward.</p>
         <div class="tm-blog-meta"><span>July 2026</span><span class="read-more">Read &rarr;</span></div>
       </a>
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-sway-bar-disconnects/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-sway-bar-disconnects.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Sway Bar Disconnects: When They Help, When They Don&rsquo;t</h3>
         <p>Pulling the front sway bar frees the XJ&rsquo;s coil-sprung front axle to flex up to ~30% more, keeping tires planted where a connected bar lifts them. Quick disconnects are worth it for one specific truck: the XJ that drives to the trail and wheels regularly &mdash; they turn the swap into a 60-second pin pull. Street-only rigs should skip them, trail-only rigs can unbolt the factory links for free. And the hard rule either way: reconnect before pavement, every time.</p>
         <div class="tm-blog-meta"><span>July 2026</span><span class="read-more">Read &rarr;</span></div>
       </a>
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-rear-axle-fluid-change/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-rear-axle-fluid-change.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Rear Axle Fluid Change: Which Oil, How Much, and How Often</h3>
         <p>An hour in the driveway and under thirty dollars in fluid &mdash; and one of the highest-payback services on the truck. Most XJs run a Chrysler 8.25 (4.4 pt / ~2.1 qt); ABS-era trucks got the Dana 35 (3.5 pt). Fill with 75W-90 GL-5, step up to 75W-140 if you tow, and add 4 oz of friction modifier for a Trac-Lok. There&rsquo;s no drain plug &mdash; you pull the cover and reseal with RTV. Change it every 30,000 miles, and immediately after any water crossing.</p>
         <div class="tm-blog-meta"><span>July 2026</span><span class="read-more">Read &rarr;</span></div>
       </a>
             <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-fuel-pump-symptoms/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-fuel-pump-symptoms.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Fuel Pump Failure: Symptoms, How to Diagnose It, and What Replacement Costs</h3>
         <p>Long hot-start cranks, a sputter under load on the highway, a whine from the tank, then a no-start that cranks but won&rsquo;t fire &mdash; the in-tank pump rarely dies all at once. Before you drop the tank, confirm it with three cheap checks: the key-on prime, a relay swap, and a rail pressure reading (31 psi on 91&ndash;95, ~49 on 97&ndash;01). Plus how to tell a weak pump from a bad relay or crank sensor.</p>
@@ -250,6 +282,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-control-arm-bushing-replacement/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-control-arm-bushing-replacement.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Control Arm Bushings: Symptoms, and Whether to Replace the Bushing or the Whole Arm</h3>
         <p>A squeak that turns into a clunk over bumps, a wander, a pull under braking &mdash; worn control arm bushings let the axle move around under the truck and feed death wobble. Why replacing the whole stamped arm usually beats pressing bushings, why rubber wins over poly here, and the one step (torque at ride height) that decides how long the job lasts.</p>
@@ -257,6 +290,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-steering-box-adjustment/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-steering-box-adjustment.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Steering Box Adjustment: How to Take Up On-Center Play (and When Not To)</h3>
         <p>The XJ&rsquo;s Saginaw gear has an over-center adjuster on top that takes up on-center slop &mdash; but it&rsquo;s the last thing to touch, not the first. How to confirm the play is really in the box, turn the adjuster in quarter-turn steps without binding it, and know when a worn box just needs replacing.</p>
@@ -264,6 +298,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-engine-oil-leaks/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-engine-oil-leaks.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Wrangler JK</span>
         <h3>JK Wrangler Oil Leaks: Where They Come From and Which Ones Matter</h3>
         <p>Oil under the Jeep or a burning smell after a drive? On a 3.6 Pentastar it&rsquo;s almost always the plastic oil filter housing; on a 3.8 it&rsquo;s usually the upper oil pan gasket masquerading as a rear main. How to trace the real source, tell a leak that matters from a harmless weep, and what each fix costs.</p>
@@ -271,6 +306,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-head-gasket-failure-signs/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-head-gasket-failure-signs.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ 4.0 Head Gasket Failure: Signs, the 0331 Crack, and What It Really Costs</h3>
         <p>Coolant vanishing with no puddle, milky oil, or sweet steam from the tailpipe on a 4.0 usually means a failed head gasket &mdash; or, on 2000&ndash;2001 XJs, a cracked 0331 head. How to read the signs, confirm which one you have with a block test, and what the fix actually costs before you buy a single part.</p>
@@ -278,6 +314,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-bump-steer-after-lift/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-bump-steer-after-lift.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Wrangler JK</span>
         <h3>JK Bump Steer After a Lift: What Causes It and How to Fix It</h3>
         <p>Lifted the Jeep and now the front end darts over every bump? That&rsquo;s bump steer &mdash; a geometry side effect of the lift, not a worn part. The track bar and drag link are no longer parallel, so the axle steers itself. Why it happens, how it differs from death wobble, and the right fix for your lift height (and the one mistake that creates it).</p>
@@ -285,6 +322,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-engine-oil-leaks/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-engine-oil-leaks.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ 4.0 Oil Leaks: Where They Come From and Which Ones Matter</h3>
         <p>The two most common 4.0 leaks are the valve cover gasket and the oil filter adapter o-rings &mdash; both cheap, both an afternoon&rsquo;s work. The rear main seal gets blamed most and is the least likely, because it catches drips from everything above it. How to find the real source before you buy a gasket.</p>
@@ -292,6 +330,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/do-you-need-a-slip-yoke-eliminator/">
+        <img class="tm-blog-thumb" src="/images/photo-do-you-need-a-slip-yoke-eliminator.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ &middot; TJ &middot; Wrangler</span>
         <h3>Do You Need a Slip Yoke Eliminator? The Lift Threshold (and Why a JK Doesn't Need One)</h3>
         <p>You need an SYE when a lift raises the rear driveshaft angle enough to cause vibration the slip yoke can't absorb &mdash; on an NP231 Jeep (XJ, YJ, TJ, ZJ) that's about 3&ndash;4". Fixed-yoke Jeeps (every JK and JL, plus the TJ/LJ Rubicon) don't need one. The thresholds, the costs, SYE vs. hack-n-tap, and why you need a CV driveshaft too.</p>
@@ -299,6 +338,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-aw4-transmission-maintenance/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-aw4-transmission-maintenance.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ AW4 Transmission Maintenance: Fluid, Filter, and Why You Don't Flush It</h3>
         <p>Service the AW4 with a drain-and-fill of Dexron III/Mercon ATF, not a high-pressure flush. Drop the pan, clean the screen and magnet, refill 3&ndash;4 quarts &mdash; every 30k miles, or 15k if you wheel or tow. Here's the right fluid, the real interval, and why heat is what kills an AW4.</p>
@@ -306,6 +346,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-tire-size-by-lift/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-tire-size-by-lift.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>What Size Tires Fit Your XJ? Lift Height to Tire Size, Decoded</h3>
         <p>With factory flares: 2" clears 30s, 3" clears 31s, 4.5" clears 32s, 6.5" clears 33s &mdash; trim the fenders and each step goes up a size. Here's the full chart, why backspacing matters as much as lift, and when you have to re-gear.</p>
@@ -313,6 +354,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-rust-inspection/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-rust-inspection.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>XJ Rust Inspection: What's Fixable and What's a Walk-Away</h3>
         <p>The XJ is a unibody, so the frame rails are the body — rot near a spring mount is structural and ends the deal. Floor pans, rockers, and quarters are fixable. Here's where to look and how to tell the difference before you buy.</p>
@@ -320,6 +362,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-overheating-diagnosis/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-overheating-diagnosis.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Cherokee</span>
         <h3>Your XJ Is Overheating: The Diagnosis Sequence, In Order</h3>
         <p>Six causes explain nearly every overheating 4.0L XJ — and the first four are cheap to test. Coolant and cap, thermostat, fan clutch, e-fan, radiator, water pump: here's the test for each, in the order that finds the fault without throwing parts at it.</p>
@@ -327,6 +370,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="tacoma" href="/blog/tacoma-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-tacoma-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Tacoma</span>
         <h3>Toyota Tacoma: The Complete Trail Manual Overview</h3>
         <p>The resale-proof mid-size truck that built the modern overland scene. Here's what each generation actually is, which engines and trims matter, the frame-rust history every buyer needs to know, and who should build one.</p>
@@ -334,6 +378,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="tacoma" href="/blog/tacoma-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-tacoma-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Tacoma</span>
         <h3>Buying a Used Toyota Tacoma: What to Inspect Before You Pay</h3>
         <p>The frame decides whether a used Tacoma is a steal or scrap. Here's exactly what to inspect by generation, which engines and transmissions to trust, what each problem costs, and what a clean truck should run in 2026.</p>
@@ -341,6 +386,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="tacoma" href="/blog/tacoma-lift-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-tacoma-lift-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Tacoma</span>
         <h3>Lifting a Toyota Tacoma: Coilovers, Leaf Packs, and What Each Lift Actually Clears</h3>
         <p>A coilover up front, leaf springs out back — the Tacoma's split suspension is where most lift regret comes from. Here's how to read your truck, why cheap rear blocks cause axle wrap, and what each path actually costs.</p>
@@ -348,6 +394,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/jeep-40-crank-position-sensor-symptoms/">
+        <img class="tm-blog-thumb" src="/images/photo-jeep-40-crank-position-sensor-symptoms.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">4.0 Engine</span>
         <h3>Jeep 4.0 Crank Position Sensor: Symptoms, the Hot-Start Test, and the Fix</h3>
         <p>Runs fine cold, stalls hot, won't restart until it cools? That heat-soak no-start is the classic failing crank sensor — not the engine. Here's how to confirm it and which part to buy.</p>
@@ -355,6 +402,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/jeep-40-exhaust-manifold-crack/">
+        <img class="tm-blog-thumb" src="/images/photo-jeep-40-exhaust-manifold-crack.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">4.0 Engine</span>
         <h3>Jeep 4.0 Cracked Exhaust Manifold: Symptoms, the Real Fix, and What It Costs</h3>
         <p>A tick that's loudest on a cold start and fades as it warms is the classic cracked 4.0 manifold. Here's why welding rarely holds, and the flex-jointed replacement that does.</p>
@@ -362,6 +410,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-oil-pressure-gauge-bouncing/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-oil-pressure-gauge-bouncing.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Diagnostics</span>
         <h3>Your XJ Oil Pressure Gauge Is Bouncing or Dropping — Here's How to Tell If It's Serious</h3>
         <p>On a 4.0L, an erratic needle with a smooth-running engine is almost always the sending unit or its wire — not the engine. Here's the diagnostic order and the $0 test that settles it.</p>
@@ -369,6 +418,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="gladiator" href="/blog/gladiator-jt-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-gladiator-jt-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Gladiator JT</span>
         <h3>Jeep Gladiator JT: The Complete Trail Manual Overview</h3>
         <p>The only mid-size truck with a removable top, doors, and a real solid-axle trail pedigree. Here's what makes the JT distinctive, where it compromises, and who should actually build one.</p>
@@ -376,6 +426,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="gladiator" href="/blog/gladiator-jt-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-gladiator-jt-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Gladiator JT Buyer's Guide</span>
         <h3>Buying a Used Jeep Gladiator JT: What to Inspect Before You Pay</h3>
         <p>A used JT can be a great buy or an expensive lesson. Here's exactly what to check, which years and trims hold up, what the known problems cost, and what you should pay by year and mileage.</p>
@@ -383,6 +434,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="gladiator" href="/blog/gladiator-jt-lift-kit/">
+        <img class="tm-blog-thumb" src="/images/photo-gladiator-jt-lift-kit.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">Gladiator JT Build</span>
         <h3>Jeep Gladiator JT Lift Kit: Everything You Need to Know</h3>
         <p>A 2.5-inch coil lift on 35s is the sweet spot. Here's the fitment map, the supporting parts that actually matter, why the coil-sprung rear and long wheelbase change the math, and when to re-gear.</p>
@@ -390,6 +442,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="tj" href="/blog/tj-lift-kit-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-tj-lift-kit-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">TJ Build</span>
         <h3>How to Lift a TJ Wrangler: Springs, Caster, and What You Need Before Tires</h3>
         <p>A 3&ndash;3.5-inch short-arm lift fits 33&times;12.5-inch tires without a body lift and keeps the NP231 slip yoke in a safe operating range. Here's the tier breakdown, why caster correction isn't optional, and when you actually need an SYE.</p>
@@ -397,7 +450,56 @@
       </a>
 
 
+      <a class="tm-blog-card" data-vehicle="raptor" href="/blog/raptor-37s-leveling-combo/">
+        <img class="tm-blog-thumb" src="/images/photo-raptor-37s-leveling-combo.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">F-150 Raptor</span>
+        <h3>Putting 37s on a Raptor: The Leveling Combo That Actually Works</h3>
+        <p>Fitting 37s to a Ford Raptor isn't a lift — it's a fitment and geometry job. Here's why a traditional spacer/coil lift is the wrong move, what a preload collar plus upper control arms actually does, and the full parts, alignment, and cost breakdown for Gen 2 and Gen 3.</p>
+        <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
+      <a class="tm-blog-card" data-vehicle="raptor" href="/blog/raptor-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-raptor-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">F-150 Raptor</span>
+        <h3>Buying a Used Raptor: What to Inspect Before You Pay</h3>
+        <p>A used Raptor is a desert truck that may have spent its life being used like one. Here's a generation-by-generation inspection checklist — cam phasers, 10R80 shudder, leaf-pack fade, and impact damage — plus realistic price ranges by year and mileage.</p>
+        <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
+      <a class="tm-blog-card" data-vehicle="raptor" href="/blog/raptor-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-raptor-overview.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">F-150 Raptor</span>
+        <h3>The Ford F-150 Raptor: What Makes It Distinctive and Who Should Build One</h3>
+        <p>The Raptor is a factory-built long-travel desert truck — fast over rough ground in a way no lifted half-ton can match. Here's an honest look at the generations, the engines, and who should buy or build one.</p>
+        <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
+      <a class="tm-blog-card" data-vehicle="bronco" href="/blog/bronco-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-bronco-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">Early Bronco</span>
+        <h3>Buying a Used Early Bronco: What to Inspect Before You Pay</h3>
+        <p>On an early Bronco, rust is the number that bankrupts builds — not the engine. Here's exactly where these trucks rot, what to check on the drivetrain, what's reproduction versus original, and the price ranges to expect before you hand over a deposit.</p>
+        <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
+      <a class="tm-blog-card" data-vehicle="bronco" href="/blog/bronco-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-bronco-overview.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">Early Bronco</span>
+        <h3>The Early Ford Bronco (1966–1977): What Makes It Distinctive and Who Should Build One</h3>
+        <p>The first-gen Bronco is a coil-sprung, short-wheelbase 4x4 that's now a six-figure collector vehicle. Here's what the platform actually is, what a build really costs, and who should buy one versus look elsewhere.</p>
+        <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
+      <a class="tm-blog-card" data-vehicle="bronco" href="/blog/bronco-power-steering-disc-brakes/">
+        <img class="tm-blog-thumb" src="/images/photo-bronco-power-steering-disc-brakes.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">Early Bronco</span>
+        <h3>Early Bronco Power Steering &amp; Disc Brake Conversion: Everything You Need to Know</h3>
+        <p>Power steering and front disc brakes are the two upgrades that make an early Bronco safe and pleasant to drive every day. Here's how each conversion works, what the kits actually include, realistic costs, and the safety-critical steps you cannot skip on the brakes.</p>
+        <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-ball-joint-replacement/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-ball-joint-replacement.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Steering &amp; Suspension</span>
         <h3>XJ Ball Joint Replacement: Symptoms, Diagnosis, and DIY</h3>
         <p>A clunk from a front corner over bumps is the tell. Here's how to test for play, what to buy (Spicer 706944X), and how to press them yourself with a rented tool.</p>
@@ -405,6 +507,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-death-wobble/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-death-wobble.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JK Diagnostics</span>
         <h3>JK Death Wobble: How to Diagnose It and Fix It for Good</h3>
         <p>The factory track bar bolt is undersized by design — it's the root cause for most JKs. Here's the diagnosis sequence and the fix that actually holds, including what lifted rigs need to do differently.</p>
@@ -412,6 +515,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-head-gasket-vs-cracked-0331-head/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-head-gasket-vs-cracked-0331-head.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Diagnostics</span>
         <h3>Blown Head Gasket or Cracked 0331 Head? How to Tell on a 4.0L XJ</h3>
         <p>Slow coolant loss with no overheating points to a cracked 0331 head, not a gasket. Here's the diagnostic order that separates them without pulling the head.</p>
@@ -419,12 +523,14 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-fender-cut-35s/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-fender-cut-35s.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Body &amp; Tires</span>
         <h3>How to Cut XJ Fenders to Fit 35-Inch Tires: The Notch and Fold Method</h3>
         <p>Lift alone won't get 35s under an XJ. Here's the full front and rear fender cut process — notch and fold on the rear quarters, what to seal, and flare options after.</p>
         <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read →</span></div>
       </a>
             <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-death-wobble-causes/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-death-wobble-causes.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Steering</span>
         <h3>XJ Death Wobble: Causes, Diagnosis, and the Fix That Actually Works</h3>
         <p>It's almost always the track bar bracket bolt or a worn track bar. Here's how to confirm it and fix it before it damages your steering box.</p>
@@ -432,6 +538,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-cooling-system-failures/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-cooling-system-failures.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ Engine</span>
         <h3>XJ Cooling System Failures: What Breaks, When, and What to Do</h3>
         <p>The factory radiator is the most common failure. Here's the full list — radiator, water pump, thermostat, hoses — in order of likelihood.</p>
@@ -439,6 +546,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JK</span>
         <h3>Buying a Used Jeep Wrangler JK: What to Inspect Before You Pay</h3>
         <p></p>
@@ -446,6 +554,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-lift-kit-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-lift-kit-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JK</span>
         <h3>JK Wrangler Lift Kits: What Size, What Kit, and What It'll Really Cost</h3>
         <p></p>
@@ -453,6 +562,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jk" href="/blog/jk-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-jk-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JK</span>
         <h3>The Jeep Wrangler JK: What Makes It Worth Building and What It'll Cost You</h3>
         <p></p>
@@ -460,6 +570,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jl" href="/blog/jl-lift-kit-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-jl-lift-kit-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JL</span>
         <h3>JL Wrangler Lift Kit Guide: Heights, Kits, and What the JL Actually Needs</h3>
         <p></p>
@@ -467,6 +578,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jl" href="/blog/jl-used-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-jl-used-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JL</span>
         <h3>Buying a Used Jeep Wrangler JL: What to Inspect Before You Pay</h3>
         <p></p>
@@ -474,6 +586,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="jl" href="/blog/jl-wrangler-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-jl-wrangler-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">JL</span>
         <h3>Jeep Wrangler JL: What Makes It Different, Who It's For, and What to Know Before You Build</h3>
         <p></p>
@@ -481,6 +594,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="4runner" href="/blog/4runner-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-4runner-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">4Runner</span>
         <h3>Toyota 4Runner: Why It Survives, What to Watch For, and Whether It's the Right Used Buy</h3>
         <p></p>
@@ -488,6 +602,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="power-wagon" href="/blog/power-wagon-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-power-wagon-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">POWER-WAGON</span>
         <h3>Buying a used Power Wagon: what to inspect, what to walk away from, what to pay.</h3>
         <p>The Power Wagon has been on sale in its modern form since 2005 and has had three significant generations. Each has known issues. Here's what</p>
@@ -495,6 +610,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="power-wagon" href="/blog/power-wagon-lift-options/">
+        <img class="tm-blog-thumb" src="/images/photo-power-wagon-lift-options.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">POWER-WAGON</span>
         <h3>Power Wagon lift options: from $90 to $24,000, and what each gets you.</h3>
         <p>The Power Wagon's IFS front suspension is more constrained than a solid-axle Jeep, but the factory Articulink sway-bar disconnect already gi</p>
@@ -502,6 +618,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="power-wagon" href="/blog/power-wagon-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-power-wagon-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">POWER-WAGON</span>
         <h3>The Ram Power Wagon is the only factory truck with both lockers.</h3>
         <p>It's not the fastest, it's not the most refined, and it's not the cheapest. But for the specific job of going somewhere harder than the road</p>
@@ -509,6 +626,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="tj" href="/blog/tj-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-tj-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">TJ</span>
         <h3>Buying a Used TJ Wrangler: What to Inspect Before You Pay</h3>
         <p></p>
@@ -516,6 +634,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="tj" href="/blog/tj-overview/">
+        <img class="tm-blog-thumb" src="/images/photo-tj-overview.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">TJ</span>
         <h3>The Jeep TJ Wrangler: What Makes It Special and Who Should Build One</h3>
         <p></p>
@@ -523,6 +642,7 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="general" href="/blog/when-to-re-gear-axles/">
+        <img class="tm-blog-thumb" src="/images/photo-when-to-re-gear-axles.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">GENERAL</span>
         <h3>When to Re-Gear Your Axles: The Math, the Feel, and When to Leave It Alone</h3>
         <p></p>
@@ -530,13 +650,31 @@
       </a>
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-dana-35/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-dana-35.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ</span>
         <h3>The XJ Dana 35: When to Keep It, When to Swap It, and What to Replace It With</h3>
         <p></p>
         <div class="tm-blog-meta"><span>June 2026</span><span class="read-more">Read →</span></div>
       </a>
+      <a class="tm-blog-card" data-vehicle="4runner" href="/blog/4runner-lift-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-4runner-lift-guide.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">4Runner</span>
+        <h3>Lifting a Toyota 4Runner: Spacers, Coilovers, and Full Kits Explained</h3>
+        <p>For most 5th-gen 4Runners, a 2–3 inch front lift on quality coilovers with a matched rear is the sweet spot for 33s. Spacers level the stance on a budget but add no travel. Here's how to read your situation and what each path costs.</p>
+        <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+      <a class="tm-blog-card" data-vehicle="4runner" href="/blog/4runner-buyers-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-4runner-buyers-guide.webp" alt="" loading="lazy" width="600" height="400">
+        <span class="tm-blog-tag">4Runner</span>
+        <h3>Buying a Used Toyota 4Runner: What to Inspect Before You Pay</h3>
+        <p>The frame and the maintenance records decide whether a used 4Runner is a bargain or a money pit. Here's exactly what to inspect by generation, what each problem costs to fix, and what a clean example should run.</p>
+        <div class="tm-blog-meta"><span>May 2026</span><span class="read-more">Read &rarr;</span></div>
+      </a>
+
+
 
       <a class="tm-blog-card" data-vehicle="xj" href="/blog/xj-lift-kit-guide/">
+        <img class="tm-blog-thumb" src="/images/photo-xj-lift-kit-guide.webp" alt="" loading="lazy" width="600" height="400">
         <span class="tm-blog-tag">XJ</span>
         <h3>How to Lift a Cherokee XJ: The Right Setup, in the Right Order</h3>
         <p></p>
@@ -549,133 +687,101 @@
 </main>
 
 <script>
-/* =========================================================
-   Vehicle-aware blog filter
-   Selection priority: ?vehicle=<id> → localStorage 'tm.vehicle'
-   → document.referrer path (e.g. /xj/, /jk/ → xj, jk)
-   Cards with data-vehicle="general" always show.
-   ========================================================= */
+/* Blog vehicle filter — chips built from the cards' data-vehicle values.
+   Selection priority on load: ?vehicle=<id> → localStorage 'tm.vehicle' → referring vehicle page.
+   Cards marked data-vehicle="general" show under every vehicle. */
 (function(){
-  // Known active vehicle slugs (manifest.json — keep in sync if vehicles added)
-  var VEHICLES = {
-    xj:          'XJ Cherokee',
-    tj:          'Wrangler TJ',
-    jk:          'Wrangler JK',
-    jl:          'Wrangler JL',
-    gladiator:   'Gladiator JT',
-    '4runner':   '4Runner',
-    tacoma:      'Tacoma',
-    bronco:      'Bronco (Early)',
-    bronco6g:    'Bronco (6th Gen)',
-    'bronco-ii': 'Bronco II',
-    'full-size-bronco': 'Full-Size Bronco',
-    raptor:      'F-150 Raptor',
-    'power-wagon':'Power Wagon'
-  };
-  // Map directory slugs that aren't first-class IDs to their canonical ID
-  // (so a visit to /bronco-ii/ still surfaces the closest match).
-  var ALIASES = {
-    'bronco-ii': 'bronco',
-    'full-size-bronco': 'bronco',
-    'bronco6g': 'bronco'
-  };
-
-  var STORAGE_KEY = 'tm.vehicle';
-
-  function canonical(slug){
-    if (!slug) return null;
-    slug = String(slug).toLowerCase();
-    return ALIASES[slug] || (VEHICLES[slug] ? slug : null);
-  }
-  function vehicleFromPath(path){
-    if (!path) return null;
-    var m = path.match(/^\/([a-z0-9-]+)\//i);
-    if (!m) return null;
-    return canonical(m[1]);
-  }
-
-  function readQuery(){
-    try {
-      var p = new URLSearchParams(window.location.search).get('vehicle');
-      return canonical(p);
-    } catch(e){}
+  var NAMES = {xj:'Cherokee XJ', tj:'Wrangler TJ', jk:'Wrangler JK', jl:'Wrangler JL', gladiator:'Gladiator',
+    '4runner':'4Runner', tacoma:'Tacoma', bronco:'Early Bronco', bronco6g:'Bronco (6th gen)', raptor:'Raptor',
+    'power-wagon':'Power Wagon'};
+  var ORDER = ['xj','tj','jk','jl','gladiator','4runner','tacoma','bronco','bronco6g','raptor','power-wagon'];
+  var KEY = 'tm.vehicle';
+  function known(v){ v = (v||'').toLowerCase(); return NAMES[v] ? v : null; }
+  function pick(){
+    try { var q = known(new URLSearchParams(location.search).get('vehicle')); if (q) return q; } catch(e){}
+    try { var st = known(localStorage.getItem(KEY)); if (st) return st; } catch(e){}
+    try { if (document.referrer) { var u = new URL(document.referrer);
+      if (u.origin === location.origin) { var m = u.pathname.match(/^\/([a-z0-9-]+)\//); if (m) return known(m[1]); } } } catch(e){}
     return null;
   }
-  function readStorage(){
-    try {
-      return canonical(localStorage.getItem(STORAGE_KEY));
-    } catch(e){}
-    return null;
-  }
-  function readReferrer(){
-    try {
-      if (!document.referrer) return null;
-      var url = new URL(document.referrer);
-      // Only honor referrers from the same origin to avoid surprises.
-      if (url.origin !== window.location.origin) return null;
-      return vehicleFromPath(url.pathname);
-    } catch(e){ return null; }
-  }
-  function persist(v){
-    try { v ? localStorage.setItem(STORAGE_KEY, v) : localStorage.removeItem(STORAGE_KEY); } catch(e){}
-  }
-
-  function pickVehicle(){
-    return readQuery() || readStorage() || readReferrer();
-  }
-
-  function applyFilter(vid){
-    var cards = document.querySelectorAll('.tm-blog-card');
-    var shown = 0, vehicleShown = 0;
+  function apply(vid){
+    var cards = document.querySelectorAll('.tm-blog-card'), shown = 0;
     cards.forEach(function(c){
-      var dv = (c.getAttribute('data-vehicle') || '').toLowerCase();
-      if (!vid) { c.hidden = false; shown++; return; }
-      if (dv === 'general' || dv === vid) {
-        c.hidden = false;
-        shown++;
-        if (dv === vid) vehicleShown++;
-      } else {
-        c.hidden = true;
-      }
+      var dv = (c.getAttribute('data-vehicle')||'').toLowerCase();
+      var on = !vid || dv === 'general' || dv === vid;
+      c.hidden = !on; if (on) shown++;
     });
-    var bar = document.getElementById('tm-blog-filter');
-    var lbl = document.getElementById('tm-blog-filter-label');
+    document.querySelectorAll('#tm-blog-chips .tm-chip').forEach(function(b){
+      b.setAttribute('aria-pressed', String((b.getAttribute('data-v')||'') === (vid||'')));
+    });
     var empty = document.getElementById('tm-blog-filter-empty');
-    if (vid) {
-      lbl.textContent = VEHICLES[vid] || vid;
-      bar.hidden = false;
-      empty.hidden = vehicleShown > 0 || shown > 0;
-    } else {
-      bar.hidden = true;
-      empty.hidden = true;
-    }
+    if (empty) empty.hidden = shown > 0;
   }
-
-  function clearFilter(){
-    persist(null);
-    applyFilter(null);
+  function set(vid){
+    try { vid ? localStorage.setItem(KEY, vid) : localStorage.removeItem(KEY); } catch(e){}
+    apply(vid);
   }
-
   document.addEventListener('DOMContentLoaded', function(){
-    var vid = pickVehicle();
-    if (vid) persist(vid);
-    applyFilter(vid);
-
-    var clearBtn = document.getElementById('tm-blog-filter-clear');
-    if (clearBtn) clearBtn.addEventListener('click', clearFilter);
-    document.querySelectorAll('[data-clear="1"]').forEach(function(b){
-      b.addEventListener('click', clearFilter);
-    });
+    var bar = document.getElementById('tm-blog-chips'); if (!bar) return;
+    var counts = {};
+    document.querySelectorAll('.tm-blog-card').forEach(function(c){
+      var dv = (c.getAttribute('data-vehicle')||'').toLowerCase(); counts[dv] = (counts[dv]||0) + 1; });
+    function chip(v, label){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'tm-chip';
+      b.setAttribute('data-v', v); b.textContent = label;
+      b.addEventListener('click', function(){ set(v || null); }); bar.appendChild(b);
+    }
+    chip('', 'All posts');
+    ORDER.forEach(function(v){ if (counts[v]) chip(v, NAMES[v]); });
+    apply(pick());
+    document.querySelectorAll('[data-clear="1"]').forEach(function(b){ b.addEventListener('click', function(){ set(null); }); });
   });
 })();
 </script>
 
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
 <footer class="tm-footer">
   <div class="tm-footer-inner">
-    <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
-    <p style="margin-top:6px"><a href="/db/">DIY Database</a> · <a href="/workshop/">The Workshop</a> · <a href="/about/">About</a></p>
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
   </div>
 </footer>
+<!-- TM:FOOTER:END -->
 
 <script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
 </body>

@@ -3,15 +3,20 @@
 <head>
 <!-- tm:generated db_static_build -->
 <meta charset="utf-8">
-<title>TJ Vacuum Leak Diagnosis — Finding and Fixing Intake Leaks — Jeep Wrangler TJ | Trail Manual</title>
+<title>TJ Vacuum Leak Diagnosis — Finding and Fixing Intake Leaks</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="A vacuum leak on the TJ 4.0 mimics half a dozen other problems — lean codes, idle surge, rough idle, hesitation. Before replacing O2 sensors or the…">
+<meta name="description" content="To find a vacuum leak on a TJ, start with the scan tool: long-term fuel trim above roughly +10 percent at idle that falls toward normal at 2,500 rpm…">
 <link rel="canonical" href="https://trailmanual.com/db/tj/tj-vacuum-leak-diagnosis/">
 <meta property="og:title" content="TJ Vacuum Leak Diagnosis — Finding and Fixing Intake Leaks — Jeep Wrangler TJ">
-<meta property="og:description" content="A vacuum leak on the TJ 4.0 mimics half a dozen other problems — lean codes, idle surge, rough idle, hesitation. Before replacing O2 sensors or the…">
+<meta property="og:description" content="To find a vacuum leak on a TJ, start with the scan tool: long-term fuel trim above roughly +10 percent at idle that falls toward normal at 2,500 rpm…">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://trailmanual.com/db/tj/tj-vacuum-leak-diagnosis/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-cat-tools-diagnostic.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/_shared.css">
 <script>
 (function(){try{var s=localStorage.getItem('tm-theme');
@@ -31,76 +36,239 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "TJ Vacuum Leak Diagnosis \u2014 Finding and Fixing Intake Leaks",
-  "description": "A vacuum leak on the TJ 4.0 mimics half a dozen other problems \u2014 lean codes, idle surge, rough idle, hesitation. Before replacing O2 sensors or the\u2026",
+  "description": "To find a vacuum leak on a TJ, start with the scan tool: long-term fuel trim above roughly +10 percent at idle that falls toward normal at 2,500 rpm\u2026",
   "author": {
     "@type": "Organization",
-    "name": "Trail Manual"
+    "name": "Trail Manual",
+    "url": "https://trailmanual.com/about/"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Trail Manual"
+    "name": "Trail Manual",
+    "url": "https://trailmanual.com/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://trailmanual.com/favicon.png"
+    }
   },
   "mainEntityOfPage": "https://trailmanual.com/db/tj/tj-vacuum-leak-diagnosis/",
-  "about": "Jeep Wrangler TJ"
+  "about": "Jeep Wrangler TJ",
+  "image": [
+    "https://trailmanual.com/images/photo-cat-tools-diagnostic.webp"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Trail Manual",
+      "item": "https://trailmanual.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Jeep Wrangler TJ",
+      "item": "https://trailmanual.com/tj/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "TJ Vacuum Leak Diagnosis \u2014 Finding and Fixing Intake Leaks",
+      "item": "https://trailmanual.com/db/tj/tj-vacuum-leak-diagnosis/"
+    }
+  ]
 }
 </script>
 <style>
-.tm-guide{max-width:760px;margin:0 auto;padding:24px 20px 64px}
-.tm-bc{font-size:13px;color:var(--text-dim);margin:8px 0 4px}
-.tm-bc a{color:var(--text-dim)}
-.tm-guide h1{font-size:30px;line-height:1.2;margin:8px 0 12px}
-.tm-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
-.tm-chip{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
-.tm-lead{font-size:18px;line-height:1.55;font-weight:500;margin:0 0 20px}
-.tm-guide h2{font-size:20px;margin:28px 0 10px;padding-top:8px;border-top:1px solid var(--line)}
-.tm-guide p,.tm-guide li{line-height:1.65}
-.tm-guide ul{padding-left:20px}
+.tm-facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.tm-fact{font-size:12px;line-height:1.4;border:1px solid var(--border);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
+.tm-article h2{font-size:20px;margin:32px 0 10px}
+.tm-article h3{font-size:17px;margin:24px 0 8px}
+.tm-article p,.tm-article li{line-height:1.7}
+.tm-article ul{padding-left:20px}
+.tm-article ol{padding-left:22px}
+.tm-article ol li,.tm-article ul li{margin:5px 0}
+.tm-article code{background:var(--bg-2);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-article p a,.tm-article li a{color:var(--clay-deep);text-decoration:underline;text-underline-offset:2px}
+[data-theme="dark"] .tm-article p a,[data-theme="dark"] .tm-article li a{color:var(--clay-light)}
 .tm-parts{width:100%;border-collapse:collapse;margin:6px 0;font-size:14px}
-.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
-.tm-guide h3{font-size:17px;margin:24px 0 8px}
-.tm-guide ol{padding-left:22px}
-.tm-guide ol li,.tm-guide ul li{margin:5px 0}
-.tm-guide code{background:rgba(127,127,127,.16);padding:1px 5px;border-radius:4px;font-size:.92em}
+.tm-parts th,.tm-parts td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border)}
 .tm-table-wrap{overflow-x:auto;margin:14px 0}
 .tm-md-table{width:100%;border-collapse:collapse;font-size:14px}
-.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.tm-md-table th,.tm-md-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
 .tm-md-table th{font-weight:600;color:var(--text-dim)}
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
+.tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
 </style>
 </head>
 <body>
-<div class="tm-guide">
-  <nav class="tm-bc"><a href="/">Home</a> / <a href="/db/">Database</a> / <a href="/tj/">Jeep Wrangler TJ</a></nav>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+<main>
+<article class="tm-article">
+  <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/tools_diagnostic">Tools &amp; Diag</a></nav>
   <h1>TJ Vacuum Leak Diagnosis — Finding and Fixing Intake Leaks</h1>
-  <div class="tm-chips"><span class="tm-chip">Difficulty 2/5</span><span class="tm-chip">1–3 hrs</span><span class="tm-chip">$5–35</span><span class="tm-chip">1997-2006</span></div>
-  <p class="tm-lead">A vacuum leak on the TJ 4.0 mimics half a dozen other problems — lean codes, idle surge, rough idle, hesitation. Before replacing O2 sensors or the IAC, find and fix the leak. It costs $5 in hose and 30 minutes.</p>
-<p>The 4.0L relies on intake vacuum for multiple systems: brake booster, the PCV system, the MAP sensor, the EGR system (where applicable), and various small ports on the intake manifold. Any unmetered air entering after the MAF sensor (or MAP sensor on the TJ&#x27;s speed-density system) reads as a lean condition. The PCM compensates with long-term fuel trim adjustments, but a large enough leak defeats the compensation and sets codes.</p>
-<p>Common codes from a vacuum leak: P0171 (system too lean, bank 1), P0300 (random misfire — large leak can cause this), P0507 (IAC RPM high — often a leak that artificially raises idle). If you see lean codes and the fuel system tests healthy, a vacuum leak is the first thing to rule out.</p>
-<p>On a 25-year-old TJ, the most common failure points are: the rubber elbow at the PCV valve (cracks from age), the intake manifold gasket (particularly the center cylinders), the vacuum hose to the brake booster (large, often overlooked), and the small port hoses at the intake manifold and throttle body.</p>
-<ul><li>OBD-II scanner — check fuel trim values. LTFT above +10% at idle strongly suggests a vacuum leak</li><li>Carb cleaner spray (narrow nozzle) or unlit propane torch</li><li>Eyes and hands</li><li>Optional: smoke machine — the most reliable method, rents from many auto parts stores</li></ul>
-<h3>Method 1 — Carb cleaner spray (common, no equipment required)</h3>
-<ol><li>Start the engine, let it reach operating temperature.</li><li>Spray short bursts of carb cleaner at suspected leak points: vacuum hose connections, intake manifold gasket surface, throttle body boot, PCV hose.</li><li>If idle RPM changes (usually increases) when you spray a spot, you&#x27;ve found the leak — the carb cleaner is being drawn in as extra fuel.</li><li>Work slowly. Carb cleaner is flammable — stay away from exhaust components.</li></ol>
-<h3>Method 2 — Smoke test (most reliable)</h3>
-<ol><li>A smoke machine pumps low-pressure white smoke into the intake system.</li><li>Leaks show up as wisps of smoke escaping from crack or failed seam.</li><li>Most independent shops will do a smoke test for $25–$50 if you don&#x27;t want to rent the equipment.</li></ol>
-<h3>Method 3 — Visual and physical inspection</h3>
-<ol><li>Inspect all vacuum hoses at their connection points. Look for cracks, hard/brittle rubber, loose clamps.</li><li>Squeeze each hose along its length — cracked hoses will flex and you&#x27;ll feel the failure point.</li><li>Check the large intake boot between the air filter housing and throttle body. Cracks here cause significant lean conditions.</li></ol>
-<p>Most TJ vacuum leaks are hose failures — a $3 length of 3/8&quot; vacuum hose from the parts store fixes them. Cut to length, push on over the fitting.</p>
-<p>A failed intake manifold gasket requires more work: drain coolant, remove the intake, replace the gasket, reinstall. A Fel-Pro gasket set is $20 and the job takes 3–4 hours with basic tools.</p>
-<ul><li>Clear lean codes after repair and drive a full drive cycle before rechecking. Long-term fuel trim takes time to reset.</li><li>If lean codes return after fixing an obvious leak, there may be a second leak elsewhere, or the oxygen sensor itself is failing (O2 sensors go lazy around 100k miles on the 4.0).</li><li>Brake booster hose is large and carries high vacuum — a crack here causes a noticeable change in brake feel (pedal goes hard before the leak causes any idle or fuel trim symptoms).</li></ul>
-<p>Carb cleaner: $6–$9. Vacuum hose assortment: $12–$18. Intake manifold gasket if needed: $18–$25. Most TJ vacuum leaks are hose failures that cost under $20 to fix.</p>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–8 hrs</span><span class="tm-fact">$10–120</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-verdict"><div class="tag">Short answer</div><p>To find a vacuum leak on a TJ, start with the scan tool: long-term fuel trim above roughly +10 percent at idle that falls toward normal at 2,500 rpm points to unmetered air. Then <a href="https://www.cars.com/articles/how-to-find-a-vacuum-leak/" target="_blank" rel="noopener">locate the leak with a smoke test</a> (best), a propane or water-mist test (workable), or a hose-by-hose inspection. Most TJ leaks are cracked hoses that cost under $20; the expensive one is the intake manifold gasket.</p></div>
+<figure class="tm-figure"><img src="/images/photo-cat-tools-diagnostic.webp" alt="Hands using a rugged diagnostic scan tablet resting over an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@edoardo_cuoghi_98?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Edoardo Cuoghi</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
+<p>The 4.0L TJ is a speed-density system: the PCM calculates airflow from the MAP sensor, engine speed, and throttle position rather than measuring it with a mass airflow sensor. Any air that enters the intake after the throttle plate is unmetered, so the PCM adds too little fuel. It compensates with fuel trim, but a large leak exceeds what trim can correct. The result is a rough or surging idle, hesitation off idle, a high idle that will not settle, or lean codes.</p>
+<p>Codes that commonly accompany a leak include P0171 (system too lean, bank 1), P0300 (random misfire, from a mixture too lean to burn reliably), and idle-related codes such as P0506 and P0507. None of those codes proves a leak, because a weak fuel pump, a clogged fuel filter, and a failing oxygen sensor can produce the same lean readings. See <a href="/db/tj/tj-obd2-diagnostics/">TJ OBD2 codes</a> for the full code list, and <a href="/db/tj/tj-fuel-filter-replacement/">TJ fuel filter replacement</a> to eliminate the fuel side.</p>
+<p><strong>Where TJ leaks usually come from, in rough order of frequency:</strong></p>
+<ul><li>Brittle or split small-diameter vacuum hoses and their tees, particularly the ones near the intake manifold and firewall.</li><li>The PCV hose and its grommet at the valve cover, which cracks from heat and oil.</li><li>The large brake booster vacuum hose and its check valve at the booster.</li><li>The throttle body gasket and the idle air control (IAC) motor seal.</li><li>The intake manifold gasket on the 4.0, which hardens with age and leaks around the runners.</li><li>The oil filler cap, the dipstick tube seal, and, on some years, evaporative (EVAP) purge lines.</li></ul>
+<ul><li>A scan tool that shows live short-term and long-term fuel trim (a $20 to $40 Bluetooth OBD2 dongle and a phone app works)</li><li>A smoke machine (rental from some parts stores, $150 to $250 to buy a basic one, or $50 to $100 at an independent shop for a test)</li><li>An unlit propane torch with the flame head removed, or a spray bottle of plain water, or brake-parts cleaner or carburetor cleaner as a last choice</li><li>A hand vacuum pump with gauge ($25 to $40) for testing the brake booster, check valve, and any vacuum-actuated parts</li><li>Vacuum hose in the sizes your Jeep uses, assorted clamps, and a few tees</li><li>Fel-Pro or equivalent intake gasket set, only if you confirm the manifold gasket is leaking</li></ul>
+<ol><li><strong>Read the fuel trims at idle, then at 2,500 rpm.</strong> Warm the engine fully. A leak adds the same volume of air regardless of engine speed, so at idle (low airflow) the percentage error is large and at 2,500 rpm (high airflow) the same leak is a small percentage. Trims that are high at idle and near zero at higher rpm are the signature of a vacuum leak. Trims that are high at both speeds suggest a fuel delivery or sensor problem.</li></ol>
+<ol><li><strong>Do a visual inspection with the engine off.</strong> Trace every hose from the intake manifold, throttle body, and brake booster. Look for cracks at bends, flattened or swollen sections, hoses pushed only partway onto nipples, and missing caps on unused ports. Squeeze each hose; a hard, brittle, or oily one needs replacing. Pull the PCV valve and check that its hose and grommet are intact. Check the large air intake tube between the air filter box and throttle body for splits at the corrugations.</li></ol>
+<ol><li><strong>Test the brake booster.</strong> With the engine off, pump the brake pedal several times until it is firm. Hold moderate pressure on the pedal and start the engine. The pedal should sink slightly as the booster fills with vacuum. If it does not, or if the pedal is hard at idle, the booster hose, its check valve, or the booster itself is leaking. A leaking booster diaphragm is a brake issue, and also an idle issue: do not drive the Jeep on the road until you are confident the brakes work normally.</li></ol>
+<ol><li><strong>Smoke test.</strong> Plug the intake inlet or the tube before the throttle body, connect the smoke machine to a vacuum port following the machine&#x27;s instructions, and apply low pressure. Look for smoke at gasket seams, hose connections, and around the base of the throttle body. Smoke escaping at the oil cap or dipstick tube means those seals are leaking too. A test with a flashlight in a darkened garage shows even small wisps. Always follow the machine&#x27;s maker on pressure; too much pressure can push out seals.</li></ol>
+<ol><li><strong>If no smoke machine, use the propane or water method.</strong> With the engine idling, direct a very small amount of propane at suspect joints. If idle speed rises or smooths out when the gas reaches a point, air is entering there. Keep the propane away from the exhaust manifold and any ignition source, work outdoors or with the door open, and never ignite it. The water-mist version is slower but safer: a brief mist at a leak point can make the engine stumble or die as water is drawn in. Spray carburetor or brake cleaner only as a last choice; it is flammable, it attacks rubber and some plastics, and an over-spray on a hot manifold is a fire.</li></ol>
+<ol><li><strong>Fix the leak found.</strong> Replace hoses with the same inside diameter and wall type (vacuum hose, not fuel hose). Replace the PCV grommet and hose if brittle. Replace the throttle body gasket when the body has been off, which also ties into <a href="/db/tj/tj-throttle-body-cleaning/">TJ throttle body cleaning</a>. If the evidence points to the intake manifold gasket, plan a full day: on the 4.0 the intake and exhaust manifolds share a gasket set and fastener pattern, and the job requires removing the throttle body, fuel rail components, and several hoses. Follow the service manual&#x27;s torque sequence and specifications.</li></ol>
+<ol><li><strong>Clear the codes and drive a full cycle.</strong> After repair, clear codes, then drive for 15 to 30 minutes of mixed city and highway driving. Re-read the long-term fuel trim. It should trend back toward zero over the next few days of driving. If trims remain high, there is a second leak, or the problem was not a leak.</li></ol>
+<ul><li><strong>A second leak.</strong> Old rubber fails in groups. When you find one cracked hose, inspect the rest before closing the hood. Replace the set if all are original, because the parts cost less than the time spent re-diagnosing.</li><li><strong>Swapping parts without data.</strong> An oxygen sensor, MAP sensor, or IAC motor replaced on a guess is a $40 to $120 mistake. Read trims first.</li><li><strong>Lean codes that return after a good repair.</strong> Check fuel pressure with a gauge on the Schrader port on the fuel rail (specification in the service manual) and inspect the fuel filter and pump. A vacuum leak and a weak fuel pump can coexist.</li><li><strong>Misdiagnosing a worn engine.</strong> A cylinder with low compression or a burned valve produces rough idle that no hose will fix. A compression test settles it.</li><li><strong>Brake feel.</strong> A hard pedal or a pedal that sinks with the engine running means a booster issue. Treat it as a safety repair.</li></ul>
+<p><strong>Costs and sources.</strong> OBD2 scan dongle: $20 to $40. Vacuum hose and fittings: $10 to $25. PCV valve and grommet: $8 to $20. Throttle body gasket: $5 to $15. Intake manifold gasket set: $40 to $90 depending on brand. Smoke test at a shop: $50 to $100. Hand vacuum pump: $25 to $40. A shop quote for an intake manifold gasket replacement is usually $450 to $900, so the DIY price is mostly time. For the diagnostic side, <a href="/db/tj/tj-obd2-diagnostics/">TJ OBD2 codes</a> is the companion guide.</p>
 <h2>Tools required</h2>
 <ul><li>OBD-II scanner</li><li>propane torch (unlit)</li><li>carb cleaner spray</li><li>smoke machine (optional)</li><li>vacuum hand pump</li></ul>
 <h2>Parts</h2>
 
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Dorman vacuum hose kit (universal assortment)</td><td>Dorman</td><td>~$15</td></tr><tr><td>3M intake manifold gasket set — TJ 4.0</td><td>Fel-Pro</td><td>~$22</td></tr><tr><td>Throttle body intake boot — TJ 4.0</td><td>Dorman / OEM</td><td>~$28</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul class="tm-sources"><li><a href="https://www.cars.com/articles/how-to-find-a-vacuum-leak/" target="_blank" rel="noopener nofollow">How to Find a Vacuum Leak</a></li><li><a href="https://www.wranglertjforum.com/forum/" target="_blank" rel="noopener nofollow">TJ 4.0 idle surge and vacuum leak TSB</a></li></ul>
+<ul class="tm-sources"><li><a href="https://www.cars.com/articles/how-to-find-a-vacuum-leak/" target="_blank" rel="noopener">How to Find a Vacuum Leak</a></li><li><a href="https://www.wranglertjforum.com/forum/" target="_blank" rel="noopener">TJ 4.0 idle surge and vacuum leak TSB</a></li></ul>
 <h2>Related</h2>
-<ul><li><a href="/db/tj/tj-obd2-diagnostics/">TJ OBD-II Diagnostics — Reading Codes, Common Faults, and What They Mean</a></li><li><a href="/db/tj/tj-battery-upgrade/">TJ Battery Replacement and Upgrade Guide</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <hr style="margin:40px 0 16px;border:none;border-top:1px solid var(--line)">
-  <p style="font-size:13px;color:var(--text-dim)">Written and maintained by an AZ wheeler and driveway wrencher. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
-  <p style="font-size:12px;color:var(--text-dim);margin-top:14px"><a href="/" style="color:var(--accent)">Trail Manual</a> &middot; <a href="/about/" style="color:var(--accent)">About</a> &middot; <a href="/privacy/" style="color:var(--accent)">Privacy</a> &middot; <a href="/terms/" style="color:var(--accent)">Terms</a> &middot; <a href="/db/" style="color:var(--accent)">Database</a></p>
-</div>
+<ul><li><a href="/db/tj/tj-obd2-diagnostics/">TJ OBD-II Diagnostics — Reading Codes, Common Faults, and What They Mean</a></li><li><a href="/db/tj/tj-fuel-filter-replacement/">TJ Fuel Filter Replacement</a></li><li><a href="/db/tj/tj-throttle-body-cleaning/">TJ 4.0L Throttle Body Cleaning — Idle Issues and Carbon Buildup</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+</article>
+</main>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+<!-- TM:FOOTER:END -->
 </body>
 </html>

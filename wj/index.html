@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>(function(){try{var t=localStorage.getItem('tm-theme')=='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- tm:generated build_vehicles -->
+  <script>(function(){try{var t=localStorage.getItem('tm-theme');if(t==='dark'||(t!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
   <script>
@@ -17,200 +18,195 @@
   <link rel="canonical" href="https://trailmanual.com/wj/">
   <title>Jeep Grand Cherokee WJ 1999-2004 | Trail Manual</title>
   <meta name="description" content="The Trail Manual guide to the Jeep Grand Cherokee WJ — tools, DIY database, and trusted reads for the 1999–2004 second-generation Grand Cherokee.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Jeep Grand Cherokee WJ — Trail Manual">
+  <meta property="og:description" content="The Trail Manual guide to the Jeep Grand Cherokee WJ — tools, DIY database, and trusted reads for the 1999–2004 second-generation Grand Cherokee.">
+  <meta property="og:url" content="https://trailmanual.com/wj/">
+  <meta property="og:image" content="https://trailmanual.com/images/wj-hero.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="/_shared.css">
   <style>
-:root{
-  --slate:#2B3A4A; --slate-d:#1A2330; --slate-l:#5B6B7E;
-  --clay:#C97E50; --clay-d:#A85D33; --clay-l:#E8AB85;
-  --bone:#E8E2D2; --bone-d:#C9C1AC; --paper:#F7F4ED; --panel:#FFFCF5;
-  --safety:#B23B2F; --good:#5E8C5A; --moss:#3D5B47;
-  --sans:"DM Sans",-apple-system,sans-serif;
-  --mono:"JetBrains Mono",monospace;
-  --max:1200px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--slate);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-
-.hero{max-width:var(--max);margin:0 auto;padding:64px 32px 48px;border-bottom:1px solid var(--bone)}
-.eyebrow{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--clay);margin-bottom:18px}
-.hero h1{font-weight:500;font-size:clamp(42px,7vw,72px);letter-spacing:-0.02em;line-height:0.95;margin-bottom:20px}
-.hero-lede{font-size:clamp(16px,2vw,19px);color:var(--slate-l);max-width:680px;line-height:1.55;margin-bottom:32px}
+.hero{max-width:var(--max);margin:0 auto;padding:56px 32px 44px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:1fr;gap:36px;align-items:center}
+.hero[data-photo]{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}
+.eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+.hero h1{font-weight:600;font-size:clamp(36px,5.4vw,60px);letter-spacing:-0.02em;line-height:1.02;margin:0 0 12px;color:var(--text)}
+.hero-tag{font-size:clamp(18px,2.2vw,22px);font-weight:500;color:var(--text);margin:0 0 14px}
+.hero-lede{font-size:clamp(16px,1.8vw,18px);color:var(--text-dim);max-width:640px;line-height:1.6;margin:0 0 26px}
+.hero-photo{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg);background:var(--bg-2)}
 .chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bone);border:1px solid var(--bone-d);border-radius:4px;font-family:var(--mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font-mono);font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text)}
 .chip-dot{width:6px;height:6px;border-radius:50%;background:var(--clay)}
 
 .section{max-width:var(--max);margin:0 auto;padding:56px 32px 0}
 .section.last{padding-bottom:80px}
-.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--bone);padding-bottom:14px;margin-bottom:24px;gap:24px;flex-wrap:wrap}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--border);padding-bottom:14px;margin-bottom:24px;gap:24px;flex-wrap:wrap}
 .section-head .left{display:flex;align-items:baseline;gap:14px}
-.section-label{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate-l)}
-.section-title{font-size:24px;font-weight:600;letter-spacing:-0.015em}
-.section-sub{font-family:var(--mono);font-size:11px;color:var(--slate-l);letter-spacing:0.06em;text-transform:uppercase}
+.section-label{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim)}
+.section-title{font-size:24px;font-weight:600;letter-spacing:-0.015em;margin:0;color:var(--text)}
+.section-sub{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);letter-spacing:0.06em;text-transform:uppercase}
+.section-sub a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.section-sub a:hover{color:var(--accent)}
 
 /* Tools grid */
-.grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
+.grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
 .grid-tools.six{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){.grid-tools.six{grid-template-columns:1fr 1fr}}
-.tool-card{background:var(--paper);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative}
-.tool-card:hover{background:var(--bone)}
-.tool-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
+.tool-card{background:var(--panel);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative;color:var(--text)}
+.tool-card:hover{background:var(--bg-2);color:var(--text)}
+.tool-card:hover .arrow{transform:translateX(4px);color:var(--accent)}
 .tool-card.soon{opacity:.65}
-.tool-card.soon:hover{background:var(--paper)}
-.tool-card.soon:hover .arrow{transform:none;color:var(--slate-l)}
+.tool-card.soon:hover{background:var(--panel)}
+.tool-card.soon:hover .arrow{transform:none;color:var(--text-dim)}
 .tool-icon{width:36px;height:36px;border-radius:6px;background:rgba(201,126,80,.14);color:var(--clay);display:flex;align-items:center;justify-content:center}
 .tool-icon.safety{background:rgba(178,59,47,.14);color:var(--safety)}
 .tool-icon.good{background:rgba(94,140,90,.14);color:var(--good)}
-.tool-icon.neutral{background:var(--bone);color:var(--slate-l)}
+.tool-icon.neutral{background:var(--bg-2);color:var(--text-dim)}
 .tool-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .tool-title{font-size:19px;font-weight:600;letter-spacing:-0.01em;line-height:1.2}
-.tool-desc{font-size:14px;color:var(--slate-l);flex:1}
+.tool-desc{font-size:14px;color:var(--text-dim);flex:1}
 .tool-foot{display:flex;align-items:center;justify-content:space-between}
-.tag{font-family:var(--mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1px solid var(--bone-d);color:var(--slate-l)}
+.tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1px solid var(--border);color:var(--text-dim)}
 .tag.safety{background:rgba(178,59,47,.1);color:var(--safety);border-color:rgba(178,59,47,.3)}
 .tag.new{background:rgba(94,140,90,.12);color:var(--good);border-color:rgba(94,140,90,.3)}
 .tag.clay{background:rgba(201,126,80,.1);color:var(--clay);border-color:rgba(201,126,80,.3)}
-.arrow{font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate-l);display:inline-flex;align-items:center;gap:6px;transition:transform .15s,color .15s}
+.arrow{font-family:var(--font-mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-dim);display:inline-flex;align-items:center;gap:6px;transition:transform .15s,color .15s}
 .arrow::after{content:'\2192';font-size:13px}
 
 /* Learn grid */
-.grid-learn{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bone);border:1px solid var(--bone)}
-.learn-card{background:var(--paper);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:190px;transition:background .15s}
-.learn-card:hover{background:var(--bone)}
-.learn-card:hover .arrow{transform:translateX(4px);color:var(--clay)}
-.learn-eye{font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--clay)}
-.learn-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.22}
-.learn-desc{font-size:13.5px;color:var(--slate-l);flex:1;line-height:1.5}
+.grid-learn{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
+.learn-card{background:var(--panel);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:190px;transition:background .15s;color:var(--text)}
+.learn-card:hover{background:var(--bg-2);color:var(--text)}
+.learn-card:hover .arrow{transform:translateX(4px);color:var(--accent)}
+.learn-eye{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin:0}
+.learn-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.22;margin:0}
+.learn-desc{font-size:13.5px;color:var(--text-dim);line-height:1.5;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.learn-card .arrow{margin-top:auto}
+.early-note{margin:18px 0 0;padding:12px 16px;border:1px solid var(--border);border-left:3px solid var(--clay);border-radius:var(--radius);background:var(--bg-2);font-size:14px;line-height:1.6}
 
 @media (max-width:900px){
   .grid-tools,.grid-learn{grid-template-columns:1fr 1fr}
+  .hero[data-photo]{grid-template-columns:1fr}
+  .hero[data-photo] .hero-photo{order:-1;aspect-ratio:16/9}
 }
 @media (max-width:600px){
-  .hero{padding:40px 20px 32px}
+  .hero{padding:24px 20px 32px;gap:22px}
   .section{padding:40px 20px 0}
   .section.last{padding-bottom:60px}
-  .grid-tools,.grid-learn{grid-template-columns:1fr}
+  .grid-tools,.grid-learn,.grid-tools.six{grid-template-columns:1fr}
 }
-
-.footer{border-top:1px solid var(--bone);padding:28px 32px;text-align:center;margin-top:48px}
-.footer p{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--bone-d)}
-
-/* ---- dark theme ---- */
-[data-theme="dark"]{--paper:#1A2330;--bone:#2B3A4A;--bone-d:#3A4E60;--slate:#E8E2D2;--slate-l:#9BABBF;--panel:#212d3a}
-[data-theme="dark"] body{background:var(--paper);color:var(--slate)}
-[data-theme="dark"] .hero{border-color:var(--bone)}
-[data-theme="dark"] .grid-tools,[data-theme="dark"] .grid-learn{background:var(--bone-d)}
-[data-theme="dark"] .tool-card,[data-theme="dark"] .learn-card{background:var(--panel)}
-[data-theme="dark"] .tool-card:hover,[data-theme="dark"] .learn-card:hover{background:var(--bone)}
-[data-theme="dark"] .chip{background:var(--bone);border-color:var(--bone-d);color:var(--slate)}
-[data-theme="dark"] .section-head{border-color:var(--bone)}
-[data-theme="dark"] .footer{border-color:var(--bone)}
-[data-theme="dark"] .footer p{color:var(--slate-l)}
-/* ---- theme toggle button ---- */
-.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(232,226,210,.2);border-radius:6px;background:transparent;color:rgba(232,226,210,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0;margin-left:8px}
-.tm-theme-btn:hover{border-color:var(--clay);color:var(--bone)}
-.tm-theme-icon{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block}
-.tm-theme-icon-sun{display:none}
-.tm-theme-icon-moon{display:block}
-[data-theme="dark"] .tm-theme-icon-sun{display:block}
-[data-theme="dark"] .tm-theme-icon-moon{display:none}
-/* ---- #tm-topbar scoped styles ---- */
-#tm-topbar{position:sticky;top:0;z-index:100;background:var(--slate-d,#1A2330);border-bottom:1px solid rgba(43,58,74,.8)}
-#tm-topbar .tm-topbar-inner{max-width:var(--max,1200px);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
-#tm-topbar .tm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bone,#E8E2D2)}
-#tm-topbar .tm-brand-mark{width:28px;height:28px;flex-shrink:0}
-#tm-topbar .tm-brand-mark svg{width:100%;height:100%;display:block;color:var(--bone,#E8E2D2)}
-#tm-topbar .tm-brand-text{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bone,#E8E2D2);display:flex;align-items:center;gap:4px}
-#tm-topbar .tm-brand-dot{width:4px;height:4px;background:var(--clay,#C97E50);border-radius:50%;display:inline-block}
-#tm-topbar .tm-nav-menu{display:flex;align-items:center;gap:2px;margin-left:auto}
-#tm-topbar .tm-nav-btn{height:40px;padding:0 12px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,226,210,.6);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;transition:color .15s,background .15s;white-space:nowrap}
-#tm-topbar .tm-nav-btn:hover,#tm-topbar .tm-nav-btn.tm-active{color:var(--bone,#E8E2D2);background:rgba(255,255,255,.06)}
-#tm-topbar .tm-chev{font-size:9px;opacity:.5;transition:transform .15s}
-#tm-topbar .tm-nav-btn.tm-active .tm-chev{transform:rotate(180deg);opacity:1}
-#tm-topbar .tm-garage-btn{display:flex;align-items:center;gap:7px}
-#tm-topbar .tm-garage-icon{width:26px;height:26px;border-radius:5px;background:rgba(201,126,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-size:9px;font-weight:700;color:var(--clay,#C97E50)}
-#tm-topbar .tm-dd-panel{display:none;position:absolute;left:-24px;right:-24px;top:calc(100% + 1px);background:var(--paper,#F7F4ED);border-top:1px solid var(--bone-d,#C9C1AC);border-bottom:1px solid var(--bone-d,#C9C1AC);z-index:99}
-#tm-topbar .tm-dd-panel.open{display:block}
-#tm-topbar .tm-dd-inner{max-width:var(--max,1200px);margin:0 auto;padding:18px 24px 22px;display:flex;gap:36px}
-#tm-topbar .tm-dd-col{flex:1}
-#tm-topbar .tm-dd-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-l,#5B6B7E);margin-bottom:8px}
-#tm-topbar .tm-dd-link{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;border-radius:6px;color:var(--slate,#2B3A4A);text-decoration:none;transition:background .12s;font-size:13px;line-height:1.3}
-#tm-topbar .tm-dd-link:hover{background:rgba(201,126,80,.1)}
-#tm-topbar .tm-dd-link strong{display:block;font-weight:500;margin-bottom:1px}
-#tm-topbar .tm-dd-link span:last-child{font-size:11px;color:var(--slate-l,#5B6B7E)}
-#tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
-#tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
-#tm-topbar .tm-hamburger svg{width:16px;height:16px}
-@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}#tm-topbar .tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
 </style>
 </head>
 <body>
 
-<header id="tm-topbar">
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span></a>
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">&#9660;</span></button>
-      <button class="tm-nav-btn" id="tm-btn-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev">&#9660;</span></button>
-      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
-      <button class="tm-theme-btn" id="tm-theme-btn" type="button" aria-label="Toggle theme"><svg class="tm-theme-icon tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
-    <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
-      <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-        <a class="tm-dd-link" href="/vehicle-select.html"><div class="tm-dd-icon">&#11042;</div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
-      </div>
-      <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">&#128295;</div><div><strong>Rig Builder</strong><span>Lift &middot; tires &middot; armor</span></div></a>
-        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon">&#128297;</div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon">&#9881;</div><div><strong>Gear Ratio Calc</strong><span>Tires &times; axle</span></div></a>
-      </div>
-      <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">&#128203;</div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon">&#9888;</div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
-        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon">&#128279;</div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
-      </div>
-    </div></div>
-    <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
-      <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon">&#128218;</div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
-        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon">&#128296;</div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
-      </div>
-      <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon">&#9998;</div><div><strong>Blog</strong><span>Guides &middot; dives</span></div></a>
-        <a class="tm-dd-link" href="/channels/"><div class="tm-dd-icon">&#9654;</div><div><strong>Channels</strong><span>Trusted builders</span></div></a>
-        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">&#9675;</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
-      </div>
-    </div></div>
-    <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
-      <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">&#128665;</div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
-        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon">&#128203;</div><div><strong>My builds</strong><span>Saved configs</span></div></a>
-      </div>
-    </div></div>
   </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
 </header>
 <script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
 
 <main>
 
-  <article class="hero">
-    <p class="eyebrow">Jeep Grand Cherokee WJ · 1999–2004</p>
-    <h1>The Second Grand Cherokee.</h1>
-    <p class="hero-lede">Solid axles front and rear, Quadra-Coil suspension, and Quadra-Drive on top trims with Vari-Lok progressive lockers in the diffs. 4.0L straight-six or 4.7L PowerTech V8 — the High Output V8 arrived in 2002. The last Grand Cherokee with real trail bones, and the most capable one Jeep ever built without aftermarket help.</p>
-    <div class="early-note" style="margin:18px 0 0;padding:12px 16px;border:1px solid var(--bone-d,#C9C1AC);border-left:3px solid #C97E50;border-radius:4px;background:var(--bone,#F0ECE0);font-size:14px;line-height:1.6"><strong>Early coverage.</strong> Trail Manual is building the Jeep platforms out first &mdash; the Cherokee XJ library runs 340+ guides. Grand Cherokee WJ has a starter set of guides today; deeper coverage is on the way. <a href="/db/?v=xj" style="color:#C97E50">See the XJ library</a> for where this is headed.</div>
-    <div class="chips">
-      <span class="chip"><span class="chip-dot"></span>1999–2004</span>
+  <article class="hero" data-photo>
+    <div>
+      <p class="eyebrow">Jeep Grand Cherokee WJ · 1999–2004</p>
+      <h1>Jeep Grand Cherokee WJ</h1>
+      <p class="hero-tag">The Second Grand Cherokee.</p>
+      <p class="hero-lede">Solid axles front and rear, Quadra-Coil suspension, and Quadra-Drive on top trims with Vari-Lok progressive lockers in the diffs. 4.0L straight-six or 4.7L PowerTech V8 — the High Output V8 arrived in 2002. The last Grand Cherokee with real trail bones, and the most capable one Jeep ever built without aftermarket help.</p>
+    <div class="early-note"><strong>Early coverage.</strong> Trail Manual is building the Jeep platforms out first &mdash; the Cherokee XJ library runs 385 guides. Grand Cherokee WJ has a starter set of guides today; deeper coverage is on the way. <a href="/db/#/xj/browse">See the XJ library</a> for where this is headed.</div>
+      <div class="chips">
+        <span class="chip"><span class="chip-dot"></span>1999–2004</span>
       <span class="chip"><span class="chip-dot"></span>Solid front & rear axles</span>
       <span class="chip"><span class="chip-dot"></span>4.0L I6 / 4.7L PowerTech V8</span>
       <span class="chip"><span class="chip-dot"></span>Dana 30 · Dana 35/Chrysler 8.25/Dana 44a</span>
+      </div>
     </div>
+    <img class="hero-photo" src="/images/wj-hero.webp" alt="Jeep Grand Cherokee WJ on the trail" width="1200" height="900" fetchpriority="high">
   </article>
 
   <section class="section">
@@ -229,11 +225,11 @@ a{color:inherit;text-decoration:none}
         <div class="tool-foot"><span class="tag">Coming soon</span><span class="arrow">Soon</span></div>
       </a>
 
-      <a class="tool-card" href="/db/?v=wj">
+      <a class="tool-card" href="/db/#/wj/browse">
         <div class="tool-icon good"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg></div>
         <div class="tool-title">Database</div>
         <div class="tool-desc">The reference library. Every DIY procedure for this platform, filtered to your trim, year, and engine.</div>
-        <div class="tool-foot"><span class="tag new">5+ guides</span><span class="arrow">Browse</span></div>
+        <div class="tool-foot"><span class="tag new">26 guides</span><span class="arrow">Browse</span></div>
       </a>
 
       <a class="tool-card soon" href="#" aria-disabled="true">
@@ -256,48 +252,85 @@ a{color:inherit;text-decoration:none}
     <div class="section-head">
       <div class="left">
         <span class="section-label">02 / Learn</span>
-        <h2 class="section-title">Read and watch</h2>
+        <h2 class="section-title">Start here</h2>
       </div>
-      <span class="section-sub">Latest &middot; All posts &middot; Workshop &middot; Channels</span>
+      <span class="section-sub"><a href="/db/#/wj/browse">All 26 guides</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/workshop/">Workshop</a></span>
     </div>
     <div class="grid-learn">
-      <a class="learn-card" href="/blog/when-to-re-gear-axles/">
-        <p class="learn-eye">Latest blog</p>
-        <h3 class="learn-title">When to re-gear your axles</h3>
-        <p class="learn-desc">The math behind the change — and the feeling that tells you it's time.</p>
+      <a class="learn-card" href="/db/#/wj/entry/wj-death-wobble">
+        <p class="learn-eye">Steering</p>
+        <h3 class="learn-title">Death Wobble Diagnosis</h3>
+        <p class="learn-desc">Like the ZJ before it, the WJ uses a coil-sprung solid front axle located by a track bar, and it is every bit as prone to death wobble when a joint wears. The shake is the symptom; the worn track bar, tie-rod end, or ball joint is the cause. Find and fix the worn part — do not drive it and do not mask it with a damper.</p>
         <span class="arrow">Read</span>
       </a>
 
-      <a class="learn-card" href="/blog/">
-        <p class="learn-eye">All posts</p>
-        <h3 class="learn-title">Read the blog</h3>
-        <p class="learn-desc">Every post — tools, mod tests, trail reports. Sorted by date, filterable.</p>
-        <span class="arrow">Browse</span>
+      <a class="learn-card" href="/db/#/wj/entry/wj-47-cooling-common-problems">
+        <p class="learn-eye">Engine</p>
+        <h3 class="learn-title">4.7L Common Problems: Cooling and Longevity</h3>
+        <p class="learn-desc">The WJ&#x27;s 4.7L PowerTech V8 is a strong engine with one rule: it lives or dies by its cooling system and its oil changes. Owners who keep the radiator healthy and run a strict synthetic-oil interval get 200,000-plus miles. Owners who let it overheat or sludge up crack a cylinder head. The 4.0L inline-six in the other WJs is the more forgiving engine.</p>
+        <span class="arrow">Read</span>
       </a>
 
-      <a class="learn-card" href="/workshop/">
-        <p class="learn-eye">Workshop</p>
-        <h3 class="learn-title">Shop technique</h3>
-        <p class="learn-desc">Torque, seized bolts, brake bleed — the foundations every DIYer needs.</p>
-        <span class="arrow">Enter</span>
+      <a class="learn-card" href="/db/#/wj/entry/wj-coolant-flush-wj">
+        <p class="learn-eye">Maintenance</p>
+        <h3 class="learn-title">Coolant Flush — PowerTech and 4.0</h3>
+        <p class="learn-desc">[1999–2000 WJs hold about 13 quarts of coolant](https://wjbible.com/service/maintenance_wj.html), 2001–2004 hold about 15 quarts. Run HOAT-rated coolant (Mopar MS-9769 or Zerex G-05) at 50/50 with distilled water — not green ethylene glycol, and not Dex-Cool.</p>
+        <span class="arrow">Read</span>
       </a>
 
-      <a class="learn-card" href="/channels/">
-        <p class="learn-eye">Channels</p>
-        <h3 class="learn-title">YouTubers we trust</h3>
-        <p class="learn-desc">Honest builders, working trucks. No sponsored fluff, no thumbnail screaming.</p>
-        <span class="arrow">See list</span>
+      <a class="learn-card" href="/db/#/wj/entry/lockers-wj">
+        <p class="learn-eye">Axles</p>
+        <h3 class="learn-title">Differential Locker Options — Front and Rear WJ Grand Cherokee</h3>
+        <p class="learn-desc">The WJ&#x27;s solid Dana 30 front and Dana 44 rear are both lockable — a genuine advantage over the IFS WK that followed. An ARB front and ELocker rear is the highest-traction WJ build, but a lunch-box locker front or rear is a meaningful upgrade on its own.</p>
+        <span class="arrow">Read</span>
       </a>
     </div>
   </section>
 
 </main>
 
-<footer class="footer">
-  <p>Trail Manual &mdash; honest research for capable vehicles.</p>
-  <p style="margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase"><a href="/about/" style="color:var(--clay);text-decoration:none">About</a> &middot; <a href="/privacy/" style="color:var(--clay);text-decoration:none">Privacy</a> &middot; <a href="/terms/" style="color:var(--clay);text-decoration:none">Terms</a> &middot; <a href="/about/#sources" style="color:var(--clay);text-decoration:none">Sources</a></p>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
 </footer>
-
-<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+<!-- TM:FOOTER:END -->
 </body>
 </html>

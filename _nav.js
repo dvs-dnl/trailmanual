@@ -1,3 +1,5 @@
+/* Loaded once per page even if a page includes it twice. */
+if(!window.__tmNavLoaded){window.__tmNavLoaded=true;
 (function(){
   function tmDrop(id){
     var all=['build','learn','garage','vehicles'];
@@ -62,3 +64,16 @@
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
+/* Theme toggle for the canonical header button ([data-tm-theme], id tm-theme-btn).
+   Handled once, in the capture phase, so older per-page handlers bound to
+   #tm-theme-btn never fire a second toggle. Light is default; the choice
+   persists in localStorage 'tm-theme'. */
+document.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('[data-tm-theme]');
+  if(!b)return;
+  e.stopPropagation();
+  var n=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  try{localStorage.setItem('tm-theme',n);}catch(err){}
+},true);
+}

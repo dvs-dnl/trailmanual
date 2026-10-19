@@ -1,266 +1,302 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-639VVRC92N');
-  </script>
-
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
 <meta charset="utf-8">
 <script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="canonical" href="https://trailmanual.com/workshop/reading-spark-plugs/">
-<title>Reading Spark Plugs &mdash; Diagnosis by Color and Deposit &mdash; Trail Manual Workshop</title>
+<title>Reading Spark Plugs — Diagnosis by Color and Deposit — Trail Manual Workshop</title>
 <meta name="description" content="How to read spark plugs on a modern engine - what light tan, sooty black, oily, white, blistered, and ash-covered firing ends actually mean, why cylinder-to-cylinder comparison beats a color chart, and the damage patterns that mean stop.">
+<link rel="canonical" href="https://trailmanual.com/workshop/reading-spark-plugs/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trail Manual">
+<meta property="og:title" content="Reading Spark Plugs — Diagnosis by Color and Deposit">
+<meta property="og:description" content="How to read spark plugs on a modern engine - what light tan, sooty black, oily, white, blistered, and ash-covered firing ends actually mean, why cylinder-to-cylinder comparison beats a color chart, and the damage patterns that mean stop.">
+<meta property="og:url" content="https://trailmanual.com/workshop/reading-spark-plugs/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-reading-spark-plugs.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/_shared.css">
-<script src="/_nav.js"></script>
-<style>
-body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
-.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
-.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
-.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
-.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
-.back-link:hover { color: var(--accent); }
-.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
-.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
-.tm-theme-icon-sun{display:none}
-.tm-theme-icon-moon{display:block}
-[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
-[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
-@media(max-width:700px){.tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
-.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
-.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
-.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
-.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
-.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
-.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
-.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
-.guide-body strong { color: var(--text); font-weight: 600; }
-.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
-.callout.warn { border-left-color: #e05555; }
-.callout strong { color: var(--text); }
-.callout a { color: var(--accent); }
-.tool-table { width: 100%; border-collapse: collapse; margin: 0 0 24px; font-size: 14px; }
-.tool-table th { text-align: left; padding: 10px 12px; background: var(--bg-2); border-bottom: 2px solid var(--border); color: var(--text); font-weight: 600; font-size: 13px; }
-.tool-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-dim); vertical-align: top; }
-.tool-table tr:last-child td { border-bottom: none; }
-.tool-table a { color: var(--accent); }
-.guide-body a { color: var(--accent); }
-.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
-.video-section h2{margin-top:0;font-size:20px;font-weight:700}
-.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
-.video-embed{margin:18px 0 0}
-.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;background:#000;border:1px solid var(--border)}
-.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-dim)}
-.video-credit a{color:var(--accent);text-decoration:none}
-footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
-footer a { color: var(--accent); text-decoration: none; }
-@media (max-width: 500px) {
-  .guide-title { font-size: 26px; }
-  .guide-lede { font-size: 16px; }
-  .brand-sub { display: none; }
-  .back-link { font-size: 12px; }
-  .tool-table { font-size: 13px; }
-  .tool-table th, .tool-table td { padding: 8px; }
-}
-</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Reading Spark Plugs — Diagnosis by Color and Deposit", "description": "How to read spark plugs on a modern engine - what light tan, sooty black, oily, white, blistered, and ash-covered firing ends actually mean, why cylinder-to-cylinder comparison beats a color chart, and the damage patterns that mean stop.", "image": ["https://trailmanual.com/images/photo-reading-spark-plugs.webp"], "mainEntityOfPage": "https://trailmanual.com/workshop/reading-spark-plugs/", "inLanguage": "en-US", "dateModified": "2026-10-19", "author": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/about/"}, "publisher": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/", "logo": {"@type": "ImageObject", "url": "https://trailmanual.com/favicon.png"}}, "articleSection": "The Workshop — Technique"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Trail Manual", "item": "https://trailmanual.com/"}, {"@type": "ListItem", "position": 2, "name": "The Workshop", "item": "https://trailmanual.com/workshop/"}, {"@type": "ListItem", "position": 3, "name": "Reading Spark Plugs — Diagnosis by Color and Deposit", "item": "https://trailmanual.com/workshop/reading-spark-plugs/"}]}]</script>
 </head>
 <body>
-
-<header class="topbar">
-  <a class="brand" href="/">
-    <div class="brand-mark">TM</div>
-    <div>
-      <div class="brand-text">Trail Manual</div>
-      <div class="brand-sub">The Workshop</div>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
-  </a>
-  <button class="tm-theme-btn" aria-label="Toggle dark mode" onclick="(function(){var h=document.documentElement,d='data-theme',c=h.getAttribute(d)==='dark';h.setAttribute(d,c?'light':'dark');try{localStorage.setItem('tm-theme',c?'light':'dark');}catch(e){}})()">
-    <svg class="tm-theme-icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg class="tm-theme-icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-  <a class="back-link" href="/workshop/">&larr; Workshop</a>
-  <button class="hamburger" aria-label="Menu" onclick="this.setAttribute('aria-expanded',document.getElementById('ws-nav').classList.toggle('open'));"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-  <nav id="ws-nav" class="ws-nav" aria-label="Site"><a href="/">Home</a><a href="/db/">Vehicles</a><a href="/workshop/">Workshop</a><a href="/blog/">Blog</a></nav>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
 </header>
-
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+<main class="tm-article">
 <article>
-<div class="guide-wrap">
-  <div class="guide-eyebrow">Workshop &middot; Technique</div>
-  <h1 class="guide-title">Reading Spark Plugs &mdash; Diagnosis by Color and Deposit</h1>
-
-  <p class="guide-lede">
-    A healthy firing end on a modern engine is light tan to grayish-white, with sharp electrode edges and a clean insulator nose. The diagnosis is almost never in one plug's color &mdash; it is in how the plugs differ from each other. Pull a full set, keep them in cylinder order, and lay them out on the bench. The odd one out is your answer.
-  </p>
-
-  <div class="guide-body">
-
-    <h2>Why this matters</h2>
-    <p>A spark plug is the only part of an engine that spends its whole life inside the combustion chamber and then comes out in your hand. Everything that happens in that cylinder &mdash; mixture, oil control, heat, detonation, coolant intrusion &mdash; leaves a mark on the firing end. Nothing else on the vehicle gives you a per-cylinder record for the price of a plug socket and twenty minutes.</p>
-    <p>It also catches problems a scan tool will not. A fuel trim reading is an average across a bank; a misfire counter tells you a cylinder is failing but not why. Plugs tell you which cylinder, and whether the cause is fuel, oil, coolant, or heat. On a rig that gets wheeled, that matters: an engine that burns a little oil on a steep climb or runs hot in low range shows it on the plugs long before a code sets.</p>
-
-    <div class="callout">
-      <strong>Key point:</strong> Read the set, not the plug. One cylinder that looks different from the other five is a specific, findable fault. All six looking the same shade of sooty is a fueling or air-metering problem affecting the whole engine &mdash; a different diagnosis entirely.
-    </div>
-
-    <h2>Pulling them without ruining the reading</h2>
-    <p>The plug carries evidence. Careless removal destroys it, and a cross-threaded aluminum head turns a diagnostic job into a machine shop job.</p>
-    <ol>
-      <li><strong>Let the engine cool.</strong> Aluminum heads expand around steel threads. Pulling plugs from a hot head is how threads come out with them. Cool to the touch, not warm.</li>
-      <li><strong>Blow out the plug wells first.</strong> Compressed air, every well. Grit that falls down an open plug hole lands on a piston or a valve seat.</li>
-      <li><strong>Work one cylinder at a time and label as you go.</strong> Masking tape on each plug, or a labeled cardboard holder with a hole per cylinder. An unlabeled set of plugs is close to useless &mdash; "one of them was black" is not a diagnosis.</li>
-      <li><strong>Note the context before you pull.</strong> How the engine was last run changes what you are looking at: a plug pulled after twenty minutes of idling in the driveway will read richer and sootier than the same plug after a highway run. Write down the last drive cycle.</li>
-      <li><strong>Reinstall by hand, then torque.</strong> Thread by hand until the plug seats, then a torque wrench &mdash; see <a href="/workshop/reading-torque-specs/">reading torque specs</a>. Under-torqued plugs cannot shed heat into the head and will read as overheating; over-torqued plugs stretch the shell and crack the insulator seal.</li>
-    </ol>
-
-    <h2>What normal looks like</h2>
-    <p>Manufacturers design the firing end to run between roughly <strong>500&deg;C and 800&deg;C (930&ndash;1470&deg;F)</strong>. Below about <strong>450&deg;C (840&deg;F)</strong> the plug stops burning off deposits &mdash; that is the self-cleaning temperature, and below it carbon accumulates. Above 800&deg;C the electrodes erode fast and the plug itself can become a hot spot that ignites the mixture before the spark does.</p>
-    <p>A plug that has lived in that window shows a <strong>light tan, light gray, or grayish-white insulator nose</strong>, with no soot, no gloss, and no deposit buildup in the gap. The center electrode still has a flat face and a crisp edge. On a modern unleaded-fuel engine that insulator often reads lighter than the old charts suggest &mdash; nearly white porcelain with clean, sharp electrodes is normal, not lean. A pinkish or rust-red film from fuel additives is also normal and means nothing.</p>
-
-    <h2>The conditions and what causes them</h2>
-
-    <table class="tool-table">
-      <thead>
-        <tr>
-          <th>What you see</th>
-          <th>What it means</th>
-          <th>Where to look</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Light tan to gray-white, sharp edges</strong></td>
-          <td>Normal. Correct heat range, mixture in range, no oil intrusion.</td>
-          <td>Nothing. Note the gap, reinstall or replace on the maintenance interval.</td>
-        </tr>
-        <tr>
-          <td><strong>Dry, black, sooty &mdash; rubs off on your finger</strong></td>
-          <td>Carbon fouling. The firing end never reached self-cleaning temperature, or the mixture is rich.</td>
-          <td>All cylinders: rich fueling, a dirty or failed intake-air or coolant-temp sensor, a stuck-open injector bank, a clogged air filter, retarded timing, or nothing but short trips and idling. One cylinder: a weak coil or a leaking injector on that hole. Also check the plug heat range against the factory spec if someone has been shopping by price.</td>
-        </tr>
-        <tr>
-          <td><strong>Wet with fuel, smells of gasoline</strong></td>
-          <td>Fuel fouling. That cylinder is getting fuel but not burning it.</td>
-          <td>No spark on that cylinder &mdash; coil, boot, or plug &mdash; or an injector dumping fuel. If the plug is also clean-washed, the fuel is scrubbing the deposits off.</td>
-        </tr>
-        <tr>
-          <td><strong>Black and oily, wet, slick to the touch</strong></td>
-          <td>Oil fouling. Engine oil is reaching the combustion chamber.</td>
-          <td>Worn rings, worn valve guides or seals, a failed PCV system, or a turbo seal. Confirm with a compression and leak-down test before touching anything. If one cylinder is oily and the rest are clean, that cylinder is the one with the mechanical problem.</td>
-        </tr>
-        <tr>
-          <td><strong>Oil only on the ceramic above the hex, not on the firing end</strong></td>
-          <td>Valve cover gasket or plug-tube seal leaking into the plug well.</td>
-          <td>External leak, not internal. Different repair, far less expensive. Common on coil-on-plug engines, where it also destroys the coil boot.</td>
-        </tr>
-        <tr>
-          <td><strong>Chalky white, blistered, or glazed insulator; electrodes rounded or melted</strong></td>
-          <td>Overheating. Sustained operation above 800&deg;C.</td>
-          <td>Heat range too hot for the application, lean mixture, over-advanced timing, low-octane fuel under load, cooling system problem, a vacuum leak on that runner, or an under-torqued plug that cannot transfer heat to the head.</td>
-        </tr>
-        <tr>
-          <td><strong>Insulator cracked, chipped, or peppered with tiny specks</strong></td>
-          <td>Detonation. Unburned mixture igniting from pressure, hammering the plug.</td>
-          <td>Octane too low for the timing or boost, carbon buildup raising compression, excess timing advance, overheating, or lugging the engine under load. Specks of aluminum on the firing end are material off the piston &mdash; stop and diagnose.</td>
-        </tr>
-        <tr>
-          <td><strong>Center electrode melted, ground strap burned back</strong></td>
-          <td>Pre-ignition. Something in the chamber is lighting the mixture before the spark.</td>
-          <td>A serious condition that destroys pistons. Causes overlap with overheating and detonation. Do not keep running the engine while you think about it.</td>
-        </tr>
-        <tr>
-          <td><strong>Heavy tan, brown-yellow, or crusty ash deposits</strong></td>
-          <td>Ash fouling from fuel or oil additives burning in the chamber.</td>
-          <td>Oil consumption, a fuel additive, or a leaking valve guide. Enough buildup masks the spark and causes misfire even though the plug looks dry and intact.</td>
-        </tr>
-        <tr>
-          <td><strong>One plug steam-cleaned spotless while the rest are normal</strong></td>
-          <td>Coolant entering that cylinder.</td>
-          <td>Head gasket, cracked head, or a failed intake gasket. Pressure-test the cooling system. A sweet smell and white deposits on the firing end back it up.</td>
-        </tr>
-        <tr>
-          <td><strong>Electrodes eroded, gap grown, edges rounded off</strong></td>
-          <td>Normal wear at end of service life.</td>
-          <td>Replace the set. A worn gap demands more ignition voltage and shows up first as a misfire under load or in the rain.</td>
-        </tr>
-        <tr>
-          <td><strong>Bent electrode, broken insulator tip, impact marks</strong></td>
-          <td>Mechanical interference.</td>
-          <td>Wrong plug reach for the head, a dropped plug that got installed anyway, or debris in the cylinder. Find the missing ceramic before you start the engine.</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Read the whole plug, not only the color</h2>
-    <p>Color is the first thing people look at and the least reliable part of the reading. Four other things on the plug carry better information:</p>
-    <ul>
-      <li><strong>The electrode edges.</strong> A new plug has square, sharp corners on the center electrode. Rounded corners and a dished face mean the gap has grown and the plug is done, whatever color it is. On iridium and platinum plugs the fine center wire gets visibly shorter and the ground strap develops a crater.</li>
-      <li><strong>The insulator nose, down in the shell.</strong> Deposits collect at the base of the nose before they show on the tip. Shine a light down the shell and look where the ceramic meets the metal.</li>
-      <li><strong>The ground strap and the threads.</strong> Tuners read the heat ring &mdash; the discoloration line on the ground strap &mdash; for timing, and the first two or three threads for mixture. Soot that extends up the threads indicates a rich condition; clean bright threads on one plug in a set point to coolant.</li>
-      <li><strong>The gap itself.</strong> Measure it with a wire gauge, not a coin-style gauge, and compare it to the factory spec. A plug that measures 0.055 in on a 0.040 in spec has been fighting an ignition system for a long time.</li>
-    </ul>
-
-    <h2>What plug reading can't tell you on a modern engine</h2>
-    <p>Classic plug-reading charts come from carbureted, leaded-fuel engines where the mixture could sit anywhere and the plug was the only gauge. A closed-loop EFI engine corrects mixture hundreds of times a second to keep the oxygen sensor happy, so a healthy fuel system produces plugs that all look the same, in a narrow range of light tan to near-white, regardless of how the engine actually feels to drive.</p>
-    <p>That makes plugs excellent at finding <em>per-cylinder</em> faults and poor at finding global fueling problems. For the global picture, read long-term fuel trims with a scan tool &mdash; see <a href="/workshop/scan-tool-comparison/">OBD-II scan tools compared</a> &mdash; and treat the plugs as confirmation. Direct-injection engines muddy the reading further, since fuel no longer washes the intake tract and deposit patterns shift.</p>
-    <p>Plugs also lag. Install a fresh set, drive a tank through it, and the plug shows you the average of that tank, not what the engine is doing right now. A plug reading says what has been happening for thousands of miles. It does not catch an intermittent fault from last Tuesday.</p>
-
-    <h2>The plug chop &mdash; reading a specific operating condition</h2>
-    <p>If you want a plug to tell you about one load point rather than an average &mdash; after a carburetor rejet, a tune change, or a turbo setup &mdash; do a plug chop. Install fresh plugs, run the engine at exactly the condition you want to read (wide-open throttle in the gear and rpm range that matters), then cut the ignition and the throttle at the same moment and coast to a stop without idling. Pull the plugs and read them. Idling back to the driveway writes idle mixture over the data you went out to collect.</p>
-    <p>A chop belongs on private property or a track. It means killing the ignition at speed, which on most vehicles means losing power steering and power brake assist, and on anything with a steering lock means knowing exactly what your ignition switch does before you turn it.</p>
-
-    <h2>Common mistakes</h2>
-    <ul>
-      <li><strong>Reading one plug.</strong> Without the other cylinders for comparison, a tan plug and a slightly dark plug look identical from memory. Pull the set, lay them out in order, photograph them.</li>
-      <li><strong>Calling a white insulator lean.</strong> On unleaded fuel with a modern plug, a clean light insulator is the target. Lean damage shows as blistering, glazing, and rounded electrodes &mdash; texture, not shade.</li>
-      <li><strong>Pulling plugs from a hot aluminum head.</strong> Thread damage costs more than every other mistake on this list combined.</li>
-      <li><strong>Skipping the compressed air.</strong> Grit from the plug well falls straight onto a valve seat and gets hammered into it.</li>
-      <li><strong>Anti-seize on plugs that specify none.</strong> Most modern plugs ship with a plated shell and the manufacturer's torque spec assumes dry threads. Adding anti-seize changes the friction and over-torques the plug at the same wrench reading.</li>
-      <li><strong>Sandblasting plugs to reuse them.</strong> Blasting media lodges in the shell and comes out inside the engine later. A fouled plug that identified a problem has done its job.</li>
-      <li><strong>Reusing the old gap on a new plug without checking.</strong> Pre-gapped plugs get knocked around in shipping, and fine-wire iridium tips bend or break if you pry on them. Check, and adjust only the ground strap.</li>
-      <li><strong>Fixing the plug instead of the cause.</strong> New plugs in an oil-burning cylinder foul again in a few thousand miles. The plug reported the problem; it is not the problem.</li>
-    </ul>
-
-    <div class="callout warn">
-      <strong>Stop.</strong> A melted center electrode, a ground strap burned back, a blistered insulator, or aluminum specks on the firing end are evidence of pre-ignition or heavy detonation &mdash; combustion that destroys pistons and ring lands in minutes, not months. Do not reinstall plugs and keep driving to "see if it gets worse." Check that cylinder's compression, pull a borescope through the plug hole if you have one, and find the cause &mdash; octane, timing, boost, cooling, or a lean cylinder &mdash; before the engine runs again. If the cause is not obvious, this is a reasonable place to <a href="/workshop/when-to-stop/">hand it to a shop</a>.
-    </div>
-
-    <h2>Build the habit</h2>
-    <p>Photograph every set of plugs you pull, in cylinder order, with the mileage in the frame. It costs nothing and in two years it gives you something no chart can: a baseline for your own engine. When one cylinder starts drifting darker, you will see it as a change rather than guessing whether that shade of tan was always there.</p>
-
-  </div>
-
-  <div class="video-section">
-    <h2>Watch It Done</h2>
-    <p class="video-context">Seeing a set of plugs laid out and compared once is worth more than reading about it twice.</p>
-    <div class="video-embed">
-      <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/0lTHOHkEw5Y?rel=0"
-                title="Diagnose Engine Misfire Issues by Reading Your Spark Plugs &mdash; Ratchets And Wrenches"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-      </div>
-      <p class="video-credit">Video: <a href="https://www.youtube.com/@myRatchets" target="_blank" rel="noopener">Ratchets And Wrenches</a> &mdash; "Diagnose Engine Misfire Issues by Reading Your Spark Plugs"</p>
-    </div>
-  </div>
-
+  <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/workshop/">The Workshop</a> · <a href="/workshop/#technique">Technique</a></nav>
+  <h1>Reading Spark Plugs — Diagnosis by Color and Deposit</h1>
+  <p class="tm-dek">A healthy firing end on a modern engine is light tan to grayish-white, with sharp electrode edges and a clean insulator nose. The diagnosis is almost never in one plug's color — it is in how the plugs differ from each other. Pull a full set, keep them in cylinder order, and lay them out on the bench. The odd one out is your answer.</p>
+  <div class="tm-byline"><span>10 min read</span><span>Applies to any vehicle</span><a href="/about/#sources">How we source guides</a></div>
+  <figure class="tm-figure"><img src="/images/photo-reading-spark-plugs.webp" alt="Pile of used spark plugs from a repair shop showing varied deposits and wear on the firing ends" width="1600" height="1067" fetchpriority="high"><figcaption>Photo: <a href="https://unsplash.com/@sfkopstein?utm_source=trailmanual&utm_medium=referral" rel="noopener">shraga kopstein</a> on <a href="https://unsplash.com/?utm_source=trailmanual&utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
+  
+  <div class="tm-prose">
+<h2>Why this matters</h2>
+<p>A spark plug is the only part of an engine that spends its whole life inside the combustion chamber and then comes out in your hand. Everything that happens in that cylinder — mixture, oil control, heat, detonation, coolant intrusion — leaves a mark on the firing end. Nothing else on the vehicle gives you a per-cylinder record for the price of a plug socket and twenty minutes.</p>
+<p>It also catches problems a scan tool will not. A fuel trim reading is an average across a bank; a misfire counter tells you a cylinder is failing but not why. Plugs tell you which cylinder, and whether the cause is fuel, oil, coolant, or heat. On a rig that gets wheeled, that matters: an engine that burns a little oil on a steep climb or runs hot in low range shows it on the plugs long before a code sets.</p>
+<div class="tm-callout"><p><strong>Key point:</strong> Read the set, not the plug. One cylinder that looks different from the other five is a specific, findable fault. All six looking the same shade of sooty is a fueling or air-metering problem affecting the whole engine — a different diagnosis entirely.</p></div>
+<h2>Pulling them without ruining the reading</h2>
+<p>The plug carries evidence. Careless removal destroys it, and a cross-threaded aluminum head turns a diagnostic job into a machine shop job.</p>
+<ol class="tm-steps">
+<li><strong>Let the engine cool.</strong> Aluminum heads expand around steel threads. Pulling plugs from a hot head is how threads come out with them. Cool to the touch, not warm.</li>
+<li><strong>Blow out the plug wells first.</strong> Compressed air, every well. Grit that falls down an open plug hole lands on a piston or a valve seat.</li>
+<li><strong>Work one cylinder at a time and label as you go.</strong> Masking tape on each plug, or a labeled cardboard holder with a hole per cylinder. An unlabeled set of plugs is close to useless — "one of them was black" is not a diagnosis.</li>
+<li><strong>Note the context before you pull.</strong> How the engine was last run changes what you are looking at: a plug pulled after twenty minutes of idling in the driveway will read richer and sootier than the same plug after a highway run. Write down the last drive cycle.</li>
+<li><strong>Reinstall by hand, then torque.</strong> Thread by hand until the plug seats, then a torque wrench — see <a href="/workshop/reading-torque-specs/">reading torque specs</a>. Under-torqued plugs cannot shed heat into the head and will read as overheating; over-torqued plugs stretch the shell and crack the insulator seal.</li>
+</ol>
+<h2>What normal looks like</h2>
+<p>Manufacturers design the firing end to run between roughly <strong>500°C and 800°C (930–1470°F)</strong>. Below about <strong>450°C (840°F)</strong> the plug stops burning off deposits — that is the self-cleaning temperature, and below it carbon accumulates. Above 800°C the electrodes erode fast and the plug itself can become a hot spot that ignites the mixture before the spark does.</p>
+<p>A plug that has lived in that window shows a <strong>light tan, light gray, or grayish-white insulator nose</strong>, with no soot, no gloss, and no deposit buildup in the gap. The center electrode still has a flat face and a crisp edge. On a modern unleaded-fuel engine that insulator often reads lighter than the old charts suggest — nearly white porcelain with clean, sharp electrodes is normal, not lean. A pinkish or rust-red film from fuel additives is also normal and means nothing.</p>
+<h2>The conditions and what causes them</h2>
+<div class="tm-table-wrap"><table>
+<thead>
+<tr>
+<th>What you see</th>
+<th>What it means</th>
+<th>Where to look</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Light tan to gray-white, sharp edges</strong></td>
+<td>Normal. Correct heat range, mixture in range, no oil intrusion.</td>
+<td>Nothing. Note the gap, reinstall or replace on the maintenance interval.</td>
+</tr>
+<tr>
+<td><strong>Dry, black, sooty — rubs off on your finger</strong></td>
+<td>Carbon fouling. The firing end never reached self-cleaning temperature, or the mixture is rich.</td>
+<td>All cylinders: rich fueling, a dirty or failed intake-air or coolant-temp sensor, a stuck-open injector bank, a clogged air filter, retarded timing, or nothing but short trips and idling. One cylinder: a weak coil or a leaking injector on that hole. Also check the plug heat range against the factory spec if someone has been shopping by price.</td>
+</tr>
+<tr>
+<td><strong>Wet with fuel, smells of gasoline</strong></td>
+<td>Fuel fouling. That cylinder is getting fuel but not burning it.</td>
+<td>No spark on that cylinder — coil, boot, or plug — or an injector dumping fuel. If the plug is also clean-washed, the fuel is scrubbing the deposits off.</td>
+</tr>
+<tr>
+<td><strong>Black and oily, wet, slick to the touch</strong></td>
+<td>Oil fouling. Engine oil is reaching the combustion chamber.</td>
+<td>Worn rings, worn valve guides or seals, a failed PCV system, or a turbo seal. Confirm with a compression and leak-down test before touching anything. If one cylinder is oily and the rest are clean, that cylinder is the one with the mechanical problem.</td>
+</tr>
+<tr>
+<td><strong>Oil only on the ceramic above the hex, not on the firing end</strong></td>
+<td>Valve cover gasket or plug-tube seal leaking into the plug well.</td>
+<td>External leak, not internal. Different repair, far less expensive. Common on coil-on-plug engines, where it also destroys the coil boot.</td>
+</tr>
+<tr>
+<td><strong>Chalky white, blistered, or glazed insulator; electrodes rounded or melted</strong></td>
+<td>Overheating. Sustained operation above 800°C.</td>
+<td>Heat range too hot for the application, lean mixture, over-advanced timing, low-octane fuel under load, cooling system problem, a vacuum leak on that runner, or an under-torqued plug that cannot transfer heat to the head.</td>
+</tr>
+<tr>
+<td><strong>Insulator cracked, chipped, or peppered with tiny specks</strong></td>
+<td>Detonation. Unburned mixture igniting from pressure, hammering the plug.</td>
+<td>Octane too low for the timing or boost, carbon buildup raising compression, excess timing advance, overheating, or lugging the engine under load. Specks of aluminum on the firing end are material off the piston — stop and diagnose.</td>
+</tr>
+<tr>
+<td><strong>Center electrode melted, ground strap burned back</strong></td>
+<td>Pre-ignition. Something in the chamber is lighting the mixture before the spark.</td>
+<td>A serious condition that destroys pistons. Causes overlap with overheating and detonation. Do not keep running the engine while you think about it.</td>
+</tr>
+<tr>
+<td><strong>Heavy tan, brown-yellow, or crusty ash deposits</strong></td>
+<td>Ash fouling from fuel or oil additives burning in the chamber.</td>
+<td>Oil consumption, a fuel additive, or a leaking valve guide. Enough buildup masks the spark and causes misfire even though the plug looks dry and intact.</td>
+</tr>
+<tr>
+<td><strong>One plug steam-cleaned spotless while the rest are normal</strong></td>
+<td>Coolant entering that cylinder.</td>
+<td>Head gasket, cracked head, or a failed intake gasket. Pressure-test the cooling system. A sweet smell and white deposits on the firing end back it up.</td>
+</tr>
+<tr>
+<td><strong>Electrodes eroded, gap grown, edges rounded off</strong></td>
+<td>Normal wear at end of service life.</td>
+<td>Replace the set. A worn gap demands more ignition voltage and shows up first as a misfire under load or in the rain.</td>
+</tr>
+<tr>
+<td><strong>Bent electrode, broken insulator tip, impact marks</strong></td>
+<td>Mechanical interference.</td>
+<td>Wrong plug reach for the head, a dropped plug that got installed anyway, or debris in the cylinder. Find the missing ceramic before you start the engine.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Read the whole plug, not only the color</h2>
+<p>Color is the first thing people look at and the least reliable part of the reading. Four other things on the plug carry better information:</p>
+<ul>
+<li><strong>The electrode edges.</strong> A new plug has square, sharp corners on the center electrode. Rounded corners and a dished face mean the gap has grown and the plug is done, whatever color it is. On iridium and platinum plugs the fine center wire gets visibly shorter and the ground strap develops a crater.</li>
+<li><strong>The insulator nose, down in the shell.</strong> Deposits collect at the base of the nose before they show on the tip. Shine a light down the shell and look where the ceramic meets the metal.</li>
+<li><strong>The ground strap and the threads.</strong> Tuners read the heat ring — the discoloration line on the ground strap — for timing, and the first two or three threads for mixture. Soot that extends up the threads indicates a rich condition; clean bright threads on one plug in a set point to coolant.</li>
+<li><strong>The gap itself.</strong> Measure it with a wire gauge, not a coin-style gauge, and compare it to the factory spec. A plug that measures 0.055 in on a 0.040 in spec has been fighting an ignition system for a long time.</li>
+</ul>
+<h2>What plug reading can't tell you on a modern engine</h2>
+<p>Classic plug-reading charts come from carbureted, leaded-fuel engines where the mixture could sit anywhere and the plug was the only gauge. A closed-loop EFI engine corrects mixture hundreds of times a second to keep the oxygen sensor happy, so a healthy fuel system produces plugs that all look the same, in a narrow range of light tan to near-white, regardless of how the engine actually feels to drive.</p>
+<p>That makes plugs excellent at finding <em>per-cylinder</em> faults and poor at finding global fueling problems. For the global picture, read long-term fuel trims with a scan tool — see <a href="/workshop/scan-tool-comparison/">OBD-II scan tools compared</a> — and treat the plugs as confirmation. Direct-injection engines muddy the reading further, since fuel no longer washes the intake tract and deposit patterns shift.</p>
+<p>Plugs also lag. Install a fresh set, drive a tank through it, and the plug shows you the average of that tank, not what the engine is doing right now. A plug reading says what has been happening for thousands of miles. It does not catch an intermittent fault from last Tuesday.</p>
+<h2>The plug chop — reading a specific operating condition</h2>
+<p>If you want a plug to tell you about one load point rather than an average — after a carburetor rejet, a tune change, or a turbo setup — do a plug chop. Install fresh plugs, run the engine at exactly the condition you want to read (wide-open throttle in the gear and rpm range that matters), then cut the ignition and the throttle at the same moment and coast to a stop without idling. Pull the plugs and read them. Idling back to the driveway writes idle mixture over the data you went out to collect.</p>
+<p>A chop belongs on private property or a track. It means killing the ignition at speed, which on most vehicles means losing power steering and power brake assist, and on anything with a steering lock means knowing exactly what your ignition switch does before you turn it.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Reading one plug.</strong> Without the other cylinders for comparison, a tan plug and a slightly dark plug look identical from memory. Pull the set, lay them out in order, photograph them.</li>
+<li><strong>Calling a white insulator lean.</strong> On unleaded fuel with a modern plug, a clean light insulator is the target. Lean damage shows as blistering, glazing, and rounded electrodes — texture, not shade.</li>
+<li><strong>Pulling plugs from a hot aluminum head.</strong> Thread damage costs more than every other mistake on this list combined.</li>
+<li><strong>Skipping the compressed air.</strong> Grit from the plug well falls straight onto a valve seat and gets hammered into it.</li>
+<li><strong>Anti-seize on plugs that specify none.</strong> Most modern plugs ship with a plated shell and the manufacturer's torque spec assumes dry threads. Adding anti-seize changes the friction and over-torques the plug at the same wrench reading.</li>
+<li><strong>Sandblasting plugs to reuse them.</strong> Blasting media lodges in the shell and comes out inside the engine later. A fouled plug that identified a problem has done its job.</li>
+<li><strong>Reusing the old gap on a new plug without checking.</strong> Pre-gapped plugs get knocked around in shipping, and fine-wire iridium tips bend or break if you pry on them. Check, and adjust only the ground strap.</li>
+<li><strong>Fixing the plug instead of the cause.</strong> New plugs in an oil-burning cylinder foul again in a few thousand miles. The plug reported the problem; it is not the problem.</li>
+</ul>
+<div class="tm-callout warn"><p><strong>Stop.</strong> A melted center electrode, a ground strap burned back, a blistered insulator, or aluminum specks on the firing end are evidence of pre-ignition or heavy detonation — combustion that destroys pistons and ring lands in minutes, not months. Do not reinstall plugs and keep driving to "see if it gets worse." Check that cylinder's compression, pull a borescope through the plug hole if you have one, and find the cause — octane, timing, boost, cooling, or a lean cylinder — before the engine runs again. If the cause is not obvious, this is a reasonable place to <a href="/workshop/when-to-stop/">hand it to a shop</a>.</p></div>
+<h2>Build the habit</h2>
+<p>Photograph every set of plugs you pull, in cylinder order, with the mileage in the frame. It costs nothing and in two years it gives you something no chart can: a baseline for your own engine. When one cylinder starts drifting darker, you will see it as a change rather than guessing whether that shade of tan was always there.</p>
+<div class="video-section">
+<h2>Watch It Done</h2>
+<p class="video-context">Seeing a set of plugs laid out and compared once is worth more than reading about it twice.</p>
+<div class="video-embed">
+<div class="video-wrap">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="https://www.youtube.com/embed/0lTHOHkEw5Y?rel=0" title="Diagnose Engine Misfire Issues by Reading Your Spark Plugs — Ratchets And Wrenches"></iframe>
 </div>
-
-<footer>
-  <a href="/workshop/">&larr; Back to Workshop</a> &nbsp;&middot;&nbsp;
-  <a href="/channels/">Recommended Channels</a> &nbsp;&middot;&nbsp;
-  <a href="/">Trail Manual</a>
-</footer>
-
+<p class="video-credit">Video: <a href="https://www.youtube.com/@myRatchets" rel="noopener" target="_blank">Ratchets And Wrenches</a> — "Diagnose Engine Misfire Issues by Reading Your Spark Plugs"</p>
+</div>
+</div>
+  </div>
+  
 </article>
+</main>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+<!-- TM:FOOTER:END -->
 </body>
 </html>

@@ -1,144 +1,47 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-639VVRC92N');
-  </script>
-
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
 <meta charset="utf-8">
 <script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="canonical" href="https://trailmanual.com/workshop/reading-torque-specs/">
 <title>How to Read a Torque Specification — The Workshop · Trail Manual</title>
 <meta name="description" content="What torque specs actually measure, the difference between dry and lubricated specs, torque-to-yield bolts, and why sequence and stage torquing matter.">
+<link rel="canonical" href="https://trailmanual.com/workshop/reading-torque-specs/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trail Manual">
+<meta property="og:title" content="How to Read a Torque Specification">
+<meta property="og:description" content="What torque specs actually measure, the difference between dry and lubricated specs, torque-to-yield bolts, and why sequence and stage torquing matter.">
+<meta property="og:url" content="https://trailmanual.com/workshop/reading-torque-specs/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-reading-torque-specs.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
-  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
-  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
-  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
-  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
-  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
-
-  /* Legacy aliases — light-theme values mapped from canon */
-  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
-  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
-  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
-  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
-  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
-  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
-  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
-  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
-
-  --radius:4px; --radius-lg:6px;
-  --shadow:0 4px 24px rgba(43,58,74,.08);
-  --max:1200px;
-
-  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--paper) 0%, rgba(247,244,237,.96) 100%);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
-.topbar-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:12px;font-weight:700;text-decoration:none;color:var(--text)}
-.brand-mark{width:34px;height:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text)}.brand-mark svg{width:100%;height:100%;display:block}
-.brand-text{font-size:16px;letter-spacing:-.2px}
-.brand-sub{color:var(--text-dim);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.3px}
-.back-link{margin-left:auto;color:var(--text-dim);font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:6px}
-.back-link:hover{color:var(--text);border-color:var(--accent);text-decoration:none}
-.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
-  /* Defensive: explicit color so legacy cascade can't break the hero */
-  .hero{color:var(--text)}
-  .hero h1{color:var(--text)}
-  .hero .lede,.hero p{color:var(--text-dim)}
-
-.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
-.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
-.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
-.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
-.hero-meta{display:flex;gap:16px;margin-top:18px;flex-wrap:wrap}
-.meta-pill{font-size:12px;color:var(--text-mute)}
-.meta-pill strong{color:var(--text-dim)}
-.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
-.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
-.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
-.verdict p+p{margin-top:10px}
-h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
-h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
-p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
-p strong{color:var(--text)}
-ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
-li{margin-bottom:6px;line-height:1.6}
-li strong{color:var(--text)}
-hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
-.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px 22px;margin:20px 0}
-.panel.warn{background:var(--warn-bg);border-color:var(--warn-border)}
-.panel.good{background:var(--good-bg);border-color:var(--good-border)}
-.panel.info{background:var(--info-bg);border-color:var(--info-border)}
-.panel.danger{background:var(--danger-bg);border-color:var(--danger-border)}
-.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
-.panel.warn .panel-label{color:var(--warn)}
-.panel.good .panel-label{color:var(--good)}
-.panel.info .panel-label{color:var(--info)}
-.panel.danger .panel-label{color:var(--danger)}
-.panel p{margin:0;font-size:14px;line-height:1.6}
-.panel p+p{margin-top:8px}
-.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
-.related h3{font-size:14px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-mute);margin:0 0 14px}
-.related-links{display:flex;flex-direction:column;gap:8px}
-.related-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);text-decoration:none;color:var(--text);font-size:14px;font-weight:500}
-.related-link:hover{border-color:var(--accent);text-decoration:none}
-.related-link span{color:var(--accent);font-size:12px}
-.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:36px 20px 24px;margin-top:60px}
-.footer-inner{max-width:980px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.footer-brand{display:flex;align-items:center;gap:10px}
-.footer-links{display:flex;gap:20px;flex-wrap:wrap}
-.footer-links a{color:var(--text-mute);font-size:13px}
-.footer-links a:hover{color:var(--text)}
-.disclaimer{max-width:980px;margin:16px auto 0;color:var(--text-mute);font-size:12px;border-top:1px solid var(--border);padding-top:16px}
-@media(max-width:640px){.hero{padding:28px 20px 24px}.hero h1{font-size:24px}.page{padding:20px 14px 60px}}
-
-  @media(max-width:500px){
-    .topbar-inner{flex-wrap:nowrap;gap:10px}
-    .brand-sub{display:none}
-    .brand-text{font-size:14px}
-    .back-link{font-size:12px;padding:6px 9px;white-space:nowrap;flex-shrink:0}
-  }
-.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
-.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
-.tm-theme-icon-sun{display:none}
-.tm-theme-icon-moon{display:block}
-[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
-[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
-@media(max-width:700px){.tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
-</style>
-<script src="/_nav.js"></script>
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "How to Read a Torque Specification", "description": "What torque specs actually measure, the difference between dry and lubricated specs, torque-to-yield bolts, and why sequence and stage torquing matter.", "image": ["https://trailmanual.com/images/photo-reading-torque-specs.webp"], "mainEntityOfPage": "https://trailmanual.com/workshop/reading-torque-specs/", "inLanguage": "en-US", "dateModified": "2026-10-19", "author": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/about/"}, "publisher": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/", "logo": {"@type": "ImageObject", "url": "https://trailmanual.com/favicon.png"}}, "articleSection": "The Workshop — Technique"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Trail Manual", "item": "https://trailmanual.com/"}, {"@type": "ListItem", "position": 2, "name": "The Workshop", "item": "https://trailmanual.com/workshop/"}, {"@type": "ListItem", "position": 3, "name": "How to Read a Torque Specification", "item": "https://trailmanual.com/workshop/reading-torque-specs/"}]}]</script>
 </head>
 <body>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
-      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </div>
   <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
@@ -172,9 +75,13 @@ hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
       <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
@@ -184,116 +91,113 @@ hr.divider{border:0;border-top:1px solid var(--border);margin:36px 0}
     <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
     </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
     <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
-      <a class="tm-dd-link tm-dd-link--sm" href="/pathfinder/"><strong>Pathfinder</strong></a>
     </div>
+    -->
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
       <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
     </div>
   </div></div>
 </header>
-</div>
-<div class="page"><article>
-  <div class="hero">
-    <div class="hero-eyebrow">The Workshop · Technique</div>
-    <h1>How to Read a Torque Specification</h1>
-    <p class="lede">A torque spec is not a tightness target — it's a clamping force target. Understanding what the number actually controls, and what can change that number without you touching the wrench, is what separates a properly assembled joint from a leak or a failure waiting to happen.</p>
-    <div class="hero-meta">
-      <span class="meta-pill"><strong>8 min read</strong></span>
-      <span class="meta-pill">Vehicle-agnostic</span>
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+<main class="tm-article">
+<article>
+  <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/workshop/">The Workshop</a> · <a href="/workshop/#technique">Technique</a></nav>
+  <h1>How to Read a Torque Specification</h1>
+  <p class="tm-dek">A torque spec is not a tightness target — it's a clamping force target. Understanding what the number actually controls, and what can change that number without you touching the wrench, is what separates a properly assembled joint from a leak or a failure waiting to happen.</p>
+  <div class="tm-byline"><span>5 min read</span><span>Applies to any vehicle</span><a href="/about/#sources">How we source guides</a></div>
+  <figure class="tm-figure"><img src="/images/photo-reading-torque-specs.webp" alt="Oiled rocker arms, valve springs and rocker shaft bolts inside an open cylinder head" width="1600" height="1065" fetchpriority="high"><figcaption>Photo: <a href="https://unsplash.com/@thebakemonoprojects?utm_source=trailmanual&utm_medium=referral" rel="noopener">Keiht Martinez</a> on <a href="https://unsplash.com/?utm_source=trailmanual&utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
+  <div class="tm-verdict"><div class="tag">Bottom line</div><p>Torque specs control clamping force — the force that keeps gaskets sealed and fasteners from backing out. The same torque value produces very different clamping forces depending on whether threads are dry or lubricated, and some critical fasteners (torque-to-yield bolts) use a rotation angle rather than a torque value for their final stage. Always confirm whether a spec is dry or wet before you start, and never reuse a torque-to-yield bolt.</p></div>
+  <div class="tm-prose">
+<h2>What a Torque Spec Actually Controls</h2>
+<p>When you torque a bolt to specification, you're not measuring how tight it feels — you're measuring a proxy for the bolt's stretch. As a bolt is tightened, it stretches elastically (like a very stiff spring), and that stretch is what creates clamping force on the joint. The torque value is a measure of the rotational friction you're overcoming; the clamping force is what you actually want.</p>
+<p>This distinction matters because anything that changes the friction changes the clamping force at a given torque. Lubrication reduces friction, which means a lubricated bolt reaches the same clamping force at lower torque. Thread condition, coating, and even temperature all affect how torque translates to clamp load.</p>
+<h2>Units: ft-lb and N·m</h2>
+<p>US factory service manuals typically list torque in <strong>foot-pounds (ft-lb)</strong>. Most European and Asian manufacturer manuals use <strong>newton-meters (N·m)</strong>. They are measuring the same thing — rotational force — in different units.</p>
+<p>To convert: <strong>ft-lb × 1.356 = N·m</strong>. To go the other direction: <strong>N·m × 0.738 = ft-lb</strong>. Many factory manuals list both. When only one is listed and your torque wrench uses the other unit, do the math before you start — don't try to estimate in your head while you're under the vehicle.</p>
+<div class="tm-callout info"><h3>Common conversions</h3><p>20 ft-lb = 27 N·m · 40 ft-lb = 54 N·m · 65 ft-lb = 88 N·m · 100 ft-lb = 136 N·m · 150 ft-lb = 203 N·m. A quick Google search handles the rest — get the number right before you start.</p></div>
+<h2>Dry vs. Lubricated: The Spec Condition Matters as Much as the Number</h2>
+<p>This is where most DIY assembly errors happen. A torque spec is only valid under the thread condition the engineer assumed when writing it. Change that condition and you change the clamping force, even if the wrench clicks at the right number.</p>
+<p><strong>"Dry"</strong> means clean, unlubricated threads with no oil, anti-seize, or thread-locking compound. This is the default assumption unless the service manual specifies otherwise. Most factory torque specs are dry specs.</p>
+<p><strong>"Lubricated" or "wet"</strong> means the engineer has specified oil or another lubricant on the threads and the number accounts for it. Engine oil on main bearing cap bolts, for example — the spec is written assuming oiled threads.</p>
+<div class="tm-callout warn"><h3>Anti-seize changes clamping force</h3><p>Anti-seize reduces thread friction significantly. Applying anti-seize to threads and then torquing to a dry spec over-tightens the joint — you're getting more clamping force than the engineer designed for. If you're using anti-seize on threads with a dry torque spec, reduce torque by approximately 10–20% and confirm with manufacturer data if available. Lug nuts are a common example: most manufacturers specify dry torque for lug nuts. Anti-seize on lug studs means your "torqued" lug nut is actually significantly over-torqued.</p></div>
+<h2>Torque-to-Yield Bolts: One-Time Fasteners</h2>
+<p>Cylinder head bolts on most modern engines, and some other critical fasteners, are <strong>torque-to-yield (TTY)</strong> bolts. They're designed to stretch past their elastic limit during installation — into the plastic deformation range — and the stretch itself creates the clamping force. This produces more consistent, higher clamping force than elastic torquing.</p>
+<p>The consequence: they cannot be reused. A TTY bolt that has already yielded won't yield again at the right point — it will either under-clamp or fail unpredictably. When replacing head gaskets or any component that uses TTY fasteners, buy new bolts. This is non-negotiable.</p>
+<p>TTY specs look different from standard specs. A common format: <strong>"Torque to 25 ft-lb, then 50 ft-lb, then an additional 90 degrees of rotation."</strong> The final angle matters as much as the torque values — it's controlling the stretch, not just the friction. Use an angle gauge or the degree markings on the socket to get this right.</p>
+<h2>Torque Sequence: Order Prevents Warping</h2>
+<p>Multi-bolt patterns — cylinder heads, differential covers, intake manifolds, wheel hubs — have a specified torque sequence for a reason. Tightening bolts randomly causes uneven clamping that warps the gasket or the mating surface before the final torque is even reached.</p>
+<p>The standard pattern for most circular or rectangular bolt patterns is <strong>start at the center and work outward in a star or cross pattern</strong>. This spreads the clamping load evenly as the gasket compresses. Your factory service manual will have the exact sequence for critical joints like cylinder heads.</p>
+<div class="tm-callout info"><h3>Differential cover example</h3><p>A 10-bolt differential cover: start with the two center bolts on opposite sides, then move to the next pair outward at 180 degrees from each other, continuing until all bolts are snugged. Then repeat the full sequence at final torque. Tightening around the perimeter in order produces a ripple effect that guarantees an uneven clamp.</p></div>
+<h2>Stage Torquing: Why Some Specs Have Multiple Passes</h2>
+<p>Some critical joints specify stage torquing — multiple passes at increasing torque values. A cylinder head might call for 25 ft-lb on the first pass, 50 ft-lb on the second, then 80 ft-lb final. This isn't redundancy: each pass allows the gasket to compress and settle before the next load is applied. Skipping to final torque in one pass can crush the gasket unevenly or prevent it from seating correctly.</p>
+<p>Each pass should use the same sequence as the first. Don't assume the gasket has settled uniformly after the first pass — it hasn't.</p>
+<h2>What Happens When You Guess</h2>
+<p>Over-torqued aluminum threads strip out and pull, leaving you with a thread repair job on top of whatever you were already doing. Over-torqued head bolts stretch past their yield point and lose clamping force — the opposite of what you intended. Under-torqued head bolts let combustion pressure push past the head gasket. Under-torqued lug nuts back off on the road.</p>
+<p>The cost of a factory service manual or a subscription to AllData is measured in dollars. The cost of guessing is measured in gaskets, threads, and sometimes the component itself.</p>
+<hr>
+<p>Get the correct spec from your factory service manual before starting any assembly work, confirm whether it's a dry or wet spec, check for a torque sequence, and use a calibrated torque wrench. All four of those steps are required — the wrench alone isn't enough.</p>
+  </div>
+  <aside class="tm-related"><h2>Related guides</h2><ul><li><a href="/workshop/torque-wrench/">Torque Wrenches — How to Choose and Use One</a></li><li><a href="/workshop/understanding-fastener-grades/">Fastener Grades and What They Mean</a></li><li><a href="/workshop/breaking-rusty-bolts/">Breaking Rusty and Seized Bolts</a></li></ul></aside>
+</article>
+</main>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
     </div>
-  </article></div>
-
-  <div class="verdict">
-    <div class="verdict-label">Bottom line</div>
-    <p>Torque specs control clamping force — the force that keeps gaskets sealed and fasteners from backing out. The same torque value produces very different clamping forces depending on whether threads are dry or lubricated, and some critical fasteners (torque-to-yield bolts) use a rotation angle rather than a torque value for their final stage. Always confirm whether a spec is dry or wet before you start, and never reuse a torque-to-yield bolt.</p>
-  </div>
-
-  <h2>What a Torque Spec Actually Controls</h2>
-  <p>When you torque a bolt to specification, you're not measuring how tight it feels — you're measuring a proxy for the bolt's stretch. As a bolt is tightened, it stretches elastically (like a very stiff spring), and that stretch is what creates clamping force on the joint. The torque value is a measure of the rotational friction you're overcoming; the clamping force is what you actually want.</p>
-  <p>This distinction matters because anything that changes the friction changes the clamping force at a given torque. Lubrication reduces friction, which means a lubricated bolt reaches the same clamping force at lower torque. Thread condition, coating, and even temperature all affect how torque translates to clamp load.</p>
-
-  <h2>Units: ft-lb and N·m</h2>
-  <p>US factory service manuals typically list torque in <strong>foot-pounds (ft-lb)</strong>. Most European and Asian manufacturer manuals use <strong>newton-meters (N·m)</strong>. They are measuring the same thing — rotational force — in different units.</p>
-  <p>To convert: <strong>ft-lb × 1.356 = N·m</strong>. To go the other direction: <strong>N·m × 0.738 = ft-lb</strong>. Many factory manuals list both. When only one is listed and your torque wrench uses the other unit, do the math before you start — don't try to estimate in your head while you're under the vehicle.</p>
-
-  <div class="panel info">
-    <div class="panel-label">Common conversions</div>
-    <p>20 ft-lb = 27 N·m · 40 ft-lb = 54 N·m · 65 ft-lb = 88 N·m · 100 ft-lb = 136 N·m · 150 ft-lb = 203 N·m. A quick Google search handles the rest — get the number right before you start.</p>
-  </div>
-
-  <h2>Dry vs. Lubricated: The Spec Condition Matters as Much as the Number</h2>
-  <p>This is where most DIY assembly errors happen. A torque spec is only valid under the thread condition the engineer assumed when writing it. Change that condition and you change the clamping force, even if the wrench clicks at the right number.</p>
-  <p><strong>"Dry"</strong> means clean, unlubricated threads with no oil, anti-seize, or thread-locking compound. This is the default assumption unless the service manual specifies otherwise. Most factory torque specs are dry specs.</p>
-  <p><strong>"Lubricated" or "wet"</strong> means the engineer has specified oil or another lubricant on the threads and the number accounts for it. Engine oil on main bearing cap bolts, for example — the spec is written assuming oiled threads.</p>
-
-  <div class="panel warn">
-    <div class="panel-label">Anti-seize changes clamping force</div>
-    <p>Anti-seize reduces thread friction significantly. Applying anti-seize to threads and then torquing to a dry spec over-tightens the joint — you're getting more clamping force than the engineer designed for. If you're using anti-seize on threads with a dry torque spec, reduce torque by approximately 10–20% and confirm with manufacturer data if available. Lug nuts are a common example: most manufacturers specify dry torque for lug nuts. Anti-seize on lug studs means your "torqued" lug nut is actually significantly over-torqued.</p>
-  </div>
-
-  <h2>Torque-to-Yield Bolts: One-Time Fasteners</h2>
-  <p>Cylinder head bolts on most modern engines, and some other critical fasteners, are <strong>torque-to-yield (TTY)</strong> bolts. They're designed to stretch past their elastic limit during installation — into the plastic deformation range — and the stretch itself creates the clamping force. This produces more consistent, higher clamping force than elastic torquing.</p>
-  <p>The consequence: they cannot be reused. A TTY bolt that has already yielded won't yield again at the right point — it will either under-clamp or fail unpredictably. When replacing head gaskets or any component that uses TTY fasteners, buy new bolts. This is non-negotiable.</p>
-  <p>TTY specs look different from standard specs. A common format: <strong>"Torque to 25 ft-lb, then 50 ft-lb, then an additional 90 degrees of rotation."</strong> The final angle matters as much as the torque values — it's controlling the stretch, not just the friction. Use an angle gauge or the degree markings on the socket to get this right.</p>
-
-  <h2>Torque Sequence: Order Prevents Warping</h2>
-  <p>Multi-bolt patterns — cylinder heads, differential covers, intake manifolds, wheel hubs — have a specified torque sequence for a reason. Tightening bolts randomly causes uneven clamping that warps the gasket or the mating surface before the final torque is even reached.</p>
-  <p>The standard pattern for most circular or rectangular bolt patterns is <strong>start at the center and work outward in a star or cross pattern</strong>. This spreads the clamping load evenly as the gasket compresses. Your factory service manual will have the exact sequence for critical joints like cylinder heads.</p>
-
-  <div class="panel info">
-    <div class="panel-label">Differential cover example</div>
-    <p>A 10-bolt differential cover: start with the two center bolts on opposite sides, then move to the next pair outward at 180 degrees from each other, continuing until all bolts are snugged. Then repeat the full sequence at final torque. Tightening around the perimeter in order produces a ripple effect that guarantees an uneven clamp.</p>
-  </div>
-
-  <h2>Stage Torquing: Why Some Specs Have Multiple Passes</h2>
-  <p>Some critical joints specify stage torquing — multiple passes at increasing torque values. A cylinder head might call for 25 ft-lb on the first pass, 50 ft-lb on the second, then 80 ft-lb final. This isn't redundancy: each pass allows the gasket to compress and settle before the next load is applied. Skipping to final torque in one pass can crush the gasket unevenly or prevent it from seating correctly.</p>
-  <p>Each pass should use the same sequence as the first. Don't assume the gasket has settled uniformly after the first pass — it hasn't.</p>
-
-  <h2>What Happens When You Guess</h2>
-  <p>Over-torqued aluminum threads strip out and pull, leaving you with a thread repair job on top of whatever you were already doing. Over-torqued head bolts stretch past their yield point and lose clamping force — the opposite of what you intended. Under-torqued head bolts let combustion pressure push past the head gasket. Under-torqued lug nuts back off on the road.</p>
-  <p>The cost of a factory service manual or a subscription to AllData is measured in dollars. The cost of guessing is measured in gaskets, threads, and sometimes the component itself.</p>
-
-  <hr class="divider">
-  <p>Get the correct spec from your factory service manual before starting any assembly work, confirm whether it's a dry or wet spec, check for a torque sequence, and use a calibrated torque wrench. All four of those steps are required — the wrench alone isn't enough.</p>
-
-  <div class="related">
-    <h3>Related guides</h3>
-    <div class="related-links">
-      <a class="related-link" href="/workshop/torque-wrench/">
-        Torque Wrenches — How to Choose and Use One
-        <span>Read →</span>
-      </a>
-      <a class="related-link" href="/workshop/understanding-fastener-grades/">
-        Fastener Grades and What They Mean
-        <span>Read →</span>
-      </a>
-      <a class="related-link" href="/workshop/breaking-rusty-bolts/">
-        Breaking Rusty and Seized Bolts
-        <span>Read →</span>
-      </a>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
     </div>
   </div>
-</div>
-<footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand"><div class="brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div><div><div class="brand-text">Trail Manual</div><div class="brand-sub">trailmanual.com</div></div></div>
-    <div class="footer-links"><a href="/">Home</a><a href="/workshop/">The Workshop</a><a href="/db/">XJ Database</a><a href="/about/">About</a></div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
   </div>
-  <div class="disclaimer">Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.</div>
 </footer>
-<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+<!-- TM:FOOTER:END -->
 </body>
 </html>

@@ -57,7 +57,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .8px;
-  color: var(--accent-2);
+  color: var(--clay-light);
   margin-bottom: 12px;
 }
 .page-hero-inner h1 {
@@ -220,16 +220,19 @@
 <body>
 
 <!-- ── HEADER ───────────────────────────────────────────────────────── -->
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
-      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </div>
   <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
@@ -264,8 +267,8 @@
     <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
       <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
-           Non-Jeep platforms below are Early-stage (<10% of launch bar), removed from public nav;
-           landing pages and shards still exist. Restore when built.
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
@@ -282,27 +285,27 @@
     <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
          Column removed from public nav; landing page/shard still exist. Restore when built.
     <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
-      <a class="tm-dd-link tm-dd-link--sm" href="/pathfinder/"><strong>Pathfinder</strong></a>
     </div>
     -->
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
       <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
     </div>
   </div></div>
 </header>
-<script src="/_nav.js"></script><main class="tm-main">
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END --><main class="tm-main">
 
   <!-- ── HERO ─────────────────────────────────────────────────────── -->
   <div class="page-hero">
@@ -320,22 +323,22 @@
     <a class="tm-cat-item" href="#tools">
       <div class="tm-cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
       <div class="tm-cat-label">Shop Tools</div>
-      <div class="tm-cat-count">6 guides planned</div>
+      <div class="tm-cat-count">26 guides</div>
     </a>
     <a class="tm-cat-item" href="#safety">
       <div class="tm-cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <div class="tm-cat-label">Safety</div>
-      <div class="tm-cat-count">5 guides planned</div>
+      <div class="tm-cat-count">19 guides</div>
     </a>
     <a class="tm-cat-item" href="#technique">
       <div class="tm-cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div>
       <div class="tm-cat-label">Technique</div>
-      <div class="tm-cat-count">7 guides planned</div>
+      <div class="tm-cat-count">11 guides</div>
     </a>
     <a class="tm-cat-item" href="#shop-setup">
       <div class="tm-cat-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:24px;height:24px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10"/></svg></div>
       <div class="tm-cat-label">Shop Setup</div>
-      <div class="tm-cat-count">4 guides planned</div>
+      <div class="tm-cat-count">4 guides</div>
     </a>
   </div>
 
@@ -376,7 +379,7 @@
         <h3>Torque Wrenches</h3>
         <p>Click vs. beam vs. digital, how to set and read them correctly, and why torque specs exist in the first place.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -385,7 +388,7 @@
         <h3>Impact Driver vs. Impact Wrench</h3>
         <p>They're not the same tool. When each belongs in your hand, what to know about torque ratings, and what not to use them for.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -394,7 +397,7 @@
         <h3>Multimeter Basics</h3>
         <p>Voltage, continuity, resistance — what each reading means, how to use a multimeter on a 12V system, and when to stop guessing.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -403,7 +406,7 @@
         <h3>Socket Sets: What You Actually Need</h3>
         <p>SAE vs. metric, shallow vs. deep, 3/8" vs. 1/2" drive — the honest minimum starter set and where to expand from there.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -412,7 +415,7 @@
         <h3>Breaker Bars and Cheater Pipes</h3>
         <p>How much leverage is too much, what breaks first, and the right technique for stubborn fasteners before you reach for heat.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -421,7 +424,7 @@
         <h3>Oscilloscopes for DIYers</h3>
         <p>When a multimeter isn't enough — how scopes diagnose crankshaft sensors, misfires, injector pulse, and any signal that changes faster than a meter can track.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -449,7 +452,7 @@
         <h3>OBD-II Scan Tools — $30 vs. $300 vs. Professional</h3>
         <p>What you actually get at each price tier, the one feature that separates a code reader from a real diagnostic tool, and how to pick the right one for your work.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -458,7 +461,7 @@
         <h3>Torx, Spline, and Security Bits — What You'll Need</h3>
         <p>Internal Torx, external Torx, spline (XZN), and security bits — what they look like, where they show up on vehicles, and the sizes worth owning.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -476,7 +479,7 @@
         <h3>Ball Joint Press — Renting vs. Owning</h3>
         <p>The free loaner program at the parts store covers most jobs. When buying your own pays off, what to avoid in cheap kits, and how to press a ball joint without ruining the control arm bore.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -485,7 +488,7 @@
         <h3>Hydraulic Press — Shop Uses and Bearing Press Basics</h3>
         <p>What a shop press can do, how to size one for a home garage, and the bearing press technique that protects new parts from the moment they're installed.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -494,7 +497,7 @@
         <h3>Tap and Die Set Basics</h3>
         <p>How taps and dies work, when to cut new threads vs. chase existing ones, the drill sizes and cutting fluid rules that keep taps intact, and the mistakes that break them.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
 
@@ -502,7 +505,7 @@
         <h3>Wire Strippers and Crimpers — The Right Tool for Each Joint</h3>
         <p>How to strip without nicking the conductor, which crimper type actually holds under vibration, and why the pull test is non-negotiable on every joint.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -511,7 +514,7 @@
         <h3>Heat Gun Uses — Shrink Tubing, Stubborn Clips, and Vinyl</h3>
         <p>Temperature settings and technique for heat shrink tubing, releasing brittle plastic clips without snapping them, removing adhesive-backed trim, and vinyl work.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -529,7 +532,7 @@
         <h3>Shop Vacuum — Filters, Wet/Dry Use, and Hose Attachments</h3>
         <p>Matching the filter to the mess, switching to wet pickup without ruining the motor, the attachment for each job, and why "peak horsepower" is the spec that tells you the least.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -538,7 +541,7 @@
         <h3>Ratchet Straps — Load Ratings, Rigging, and Inspection</h3>
         <p>Working load limit vs. breaking strength, rigging angles that actually hold, edge protection, and the inspection habits that tell you when a strap is done — plus why a tie-down is never a recovery strap.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -547,7 +550,7 @@
         <h3>Serpentine Belt Tool and Tensioner Wrench</h3>
         <p>When a breaker bar in the tensioner's square drive is all you need, when the kit's crowfoot wrenches and belt-routing fork earn their keep, and how to rotate a spring-loaded tensioner without getting your hand caught.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -556,7 +559,7 @@
         <h3>Infrared Thermometer &mdash; Reading Brake, Cooling, and Exhaust Temps</h3>
         <p>Distance-to-spot ratio, why shiny metal reads cold, and how comparing two surface temps exposes a dragging brake, a stuck thermostat, or a dead cylinder.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -565,7 +568,7 @@
         <h3>Pry Bars &mdash; Flat, Rolling Head, and Dead Blow</h3>
         <p>Where the thin flat bar earns its keep, why the rolling head&apos;s rocker gives you the most leverage, what the dead blow&apos;s shot-filled head does that a rubber mallet can&apos;t, and how to pick a fulcrum that won&apos;t crack.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -574,7 +577,7 @@
         <h3>Flare Nut Wrenches &mdash; Why They Exist and When to Use Them</h3>
         <p>Why the slotted box-end grips five flats instead of two, when a soft brake or fuel fitting demands one, and how to back out a seized nut without rounding it or twisting the line.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -583,7 +586,7 @@
         <h3>Drain Pans and Fluid Disposal &mdash; Doing It Right</h3>
         <p>Why a closed-top drain-and-store pan beats an open tub, how to size one to your crankcase, and the one rule that keeps recycling free and legal: never mix fluids. Where used oil, coolant, and brake fluid each actually go.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -592,7 +595,7 @@
         <h3>Pick Sets and Dental Hooks &mdash; Gaskets, Seals, and Clips</h3>
         <p>Why a four-piece pick set is one of the highest-value tools in the box: pulling O-rings and seals without gouging the groove behind them, seating a new ring without twisting it, and when to reach for a brass tip instead of steel.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -723,7 +726,7 @@
         <h3>Hearing Protection — dB Ratings and When to Wear Them</h3>
         <p>An impact wrench runs 100–110 dB — about 15 minutes of safe exposure a day. The dB math, what NRR ratings actually deliver, and the arm's-length voice test that tells you when to plug in.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -732,7 +735,7 @@
         <h3>Fluid Spills — Containment, Cleanup, and Disposal</h3>
         <p>Stop the source, ring the spill, absorb from the outside in, then clean and dispose. Fuel-specific rules, the poultice method for old concrete stains, and why oily rags belong in a lidded metal can.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -741,7 +744,7 @@
         <h3>Shop First Aid Kit — What to Stock and Why</h3>
         <p>An ANSI Class A kit plus the four things a garage needs that it won't have. Tourniquet use, the 20-minute burn rule, chemical splash vs. embedded particle in an eye, and the injuries no kit treats.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -750,7 +753,7 @@
         <h3>When to Stop and Go to a Shop</h3>
         <p>Brake lines, fuel systems, suspension geometry — the repairs where a mistake has consequences you can't undo. An honest guide to knowing your limit.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -759,7 +762,7 @@
         <h3>Lifting and Back Safety in the Shop</h3>
         <p>NIOSH caps ideal-condition lifting at 51 lb — real shop geometry cuts that to 15–25. Why technique alone doesn't prevent back injuries, and the equipment and setup that do.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -768,7 +771,7 @@
         <h3>Fall Prevention — Ladders, Work Platforms, and Creeper Use</h3>
         <p>Ladder duty ratings, the 4:1 setup rule, and the platform options that beat a stepladder. Plus the fall nobody plans for: oil, cords, and a creeper left in the walk path.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -800,7 +803,7 @@
         <h3>Breaking Rusty and Seized Bolts</h3>
         <p>Penetrating oil dwell times, heat application, impact vs. hand tools, left-hand drill bits, and extraction kits — in the order that preserves the threads.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -809,7 +812,7 @@
         <h3>How to Read a Torque Specification</h3>
         <p>Ft-lb vs. N·m, dry vs. wet vs. lubricated, torque-to-yield bolts, and why the sequence matters as much as the number.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -818,7 +821,7 @@
         <h3>Thread Repair: Helicoil, Timesert, and Drill-Out</h3>
         <p>When to use each method, sizing the insert correctly, and how to avoid making a stripped hole worse before you make it right.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -827,7 +830,7 @@
         <h3>Reading a Wiring Diagram</h3>
         <p>Symbols, wire gauge notation, ground paths, and how to trace a circuit from a factory diagram without getting lost three relays in.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -836,7 +839,7 @@
         <h3>Gaskets vs. Liquid Sealant: When to Use What</h3>
         <p>RTV, anaerobic sealant, gasket maker — what each seals, what each dissolves, and the surfaces where you should never use one or the other.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -845,7 +848,7 @@
         <h3>Fastener Grades and What They Mean</h3>
         <p>Grade 5 vs. 8, SAE vs. metric class ratings, where hardware store bolts don't belong, and how to identify what came out of your vehicle.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -854,7 +857,7 @@
         <h3>Soldering Basics — Automotive Electrical</h3>
         <p>Iron wattage, rosin-core solder, the Western Union splice, adhesive-lined heat shrink — and the joints where crimping is the better answer.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -872,7 +875,7 @@
         <h3>Reading Spark Plugs — Diagnosis by Color and Deposit</h3>
         <p>What light tan, sooty black, oily, blistered, and ash-covered firing ends actually mean — and why comparing cylinders beats matching one plug to a color chart.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -881,7 +884,7 @@
         <h3>Thread Locker — Blue vs. Red vs. None</h3>
         <p>Which grade belongs on which fastener, how much to apply, why it changes your torque reading, and the long list of bolts that should get none at all.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -890,7 +893,7 @@
         <h3>Brake Bedding Procedure &mdash; Why It Matters</h3>
         <p>What bedding actually deposits on the rotor, why pad makers publish procedures that contradict each other, and the one habit that lays down the uneven deposit people call a warped rotor.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read &rarr;</span>
         </div>
       </a>
@@ -913,7 +916,7 @@
         <h3>Shop Lighting</h3>
         <p>The lumen counts that make a difference, LED shop light options at different price points, and portable solutions for working outside.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -922,7 +925,7 @@
         <h3>Air Compressor Selection</h3>
         <p>CFM vs. PSI, tank size, oil vs. oil-free, pancake vs. vertical — what you actually need for tire inflation, air tools, and paint work.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -931,7 +934,7 @@
         <h3>Shop Floor Options</h3>
         <p>Epoxy, interlocking tiles, rubber mat, bare concrete — what each protects against, what each costs, and what holds up under a floor jack.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -940,7 +943,7 @@
         <h3>Tool Storage That Actually Works</h3>
         <p>Rollaway chests, wall pegboard, drawer liners, and the storage layouts that make you faster — not just tidier.</p>
         <div class="tm-guide-card-footer">
-          <span class="tm-pill live">Live</span>
+          <span></span>
           <span class="open">Read →</span>
         </div>
       </a>
@@ -960,44 +963,49 @@
 </main>
 
 <!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
 <footer class="tm-footer">
   <div class="tm-footer-inner">
     <div>
-      <div class="tm-brand" style="margin-bottom:12px;">
+      <div class="tm-brand" style="margin-bottom:12px">
         <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
         <div>
           <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
           <div class="tm-brand-sub">trailmanual.com</div>
         </div>
       </div>
-      <p style="color:var(--text-dim);font-size:13px;max-width:280px;margin:0;line-height:1.6;">
-        Free, community-built DIY reference for off-road vehicle owners. No sponsored content.
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
       </p>
     </div>
     <div>
       <h4>Tools</h4>
-      <a href="/db/">XJ Database</a>
-      <a href="/db/death-wobble-guide.html">Death Wobble Guide</a>
-      <a href="/tools/">All tools →</a>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
     </div>
     <div>
       <h4>Learn</h4>
-      <a href="/workshop/">The Workshop</a>
-      <a href="/workshop/#tools">Shop Tools</a>
-      <a href="/workshop/#safety">Safety</a>
-      <a href="/workshop/#technique">Technique</a>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
     </div>
     <div>
-      <h4>Site</h4>      <a href="/about/">About Trail Manual</a>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
       <a href="/about/#sources">Sources &amp; method</a>
       <a href="/privacy/">Privacy</a>
       <a href="/terms/">Terms</a>
     </div>
   </div>
   <div class="disclaimer">
-    Modifications affect vehicle safety and warranty. Work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
   </div>
 </footer>
+<!-- TM:FOOTER:END -->
 
 <script>
 (function(){
@@ -1030,5 +1038,6 @@
 })();
 </script>
 <script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+<script>/* tile counts follow the cards below, so they can't go stale */document.querySelectorAll('.tm-cat-item').forEach(function(a){var s=document.querySelector(a.getAttribute('href')),c=a.querySelector('.tm-cat-count');if(s&&c){var n=s.querySelectorAll('a.tm-guide-card').length;c.textContent=n+(n===1?' guide':' guides');}});</script>
 </body>
 </html>

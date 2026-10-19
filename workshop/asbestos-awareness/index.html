@@ -1,553 +1,270 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-639VVRC92N');
-  </script>
-
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
 <meta charset="utf-8">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="canonical" href="https://trailmanual.com/workshop/asbestos-awareness/">
 <title>Asbestos in Older Brake and Gasket Materials — The Workshop · Trail Manual</title>
 <meta name="description" content="Worn asbestos and non-asbestos brake linings look identical, so assume every brake, clutch, and old gasket of unknown history contains asbestos — the wet method OSHA allows, why compressed air is the one unforgivable mistake, respirator and clothing rules, and how to bag and dispose of the waste.">
+<link rel="canonical" href="https://trailmanual.com/workshop/asbestos-awareness/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trail Manual">
+<meta property="og:title" content="Asbestos in Older Brake and Gasket Materials">
+<meta property="og:description" content="Worn asbestos and non-asbestos brake linings look identical, so assume every brake, clutch, and old gasket of unknown history contains asbestos — the wet method OSHA allows, why compressed air is the one unforgivable mistake, respirator and clothing rules, and how to bag and dispose of the waste.">
+<meta property="og:url" content="https://trailmanual.com/workshop/asbestos-awareness/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-asbestos-awareness.webp">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  /* Canonical Trail Manual tokens (TrailManual-Design-System.md §4) */
-  --slate:#2B3A4A; --slate-deep:#1A2330; --slate-light:#5B6B7E;
-  --clay:#C97E50; --clay-deep:#A85D33; --clay-light:#E8AB85;
-  --bone:#E8E2D2; --bone-deep:#C9C1AC; --paper:#F7F4ED; --panel-canon:#FFFCF5;
-  --moss:#3D5B47; --rust:#8A4E2C; --bark:#4A3B2E;
-  --safety:#B23B2F; --warn-c:#D89035; --good-c:#5E8C5A; --info-c:#4F7795;
-
-  /* Legacy aliases — light-theme values mapped from canon */
-  --bg:var(--paper); --bg-2:var(--bone); --bg-3:var(--bone-deep);
-  --panel:var(--bone); --panel-2:var(--bone-deep); --border:#DDD7C7;
-  --text:var(--slate); --text-dim:var(--slate-light); --text-mute:#8A8678;
-  --accent:var(--clay); --accent-2:var(--moss); --accent-3:var(--rust);
-  --danger:var(--safety); --danger-bg:rgba(178,59,47,.1); --danger-border:rgba(178,59,47,.3);
-  --warn:var(--warn-c); --warn-bg:rgba(216,144,53,.1); --warn-border:rgba(216,144,53,.3);
-  --good:var(--good-c); --good-bg:rgba(94,140,90,.1); --good-border:rgba(94,140,90,.3);
-  --info:var(--info-c); --info-bg:rgba(79,119,149,.1); --info-border:rgba(79,119,149,.3);
-
-  --radius:4px; --radius-lg:6px;
-  --shadow:0 4px 24px rgba(43,58,74,.08);
-  --max:1200px;
-
-  --font-sans:'DM Sans','-apple-system',BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  --font-mono:'JetBrains Mono','SF Mono',Menlo,Consolas,monospace;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration:none}
-a:hover{text-decoration:underline}
-/* ═══════════════════════════════════════════════════════
-   TRAIL MANUAL · UNIFIED NAV  v1.0 · May 2026
-   tnav- prefix · self-contained · works with or without _shared.css
-   Reads --paper,--bone,--slate,--slate-l,--clay from page :root.
-   ═══════════════════════════════════════════════════════ */
-.tnav{--nb:var(--paper,#F7F4ED);--nbdr:var(--bone,#E8E2D2);--nt:var(--slate,#2B3A4A);--ntd:var(--slate-light,var(--slate-l,#5B6B7E));--na:var(--clay,#C97E50);--nhov:var(--bone,#E8E2D2);--ndrop:var(--panel,var(--paper,#F7F4ED));--nbdr2:var(--bone,#E8E2D2)}
-.tnav[data-variant=dark]{--nb:var(--slate-d,var(--slate-deep,#1A2330));--nbdr:rgba(43,58,74,.8);--nt:var(--bone,#E8E2D2);--ntd:rgba(232,226,210,.65);--nhov:rgba(255,255,255,.08);--ndrop:#2B3A4A;--nbdr2:rgba(255,255,255,.12)}
-.tnav{position:sticky;top:0;z-index:200;background:var(--nb);border-bottom:1px solid var(--nbdr);font-family:var(--font-sans,'DM Sans',-apple-system,sans-serif);backdrop-filter:blur(8px)}
-.tnav-inner{max-width:1200px;margin:0 auto;padding:0 24px;height:56px;display:flex;align-items:center;gap:4px}
-.tnav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--nt);flex-shrink:0;margin-right:16px}
-.tnav-brand:hover{text-decoration:none;opacity:.85}
-.tnav-logo{width:28px;height:28px;display:block;flex-shrink:0}
-.tnav-wordmark{font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--nt);line-height:1;white-space:nowrap}
-.tnav-dot{display:inline-block;width:5px;height:5px;background:var(--na);border-radius:50%;margin:0 4px;vertical-align:3px}
-.tnav-center{display:flex;align-items:center;gap:2px;flex:1}
-.tnav-right{margin-left:auto;flex-shrink:0}
-.tnav-link,.tnav-link-btn{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border-radius:6px;font-size:13px;font-weight:500;color:var(--ntd);background:transparent;border:none;cursor:pointer;text-decoration:none;white-space:nowrap;transition:color .15s,background .15s;font-family:inherit;line-height:1}
-.tnav-link:hover,.tnav-link-btn:hover,.tnav-link:focus-visible,.tnav-link-btn:focus-visible{color:var(--nt);background:var(--nhov);text-decoration:none;outline:none}
-.tnav-link.tnav-active,.tnav-link-btn.tnav-active{color:var(--na);background:var(--nhov)}
-.tnav-caret{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;transition:transform .2s;flex-shrink:0}
-.tnav-item.tnav-open .tnav-caret{transform:rotate(180deg)}
-.tnav-item{position:relative}
-.tnav-drop{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--ndrop);border:1px solid var(--nbdr2);border-radius:8px;box-shadow:0 8px 32px rgba(43,58,74,.16);padding:6px;z-index:300}
-.tnav-drop.tnav-drop-right{left:auto;right:0}
-.tnav-item.tnav-open>.tnav-drop{display:block}
-.tnav-drop-vehicles{min-width:420px;display:none;grid-template-columns:1fr 1fr;gap:0 8px;padding:8px}
-.tnav-item.tnav-open>.tnav-drop-vehicles{display:grid}
-.tnav-drop-section{padding:4px 0 6px}
-.tnav-drop-label{display:block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ntd);padding:6px 10px 4px}
-.tnav-drop-link{display:flex;align-items:center;justify-content:space-between;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);text-decoration:none;transition:background .12s,color .12s;gap:8px}
-.tnav-drop-link:hover,.tnav-drop-link:focus-visible{background:var(--nhov);color:var(--na);outline:none;text-decoration:none}
-.tnav-drop-years{font-size:11px;color:var(--ntd);flex-shrink:0;font-family:var(--font-mono,'JetBrains Mono',monospace)}
-.tnav-divider{border:none;border-top:1px solid var(--nbdr2);margin:4px 6px}
-.tnav-my-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;border-radius:6px;border:1px solid var(--nbdr);background:transparent;color:var(--nt);font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;white-space:nowrap;transition:border-color .15s,background .15s,color .15s;line-height:1}
-.tnav-my-btn:hover,.tnav-my-btn:focus-visible{border-color:var(--na);background:var(--nhov);outline:none}
-.tnav-item.tnav-open .tnav-my-btn{border-color:var(--na);color:var(--na)}
-.tnav-my-icon{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
-.tnav-vehicle-pill{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:5px;background:var(--nhov);margin-bottom:2px;text-decoration:none;color:var(--nt);transition:filter .12s}
-.tnav-vehicle-pill:hover{filter:brightness(1.05);text-decoration:none}
-.tnav-vehicle-pill img{width:28px;height:28px;object-fit:contain}
-.tnav-vehicle-pill-info{display:flex;flex-direction:column;gap:2px}
-.tnav-vehicle-pill-name{font-size:13px;font-weight:600;color:var(--nt);line-height:1.2}
-.tnav-vehicle-pill-years{font-size:11px;color:var(--ntd);font-family:var(--font-mono,monospace)}
-.tnav-no-vehicle{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:5px;font-size:13px;color:var(--ntd);text-decoration:none;transition:background .12s}
-.tnav-no-vehicle:hover{background:var(--nhov);color:var(--na);text-decoration:none}
-.tnav-theme-row{display:flex;align-items:center;gap:10px;width:100%;padding:7px 10px;border-radius:5px;font-size:13.5px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s,color .12s}
-.tnav-theme-row:hover{background:var(--nhov);color:var(--na)}
-.tnav-theme-icon{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0}
-.tnav-hamburger{display:none;align-items:center;justify-content:center;width:36px;height:36px;background:transparent;border:1px solid var(--nbdr);border-radius:6px;color:var(--nt);cursor:pointer;margin-left:auto;flex-shrink:0;transition:border-color .15s;padding:0}
-.tnav-hamburger:hover,.tnav-hamburger:focus-visible{border-color:var(--na);outline:none}
-.tnav-ham-icon{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
-.tnav-drawer{display:none;border-top:1px solid var(--nbdr);background:var(--nb);max-height:calc(100vh - 56px);overflow-y:auto}
-.tnav-drawer.tnav-open{display:block}
-.tnav-drawer-inner{max-width:1200px;margin:0 auto;padding:12px 16px 20px;display:flex;flex-direction:column}
-.tnav-drawer-section{border-bottom:1px solid var(--nbdr);padding:8px 0 12px}
-.tnav-drawer-section:last-child{border-bottom:none}
-.tnav-drawer-label{display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ntd);padding:4px 8px 6px}
-.tnav-drawer-vehicles{display:grid;grid-template-columns:1fr 1fr;gap:0 4px}
-@media(max-width:400px){.tnav-drawer-vehicles{grid-template-columns:1fr}}
-.tnav-drawer-link{display:flex;align-items:center;justify-content:space-between;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);text-decoration:none;transition:background .12s;gap:8px}
-.tnav-drawer-link:hover{background:var(--nhov);text-decoration:none;color:var(--na)}
-.tnav-drawer-link.tnav-active{color:var(--na)}
-.tnav-drawer-years{font-size:12px;color:var(--ntd);font-family:var(--font-mono,monospace)}
-.tnav-drawer-btn{display:flex;align-items:center;gap:10px;width:100%;padding:9px 8px;border-radius:5px;font-size:15px;color:var(--nt);background:transparent;border:none;cursor:pointer;font-family:inherit;text-align:left;transition:background .12s}
-.tnav-drawer-btn:hover{background:var(--nhov);color:var(--na)}
-@media(max-width:720px){.tnav-center{display:none}.tnav-right{display:none}.tnav-hamburger{display:flex}.tnav-inner{padding:0 16px}}
-.page{max-width:var(--max);margin:0 auto;padding:32px 20px 80px}
-  /* Defensive: explicit color so legacy cascade can't break the hero */
-  .hero{color:var(--text)}
-  .hero h1{color:var(--text)}
-  .hero .lede,.hero p{color:var(--text-dim)}
-
-.hero{background:linear-gradient(135deg,#1f242d 0%,#161b22 100%);border:1px solid var(--border);border-radius:var(--radius-lg);padding:38px 32px 32px;margin-bottom:28px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-20%;right:-5%;width:300px;height:300px;background:radial-gradient(circle,rgba(197,165,114,.10) 0%,transparent 70%)}
-.hero-eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);font-weight:700;margin-bottom:12px}
-.hero h1{font-size:30px;letter-spacing:-.5px;margin:0 0 14px;line-height:1.2;position:relative}
-.hero .lede{color:var(--text-dim);font-size:17px;max-width:640px;line-height:1.65;margin:0;position:relative}
-.safety-badge{display:inline-flex;align-items:center;gap:6px;background:var(--danger-bg);border:1px solid var(--danger-border);color:var(--danger);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:5px 10px;border-radius:4px;margin-top:16px}
-.verdict{background:linear-gradient(135deg,rgba(197,165,114,.08) 0%,rgba(197,165,114,.04) 100%);border:1px solid rgba(197,165,114,.3);border-radius:var(--radius-lg);padding:22px 24px;margin:28px 0}
-.verdict-label{font-size:11px;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);font-weight:700;margin-bottom:8px}
-.verdict p{margin:0;font-size:16px;line-height:1.6;color:var(--text)}
-.verdict p+p{margin-top:10px}
-h2{font-size:22px;letter-spacing:-.3px;margin:40px 0 14px;color:var(--text)}
-h3{font-size:17px;letter-spacing:-.1px;margin:28px 0 10px;color:var(--text)}
-p{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.7}
-p strong{color:var(--text)}
-ul,ol{margin:0 0 16px;padding-left:22px;color:var(--text-dim);font-size:15px}
-li{margin-bottom:6px;line-height:1.6}
-li strong{color:var(--text)}
-.panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin:24px 0}
-.panel-warn{background:var(--warn-bg);border-color:var(--warn-border)}
-.panel-danger{background:var(--danger-bg);border-color:var(--danger-border)}
-.panel-good{background:var(--good-bg);border-color:var(--good-border)}
-.panel-label{font-size:11px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:8px}
-.panel-warn .panel-label{color:var(--warn)}
-.panel-danger .panel-label{color:var(--danger)}
-.panel-good .panel-label{color:var(--good)}
-.panel p,.panel li{font-size:14px;margin-bottom:4px}
-.panel p:last-child,.panel ul:last-child{margin-bottom:0}
-.video-section{margin:40px 0 0;padding-top:32px;border-top:1px solid var(--border)}
-.video-section h2{margin-top:0}
-.video-context{color:var(--text-dim);font-size:15px;margin:0 0 16px}
-.video-embed{margin:18px 0 0}
-.video-wrap{position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-lg);background:#000;border:1px solid var(--border)}
-.video-wrap iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-.video-credit{margin:10px 0 0;font-size:13px;color:var(--text-mute)}
-.video-credit a{color:var(--text-dim);border-bottom:1px dotted var(--text-mute)}
-.video-credit a:hover{color:var(--accent);text-decoration:none;border-bottom-color:var(--accent)}
-.related{margin-top:48px;padding-top:24px;border-top:1px solid var(--border)}
-.related h2{margin-top:0;font-size:18px}
-.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
-.related-card{background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;color:var(--text-dim);font-size:14px;transition:border-color .15s}
-.related-card:hover{border-color:var(--accent);color:var(--text);text-decoration:none}
-.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:32px 20px;margin-top:64px;text-align:center;color:var(--text-mute);font-size:13px}
-.footer a{color:var(--text-dim)}
-</style>
-<script src="/_nav.js"></script>
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Asbestos in Older Brake and Gasket Materials", "description": "Worn asbestos and non-asbestos brake linings look identical, so assume every brake, clutch, and old gasket of unknown history contains asbestos — the wet method OSHA allows, why compressed air is the one unforgivable mistake, respirator and clothing rules, and how to bag and dispose of the waste.", "image": ["https://trailmanual.com/images/photo-asbestos-awareness.webp"], "mainEntityOfPage": "https://trailmanual.com/workshop/asbestos-awareness/", "inLanguage": "en-US", "dateModified": "2026-10-19", "author": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/about/"}, "publisher": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/", "logo": {"@type": "ImageObject", "url": "https://trailmanual.com/favicon.png"}}, "articleSection": "The Workshop — Safety"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Trail Manual", "item": "https://trailmanual.com/"}, {"@type": "ListItem", "position": 2, "name": "The Workshop", "item": "https://trailmanual.com/workshop/"}, {"@type": "ListItem", "position": 3, "name": "Asbestos in Older Brake and Gasket Materials", "item": "https://trailmanual.com/workshop/asbestos-awareness/"}]}]</script>
 </head>
 <body>
-
-<header class="tnav" id="tnav" data-variant="light">
-  <div class="tnav-inner">
-
-    <a class="tnav-brand" href="/">
-      <svg class="tnav-logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>
-      <span class="tnav-wordmark">TRAIL<span class="tnav-dot"></span>MANUAL</span>
-    </a>
-
-    <nav class="tnav-center" aria-label="Primary">
-      <div class="tnav-item" id="tnav-vehicles">
-        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-vehicles">Vehicles <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
-        <div class="tnav-drop tnav-drop-vehicles" id="tnav-drop-vehicles" role="menu">
-          <div class="tnav-drop-section">
-            <span class="tnav-drop-label">Jeep</span>
-            <a class="tnav-drop-link" href="/xj/" role="menuitem">Cherokee XJ <span class="tnav-drop-years">1984–2001</span></a>
-            <a class="tnav-drop-link" href="/tj/" role="menuitem">Wrangler TJ <span class="tnav-drop-years">1997–2006</span></a>
-            <a class="tnav-drop-link" href="/jk/" role="menuitem">Wrangler JK <span class="tnav-drop-years">2007–2018</span></a>
-            <a class="tnav-drop-link" href="/jl/" role="menuitem">Wrangler JL <span class="tnav-drop-years">2018–</span></a>
-            <a class="tnav-drop-link" href="/gladiator/" role="menuitem">Gladiator JT <span class="tnav-drop-years">2019–</span></a>
-          </div>
-          <div class="tnav-drop-section">
-            <span class="tnav-drop-label">Ford</span>
-            <a class="tnav-drop-link" href="/bronco/" role="menuitem">Early Bronco <span class="tnav-drop-years">1966–1977</span></a>
-            <a class="tnav-drop-link" href="/bronco-ii/" role="menuitem">Bronco II <span class="tnav-drop-years">1984–1990</span></a>
-            <a class="tnav-drop-link" href="/full-size-bronco/" role="menuitem">Full-Size Bronco <span class="tnav-drop-years">1978–1996</span></a>
-            <a class="tnav-drop-link" href="/bronco6g/" role="menuitem">New Bronco <span class="tnav-drop-years">2021–</span></a>
-            <a class="tnav-drop-link" href="/raptor/" role="menuitem">F-150 Raptor <span class="tnav-drop-years">Gen 2–3</span></a>
-            <span class="tnav-drop-label">Toyota · Ram</span>
-            <a class="tnav-drop-link" href="/4runner/" role="menuitem">4Runner <span class="tnav-drop-years">3rd–5th Gen</span></a>
-            <a class="tnav-drop-link" href="/tacoma/" role="menuitem">Tacoma <span class="tnav-drop-years">1st–3rd Gen</span></a>
-            <a class="tnav-drop-link" href="/power-wagon/" role="menuitem">Power Wagon <span class="tnav-drop-years">2011–</span></a>
-          </div>
-        </div>
-      </div>
-      <div class="tnav-item" id="tnav-tools">
-        <button class="tnav-link-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-tools">Tools <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg></button>
-        <div class="tnav-drop" id="tnav-drop-tools" role="menu">
-          <a class="tnav-drop-link" href="/db/" role="menuitem">Vehicle Database</a>
-          <a class="tnav-drop-link" href="/model-year-matrix.html" role="menuitem">Model Year Buyer's Guide</a>
-          <a class="tnav-drop-link" href="/gear-ratio-calculator.html" role="menuitem">Gear Ratio Calculator</a>
-          <a class="tnav-drop-link" href="/jk-wrangler-engine-swap-tool.html" role="menuitem">Engine Swap Tool (JK)</a>
-          <a class="tnav-drop-link" href="/v8-swap-parts-checklist.html" role="menuitem">V8 Parts Checklist</a>
-          <a class="tnav-drop-link" href="/db/" role="menuitem">Pick Your Rig</a>
-        </div>
-      </div>
-      <a class="tnav-link tnav-active" href="/workshop/">Workshop</a>
-      <a class="tnav-link" href="/blog/">Blog</a>
-      <a class="tnav-link" href="/about/">About</a>
-    </nav>
-
-    <div class="tnav-item tnav-right" id="tnav-mymanual">
-      <button class="tnav-my-btn" aria-haspopup="true" aria-expanded="false" aria-controls="tnav-drop-mymanual">
-        <svg class="tnav-my-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-        My Manual
-        <svg class="tnav-caret" viewBox="0 0 12 12"><polyline points="2,4 6,8 10,4"/></svg>
-      </button>
-      <div class="tnav-drop tnav-drop-right" id="tnav-drop-mymanual" role="menu" style="min-width:240px">
-        <div id="tnav-vehicle-slot"></div>
-        <a class="tnav-drop-link" href="/my-garage.html" role="menuitem">
-          <svg style="width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;flex-shrink:0" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          My Garage
-        </a>
-        <hr class="tnav-divider">
-        <button class="tnav-theme-row" id="tnav-theme-btn" role="menuitem">
-          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <span id="tnav-theme-label">Switch to Dark</span>
-        </button>
-      </div>
-    </div>
-
-    <button class="tnav-hamburger" id="tnav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav-drawer">
-      <svg class="tnav-ham-icon" viewBox="0 0 18 18"><line x1="1" y1="4" x2="17" y2="4"/><line x1="1" y1="9" x2="17" y2="9"/><line x1="1" y1="14" x2="17" y2="14"/></svg>
-    </button>
-  </div>
-
-  <div class="tnav-drawer" id="tnav-drawer" aria-hidden="true">
-    <div class="tnav-drawer-inner">
-      <div class="tnav-drawer-section">
-        <span class="tnav-drawer-label">Vehicles — Jeep</span>
-        <div class="tnav-drawer-vehicles">
-          <a class="tnav-drawer-link" href="/xj/">Cherokee XJ <span class="tnav-drawer-years">1984–2001</span></a>
-          <a class="tnav-drawer-link" href="/tj/">Wrangler TJ <span class="tnav-drawer-years">1997–2006</span></a>
-          <a class="tnav-drawer-link" href="/jk/">Wrangler JK <span class="tnav-drawer-years">2007–2018</span></a>
-          <a class="tnav-drawer-link" href="/jl/">Wrangler JL <span class="tnav-drawer-years">2018–</span></a>
-          <a class="tnav-drawer-link" href="/gladiator/">Gladiator JT <span class="tnav-drawer-years">2019–</span></a>
-        </div>
-      </div>
-      <div class="tnav-drawer-section">
-        <span class="tnav-drawer-label">Vehicles — Ford · Toyota · Ram</span>
-        <div class="tnav-drawer-vehicles">
-          <a class="tnav-drawer-link" href="/bronco/">Early Bronco</a>
-          <a class="tnav-drawer-link" href="/bronco-ii/">Bronco II</a>
-          <a class="tnav-drawer-link" href="/full-size-bronco/">Full-Size Bronco</a>
-          <a class="tnav-drawer-link" href="/bronco6g/">New Bronco</a>
-          <a class="tnav-drawer-link" href="/raptor/">F-150 Raptor</a>
-          <a class="tnav-drawer-link" href="/4runner/">4Runner</a>
-          <a class="tnav-drawer-link" href="/tacoma/">Tacoma</a>
-          <a class="tnav-drawer-link" href="/power-wagon/">Power Wagon</a>
-        </div>
-      </div>
-      <div class="tnav-drawer-section">
-        <span class="tnav-drawer-label">Navigate</span>
-        <a class="tnav-drawer-link tnav-active" href="/workshop/">Workshop</a>
-        <a class="tnav-drawer-link" href="/blog/">Blog</a>
-        <a class="tnav-drawer-link" href="/db/">Vehicle Database</a>
-        <a class="tnav-drawer-link" href="/model-year-matrix.html">Model Year Buyer's Guide</a>
-        <a class="tnav-drawer-link" href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
-        <a class="tnav-drawer-link" href="/jk-wrangler-engine-swap-tool.html">Engine Swap Tool</a>
-        <a class="tnav-drawer-link" href="/about/">About</a>
-      </div>
-      <div class="tnav-drawer-section">
-        <span class="tnav-drawer-label">My Manual</span>
-        <div id="tnav-vehicle-slot-mobile"></div>
-        <a class="tnav-drawer-link" href="/my-garage.html">My Garage</a>
-        <button class="tnav-drawer-btn" id="tnav-theme-btn-mobile">
-          <svg class="tnav-theme-icon" viewBox="0 0 24 24"><path id="tnav-theme-path-mobile" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <span id="tnav-theme-label-mobile">Switch to Dark</span>
-        </button>
-      </div>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
   </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
 </header>
-
-<div class="page"><article>
-  <div class="hero">
-    <div class="hero-eyebrow">The Workshop · Safety</div>
-    <h1>Asbestos in Older Brake and Gasket Materials</h1>
-    <p class="lede">You cannot look at a brake shoe, a clutch disc, or a baked-on exhaust gasket and tell whether it contains asbestos. Neither can a lab tech, without a microscope. The material in question has been out of new US parts channels since November 2024 — but it is still bolted to a great many older 4x4s, and the dust packed inside a drum that hasn't come off since the Reagan administration doesn't care what year it is now.</p>
-    <div class="safety-badge">Safety critical</div>
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+<main class="tm-article">
+<article>
+  <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/workshop/">The Workshop</a> · <a href="/workshop/#safety">Safety</a></nav>
+  <h1>Asbestos in Older Brake and Gasket Materials</h1>
+  <p class="tm-dek">You cannot look at a brake shoe, a clutch disc, or a baked-on exhaust gasket and tell whether it contains asbestos. Neither can a lab tech, without a microscope. The material in question has been out of new US parts channels since November 2024 — but it is still bolted to a great many older 4x4s, and the dust packed inside a drum that hasn't come off since the Reagan administration doesn't care what year it is now.</p>
+  <div class="tm-byline"><span>11 min read</span><span>Applies to any vehicle</span><a href="/about/#sources">How we source guides</a><span class="tm-pill safety">Safety critical</span></div>
+  <figure class="tm-figure"><img src="/images/photo-asbestos-awareness.webp" alt="Pile of rusty old vehicle brake drums and hubs in a salvage yard" width="1600" height="1067" fetchpriority="high"><figcaption>Photo: <a href="https://unsplash.com/@enginakyurt?utm_source=trailmanual&utm_medium=referral" rel="noopener">engin akyurt</a> on <a href="https://unsplash.com/?utm_source=trailmanual&utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
+  <div class="tm-verdict"><div class="tag">The short answer</div><p><strong>Assume every brake, clutch, and old gasket of unknown origin contains asbestos, and control the dust with water instead of air.</strong> Wet the assembly down before anything comes apart, wipe it with disposable cloths, double-bag the cloths and the debris, and change out of your clothes before you go in the house.</p>
+<p><strong>The one thing that turns a routine job into a real exposure is compressed air.</strong> Blowing out a drum takes three seconds and puts a cloud of respirable fiber into your breathing zone, your garage, and your clothing, where it stays airborne long after you've moved on. There is no version of that job where it's worth it.</p></div>
+  <div class="tm-prose">
+<h2>Why this is still a live issue</h2>
+<p>EPA finalized its ban on ongoing uses of chrysotile asbestos on <strong>March 28, 2024</strong>. The rule took effect <strong>May 28, 2024</strong>, and the prohibition covering aftermarket automotive brakes and linings, other vehicle friction products, and other gaskets landed six months later, on <strong>November 25, 2024</strong>. Industry groups have challenged the rule — <em>Texas Chemistry Council v. EPA</em> was argued before the Fifth Circuit in June 2026 — but the prohibitions are in force. If you buy new friction material from a legitimate US supplier today, asbestos is not what you're getting.</p>
+<p>That is a rule about <em>selling</em> parts. It does nothing about the parts already installed. Asbestos-containing aftermarket brake shoes and clutch discs were legal to sell in this country right up until late 2024, which means a set could have been installed on anything, in any year, by anyone. There is no model year that makes a vehicle safe. A 2005 truck that got budget drum shoes from a swap meet in 2011 is a more realistic exposure than a 1972 Bronco that was relined last spring with modern parts.</p>
+<p>For the vehicles this site covers, that's the practical shape of the problem. Early Broncos, CJs, first-generation 4Runners and Tacomas, square-body trucks, XJs, Power Wagons — these rigs get bought used, with maintenance histories that are equal parts receipts and folklore. When you pull a drum you don't know what's inside it, and the accumulated dust in a brake drum or a bellhousing is the concentrated version of whatever was wearing.</p>
+<div class="tm-callout danger"><h3>Never, under any circumstances</h3><ul>
+<li><strong>Compressed air.</strong> Not to clean a drum, not to blow out a bellhousing, not "only for a second." This is the single practice every regulator, every safety bulletin, and every industrial hygienist agrees on.</li>
+<li><strong>Dry brushing or a dry rag.</strong> OSHA prohibits dry brushing outright as part of its mandatory work practices. A wire brush on dry lining does the same thing as an air nozzle, more slowly.</li>
+<li><strong>An ordinary wet/dry shop vacuum.</strong> Standard filters pass respirable fibers straight through the exhaust and spread them across the room. It takes genuine <a href="/workshop/shop-vac-guide/">HEPA filtration</a> to capture this, and most shop vacs don't have it.</li>
+<li><strong>Grinding, wire-wheeling, or lathe-turning dry lining or old gasket material.</strong> Power tools on friction material are the highest fiber-release operation in the whole job.</li>
+<li><strong>Wearing the job home.</strong> Take-home exposure — fibers carried on clothes and in a vehicle's interior — is a documented pathway that has caused disease in mechanics' family members who never touched a brake.</li>
+</ul></div>
+<h2>Where it lives on an older vehicle</h2>
+<p>Friction and heat are the common thread. Anything that had to survive both, on a vehicle built or serviced before the mid-2020s, is worth treating as suspect.</p>
+<ul>
+<li><strong>Drum brake shoes and linings.</strong> The highest-risk item, because a drum is a sealed cup that collects decades of wear dust with nowhere to go.</li>
+<li><strong>Disc brake pads.</strong> Lower accumulation than drums because the dust escapes as it's made, but the caliper bracket, the shield, and the hub face still hold it.</li>
+<li><strong>Clutch discs and the inside of the bellhousing.</strong> A clutch job on an older manual rig opens a housing full of fine wear dust directly above your face.</li>
+<li><strong>Automatic transmission bands</strong> in older units.</li>
+<li><strong>Parking brake shoes</strong> inside a rear rotor hat — often original on vehicles where the service brakes have been done several times.</li>
+<li><strong>Exhaust manifold and header gaskets, exhaust donut gaskets, and sheet gasket stock.</strong> Frequently overlooked and frequently attacked with a grinder.</li>
+<li><strong>Head gaskets on some older engines</strong>, and any hard, fibrous, gray-white gasket you're scraping off a casting.</li>
+<li><strong>Heat shields, firewall and tunnel insulation, hood liners, and undercar sound deadening</strong> on older vehicles.</li>
+</ul>
+<h2>You cannot identify it by looking</h2>
+<p>This is the part people want to argue with, so it's worth being flat about it: <strong>worn non-asbestos lining and worn asbestos lining are not visually distinguishable.</strong> That's not a hedge, it's the explicit basis for OSHA's approach — mechanics are told to assume all brakes are asbestos-type, because a wrong guess in the other direction means doing the whole job with no controls at all.</p>
+<p>What you <em>can</em> do:</p>
+<ul>
+<li><strong>For parts you're buying:</strong> the box, the label, or the safety data sheet will tell you. Modern parts from a reputable supplier are non-asbestos and usually say so.</li>
+<li><strong>For parts already on the vehicle:</strong> if you have receipts showing what went on and when, that's your answer. If you don't — and you usually won't — you don't have an answer, and "probably fine" is not one.</li>
+<li><strong>Lab analysis</strong> by polarized light microscopy exists and isn't expensive, but taking the sample means disturbing the material, which is the thing you were trying to avoid. For a one-off home job, the controls cost less than the test.</li>
+</ul>
+<div class="tm-callout warn"><h3>The working assumption</h3><p>Unknown history means asbestos. That's the whole decision tree. It costs you a spray bottle, a roll of shop towels, and about five extra minutes on a brake job — which is a rounding error next to the alternative.</p></div>
+<h2>The wet method, step by step</h2>
+<p>OSHA's mandatory work practices give shops two engineered options — a negative-pressure enclosure with a HEPA vacuum, or low-pressure wet cleaning equipment with a catch basin. Neither is realistic in a home garage. But for shops doing <strong>no more than five brake or clutch jobs per week</strong>, OSHA also permits a plain <strong>wet method</strong>, and EPA points home mechanics at that same method. It's the one to use.</p>
+<ul>
+<li><strong>Set up where air moves.</strong> Outdoors or in an open bay with real cross-ventilation. Not a closed garage. Keep bystanders, pets, kids, food, and drinks out of the area entirely.</li>
+<li><strong>Mix amended water.</strong> A spray bottle of water with a few drops of dish detergent. The surfactant is what lets the water penetrate packed dust instead of beading off it. Plain water works; amended water works better.</li>
+<li><strong>Put something down.</strong> A catch pan or a sheet of plastic under the corner, positioned to collect runoff and whatever falls out of the drum.</li>
+<li><strong>Wet it <em>before</em> it comes apart.</strong> Mist the drum-to-backing-plate seam and let the solution run in before you pull the drum. On a clutch, wet through the inspection cover before the bellhousing comes off. The goal is for the dust to be damp at the moment it's first exposed to air — not after.</li>
+<li><strong>Flood everything once it's open.</strong> Wheel hub, backing plate, shoes, springs, adjuster, the inside of the drum. Thoroughly wet, not misted.</li>
+<li><strong>Wipe with disposable cloths.</strong> Wet the surfaces, wipe them down, re-wet the cloth. Do not shake the cloth out. Do not use a shop rag you plan to keep and launder with anything else.</li>
+<li><strong>Wipe your tools and gloves before they leave the area</strong>, and wet-wipe the floor and the pan rather than sweeping.</li>
+<li><strong>Bag it wet.</strong> Cloths, debris, and the old parts go into a heavy plastic bag while still damp, sealed, then into a second bag.</li>
+<li><strong>Use pre-ground, ready-to-install parts.</strong> Don't arc, bevel, grind, or lathe-turn linings. If a lining genuinely must be machined, that belongs in a shop with local exhaust and HEPA collection, not on your bench.</li>
+</ul>
+<h3>About aerosol brake cleaner</h3>
+<p>Flooding an assembly with brake cleaner into a catch basin is recognized as an acceptable equivalent to the wet method, and plenty of shops work that way. What's <em>not</em> acceptable is the common version: a short blast at a dry assembly from a foot away, which aerosolizes the dust before it wets anything. If you're using aerosol, get the nozzle close, start gentle, flood rather than blast, and catch the runoff.</p>
+<p>Two separate hazards ride along with that can. Brake cleaner solvent needs real ventilation and is a genuine fire risk near a torch or grinder, and <strong>chlorinated brake cleaner exposed to heat, flame, or welding arc produces phosgene gas</strong>. Read the <a href="/workshop/chemical-handling/">chemical handling guide</a> before you make brake cleaner your primary method.</p>
+<h2>Respirator, gloves, and clothes</h2>
+<p>The wet method is the control that actually does the work; PPE is the backup for what the water misses.</p>
+<ul>
+<li><strong>A half-mask elastomeric respirator with P100 filters</strong> is the right tool for this, worn against a clean-shaven seal. Cartridge selection and fit are not interchangeable details — see <a href="/workshop/respirator-selection/">respirator selection</a>. A loose paper dust mask is not equivalent and shouldn't be treated as one.</li>
+<li><strong>Nitrile gloves</strong> for the fluids you'll also be handling, and <a href="/workshop/eye-and-hand-protection/">eye protection</a> because spring-loaded drum hardware doesn't care about your day.</li>
+<li><strong>Disposable coveralls, or clothes dedicated to the job.</strong> Change before you go inside. Wash them separately from everything else, and never dry-brush or shake them out.</li>
+<li><strong>Don't vacuum your clothes or the seat of your truck with a standard vac.</strong> Wet-wipe instead.</li>
+</ul>
+<h2>Gaskets — the part nearly everyone skips</h2>
+<p>Brake dust gets the attention, but the highest-fiber-release thing most people do on an old vehicle is take a wire wheel to a baked-on exhaust manifold gasket. Old gasket material can be a bound asbestos product, and dry power-tool removal turns a bound product into an airborne one very efficiently.</p>
+<ul>
+<li><strong>Wet the gasket surface and keep it wet</strong> through the entire removal.</li>
+<li><strong>Hand scrapers and picks, not power tools.</strong> A sharp gasket scraper and a <a href="/workshop/pickset-and-hooks/">pick set</a> will get a damp gasket off a head or manifold without generating dust. It's slower. That's the trade.</li>
+<li><strong>No die grinders, roloc discs, or wire wheels</strong> on gasket material of unknown age.</li>
+<li><strong>Bag the scrapings damp</strong>, same as brake debris.</li>
+<li>When you reassemble, modern gasket materials and sealants have no asbestos in them — see <a href="/workshop/liquid-gasket-vs-gasket/">liquid gasket vs. cut gasket</a> for which to use where.</li>
+</ul>
+<h2>The numbers, and what they honestly mean</h2>
+<p>OSHA's permissible exposure limit for asbestos is <strong>0.1 fiber per cubic centimeter</strong> as an 8-hour time-weighted average, with an excursion limit of <strong>1.0 f/cc over any 30-minute period</strong>. As a benchmark for how effective good controls are, OSHA's rules assume the negative-pressure enclosure method holds exposure to <strong>0.016 f/cc or less</strong>.</p>
+<p>Here is the honest framing on personal risk. No safe threshold for asbestos exposure has been established, and asbestos-related disease has a long latency — mesothelioma commonly appears <strong>20 to 50 years</strong> after exposure. Risk scales with cumulative dose, which means the career mechanic who blew out drums daily for thirty years is in a categorically different position than someone who did one brake job wrong in 1998. Nobody can give you a number for your own history, and anyone who claims to is guessing.</p>
+<p>What follows from that is not panic. It's that the exposures you control are the ones ahead of you, the controls are cheap, and the reason to adopt them is that the cost of doing so is close to zero. If you're worried about past exposure, that's a conversation with a physician who knows your work history, not something to resolve from a web page.</p>
+<h2>Disposal</h2>
+<p>Asbestos waste from a shop has to go into sealed, impermeable, labeled containers under federal rules. For home mechanics those specific requirements don't apply, but EPA's recommendation is straightforward: <strong>double-bag it while damp, seal it, and follow your local rules.</strong></p>
+<ul>
+<li><strong>Never let the runoff go down a driveway or into a storm drain.</strong> Catch it, absorb it, bag it.</li>
+<li><strong>Don't put it in household trash without checking.</strong> Rules vary a lot by state and county — your state environmental agency or county hazardous waste program will tell you in one phone call.</li>
+<li><strong>Old parts count as waste too</strong>, not only the dust. Shoes, pads, clutch discs, and gasket scrapings go in the bag.</li>
+<li>The same trip that takes your used oil to the collection site can usually take this. See <a href="/workshop/drain-pan-and-fluid-disposal/">drain pans and fluid disposal</a>.</li>
+</ul>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Blowing out a drum with air</strong> — the defining mistake in this category, and still the most common.</li>
+<li><strong>Assuming a newer vehicle is exempt.</strong> Aftermarket asbestos friction parts were legal to sell in the US until November 2024 and could have gone on anything.</li>
+<li><strong>Treating the EPA ban as retroactive.</strong> It stopped sales. It didn't unbolt anything.</li>
+<li><strong>Wetting the assembly after the drum is off</strong> instead of before. The first cloud is the one that gets you.</li>
+<li><strong>Using a regular shop vac</strong> and assuming a filter is a filter.</li>
+<li><strong>Wire-wheeling old exhaust gaskets dry</strong> while wearing nothing at all.</li>
+<li><strong>Working in a closed garage</strong> because it was cold out.</li>
+<li><strong>Sweeping the floor afterward.</strong> Dry sweeping re-suspends everything you settled a minute earlier.</li>
+<li><strong>Wearing the same clothes into the house</strong>, or into the truck seat your kids ride in.</li>
+<li><strong>Doing the clutch job with your face directly under the bellhousing</strong> as the cover comes off dry.</li>
+</ul>
+<div class="tm-callout danger"><h3>Stop — hand it to a shop</h3><p>Send it out if the linings need machining or arcing, if you're opening a bellhousing on an older vehicle and have no way to wet it first, if you have no respirator and no ventilated space to work in, or if you have a respiratory condition that makes any of this a bad idea for you specifically. A shop doing this work has an enclosure or a wet-cleaning rig and does it right in less time than you'll spend setting up. That's an honest use of a hundred dollars, and it's the same judgment call covered in <a href="/workshop/when-to-stop/">when to stop and go to a shop</a>.</p></div>
+<h2>The honest framing</h2>
+<p>Nothing here says don't do your own brakes. People do brake jobs on old trucks safely every weekend, and the difference between a safe one and an unsafe one is a spray bottle and a decision not to reach for the air hose. That's it. The controls are unglamorous, they take five minutes, and they work.</p>
+<p>What makes asbestos worth this much text is that it gives you no feedback. A hot coolant burn tells you immediately. A hydraulic injection injury tells you within hours. This one tells you in forty years, or never, and the people who got hurt by it mostly thought they were having an ordinary afternoon in the garage. So you build the habit once — wet it, wipe it, bag it, change clothes — and then you stop thinking about it and go finish the truck.</p>
   </div>
-
-  <div class="verdict">
-    <div class="verdict-label">The short answer</div>
-    <p><strong>Assume every brake, clutch, and old gasket of unknown origin contains asbestos, and control the dust with water instead of air.</strong> Wet the assembly down before anything comes apart, wipe it with disposable cloths, double-bag the cloths and the debris, and change out of your clothes before you go in the house.</p>
-    <p><strong>The one thing that turns a routine job into a real exposure is compressed air.</strong> Blowing out a drum takes three seconds and puts a cloud of respirable fiber into your breathing zone, your garage, and your clothing, where it stays airborne long after you've moved on. There is no version of that job where it's worth it.</p>
-  </div>
-
-  <h2>Why this is still a live issue</h2>
-  <p>EPA finalized its ban on ongoing uses of chrysotile asbestos on <strong>March 28, 2024</strong>. The rule took effect <strong>May 28, 2024</strong>, and the prohibition covering aftermarket automotive brakes and linings, other vehicle friction products, and other gaskets landed six months later, on <strong>November 25, 2024</strong>. Industry groups have challenged the rule — <em>Texas Chemistry Council v. EPA</em> was argued before the Fifth Circuit in June 2026 — but the prohibitions are in force. If you buy new friction material from a legitimate US supplier today, asbestos is not what you're getting.</p>
-  <p>That is a rule about <em>selling</em> parts. It does nothing about the parts already installed. Asbestos-containing aftermarket brake shoes and clutch discs were legal to sell in this country right up until late 2024, which means a set could have been installed on anything, in any year, by anyone. There is no model year that makes a vehicle safe. A 2005 truck that got budget drum shoes from a swap meet in 2011 is a more realistic exposure than a 1972 Bronco that was relined last spring with modern parts.</p>
-  <p>For the vehicles this site covers, that's the practical shape of the problem. Early Broncos, CJs, first-generation 4Runners and Tacomas, square-body trucks, XJs, Power Wagons — these rigs get bought used, with maintenance histories that are equal parts receipts and folklore. When you pull a drum you don't know what's inside it, and the accumulated dust in a brake drum or a bellhousing is the concentrated version of whatever was wearing.</p>
-
-  <div class="panel panel-danger">
-    <div class="panel-label">Never, under any circumstances</div>
-    <ul>
-      <li><strong>Compressed air.</strong> Not to clean a drum, not to blow out a bellhousing, not "only for a second." This is the single practice every regulator, every safety bulletin, and every industrial hygienist agrees on.</li>
-      <li><strong>Dry brushing or a dry rag.</strong> OSHA prohibits dry brushing outright as part of its mandatory work practices. A wire brush on dry lining does the same thing as an air nozzle, more slowly.</li>
-      <li><strong>An ordinary wet/dry shop vacuum.</strong> Standard filters pass respirable fibers straight through the exhaust and spread them across the room. It takes genuine <a href="/workshop/shop-vac-guide/">HEPA filtration</a> to capture this, and most shop vacs don't have it.</li>
-      <li><strong>Grinding, wire-wheeling, or lathe-turning dry lining or old gasket material.</strong> Power tools on friction material are the highest fiber-release operation in the whole job.</li>
-      <li><strong>Wearing the job home.</strong> Take-home exposure — fibers carried on clothes and in a vehicle's interior — is a documented pathway that has caused disease in mechanics' family members who never touched a brake.</li>
-    </ul>
-  </div>
-
-  <h2>Where it lives on an older vehicle</h2>
-  <p>Friction and heat are the common thread. Anything that had to survive both, on a vehicle built or serviced before the mid-2020s, is worth treating as suspect.</p>
-  <ul>
-    <li><strong>Drum brake shoes and linings.</strong> The highest-risk item, because a drum is a sealed cup that collects decades of wear dust with nowhere to go.</li>
-    <li><strong>Disc brake pads.</strong> Lower accumulation than drums because the dust escapes as it's made, but the caliper bracket, the shield, and the hub face still hold it.</li>
-    <li><strong>Clutch discs and the inside of the bellhousing.</strong> A clutch job on an older manual rig opens a housing full of fine wear dust directly above your face.</li>
-    <li><strong>Automatic transmission bands</strong> in older units.</li>
-    <li><strong>Parking brake shoes</strong> inside a rear rotor hat — often original on vehicles where the service brakes have been done several times.</li>
-    <li><strong>Exhaust manifold and header gaskets, exhaust donut gaskets, and sheet gasket stock.</strong> Frequently overlooked and frequently attacked with a grinder.</li>
-    <li><strong>Head gaskets on some older engines</strong>, and any hard, fibrous, gray-white gasket you're scraping off a casting.</li>
-    <li><strong>Heat shields, firewall and tunnel insulation, hood liners, and undercar sound deadening</strong> on older vehicles.</li>
-  </ul>
-
-  <h2>You cannot identify it by looking</h2>
-  <p>This is the part people want to argue with, so it's worth being flat about it: <strong>worn non-asbestos lining and worn asbestos lining are not visually distinguishable.</strong> That's not a hedge, it's the explicit basis for OSHA's approach — mechanics are told to assume all brakes are asbestos-type, because a wrong guess in the other direction means doing the whole job with no controls at all.</p>
-  <p>What you <em>can</em> do:</p>
-  <ul>
-    <li><strong>For parts you're buying:</strong> the box, the label, or the safety data sheet will tell you. Modern parts from a reputable supplier are non-asbestos and usually say so.</li>
-    <li><strong>For parts already on the vehicle:</strong> if you have receipts showing what went on and when, that's your answer. If you don't — and you usually won't — you don't have an answer, and "probably fine" is not one.</li>
-    <li><strong>Lab analysis</strong> by polarized light microscopy exists and isn't expensive, but taking the sample means disturbing the material, which is the thing you were trying to avoid. For a one-off home job, the controls cost less than the test.</li>
-  </ul>
-
-  <div class="panel panel-warn">
-    <div class="panel-label">The working assumption</div>
-    <p>Unknown history means asbestos. That's the whole decision tree. It costs you a spray bottle, a roll of shop towels, and about five extra minutes on a brake job — which is a rounding error next to the alternative.</p>
-  </div>
-
-  <h2>The wet method, step by step</h2>
-  <p>OSHA's mandatory work practices give shops two engineered options — a negative-pressure enclosure with a HEPA vacuum, or low-pressure wet cleaning equipment with a catch basin. Neither is realistic in a home garage. But for shops doing <strong>no more than five brake or clutch jobs per week</strong>, OSHA also permits a plain <strong>wet method</strong>, and EPA points home mechanics at that same method. It's the one to use.</p>
-  <ul>
-    <li><strong>Set up where air moves.</strong> Outdoors or in an open bay with real cross-ventilation. Not a closed garage. Keep bystanders, pets, kids, food, and drinks out of the area entirely.</li>
-    <li><strong>Mix amended water.</strong> A spray bottle of water with a few drops of dish detergent. The surfactant is what lets the water penetrate packed dust instead of beading off it. Plain water works; amended water works better.</li>
-    <li><strong>Put something down.</strong> A catch pan or a sheet of plastic under the corner, positioned to collect runoff and whatever falls out of the drum.</li>
-    <li><strong>Wet it <em>before</em> it comes apart.</strong> Mist the drum-to-backing-plate seam and let the solution run in before you pull the drum. On a clutch, wet through the inspection cover before the bellhousing comes off. The goal is for the dust to be damp at the moment it's first exposed to air — not after.</li>
-    <li><strong>Flood everything once it's open.</strong> Wheel hub, backing plate, shoes, springs, adjuster, the inside of the drum. Thoroughly wet, not misted.</li>
-    <li><strong>Wipe with disposable cloths.</strong> Wet the surfaces, wipe them down, re-wet the cloth. Do not shake the cloth out. Do not use a shop rag you plan to keep and launder with anything else.</li>
-    <li><strong>Wipe your tools and gloves before they leave the area</strong>, and wet-wipe the floor and the pan rather than sweeping.</li>
-    <li><strong>Bag it wet.</strong> Cloths, debris, and the old parts go into a heavy plastic bag while still damp, sealed, then into a second bag.</li>
-    <li><strong>Use pre-ground, ready-to-install parts.</strong> Don't arc, bevel, grind, or lathe-turn linings. If a lining genuinely must be machined, that belongs in a shop with local exhaust and HEPA collection, not on your bench.</li>
-  </ul>
-
-  <h3>About aerosol brake cleaner</h3>
-  <p>Flooding an assembly with brake cleaner into a catch basin is recognized as an acceptable equivalent to the wet method, and plenty of shops work that way. What's <em>not</em> acceptable is the common version: a short blast at a dry assembly from a foot away, which aerosolizes the dust before it wets anything. If you're using aerosol, get the nozzle close, start gentle, flood rather than blast, and catch the runoff.</p>
-  <p>Two separate hazards ride along with that can. Brake cleaner solvent needs real ventilation and is a genuine fire risk near a torch or grinder, and <strong>chlorinated brake cleaner exposed to heat, flame, or welding arc produces phosgene gas</strong>. Read the <a href="/workshop/chemical-handling/">chemical handling guide</a> before you make brake cleaner your primary method.</p>
-
-  <h2>Respirator, gloves, and clothes</h2>
-  <p>The wet method is the control that actually does the work; PPE is the backup for what the water misses.</p>
-  <ul>
-    <li><strong>A half-mask elastomeric respirator with P100 filters</strong> is the right tool for this, worn against a clean-shaven seal. Cartridge selection and fit are not interchangeable details — see <a href="/workshop/respirator-selection/">respirator selection</a>. A loose paper dust mask is not equivalent and shouldn't be treated as one.</li>
-    <li><strong>Nitrile gloves</strong> for the fluids you'll also be handling, and <a href="/workshop/eye-and-hand-protection/">eye protection</a> because spring-loaded drum hardware doesn't care about your day.</li>
-    <li><strong>Disposable coveralls, or clothes dedicated to the job.</strong> Change before you go inside. Wash them separately from everything else, and never dry-brush or shake them out.</li>
-    <li><strong>Don't vacuum your clothes or the seat of your truck with a standard vac.</strong> Wet-wipe instead.</li>
-  </ul>
-
-  <h2>Gaskets — the part nearly everyone skips</h2>
-  <p>Brake dust gets the attention, but the highest-fiber-release thing most people do on an old vehicle is take a wire wheel to a baked-on exhaust manifold gasket. Old gasket material can be a bound asbestos product, and dry power-tool removal turns a bound product into an airborne one very efficiently.</p>
-  <ul>
-    <li><strong>Wet the gasket surface and keep it wet</strong> through the entire removal.</li>
-    <li><strong>Hand scrapers and picks, not power tools.</strong> A sharp gasket scraper and a <a href="/workshop/pickset-and-hooks/">pick set</a> will get a damp gasket off a head or manifold without generating dust. It's slower. That's the trade.</li>
-    <li><strong>No die grinders, roloc discs, or wire wheels</strong> on gasket material of unknown age.</li>
-    <li><strong>Bag the scrapings damp</strong>, same as brake debris.</li>
-    <li>When you reassemble, modern gasket materials and sealants have no asbestos in them — see <a href="/workshop/liquid-gasket-vs-gasket/">liquid gasket vs. cut gasket</a> for which to use where.</li>
-  </ul>
-
-  <h2>The numbers, and what they honestly mean</h2>
-  <p>OSHA's permissible exposure limit for asbestos is <strong>0.1 fiber per cubic centimeter</strong> as an 8-hour time-weighted average, with an excursion limit of <strong>1.0 f/cc over any 30-minute period</strong>. As a benchmark for how effective good controls are, OSHA's rules assume the negative-pressure enclosure method holds exposure to <strong>0.016 f/cc or less</strong>.</p>
-  <p>Here is the honest framing on personal risk. No safe threshold for asbestos exposure has been established, and asbestos-related disease has a long latency — mesothelioma commonly appears <strong>20 to 50 years</strong> after exposure. Risk scales with cumulative dose, which means the career mechanic who blew out drums daily for thirty years is in a categorically different position than someone who did one brake job wrong in 1998. Nobody can give you a number for your own history, and anyone who claims to is guessing.</p>
-  <p>What follows from that is not panic. It's that the exposures you control are the ones ahead of you, the controls are cheap, and the reason to adopt them is that the cost of doing so is close to zero. If you're worried about past exposure, that's a conversation with a physician who knows your work history, not something to resolve from a web page.</p>
-
-  <h2>Disposal</h2>
-  <p>Asbestos waste from a shop has to go into sealed, impermeable, labeled containers under federal rules. For home mechanics those specific requirements don't apply, but EPA's recommendation is straightforward: <strong>double-bag it while damp, seal it, and follow your local rules.</strong></p>
-  <ul>
-    <li><strong>Never let the runoff go down a driveway or into a storm drain.</strong> Catch it, absorb it, bag it.</li>
-    <li><strong>Don't put it in household trash without checking.</strong> Rules vary a lot by state and county — your state environmental agency or county hazardous waste program will tell you in one phone call.</li>
-    <li><strong>Old parts count as waste too</strong>, not only the dust. Shoes, pads, clutch discs, and gasket scrapings go in the bag.</li>
-    <li>The same trip that takes your used oil to the collection site can usually take this. See <a href="/workshop/drain-pan-and-fluid-disposal/">drain pans and fluid disposal</a>.</li>
-  </ul>
-
-  <h2>Common mistakes</h2>
-  <ul>
-    <li><strong>Blowing out a drum with air</strong> — the defining mistake in this category, and still the most common.</li>
-    <li><strong>Assuming a newer vehicle is exempt.</strong> Aftermarket asbestos friction parts were legal to sell in the US until November 2024 and could have gone on anything.</li>
-    <li><strong>Treating the EPA ban as retroactive.</strong> It stopped sales. It didn't unbolt anything.</li>
-    <li><strong>Wetting the assembly after the drum is off</strong> instead of before. The first cloud is the one that gets you.</li>
-    <li><strong>Using a regular shop vac</strong> and assuming a filter is a filter.</li>
-    <li><strong>Wire-wheeling old exhaust gaskets dry</strong> while wearing nothing at all.</li>
-    <li><strong>Working in a closed garage</strong> because it was cold out.</li>
-    <li><strong>Sweeping the floor afterward.</strong> Dry sweeping re-suspends everything you settled a minute earlier.</li>
-    <li><strong>Wearing the same clothes into the house</strong>, or into the truck seat your kids ride in.</li>
-    <li><strong>Doing the clutch job with your face directly under the bellhousing</strong> as the cover comes off dry.</li>
-  </ul>
-
-  <div class="panel panel-danger">
-    <div class="panel-label">Stop — hand it to a shop</div>
-    <p>Send it out if the linings need machining or arcing, if you're opening a bellhousing on an older vehicle and have no way to wet it first, if you have no respirator and no ventilated space to work in, or if you have a respiratory condition that makes any of this a bad idea for you specifically. A shop doing this work has an enclosure or a wet-cleaning rig and does it right in less time than you'll spend setting up. That's an honest use of a hundred dollars, and it's the same judgment call covered in <a href="/workshop/when-to-stop/">when to stop and go to a shop</a>.</p>
-  </div>
-
-  <h2>The honest framing</h2>
-  <p>Nothing here says don't do your own brakes. People do brake jobs on old trucks safely every weekend, and the difference between a safe one and an unsafe one is a spray bottle and a decision not to reach for the air hose. That's it. The controls are unglamorous, they take five minutes, and they work.</p>
-  <p>What makes asbestos worth this much text is that it gives you no feedback. A hot coolant burn tells you immediately. A hydraulic injection injury tells you within hours. This one tells you in forty years, or never, and the people who got hurt by it mostly thought they were having an ordinary afternoon in the garage. So you build the habit once — wet it, wipe it, bag it, change clothes — and then you stop thinking about it and go finish the truck.</p>
-
-  <div class="related">
-    <h2>Related guides</h2>
-    <div class="related-grid">
-      <a class="related-card" href="/workshop/respirator-selection/">Respirator Selection — Dust Masks vs. Cartridge</a>
-      <a class="related-card" href="/workshop/chemical-handling/">Chemical Handling and Ventilation</a>
-      <a class="related-card" href="/workshop/shop-vac-guide/">Shop Vacuum — Filters and Attachments</a>
-      <a class="related-card" href="/workshop/eye-and-hand-protection/">Eye and Hand Protection</a>
-      <a class="related-card" href="/workshop/drain-pan-and-fluid-disposal/">Drain Pans and Fluid Disposal</a>
-      <a class="related-card" href="/workshop/when-to-stop/">When to Stop and Go to a Shop</a>
+  <aside class="tm-related"><h2>Related guides</h2><ul><li><a href="/workshop/respirator-selection/">Respirator Selection — Dust Masks vs. Cartridge</a></li><li><a href="/workshop/chemical-handling/">Chemical Handling and Ventilation</a></li><li><a href="/workshop/shop-vac-guide/">Shop Vacuum — Filters and Attachments</a></li><li><a href="/workshop/eye-and-hand-protection/">Eye and Hand Protection</a></li><li><a href="/workshop/drain-pan-and-fluid-disposal/">Drain Pans and Fluid Disposal</a></li><li><a href="/workshop/when-to-stop/">When to Stop and Go to a Shop</a></li></ul></aside>
+</article>
+</main>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
     </div>
   </div>
-
-</article></div>
-
-
-<footer class="footer">
-  <p>Trail Manual · Free DIY reference for off-road owners · <a href="/">trailmanual.com</a></p>
-  <p style="margin-top:6px"><a href="/workshop/">← Back to The Workshop</a> · <a href="/channels/">Recommended Channels</a> · <a href="/db/">DIY Database</a> · <a href="/about/">About</a></p>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
 </footer>
-
-<script>
-(function(){
-  /* Trail Manual Unified Nav v1.0 */
-  var THEME_KEY='tm.theme';
-  var VEHICLE_KEY='tm.currentVehicle';
-  var html=document.documentElement;
-
-  /* ── Theme ── */
-  function isDark(){return html.getAttribute('data-theme')==='dark';}
-  function applyTheme(dark){
-    html.setAttribute('data-theme',dark?'dark':'light');
-    try{localStorage.setItem(THEME_KEY,dark?'dark':'light');}catch(e){}
-    updateThemeUI(dark);
-  }
-  var SUN='M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42M12 6a6 6 0 1 0 0 12A6 6 0 0 0 12 6z';
-  var MOON='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z';
-  function updateThemeUI(dark){
-    var p=document.getElementById('tnav-theme-path');
-    var pm=document.getElementById('tnav-theme-path-mobile');
-    var l=document.getElementById('tnav-theme-label');
-    var lm=document.getElementById('tnav-theme-label-mobile');
-    var txt=dark?'Switch to Light':'Switch to Dark';
-    var path=dark?SUN:MOON;
-    if(p)p.setAttribute('d',path);
-    if(pm)pm.setAttribute('d',path);
-    if(l)l.textContent=txt;
-    if(lm)lm.textContent=txt;
-  }
-  /* Init theme — check new key then legacy */
-  var savedTheme='';
-  try{savedTheme=localStorage.getItem(THEME_KEY)||localStorage.getItem('tm-theme')||'';}catch(e){}
-  if(savedTheme==='dark'){html.setAttribute('data-theme','dark');}
-  updateThemeUI(isDark());
-  var themeBtn=document.getElementById('tnav-theme-btn');
-  var themeBtnM=document.getElementById('tnav-theme-btn-mobile');
-  if(themeBtn)themeBtn.addEventListener('click',function(){applyTheme(!isDark());closeAll();});
-  if(themeBtnM)themeBtnM.addEventListener('click',function(){applyTheme(!isDark());closeDrawer();});
-
-  /* ── Current vehicle slot ── */
-  function renderVehicleSlots(){
-    var v=null;
-    try{v=JSON.parse(localStorage.getItem(VEHICLE_KEY)||'null');}catch(e){}
-    [['tnav-vehicle-slot',false],['tnav-vehicle-slot-mobile',true]].forEach(function(pair){
-      var slot=document.getElementById(pair[0]);
-      if(!slot)return;
-      slot.innerHTML='';
-      if(v&&v.name){
-        var a=document.createElement('a');
-        a.href=v.path||'/';
-        a.className='tnav-vehicle-pill';
-        a.innerHTML=(v.icon?'<img src="'+v.icon+'" alt="'+v.name+'" onerror="this.style.display=&#39;none&#39;">':'')+
-          '<div class="tnav-vehicle-pill-info"><span class="tnav-vehicle-pill-name">'+v.name+'</span>'+
-          (v.years?'<span class="tnav-vehicle-pill-years">'+v.years+'</span>':'')+'</div>';
-        slot.appendChild(a);
-      }else{
-        var b=document.createElement('a');
-        b.href='/vehicle-select.html';
-        b.className='tnav-no-vehicle';
-        b.textContent='Pick your rig →';
-        slot.appendChild(b);
-      }
-    });
-  }
-  renderVehicleSlots();
-
-  /* ── Dropdowns ── */
-  function closeAll(){
-    document.querySelectorAll('.tnav-item.tnav-open').forEach(function(el){
-      el.classList.remove('tnav-open');
-      var btn=el.querySelector('[aria-haspopup]');
-      if(btn)btn.setAttribute('aria-expanded','false');
-    });
-  }
-  document.querySelectorAll('.tnav-item[id]').forEach(function(item){
-    var btn=item.querySelector('[aria-haspopup]');
-    if(!btn)return;
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      var wasOpen=item.classList.contains('tnav-open');
-      closeAll();
-      if(!wasOpen){item.classList.add('tnav-open');btn.setAttribute('aria-expanded','true');}
-    });
-  });
-  document.addEventListener('click',function(){closeAll();});
-  var navEl=document.getElementById('tnav');
-  if(navEl)navEl.addEventListener('click',function(e){e.stopPropagation();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeAll();closeDrawer();}});
-
-  /* ── Hamburger / drawer ── */
-  var hamburger=document.getElementById('tnav-hamburger');
-  var drawer=document.getElementById('tnav-drawer');
-  function closeDrawer(){
-    if(drawer){drawer.classList.remove('tnav-open');drawer.setAttribute('aria-hidden','true');}
-    if(hamburger)hamburger.setAttribute('aria-expanded','false');
-  }
-  if(hamburger&&drawer){
-    hamburger.addEventListener('click',function(){
-      var isOpen=drawer.classList.toggle('tnav-open');
-      drawer.setAttribute('aria-hidden',isOpen?'false':'true');
-      hamburger.setAttribute('aria-expanded',isOpen?'true':'false');
-      closeAll();
-    });
-  }
-})();
-</script>
+<!-- TM:FOOTER:END -->
 </body>
 </html>

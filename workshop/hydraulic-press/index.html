@@ -1,220 +1,223 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-639VVRC92N');
-  </script>
-
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
 <meta charset="utf-8">
 <script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="canonical" href="https://trailmanual.com/workshop/hydraulic-press/">
 <title>Hydraulic Press — Shop Uses and Bearing Press Basics — Trail Manual Workshop</title>
-<meta name="description" content="What a shop press can do, how to size one for a home garage, and the bearing press technique that protects new parts from the moment they're installed.">
+<meta name="description" content="What a shop press can do, how to size one for a home garage, and the bearing press technique that protects new parts from the moment they&#x27;re installed.">
+<link rel="canonical" href="https://trailmanual.com/workshop/hydraulic-press/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trail Manual">
+<meta property="og:title" content="Hydraulic Press — Shop Uses and Bearing Press Basics">
+<meta property="og:description" content="What a shop press can do, how to size one for a home garage, and the bearing press technique that protects new parts from the moment they&#x27;re installed.">
+<meta property="og:url" content="https://trailmanual.com/workshop/hydraulic-press/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-shop-setup.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/_shared.css">
-<style>
-/* Workshop guide page styles */
-body { background: var(--bg); color: var(--text); font-family: var(--sans); margin: 0; }
-.topbar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 10; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-.brand-mark { width: 32px; height: 32px; background: var(--accent); color: #1a1f27; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; border-radius: 6px; letter-spacing: -.5px; flex-shrink: 0; }
-.brand-text { font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
-.brand-sub { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
-.back-link { margin-left: auto; font-size: 13px; color: var(--text-dim); text-decoration: none; font-family: var(--mono); }
-.back-link:hover { color: var(--accent); }
-.guide-wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 80px; }
-.guide-eyebrow { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 12px; }
-.guide-title { font-size: 36px; font-weight: 800; letter-spacing: -.5px; line-height: 1.15; margin: 0 0 16px; }
-.safety-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(220,60,60,.12); border: 1px solid rgba(220,60,60,.3); color: #e05555; font-size: 12px; font-family: var(--mono); text-transform: uppercase; letter-spacing: .1em; padding: 4px 10px; border-radius: 4px; margin-bottom: 20px; }
-.guide-lede { font-size: 18px; color: var(--text-dim); line-height: 1.7; margin: 0 0 32px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
-.guide-body h2 { font-size: 20px; font-weight: 700; margin: 36px 0 14px; letter-spacing: -.2px; }
-.guide-body p { font-size: 16px; line-height: 1.75; margin: 0 0 18px; color: var(--text-dim); }
-.guide-body ul, .guide-body ol { padding-left: 22px; margin: 0 0 18px; }
-.guide-body li { font-size: 15px; line-height: 1.7; color: var(--text-dim); margin-bottom: 6px; }
-.guide-body strong { color: var(--text); font-weight: 600; }
-.callout { background: var(--bg-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; padding: 16px 20px; margin: 24px 0; font-size: 15px; line-height: 1.65; color: var(--text-dim); }
-.callout.warn { border-left-color: #e05555; }
-.callout strong { color: var(--text); }
-footer { border-top: 1px solid var(--border); padding: 32px 24px; text-align: center; font-size: 13px; color: var(--text-dim); }
-footer a { color: var(--accent); text-decoration: none; }
-@media (max-width: 500px) {
-  .guide-title { font-size: 26px; }
-  .guide-lede { font-size: 16px; }
-  .brand-sub { display: none; }
-  .back-link { font-size: 12px; }
-}
-.tm-theme-btn{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:transparent;color:rgba(255,255,255,.6);cursor:pointer;flex-shrink:0;transition:border-color .15s,color .15s;padding:0}
-.tm-theme-btn:hover{border-color:#C97E50;color:#fff}
-.tm-theme-icon-sun{display:none}
-.tm-theme-icon-moon{display:block}
-[data-theme="dark"] .tm-theme-btn .tm-theme-icon-sun{display:block}
-[data-theme="dark"] .tm-theme-btn .tm-theme-icon-moon{display:none}
-</style>
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Hydraulic Press — Shop Uses and Bearing Press Basics", "description": "What a shop press can do, how to size one for a home garage, and the bearing press technique that protects new parts from the moment they're installed.", "image": ["https://trailmanual.com/images/photo-shop-setup.webp"], "mainEntityOfPage": "https://trailmanual.com/workshop/hydraulic-press/", "inLanguage": "en-US", "dateModified": "2026-10-19", "author": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/about/"}, "publisher": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/", "logo": {"@type": "ImageObject", "url": "https://trailmanual.com/favicon.png"}}, "articleSection": "The Workshop — Shop Tools"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Trail Manual", "item": "https://trailmanual.com/"}, {"@type": "ListItem", "position": 2, "name": "The Workshop", "item": "https://trailmanual.com/workshop/"}, {"@type": "ListItem", "position": 3, "name": "Hydraulic Press — Shop Uses and Bearing Press Basics", "item": "https://trailmanual.com/workshop/hydraulic-press/"}]}]</script>
 </head>
 <body>
-
-<style>
-#tm-topbar{position:sticky;top:0;z-index:100;background:var(--slate-d,#1A2330);border-bottom:1px solid rgba(43,58,74,.8)}
-#tm-topbar .tm-topbar-inner{max-width:var(--max,1200px);margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:16px;position:relative}
-#tm-topbar .tm-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--bone,#E8E2D2)}
-#tm-topbar .tm-brand-mark{width:28px;height:28px;flex-shrink:0}
-#tm-topbar .tm-brand-mark svg{width:100%;height:100%;display:block;color:var(--bone,#E8E2D2)}
-#tm-topbar .tm-brand-text{font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--bone,#E8E2D2);display:flex;align-items:center;gap:4px}
-#tm-topbar .tm-brand-dot{width:4px;height:4px;background:var(--clay,#C97E50);border-radius:50%;display:inline-block}
-#tm-topbar .tm-nav-menu{display:flex;align-items:center;gap:2px;margin-left:auto}
-#tm-topbar .tm-nav-btn{height:40px;padding:0 12px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(232,226,210,.6);background:transparent;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;border-radius:6px;transition:color .15s,background .15s;white-space:nowrap}
-#tm-topbar .tm-nav-btn:hover,#tm-topbar .tm-nav-btn.tm-active{color:var(--bone,#E8E2D2);background:rgba(255,255,255,.06)}
-#tm-topbar .tm-chev{font-size:9px;opacity:.5;transition:transform .15s}
-#tm-topbar .tm-nav-btn.tm-active .tm-chev{transform:rotate(180deg);opacity:1}
-#tm-topbar .tm-explore-btn::before{content:'⚄ '}
-#tm-topbar .tm-garage-btn{display:flex;align-items:center;gap:7px}
-#tm-topbar .tm-garage-icon{width:26px;height:26px;border-radius:5px;background:rgba(201,126,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;font-size:9px;font-weight:700;color:var(--clay,#C97E50)}
-#tm-topbar .tm-garage-icon img{width:100%;height:100%;object-fit:contain}
-#tm-topbar .tm-dd-panel{display:none;position:absolute;left:-24px;right:-24px;top:calc(100% + 1px);background:var(--paper,#F7F4ED);border-top:1px solid var(--bone-d,#C9C1AC);border-bottom:1px solid var(--bone-d,#C9C1AC);z-index:99}
-#tm-topbar .tm-dd-panel.open{display:block}
-#tm-topbar .tm-dd-inner{max-width:var(--max,1200px);margin:0 auto;padding:18px 24px 22px;display:flex;gap:36px}
-#tm-topbar .tm-dd-col{flex:1}
-#tm-topbar .tm-dd-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--slate-l,#5B6B7E);margin-bottom:8px}
-#tm-topbar .tm-dd-link{display:flex;align-items:flex-start;gap:9px;padding:7px 9px;border-radius:6px;color:var(--slate,#2B3A4A);text-decoration:none;transition:background .12s;font-size:13px;line-height:1.3}
-#tm-topbar .tm-dd-link:hover{background:rgba(201,126,80,.1)}
-#tm-topbar .tm-dd-link strong{display:block;font-weight:500;margin-bottom:1px;color:var(--slate,#2B3A4A)}
-#tm-topbar .tm-dd-link span:last-child{font-size:11px;color:var(--slate-l,#5B6B7E)}
-#tm-topbar .tm-dd-icon{width:28px;height:28px;border-radius:5px;background:rgba(201,126,80,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
-#tm-topbar .tm-hamburger{display:none;width:36px;height:36px;background:transparent;border:1px solid rgba(232,226,210,.2);border-radius:6px;cursor:pointer;align-items:center;justify-content:center;margin-left:auto;color:var(--bone,#E8E2D2)}
-#tm-topbar .tm-hamburger svg{width:16px;height:16px}
-@media(max-width:700px){#tm-topbar .tm-hamburger{display:flex}#tm-topbar .tm-nav-menu{display:none;position:absolute;top:100%;left:0;right:0;background:var(--slate-d,#1A2330);flex-direction:column;align-items:stretch;padding:8px;margin-left:0;border-bottom:1px solid rgba(43,58,74,.8)}#tm-topbar .tm-nav-menu.open{display:flex}#tm-topbar .tm-nav-btn{width:100%;justify-content:flex-start;border-radius:6px;padding:10px 12px}#tm-topbar .tm-dd-panel{position:static;background:rgba(255,255,255,.04);border:none}#tm-topbar .tm-dd-inner{flex-direction:column;gap:0;padding:6px 8px}#tm-topbar .tm-dd-link{color:rgba(232,226,210,.8)}#tm-topbar .tm-dd-link strong{color:var(--bone,#E8E2D2)}#tm-topbar .tm-theme-btn{width:44px;height:44px;margin-left:0;padding:0;align-self:flex-start}}
-</style>
-<header id="tm-topbar">
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
-    <a class="tm-brand" href="/"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span></a>
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
     <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" id="tm-btn-learn" href="/db/" style="text-decoration:none">Learn</a>
-      <button class="tm-nav-btn tm-explore-btn" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
     </div>
-    <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
-      <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
-      </div>
-      <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-        <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
-        <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-        <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
-      </div>
-      <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-        <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-        <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>Diagnostic</span></div></a>
-        <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compat.</strong><span>Cross-vehicle</span></div></a>
-      </div>
-    </div></div>
-    <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
-      <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-        <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>20 platforms</span></div></a>
-        <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Technique, safety</span></div></a>
-      </div>
-      <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-        <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Guides · dives</span></div></a>        <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon">◎</div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
-      </div>
-    </div></div>
-    <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
-      <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history</span></div></a>
-        <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>My builds</strong><span>Saved configs</span></div></a>
-      </div>
-    </div></div>
   </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
 </header>
 <script src="/_nav.js"></script>
-
-<div class="guide-wrap"><article>
-  <div class="guide-eyebrow">Workshop · Shop Tools</article></div>
-  <h1 class="guide-title">Hydraulic Press — Shop Uses and Bearing Press Basics</h1>
-
-  <p class="guide-lede">
-    A 12-ton H-frame press covers the full range of what a home shop needs: wheel bearings, axle shaft bearings, control arm bushings, ball joints, u-joints, gears, and seals. The technique matters more than the tonnage — pressing on the wrong race destroys a new bearing before it ever sees a road load.
-  </p>
-
-  <div class="guide-body">
-
-    <h2>What a shop press actually does</h2>
-    <p>A hydraulic press applies a slow, controlled, measured force in a straight line. That's it. What makes it indispensable is that straight line — the interference fits used in bearings, bushings, and gears are machined to tolerances that demand a square, centered load. Hammers deliver impact; presses deliver column force. They're different tools doing different jobs, and for press-fit components, a hammer is the wrong answer.</p>
-    <p>Most common uses in an off-road shop: pressing wheel bearings in and out of knuckles, removing and installing axle shaft bearings, driving out and replacing control arm and sway bar bushings, pressing u-joint caps, seating pinion bearings in a differential housing, and removing gears from shafts. Any job involving an interference fit — where a part is deliberately larger than the bore it goes into — is a press job.</p>
-
-    <h2>Frame types and what to buy</h2>
-    <p>Two frame geometries matter for a home shop:</p>
-    <ul>
-      <li><strong>H-frame (shop press):</strong> A freestanding frame with two vertical uprights, a crossbeam, and an adjustable work table. The cylinder rides in the crossbeam and presses straight down. This is the right tool for a fixed shop — wide capacity, stable, and the work table adjusts to accommodate anything from a wheel hub to a differential carrier. A 12-ton H-frame from Sunex, OTC, or Harbor Freight's Pittsburgh line covers every job a home shop will encounter.</li>
-      <li><strong>C-frame (bench press):</strong> A C-shaped frame that bolts to a bench or is held freestanding. Good for smaller work — u-joint caps, bushings, small bearings — where you want to work at bench height. Less throat depth than an H-frame, which limits what you can fit.</li>
-    </ul>
-    <p>For most home shops, a 12-ton H-frame is the right starting point. Twenty-ton presses exist and have their place in heavy axle work (Dana 60 pinion bearings, for example), but 12 tons will handle 90% of off-road maintenance work, and the bigger frames take up more floor space. If you're pressing something that requires more than 12 tons and you can feel it through the pump handle, stop — you're either pressing in the wrong direction, missing a snap ring, or have the work misaligned.</p>
-
-    <div class="callout">
-      <strong>Tonnage isn't everything:</strong> A press that bottoms out the pump and barely moves the work is telling you something is wrong, not that you need more tons. Check alignment, check for retaining rings, check that you're pressing in the right direction. A 12-ton press should never feel like it's at its limit on a wheel bearing.
-    </div>
-
-    <h2>Press bed and arbor plates</h2>
-    <p>The adjustable work table (press bed) on an H-frame supports the workpiece and defines what you can press over and into. Most presses ship with V-blocks and a pair of angle-iron support rails. That's enough to get started, but a flat arbor plate — a thick steel plate with holes drilled at common diameters — makes centering round workpieces significantly faster and safer.</p>
-    <p>Arbor press plates are available for $20 to $40 and are worth having before you start pressing wheel hubs. The alternative is stacking socket sets and hope, which works until the work slips sideways and ruins the bore. For bearing work specifically, you also need a set of press cups — one to drive the bearing in, one to support the housing without loading the outer race from below. These are the same adapter cups used in the C-frame ball joint presses; most loaner kits from parts stores work on an H-frame press as well.</p>
-
-    <h2>Bearing press technique</h2>
-    <p>Pressing bearings incorrectly is one of the most common ways to ruin new parts before they're installed. The principle is straightforward: <strong>load through the race being seated, not through the rolling elements.</strong></p>
-    <p>When pressing a bearing into a housing (outer race contact), the force must transfer through the outer race. When pressing a bearing onto a shaft (inner race contact), the force must transfer through the inner race. Loading force through the balls or rollers — which happens any time you press on the wrong race — transmits the entire press load through the bearing's internal geometry and brinells (dents) the raceways. The bearing will feel fine going in and will fail early under load.</p>
-    <ol>
-      <li><strong>Clean and deburr the bore and shaft.</strong> A press doesn't compensate for burrs. A small raised edge from a previous bearing removal will either stop progress entirely or skew the bearing off-square. A few passes with a file and emery cloth take two minutes and prevent a ruined housing.</li>
-      <li><strong>Apply a thin film of clean oil to the bearing OD (for housing press fits) or ID (for shaft press fits).</strong> The oil reduces the press load needed and helps seat the bearing squarely. Don't use anti-seize on bearing fits — it changes the interference relationship and can cause the bearing to spin in its bore.</li>
-      <li><strong>Use a driver cup that contacts only the race being pressed.</strong> For pressing into a housing, the driver cup OD should match or slightly undercut the bearing OD so it pushes on the outer race. For pressing onto a shaft, the driver cup ID should clear the shaft and contact the bearing inner race. A socket of the right size works when a proper cup isn't available — what matters is the contact geometry.</li>
-      <li><strong>Keep the bearing square to the bore as it enters.</strong> The first 1–2mm of engagement is where skewed bearings get stuck. Watch from the side as the bearing starts. If it cocks at all, back off, correct alignment, and restart. A cocked bearing pressed fully home is a ruined housing.</li>
-      <li><strong>Press until the bearing seats fully against its shoulder.</strong> You'll feel the load increase noticeably when the bearing contacts the shoulder — the pump gets harder and the work stops moving. Don't confuse this with a stuck bearing. Both feel hard. Look at the gap between the bearing face and the housing or shaft shoulder to confirm seating.</li>
-    </ol>
-
-    <div class="callout">
-      <strong>Heat speeds up tight fits:</strong> A housing heated with a heat gun or oven to 200–250°F expands enough to reduce press load significantly on stubborn interference fits. A shaft frozen overnight in a freezer contracts slightly. Both methods work; neither is required for normal bearing work. Use them when a 12-ton press is working hard on a well-aligned joint.
-    </div>
-
-    <h2>Pressing bushings</h2>
-    <p>Bushings differ from bearings in one important way: you're pressing rubber or polyurethane into a steel housing, not steel into steel. The material compresses during installation and springs back once it seats — meaning the press load drops sharply when the bushing clears the far edge of the housing, which can startle you if you're not expecting it.</p>
-    <p>Control arm bushings and sway bar end links almost always require a sleeve or a cup that matches the bushing OD — a close-fitting driver prevents the housing from distorting as the bushing goes in. Polyurethane bushings typically install more easily with a thin coat of the supplied grease on the OD; rubber OEM replacements press in dry.</p>
-    <p>On vehicles with unibody construction or pressed-in subframe bushings, the geometry of the press matters more than the tonnage. A C-frame press can often reach bushing locations that an H-frame can't, depending on how much clearance exists around the housing.</p>
-
-    <h2>U-joint caps</h2>
-    <p>U-joint caps are a bench-press job: small loads, precise geometry. The caps must go in square and must be driven to the same depth on both sides of the yoke, or the joint will bind. Most u-joint cap kits come with a stepped driver that ensures consistent depth. If pressing without the kit driver, use a socket that contacts the cap flange without riding on the snap ring groove — seat the cap until the snap ring groove is clear, then install the snap ring before pressing the opposing cap.</p>
-    <p>Never drive a u-joint cap with a hammer directly. Even if it goes in straight, impact loading through the needle rollers brinells the cross journals. Use a press or a C-clamp with the right driver geometry.</p>
-
-    <h2>Common mistakes</h2>
-    <ul>
-      <li><strong>Loading through the wrong race.</strong> Pressing a new bearing in using a driver that spans both inner and outer races — or contacts only the inner race while installing into a housing — sends all the load through the rolling elements. The bearing is damaged before the vehicle moves.</li>
-      <li><strong>Skipping alignment check mid-press.</strong> A bearing or bushing that starts slightly cocked gets worse as it goes deeper. The load climbs, the housing starts to distort, and backing it out is harder than starting over correctly was. Stop and look when resistance feels wrong.</li>
-      <li><strong>No support under the work.</strong> A wheel hub resting on nothing but the press bed plate, with the press cylinder pushing down on the bearing, will tip the moment things don't go straight. Support the hub at two points on opposite sides of the bearing bore so it can't rock.</li>
-      <li><strong>Using the press to remove a seized bearing without the right puller geometry.</strong> A press can remove a stuck bearing, but only if the work is set up so the force acts correctly. Pressing down on a bearing OD into a housing that's supported from below is not the same as a puller that loads the bearing from behind. Think through the force path before pumping.</li>
-      <li><strong>Ignoring the snap ring.</strong> Bearings and bushings with retaining snap rings must have the ring removed before pressing. The press will not overcome a snap ring — it will deform the housing trying. Check the parts diagram before you start.</li>
-    </ul>
-
-    <h2>Safety on the press</h2>
-    <p>Hydraulic presses are quieter and slower than power tools, which makes it easy to forget that a 12-ton press is capable of doing significant damage very quickly. A few habits worth building:</p>
-    <ul>
-      <li><strong>Never stand directly in front of a press in operation.</strong> Stand to the side when pumping. Workpieces that slip or snap can eject off the press bed at speed.</li>
-      <li><strong>Keep hands clear of the work area while pumping.</strong> Position the work, then move your hands before activating the cylinder.</li>
-      <li><strong>Support long or asymmetric workpieces so they can't pivot.</strong> A shaft that tilts 30 degrees mid-press turns into a lever that can flip everything off the table.</li>
-      <li><strong>Wear safety glasses.</strong> Snap rings under load, bearing cups that pop free, and debris from corroded housings can all move fast when the press releases.</li>
-    </ul>
-
+<!-- TM:HEADER:END -->
+<main class="tm-article">
+<article>
+  <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/workshop/">The Workshop</a> · <a href="/workshop/#tools">Shop Tools</a></nav>
+  <h1>Hydraulic Press — Shop Uses and Bearing Press Basics</h1>
+  <p class="tm-dek">A 12-ton H-frame press covers the full range of what a home shop needs: wheel bearings, axle shaft bearings, control arm bushings, ball joints, u-joints, gears, and seals. The technique matters more than the tonnage — pressing on the wrong race destroys a new bearing before it ever sees a road load.</p>
+  <div class="tm-byline"><span>8 min read</span><span>Applies to any vehicle</span><a href="/about/#sources">How we source guides</a></div>
+  <figure class="tm-figure"><img src="/images/photo-shop-setup.webp" alt="Workshop wall with wrenches hung on a pegboard above a bench grinder" width="1600" height="1067" fetchpriority="high"><figcaption>Photo: <a href="https://unsplash.com/@nina_mercado?utm_source=trailmanual&utm_medium=referral" rel="noopener">Nina Mercado</a> on <a href="https://unsplash.com/?utm_source=trailmanual&utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
+  
+  <div class="tm-prose">
+<h2>What a shop press actually does</h2>
+<p>A hydraulic press applies a slow, controlled, measured force in a straight line. That's it. What makes it indispensable is that straight line — the interference fits used in bearings, bushings, and gears are machined to tolerances that demand a square, centered load. Hammers deliver impact; presses deliver column force. They're different tools doing different jobs, and for press-fit components, a hammer is the wrong answer.</p>
+<p>Most common uses in an off-road shop: pressing wheel bearings in and out of knuckles, removing and installing axle shaft bearings, driving out and replacing control arm and sway bar bushings, pressing u-joint caps, seating pinion bearings in a differential housing, and removing gears from shafts. Any job involving an interference fit — where a part is deliberately larger than the bore it goes into — is a press job.</p>
+<h2>Frame types and what to buy</h2>
+<p>Two frame geometries matter for a home shop:</p>
+<ul>
+<li><strong>H-frame (shop press):</strong> A freestanding frame with two vertical uprights, a crossbeam, and an adjustable work table. The cylinder rides in the crossbeam and presses straight down. This is the right tool for a fixed shop — wide capacity, stable, and the work table adjusts to accommodate anything from a wheel hub to a differential carrier. A 12-ton H-frame from Sunex, OTC, or Harbor Freight's Pittsburgh line covers every job a home shop will encounter.</li>
+<li><strong>C-frame (bench press):</strong> A C-shaped frame that bolts to a bench or is held freestanding. Good for smaller work — u-joint caps, bushings, small bearings — where you want to work at bench height. Less throat depth than an H-frame, which limits what you can fit.</li>
+</ul>
+<p>For most home shops, a 12-ton H-frame is the right starting point. Twenty-ton presses exist and have their place in heavy axle work (Dana 60 pinion bearings, for example), but 12 tons will handle 90% of off-road maintenance work, and the bigger frames take up more floor space. If you're pressing something that requires more than 12 tons and you can feel it through the pump handle, stop — you're either pressing in the wrong direction, missing a snap ring, or have the work misaligned.</p>
+<div class="tm-callout"><p><strong>Tonnage isn't everything:</strong> A press that bottoms out the pump and barely moves the work is telling you something is wrong, not that you need more tons. Check alignment, check for retaining rings, check that you're pressing in the right direction. A 12-ton press should never feel like it's at its limit on a wheel bearing.</p></div>
+<h2>Press bed and arbor plates</h2>
+<p>The adjustable work table (press bed) on an H-frame supports the workpiece and defines what you can press over and into. Most presses ship with V-blocks and a pair of angle-iron support rails. That's enough to get started, but a flat arbor plate — a thick steel plate with holes drilled at common diameters — makes centering round workpieces significantly faster and safer.</p>
+<p>Arbor press plates are available for $20 to $40 and are worth having before you start pressing wheel hubs. The alternative is stacking socket sets and hope, which works until the work slips sideways and ruins the bore. For bearing work specifically, you also need a set of press cups — one to drive the bearing in, one to support the housing without loading the outer race from below. These are the same adapter cups used in the C-frame ball joint presses; most loaner kits from parts stores work on an H-frame press as well.</p>
+<h2>Bearing press technique</h2>
+<p>Pressing bearings incorrectly is one of the most common ways to ruin new parts before they're installed. The principle is straightforward: <strong>load through the race being seated, not through the rolling elements.</strong></p>
+<p>When pressing a bearing into a housing (outer race contact), the force must transfer through the outer race. When pressing a bearing onto a shaft (inner race contact), the force must transfer through the inner race. Loading force through the balls or rollers — which happens any time you press on the wrong race — transmits the entire press load through the bearing's internal geometry and brinells (dents) the raceways. The bearing will feel fine going in and will fail early under load.</p>
+<ol class="tm-steps">
+<li><strong>Clean and deburr the bore and shaft.</strong> A press doesn't compensate for burrs. A small raised edge from a previous bearing removal will either stop progress entirely or skew the bearing off-square. A few passes with a file and emery cloth take two minutes and prevent a ruined housing.</li>
+<li><strong>Apply a thin film of clean oil to the bearing OD (for housing press fits) or ID (for shaft press fits).</strong> The oil reduces the press load needed and helps seat the bearing squarely. Don't use anti-seize on bearing fits — it changes the interference relationship and can cause the bearing to spin in its bore.</li>
+<li><strong>Use a driver cup that contacts only the race being pressed.</strong> For pressing into a housing, the driver cup OD should match or slightly undercut the bearing OD so it pushes on the outer race. For pressing onto a shaft, the driver cup ID should clear the shaft and contact the bearing inner race. A socket of the right size works when a proper cup isn't available — what matters is the contact geometry.</li>
+<li><strong>Keep the bearing square to the bore as it enters.</strong> The first 1–2mm of engagement is where skewed bearings get stuck. Watch from the side as the bearing starts. If it cocks at all, back off, correct alignment, and restart. A cocked bearing pressed fully home is a ruined housing.</li>
+<li><strong>Press until the bearing seats fully against its shoulder.</strong> You'll feel the load increase noticeably when the bearing contacts the shoulder — the pump gets harder and the work stops moving. Don't confuse this with a stuck bearing. Both feel hard. Look at the gap between the bearing face and the housing or shaft shoulder to confirm seating.</li>
+</ol>
+<div class="tm-callout"><p><strong>Heat speeds up tight fits:</strong> A housing heated with a heat gun or oven to 200–250°F expands enough to reduce press load significantly on stubborn interference fits. A shaft frozen overnight in a freezer contracts slightly. Both methods work; neither is required for normal bearing work. Use them when a 12-ton press is working hard on a well-aligned joint.</p></div>
+<h2>Pressing bushings</h2>
+<p>Bushings differ from bearings in one important way: you're pressing rubber or polyurethane into a steel housing, not steel into steel. The material compresses during installation and springs back once it seats — meaning the press load drops sharply when the bushing clears the far edge of the housing, which can startle you if you're not expecting it.</p>
+<p>Control arm bushings and sway bar end links almost always require a sleeve or a cup that matches the bushing OD — a close-fitting driver prevents the housing from distorting as the bushing goes in. Polyurethane bushings typically install more easily with a thin coat of the supplied grease on the OD; rubber OEM replacements press in dry.</p>
+<p>On vehicles with unibody construction or pressed-in subframe bushings, the geometry of the press matters more than the tonnage. A C-frame press can often reach bushing locations that an H-frame can't, depending on how much clearance exists around the housing.</p>
+<h2>U-joint caps</h2>
+<p>U-joint caps are a bench-press job: small loads, precise geometry. The caps must go in square and must be driven to the same depth on both sides of the yoke, or the joint will bind. Most u-joint cap kits come with a stepped driver that ensures consistent depth. If pressing without the kit driver, use a socket that contacts the cap flange without riding on the snap ring groove — seat the cap until the snap ring groove is clear, then install the snap ring before pressing the opposing cap.</p>
+<p>Never drive a u-joint cap with a hammer directly. Even if it goes in straight, impact loading through the needle rollers brinells the cross journals. Use a press or a C-clamp with the right driver geometry.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Loading through the wrong race.</strong> Pressing a new bearing in using a driver that spans both inner and outer races — or contacts only the inner race while installing into a housing — sends all the load through the rolling elements. The bearing is damaged before the vehicle moves.</li>
+<li><strong>Skipping alignment check mid-press.</strong> A bearing or bushing that starts slightly cocked gets worse as it goes deeper. The load climbs, the housing starts to distort, and backing it out is harder than starting over correctly was. Stop and look when resistance feels wrong.</li>
+<li><strong>No support under the work.</strong> A wheel hub resting on nothing but the press bed plate, with the press cylinder pushing down on the bearing, will tip the moment things don't go straight. Support the hub at two points on opposite sides of the bearing bore so it can't rock.</li>
+<li><strong>Using the press to remove a seized bearing without the right puller geometry.</strong> A press can remove a stuck bearing, but only if the work is set up so the force acts correctly. Pressing down on a bearing OD into a housing that's supported from below is not the same as a puller that loads the bearing from behind. Think through the force path before pumping.</li>
+<li><strong>Ignoring the snap ring.</strong> Bearings and bushings with retaining snap rings must have the ring removed before pressing. The press will not overcome a snap ring — it will deform the housing trying. Check the parts diagram before you start.</li>
+</ul>
+<h2>Safety on the press</h2>
+<p>Hydraulic presses are quieter and slower than power tools, which makes it easy to forget that a 12-ton press is capable of doing significant damage very quickly. A few habits worth building:</p>
+<ul>
+<li><strong>Never stand directly in front of a press in operation.</strong> Stand to the side when pumping. Workpieces that slip or snap can eject off the press bed at speed.</li>
+<li><strong>Keep hands clear of the work area while pumping.</strong> Position the work, then move your hands before activating the cylinder.</li>
+<li><strong>Support long or asymmetric workpieces so they can't pivot.</strong> A shaft that tilts 30 degrees mid-press turns into a lever that can flip everything off the table.</li>
+<li><strong>Wear safety glasses.</strong> Snap rings under load, bearing cups that pop free, and debris from corroded housings can all move fast when the press releases.</li>
+</ul>
   </div>
-
-</div>
-
-<footer>
-  <a href="/workshop/">← Back to Workshop</a> &nbsp;·&nbsp; &nbsp;·&nbsp;
-  <a href="/">Trail Manual</a>
+  
+</article>
+</main>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY reference for off-road vehicle owners. No sponsored content, no paywall.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
 </footer>
-
-<script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+<!-- TM:FOOTER:END -->
 </body>
 </html>
