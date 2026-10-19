@@ -585,7 +585,7 @@
   function vehicleGradient(vid) { return HERO_GRADIENTS[vid] || HERO_GRADIENTS.xj; }
 
   // ---- per-vehicle extra tools (surfaced after the canonical 4 in Twin Grids) ----
-  // When a vehicle has extras, Maintenance (coming soon) is dropped to keep the
+  // When a vehicle has extras, the My Garage slot is dropped to keep the
   // grid balanced per design system §11.1B (5–6 → repeat(3,1fr)).
   const EXTRA_TOOLS = {
     jk: [
@@ -1428,7 +1428,7 @@
 
     // --- TOOLS (canonical 4-up) ---
     const extras = vehicleExtraTools(vid);
-    // Canonical 4. If we have extras, drop "Maintenance (soon)" to keep the grid tight.
+    // Canonical 4. If we have extras, drop the My Garage slot to keep the grid tight.
     const canonical = [];
     canonical.push({
       title:'Rig Builder', tag:'Interactive', tagClass:'clay',
@@ -1449,18 +1449,21 @@
           desc:'Diagnose the cause in 8 questions. Track-bar, ball joints, balance — find it before it finds you.',
           cta:'Diagnose', href:dwHref }
       : axleType === 'ttb'
-      ? { title:'TTB Steering Diagnostic', tag:'Coming soon', soon:true,
-          icon:'steering', iconClass:'neutral',
-          desc:'The Twin Traction Beam can wobble like a solid axle. Track bar, tie rod ends, and wheel balance — same diagnosis, different geometry.' }
-      : { title:'Steering Diagnostic', tag:'Coming soon', soon:true,
-          icon:'steering', iconClass:'neutral',
-          desc:'IFS-front diagnostic for steering wander, vibration, and pull. Different physics, different fix.' }
+      ? { title:'Tire Pressure & Air-Down', tag:'Calculator', tagClass:'clay',
+          icon:'tire', iconClass:'good',
+          desc:'Trail pressure for your tire size, load, and terrain — and how much to air back up before the highway.',
+          cta:'Calculate', href:'/db/tire-pressure-airdown.html' }
+      : { title:'Tire Pressure & Air-Down', tag:'Calculator', tagClass:'clay',
+          icon:'tire', iconClass:'good',
+          desc:'Trail pressure for your tire size, load, and terrain — and how much to air back up before the highway.',
+          cta:'Calculate', href:'/db/tire-pressure-airdown.html' }
     );
     if (extras.length === 0) {
       canonical.push({
-        title:'Maintenance', tag:'Coming soon', soon:true,
-        icon:'torque-wrench', iconClass:'neutral',
-        desc:'Mileage-driven service schedule. Oil, diffs, transfer case, and trim-specific intervals.',
+        title:'My Garage', tag:'Maintenance log', tagClass:'clay',
+        icon:'tool-storage', iconClass:'good',
+        desc:'Log every service and see what is due next — oil, diffs, transfer case. Saves on this device, no account.',
+        cta:'Open', href:'/my-garage.html',
       });
     }
     const allTools = canonical.concat(extras);
