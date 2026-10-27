@@ -267,7 +267,7 @@
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
       <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
       <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
     </div>
   </div></div>
@@ -429,11 +429,11 @@
     {
       id:'steeringbox',
       title:'Steering box sector shaft play (YJ: check this first)',
-      sub:'10 minutes · FREE to fix if adjustment works',
+      sub:'10 minutes · free check',
       difficulty:'medium', cost:'free',
-      what:'(YJ: #1 suspect) The steering box converts wheel rotation into drag link movement via the sector shaft. As mileage accumulates, the sector shaft develops play — a "dead spot" where steering wheel input doesn\'t move the wheels. On YJ, Jeep issued multiple TSBs for this exact issue, and the first TSB remedy was a free adjustment. On TJ, the same adjustment applies but the box is generally more robust than the YJ unit. A worn steering box can generate enough input to trigger wobble directly.',
+      what:'(YJ: #1 suspect) The steering box converts wheel rotation into drag link movement via the sector shaft. As mileage accumulates, the sector shaft develops play — a "dead spot" where steering wheel input doesn\'t move the wheels. On YJ, Jeep issued multiple TSBs for this exact issue. On TJ the box is generally more robust than the YJ unit. A worn steering box can generate enough input to trigger wobble directly.',
       test:'With key off and wheels pointing straight, have a helper rock the steering wheel gently left and right. Watch the pitman arm. Any movement in the pitman arm before the wheel has moved more than about 1 inch of rotation = the sector shaft has play. Also check from the driver\'s seat: if the wheel moves more than ~1.5" before the truck steers, the box needs attention.',
-      finding:'If play exists: the adjustment is free — loosen the 18mm jam nut on the top of the box, turn the adjuster clockwise in 1/8-turn increments until play is gone but the wheel still self-centers. If play is excessive and adjustment doesn\'t fix it, box replacement is likely needed. (YJ: this is the most common single fix for death wobble.)',
+      finding:'If play exists, leave the adjuster alone. Setting a steering box takes ordered, measured preload and over-center adjustments from the factory manual (the XJ manual says not to do it in the vehicle). Have a steering shop set it to spec on the bench, or replace the box. (YJ: the steering box is the most common single fix for death wobble.)',
       fixIds:['fix-boxadjust','fix-boxswap'],
     },
     {
@@ -533,8 +533,8 @@
     'fix-lugs':           {title:'Torque lug nuts to 95 lb-ft', cost:0, time:'5 min', why:'Free; safety-critical.'},
     'fix-balance':        {title:'Re-balance front wheels', cost:50, time:'30 min at shop', why:'Cheap; eliminates a common wobble amplifier.'},
     'fix-tires':          {title:'Replace damaged or separated tire', cost:180, time:'1 hr at shop', why:'Hard stop — no fix otherwise.'},
-    'fix-boxadjust':      {title:'Adjust steering box sector shaft (free)', cost:0, time:'10 min', why:'FREE. The #1 YJ TSB fix. Try this before replacing the box. Takes up internal wear.'},
-    'fix-boxswap':        {title:'Replace steering box', cost:320, time:'3-4 hr DIY', why:'Very common YJ fix; less common TJ. OEM replacement or upgrade to a reman unit. Required if adjustment doesn\'t fix sector shaft play.'},
+    'fix-boxadjust':      {title:'Check steering box play', cost:0, time:'10 min check', why:'Free to measure. If there is play, have a shop set the box to factory spec on the bench, or replace it. Do not adjust it in the truck.'},
+    'fix-boxswap':        {title:'Replace steering box', cost:320, time:'3-4 hr DIY', why:'Very common YJ fix; less common TJ. OEM replacement or upgrade to a reman unit. Required if a bench adjustment does not fix sector shaft play.'},
     'fix-trackbar':       {title:'Replace trackbar (or HD aftermarket)', cost:180, time:'1-2 hr DIY', why:'#1 or #2 TJ cause. Replace worn ends. Lifted TJ/YJ: adjustable or drop-bracket setup needed.'},
     'fix-tierod':         {title:'Replace tie rod ends (pair)', cost:90, time:'1-2 hr DIY', why:'Cheap; common on both TJ and YJ. Alignment after.'},
     'fix-draglink':       {title:'Replace drag link ends (pair)', cost:80, time:'1-2 hr DIY', why:'Same cost range as tie rod. YJ drag link is short and stresses the ends.'},
@@ -658,7 +658,7 @@
         ),
         el('div', {class:'big-step'},
           el('div', {class:'n'}, '4'),
-          el('div', {}, el('h3',{},'Slow under 30 mph'), el('p',{}, 'Death wobble feeds on speed. Below ~30 mph the resonance can\'t sustain itself and the truck will go quiet again.'))
+          el('div', {}, el('h3',{},'Slow down smoothly and pull over'), el('p',{}, 'Keep easing off. Slowing down often lets the shaking settle, but there is no set speed where it stops. Pull off as soon as it is safe.'))
         ),
         el('div', {class:'big-step'},
           el('div', {class:'n'}, '5'),
@@ -700,7 +700,7 @@
   // ---- WHAT ----
   function renderWhat(app) {
     app.appendChild(el('h1', {}, 'What is death wobble?'));
-    app.appendChild(el('p', {class:'lede'}, 'Plain English: a solid front axle with worn components starts oscillating left-right at highway speed — several times per second — until the steering wheel shakes hard enough to feel like the truck is coming apart. Below about 30 mph, the resonance can\'t sustain itself and the truck settles. That\'s the pattern to look for.'));
+    app.appendChild(el('p', {class:'lede'}, 'Plain English: a solid front axle with worn components starts oscillating left-right at highway speed — several times per second — until the steering wheel shakes hard enough to feel like the truck is coming apart. Slowing down often lets it settle, but there is no fixed speed where it stops.'));
 
     app.appendChild(el('h2', {}, 'TJ vs YJ — same problem, different geometry'));
     app.appendChild(el('p', {}, 'Both the TJ (1997–2006) and YJ (1987–1995) run a solid front axle — the same basic wobble mechanism applies to both. But the front suspension geometry is different, and that matters for diagnosis:'));
@@ -709,7 +709,7 @@
       el('div', {class:'panel info'},
         el('h3', {style:'margin-top:0;color:var(--info)'}, 'TJ Wrangler (1997–2006)'),
         el('p', {}, 'Coil spring front suspension — the same concept as the XJ Cherokee. The coil springs locate the axle, and the trackbar handles lateral load. The trackbar is longer than the XJ unit, and its frame-side bushing and axle-side ball stud are the #1 and #2 wobble suspects on TJ.'),
-        el('p', {style:'margin-bottom:0'}, 'The TJ steering box is generally more robust than the YJ unit, but sector shaft adjustment still applies. Key difference: TJ has no leaf spring geometry failure modes.')
+        el('p', {style:'margin-bottom:0'}, 'The TJ steering box is generally more robust than the YJ unit, but it still wears and gets the same check. Key difference: TJ has no leaf spring geometry failure modes.')
       ),
       el('div', {class:'panel warn'},
         el('h3', {style:'margin-top:0;color:var(--warn)'}, 'YJ Wrangler (1987–1995)'),
@@ -719,7 +719,7 @@
     ));
 
     app.appendChild(el('h2', {}, 'Why the YJ became infamous for it'));
-    app.appendChild(el('p', {}, 'In the early 1990s, Jeep issued multiple Technical Service Bulletins (TSBs) acknowledging that YJ Wranglers experienced death wobble. The primary TSB remedy was steering box adjustment — a free procedure that takes up wear on the sector shaft. On a YJ with 30+ years of highway miles, that adjustment may no longer be enough, and steering box replacement is the next step. On many YJs, that single repair cures the wobble entirely.'));
+    app.appendChild(el('p', {}, 'In the early 1990s, Jeep issued multiple Technical Service Bulletins (TSBs) acknowledging that YJ Wranglers experienced death wobble. The primary TSB remedy was steering box adjustment. On a YJ with 30+ years of highway miles, a worn box usually needs a shop rebuild or replacement instead. On many YJs, that single repair cures the wobble entirely.'));
     app.appendChild(el('p', {}, 'That said, the YJ also has the leaf spring failure mode the TJ does not. A complete YJ wobble diagnosis should check both the steering box and the front leaf spring shackles — especially on high-mileage trucks.'));
 
     app.appendChild(el('h2', {}, 'The parts involved'));
@@ -771,7 +771,7 @@
     app.appendChild(el('div', {class:'grid-2'},
       el('div', {class:'panel'},
         el('h3', {style:'margin-top:0;color:#9C27B0'}, 'Steering box (YJ: #1 suspect — TSB history)'),
-        el('p', {}, 'Jeep\'s own service bulletins named the steering box as the primary YJ wobble cause. The sector shaft develops play, creating a dead spot. Free adjustment first; replacement if adjustment won\'t hold.')
+        el('p', {}, 'Jeep\'s own service bulletins named the steering box as the primary YJ wobble cause. The sector shaft develops play, creating a dead spot. Have a shop set it to spec on the bench, or replace it.')
       ),
       el('div', {class:'panel'},
         el('h3', {style:'margin-top:0;color:#e57373'}, 'Track bar (TJ: #1-2 suspect; YJ: secondary)'),
@@ -944,7 +944,7 @@
       }
     });
 
-    ['fix-pressure','fix-lugs','fix-boxadjust'].forEach(id => {
+    ['fix-pressure','fix-lugs'].forEach(id => {
       if (scores[id] >= 0) scores[id] += 1;
     });
 
@@ -1033,8 +1033,8 @@
       ['Dana 30', 'The standard front axle on TJ and YJ Wranglers. Adequate for stock and mild builds. Uses replaceable ball joints and sealed unit wheel bearings.'],
       ['TJ vs YJ (quick reference)', 'TJ = 1997–2006, round headlights, coil spring front suspension. YJ = 1987–1995, square headlights, leaf spring front suspension. Both have solid front axles and Dana 30. Key difference: YJ has leaf spring failure modes TJ does not.'],
       ['Track bar', 'A diagonal bar from the frame to the front axle that keeps the axle from sliding sideways. Primary wobble suspect on TJ. Less dominant on YJ but still worth inspecting. Lifted trucks need adjustable or drop-bracket setups.'],
-      ['Steering box / sector shaft', 'The hydraulic gearbox that translates steering wheel rotation into drag link motion. The sector shaft is the internal output — as it wears, a dead spot develops. YJ: primary wobble cause; Jeep issued TSBs. TJ: same adjustment applies, box is more robust. Adjustment is free.'],
-      ['Sector shaft adjustment', 'The free fix: loosen the 18mm jam nut on top of the steering box, turn the adjuster clockwise in 1/8-turn increments to take up wear. The wheel should self-center after turns when done correctly. Do not over-tighten — it destroys the box.'],
+      ['Steering box / sector shaft', 'The hydraulic gearbox that translates steering wheel rotation into drag link motion. The sector shaft is the internal output — as it wears, a dead spot develops. YJ: primary wobble cause; Jeep issued TSBs. TJ: same check applies, box is more robust.'],
+      ['Sector shaft adjustment', 'The screw on top of the steering box that sets sector shaft preload. The factory procedure sets it in a fixed order with torque measurements (the XJ manual says not to do it in the vehicle). A shop job, not a driveway fix.'],
       ['Tie rod end', 'Ball-and-socket joint at each end of the tie rod (the bar connecting both front wheels). Wears with age. Replace as a pair. YJ ends wear early and are cheap. Alignment required after replacement.'],
       ['Drag link', 'Bar from the pitman arm to the passenger-side front knuckle. Transmits steering input to the wheels. YJ drag link is relatively short, which stresses the ends. Replace ends as a pair.'],
       ['Pitman arm', 'The arm bolted to the steering box output (sector shaft). Connects to the drag link via a ball stud. On YJ, the pitman ball stud wears alongside the steering box — replace together if both are sloppy.'],

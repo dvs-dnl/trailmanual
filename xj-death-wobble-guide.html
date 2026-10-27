@@ -280,7 +280,7 @@
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
       <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
       <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
     </div>
   </div></div>
@@ -491,11 +491,11 @@
     {
       id:'box',
       title:'Steering box sector shaft play',
-      sub:'10 minutes · often FREE to fix',
+      sub:'10 minutes · free check',
       difficulty:'medium', cost:'free',
-      what:'The steering box has an adjuster screw on top that takes up wear in the sector shaft. After 100k+ miles it loosens and the steering wanders. Adjusting it is free and takes 5 minutes — the most underrated DW fix.',
-      test:'Pop the hood. Locate the steering box on driver-side frame (big cylinder near firewall). On top is a hex-head bolt locked by a 18mm jam nut. With key off and wheels straight, have a helper rock the wheel back and forth gently — feel the steering wheel for the dead spot where input doesn\'t move the wheels. If that dead zone exceeds about 1 inch of wheel rotation, the box needs adjustment.',
-      finding:'Loosen the jam nut, turn the adjuster clockwise IN VERY SMALL INCREMENTS (eighth-turn) until the dead spot is gone but the wheel still self-centers after a turn. Lock the jam nut. Drive carefully — overtightening destroys the box.',
+      what:'Wear inside the steering box adds play at the sector shaft, so the wheel gets a dead spot and the truck wanders. The adjuster screw on top is not a driveway fix: the XJ factory manual says not to adjust the box in the vehicle, and sets it on the bench in a fixed order with torque measurements.',
+      test:'Pop the hood. Locate the steering box on driver-side frame (big cylinder near firewall). On top is a hex-head bolt locked by a 18mm jam nut. With key off and wheels straight, have a helper rock the wheel back and forth gently — feel the steering wheel for the dead spot where input doesn\'t move the wheels. If that dead zone exceeds about 1 inch of wheel rotation, the box needs attention.',
+      finding:'If the dead spot is more than about an inch of wheel rotation, leave the adjuster alone. Have a steering shop set the box to factory spec on the bench, or replace it with a rebuilt unit (the ZJ box is the common XJ upgrade). A box set too tight can bind, stop self-centering, and damage the gear.',
       fixIds:['fix-boxadjust','fix-boxswap'],
     },
     {
@@ -569,7 +569,7 @@
     'fix-tierod':     {title:'Replace tie rod ends (pair)', cost:90, time:'1-2 hr DIY', why:'Cheap and very common cause. Do alignment after.'},
     'fix-draglink':   {title:'Replace drag link ends (pair)', cost:80, time:'1-2 hr DIY', why:'Same as tie rod — cheap and common.'},
     'fix-balljoint':  {title:'Replace front ball joints', cost:280, time:'3-4 hr DIY w/ press', why:'Safety-critical; pay for good brand (Spicer/MOOG).'},
-    'fix-boxadjust':  {title:'Adjust steering box sector shaft', cost:0, time:'10 min', why:'FREE. Most under-used DW fix. Try this before swapping.'},
+    'fix-boxadjust':  {title:'Check steering box play', cost:0, time:'10 min check', why:'Free to measure. If there is play, have a shop set the box to factory spec on the bench, or replace it. Do not adjust it in the truck.'},
     'fix-boxswap':    {title:'Swap to ZJ steering box', cost:350, time:'4 hr DIY', why:'Larger sector shaft and stronger mounting. Common upgrade.'},
     'fix-bearings':   {title:'Replace unit bearings (pair)', cost:300, time:'1-2 hr DIY', why:'Often paired with ball joints since both come off together.'},
     'fix-shaftuj':    {title:'Replace steering shaft U-joint', cost:60, time:'30 min DIY', why:'Cheap; eliminates a common minor contributor.'},
@@ -664,7 +664,7 @@
     app.appendChild(el('section', {class:'hero'},
       el('div', {style:'color:var(--danger);font-size:12px;text-transform:uppercase;letter-spacing:.6px;font-weight:700;margin-bottom:10px'}, 'Emergency response'),
       el('h1', {}, 'Your XJ just shook violently. Now what?'),
-      el('p', {class:'lede'}, "Death wobble is terrifying but it's almost never about to kill you — and the fix is almost always inexpensive. Take a breath. Here's exactly what to do right now, and a plan for finding the cause."),
+      el('p', {class:'lede'}, "Death wobble is violent and makes the truck hard to control. Here is what to do right now, then a plan for finding the worn part before you drive at speed again."),
       el('div', {class:'hero-cta'},
         el('button', {class:'btn primary', on:{click:()=>go('#/diagnose')}}, 'Run the symptom quiz →'),
         el('button', {class:'btn', on:{click:()=>go('#/what')}}, 'First, what is this thing?')
@@ -689,7 +689,7 @@
         ),
         el('div', {class:'big-step'},
           el('div', {class:'n'}, '4'),
-          el('div', {}, el('h3',{},'Slow under 30 mph'), el('p', {}, 'Death wobble feeds on speed. Below ~30-35 mph the resonance dies out and the truck will go quiet again.'))
+          el('div', {}, el('h3',{},'Slow down smoothly and pull over'), el('p', {}, 'Keep easing off. Slowing down often lets the shaking settle, but there is no set speed where it stops. Pull off as soon as it is safe.'))
         ),
         el('div', {class:'big-step'},
           el('div', {class:'n'}, '5'),
@@ -700,7 +700,7 @@
 
     app.appendChild(el('div', {class:'panel info'},
       el('h2', {style:'margin-top:0'}, 'The good news'),
-      el('p', {}, "On a Jeep XJ, death wobble is so common it has a name and a Wikipedia page. The fix is almost always a single worn part costing under $200 — sometimes a free adjustment. You can almost certainly diagnose it in your driveway in 30 minutes."),
+      el('p', {}, "On a Jeep XJ, death wobble is common enough to have a name. It usually traces to one or two worn front-end parts, and most of them can be checked in your driveway."),
       el('p', {style:'margin-bottom:0'}, "What follows: a plain-English explainer, a 6-question quiz that ranks likely causes, an interactive inspection checklist that walks you through each component, and a prioritized fix plan based on what you found.")
     ));
 
@@ -735,7 +735,7 @@
     app.appendChild(el('h2', {}, 'The physics, simplified'));
     app.appendChild(el('p', {}, 'Your XJ has a solid front axle — both front wheels are connected by a single rigid axle housing. That whole axle pivots side-to-side and twists slightly on its rubber bushings. Two things hold it in place: the track bar (sideways) and the control arms (forward/back).'));
     app.appendChild(el('p', {}, "When any of the steering joints or suspension bushings have worn slack, hitting a bump introduces a small steering input. The axle bounces back. The slack in the joints lets it bounce too far. That bounce creates another steering input. And the whole thing self-amplifies into resonance — the same way a kid pumping on a swing keeps building height."));
-    app.appendChild(el('p', {}, "Below about 35 mph the truck can't sustain the resonance — the oscillation dies. Above 45 mph the front-end forces are big enough to keep feeding it. That's why wobble is a highway-speed phenomenon."));
+    app.appendChild(el('p', {}, "It usually starts at highway speed after a bump, and slowing down often lets it settle. There is no fixed speed where it stops, which is why the fix is finding the worn part, not driving slower."));
 
     // SVG diagram - top-down steering linkage
     app.appendChild(el('h2', {}, 'The parts involved'));
@@ -976,7 +976,7 @@
     });
 
     // Always-recommended free items get a baseline boost
-    ['fix-pressure','fix-lugs','fix-boxadjust'].forEach(id => {
+    ['fix-pressure','fix-lugs'].forEach(id => {
       if (scores[id] >= 0) scores[id] += 1; // small nudge so they show up if nothing else
     });
 
@@ -1087,7 +1087,7 @@
       ['Lift kit','Suspension components that raise ride height to clear larger tires.'],
       ['Alignment','Setting toe, caster, and camber to spec. Required after any steering work.'],
       ['Bushing','Rubber (or polyurethane) cylinder that lets a joint move slightly while damping vibration. Wears with age and load.'],
-      ['Sector adjustment','The free, often-overlooked maintenance: turning the screw on top of the steering box to take up internal wear. Use small increments.'],
+      ['Sector adjustment','The screw on top of the steering box that sets sector shaft preload. The XJ factory manual sets it on the bench, in order, with torque measurements, and says not to adjust it in the vehicle.'],
       ['Geometry / death-wobble-prone geometry','Lift kits without enough caster correction or with extreme track bar angles often have wobble-prone geometry. Worth correcting at lift install.'],
       ['Caster correction','Wedges or rotation of the axle to restore caster after a lift. Without it, big lifts can feel unstable.'],
     ];

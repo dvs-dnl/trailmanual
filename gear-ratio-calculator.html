@@ -255,7 +255,7 @@
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
       <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>8-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
       <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
     </div>
   </div></div>
@@ -596,9 +596,9 @@ const VEHICLES = {
   'jeep-xj': {
     name: 'Jeep Cherokee (XJ)',
     trims: {
-      'auto-40':    { label: '4.0L Auto (AW4) — most common', axle: 3.55, tc: 2.72, tcName: 'NP231', stockTire: 27.7, t1: 2.804, tTop: 0.69, transName: 'AW4 4-spd', axleNote: 'Dana 30 front / Dana 35 rear. Dana 44 rear on some tow-package models.', weakLink: 'Dana 35 C-clip axle is a common upgrade candidate at 33″ and above. Consider Ford 8.8 or Dana 44 swap.' },
+      'auto-40':    { label: '4.0L Auto (AW4) — most common', axle: 3.55, tc: 2.72, tcName: 'NP231', stockTire: 27.7, t1: 2.804, tTop: 0.75, transName: 'AW4 4-spd', axleNote: 'Dana 30 front / Dana 35 rear. Dana 44 rear on some tow-package models.', weakLink: 'Dana 35 C-clip axle is a common upgrade candidate at 33″ and above. Consider Ford 8.8 or Dana 44 swap.' },
       'manual-25':  { label: '2.5L Manual (AX-5)', axle: 3.07, tc: 2.72, tcName: 'NP231', stockTire: 27.7, t1: 3.93, tTop: 0.86, transName: 'AX-5 5-spd', axleNote: 'Dana 30 front / Dana 35 rear.', weakLink: 'Dana 35 C-clip axle is marginal for serious wheeling at 33″+.' },
-      'early-np207':{ label: 'Early XJ (1984–1990) — NP207', axle: 3.55, tc: 2.61, tcName: 'NP207', stockTire: 27.7, t1: 2.804, tTop: 0.69, transName: 'AW4 4-spd', axleNote: 'Dana 30 front / Dana 35 rear. NP207 is a full-time TC with center diff.', weakLink: 'NP207 is often swapped to NP231 for part-time 4WD capability.' }
+      'early-np207':{ label: 'Early XJ (1984–1990) — NP207', axle: 3.55, tc: 2.61, tcName: 'NP207', stockTire: 27.7, t1: 2.804, tTop: 0.75, transName: 'AW4 4-spd', axleNote: 'Dana 30 front / Dana 35 rear. NP207 is a full-time TC with center diff.', weakLink: 'NP207 is often swapped to NP231 for part-time 4WD capability.' }
     }
   },
   'jeep-tj': {
@@ -622,10 +622,10 @@ const VEHICLES = {
   'jeep-jl': {
     name: 'Jeep Wrangler (JL)',
     trims: {
-      'sport':    { label: 'Sport (3.45 gears)', axle: 3.45, tc: 2.72, tcName: 'NV241', stockTire: 32.1, t1: 5.00, tTop: 0.608, transName: 'ZF 8HP75 8-spd', axleNote: 'Spicer 30 front / Spicer 35 rear (updated design vs. older Dana 35).', weakLink: 'Spicer 35 is improved but still a consideration at 35″+. Sahara\'s Dana 44 is a worthwhile upgrade.' },
-      'sahara':   { label: 'Sahara (3.73 gears)', axle: 3.73, tc: 2.72, tcName: 'NV241', stockTire: 32.1, t1: 5.00, tTop: 0.608, transName: 'ZF 8HP75 8-spd', axleNote: 'Spicer 30 front / Spicer 44 rear.', weakLink: 'Solid package. Handles 35″ without re-gear in most use cases.' },
-      'rubicon':  { label: 'Rubicon (4.10 gears)', axle: 4.10, tc: 4.0, tcName: 'Rock-Trac 4:1', stockTire: 32.1, t1: 5.00, tTop: 0.608, transName: 'ZF 8HP75 8-spd', axleNote: 'Spicer 44 front and rear with factory e-lockers.', weakLink: 'Best factory setup available. 37″ works well; 40″ benefits from 4.88.' },
-      'rubicon-392': { label: '392 Extreme Recon (4.56 gears)', axle: 4.56, tc: 4.0, tcName: 'Rock-Trac 4:1', stockTire: 37.0, t1: 4.70, tTop: 0.64, transName: '10R80 10-spd', axleNote: 'Spicer 44 front and rear. Factory 37″ BFG tires.', weakLink: 'Already optimized for 37″. Re-gear only needed at 40″+.' }
+      'sport':    { label: 'Sport (3.45 gears)', axle: 3.45, tc: 2.72, tcName: 'NV241', stockTire: 32.1, t1: 4.71, tTop: 0.67, transName: '850RE 8-spd', axleNote: 'Spicer 30 front / Spicer 35 rear (updated design vs. older Dana 35).', weakLink: 'Spicer 35 is improved but still a consideration at 35″+. Sahara\'s Dana 44 is a worthwhile upgrade.' },
+      'sahara':   { label: 'Sahara (3.73 gears)', axle: 3.73, tc: 2.72, tcName: 'NV241', stockTire: 32.1, t1: 4.71, tTop: 0.67, transName: '850RE 8-spd', axleNote: 'Spicer 30 front / Spicer 44 rear.', weakLink: 'Solid package. Handles 35″ without re-gear in most use cases.' },
+      'rubicon':  { label: 'Rubicon (4.10 gears)', axle: 4.10, tc: 4.0, tcName: 'Rock-Trac 4:1', stockTire: 32.1, t1: 4.71, tTop: 0.67, transName: '850RE 8-spd', axleNote: 'Spicer 44 front and rear with factory e-lockers.', weakLink: 'Best factory setup available. 37″ works well; 40″ benefits from 4.88.' },
+      'rubicon-392': { label: '392 Xtreme Recon (4.56 gears)', axle: 4.56, tc: 4.0, tcName: 'Rock-Trac 4:1', stockTire: 35.0, t1: 4.71, tTop: 0.67, transName: '850RE 8-spd', axleNote: 'Spicer 44 front and rear. Factory 35″ tires.', weakLink: 'Factory 4.56s are geared for 35″ tires. Run the numbers here before going bigger.' }
     }
   },
   'toyota-4runner': {
