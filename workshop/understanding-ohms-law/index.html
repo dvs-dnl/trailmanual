@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-639VVRC92N');
+</script>
+<meta charset="utf-8">
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ohm's Law for 12V Troubleshooting — Trail Manual Workshop</title>
+<meta name="description" content="The two forms of Ohm's law that find 12-volt faults - how a voltage drop test exposes added resistance that an ohmmeter clears, the drop limits worth memorizing, and worked numbers for headlight, starter and shared-ground faults.">
+<link rel="canonical" href="https://trailmanual.com/workshop/understanding-ohms-law/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Trail Manual">
+<meta property="og:title" content="Ohm's Law for 12V Troubleshooting">
+<meta property="og:description" content="The two forms of Ohm's law that find 12-volt faults - how a voltage drop test exposes added resistance that an ohmmeter clears, the drop limits worth memorizing, and worked numbers for headlight, starter and shared-ground faults.">
+<meta property="og:url" content="https://trailmanual.com/workshop/understanding-ohms-law/">
+<meta property="og:image" content="https://trailmanual.com/images/photo-cat-electrical.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "Article", "headline": "Ohm's Law for 12V Troubleshooting", "description": "The two forms of Ohm's law that find 12-volt faults - how a voltage drop test exposes added resistance that an ohmmeter clears, the drop limits worth memorizing, and worked numbers for headlight, starter and shared-ground faults.", "image": ["https://trailmanual.com/images/photo-cat-electrical.webp"], "mainEntityOfPage": "https://trailmanual.com/workshop/understanding-ohms-law/", "inLanguage": "en-US", "dateModified": "2026-10-29", "author": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/about/"}, "publisher": {"@type": "Organization", "name": "Trail Manual", "url": "https://trailmanual.com/", "logo": {"@type": "ImageObject", "url": "https://trailmanual.com/favicon.png"}}, "articleSection": "The Workshop — Technique"}, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Trail Manual", "item": "https://trailmanual.com/"}, {"@type": "ListItem", "position": 2, "name": "The Workshop", "item": "https://trailmanual.com/workshop/"}, {"@type": "ListItem", "position": 3, "name": "Ohm's Law for 12V Troubleshooting", "item": "https://trailmanual.com/workshop/understanding-ohms-law/"}]}]</script>
+</head>
+<body>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/lj/"><strong>Wrangler LJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+<main class="tm-article">
+<article>
+  <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/workshop/">The Workshop</a> · <a href="/workshop/#technique">Technique</a></nav>
+  <h1>Ohm's Law for 12V Troubleshooting</h1>
+  <p class="tm-dek">Ohm's law has three terms, and on a 12-volt system you will spend nearly all of your time using two of them. V = I &times; R says that current flowing through resistance creates a voltage drop — so the voltage missing from a load is sitting somewhere it should not be, and that somewhere is your fault. Measure volts with the circuit working, measure amps when you need the load's appetite, and leave the ohms setting alone on anything that carries real current. That one habit separates people who find electrical faults from people who replace parts until the symptom moves.</p>
+  <div class="tm-byline"><span>11 min read</span><span>Applies to any vehicle</span><a href="/about/#sources">How we source guides</a></div>
+  <figure class="tm-figure"><img src="/images/photo-cat-electrical.webp" alt="Hands working at an open under-hood fuse and relay box" width="1600" height="1067" fetchpriority="high"><figcaption>Photo: <a href="https://unsplash.com/@sincerelymedia?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Sincerely Media</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
+
+  <div class="tm-prose">
+<h2>Why this matters</h2>
+<p>Electrical faults on a vehicle are rarely a dead component. They are resistance appearing where the engineers did not put any — a ground strap corroded under paint, a terminal spread open by one too many disconnections, a chafed wire bearing on a bracket, a connector that has been full of water since last spring. None of those break the circuit. They add resistance to it. The load still runs, at less voltage than it was designed for, until the day it does not.</p>
+<p>That is why the law is worth knowing as something other than a formula from school. It lets you predict what a healthy circuit should read before you put a probe on it, and a reading only carries information when you have an expectation to compare it against. "There are 10.3 volts at the blower motor" means nothing by itself. "There should be 12.4 volts at the blower motor and there are 10.3, so two volts are being eaten between here and the battery" is a diagnosis with an address.</p>
+<div class="tm-callout"><p><strong>Key point:</strong> Voltage is not consumed by distance. It is dropped across resistance in proportion to the current flowing through it — so no current means no drop, and a fault with the circuit switched off is invisible. Every test worth doing is done with the circuit on and the load working.</p></div>
+
+<h2>The three quantities, and the one to be careful with</h2>
+<div class="tm-table-wrap"><table>
+<thead>
+<tr>
+<th>Quantity</th>
+<th>What it is</th>
+<th>How you measure it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Volts (V)</strong></td>
+<td>Electrical pressure — the difference in potential between two points. Always a difference, never an absolute.</td>
+<td>Meter in <strong>parallel</strong>, one lead each side of whatever you are measuring across. Circuit live and loaded.</td>
+</tr>
+<tr>
+<td><strong>Amps (I)</strong></td>
+<td>Rate of flow. What actually does the work, and what heats wire.</td>
+<td>Meter in <strong>series</strong> (circuit broken, current routed through the meter) or a DC clamp around the conductor.</td>
+</tr>
+<tr>
+<td><strong>Ohms (&Omega;)</strong></td>
+<td>Opposition to flow.</td>
+<td>Power off and the component isolated from the rest of the harness. Never on a live circuit.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Rearranged three ways, the same relationship answers three different questions: <strong>V = I &times; R</strong> (what drop will this resistance cause?), <strong>I = V / R</strong> (how much current will this load pull?), <strong>R = V / I</strong> (what resistance is implied by what I measured?). Add <strong>P = V &times; I</strong> for watts and you can work out heat and fuse sizing from the same four numbers. Getting comfortable with the meter itself comes first — the <a href="/workshop/multimeter/">multimeter guide</a> covers lead placement, ranges and what the fused-amps jack is for.</p>
+
+<h2>Voltage drop is the form you will actually use</h2>
+<p>A bad connection and the load it feeds form a voltage divider. The battery's pressure splits between them in proportion to their resistances, and whatever lands on the bad connection does not land on the load. So instead of hunting for resistance directly, you measure the voltage the resistance produces while the circuit is doing its job. The meter goes in parallel across the section you suspect: one lead at each end of a wire, or each side of a connector, switch, or ground joint.</p>
+<ol class="tm-steps">
+<li><strong>Turn the circuit on and let the load run.</strong> Headlights on, blower on high, key cranking. Current has to be flowing or the test tells you nothing.</li>
+<li><strong>Set the meter to DC volts</strong>, low range if it is not auto-ranging. You are looking for tenths of a volt, sometimes hundredths.</li>
+<li><strong>Probe across one section at a time.</strong> Battery positive post to the load's feed terminal, then the load's ground terminal to the battery negative post. Those two readings plus the voltage across the load itself should add up to battery voltage.</li>
+<li><strong>Chase the larger number.</strong> Whichever side carries most of the missing voltage is the side with the fault. Halve the section and probe again until the drop is between two points a few inches apart.</li>
+<li><strong>Pierce nothing.</strong> Back-probe connectors from the rear of the terminal or use the test points the <a href="/workshop/reading-a-wiring-diagram/">wiring diagram</a> gives you. A hole in the insulation is next year's corrosion site.</li>
+</ol>
+<p>Commonly taught limits for a 12-volt circuit, useful as a first pass when the factory service manual does not give a figure:</p>
+<div class="tm-table-wrap"><table>
+<thead>
+<tr>
+<th>Measured across</th>
+<th>Acceptable drop</th>
+<th>What a higher reading means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A length of wire or cable</td>
+<td>0.2 V max</td>
+<td>Undersized conductor, broken strands inside intact insulation, or heat damage.</td>
+</tr>
+<tr>
+<td>A connector or terminal</td>
+<td>0.1 V max</td>
+<td>Spread terminal, oxide film, or a pin not fully seated in the housing.</td>
+</tr>
+<tr>
+<td>A ground joint</td>
+<td>0.1 V max</td>
+<td>Paint, rust or sealer under the ring terminal. The most common fault on the list.</td>
+</tr>
+<tr>
+<td>A closed switch or relay contact</td>
+<td>0.1 V max (0 V expected)</td>
+<td>Pitted or burned contacts.</td>
+</tr>
+<tr>
+<td>The whole circuit, feed plus ground</td>
+<td>0.5 V max</td>
+<td>Added resistance somewhere in it, even when every individual reading looks borderline-fine.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Starter circuits are the exception worth naming: the currents are so high that manufacturers publish their own figures, often allowing up to 0.5 V across the positive cable alone during cranking. Use the manual's number there rather than the general-purpose limits above.</p>
+<div class="tm-callout"><p><strong>The trap that catches everyone once:</strong> an <em>open</em> circuit reads full battery voltage across the break, because with no current flowing nothing drops anywhere else. Twelve volts on your probe does not mean the circuit is healthy — it can mean nothing is moving. Confirm with the load switched on and drawing.</p></div>
+
+<h2>What the numbers look like on a real circuit</h2>
+<p><strong>A headlight on a tired ground.</strong> A 55-watt bulb at 12.8 volts pulls about 4.3 amps. Put 0.1 &Omega; of corrosion in its ground path and that path drops 4.3 &times; 0.1 = 0.43 volts, leaving the bulb roughly 12.4. Sounds survivable. Tungsten light output tracks voltage to about the 3.4 power, so a ten percent voltage shortfall costs around thirty percent of the light. People replace bulbs, buy brighter bulbs, and never touch the joint that is actually taking the voltage.</p>
+<p><strong>A starter connection you can find by hand.</strong> A starter drawing 180 amps through 0.002 &Omega; — two thousandths of an ohm, a connection that looks clean and reads zero on an ohmmeter — drops 180 &times; 0.002 = 0.36 volts. Now use P = I&sup2;R: 180&sup2; &times; 0.002 = 65 watts dissipated in a lug the size of your thumbnail. That is why a failing battery or starter connection gets hot enough to melt the terminal insulator while the rest of the cable stays cool, and why heat after cranking is a reliable pointer to the bad joint.</p>
+<p><strong>The fault that only appears under load.</strong> A shared ground with 0.1 &Omega; of resistance drops 0.05 volts when a half-amp park lamp is the only thing using it — undetectable. Switch on a blower pulling 20 amps through the same joint and it drops 2 volts, the blower slows, and the lamps sharing that ground dim at the same time. The resistance never changed. Only the current did. This is the mechanism behind every "everything works until I turn on the ____" complaint, and the reason you test with the biggest load on that circuit running.</p>
+
+<h2>Why a resistance reading can clear a wire that is failing</h2>
+<p>An ohmmeter works by pushing its own small test current through the component and measuring the voltage that results. That current is tiny — microamps to a few milliamps. Ohm's law applies to the meter too, and at that current the differences that matter at 10 or 100 amps produce voltages too small to see.</p>
+<ul>
+<li><strong>Three surviving strands of a 16-gauge wire</strong> read a few tenths of an ohm and look acceptable. They cannot carry 10 amps without glowing.</li>
+<li><strong>An oxide film in a connector</strong> can be punched through by load current and not by meter current, or the reverse — either way the reading does not represent how the joint behaves in service.</li>
+<li><strong>Parallel paths in a harness</strong> give the test current a route around the fault, so you measure the good path and believe the bad one.</li>
+<li><strong>A live circuit</strong> feeds voltage backwards into the meter's ohms function, producing numbers that mean nothing and sometimes costing you the meter.</li>
+</ul>
+<p>Resistance measurement earns its place on components off the vehicle and on circuits with no appreciable current: coil and injector windings against a spec, sensor resistance at a known temperature, continuity on a disconnected harness you are building. For anything that carries load current, measure the drop.</p>
+
+<h2>Watts, fuses, and predicting what a circuit should pull</h2>
+<p>P = V &times; I turns a device's rating into an expected current, which is what you need before adding anything to a vehicle. A 55-watt bulb at 13.8 volts running draws about 4.0 amps; the same bulb at 12.0 volts draws 4.6, because a tungsten filament's resistance falls as it cools. A 100-watt light bar is 7.2 amps at 13.8 volts. A 12,000-pound winch under heavy pull can ask for 400.</p>
+<p>Two things follow. First, a fuse protects the <em>wire</em>, not the device — you size the wire for the load and the fuse for the wire, never the other way around. Second, the current is what sets the voltage drop in the feed, so a long run to a high-current accessory needs conductor sized for the distance as well as the amps. Wire gauge and ampacity get their own guide; the crimps and splices that carry the result are covered in <a href="/workshop/wire-stripper-crimper/">wire strippers and crimpers</a> and <a href="/workshop/soldering-basics/">soldering basics</a>.</p>
+
+<h2>The same law pointed at a sleeping vehicle</h2>
+<p>A battery that is flat every third morning is a current problem, so you measure current. Once every module has timed out and gone to sleep — which can take 20 to 45 minutes of the vehicle sitting undisturbed with the doors latched — most vehicles settle to roughly 25 to 50 milliamps, and some modern ones are specified as high as 85. Look up the figure for your platform before condemning anything.</p>
+<p>Rather than breaking the battery cable and risking a wake-up every time, you can read millivolts across each fuse with the vehicle asleep and convert with I = V / R, using the published internal resistance for that fuse type and rating. The drop across a healthy fuse carrying a few milliamps is small enough to need a meter with millivolt resolution, but it finds the offending circuit without disturbing the vehicle's sleep state. Before any of this, disconnect and handle the battery the way the <a href="/workshop/battery-and-electrical-safety/">battery and electrical safety</a> guide lays out — a wrench across a 12-volt battery's terminals delivers hundreds of amps and welds itself in place.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+<li><strong>Testing with the circuit off.</strong> No current, no drop, no information. The most common way a real fault passes a test.</li>
+<li><strong>Measuring resistance instead of drop on a load-carrying circuit.</strong> The meter's test current is thousands of times smaller than the circuit's, so it cannot see what the circuit feels.</li>
+<li><strong>Reading voltage to a convenient ground instead of to the battery negative post.</strong> If the fault is in the ground path, a local ground reference hides exactly the voltage you are looking for.</li>
+<li><strong>Taking one reading at the load and stopping.</strong> Low voltage at the load tells you there is a drop, not where. The sectioning is the diagnosis.</li>
+<li><strong>Forgetting that the ground side is half the circuit.</strong> Grounds are where most added resistance lives, and they get checked last if at all.</li>
+<li><strong>Treating a borderline reading as a pass.</strong> A joint at 0.3 volts today is corroding, not stable. Clean it while the vehicle is already apart.</li>
+<li><strong>Piercing insulation to probe.</strong> It works once and then becomes a corrosion site that creates the next fault.</li>
+</ul>
+
+<h2>Build the reflex on a circuit that works</h2>
+<p>Take the readings on a healthy vehicle before you need them on a sick one. Switch the headlights on, measure battery voltage at the posts, then measure from the battery positive post to the bulb's feed terminal, and from the bulb's ground terminal back to the battery negative post. Write the three numbers down. On a sound circuit the two drops will be small enough to be dull, and that dullness is the calibration — it is what you are comparing against the day a load runs slow and you have to decide, in a parking lot with a meter and twenty minutes, which half of the circuit to open up.</p>
+<div class="video-section">
+<h2>Watch It Done</h2>
+<p class="video-context">Seeing a voltage drop test taken on a live circuit once is worth more than reading about it twice.</p>
+<div class="video-embed">
+<div class="video-wrap">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" src="https://www.youtube.com/embed/dLlGmA9u11o?rel=0" title="Fix Electrical Problems by Understanding Voltage Drop Testing - Ratchets And Wrenches"></iframe>
+</div>
+<p class="video-credit">Video: <a href="https://www.youtube.com/@myRatchets" rel="noopener" target="_blank">Ratchets And Wrenches</a> — "Fix Electrical Problems by Understanding Voltage Drop Testing"</p>
+</div>
+</div>
+  </div>
+
+</article>
+</main>
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY guides for off-road vehicle owners, built on real feedback from people who’ve done the work.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+<!-- TM:FOOTER:END -->
+</body>
+</html>
