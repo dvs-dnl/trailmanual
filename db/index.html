@@ -825,6 +825,7 @@
     if (cat === 'drivetrain') {
       if (sub === 'transfer_case' || /sye/.test(id) || hasTag('sye')) return 'sye';
       if (sub === 'gearing' || hasTag('regear') || hasTag('gearing')) return 'regear';
+      if (hasTag('locker')) return 'locker';
       if (sub === 'driveshaft' || sub === 'driveshafts' || /driveshaft/.test(title)) return 'driveshaft';
       if (sub === 'transmission') return 'transmission';
       return 'drivetrain_other';
