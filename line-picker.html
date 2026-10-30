@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-639VVRC92N');
+  </script>
+
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/line-picker.html">
+<title>Line Picker: Plan a Line Over a Ledge — Trail Manual</title>
+<meta name="description" content="Learn to pick a line on a trail obstacle. Find the hazards on a V-notch ledge, place your own line, drive it in stages, then swap the vehicle and watch the answer change.">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Line Picker: how to plan a line over a ledge","description":"An interactive trainer for picking a line on a trail obstacle: scout the hazards, place a line, drive it in stages, and re-score it on a different vehicle.","author":{"@type":"Organization","name":"Trail Manual"},"publisher":{"@type":"Organization","name":"Trail Manual","url":"https://trailmanual.com/"},"datePublished":"2026-10-30","dateModified":"2026-10-30","mainEntityOfPage":"https://trailmanual.com/line-picker.html","isAccessibleForFree":true}
+</script>
+<style>
+.lp-page{max-width:1020px;margin:0 auto;padding:40px 20px 80px}
+.lp-hero{margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+.lp-hero .lp-eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.lp-hero h1{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.6px;margin:0 0 12px;color:var(--text);font-weight:500}
+.lp-hero p{font-size:16px;color:var(--text-dim);max-width:680px;line-height:1.65;margin:0}
+.lp-hero .lp-byline{font-family:var(--font-mono);font-size:10.5px;color:var(--text-mute);letter-spacing:.4px;margin:14px 0 0}
+
+.lp-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:0 0 16px;padding:0;list-style:none}
+.lp-step{width:100%;min-height:44px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);font-family:inherit;font-size:14px;font-weight:500;color:var(--text-dim);cursor:pointer}
+.lp-step span{font-family:var(--font-mono);font-size:11px;margin-right:5px;color:var(--text-mute)}
+.lp-step:hover{border-color:var(--accent);color:var(--text)}
+.lp-step[aria-current=step]{background:var(--slate);border-color:var(--slate);color:var(--paper)}
+.lp-step[aria-current=step] span{color:var(--bone-deep)}
+
+.lp-profile{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 6px}
+.lp-chip{min-height:44px;background:var(--panel);border:1px solid var(--border);border-radius:22px;padding:6px 16px;font-family:inherit;font-size:13px;font-weight:500;color:var(--text-dim);cursor:pointer}
+.lp-chip:hover{border-color:var(--accent);color:var(--text)}
+.lp-chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--slate-deep)}
+.lp-spec{font-family:var(--font-mono);font-size:11.5px;line-height:1.7;color:var(--text-dim);margin:0 0 18px}
+
+.lp-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:860px){.lp-layout{grid-template-columns:minmax(0,1fr)}}
+
+.lp-prompt{font-size:15px;line-height:1.5;color:var(--text);margin:0 0 10px;min-height:45px}
+.lp-map{display:block;width:100%;height:auto;background:var(--slate-deep);border-radius:12px;cursor:crosshair;touch-action:manipulation}
+.lp-map:focus{outline:none}
+.lp-map:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.lp-status{font-family:var(--font-mono);font-size:11.5px;color:var(--text-dim);min-height:18px;margin:8px 0 0}
+
+/* Map ground and plates */
+.g-base{fill:var(--slate-deep)}
+.g-grain{fill:url(#lp-grain)}
+.g-dot{fill:var(--slate-light);opacity:.35}
+.g-contour{fill:none;stroke:var(--slate-light);stroke-width:1;opacity:.25}
+.g-low{fill:var(--slate-light);opacity:.4;shape-rendering:crispEdges}
+.g-top{fill:var(--bone-deep);fill-opacity:.62;shape-rendering:crispEdges}
+.g-top-high{fill:var(--bone);shape-rendering:crispEdges}
+.g-side{fill:var(--bark);shape-rendering:crispEdges}
+.g-hatch-fill{fill:url(#lp-hatch)}
+.g-hatch-line{stroke:var(--bone-deep);stroke-width:.6;opacity:.45}
+.g-tick{font-family:var(--font-mono);font-size:8px;fill:var(--bone-deep);text-anchor:middle;pointer-events:none}
+.g-edge{fill:none;stroke:var(--bark);stroke-width:.75}
+
+/* Lines */
+.t-expert{fill:none;stroke:var(--clay);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.t-expert-c{fill:none;stroke:var(--clay);stroke-width:.6;stroke-dasharray:3 3}
+.t-user{fill:none;stroke:var(--info);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 6}
+.t-user-c{fill:none;stroke:var(--info);stroke-width:.6;stroke-dasharray:3 3}
+.t-mask{fill:none;stroke:var(--paper);stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+.wp-good{fill:var(--good)}
+.wp-warn{fill:var(--warn)}
+.wp-new{fill:var(--info)}
+.wp-ring{fill:none;stroke:var(--paper);stroke-width:1.5}
+.wp-num{font-family:var(--font-mono);font-size:11px;font-weight:500;fill:var(--slate-deep);text-anchor:middle;dominant-baseline:central;pointer-events:none}
+.hz-ring{fill:none;stroke:var(--safety);stroke-width:2.5;stroke-dasharray:6 4}
+.hz-dot{fill:var(--safety);stroke:var(--paper);stroke-width:1.5}
+.hz-label{font-family:var(--font-mono);font-size:10.5px;font-weight:500;fill:var(--paper);paint-order:stroke;stroke:var(--slate-deep);stroke-width:3;pointer-events:none}
+.veh-axle{stroke:var(--paper);stroke-width:2}
+.veh-tire{fill:var(--slate-deep);stroke:var(--paper);stroke-width:1.5}
+.veh-low{fill:var(--clay-light);stroke:var(--slate-deep);stroke-width:1}
+.cross{fill:none;stroke:var(--accent);stroke-width:2}
+
+/* Cutaway */
+.lp-cut-wrap{margin-top:14px}
+.lp-cut{display:block;width:100%;height:auto;background:var(--slate-deep);border-radius:12px}
+.c-earth{fill:var(--bark)}
+.c-earth-h{fill:url(#lp-hatch)}
+.c-ground{fill:none;stroke:var(--bone-deep);stroke-width:1.5;stroke-linejoin:round}
+.c-tire{fill:var(--slate);fill-opacity:.35;stroke:var(--bone);stroke-width:1.5}
+.c-body{fill:none;stroke:var(--bone);stroke-width:1.5}
+.c-low{fill:var(--clay-light);stroke:var(--slate-deep);stroke-width:1}
+.c-low-focus{fill:var(--good);stroke:var(--paper);stroke-width:1.5}
+.c-low-hit{fill:var(--safety);stroke:var(--paper);stroke-width:1.5}
+.lp-readout{font-family:var(--font-mono);font-size:12px;line-height:1.6;color:var(--text);margin:8px 0 0}
+.lp-caption{font-size:12px;line-height:1.5;color:var(--text-dim);margin:2px 0 0}
+.lp-scrub{display:block;width:100%;height:44px;margin:4px 0 0;accent-color:var(--clay);cursor:pointer}
+
+/* Panels */
+.lp-panel{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px}
+.lp-panel h2{font-size:18px;font-weight:500;letter-spacing:-.2px;margin:0 0 8px;color:var(--text)}
+.lp-panel h3{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.7px;text-transform:uppercase;color:var(--text-mute);margin:18px 0 8px}
+.lp-panel p{font-size:14px;line-height:1.6;color:var(--text-dim);margin:0 0 10px}
+.lp-count{font-family:var(--font-mono);font-size:13px;color:var(--text);margin:0 0 12px}
+.lp-list{list-style:none;margin:0;padding:0}
+.lp-item{padding:10px 0 10px 12px;border-left:3px solid var(--border);margin:0 0 8px;font-size:14px;line-height:1.55;color:var(--text-dim)}
+.lp-item strong{display:block;font-weight:500;color:var(--text)}
+.lp-item.is-pass{border-left-color:var(--good)}
+.lp-item.is-warn{border-left-color:var(--warn)}
+.lp-item.is-fail{border-left-color:var(--safety)}
+.lp-state{font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;color:var(--text-mute);margin-left:6px}
+.lp-c{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:1px;white-space:nowrap;border:1px solid currentColor}
+.lp-c-curriculum{color:var(--accent-2)}
+.lp-c-physics{color:var(--info)}
+.lp-c-owner{color:var(--text-mute)}
+.lp-btn{min-height:44px;background:var(--slate);border:1px solid var(--slate);border-radius:var(--radius-lg);padding:8px 16px;font-family:inherit;font-size:14px;font-weight:500;color:var(--paper);cursor:pointer}
+.lp-btn:hover{background:var(--slate-deep)}
+.lp-btn.alt{background:var(--panel);color:var(--text);border-color:var(--border)}
+.lp-btn.alt:hover{border-color:var(--accent);background:var(--panel)}
+.lp-actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
+.lp-dist{font-family:var(--font-mono);font-size:12px;line-height:1.7;color:var(--text);margin:0}
+.lp-q{margin:0 0 18px}
+.lp-q-prompt{font-size:14.5px;font-weight:500;line-height:1.5;color:var(--text);margin:0 0 8px}
+.lp-choice{display:block;width:100%;min-height:44px;text-align:left;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-lg);padding:10px 12px;margin:0 0 6px;font-family:inherit;font-size:14px;line-height:1.45;color:var(--text);cursor:pointer}
+.lp-choice:hover{border-color:var(--accent)}
+.lp-choice.is-right{border-color:var(--good);border-width:2px}
+.lp-choice.is-wrong{border-color:var(--safety);border-width:2px}
+.lp-table{width:100%;border-collapse:collapse;font-size:13px;margin:0 0 6px}
+.lp-table th{font-weight:500;text-align:left;color:var(--text);padding:7px 6px 7px 0;border-bottom:1px solid var(--border);vertical-align:bottom}
+.lp-table td{padding:7px 6px 7px 0;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top}
+.lp-mark{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+.lp-mark.is-pass{background:var(--good)}
+.lp-mark.is-warn{background:var(--warn)}
+.lp-mark.is-fail{background:var(--safety)}
+
+.lp-notes{margin:40px 0 0;padding-top:24px;border-top:1px solid var(--border);max-width:760px}
+.lp-notes h2{font-size:20px;font-weight:500;margin:0 0 10px;color:var(--text)}
+.lp-notes h3{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.7px;text-transform:uppercase;color:var(--text-mute);margin:24px 0 10px}
+.lp-notes p,.lp-notes li{font-size:14.5px;line-height:1.65;color:var(--text-dim)}
+.lp-notes ol,.lp-notes ul{padding-left:20px;margin:0}
+.lp-notes li{margin-bottom:6px}
+.lp-legend{display:flex;flex-direction:column;gap:8px;padding:14px 16px;background:var(--bg-2);border-radius:var(--radius-lg);font-size:13px;line-height:1.5;color:var(--text-dim)}
+.lp-legend .lp-c{margin:0 6px 0 0}
+
+@media (prefers-reduced-motion:no-preference){
+  .lp-draw{stroke-dasharray:1;stroke-dashoffset:1;animation:lp-draw 1.2s ease-out forwards}
+  .lp-pulse{transform-box:fill-box;transform-origin:center;animation:lp-pulse .9s ease-out 1}
+  @keyframes lp-draw{to{stroke-dashoffset:0}}
+  @keyframes lp-pulse{0%{transform:scale(1);opacity:1}45%{transform:scale(1.25);opacity:.45}100%{transform:scale(1);opacity:1}}
+}
+</style>
+</head>
+<body>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/">Trails</a>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/lj/"><strong>Wrangler LJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+
+<main>
+<div class="lp-page">
+
+  <div class="lp-hero">
+    <p class="lp-eyebrow">Trail Manual · Line Picker</p>
+    <h1>Pick a line over a ledge</h1>
+    <p>Find the hazards, place your own line, drive it in three decisions, then swap the vehicle and see what changes. The obstacle is a V-notch ledge climb, and every score comes from the same height map that draws it.</p>
+    <p class="lp-byline">Written and maintained by an AZ wheeler and driveway wrencher · Updated October 2026</p>
+  </div>
+
+  <ol class="lp-steps" id="lp-steps"></ol>
+
+  <div class="lp-profile" id="lp-profile" role="group" aria-label="Vehicle archetype"></div>
+  <p class="lp-spec" id="lp-spec"></p>
+
+  <div class="lp-layout">
+    <div>
+      <p class="lp-prompt" id="lp-prompt" aria-live="polite"></p>
+      <svg class="lp-map" id="lp-map" viewBox="-14 -14 446 590" tabindex="0" role="application" aria-label="Overhead map of the V-notch ledge. Tap to mark. With a keyboard, use the arrow keys to move and Enter to mark. The vehicle climbs from the bottom of the map to the top. Driver side is on the left.">
+        <defs>
+          <pattern id="lp-grain" width="9" height="9" patternUnits="userSpaceOnUse"><circle class="g-dot" cx="2" cy="2" r=".7"/></pattern>
+          <pattern id="lp-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="g-hatch-line" x1="0" y1="0" x2="0" y2="5"/></pattern>
+        </defs>
+        <g id="lp-terrain"></g>
+        <g id="lp-lines"></g>
+        <g id="lp-marks"></g>
+        <g id="lp-veh"></g>
+        <g id="lp-cross"></g>
+      </svg>
+      <p class="lp-status" id="lp-status" aria-live="polite"></p>
+      <div class="lp-cut-wrap" id="lp-cut-wrap" hidden>
+        <svg class="lp-cut" id="lp-cut" viewBox="0 40 432 110" role="img" aria-label="Side cutaway of the ground under the vehicle's lowest point"></svg>
+        <label for="lp-scrub" class="lp-caption">Drive the line</label>
+        <input class="lp-scrub" id="lp-scrub" type="range" min="0" max="1" step="1" value="0">
+        <p class="lp-readout" id="lp-readout"></p>
+        <p class="lp-caption">Ground is shown under the low point. Tires sit to either side of it.</p>
+      </div>
+    </div>
+    <div class="lp-panel" id="lp-panel"></div>
+  </div>
+
+  <div class="lp-notes">
+    <h2>How the scoring works</h2>
+    <p>The tool samples your line every 4 inches and places the vehicle at each sample. It reads the height under each tire and each low point, and reports four things: whether the tires are up on high ground, how much room each low point has, how far the vehicle leans, and how to carry momentum. A low point fails when the ground under it reaches it. Lean warns above 25% and fails above 35%.</p>
+    <p>Both vehicles are archetypes built to show the effect of axle type and clearance. They are not specs for any model, so measure your own low points before you use these numbers.</p>
+    <h3>What the tags mean</h3>
+    <div class="lp-legend">
+      <div><span class="lp-c lp-c-curriculum">Curriculum</span>Published four-wheeling guidance. Here, Tread Lightly's tips.</div>
+      <div><span class="lp-c lp-c-physics">Physics</span>Geometry you can check from the numbers on screen.</div>
+      <div><span class="lp-c lp-c-owner">Owner</span>What experienced owners report. No training body or manufacturer is behind it.</div>
+    </div>
+    <h3>Sources</h3>
+    <ol>
+      <li><a href="https://treadlightly.org/?p=2044" rel="noopener">Tread Lightly, Quick Tips for Responsible Four Wheeling</a>: scout on foot, know your lowest point.</li>
+      <li><a href="https://vehicleinfo.mopar.com/assets/publications/en-us/Jeep/2022/Wrangler/HTML-TG2/GUID-420B7864-7662-4798-9C73-562305FB60DD.html" rel="noopener">Jeep owner driving tips</a>: put the largest rocks under the tires, stop and ease up to an obstacle.</li>
+      <li><a href="https://www.offroadxtreme.com/?p=15422" rel="noopener">Off Road Xtreme, with an Eaton product engineer</a>: tires on the tall points, not over them.</li>
+    </ol>
+    <h3>Keep going</h3>
+    <ul>
+      <li><a href="/trails/">Trails</a>: check whether your rig fits a real trail.</li>
+      <li><a href="/tools/">All tools</a>: the rest of the Trail Manual build tools.</li>
+    </ul>
+  </div>
+
+</div>
+</main>
+
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY guides for off-road vehicle owners, built on real feedback from people who’ve done the work.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/trails/">Trails</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+<!-- TM:FOOTER:END -->
+
+<script>
+// LP:ENGINE:START
+// x and y are inches on the obstacle: x runs across from the driver side, y runs
+// down the map, and the vehicle climbs toward y = 0. A low point's x is its offset
+// from the centerline (negative = driver side); y is how far behind the front axle it sits.
+const LINE_PICKER = {
+  profiles: {
+    'solid-locked': { label:'Solid axle, lockers', wheelbase:118, track:65, tireDia:35,
+      lowPoints:[{name:'Front diff', x:-9, y:0, clearance:9.5},{name:'Rear diff', x:3, y:118, clearance:9.5}],
+      articulation:'high', lockers:true },
+    'ifs-open': { label:'IFS, open diffs', wheelbase:127, track:64, tireDia:33,
+      lowPoints:[{name:'Front crossmember', x:0, y:18, clearance:8.0},{name:'Rear diff', x:0, y:127, clearance:9.0}],
+      articulation:'low', lockers:false }
+  },
+  obstacles: {
+    'v-notch-ledge': {
+      name:'V-notch ledge', type:'ledge-climb',
+      grid:{ cols:12, rows:16, cell:12 },
+      cells:[
+         6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+        12,12,12,12,12,12,12,12,12,22,30,36,
+        12,12,12,12,12,12,12,12,12,22,30,36,
+        12,12,12,12,12,12,12,12,12,22,30,36,
+        12,12,12,12,12,12,12,12,12,12,12,12,
+        12,12,12,12,12,12,12,12,12,12,12,12,
+         0, 0, 0,10,10, 3, 2, 0, 2,10,10, 6,
+         0, 0, 0,10,10,18, 2, 0, 2,10,10, 6,
+         0, 0, 0,10,10,18, 2, 0, 2,10,10, 6,
+         0, 0, 0,12,10,18, 2, 0, 2,10,10, 6,
+         0, 0, 0,12,10, 3, 2, 0, 2,10,10, 6,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+      ],
+      hazards:[
+        { id:'diff-catcher', label:'Diff-catcher rock', cells:[[5,7],[5,8],[5,9]],
+          why:'It stands 18 in. tall in the notch. With both tires up on the 10 in. shelves, a 9.5 in. low point clears it by 1.5 in. and an 8 in. low point touches it.', chip:'physics' },
+        { id:'undercut', label:'Undercut lip', cells:[[3,9],[3,10]],
+          why:'The driver-side shelf is cut away under this edge. A loaded tire on the lip can break it and drop off the shelf, and it reads as solid from the seat.', chip:'owner' },
+        { id:'slab', label:'Off-camber slab', cells:[[9,1],[9,2],[9,3],[10,1],[10,2],[10,3],[11,1],[11,2],[11,3]],
+          why:'It rises 10 to 24 in. above the top on the passenger side. A tire on its outer row leans the vehicle past 35%.', chip:'physics' }
+      ],
+      expert:{
+        'solid-locked':{ waypoints:[[84,168],[84,84],[60,18]], why:[
+          { text:'Entry: square to the ledge, with the tires lined up on the two shelves.', chip:'physics' },
+          { text:'Crest: tires ride the 10 in. shelves at 51.5 and 116.5 in. The front diff is offset 9 in. toward the rock, so this line keeps it in the next column over.', chip:'physics' },
+          { text:'Exit: angle toward the driver side. The passenger tire stays short of the slab.', chip:'physics' }
+        ]},
+        'ifs-open':{ waypoints:[[88,168],[88,84],[58,18]], why:[
+          { text:'Entry: 4 in. farther to the passenger side. A centered crossmember has no offset, so the line can favor the deepest column of the notch.', chip:'physics' },
+          { text:'Crest: tires sit mid-shelf at 56 and 120 in. The crossmember rides 18 in. above the floor of the notch.', chip:'physics' },
+          { text:'Exit: the longer wheelbase needs the same turn away from the slab. The crossmember clears the far-side drop by 2 in.', chip:'physics' }
+        ]}
+      },
+      stages:[
+        { id:'approach', at:{ front:0 },
+          prompt:'You are at the foot of the ledge. From the seat you can see the shelves, but not the rock or the top.',
+          choices:[
+            { text:'Stop, get out and walk the line to the top.', correctFor:['solid-locked','ifs-open'],
+              why:'Stop and scout on foot before you commit. The rock and the far side are out of sight from the seat.', chip:'curriculum' },
+            { text:'Roll in at walking pace and read it from the seat.', correctFor:[],
+              why:'The hood hides what your low points are about to cross. Slow speed does not help if you are already over the rock.', chip:'owner' },
+            { text:'Carry speed so the front end hops the first step.', correctFor:[],
+              why:'Speed turns a 10 in. step into a hit on tires and steering, and leaves no time to correct your placement.', chip:'owner' }
+          ] },
+        { id:'crest', at:{ rear:36 },
+          prompt:'The front tires are on top. The rear tires have reached the 10 in. step and the vehicle has stopped climbing.',
+          choices:[
+            { text:'Stay in low range, hold light steady throttle and let the rear tires walk up.', correctFor:['solid-locked'],
+              why:'Lockers keep both tires on the axle turning, so a light tire does not stop the climb. On open diffs, that light tire spins and the climb stalls.', chip:'owner' },
+            { text:'Ease back a foot and return with a short, steady bump of throttle.', correctFor:['ifs-open'],
+              why:'Open diffs send power to the tire with the least grip. A short roll carries you past the point where a tire unloads. With lockers the bump only adds shock to the axle shafts.', chip:'owner' },
+            { text:'Add throttle and steer toward the driver side to find grip.', correctFor:[],
+              why:'Steering toward the driver side moves your low points toward the 18 in. notch rock and your tire toward the undercut lip.', chip:'physics' }
+          ] },
+        { id:'descent', at:{ exit:18 },
+          prompt:'The front tires are dropping 6 in. off the far side, and the slab rises beside your passenger door.',
+          choices:[
+            { text:'Keep the slab beside you, stay in low range and let the engine hold your speed.', correctFor:['solid-locked','ifs-open'],
+              why:'Off the slab, lean stays under 25%. Low range holds the speed down while your foot stays over the brake.', chip:'owner' },
+            { text:'Climb the slab with the passenger tire to get height over the drop.', correctFor:[],
+              why:'The slab stands up to 24 in. above the top. Over a 64 in. track, that is a lean past 35%.', chip:'physics' },
+            { text:'Shift to neutral and roll down on the brakes.', correctFor:[],
+              why:'Neutral gives up engine braking at the moment the weight moves forward, so the brakes do all of the work.', chip:'owner' }
+          ] }
+      ]
+    }
+  }
+};
+const LP_CHECK_LABELS = { highpoints:'Tires on high points', clearance:'Low-point clearance', tilt:'Side tilt', momentum:'Momentum call', hazards:'Hazards' };
+
+function lpCellAt(ob, x, y) {
+  const col = Math.max(0, Math.min(ob.grid.cols - 1, Math.floor(x / ob.grid.cell)));
+  const row = Math.max(0, Math.min(ob.grid.rows - 1, Math.floor(y / ob.grid.cell)));
+  return { col, row };
+}
+function lpHeight(ob, col, row) { return ob.cells[row * ob.grid.cols + col]; }
+function lpHeightAt(ob, x, y) { const c = lpCellAt(ob, x, y); return lpHeight(ob, c.col, c.row); }
+function lpCellName(c) { return 'row ' + (c.row + 1) + ', col ' + (c.col + 1); }
+
+// The path runs straight past both ends, so the rear axle has ground behind the entry
+// and the rear axle can reach the exit. Arc position s is measured from that far end.
+function lpMakePath(wps, wheelbase) {
+  const a = wps[0], b = wps[1], y = wps[wps.length - 2], z = wps[wps.length - 1];
+  const unit = (p, q) => { const d = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1; return [(q[0] - p[0]) / d, (q[1] - p[1]) / d]; };
+  const u0 = unit(a, b), u1 = unit(y, z);
+  const pts = [[a[0] - u0[0] * wheelbase, a[1] - u0[1] * wheelbase]].concat(wps, [[z[0] + u1[0] * wheelbase, z[1] + u1[1] * wheelbase]]);
+  const cum = [0];
+  for (let i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+  const total = cum[cum.length - 1];
+  return { pts, cum, total, s0: wheelbase, sExit: total - wheelbase };
+}
+function lpPointAt(path, s) {
+  const c = Math.max(0, Math.min(path.total, s));
+  let i = 1;
+  while (i < path.cum.length - 1 && path.cum[i] < c) i++;
+  const span = (path.cum[i] - path.cum[i - 1]) || 1, t = (c - path.cum[i - 1]) / span;
+  return [path.pts[i - 1][0] + (path.pts[i][0] - path.pts[i - 1][0]) * t, path.pts[i - 1][1] + (path.pts[i][1] - path.pts[i - 1][1]) * t];
+}
+// Heading over a 2 ft chord, so a tire never jumps sideways at a waypoint.
+function lpHeadingAt(path, s) {
+  const p = lpPointAt(path, s - 12), q = lpPointAt(path, s + 12);
+  const d = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+  return [(q[0] - p[0]) / d, (q[1] - p[1]) / d];
+}
+function lpOffset(path, s, lateral) {
+  const c = lpPointAt(path, s), h = lpHeadingAt(path, s);
+  return [c[0] - h[1] * lateral, c[1] + h[0] * lateral];   // lateral < 0 = driver side
+}
+function lpTire(ob, pos) { const cell = lpCellAt(ob, pos[0], pos[1]); return { pos, cell, h: lpHeight(ob, cell.col, cell.row) }; }
+
+function lpPose(ob, prof, path, s) {
+  const half = prof.track / 2, rearS = s - prof.wheelbase;
+  const fl = lpTire(ob, lpOffset(path, s, -half)), fr = lpTire(ob, lpOffset(path, s, half));
+  const rl = lpTire(ob, lpOffset(path, rearS, -half)), rr = lpTire(ob, lpOffset(path, rearS, half));
+  const frontMean = (fl.h + fr.h) / 2, rearMean = (rl.h + rr.h) / 2;
+  const lows = prof.lowPoints.map(lp => {
+    const pos = lpOffset(path, s - lp.y, lp.x), cell = lpCellAt(ob, pos[0], pos[1]);
+    const h = lpHeight(ob, cell.col, cell.row);
+    const front = lp.y <= prof.wheelbase / 2, mean = front ? frontMean : rearMean;
+    return { name: lp.name, lp, pos, cell, h, mean, front, clear: lp.clearance - (h - mean) };
+  });
+  const tilt = Math.max(Math.abs(fl.h - fr.h), Math.abs(rl.h - rr.h)) / prof.track;
+  const lower = t => [t.cell.col - 1, t.cell.col + 1].some(c => c >= 0 && c < ob.grid.cols && lpHeight(ob, c, t.cell.row) > t.h);
+  const straddle = (lower(fl) && lower(fr)) || (lower(rl) && lower(rr));
+  const touched = [fl, fr, rl, rr].map(t => t.cell).concat(lows.map(l => l.cell));
+  const hazards = ob.hazards.filter(hz => hz.cells.some(c => touched.some(t => t.col === c[0] && t.row === c[1]))).map(hz => hz.id);
+  return { s, fl, fr, rl, rr, frontMean, rearMean, lows, tilt, straddle, hazards };
+}
+
+function lpScore(ob, prof, wps) {
+  const path = lpMakePath(wps, prof.wheelbase), samples = [];
+  for (let s = path.s0; s < path.total; s += 4) samples.push(lpPose(ob, prof, path, s));
+  samples.push(lpPose(ob, prof, path, path.total));
+  let worst = 0, worstLow = null, maxTilt = 0, maxTiltSample = samples[0], straddles = 0, maxRise = 0;
+  const hit = new Set();
+  samples.forEach((p, i) => {
+    p.lows.forEach(l => { if (!worstLow || l.clear < worstLow.clear) { worstLow = l; worst = i; } });
+    if (p.tilt > maxTilt) { maxTilt = p.tilt; maxTiltSample = p; }
+    if (p.straddle) straddles++;
+    p.hazards.forEach(id => hit.add(id));
+    if (i) ['fl', 'fr', 'rl', 'rr'].forEach(k => { maxRise = Math.max(maxRise, p[k].h - samples[i - 1][k].h); });
+  });
+  const lowCell = worstLow.cell, inHazard = ob.hazards.find(hz => hz.cells.some(c => c[0] === lowCell.col && c[1] === lowCell.row));
+  const where = (inHazard ? 'the ' + inHazard.label.toLowerCase() + ' at ' : '') + lpCellName(lowCell);
+  const radius = prof.tireDia / 2, track = prof.track;
+  const hitList = ob.hazards.filter(hz => hit.has(hz.id));
+  const checks = [
+    { id:'highpoints', status: straddles ? 'warn' : 'pass', chip:'physics',
+      text: straddles ? 'For ' + straddles * 4 + ' in. of this line, both tires on an axle sit below the ground beside them. You are giving up ground and your low points are in the gap.'
+                      : 'No stretch of this line has both tires on an axle sitting below the ground beside them.' },
+    { id:'clearance', status: worstLow.clear <= 0 ? 'fail' : 'pass', chip:'physics',
+      text: worstLow.clear <= 0
+        ? worstLow.name + ' hits ' + where + '. The ground there is ' + worstLow.h + ' in. tall and the ' + (worstLow.front ? 'front' : 'rear') + ' tires are at ' + worstLow.mean.toFixed(1) + ' in., which leaves ' + worstLow.clear.toFixed(1) + ' in.'
+        : 'Tightest spot: ' + worstLow.name.toLowerCase() + ' has ' + worstLow.clear.toFixed(1) + ' in. of room at ' + where + '.' },
+    { id:'tilt', status: maxTilt > .35 ? 'fail' : maxTilt > .25 ? 'warn' : 'pass', chip:'physics',
+      text: 'Worst lean is ' + Math.round(maxTilt * 100) + '%: ' + Math.max(Math.abs(maxTiltSample.fl.h - maxTiltSample.fr.h), Math.abs(maxTiltSample.rl.h - maxTiltSample.rr.h)) + ' in. side to side over a ' + track + ' in. track. It warns above 25% and fails above 35%.' },
+    { id:'momentum', status: maxRise > radius ? 'warn' : 'pass', chip:'owner',
+      text: 'The biggest rise a tire meets is ' + maxRise + ' in. against a ' + radius + ' in. tire radius' + (maxRise > radius ? ', which is more than a tire can roll up. ' : '. ') +
+        (prof.lockers ? 'With lockers, crawl it: both tires on the axle keep turning.' : 'With open diffs, crawl until a tire goes light, then use a short bump of throttle.') },
+    { id:'hazards', status: hitList.length ? 'warn' : 'pass', chip: hitList.length ? hitList[0].chip : 'physics',
+      text: hitList.length ? 'This line crosses: ' + hitList.map(hz => hz.label.toLowerCase()).join(', ') + '. ' + hitList[0].why : 'No tire or low point crosses a marked hazard.' }
+  ];
+  return { path, samples, worst, worstLow, maxTilt, checks };
+}
+function lpDistances(a, b) { return a.map((p, i) => Math.hypot(p[0] - b[i][0], p[1] - b[i][1])); }
+// LP:ENGINE:END
+
+(function () {
+  const ob = LINE_PICKER.obstacles['v-notch-ledge'];
+  const PROFILES = LINE_PICKER.profiles, IDS = Object.keys(PROFILES);
+  const STAGES = [['scout', 'Scout'], ['plan', 'Plan'], ['execute', 'Execute'], ['debrief', 'Debrief']];
+  const WP_NAMES = ['Entry', 'Crest', 'Exit'];
+  const STRADDLE_LINE = [[66, 168], [66, 72], [60, 18]];
+  const U = 3, LIFT = .6;                    // map units per inch of ground, per inch of height
+  const $ = id => document.getElementById(id);
+  const state = { stage: 'scout', profile: IDS[0], found: new Set(), revealed: false, wps: [], answers: {}, scrub: null, cross: null, animate: false, pulse: false };
+
+  const prof = () => PROFILES[state.profile];
+  const expert = () => ob.expert[state.profile].waypoints;
+  const hasLine = () => state.wps.length === 3;
+  const activeLine = () => hasLine() ? state.wps : expert();
+  const chip = c => '<span class="lp-c lp-c-' + c + '">' + c + '</span>';
+  const lifted = (pos, h) => [pos[0] * U, pos[1] * U - h * LIFT];
+
+  // ─── Terrain, generated from cells ─────────────────────────────────────────
+  function drawTerrain() {
+    const C = 12 * U, rows = ob.grid.rows, cols = ob.grid.cols;
+    let out = '<rect class="g-base" x="-14" y="-14" width="446" height="590"/><rect class="g-grain" x="-14" y="-14" width="446" height="590"/>';
+    ['M-10 520C90 490 170 540 260 505S390 470 450 500', 'M-10 460C80 430 150 475 250 445S380 410 450 440', 'M-10 395C60 370 130 400 220 385S370 345 450 375'].forEach(d => { out += '<path class="g-contour" d="' + d + '"/>'; });
+    for (let r = 0; r < rows; r++) {
+      let tops = '', sides = '', edges = '';
+      for (let c = 0; c < cols; c++) {
+        const h = lpHeight(ob, c, r);
+        if (!h) continue;
+        const x = c * C, y = r * C - h * LIFT;
+        tops += '<rect class="' + (h < 8 && r > 0 ? 'g-low' : h > 12 ? 'g-top-high' : 'g-top') + '" x="' + x + '" y="' + y + '" width="' + C + '" height="' + C + '"/>';
+        const below = r + 1 < rows ? lpHeight(ob, c, r + 1) : 0;
+        if (h > below) {
+          const fy = (r + 1) * C - h * LIFT, fh = (h - below) * LIFT;
+          sides += '<rect class="g-side" x="' + x + '" y="' + fy + '" width="' + C + '" height="' + fh + '"/><rect class="g-hatch-fill" x="' + x + '" y="' + fy + '" width="' + C + '" height="' + fh + '"/>';
+        }
+        [[c + 1, x + C], [c - 1, x]].forEach(n => {
+          const nh = n[0] >= 0 && n[0] < cols ? lpHeight(ob, n[0], r) : h;
+          if (h > nh) edges += '<path class="g-edge" d="M' + n[1] + ' ' + y + 'V' + (y + C) + '"/>';
+        });
+        const above = r > 0 ? lpHeight(ob, c, r - 1) : h;
+        if (h > above) edges += '<path class="g-edge" d="M' + x + ' ' + y + 'H' + (x + C) + '"/>';
+      }
+      out += tops + sides + edges;
+    }
+    for (let c = 0; c < cols; c++) out += '<text class="g-tick" x="' + (c * C + 18) + '" y="-5">' + (c + 1) + '</text>';
+    for (let r = 0; r < rows; r++) out += '<text class="g-tick" x="-7" y="' + (r * C + 21) + '">' + (r + 1) + '</text>';
+    $('lp-terrain').innerHTML = out;
+  }
+
+  // ─── Map overlays ──────────────────────────────────────────────────────────
+  function trackPath(wps, lateral) {
+    const path = lpMakePath(wps, prof().wheelbase);
+    let d = '';
+    for (let s = path.s0; ; s += 4) {
+      const at = Math.min(s, path.sExit), pos = lpOffset(path, at, lateral), p = lifted(pos, lpHeightAt(ob, pos[0], pos[1]));
+      d += (d ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1);
+      if (at >= path.sExit) break;
+    }
+    return d;
+  }
+  function drawLine(wps, kind) {
+    const half = prof().track / 2, tracks = [trackPath(wps, -half), trackPath(wps, half)], center = trackPath(wps, 0);
+    if (kind === 'expert') {
+      const anim = state.animate ? ' lp-draw' : '';
+      return tracks.map(d => '<path class="t-expert' + anim + '" pathLength="1" d="' + d + '"/>').join('') + '<path class="t-expert-c" d="' + center + '"/>';
+    }
+    const body = tracks.map(d => '<path class="t-user" d="' + d + '"/>').join('') + '<path class="t-user-c" d="' + center + '"/>';
+    if (!state.animate) return body;
+    const mask = tracks.map(d => '<path class="t-mask lp-draw" pathLength="1" d="' + d + '"/>').join('');
+    return '<mask id="lp-user-mask" maskUnits="userSpaceOnUse" x="-14" y="-14" width="446" height="590">' + mask + '</mask><g mask="url(#lp-user-mask)">' + body + '</g>';
+  }
+  function drawLines() {
+    let out = '';
+    const showExpert = state.stage === 'debrief' || state.stage === 'execute' || (state.stage === 'plan' && hasLine());
+    if (showExpert) out += drawLine(expert(), 'expert');
+    if (hasLine() && state.stage !== 'scout') out += drawLine(state.wps, 'user');
+    $('lp-lines').innerHTML = out;
+  }
+  function hazardRing(hz, pulse) {
+    const xs = hz.cells.map(c => c[0]), ys = hz.cells.map(c => c[1]);
+    const h = Math.max.apply(null, hz.cells.map(c => lpHeight(ob, c[0], c[1])));
+    const x0 = Math.min.apply(null, xs) * 36, x1 = (Math.max.apply(null, xs) + 1) * 36;
+    const y0 = Math.min.apply(null, ys) * 36 - h * LIFT, y1 = (Math.max.apply(null, ys) + 1) * 36 - h * LIFT;
+    const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, rx = Math.min((x1 - x0) / 2 + 8, 431 - cx), ry = (y1 - y0) / 2 + 8;
+    const left = cx + rx + 4 + hz.label.length * 6.4 > 430, tx = left ? Math.max(4, cx - hz.label.length * 3.2) : cx + rx + 4, ty = left ? cy + ry + 13 : cy + 4;
+    return '<ellipse class="hz-ring' + (pulse ? ' lp-pulse' : '') + '" cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '"/><text class="hz-label" x="' + tx + '" y="' + ty + '">' + hz.label + '</text>';
+  }
+  function drawMarks() {
+    let out = '';
+    ob.hazards.forEach(hz => {
+      const shown = state.stage === 'scout' ? (state.found.has(hz.id) || state.revealed) : state.stage === 'plan' || state.stage === 'debrief';
+      if (shown) out += hazardRing(hz, state.pulse && !state.found.has(hz.id));
+    });
+    if (state.stage === 'plan' || state.stage === 'debrief') {
+      if (hasLine()) {
+        const res = lpScore(ob, prof(), state.wps);
+        if (res.worstLow.clear <= 0) {
+          const p = lifted(res.worstLow.pos, res.worstLow.h);
+          out += '<circle class="hz-dot" cx="' + p[0] + '" cy="' + p[1] + '" r="7"/>';
+        }
+      }
+      const dist = hasLine() ? lpDistances(state.wps, expert()) : [];
+      state.wps.forEach((w, i) => {
+        const p = lifted(w, lpHeightAt(ob, w[0], w[1])), cls = !hasLine() ? 'wp-new' : dist[i] <= 12 ? 'wp-good' : 'wp-warn';
+        out += '<circle class="' + cls + '" cx="' + p[0] + '" cy="' + p[1] + '" r="11"/><circle class="wp-ring" cx="' + p[0] + '" cy="' + p[1] + '" r="11"/><text class="wp-num" x="' + p[0] + '" y="' + p[1] + '">' + (i + 1) + '</text>';
+      });
+    }
+    $('lp-marks').innerHTML = out;
+  }
+  function drawVehicle(pose) {
+    if (!pose) { $('lp-veh').innerHTML = ''; return; }
+    const pt = t => lifted(t.pos, t.h);
+    const axle = (a, b) => { const p = pt(a), q = pt(b); return '<line class="veh-axle" x1="' + p[0] + '" y1="' + p[1] + '" x2="' + q[0] + '" y2="' + q[1] + '"/><circle class="veh-tire" cx="' + p[0] + '" cy="' + p[1] + '" r="6"/><circle class="veh-tire" cx="' + q[0] + '" cy="' + q[1] + '" r="6"/>'; };
+    let out = axle(pose.fl, pose.fr) + axle(pose.rl, pose.rr);
+    pose.lows.forEach(l => { const p = lifted(l.pos, l.h); out += '<circle class="veh-low" cx="' + p[0] + '" cy="' + p[1] + '" r="4"/>'; });
+    $('lp-veh').innerHTML = out;
+  }
+
+  // ─── Cutaway ───────────────────────────────────────────────────────────────
+  function drawCutaway(res, idx) {
+    const pose = res.samples[idx], p = prof(), path = res.path;
+    const focus = pose.lows.reduce((a, b) => b.clear < a.clear ? b : a);
+    const k = 432 / path.total, base = 132, hy = h => base - h * k * 1.1;
+    let ground = '';
+    for (let s = 0; s <= path.total; s += 4) {
+      const pos = lpOffset(path, s, focus.lp.x), h = lpHeightAt(ob, pos[0], pos[1]);
+      ground += (ground ? 'L' : 'M') + (s * k).toFixed(1) + ' ' + hy(h).toFixed(1);
+    }
+    const earth = ground + 'L432 150L0 150Z';
+    const fx = pose.s * k, rx = (pose.s - p.wheelbase) * k, r = (p.tireDia / 2) * k * 1.1;
+    const lowXY = l => [(pose.s - l.lp.y) * k, hy(l.mean + l.lp.clearance)];
+    const body = pose.lows.map(lowXY);
+    let out = '<defs><pattern id="lp-hatch-c" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="g-hatch-line" x1="0" y1="0" x2="0" y2="5"/></pattern></defs>' +
+      '<path class="c-earth" d="' + earth + '"/><path class="c-earth-h" style="fill:url(#lp-hatch-c)" d="' + earth + '"/><path class="c-ground" d="' + ground + '"/>';
+    out += '<path class="c-body" d="M' + (fx + 8).toFixed(1) + ' ' + hy(pose.frontMean + p.tireDia / 2).toFixed(1) + 'L' + body.map(b => b[0].toFixed(1) + ' ' + b[1].toFixed(1)).join('L') + 'L' + (rx - 8).toFixed(1) + ' ' + hy(pose.rearMean + p.tireDia / 2).toFixed(1) + '"/>';
+    out += '<circle class="c-tire" cx="' + rx.toFixed(1) + '" cy="' + hy(pose.rearMean + p.tireDia / 2).toFixed(1) + '" r="' + r.toFixed(1) + '"/><circle class="c-tire" cx="' + fx.toFixed(1) + '" cy="' + hy(pose.frontMean + p.tireDia / 2).toFixed(1) + '" r="' + r.toFixed(1) + '"/>';
+    pose.lows.forEach(l => {
+      const xy = lowXY(l), cls = l !== focus ? 'c-low' : l.clear <= 0 ? 'c-low-hit' : 'c-low-focus';
+      out += '<circle class="' + cls + '" cx="' + xy[0].toFixed(1) + '" cy="' + xy[1].toFixed(1) + '" r="' + (l === focus ? 5.5 : 4) + '"/>';
+    });
+    $('lp-cut').innerHTML = out;
+    $('lp-readout').textContent = focus.name + ': ' + focus.clear.toFixed(1) + ' in. clearance over ' + focus.h + ' in. ground at ' + lpCellName(focus.cell) + '. Lean ' + Math.round(pose.tilt * 100) + '%.';
+  }
+  function poseIndex(res) {
+    if (state.scrub == null) return res.worst;
+    return Math.max(0, Math.min(res.samples.length - 1, state.scrub));
+  }
+  function stageIndex(res, stage) {
+    const path = res.path, s = stage.at.front != null ? path.s0 + stage.at.front : stage.at.rear != null ? prof().wheelbase + prof().wheelbase + stage.at.rear : path.sExit + stage.at.exit;
+    return Math.max(0, Math.min(res.samples.length - 1, Math.round((s - path.s0) / 4)));
+  }
+  function drawDrive() {
+    const wrap = $('lp-cut-wrap');
+    const show = state.stage === 'execute' || state.stage === 'debrief' || (state.stage === 'plan' && hasLine());
+    wrap.hidden = !show;
+    if (!show) { drawVehicle(null); return; }
+    const res = lpScore(ob, prof(), activeLine());
+    let idx = poseIndex(res);
+    if (state.stage === 'execute' && state.scrub == null) {
+      const next = ob.stages.find(st => state.answers[st.id] == null) || ob.stages[ob.stages.length - 1];
+      idx = stageIndex(res, next);
+    }
+    const scrub = $('lp-scrub');
+    scrub.max = res.samples.length - 1;
+    scrub.value = idx;
+    drawCutaway(res, idx);
+    drawVehicle(res.samples[idx]);
+  }
+
+  // ─── Panels ────────────────────────────────────────────────────────────────
+  function checksHtml(res) {
+    return '<ul class="lp-list">' + res.checks.map(c => '<li class="lp-item is-' + c.status + '"><strong>' + LP_CHECK_LABELS[c.id] + '<span class="lp-state">' + c.status + '</span></strong>' + c.text + chip(c.chip) + '</li>').join('') + '</ul>';
+  }
+  function scoutPanel() {
+    const total = ob.hazards.length;
+    let h = '<h2>Scout</h2><p>Stop and walk it before you drive it.' + chip('curriculum') + ' Three things on this ledge can end your day. Tap each one on the map.</p><p class="lp-count">' + state.found.size + ' of ' + total + ' found</p><ul class="lp-list">';
+    ob.hazards.forEach(hz => {
+      const found = state.found.has(hz.id);
+      if (found || state.revealed) h += '<li class="lp-item ' + (found ? 'is-pass' : 'is-fail') + '"><strong>' + hz.label + '<span class="lp-state">' + (found ? 'found' : 'missed') + '</span></strong>' + hz.why + chip(hz.chip) + '</li>';
+      else h += '<li class="lp-item"><strong>Not found yet</strong></li>';
+    });
+    h += '</ul><div class="lp-actions">';
+    if (!state.revealed && state.found.size < total) h += '<button class="lp-btn alt" data-act="reveal">Show what I missed</button>';
+    h += '<button class="lp-btn" data-act="stage" data-arg="plan">Plan your line</button></div>';
+    return h;
+  }
+  function planPanel() {
+    let h = '<h2>Plan</h2>';
+    if (!hasLine()) {
+      h += '<p>Tap the map to place your centerline: ' + WP_NAMES.map((n, i) => (i + 1) + ' ' + n.toLowerCase()).join(', ') + '. The tool draws both tire tracks from your vehicle\'s track width. Know where your lowest point sits before you commit.' + chip('curriculum') + '</p>';
+      h += '<p class="lp-count">' + state.wps.length + ' of 3 placed</p><div class="lp-actions"><button class="lp-btn alt" data-act="straddle">Load a straddle line</button>' + (state.wps.length ? '<button class="lp-btn alt" data-act="clear">Clear line</button>' : '') + '</div>';
+      return h;
+    }
+    const res = lpScore(ob, prof(), state.wps);
+    h += checksHtml(res);
+    h += '<h3>Against the expert line</h3><p class="lp-dist">' + lpDistances(state.wps, expert()).map((d, i) => WP_NAMES[i] + ': ' + d.toFixed(0) + ' in. off').join('<br>') + '</p>';
+    h += '<h3>Why the expert runs it this way</h3><ul class="lp-list">' + ob.expert[state.profile].why.map(w => '<li class="lp-item">' + w.text + chip(w.chip) + '</li>').join('') + '</ul>';
+    h += '<p>Tap the map to move your nearest waypoint.</p><div class="lp-actions"><button class="lp-btn" data-act="stage" data-arg="execute">Drive it</button><button class="lp-btn alt" data-act="straddle">Load a straddle line</button><button class="lp-btn alt" data-act="clear">Clear line</button></div>';
+    return h;
+  }
+  function executePanel() {
+    const score = ob.stages.filter(st => state.answers[st.id] != null && st.choices[state.answers[st.id]].correctFor.includes(state.profile)).length;
+    const answered = ob.stages.filter(st => state.answers[st.id] != null).length;
+    let h = '<h2>Execute</h2><p class="lp-count">' + score + ' of ' + answered + ' right for ' + prof().label + '</p>';
+    for (const st of ob.stages) {
+      const a = state.answers[st.id];
+      h += '<div class="lp-q"><p class="lp-q-prompt">' + st.prompt + '</p>';
+      st.choices.forEach((c, i) => {
+        const right = c.correctFor.includes(state.profile), cls = a === i ? (right ? ' is-right' : ' is-wrong') : '';
+        h += '<button class="lp-choice' + cls + '" data-act="answer" data-arg="' + st.id + ':' + i + '" aria-pressed="' + (a === i) + '">' + c.text + '</button>';
+      });
+      if (a != null) {
+        const c = st.choices[a], right = c.correctFor.includes(state.profile);
+        h += '<div class="lp-item ' + (right ? 'is-pass' : 'is-fail') + '"><strong>' + (right ? 'Right call' : 'Wrong call') + ' for ' + prof().label + '</strong>' + c.why + chip(c.chip) + '</div>';
+      }
+      h += '</div>';
+      if (a == null) break;
+    }
+    if (answered === ob.stages.length) h += '<div class="lp-actions"><button class="lp-btn" data-act="stage" data-arg="debrief">See the debrief</button></div>';
+    return h;
+  }
+  function debriefPanel() {
+    let h = '<h2>Debrief</h2>';
+    if (!hasLine()) {
+      h += '<p>This is the expert line for the selected vehicle. Place your own in Plan to score it on both.</p><div class="lp-actions"><button class="lp-btn" data-act="stage" data-arg="plan">Place a line</button></div>';
+      return h;
+    }
+    const results = IDS.map(id => lpScore(ob, PROFILES[id], state.wps));
+    h += '<p>Same line, both vehicles. Switch the vehicle above to move the low point, redraw the expert line and re-score.</p>';
+    h += '<table class="lp-table"><thead><tr><th>Check</th>' + IDS.map(id => '<th>' + PROFILES[id].label + '</th>').join('') + '</tr></thead><tbody>';
+    results[0].checks.forEach((c, i) => {
+      h += '<tr><td>' + LP_CHECK_LABELS[c.id] + '</td>' + results.map(r => '<td><span class="lp-mark is-' + r.checks[i].status + '"></span>' + r.checks[i].status + '</td>').join('') + '</tr>';
+    });
+    h += '</tbody></table>';
+    h += '<h3>' + prof().label + '</h3>' + checksHtml(lpScore(ob, prof(), state.wps));
+    const crest = ob.stages.find(st => st.id === 'crest'), call = crest.choices.find(c => c.correctFor.includes(state.profile));
+    h += '<h3>What changes at the crest</h3><div class="lp-item is-pass"><strong>' + call.text + '</strong>' + call.why + chip(call.chip) + '</div>';
+    h += '<div class="lp-actions"><button class="lp-btn" data-act="restart-line">Try another line</button><button class="lp-btn alt" data-act="restart">Start over</button></div>';
+    return h;
+  }
+  const PROMPTS = {
+    scout: () => 'Tap each hazard on the ledge. The vehicle climbs from the bottom of the map to the top, with the driver side on the left.',
+    plan: () => hasLine() ? 'Blue is your line and clay is the expert line for this vehicle.' : 'Tap waypoint ' + (state.wps.length + 1) + ': ' + WP_NAMES[state.wps.length].toLowerCase() + '.',
+    execute: () => hasLine() ? 'Three decisions on your line. The vehicle moves to each one.' : 'Three decisions on the expert line. The vehicle moves to each one.',
+    debrief: () => hasLine() ? 'Your line, re-scored for ' + prof().label + '.' : 'Expert line for ' + prof().label + '.'
+  };
+
+  function renderChrome() {
+    $('lp-steps').innerHTML = STAGES.map((s, i) => '<li><button class="lp-step" data-act="stage" data-arg="' + s[0] + '"' + (state.stage === s[0] ? ' aria-current="step"' : '') + '><span>' + (i + 1) + '</span>' + s[1] + '</button></li>').join('');
+    $('lp-profile').innerHTML = IDS.map(id => '<button class="lp-chip" data-act="profile" data-arg="' + id + '" aria-pressed="' + (state.profile === id) + '">' + PROFILES[id].label + '</button>').join('');
+    const p = prof();
+    $('lp-spec').textContent = 'Archetype: ' + p.wheelbase + ' in. wheelbase · ' + p.track + ' in. track · ' + p.tireDia + ' in. tires · ' + p.lowPoints.map(l => l.name.toLowerCase() + ' ' + l.clearance + ' in.').join(' · ');
+    $('lp-prompt').textContent = PROMPTS[state.stage]();
+  }
+  function render() {
+    const focused = document.activeElement && document.activeElement.dataset ? [document.activeElement.dataset.act, document.activeElement.dataset.arg] : null;
+    renderChrome();
+    $('lp-panel').innerHTML = { scout: scoutPanel, plan: planPanel, execute: executePanel, debrief: debriefPanel }[state.stage]();
+    drawLines();
+    drawMarks();
+    drawDrive();
+    state.animate = false;
+    state.pulse = false;
+    if (focused && focused[0]) {
+      const el = document.querySelector('[data-act="' + focused[0] + '"]' + (focused[1] ? '[data-arg="' + focused[1] + '"]' : ''));
+      if (el) el.focus({ preventScroll: true });
+    }
+  }
+
+  // ─── Map input ─────────────────────────────────────────────────────────────
+  function fromView(vx, vy) {
+    const x = vx / U;
+    let y = vy / U;
+    for (let i = 0; i < 3; i++) y = (vy + lpHeightAt(ob, x, y) * LIFT) / U;
+    return [Math.max(0, Math.min(144, x)), Math.max(0, Math.min(192, y))];
+  }
+  function nearestHazard(pos) {
+    let best = null, bestD = 9.5;     // 9.5 in. of slop keeps every target at 44px on a phone
+    ob.hazards.forEach(hz => hz.cells.forEach(c => {
+      const dx = Math.max(c[0] * 12 - pos[0], 0, pos[0] - (c[0] + 1) * 12), dy = Math.max(c[1] * 12 - pos[1], 0, pos[1] - (c[1] + 1) * 12), d = Math.hypot(dx, dy);
+      if (d < bestD) { bestD = d; best = hz; }
+    }));
+    return best;
+  }
+  function mark(pos) {
+    if (state.stage === 'scout') {
+      const hz = nearestHazard(pos);
+      if (!hz) { $('lp-status').textContent = 'No hazard marked there.'; return; }
+      $('lp-status').textContent = state.found.has(hz.id) ? hz.label + ' is already found.' : 'Found: ' + hz.label.toLowerCase() + '.';
+      if (!state.revealed) state.found.add(hz.id);
+      render();
+    } else if (state.stage === 'plan') {
+      const w = [Math.round(pos[0]), Math.round(pos[1])];
+      if (state.wps.length < 3) {
+        const last = state.wps[state.wps.length - 1];
+        if (last && Math.hypot(w[0] - last[0], w[1] - last[1]) < 12) { $('lp-status').textContent = 'Place waypoints at least a foot apart.'; return; }
+        state.wps.push(w);
+        if (state.wps.length === 3) state.animate = true;
+      } else {
+        let n = 0, nd = Infinity;
+        state.wps.forEach((p, i) => { const d = Math.hypot(p[0] - w[0], p[1] - w[1]); if (d < nd) { nd = d; n = i; } });
+        const other = state.wps.filter((_, i) => i !== n);
+        if (other.some(p => Math.hypot(p[0] - w[0], p[1] - w[1]) < 12)) { $('lp-status').textContent = 'Place waypoints at least a foot apart.'; return; }
+        state.wps[n] = w;
+        state.animate = true;
+      }
+      state.scrub = null;
+      $('lp-status').textContent = '';
+      render();
+    }
+  }
+  function drawCross() {
+    if (!state.cross) { $('lp-cross').innerHTML = ''; return; }
+    const v = state.cross;
+    $('lp-cross').innerHTML = '<circle class="cross" cx="' + v[0] + '" cy="' + v[1] + '" r="14"/><path class="cross" d="M' + (v[0] - 20) + ' ' + v[1] + 'H' + (v[0] + 20) + 'M' + v[0] + ' ' + (v[1] - 20) + 'V' + (v[1] + 20) + '"/>';
+  }
+  const map = $('lp-map');
+  map.addEventListener('click', e => {
+    const pt = new DOMPoint(e.clientX, e.clientY).matrixTransform(map.getScreenCTM().inverse());
+    mark(fromView(pt.x, pt.y));
+  });
+  map.addEventListener('keydown', e => {
+    const keys = { ArrowLeft: [-18, 0], ArrowRight: [18, 0], ArrowUp: [0, -18], ArrowDown: [0, 18] };
+    if (keys[e.key]) {
+      e.preventDefault();
+      const v = state.cross || [216, 288];
+      state.cross = [Math.max(0, Math.min(432, v[0] + keys[e.key][0])), Math.max(0, Math.min(576, v[1] + keys[e.key][1]))];
+      drawCross();
+    } else if ((e.key === 'Enter' || e.key === ' ') && state.cross) {
+      e.preventDefault();
+      mark(fromView(state.cross[0], state.cross[1]));
+    }
+  });
+  map.addEventListener('focus', () => { if (map.matches(':focus-visible')) { state.cross = state.cross || [216, 288]; drawCross(); } });
+  map.addEventListener('blur', () => { state.cross = null; drawCross(); });
+
+  // ─── Buttons and scrubber ──────────────────────────────────────────────────
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-act]');
+    if (!b) return;
+    const arg = b.dataset.arg;
+    switch (b.dataset.act) {
+      case 'stage': state.stage = arg; state.scrub = null; state.animate = true; $('lp-status').textContent = ''; break;
+      case 'profile': state.profile = arg; state.scrub = null; state.animate = true; break;
+      case 'reveal': state.revealed = true; state.pulse = true; break;
+      case 'straddle': state.wps = STRADDLE_LINE.map(p => p.slice()); state.scrub = null; state.animate = true; break;
+      case 'clear': state.wps = []; state.scrub = null; break;
+      case 'answer': { const q = arg.split(':'); state.answers[q[0]] = +q[1]; state.scrub = null; break; }
+      case 'restart-line': state.wps = []; state.stage = 'plan'; state.scrub = null; break;
+      case 'restart': state.wps = []; state.found = new Set(); state.revealed = false; state.answers = {}; state.stage = 'scout'; state.scrub = null; break;
+    }
+    render();
+  });
+  $('lp-scrub').addEventListener('input', e => {
+    state.scrub = +e.target.value;
+    drawDrive();
+  });
+
+  drawTerrain();
+  render();
+})();
+</script>
+</body>
+</html>

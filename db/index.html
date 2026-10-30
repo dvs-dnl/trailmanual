@@ -293,7 +293,7 @@
   .tg-icon .tm-icon{width:20px;height:20px}
   .tg-eye{font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:500}
   a.tg-sub{color:var(--text-dim)}
-  .vp-photo{max-width:none;width:calc(100% + 32px);margin:-16px -16px 8px;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;background:var(--bg-3)}
+  .vp-photo{max-width:none;width:calc(100% + 28px);margin:-12px -14px 6px;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;background:var(--bg-3)}
   .vp-card .vp-icon{display:none}
   .vp-card:not(:has(.vp-photo)) .vp-icon{display:flex}
   .detail{max-width:820px;margin:0 auto}
@@ -340,7 +340,7 @@
   }
   
   /* ── Brand/family vehicle picker ─────────────────────────────────────── */
-  .picker-hero{padding:40px 0 28px;border-bottom:1px solid var(--border)}
+  .picker-hero{padding:32px 0 20px}
   .picker-hero h1{font-size:clamp(28px,4vw,42px);font-weight:500;letter-spacing:-.02em;margin:0 0 10px}
   .picker-hero p{color:var(--text-dim);max-width:600px;font-size:15px;margin:0 0 18px}
   .picker-stats{display:flex;gap:24px;flex-wrap:wrap}
@@ -348,23 +348,30 @@
   .picker-stat .l{font-size:11px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px}
 
 
-  .picker-jump-nav{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:0;overflow-x:auto;scrollbar-width:none}
+  .picker-jump-nav{display:flex;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:0;overflow-x:auto;scrollbar-width:none}
   .picker-jump-nav::-webkit-scrollbar{display:none}
   .picker-jump-link{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mute);text-decoration:none;padding:12px 20px;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;transition:color .15s,border-color .15s}
   .picker-jump-link:hover{color:var(--text);border-bottom-color:var(--accent)}
-  .brand-block{padding:44px 0 0;border-top:2px solid var(--border)}
-  .brand-block:first-of-type{border-top:none;padding-top:32px}
+  .brand-block{padding:32px 0 8px;scroll-margin-top:72px}
+  .brand-block:first-of-type{border-top:none;padding-top:24px}
   .brand-block+.brand-block{border-top:1px solid var(--border)}
-  .brand-row{display:flex;align-items:baseline;gap:12px;margin-bottom:20px}
+  .brand-row{display:flex;align-items:baseline;gap:12px;margin-bottom:16px}
   .brand-name{font-size:22px;font-weight:600;letter-spacing:-.01em}
   .brand-count{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mute)}
 
-  .family-block{margin-bottom:28px}
-  .family-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .family-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 12px}
+  .family-block{display:grid;grid-template-columns:subgrid;grid-template-rows:auto 1fr;align-content:start;min-width:0}
+  .fam-1{grid-column:span 1}.fam-2{grid-column:span 2}.fam-3{grid-column:span 3}.fam-4{grid-column:span 4}.fam-5{grid-column:span 5}
+  .family-block .family-label,.family-block .vp-grid{grid-column:1/-1}
+  .family-block .vp-grid{display:grid;grid-template-columns:subgrid;gap:12px}
+  @supports not (grid-template-columns:subgrid){.family-block{display:block}.fam-1 .vp-grid{grid-template-columns:1fr}.fam-2 .vp-grid{grid-template-columns:repeat(2,1fr)}.fam-3 .vp-grid{grid-template-columns:repeat(3,1fr)}.fam-4 .vp-grid{grid-template-columns:repeat(4,1fr)}.fam-5 .vp-grid{grid-template-columns:repeat(5,1fr)}}
+  @media(max-width:1000px){.family-flow{grid-template-columns:repeat(3,minmax(0,1fr))}.fam-4,.fam-5{grid-column:span 3}.family-block .vp-grid{grid-auto-rows:1fr}}
+  @media(max-width:640px){.family-flow{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 10px}.fam-3,.fam-4,.fam-5{grid-column:span 2}.family-block .vp-grid{gap:10px}}
+  .family-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;flex-wrap:wrap;align-items:center;gap:0 8px}
   .family-meta{color:var(--text-mute);font-weight:400}
 
   .vp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
-  .vp-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,transform .15s;text-decoration:none;color:var(--text)}
+  .vp-card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px 14px;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:border-color .15s,transform .15s;text-decoration:none;color:var(--text)}
   .vp-card:hover{border-color:var(--accent);transform:translateY(-1px)}
   .vp-card.inactive{opacity:.55;cursor:default}
   .vp-card.inactive:hover{transform:none;border-color:var(--border)}
@@ -377,7 +384,7 @@
   .vp-badge.soon{background:var(--bg-3);color:var(--text-mute)}
   .vp-badge.early{background:var(--bg-3);color:var(--accent)}
 
-  @media(max-width:560px){.vp-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){}
 
   
 .tm-affiliate-note{border:1px solid var(--line,#2a3038);border-left:3px solid var(--accent,#C97E50);border-radius:8px;background:var(--surface,rgba(255,255,255,.03));color:var(--text-dim,#9aa3ad);font-size:13px;line-height:1.6;padding:10px 14px;margin:0 0 12px}
@@ -427,6 +434,7 @@
       <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
       <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
       <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/">Trails</a>
       <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
       <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
       <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
@@ -440,6 +448,7 @@
       <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
       <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
       <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
       <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
@@ -499,6 +508,7 @@
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
     </div>
   </div></div>
 </header>
@@ -518,7 +528,7 @@
 
 <div class="footer db-disclaimer">
   <div class="disclaimer">
-    Trail Manual — community knowledge for off-road vehicle DIYers. Compiled from forum tech wikis, vendor documentation, and field experience. Always cross-reference with your factory service manual. Modifications affect vehicle safety and warranty — work at your own risk.
+    Trail Manual — community knowledge for off-road vehicle DIYers. Compiled from forum tech wikis, vendor documentation, and field experience. Always cross-reference with your factory service manual. Modifications affect vehicle safety and warranty — work at your own risk. <a href="#/about">About this database</a>.
   </div>
 </div>
 
@@ -1216,9 +1226,9 @@
         const active = location.hash.startsWith(it.r) || (it.l==='Home' && (location.hash==='#/'+vid || location.hash==='#/'+vid+'/'));
         if (tabs) tabs.appendChild(el('button', {class:'tab' + (active?' active':''), on:{click:()=>go(it.r)}}, it.l));
       });
-    } else {
-      if (tabs) tabs.appendChild(el('button', {class:'tab'+(location.hash.startsWith('#/about')?' active':''), on:{click:()=>go('#/about')}}, 'About'));
     }
+    const bar = document.querySelector('.topbar');
+    if (bar) bar.style.display = vid ? '' : 'none';
   }
 
   // ---- VEHICLE PICKER (home) ----
@@ -1288,11 +1298,12 @@
       brandRow.appendChild(el('span', {class:'brand-count'}, brandTotal + ' platform' + (brandTotal===1?'':'s')));
       brandEl.appendChild(brandRow);
 
+      var flow = el('div', {class:'family-flow'});
       brand.families.forEach(function(family) {
         var knownIds = family.ids.filter(function(id){ return vmap[id] && vmap[id].active; });
         if (!knownIds.length) return;
 
-        var famEl = el('div', {class:'family-block'});
+        var famEl = el('div', {class:'family-block fam-'+knownIds.length});
         var famLabel = el('div', {class:'family-label'});
         famLabel.appendChild(el('span', {}, family.label));
         if (family.meta) famLabel.appendChild(el('span', {class:'family-meta'}, family.meta));
@@ -1329,8 +1340,9 @@
         });
 
         famEl.appendChild(grid);
-        brandEl.appendChild(famEl);
+        flow.appendChild(famEl);
       });
+      brandEl.appendChild(flow);
 
       app.appendChild(brandEl);
     });
@@ -2125,6 +2137,7 @@
     <div>
       <h4>Learn</h4>
       <a href="/db/">Vehicle Guides</a>
+      <a href="/trails/">Trails</a>
       <a href="/workshop/">Workshop</a>
       <a href="/guides/">Repair Guides</a>
       <a href="/blog/">Blog</a>

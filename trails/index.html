@@ -32,6 +32,8 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
 .tm-facts{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
 .tm-fact{font-size:12px;line-height:1.4;border:1px solid var(--border);border-radius:999px;padding:3px 10px;color:var(--text-dim)}
 .tm-fact.d1{border-color:var(--moss,var(--border))}.tm-fact.d3,.tm-fact.d4{border-color:var(--clay-deep)}
+.tm-tags{gap:6px}
+.tm-tag{font-size:12px;line-height:1.4;background:var(--bg-2);border-radius:999px;padding:3px 10px;color:var(--text)}
 .tm-article h2{font-size:20px;margin:32px 0 10px}
 .tm-article h3{font-size:17px;margin:24px 0 8px}
 .tm-article p,.tm-article li{line-height:1.7}
@@ -51,7 +53,31 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
 .tm-legend{font-size:13px;color:var(--text-dim);margin:6px 0 0}
-.tm-grid-3 .tm-card{text-decoration:none}.tm-grid-3 .tm-card p{margin:6px 0}@media(max-width:900px){.tm-grid-3{grid-template-columns:1fr}}
+.tm-grid-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}.tm-grid-3 .tm-card{text-decoration:none}.tm-grid-3 .tm-card p{margin:6px 0}
+.tf{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin:0 0 32px;scroll-margin-top:72px}
+.tf h2{margin:0 0 6px;font-size:22px;font-weight:500}
+.tf-lede{margin:0 0 16px;color:var(--text-dim);font-size:15px;line-height:1.55}
+.tf-form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}
+.tf-form label{display:block;font-family:var(--font-mono);font-size:10px;letter-spacing:.5px;text-transform:uppercase;color:var(--text-mute);margin:0 0 4px}
+.tf-form select{width:100%;min-height:44px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:6px 8px;font:inherit;font-size:14px;color:var(--text)}
+.tf-wide{grid-column:span 2}
+.tf-checks{grid-column:span 2;display:flex;flex-wrap:wrap;align-items:center;gap:0 20px}
+.tf-checks label{display:flex;align-items:center;gap:8px;min-height:44px;margin:0;font-family:var(--font-sans);font-size:14px;letter-spacing:0;text-transform:none;color:var(--text);cursor:pointer}
+.tf-checks input{width:18px;height:18px;accent-color:var(--clay)}
+.tf-note{font-size:13px;line-height:1.5;color:var(--text-dim);margin:12px 0 0}
+.tf-note:empty{display:none}
+.tf-count{font-family:var(--font-mono);font-size:12px;color:var(--text);margin:18px 0 0;padding-top:14px;border-top:1px solid var(--border)}
+.tf-group h3{font-size:15px;font-weight:500;margin:16px 0 8px;color:var(--text)}
+.tf-trail{display:block;padding:12px 12px 12px 14px;margin:0 0 8px;border:1px solid var(--border);border-left-width:3px;border-radius:var(--radius);background:var(--bg);text-decoration:none;color:inherit}
+.tf-trail:hover{border-color:var(--accent)}
+.tf-trail.is-ok{border-left-color:var(--good)}
+.tf-trail.is-needs{border-left-color:var(--warn)}
+.tf-trail.is-no{border-left-color:var(--safety)}
+.tf-trail strong{display:block;font-weight:500;font-size:15px;color:var(--text)}
+.tf-trail span{display:block;font-size:13px;line-height:1.5;color:var(--text-dim)}
+.tf-trail .tf-verdict{color:var(--text);margin-top:4px}
+@media(max-width:760px){.tf-form{grid-template-columns:1fr 1fr}.tf{padding:16px}.tf-wide,.tf-checks{grid-column:1/-1}}
+
 </style>
 </head>
 <body>
@@ -65,6 +91,7 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
       <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
       <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
       <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/">Trails</a>
       <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
       <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
       <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
@@ -78,6 +105,7 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
       <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
       <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
       <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
       <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
@@ -137,6 +165,7 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
       <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
     </div>
   </div></div>
 </header>
@@ -147,7 +176,23 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / Trails</nav>
   <h1>Trails</h1>
   <div class="tm-verdict"><div class="tag">What this is</div><p>Every trail here is tied to its land manager and legal route number, rated on one four-step scale with the source ratings shown beside it, and crossed with the stock tire and wheelbase on file for every platform we cover, so you can see whether your rig clears it stock. Status is dated. Nothing here comes from a forum post alone.</p></div>
-  <section class="tm-section" id="az"><div class="tm-section-head"><h2>Arizona</h2><p class="tm-section-lede">1 trail, each one sourced to its land manager and rated for the rigs we cover.</p></div><div class="tm-grid-3"><a class="tm-card tm-card-link" href="/trails/az/broken-arrow/"><h3>Broken Arrow</h3><p><span class="tm-fact d3">Difficulty 3 — Difficult</span> <span class="tm-fact">4 mi</span></p><p>Coconino National Forest — Red Rock Ranger District · FR 179F (spur FR 179E)</p><p>Broken Arrow is a four-mile slickrock loop over Sedona red rock with one obstacle that decides everything: The Steps, a one-way ledge descent near the end.</p></a></div></section>
+  
+<section class="tf" id="find">
+  <h2>Find trails my vehicle can do</h2>
+  <p class="tf-lede">Pick your rig and tell us what you've changed. Every trail below gets the same check the trail pages use, against your tires, lift, lockers and skid plates.</p>
+  <div class="tf-form">
+    <div class="tf-wide" id="tf-rig-wrap" hidden><label for="tf-rig">From My Garage</label><select id="tf-rig"></select></div>
+    <div class="tf-wide"><label for="tf-platform">Vehicle</label><select id="tf-platform"></select></div>
+    <div><label for="tf-tires">Tires</label><select id="tf-tires"><option value="">Stock</option><option value="30">30 in</option><option value="31">31 in</option><option value="32">32 in</option><option value="33">33 in</option><option value="34">34 in</option><option value="35">35 in</option><option value="37">37 in</option><option value="40">40 in</option></select></div>
+    <div><label for="tf-lift">Lift</label><select id="tf-lift"><option value="">Stock</option><option value="1">1 in</option><option value="2">2 in</option><option value="2.5">2.5 in</option><option value="3">3 in</option><option value="3.5">3.5 in</option><option value="4">4 in</option><option value="6">6 in</option></select></div>
+    <div class="tf-checks"><label><input type="checkbox" id="tf-lockers"> Lockers</label><label><input type="checkbox" id="tf-skids"> Skid plates</label></div>
+  </div>
+  <p class="tf-note" id="tf-note"></p>
+  <div id="tf-results" aria-live="polite"></div>
+  <noscript><p class="tf-note">This finder needs JavaScript. Each trail page below has the same check as a table for every vehicle.</p></noscript>
+</section>
+
+  <section class="tm-section" id="az"><div class="tm-section-head"><h2>Arizona</h2><p class="tm-section-lede">1 trail, each one sourced to its land manager and rated for the rigs we cover.</p></div><div class="tm-grid-3"><a class="tm-card tm-card-link" href="/trails/az/broken-arrow/"><h3>Broken Arrow</h3><p><span class="tm-fact d3">Difficulty 3 — Difficult</span> <span class="tm-fact">4 mi</span></p><p class="tm-facts tm-tags"><span class="tm-tag" data-tag="lollipop" title="A two-way stem leads to a loop, then you return on the stem.">Lollipop</span><span class="tm-tag" data-tag="quick-run" title="About 2 hours or less on the route, per a cited source.">Quick Run</span><span class="tm-tag" data-tag="scenic" title="A source names a viewpoint or scenic feature as a reason to drive it.">Scenic</span><span class="tm-tag" data-tag="commercial-tours" title="Commercial tour companies run the route, so expect tour traffic.">Commercial Tours</span></p><p>Coconino National Forest — Red Rock Ranger District · FR 179F (spur FR 179E)</p><p>Broken Arrow is a four-mile slickrock loop over Sedona red rock with one obstacle that decides everything: The Steps, a one-way ledge descent near the end.</p></a></div></section>
   <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. Trail status is re-verified against the land manager's page on a schedule; each trail page shows its last verification date.</p>
 </article>
 </main>
@@ -177,6 +222,7 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
     <div>
       <h4>Learn</h4>
       <a href="/db/">Vehicle Guides</a>
+      <a href="/trails/">Trails</a>
       <a href="/workshop/">Workshop</a>
       <a href="/guides/">Repair Guides</a>
       <a href="/blog/">Blog</a>
@@ -194,5 +240,174 @@ gtag('js',new Date());gtag('config','G-639VVRC92N');
   </div>
 </footer>
 <!-- TM:FOOTER:END -->
+<script type="application/json" id="tf-data">{"platforms": {"4runner": {"name": "Toyota 4Runner", "stockTire": 31.5, "topTire": 31.5, "wbMin": 109.8, "wbMax": 109.8}, "bronco": {"name": "Ford Bronco", "stockTire": 29.0, "topTire": 29.0, "wbMin": 92.0, "wbMax": 92.0}, "bronco-ii": {"name": "Ford Bronco II", "stockTire": 29.0, "topTire": 29.0, "wbMin": 94.0, "wbMax": 94.0}, "bronco6g": {"name": "Ford Bronco (6th Gen)", "stockTire": 32.0, "topTire": 35.0, "wbMin": 100.4, "wbMax": 116.1}, "cj5": {"name": "Jeep CJ-5", "stockTire": 28.0, "topTire": 28.0, "wbMin": 83.5, "wbMax": 83.5}, "cj7": {"name": "Jeep CJ-7", "stockTire": 29.0, "topTire": 29.0, "wbMin": 93.5, "wbMax": 93.5}, "full-size-bronco": {"name": "Ford Full-Size Bronco", "stockTire": 32.0, "topTire": 32.0, "wbMin": 104.0, "wbMax": 104.0}, "gladiator": {"name": "Jeep Gladiator JT", "stockTire": 31.5, "topTire": 33.0, "wbMin": 137.3, "wbMax": 137.3}, "jk": {"name": "Jeep Wrangler JK", "stockTire": 30.0, "topTire": 32.0, "wbMin": 95.4, "wbMax": 116.0}, "jl": {"name": "Jeep Wrangler JL", "stockTire": 31.5, "topTire": 32.7, "wbMin": 96.8, "wbMax": 118.4}, "lj": {"name": "Jeep Wrangler LJ", "stockTire": 30.0, "topTire": 30.0, "wbMin": 103.5, "wbMax": 103.5}, "pathfinder": {"name": "Nissan Pathfinder", "stockTire": 31.0, "topTire": 31.0, "wbMin": 104.3, "wbMax": 106.3}, "power-wagon": {"name": "Ram Power Wagon", "stockTire": 33.0, "topTire": 33.0, "wbMin": 149.3, "wbMax": 149.3}, "raptor": {"name": "Ford F-150 Raptor", "stockTire": 35.0, "topTire": 35.0, "wbMin": 133.0, "wbMax": 145.4}, "tacoma": {"name": "Toyota Tacoma", "stockTire": 31.0, "topTire": 31.0, "wbMin": 127.4, "wbMax": 141.0}, "tj": {"name": "Jeep Wrangler TJ", "stockTire": 28.0, "topTire": 30.0, "wbMin": 93.4, "wbMax": 93.4}, "wj": {"name": "Jeep Grand Cherokee WJ", "stockTire": 30.0, "topTire": 30.0, "wbMin": 105.9, "wbMax": 105.9}, "wk": {"name": "Jeep Grand Cherokee WK", "stockTire": 30.0, "topTire": 30.0, "wbMin": 109.5, "wbMax": 109.5}, "xj": {"name": "Jeep Cherokee XJ", "stockTire": 28.0, "topTire": 28.0, "wbMin": 101.4, "wbMax": 101.4}, "yj": {"name": "Jeep Wrangler YJ", "stockTire": 28.0, "topTire": 28.0, "wbMin": 93.4, "wbMax": 93.4}, "zj": {"name": "Jeep Grand Cherokee ZJ", "stockTire": 29.0, "topTire": 29.0, "wbMin": 105.9, "wbMax": 105.9}}, "trails": [{"name": "Broken Arrow", "url": "/trails/az/broken-arrow/", "region": "Sedona — Red Rock Country", "difficulty": 3, "difficultyLabel": "Difficult", "length": 4.0, "status": "open", "req": {"four_low": true, "min_tire_in": 30, "lockers": "recommended", "min_lift_in": 0, "skid_plates": "recommended", "max_wheelbase_in": 120, "stock_4x4_ok": "capable-stock-only", "notes": "The Forest Service sign at the trailhead calls for modified high-clearance vehicles with short wheelbases and skid plates and says it is not for stock vehicles. Field reports put stock four-door Wranglers and stock 4Runners through with skid-plate contact at The Steps. Read both as true: a stock rig with real clearance and a driver who places tires gets through and touches down; a stock rig on 28s with an exposed oil pan should not try it."}, "tags": ["Lollipop", "Quick Run", "Scenic", "Commercial Tours"]}]}</script>
+<script>
+// TF:ENGINE:START
+// Keep fit() in step with vehicle_fit() in build_trails.py. tests/trail-find.test.js compares them on stock rigs.
+function tfFit(req, p, rig) {
+  rig = rig || {};
+  var base = p.stockTire, top = p.topTire, adds = [], notes = [], min = req.min_tire_in, tireOk = null;
+  var have = rig.tires || (rig.upper && top != null ? top : null);
+  if (have != null) {
+    if (have >= min) tireOk = true;
+    else { tireOk = false; adds.push(min + '″ tires (' + (rig.tires ? 'you have ' : 'stock ') + have + '″)'); }
+  } else if (base == null) {
+    notes.push('stock tire size not on file — check yours');
+  } else if (base >= min) {
+    tireOk = true;
+  } else if (top != null && top >= min) {
+    tireOk = 'upper-trim';
+    adds.push(min + '″ tires on base trims (upper trims ship on ' + top + '″)');
+  } else {
+    tireOk = false;
+    adds.push(min + '″ tires (stock ' + base + '″)');
+  }
+  if ((req.min_lift_in || 0) > 0 && !((rig.lift || 0) >= req.min_lift_in)) adds.push(req.min_lift_in + '″ lift');
+  if (req.lockers === 'required' && !rig.lockers) adds.push('locker(s)');
+  else if (req.lockers === 'recommended' && !rig.lockers) notes.push('lockers help');
+  if (req.skid_plates === 'required' && !rig.skids) adds.push('skid plates');
+  else if (req.skid_plates === 'recommended' && !rig.skids) notes.push('skid plates recommended');
+  var mw = req.max_wheelbase_in, longWb = false;
+  if (mw && p.wbMax && p.wbMax > mw) {
+    if (p.wbMin && p.wbMin <= mw) notes.push('long-wheelbase variants (' + p.wbMax + '″) will drag on the breakover; short ones fit');
+    else { longWb = true; notes.push(p.wbMax + '″ wheelbase is past the ' + mw + '″ this route tolerates'); }
+  }
+  var modified = !!(rig.tires || rig.lift || rig.lockers || rig.skids);
+  var built = (rig.tires || 0) >= 35 && rig.lockers && rig.skids;
+  var stockOk = req.stock_4x4_ok, verdict, cls;
+  if (stockOk === 'no' && !built) {
+    verdict = 'Not for this rig stock'; cls = 'no';
+    adds = ['built rig: lockers, armor, 35s+'].concat(adds.filter(function (a) { return a.indexOf('tires') < 0; }));
+  } else if (longWb) {
+    verdict = 'Long for this route — expect to drag'; cls = 'needs';
+  } else if (tireOk === 'upper-trim' && adds.length === 1) {
+    verdict = 'Upper trims stock; base trims need tires'; cls = 'needs';
+  } else if (adds.length) {
+    verdict = 'Needs work first'; cls = 'needs';
+  } else if (stockOk === 'capable-stock-only') {
+    verdict = modified ? 'Ready, with care' : 'Stock-capable, with care'; cls = 'ok';
+  } else {
+    verdict = modified ? 'Ready' : 'Stock-capable'; cls = 'ok';
+  }
+  return { verdict: verdict, cls: cls, adds: adds, notes: notes };
+}
+
+// Garage rigs are free text, so read the platform from year, make and model.
+function tfPlatformFor(v) {
+  var t = [v.make, v.model, v.trim, v.nickname].filter(Boolean).join(' ').toLowerCase();
+  var model = [v.make, v.model, v.trim].filter(Boolean).join(' ').toLowerCase();
+  var y = parseInt(v.year, 10) || 0;
+  var code = function (c) { return new RegExp('\\b' + c + '\\b').test(t); };
+  if (/gladiator/.test(model)) return 'gladiator';
+  if (/grand cherokee/.test(model)) {
+    if (code('zj')) return 'zj'; if (code('wj')) return 'wj'; if (code('wk')) return 'wk';
+    if (y >= 1993 && y <= 1998) return 'zj'; if (y >= 1999 && y <= 2004) return 'wj'; if (y >= 2005 && y <= 2010) return 'wk';
+    return null;
+  }
+  if (/cherokee/.test(model)) return (code('xj') || (y >= 1984 && y <= 2001)) ? 'xj' : null;
+  if (/cj-?\s?7/.test(model)) return 'cj7';
+  if (/cj-?\s?5/.test(model)) return 'cj5';
+  if (/wrangler/.test(model) || /\b(jl|jk|tj|lj|yj)\b/.test(model)) {
+    var codes = ['jl', 'jk', 'lj', 'tj', 'yj'];
+    for (var i = 0; i < codes.length; i++) if (code(codes[i])) return codes[i];
+    if (y >= 2019) return 'jl'; if (y >= 2007 && y <= 2017) return 'jk';
+    if (y >= 2004 && y <= 2006 && /unlimited/.test(model)) return 'lj';
+    if (y >= 1997 && y <= 2006) return 'tj'; if (y >= 1987 && y <= 1995) return 'yj';
+    return null;
+  }
+  if (/bronco ?ii|bronco 2\b/.test(model)) return 'bronco-ii';
+  if (/bronco/.test(model)) {
+    if (y >= 2021) return 'bronco6g'; if (y >= 1978 && y <= 1996) return 'full-size-bronco'; if (y >= 1966 && y <= 1977) return 'bronco';
+    return null;
+  }
+  if (/raptor/.test(model)) return 'raptor';
+  if (/power ?wagon/.test(model)) return 'power-wagon';
+  if (/4 ?runner/.test(model)) return '4runner';
+  if (/tacoma/.test(model)) return 'tacoma';
+  if (/pathfinder/.test(model)) return 'pathfinder';
+  return null;
+}
+
+// What the trim ships with, and what the owner already wrote in the rig's notes.
+function tfRigDefaults(v) {
+  var trim = (v.trim || '') + ' ' + (v.model || '');
+  var notes = v.notes || '', out = { upper: /rubicon|mojave|trd pro|sasquatch|power ?wagon/i.test(trim), lockers: /rubicon|power ?wagon/i.test(trim) || /locker/i.test(notes), skids: /skid/i.test(notes), tires: null, lift: 0 };
+  var tire = notes.match(/\b(3[0-9]|40)(?:s\b|\s*(?:"|in\b|inch|″)?\s*tires?\b)/i);
+  if (tire) out.tires = parseInt(tire[1], 10);
+  var lift = notes.match(/(\d(?:\.\d)?)\s*(?:"|in\b|inch|-inch|″)?\s*lift\b/i);
+  if (lift) out.lift = parseFloat(lift[1]);
+  return out;
+}
+// TF:ENGINE:END
+
+(function () {
+  var DATA = JSON.parse(document.getElementById('tf-data').textContent);
+  var $ = function (id) { return document.getElementById(id); };
+  var KEY = 'tm.trailfit.v1';
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+  var rigs = [];
+  try { rigs = ((JSON.parse(localStorage.getItem('tm.garage.v1')) || {}).vehicles || []).filter(function (v) { return v.make || v.model || v.nickname; }); } catch (e) {}
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; };
+  var title = function (v) { return v.nickname || [v.year, v.make, v.model, v.trim].filter(Boolean).join(' '); };
+  var plats = Object.keys(DATA.platforms).sort(function (a, b) { return DATA.platforms[a].name.localeCompare(DATA.platforms[b].name); });
+  $('tf-platform').innerHTML = '<option value="">Pick a vehicle</option>' + plats.map(function (k) { return '<option value="' + esc(k) + '">' + esc(DATA.platforms[k].name) + '</option>'; }).join('');
+  if (rigs.length) {
+    $('tf-rig-wrap').hidden = false;
+    $('tf-rig').innerHTML = rigs.map(function (v) { return '<option value="' + esc(v.id) + '">' + esc(title(v)) + '</option>'; }).join('') + '<option value="">Another vehicle</option>';
+  }
+  function activeRig() { return rigs.filter(function (v) { return v.id === $('tf-rig').value; })[0] || null; }
+  function setMods(m) {
+    $('tf-tires').value = m.tires ? String(m.tires) : '';
+    $('tf-lift').value = m.lift ? String(m.lift) : '';
+    $('tf-lockers').checked = !!m.lockers;
+    $('tf-skids').checked = !!m.skids;
+  }
+  function loadRig() {
+    var v = activeRig();
+    if (!v) return;
+    $('tf-platform').value = tfPlatformFor(v) || '';
+    setMods(saved['rig:' + v.id] || tfRigDefaults(v));
+  }
+  function currentRig() {
+    var v = activeRig(), upper = v ? tfRigDefaults(v).upper : false;
+    return { tires: +$('tf-tires').value || null, lift: +$('tf-lift').value || 0, lockers: $('tf-lockers').checked, skids: $('tf-skids').checked, upper: upper };
+  }
+  function card(t, f) {
+    var bits = [];
+    if (f.adds.length) bits.push('Needs: ' + f.adds.join(', ') + '.');
+    if (f.notes.length) bits.push(f.notes.join('; ').replace(/^./, function (c) { return c.toUpperCase(); }) + '.');
+    return '<a class="tf-trail is-' + f.cls + '" href="' + esc(t.url) + '"><strong>' + esc(t.name) + '</strong>' +
+      '<span>' + esc(t.region) + ' · Difficulty ' + t.difficulty + ' — ' + esc(t.difficultyLabel) + ' · ' + t.length + ' mi' + (t.status === 'open' ? '' : ' · Status: ' + esc(t.status)) + '</span>' +
+      (t.tags.length ? '<span>' + esc(t.tags.join(' \u00b7 ')) + '</span>' : '') + '<span class="tf-verdict">' + esc(f.verdict) + '</span>' + (bits.length ? '<span>' + esc(bits.join(' ')) + '</span>' : '') + '</a>';
+  }
+  function render() {
+    var id = $('tf-platform').value, v = activeRig(), note = '';
+    if (v && !tfPlatformFor(v) && !id) note = 'We could not match ' + title(v) + ' to a vehicle we cover. Pick the closest one.';
+    else if (v && v.notes) note = 'Your garage notes: ' + v.notes;
+    else if (!rigs.length) note = 'Save your rig in My Garage and it shows up here next time.';
+    $('tf-note').textContent = note;
+    if (!rigs.length && !$('tf-note').querySelector('a')) $('tf-note').innerHTML = esc(note).replace('My Garage', '<a href="/my-garage.html">My Garage</a>');
+    if (!id) { $('tf-results').innerHTML = ''; return; }
+    var rig = currentRig(), groups = { ok: [], needs: [], no: [] };
+    DATA.trails.forEach(function (t) { var f = tfFit(t.req, DATA.platforms[id], rig); groups[f.cls].push(card(t, f)); });
+    var heads = { ok: 'Ready for your rig', needs: 'Needs work first', no: 'Not for this rig yet' };
+    $('tf-results').innerHTML = '<p class="tf-count">' + groups.ok.length + ' ready · ' + groups.needs.length + ' need work · ' + groups.no.length + ' not for this rig, out of ' + DATA.trails.length + (DATA.trails.length === 1 ? ' trail' : ' trails') + '</p>' +
+      ['ok', 'needs', 'no'].map(function (k) { return groups[k].length ? '<div class="tf-group"><h3>' + heads[k] + '</h3>' + groups[k].join('') + '</div>' : ''; }).join('');
+  }
+  function persist() {
+    var v = activeRig(), r = currentRig();
+    if (v) { saved['rig:' + v.id] = { tires: r.tires, lift: r.lift, lockers: r.lockers, skids: r.skids }; try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) {} }
+  }
+  ['tf-tires', 'tf-lift', 'tf-lockers', 'tf-skids'].forEach(function (i) { $(i).addEventListener('change', function () { persist(); render(); }); });
+  $('tf-platform').addEventListener('change', function () { render(); });
+  $('tf-rig').addEventListener('change', function () { if (activeRig()) loadRig(); else { $('tf-platform').value = ''; setMods({}); } render(); });
+  var want = new URLSearchParams(location.search).get('rig');
+  if (want && rigs.some(function (v) { return v.id === want; })) $('tf-rig').value = want;
+  else if (want && DATA.platforms[want]) { if (rigs.length) $('tf-rig').value = ''; $('tf-platform').value = want; }
+  if (activeRig()) loadRig();
+  render();
+})();
+</script>
 </body>
 </html>
