@@ -1,0 +1,1 @@
+window.__DIYDB__=window.__DIYDB__||{data:{}};window.__DIYDB__.trending={};

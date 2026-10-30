@@ -535,6 +535,7 @@
 
 <!-- Boot: load manifest first; vehicle shards lazy-load on demand -->
 <script src="data/manifest.js"></script>
+<script src="data/trending.js"></script>
 <script>
 (() => {
   const root = window.__DIYDB__;
@@ -1359,6 +1360,15 @@
   // "Start here" rule — keep in sync with start_here() in diy-database/db_static_build.py:
   // must-do / safety-critical guides first, then most citations; one guide per category.
   const guideScore = e => ((e.tags||[]).some(t => t === 'must-do' || t === 'safety-critical') ? 1000 : 0) + (e.citations||[]).length;
+  // "Trending" — guides ranked by 28-day page views, generated into data/trending.js by
+  // db_static_build.write_trending_js() from pageviews.csv. Same picks as the static landing page.
+  const trendingIds = vid => ((window.__DIYDB__ || {}).trending || {})[vid] || null;
+  function trendingGuides(entries, vid, n) {
+    const ids = trendingIds(vid);
+    if (!ids) return null;
+    const byId = new Map(entries.map(e => [e.id, e]));
+    return ids.map(id => byId.get(id)).filter(Boolean).slice(0, n);
+  }
   function startHereGuides(entries, n) {
     const ranked = entries.slice().sort((a, b) => (guideScore(b) - guideScore(a)) || a.title.localeCompare(b.title));
     const out = [], seen = new Set();
@@ -1508,11 +1518,12 @@
     // --- LEARN (canonical 4-up): this vehicle's start-here guides ---
     // Same rule as bronco6g-mockups/build_vehicles.py: must-do / safety-critical
     // guides first, then the best-sourced ones (most citations).
-    const startHere = startHereGuides(entries, 4);
+    const trendingPicks = trendingGuides(entries, vid, 4);
+    const startHere = trendingPicks || startHereGuides(entries, 4);
     const learnHead = el('div', {class:'tg-section-head'},
       el('div', {class:'left'},
         el('span', {class:'tg-label'}, '02 / Learn'),
-        el('h2', {class:'tg-title'}, 'Start here')
+        el('h2', {class:'tg-title'}, trendingPicks ? 'Trending' : 'Start here')
       ),
       el('a', {class:'tg-sub', href:'#/'+vid+'/browse'}, 'All ' + entries.length + ' guides')
     );
@@ -1556,7 +1567,12 @@
       el('span', {style:'color:var(--text-mute);font-size:13px'}, entries.length + ' entries')
     ));
     if (!entries.length) return app.appendChild(el('div', {class:'empty'}, el('h3',{},'No guides in this category yet')));
+    const tIds = trendingIds(vid);
+    const tRank = new Map((tIds || []).map((id, i) => [id, i]));
+    const byTrend = (a,b) => ((tRank.has(a.id) ? tRank.get(a.id) : 1e9) - (tRank.has(b.id) ? tRank.get(b.id) : 1e9))
+      || (guideScore(b) - guideScore(a)) || a.title.localeCompare(b.title);
     const SORTS = [
+      ...(tIds ? [['Trending', byTrend]] : []),
       ['Start here', (a,b) => (guideScore(b) - guideScore(a)) || a.title.localeCompare(b.title)],
       ['Lowest cost', (a,b) => (a.cost_usd ? moneyMid(a.cost_usd) : 1e9) - (b.cost_usd ? moneyMid(b.cost_usd) : 1e9)],
       ['Quickest job', (a,b) => ((a.time_hours||{}).low||99) - ((b.time_hours||{}).low||99)],
