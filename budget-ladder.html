@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>(function(){try{var t=localStorage.getItem('tm-theme')==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-639VVRC92N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-639VVRC92N');
+  </script>
+<meta charset="utf-8">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="https://trailmanual.com/budget-ladder.html">
+<title>Budget Ladder — what to buy next on your rig</title>
+<meta name="description" content="What to buy next on your rig, and the best build at any budget. Every rung links to its guide, and upgrades replace what they supersede in the running total.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Budget Ladder: what to buy next on your rig","description":"The best build at any budget, in the order that matters most per dollar.","author":{"@type":"Organization","name":"Trail Manual"},"publisher":{"@type":"Organization","name":"Trail Manual","url":"https://trailmanual.com/"},"datePublished":"2026-10-30","dateModified":"2026-10-30","mainEntityOfPage":"https://trailmanual.com/budget-ladder.html"}
+</script>
+<style>
+  .bl-main{max-width:960px;margin:0 auto;padding:28px 20px 80px}
+  .bl-eyebrow{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay)}
+  .bl-main h1{font-weight:500;letter-spacing:-.02em;font-size:clamp(30px,4.6vw,44px);line-height:1.12;margin:10px 0 14px}
+  .bl-lede{font-size:18px;color:var(--text-dim);max-width:68ch;margin:0 0 20px}
+  .bl-picker{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+  .bl-picker a{padding:7px 14px;border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:14px;text-decoration:none}
+  .bl-picker a[aria-current="true"]{background:var(--clay);border-color:var(--clay);color:var(--paper)}
+  .bl-rig h2{font-size:28px;font-weight:600;letter-spacing:-.015em;margin:28px 0 10px}
+  .bl-jumps{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 20px}
+  .bl-jump{font-family:var(--font-mono);font-size:12px;padding:5px 10px;border:1px solid var(--border);border-radius:var(--radius);color:var(--text-dim);text-decoration:none}
+  .bl-jump:hover{border-color:var(--clay);color:var(--text)}
+  .bl-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:28px;align-items:start}
+  .bl-readout{position:sticky;top:84px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-lg);padding:16px}
+  .bl-readout-label{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim)}
+  .bl-readout-usd{font-family:var(--font-mono);font-size:32px;font-weight:500;margin:6px 0;color:var(--text)}
+  .bl-readout-title{font-size:13px;color:var(--text-dim);line-height:1.45}
+  .bl-rungs{list-style:none;margin:0;padding:0}
+  .bl-rung{display:grid;grid-template-columns:84px minmax(0,1fr);gap:14px;padding:16px 0;border-bottom:1px solid var(--border);scroll-margin-top:90px}
+  .bl-mark{font-family:var(--font-mono);font-size:15px;font-weight:500;color:var(--clay);padding-top:2px}
+  .bl-slot{font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px}
+  .bl-rung h3{font-size:17px;font-weight:500;margin:0 0 4px;line-height:1.35}
+  .bl-rung h3 a{color:var(--text);text-decoration:none}
+  .bl-rung h3 a:hover{color:var(--clay)}
+  .bl-note{font-size:14px;color:var(--text-dim);margin:0;line-height:1.5}
+  .bl-replaced-note{font-size:13px;color:var(--text-mute);margin:6px 0 0}
+  .bl-rung.bl-is-current .bl-mark{color:var(--text)}
+  .bl-rung.bl-collapsed{padding:6px 0}
+  .bl-rung.bl-collapsed .bl-detail,.bl-rung.bl-collapsed .bl-slot{display:none}
+  .bl-rung.bl-collapsed .bl-mark{color:var(--text-mute);text-decoration:line-through;font-size:13px}
+  .bl-rung.bl-collapsed .bl-replaced-note{margin:0}
+  .bl-foot{font-size:14px;color:var(--text-dim);border-top:1px solid var(--border);margin-top:32px;padding-top:14px;max-width:72ch}
+  @media(max-width:760px){
+    .bl-layout{grid-template-columns:minmax(0,1fr);gap:12px}
+    .bl-readout{top:64px;z-index:5;padding:10px 14px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+    .bl-readout-label{display:none}
+    .bl-readout-usd{font-size:22px;margin:0}
+  }
+</style>
+</head>
+<body>
+<!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<header class="tm-topbar" id="tm-topbar">
+  <div class="tm-topbar-inner">
+    <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
+    <!--TM:CHIP-->
+    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <div class="tm-nav-menu" id="tm-nav-menu">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
+      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/">Trails</a>
+      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+      <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    </div>
+  </div>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
+      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
+      <a class="tm-dd-link" href="/budget-ladder.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg></div><div><strong>Budget Ladder</strong><span>What to buy next</span></div></a>
+      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
+      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
+    </div>
+  </div></div>
+<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/cj5/"><strong>CJ-5</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator/"><strong>Gladiator JT</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wk/"><strong>Grand Cherokee WK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/wj/"><strong>Grand Cherokee WJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/zj/"><strong>Grand Cherokee ZJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl/"><strong>Wrangler JL</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk/"><strong>Wrangler JK</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj/"><strong>Wrangler TJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/lj/"><strong>Wrangler LJ</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/yj/"><strong>Wrangler YJ</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ford</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco/"><strong>Bronco (Early)</strong></a>
+      <!-- HIDDEN pending full build (see VEHICLE_LAUNCH_STATUS.md / build.py "hidden" flag).
+           Non-Jeep platforms below are Early-stage (<10% of launch bar) and are removed from
+           public nav/listings; their landing pages and shards still exist. Restore when built.
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g/"><strong>Bronco (6th Gen)</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco-ii/"><strong>Bronco II</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
+      -->
+      <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/4runner/"><strong>4Runner</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tacoma/"><strong>Tacoma</strong></a>
+    </div>
+    <!-- HIDDEN pending full build: Nissan Pathfinder is Early-stage (non-Jeep, not fully built).
+         Column removed from public nav; landing page/shard still exist. Restore when built.
+    <div class="tm-dd-col"><div class="tm-dd-label">Nissan</div>
+    </div>
+    -->
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
+      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
+      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
+      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
+      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
+    </div>
+  </div></div>
+</header>
+<script src="/_nav.js"></script>
+<!-- TM:HEADER:END -->
+
+<main class="bl-main">
+  <div class="bl-eyebrow">Tools · Budget Ladder</div>
+  <h1>What to buy next, and the best build at any budget</h1>
+  <p class="bl-lede">Each rung is the next purchase that matters most per dollar. The dollar mark is what the whole build costs if you go straight to that rung, because an upgrade replaces what it supersedes.</p>
+  <nav class="bl-picker" aria-label="Choose a rig"><a href="#xj" data-vid="xj">Jeep Cherokee XJ</a></nav>
+  <section class="bl-rig" id="xj" data-vid="xj"><h2>Jeep Cherokee XJ</h2><nav class="bl-jumps" aria-label="Best build at a budget"><a class="bl-jump" href="#xj-1000">Under $1,000</a><a class="bl-jump" href="#xj-3000">Under $3,000</a><a class="bl-jump" href="#xj-5000">Under $5,000</a><a class="bl-jump" href="#xj-10000">Under $10,000</a><a class="bl-jump" href="#xj-20000">Under $20,000</a></nav><div class="bl-layout"><aside class="bl-readout" aria-hidden="true"><div class="bl-readout-label">The build so far</div><div class="bl-readout-usd">$0</div><div class="bl-readout-title"></div></aside><ol class="bl-rungs"><li class="bl-rung" id="xj-r1" data-order="1" data-mark="200" data-replaced-at="7"><div class="bl-mark">$200</div><div class="bl-body"><div class="bl-slot">Lift · $200</div><div class="bl-detail"><h3><a href="/db/xj/susp-budget-boost-2in/">2&quot; Budget Boost (Coil Spacers + Add-a-Leaf)</a></h3><p class="bl-note">Coil spacers and an add-a-leaf, about 2 inches.</p></div><p class="bl-replaced-note">Replaced by Rough Country 4.5&quot; Short Arm Lift at $2,900</p></div></li><li class="bl-rung" id="xj-r2" data-order="2" data-mark="600" data-replaced-at="16"><div class="bl-mark">$600</div><div class="bl-body"><div class="bl-slot">Wheels · $400</div><div class="bl-detail"><h3><a href="/db/xj/xj-budget-steel-wheels/">Budget Steel and Alloy Wheels for the XJ — 15&quot; and 16&quot; Options</a></h3><p class="bl-note">Five 15x8 steel wheels with 3.75-inch backspacing.</p></div><p class="bl-replaced-note">Replaced by Budget Steel and Alloy Wheels for the XJ — 15&quot; and 16&quot; Options at $9,900</p></div></li><li class="bl-rung" id="xj-r3" data-order="3" data-mark="1600" data-replaced-at="8"><div class="bl-mark">$1,600</div><div class="bl-body"><div class="bl-slot">Tires · $1,000</div><div class="bl-detail"><h3><a href="/db/xj/wt-falken-wildpeak/">Falken Wildpeak A/T3W</a></h3><p class="bl-note">Five 31x10.50R15 all-terrains, the classic fit on a 2-inch lift.</p></div><p class="bl-replaced-note">Replaced by Falken Wildpeak A/T3W at $3,250</p></div></li><li class="bl-rung" id="xj-r4" data-order="4" data-mark="1900"><div class="bl-mark">$1,900</div><div class="bl-body"><div class="bl-slot">Front bumper · $300</div><div class="bl-detail"><h3><a href="/db/xj/armor-front-bumper/">Front Bumper (Winch-Ready)</a></h3><p class="bl-note">Steel and winch-ready, with shackle mounts.</p></div></div></li><li class="bl-rung" id="xj-r5" data-order="5" data-mark="2150"><div class="bl-mark">$2,150</div><div class="bl-body"><div class="bl-slot">Sliders · $250</div><div class="bl-detail"><h3><a href="/db/xj/armor-rock-sliders/">Rock Sliders and Rocker Guards — Tube vs. Plate, and How They Mount</a></h3></div></div></li><li class="bl-rung" id="xj-r6" data-order="6" data-mark="2300"><div class="bl-mark">$2,300</div><div class="bl-body"><div class="bl-slot">Tie rod · $150</div><div class="bl-detail"><h3><a href="/db/xj/steer-hd-tie-rod/">Heavy Duty Tie Rod</a></h3><p class="bl-note">The stock tie rod bends once you add tire.</p></div></div></li><li class="bl-rung" id="xj-r7" data-order="7" data-mark="2900" data-replaced-at="13"><div class="bl-mark">$2,900</div><div class="bl-body"><div class="bl-slot">Lift · $800</div><div class="bl-detail"><h3><a href="/db/xj/susp-rc-45-shortarm/">Rough Country 4.5&quot; Short Arm Lift</a></h3><p class="bl-note">Full 4.5-inch kit with coils, rear leaf pack and shocks.</p></div><p class="bl-replaced-note">Replaced by Rubicon Express Long Arm Kit at $8,550</p></div></li><li class="bl-rung" id="xj-r8" data-order="8" data-mark="3250" data-replaced-at="15"><div class="bl-mark">$3,250</div><div class="bl-body"><div class="bl-slot">Tires · $1,350</div><div class="bl-detail"><h3><a href="/db/xj/wt-falken-wildpeak/">Falken Wildpeak A/T3W</a></h3><p class="bl-note">Five 33x12.50R15. Needs fender trim or high-clearance flares, plus bumpstop extensions.</p></div><p class="bl-replaced-note">Replaced by Toyo Open Country M/T at $9,600</p></div></li><li class="bl-rung" id="xj-r9" data-order="9" data-mark="3500"><div class="bl-mark">$3,500</div><div class="bl-body"><div class="bl-slot">Drag link · $250</div><div class="bl-detail"><h3><a href="/db/xj/steer-hd-drag-link/">Heavy Duty Drag Link</a></h3></div></div></li><li class="bl-rung" id="xj-r10" data-order="10" data-mark="3900"><div class="bl-mark">$3,900</div><div class="bl-body"><div class="bl-slot">Slip yoke eliminator · $400</div><div class="bl-detail"><h3><a href="/db/xj/tcase-sye/">Slip Yoke Eliminator (SYE) — Hack-N-Tap vs Full Kit</a></h3><p class="bl-note">A must-do on a lifted XJ with the NP231.</p></div></div></li><li class="bl-rung" id="xj-r11" data-order="11" data-mark="4950"><div class="bl-mark">$4,950</div><div class="bl-body"><div class="bl-slot">Rear axle · $1,050</div><div class="bl-detail"><h3><a href="/db/xj/axle-88-swap/">Ford 8.8 Explorer Rear Axle Swap (Full Guide)</a></h3><p class="bl-note">Swap at 33s and before regearing, or you buy Dana 35 gears twice. These axles often come with a limited slip.</p></div></div></li><li class="bl-rung" id="xj-r12" data-order="12" data-mark="5850"><div class="bl-mark">$5,850</div><div class="bl-body"><div class="bl-slot">Rear bumper · $900</div><div class="bl-detail"><h3><a href="/db/xj/armor-rear-bumper/">Rear Bumper with Tire Carrier</a></h3><p class="bl-note">With a tire carrier: a spare past 31 inches won&#x27;t fit the factory spot.</p></div></div></li><li class="bl-rung" id="xj-r13" data-order="13" data-mark="8550"><div class="bl-mark">$8,550</div><div class="bl-body"><div class="bl-slot">Lift · $3,500</div><div class="bl-detail"><h3><a href="/db/xj/susp-re-longarm/">Rubicon Express Long Arm Kit</a></h3><p class="bl-note">Complete long arm kit, the height 35s need.</p></div></div></li><li class="bl-rung" id="xj-r14" data-order="14" data-mark="9200"><div class="bl-mark">$9,200</div><div class="bl-body"><div class="bl-slot">Crossover steering · $650</div><div class="bl-detail"><h3><a href="/db/xj/steer-crossover-conversion/">Crossover Steering (High Steer) Conversion</a></h3><p class="bl-note">35s call for one-ton steering up front.</p></div></div></li><li class="bl-rung" id="xj-r15" data-order="15" data-mark="9600" data-replaced-at="23"><div class="bl-mark">$9,600</div><div class="bl-body"><div class="bl-slot">Tires · $1,750</div><div class="bl-detail"><h3><a href="/db/xj/wt-toyo-open-country-mt/">Toyo Open Country M/T</a></h3><p class="bl-note">Five 35s. Needs a fender cut or flare swap.</p></div><p class="bl-replaced-note">Replaced by Tire size guide vs. lift height (XJ) at $19,800</p></div></li><li class="bl-rung" id="xj-r16" data-order="16" data-mark="9900"><div class="bl-mark">$9,900</div><div class="bl-body"><div class="bl-slot">Wheels · $700</div><div class="bl-detail"><h3><a href="/db/xj/xj-budget-steel-wheels/">Budget Steel and Alloy Wheels for the XJ — 15&quot; and 16&quot; Options</a></h3><p class="bl-note">Five alloy wheels at the same backspacing.</p></div></div></li><li class="bl-rung" id="xj-r17" data-order="17" data-mark="12150"><div class="bl-mark">$12,150</div><div class="bl-body"><div class="bl-slot">Regear · $2,250</div><div class="bl-detail"><h3><a href="/db/xj/gear-regear-cost/">Regearing Cost Overview</a></h3><p class="bl-note">Both axles, installed.</p></div></div></li><li class="bl-rung" id="xj-r18" data-order="18" data-mark="13050"><div class="bl-mark">$13,050</div><div class="bl-body"><div class="bl-slot">Front locker · $900</div><div class="bl-detail"><h3><a href="/db/xj/dana30-locker/">Dana 30 Front Axle Locker Options</a></h3><p class="bl-note">The single biggest traction upgrade on the front Dana 30.</p></div></div></li><li class="bl-rung" id="xj-r19" data-order="19" data-mark="13750"><div class="bl-mark">$13,750</div><div class="bl-body"><div class="bl-slot">Belly skid · $700</div><div class="bl-detail"><h3><a href="/db/xj/armor-belly-up/">XJ Belly Skid Plate Options — Bolt-On Skids vs. Belly-Up Crossmember Systems</a></h3></div></div></li><li class="bl-rung" id="xj-r20" data-order="20" data-mark="13900"><div class="bl-mark">$13,900</div><div class="bl-body"><div class="bl-slot">Engine skid · $150</div><div class="bl-detail"><h3><a href="/db/xj/armor-engine-skid/">Engine / Oil Pan Skid Plate</a></h3></div></div></li><li class="bl-rung" id="xj-r21" data-order="21" data-mark="14300"><div class="bl-mark">$14,300</div><div class="bl-body"><div class="bl-slot">Tank skid · $400</div><div class="bl-detail"><h3><a href="/db/xj/armor-gas-tank-skid/">XJ Gas Tank Skid Plate — Options, Nut Strips, and Install</a></h3></div></div></li><li class="bl-rung" id="xj-r22" data-order="22" data-mark="19050"><div class="bl-mark">$19,050</div><div class="bl-body"><div class="bl-slot">Front axle · $4,750</div><div class="bl-detail"><h3><a href="/db/xj/axle-d44-front/">Dana 44 Front Swap (JK Rubicon, WJ HD, Ten Factory)</a></h3><p class="bl-note">A stronger front axle before you go past 35s.</p></div></div></li><li class="bl-rung" id="xj-r23" data-order="23" data-mark="19800"><div class="bl-mark">$19,800</div><div class="bl-body"><div class="bl-slot">Tires · $2,500</div><div class="bl-detail"><h3><a href="/db/xj/wt-tire-size-guide/">Tire size guide vs. lift height (XJ)</a></h3><p class="bl-note">Estimate for five 37s. Needs SOA height and enters axle-swap territory.</p></div></div></li><li class="bl-rung" id="xj-r24" data-order="24" data-mark="19950"><div class="bl-mark">$19,950</div><div class="bl-body"><div class="bl-slot">Front recovery · $150</div><div class="bl-detail"><h3><a href="/db/xj/rec-front-shackle-mounts/">Front recovery shackle mounts (not tow hooks)</a></h3></div></div></li><li class="bl-rung" id="xj-r25" data-order="25" data-mark="20150"><div class="bl-mark">$20,150</div><div class="bl-body"><div class="bl-slot">Rear recovery · $200</div><div class="bl-detail"><h3><a href="/db/xj/rec-rear-recovery-point/">Rear recovery point — receiver hitch as anchor</a></h3></div></div></li><li class="bl-rung" id="xj-r26" data-order="26" data-mark="21450"><div class="bl-mark">$21,450</div><div class="bl-body"><div class="bl-slot">Winch · $1,300</div><div class="bl-detail"><h3><a href="/db/xj/rec-winch-10k/">10,000 lb winch — built XJ standard</a></h3><p class="bl-note">The built-XJ standard for steel armor and big tires.</p></div></div></li><li class="bl-rung" id="xj-r27" data-order="27" data-mark="21950"><div class="bl-mark">$21,950</div><div class="bl-body"><div class="bl-slot">Cooling · $500</div><div class="bl-detail"><h3><a href="/db/xj/cool-radiator-upgrade/">Aftermarket Radiator (Mishimoto / CSF 3-row)</a></h3></div></div></li><li class="bl-rung" id="xj-r28" data-order="28" data-mark="31950"><div class="bl-mark">$31,950</div><div class="bl-body"><div class="bl-slot">Engine · $10,000</div><div class="bl-detail"><h3><a href="/db/xj/eng-stroker-46/">4.6L Stroker Build Overview</a></h3><p class="bl-note">The last rung: more power once everything else can take it.</p></div></div></li></ol></div></section>
+  <p class="bl-foot">Prices are typical parts costs from each linked guide, and tire and wheel rungs are priced as a set of five. Labor, tax and shipping aren't included. Written and maintained by an AZ wheeler and driveway wrencher. Last reviewed <time datetime="2026-10-30">October 30, 2026</time>.</p>
+</main>
+
+<!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div>
+      <div class="tm-brand" style="margin-bottom:12px">
+        <div class="tm-brand-mark"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" fill="none" stroke="currentColor" stroke-width="3"/><path d="M10 48 L22 32 L30 40 L44 22 L54 32" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 54 L24 38 L32 46 L46 28 L54 38" fill="none" stroke="#C97E50" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        <div>
+          <span class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</span>
+          <div class="tm-brand-sub">trailmanual.com</div>
+        </div>
+      </div>
+      <p style="color:var(--text-dim);font-size:13px;max-width:260px;margin:0;line-height:1.6">
+        Free, honest DIY guides for off-road vehicle owners, built on real feedback from people who’ve done the work.
+      </p>
+    </div>
+    <div>
+      <h4>Tools</h4>
+      <a href="/build/">Rig Builder</a>
+      <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
+      <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
+      <a href="/db/">DIY Database</a>
+      <a href="/tools/">All tools &rarr;</a>
+    </div>
+    <div>
+      <h4>Learn</h4>
+      <a href="/db/">Vehicle Guides</a>
+      <a href="/trails/">Trails</a>
+      <a href="/workshop/">Workshop</a>
+      <a href="/guides/">Repair Guides</a>
+      <a href="/blog/">Blog</a>
+    </div>
+    <div>
+      <h4>About</h4>
+      <a href="/about/">About Trail Manual</a>
+      <a href="/about/#sources">Sources &amp; method</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </div>
+  </div>
+  <div class="disclaimer">
+    Modifications affect vehicle safety and warranty — work at your own risk. Always cross-reference with your factory service manual. © Trail Manual, 2026.
+  </div>
+</footer>
+<!-- TM:FOOTER:END -->
+<script>
+(function () {
+  'use strict';
+  var rigs = [].slice.call(document.querySelectorAll('.bl-rig'));
+  var picks = [].slice.call(document.querySelectorAll('.bl-picker a'));
+  var active = null;
+
+  function rungsOf(rig) { return [].slice.call(rig.querySelectorAll('.bl-rung')); }
+
+  function selectRig(vid) {
+    active = rigs.filter(function (r) { return r.dataset.vid === vid; })[0] || rigs[0];
+    rigs.forEach(function (r) { r.hidden = r !== active; });
+    picks.forEach(function (a) { a.setAttribute('aria-current', a.dataset.vid === active.dataset.vid ? 'true' : 'false'); });
+  }
+
+  // Current rung = the last one whose top has passed the reading line.
+  function currentRung() {
+    var line = window.innerHeight * 0.4, cur = null;
+    rungsOf(active).forEach(function (el) { if (el.getBoundingClientRect().top <= line) cur = el; });
+    return cur;
+  }
+
+  function apply(cur) {
+    var order = cur ? +cur.dataset.order : 0;
+    var usd = active.querySelector('.bl-readout-usd'), title = active.querySelector('.bl-readout-title');
+    usd.textContent = '$' + (cur ? +cur.dataset.mark : 0).toLocaleString();
+    var link = cur && cur.querySelector('h3 a');
+    title.textContent = link ? link.textContent : '';
+    rungsOf(active).forEach(function (el) {
+      el.classList.toggle('bl-is-current', el === cur);
+      var at = el.dataset.replacedAt;
+      el.classList.toggle('bl-collapsed', !!at && order >= +at);
+    });
+  }
+
+  // Collapsing rungs above the reading line moves the page; hold the current rung still.
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      var cur = currentRung();
+      var before = cur ? cur.getBoundingClientRect().top : 0;
+      apply(cur);
+      if (cur) {
+        var delta = cur.getBoundingClientRect().top - before;
+        if (delta) window.scrollBy(0, delta);
+      }
+    });
+  }
+
+  // #xj selects a rig; #xj-3000 scrolls to the last rung at or under $3,000.
+  function route() {
+    var m = (location.hash || '').match(/^#([a-z0-9-]+?)(?:-(\d+))?$/);
+    if (!m) { selectRig(rigs[0].dataset.vid); apply(null); return; }
+    selectRig(m[1]);
+    if (!m[2]) { apply(null); return; }
+    var limit = +m[2], target = null;
+    rungsOf(active).forEach(function (el) { if (+el.dataset.mark <= limit) target = el; });
+    if (target) {
+      apply(target);
+      // Land just above the reading line, so the scroll handler agrees this is the current rung.
+      window.scrollTo(0, window.scrollY + target.getBoundingClientRect().top - window.innerHeight * 0.38);
+      apply(target);
+    }
+  }
+
+  window.addEventListener('hashchange', route);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  route();
+})();
+</script>
+</body>
+</html>
