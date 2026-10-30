@@ -1768,6 +1768,15 @@
     setTimeout(()=>input.focus(), 50);
   }
 
+  // Vehicles whose trims ship with different hardware. Entries list the trims they don't apply to in trims_not_for.
+  const BUILDER_TRIMS = {
+    jl: [['sport','Sport / Sport S'],['sahara','Sahara / High Altitude'],['willys','Willys'],['rubicon','Rubicon'],['392','Rubicon 392']],
+    jk: [['sport','Sport'],['sahara','Sahara'],['rubicon','Rubicon']],
+    tj: [['base','SE / Sport / Sahara'],['rubicon','Rubicon']],
+    gladiator: [['sport','Sport / Overland'],['willys','Willys'],['mojave','Mojave'],['rubicon','Rubicon']],
+    '4runner': [['sr5','SR5 / TRD Sport'],['trail','Trail / TRD Off-Road'],['pro','TRD Pro']]
+  };
+
   // ---- BUILDER ----
   function renderBuilder(app, vid) {
     const entries = getEntries(vid);
@@ -1775,12 +1784,26 @@
     const VALID_TIERS = new Set(['daily_driver','mild_trail','moderate_trail','rock_crawler']);
     const initialTier = VALID_TIERS.has(urlTier) ? urlTier : '';
     const initialOverland = urlTier === 'overland';
-    const state = { tier: initialTier, budget: 5000, experience: 2, style: 'balanced', overrides: {}, overland: initialOverland };
+    const trims = BUILDER_TRIMS[vid] || null;
+    const urlTrim = (new URLSearchParams((location.hash.split('?')[1])||'')).get('trim') || '';
+    const initialTrim = trims && trims.some(t => t[0] === urlTrim) ? urlTrim : '';
+    const state = { tier: initialTier, trim: initialTrim, budget: 5000, experience: 2, style: 'balanced', overrides: {}, overland: initialOverland };
 
     const wrap = el('div', {});
     wrap.appendChild(el('h2', {}, 'Rig Builder'));
     wrap.appendChild(el('p', {style:'color:var(--text-dim);margin:0 0 18px;max-width:680px'},
       'Pick your goal, set a budget, and the builder sequences an install plan from the database. Only new off-road parts are recommended — routine service and repair work lives in the maintenance section.'));
+
+    if (trims) {
+      const trimStep = el('div', {class:'builder-step'}, el('h3',{},'Which trim do you have?'),
+        el('div', {style:'color:var(--text-dim);font-size:13px;margin-bottom:10px'}, 'Some trims already have parts this build would otherwise add. Pick yours and the builder leaves those out.'));
+      const trimRow = el('div', {style:'display:flex;gap:8px;flex-wrap:wrap'});
+      [['','Not sure']].concat(trims).forEach(([id,lbl]) => {
+        const chip = el('div', {class:'filter-chip'+(state.trim===id?' active':''), on:{click:()=>{ state.trim=id; state.overrides={}; trimRow.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active'); compute(); }}}, lbl);
+        trimRow.appendChild(chip);
+      });
+      trimStep.appendChild(trimRow); wrap.appendChild(trimStep);
+    }
 
     const step1 = el('div', {class:'builder-step'}, el('h3',{},'Step 1 — Pick your build goal'));
     const tg = el('div', {class:'grid-tiers'});
@@ -1842,6 +1865,7 @@
         el('span', {class:'cost'}, moneyRange(e.cost_usd))
       );
       row.appendChild(head);
+      if (trims && !state.trim && e.trim_note) row.appendChild(el('div', {style:'color:var(--text-dim);font-size:12px;margin:2px 0 4px'}, 'Skip if it applies to you: ' + e.trim_note));
       const meta = el('div', {class:'item-meta'},
         el('span', {class:'item-slot'}, SLOT_LABELS[se.slot] || se.slot.replace(/_/g,' '))
       );
@@ -1882,11 +1906,13 @@
       // When overland is on, also include entries qualified for 'overland' tier IF
       // their slot is in OVERLAND_AUGMENT_WEIGHTS (tent/awning/fridge/tire-carrier/etc.).
       // This prevents overland from bleeding moderate-tier shocks/lifts into a daily build.
-      const basePool = entries.filter(e => isInstallEntry(e, state.tier, diffCap));
+      const notThisTrim = e => !!state.trim && (e.trims_not_for||[]).includes(state.trim);
+      const basePool = entries.filter(e => isInstallEntry(e, state.tier, diffCap) && !notThisTrim(e));
+      const skipped = entries.filter(e => notThisTrim(e) && isInstallEntry(e, state.tier, diffCap));
       let pool = basePool;
       if (state.overland) {
         const baseIds = new Set(basePool.map(e => e.id));
-        const augPool = entries.filter(e => isInstallEntry(e, 'overland', diffCap) && OVERLAND_AUGMENT_WEIGHTS[slotKey(e)] !== undefined && !baseIds.has(e.id));
+        const augPool = entries.filter(e => isInstallEntry(e, 'overland', diffCap) && OVERLAND_AUGMENT_WEIGHTS[slotKey(e)] !== undefined && !baseIds.has(e.id) && !notThisTrim(e));
         pool = basePool.concat(augPool);
       }
       const slots = new Map();
@@ -1943,6 +1969,11 @@
         el('div', {style:`width:${progressFill}%;height:100%;background:${total > state.budget ? 'var(--danger)' : 'var(--accent)'};transition:width .2s`})));
       if (total > state.budget) {
         summary.appendChild(el('div', {style:'color:var(--danger);font-size:11px;margin-top:8px'}, 'Foundation slots kept — over budget by $' + Math.round(total - state.budget).toLocaleString()));
+      }
+      if (skipped.length) {
+        summary.appendChild(el('hr', {class:'sep'}));
+        summary.appendChild(el('div', {style:'font-size:12px;color:var(--text-mute);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px'}, 'Left out for your trim'));
+        [...new Set(skipped.map(e => e.trim_note).filter(Boolean))].forEach(n => summary.appendChild(el('div', {style:'font-size:12px;color:var(--text-dim);margin-bottom:4px'}, n)));
       }
       if (Object.keys(state.overrides).length) {
         summary.appendChild(el('hr', {class:'sep'}));
