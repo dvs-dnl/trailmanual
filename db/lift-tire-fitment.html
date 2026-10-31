@@ -630,7 +630,7 @@ const VEHICLES = {
     suspension: "Coil springs front, leaf springs rear — solid axle both ends",
     stockTire: '255/70R18 (31.1") Sport / 285/70R17 (33.0") Rubicon',
     stockGear: "3.73:1 (most) or 4.10:1 (Rubicon)",
-    note: "The Gladiator shares its front suspension with the JL but runs leaf springs in the rear. The 137.3\" wheelbase (vs. JL's 118.4\" for 4-door) actually helps tire clearance — a longer wheelbase means less chassis roll and more side clearance at full droop. The rear leaf springs limit axle articulation but also simplify tire fitment in the back. Rear tire fitment generally follows JL rules.",
+    note: "The Gladiator shares its front suspension with the JL but runs its own five-link coil rear. The 137.3\" wheelbase (vs. JL's 118.4\" for 4-door) actually helps tire clearance — a longer wheelbase means less chassis roll and more side clearance at full droop. Rear tire fitment generally follows JL rules.",
     citations: ["GladiatorForum.com Tire Fitment Thread", "JeepForum JT Tech Notes", "TeraFlex JT Lift Product Notes"],
     rows: [
       {
@@ -640,7 +640,7 @@ const VEHICLES = {
         alt: { size: '255/70R18', metric: '31.1"' },
         status: "clean",
         gear: "3.73:1",
-        note: "Same as JL: Sport ships at 31\", Rubicon and Mojave at 33\". A 285/70R17 fits all Gladiator trims at stock height with no rubbing. The rear leaf spring setup means no rear articulation concern at stock height."
+        note: "Same as JL: Sport ships at 31\", Rubicon and Mojave at 33\". A 285/70R17 fits all Gladiator trims at stock height with no rubbing."
       },
       {
         lift: "+1.5\"",
@@ -653,12 +653,12 @@ const VEHICLES = {
       },
       {
         lift: "+3\"",
-        liftSub: "Short-arm front + leaf pack rear (JT-specific kits)",
+        liftSub: "Short-arm front + JT-listed rear coils (JT-specific kits)",
         primary: { size: '35×12.50R17', metric: '35.0"' },
         alt: { size: '315/70R17', metric: '34.4"' },
         status: "clean",
         gear: "4.56:1 recommended",
-        note: "35s fit cleanly at 3\" on the Gladiator. JT-specific lift kits (TeraFlex, Rough Country JT, EVO) include rear leaf pack upgrades to keep the truck level. Front clearance mirrors the JL; rear clearance is slightly better due to wheelbase. 35s are the dominant choice at this height."
+        note: "35s fit cleanly at 3\" on the Gladiator. JT-specific lift kits (TeraFlex, Rough Country JT, EVO) include JT-listed rear springs or spacers to keep the truck level. Front clearance mirrors the JL; rear clearance is slightly better due to wheelbase. 35s are the dominant choice at this height."
       },
       {
         lift: "+4.5\"",
@@ -1283,7 +1283,7 @@ const TRIM_OVERRIDES = {
     "+6\"":   { fender: "37s require flat or tube fenders and metal trimming. 35s clear a 6\" JK with liner trimming only — don't over-cut.", bumpstop: "2\"+ extensions front and rear; set them at full stuff with the sway bar disconnected." }
   },
   gladiator: {
-    "+4.5\"": { fender: "37s on a JT need the front liner trimmed and the rear bed-side flare area relieved — the long wheelbase helps, but the leaf-sprung rear sits the tire close.", bumpstop: "1.5\" front extensions plus rear bumpstop spacers sized to the leaf lift; rear axle wrap on leaves changes the geometry." },
+    "+4.5\"": { fender: "37s on a JT need the front liner trimmed and the rear bed-side flare area relieved — the long wheelbase helps, but the rear tire still sits close.", bumpstop: "1.5\" front extensions plus rear bumpstop spacers sized to the rear lift." },
     "+6\"":   { fender: "37s+ want high-clearance flares front and rear; budget metal work at the bed corners.", bumpstop: "2\" front extensions and matched rear spacers; confirm driveshaft angle on the longer JT rear shaft at full stuff." }
   },
   runner5g: {
