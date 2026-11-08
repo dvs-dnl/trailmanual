@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,15 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jl/">Jeep Wrangler JL</a> / <a href="/db/#/jl/category/steering">Steering</a></nav>
   <h1>Alignment After Lift — JL-Specific Specs</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$100–180</span><span class="tm-fact">2018-2023, 2024-2026</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$100–180</span><span class="tm-fact">2018-2023, 2024-2026</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A 2&quot;+ lift on a JL drops caster below the 4° safety floor; you need adjustable lower control arms to bring it back to 4.5°–5.5° or the front end will wander at highway speed.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JL runs more positive caster from the factory than the JK did — <a href="https://www.jlwranglerforums.com/forum/threads/jl-wrangler-wheel-alignment-specs-toe-caster-camber.17832/" target="_blank" rel="noopener">Sport models target 5.35°, Sahara 5.05°, Rubicon 4.80°</a>, with toe at 0.20° ± 0.15° total and camber at -0.25°. That extra caster is what makes the JL feel less twitchy than the JK at highway speed. The problem: lift kits rotate the axle pinion up, and on a solid-axle Jeep that means caster goes down by roughly 1° per inch of lift. Two inches of lift and you&#x27;re at 3°–4° caster, below the Jeep service manual&#x27;s 4.0° minimum. That&#x27;s when the wandering and floaty steering complaints start.</p>
 <p>What can and can&#x27;t be adjusted: toe is the only spec you can change with stock parts — loosen the tie rod adjuster sleeve clamps, rotate the sleeve, retighten. Camber on a solid axle is fixed by the axle housing; there is no adjustment. Caster requires changing the angle of the axle, which means adjustable lower control arms (cheapest path) or adjustable upper and lower arms (best path for big lifts). The lowers reposition the axle fore-aft; the uppers rotate the pinion. With lowers you can claw back about 2°–3° of caster. With both, you can fully restore stock geometry.</p>
 <p>Target settings for a lifted JL: caster 4.5°–5.5°, total toe 0.15°–0.20° toe-in, camber whatever the axle gives (don&#x27;t worry about it). Higher caster up to 6° feels tighter but eats tires faster and adds steering effort. Below 4° you risk wander and death-wobble vulnerability.</p>
 <p><a href="https://www.wayalife.com/threads/write-up-basic-diy-jeep-jl-wrangler-front-end-alignment.56571/" target="_blank" rel="noopener">The tape-measure toe check works at home</a>: roll the Jeep forward 6 feet to settle the suspension, measure between the front of the tires at hub height, then between the rear of the tires at the same height. The front number should be 1/16&quot; to 1/8&quot; smaller than the rear. Adjust the tie rod sleeve to dial it in. A proper alignment shop will charge $100–$140 to do this with a rack and verify caster, which is worth doing after any lift.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Confirm the lift is fully installed, all control arm bolts torqued at ride height.</li><li>Drive the Jeep 20–50 miles to settle bushings.</li><li>Bring to alignment shop with a printout of target specs (caster 4.5°–5.5°, total toe 0.15°–0.20° toe-in).</li><li>If caster is below 4°, do not road-test at highway speed — install adjustable lower control arms first.</li><li>With adjustable uppers, shorten them to add caster. <a href="https://www.wayalife.com/threads/caster.66205" target="_blank" rel="noopener">WAYALIFE&#x27;s caster thread</a> recommends the uppers for this, because the lowers set the axle&#x27;s fore-aft position.</li><li>With adjustable lowers, lengthen them only a little for caster. Too much and the axle bump pads can miss the bump stops at full compression, per the same thread.</li><li>Have shop re-measure after each adjustment.</li><li>Set total toe to 0.15°–0.20° toe-in (about 1/16&quot; to 1/8&quot; on a tape).</li><li>Center the steering wheel by adjusting equal turns on each tie rod end.</li><li>Test drive — straight steering, no pull, no wander at 65 mph.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores correct caster after a lift</li><li>Eliminates highway wander</li><li>Reduces death wobble risk by keeping caster above 4°</li><li>Adjustable arms also re-center axle fore-aft</li></ul>
@@ -257,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.jlwranglerforums.com/forum/threads/jl-wrangler-wheel-alignment-specs-toe-caster-camber.17832/" target="_blank" rel="noopener">JL Wrangler Alignment Specs Discussion</a></li><li><a href="https://www.wayalife.com/threads/write-up-basic-diy-jeep-jl-wrangler-front-end-alignment.56571/" target="_blank" rel="noopener">Basic DIY JL Front End Alignment — WAYALIFE</a></li><li><a href="https://www.wayalife.com/threads/caster.66205" target="_blank" rel="noopener">Caster discussion — WAYALIFE</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Alignment%20After%20Lift%20%E2%80%94%20JL-Specific%20Specs">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

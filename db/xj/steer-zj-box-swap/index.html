@@ -155,6 +155,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -287,6 +298,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>ZJ / Durango Steering Box Swap</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–5 hrs</span><span class="tm-fact">$50–250</span><span class="tm-fact">1991-1995, 1996, 1997-2001</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>1993-1998 ZJ Grand Cherokee and 1998-2003 Dodge Durango steering boxes have larger internal sectors and bolt directly to XJ frames. The classic XJ steering upgrade — with two good donor options.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 1993-1998 Jeep Grand Cherokee (ZJ) used a larger Saginaw steering box with bigger internal sector, more output torque, and better feedback. The ZJ box <a href="https://naxja.org/threads/zj-box-swap.900789/" target="_blank" rel="noopener">bolts directly to the XJ frame using the stock mounting holes</a> and uses the same pitman arm splines as the XJ box. The result is much improved steering response, less play, and better wheel-return feel on lifted XJs running larger tires.</p>
 <p><strong>The Durango alternative:</strong> The 1998-2003 Dodge Durango used a similar Saginaw-based box that <a href="https://www.naxja.org/forum/showthread.php?t=93771" target="_blank" rel="noopener">also bolts into the XJ with no modifications</a>. The Durango box has a slightly larger piston cylinder (~1/4&quot; bigger than stock XJ) and a heavier duty case, resulting in more power assist and roughly 3 turns lock-to-lock vs. 3.5 on the stock box. The internals are similar to the ZJ unit — it&#x27;s not dramatically stronger, but it&#x27;s a valid donor and often cheaper or more manageable to find than a ZJ box in certain markets. One known caveat: some early Durango boxes have a raised flange on the cylinder cap that can limit full lock-to-lock travel when the front axle is flexed. If you lose steering range after the swap, remove the spacer inside the piston cylinder.</p>
@@ -306,7 +318,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://naxja.org/threads/zj-box-swap.900789/" target="_blank" rel="noopener">NAXJA ZJ box swap writeup</a></li><li><a href="https://www.naxja.org/forum/showthread.php?t=93771" target="_blank" rel="noopener">NAXJA Durango box swap thread</a></li><li><a href="https://www.cherokeeforum.com/f59/dodge-durango-steering-box-upgrade-101845/" target="_blank" rel="noopener">Cherokee Forum: Durango box upgrade</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/xj/steer-pitman-upgrade/">Drop Pitman Arm</a></li><li><a href="/db/xj/steer-crossover-conversion/">Crossover Steering (High Steer) Conversion</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20ZJ%20/%20Durango%20Steering%20Box%20Swap">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

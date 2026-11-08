@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,8 +246,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/steering">Steering</a></nav>
   <h1>Gladiator steering recalls: what NHTSA lists</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–2.0 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2020-2025</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–2.0 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2020-2025</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>NHTSA lists no intermediate steering shaft recall for the Gladiator. The steering recall that does cover the JT is <a href="https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=26V363000" target="_blank" rel="noopener">26V-363, filed in April 2026</a>: on certain 2021–2025 Wrangler, Wrangler 4xe and Gladiator trucks, the electric hydraulic power steering pump wiring may overheat and cause a fire, even when the truck is parked with the ignition off. Check your VIN, and until the repair is done, park outside and away from buildings as NHTSA advises.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <h3>What the Recall Covers</h3>
 <p>Recall 26V-363 (FCA number 21D) covers about 1.08 million 2021–2025 Wrangler, Wrangler 4xe and Gladiator trucks. The JT&#x27;s power steering is hydraulic, but its pump is electric, and the recall concerns that pump&#x27;s wiring. Dealers inspect and replace the wiring and the pump as needed, free of charge. NHTSA&#x27;s notice says VINs become searchable on June 11, 2026 and owner letters are expected from July 9, 2026, so a lookup before then can come back clean on an affected truck.</p>
@@ -261,7 +273,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Other Early-JT Campaigns Worth Checking at the Same Time</h3>
 <p>The NHTSA VIN tool returns every open campaign on the truck, so read the whole list while you&#x27;re there. On the 2020 list that includes the rear driveshaft campaign and, on six-speed manual trucks, the clutch pressure-plate campaigns that FCA issued across the JL/JT manual lineup. There is no frame recall; the <a href="/db/gladiator/frame-bend-towing-recall/">frame bend guide</a> covers what was actually reported. None of these cost the owner anything to remedy, and a truck carrying multiple open campaigns tells you something about how attentively it was owned.</p>
 <p>Keep the paper trail. When a dealer completes a recall, ask for the repair order and file it with the service records — a VIN lookup only shows that a recall is no longer open, not what was done or when, so the repair order is your proof, and a documented history is worth real money when you sell. If you&#x27;re the buyer instead, the same lookup costs nothing and takes two minutes; run it before you negotiate, not after.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Locate your VIN (driver&#x27;s door jamb sticker or dashboard through the windshield)</li><li>Go to nhtsa.gov/recalls and enter the VIN</li><li>Note whether 26V-363 or any other recall appears and whether the remedy has been completed</li><li>If open: contact a Stellantis/Jeep dealer and schedule the recall repair</li><li>While waiting for the 26V-363 repair, park outside and away from structures, as NHTSA advises</li><li>After repair completion: verify the dealer recorded the completed recall in your service history</li></ol>
 <h2>Why it works</h2>
 <ul><li>The recall repair is free — no cost to the owner</li><li>The 26V-363 repair replaces the wiring and pump as needed</li><li>Stellantis&#x27;s recall process is accessible and straightforward</li></ul>
@@ -273,7 +285,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=26V363000" target="_blank" rel="noopener">NHTSA Recall 26V-363 — electric hydraulic power steering pump wiring, 2021–2025 Wrangler and Gladiator</a></li><li><a href="https://api.nhtsa.gov/recalls/recallsByVehicle?make=JEEP&amp;model=GLADIATOR&amp;modelYear=2020" target="_blank" rel="noopener">NHTSA recalls by vehicle — 2020 Jeep Gladiator</a></li><li><a href="https://api.nhtsa.gov/recalls/campaignNumber?campaignNumber=18V343000" target="_blank" rel="noopener">NHTSA Recall 18V-343 — 2018 Wrangler intermediate steering shaft</a></li><li><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener">NHTSA recall lookup by VIN</a></li><li><a href="https://www.mopar.com/en-us/care/recalls.html" target="_blank" rel="noopener">Stellantis recall center</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/jt-power-steering-fluid/">Power Steering Fluid Service — Jeep Gladiator JT</a></li><li><a href="/db/gladiator/jt-steering-stabilizer-upgrade/">Steering Stabilizer Upgrade — Jeep Gladiator JT</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gladiator/death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Gladiator%20steering%20recalls%3A%20what%20NHTSA%20lists">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/maintenance">Maintenance</a></nav>
   <h1>Coolant System Flush and Inspection</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$35–80</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$35–80</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Drain the radiator and block, <a href="https://wranglertjforum.com/threads/how-to-flush-the-cooling-system-on-your-jeep-wrangler-tj.1737/" target="_blank" rel="noopener">flush with distilled water until the runoff is clear</a>, then refill with HOAT (G-05) coolant at 50/50. The TJ 4.0L holds about 2.6 gallons dry; plan for 1.5 gallons of new coolant on a drain-and-fill.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The TJ 4.0L cooling system is robust, but coolant breaks down chemically every 5 years regardless of mileage. Once the corrosion inhibitors are spent, the inside of your radiator, heater core, and block start eating themselves. A fresh flush is cheap insurance and the most common cause of TJ overheating is not a bad water pump — it is a radiator core silted shut from a decade of skipped flushes.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Coolant choice matters. The factory spec for 1997–2001 TJs is the green ethylene glycol coolant; 2002+ shipped with HOAT (Mopar&#x27;s pink). Either is fine for older Jeeps as long as you fully flush before switching. The safe, modern answer for any TJ is Zerex G-05 — it is the OEM HOAT formula sold under the Valvoline label and is compatible with iron blocks and brass/copper radiators. Stay away from universal &quot;works with everything&quot; coolants; they tend to gel when mixed with leftover residue.</p>
 <p>A few things to inspect while the system is empty: pressure-test the radiator cap (16 psi is spec), squeeze the upper and lower hoses for soft spots and cracks at the bend, and look at the back of the water pump weep hole for crusty buildup. If the thermostat is original, this is the moment to swap it for a $14 Mopar 195°F replacement and stop guessing about why the temp gauge wanders.</p>
 <p>Refilling needs a bleed. The TJ has a high spot in the heater core circuit that traps air. With the cap off, start the engine, set the heater on full hot, and let the system burp for 10–15 minutes. Top off as the level drops. Drive a heat cycle, let it cool overnight, and check the level again before you call it done.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground, engine cold. Remove the radiator cap.</li><li>Place a drain pan under the radiator. Open the petcock (lower passenger side) — turn the wing tab counterclockwise.</li><li>Drain fully. For a complete flush, also remove the block drain plug (8mm hex, passenger side above starter).</li><li>Close the petcock and block plug. Reinstall both.</li><li>Optional full flush: refill with plain distilled water, run engine to temp with heater on, drain again. Repeat until water runs clear.</li><li>Refill the radiator with 50/50 G-05 (or premix) to the top. Fill the overflow bottle to the FULL HOT line.</li><li>Leave the cap off. Start engine, heater on full hot, idle 10–15 minutes.</li><li>Top off the radiator as the level drops while air bleeds out.</li><li>Install cap. Drive a heat cycle. Recheck level the next morning.</li></ol>
 <h2>Why it works</h2>
 <ul><li>One of the cheapest preventative jobs you can do — $35 in fluid</li><li>Catches a failing thermostat, weak cap, or soft hose before it strands you</li><li>Restores cooling capacity if the system was full of old, depleted coolant</li><li>No special tools beyond a drain pan and a garden hose</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://wranglertjforum.com/threads/how-to-flush-the-cooling-system-on-your-jeep-wrangler-tj.1737/" target="_blank" rel="noopener">WranglerTJForum — cooling system flush writeup</a></li><li><a href="https://www.wranglerforum.com/threads/tj-4-0-coolant-capacity.1534681/" target="_blank" rel="noopener">WranglerForum — TJ 4.0 coolant capacity thread</a></li><li><a href="https://www.carcarekiosk.com/video/2004_Jeep_Wrangler_Rubicon_4.0L_6_Cyl./coolant_antifreeze/flush_coolant" target="_blank" rel="noopener">CarCareKiosk — 2004 Wrangler 4.0L coolant flush video</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-oil-change-tj/">Oil Change — 4.0L and 2.5L</a></li><li><a href="/db/tj/tj-spark-plugs-tj/">Spark Plug Replacement — 4.0L</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Coolant%20System%20Flush%20and%20Inspection">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

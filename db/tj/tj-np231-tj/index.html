@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/drivetrain">Drivetrain</a></nav>
   <h1>NP231 Transfer Case — Service and Weak Points</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–8 hrs</span><span class="tm-fact">$25–1000</span><span class="tm-fact">1997-2002, 2003-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–8 hrs</span><span class="tm-fact">$25–1000</span><span class="tm-fact">1997-2002, 2003-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The NP231 in a TJ is a tough chain-driven transfer case: the gears and chain usually outlast the Jeep, and the real weak spots are the rear output bushing and seal, the 2.72:1 low range, and the stock 23-spline output shaft. Change the fluid every 30,000 miles, and plan a slip-yoke eliminator only once lift or vibration gives you a reason.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The NP231 (also stamped NV231 on later cases) bolts behind the AX-15, NV3550, or automatic of every non-Rubicon TJ. It is a part-time 4WD case: you pick 2WD, 4-Hi (locked, 1:1), neutral, or 4-Lo (locked, 2.72:1). The Rubicon uses the NV241OR with a 4:1 low range, which is a different case with a different crawl ratio. Understanding that distinction sets honest expectations: the 231 will keep a 4.0L Jeep moving over trails, but its 2.72:1 low range limits how slowly and controlled you can crawl, and that limit is more noticeable with taller tires unless you regear the axles (see the <a href="/db/tj/tj-regear/">regear guide</a>).</p>
@@ -248,7 +259,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Measuring for the driveshaft.</strong> Have the Jeep at ride height on flat ground. Measure from the face of the transfer case output flange to the face of the pinion flange, with the driveshaft not fitted, and give the driveshaft builder the number along with the U-joint style on the axle end, the flange bolt pattern, and your lift height. Do the measurement after the SYE is installed because the output flange sits farther forward than the stock yoke.</p>
 <p><strong>Low-range gearing.</strong> Four-to-one low-range gear sets for the 231 exist from aftermarket builders, and they give a more controllable crawl ratio. Plan on four figures for parts and a rebuild, and compare the cost against a regear first, since changing axle gears also helps with tall tires on-road.</p>
 <p><strong>Costs and sources.</strong> Fluid service: $25 to $40. Seal and bushing kit: $25 to $60. SYE kit: $130 to $425. CV rear driveshaft: $400 to $650. Gear-set low-range options: $1,000 and up. Pair an SYE install with your <a href="/db/tj/tj-lift-options/">lift choices</a> so the driveshaft is built once for the final ride height.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Identify the case from the tag on the housing. A 231 or NV231 is a standard TJ case; a 241OR means a Rubicon and different parts.</li><li>Change the fluid as described in the <a href="/db/tj/tj-transfer-case-fluid-tj/">transfer case fluid guide</a> and read the drained fluid for water, metal, and burn smell.</li><li>With the Jeep on stands, check the rear yoke for movement and inspect the vent hose and the front and rear output seals for weeping.</li><li>If the rear is leaking and the Jeep is near stock height, replace the tail-housing bushing and rear seal, and keep the slip yoke.</li><li>If you are lifted 3 inches or more, or the leak and vibration persist, plan the SYE: support the case with a jack, remove the rear driveshaft, drain the case, and unbolt the tail housing.</li><li>Install the SYE shaft and housing per the kit&#x27;s instructions, using the sealant and thread locker the kit specifies, and torque the flange bolts to the manufacturer&#x27;s figure.</li><li>Install the new CV rear driveshaft sized at ride height, then refill with ATF+4 to the lower edge of the fill hole.</li><li>Test drive at 30, 45, and 65 mph checking for vibration, then re-check for leaks and re-torque the flange bolts after 100 miles.</li></ol>
 <h2>Why it works</h2>
 <ul><li>The 231&#x27;s gears and chain are durable; most owners only ever need fluid changes.</li><li>A $25 to $60 bushing and seal kit cures most rear leaks on a stock-height Jeep.</li><li>An SYE removes the tail-housing bushing as a failure point, tames lifted-driveline vibration, and uses a stronger output shaft.</li></ul>
@@ -263,7 +274,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.wranglerforum.com/threads/what-fluid-and-quantity-for-np231-transfer-case.1284833/" target="_blank" rel="noopener">NP231 fluid type — Wrangler Forum</a></li><li><a href="https://www.jbconversions.com/products/sye/np231j_std_sye.php" target="_blank" rel="noopener">JB Conversions NP231 SYE</a></li><li><a href="https://www.quadratec.com/c/howto/how-install-teraflex-slip-yoke-eliminator-2wd-low-range-np231-transfer-case" target="_blank" rel="noopener">Teraflex SYE install — Quadratec</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-regear/">Re-Gearing the TJ — 4.56, 4.88, and 5.13 Ratios</a></li><li><a href="/db/tj/tj-ax15-tj/">AX-15 Manual Transmission Service</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20NP231%20Transfer%20Case%20%E2%80%94%20Service%20and%20Weak%20Points">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

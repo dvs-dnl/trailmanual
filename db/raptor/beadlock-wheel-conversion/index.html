@@ -189,6 +189,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -319,7 +330,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>Converting to Beadlock-Capable Wheels on the Gen 2 and Gen 3 Raptor</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3.0–6.0 hrs</span><span class="tm-fact">$1600–3200</span><span class="tm-fact">2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3.0–6.0 hrs</span><span class="tm-fact">$1600–3200</span><span class="tm-fact">2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Gen 2 and Gen 3 Raptor factory forged 17x8.5 wheels are &quot;beadlock-capable&quot; — meaning the wheel accepts a bolt-on beadlock ring. The ring is sold separately. For extreme airing-down (under 10 PSI), beadlocks provide meaningful protection. Most Raptor owners don&#x27;t need them.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires.webp" alt="Large knobby off-road tires on polished eight-hole wheels on a parked 4x4" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@egorkomarov?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Egor Komarov</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>&quot;Beadlock-capable&quot; is a specific term. The factory Raptor forged wheels have a machined outer lip that accepts an inner and outer ring system — you can convert a factory wheel into a true beadlock by purchasing and installing the beadlock ring kit. This is not the same as installing a fully separate aftermarket beadlock wheel, though aftermarket options exist too.</p>
@@ -343,7 +354,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>When switching to aftermarket wheels, verify the hub bore (Ford F-150 is 87.1mm center bore) and confirm the offset. The factory Raptor wheel runs a high positive offset — going to a significantly different offset changes handling behavior and may affect brake caliper clearance.</p>
 <h3>TPMS Note</h3>
 <p>Factory TPMS sensors are mounted in the valve stem area and can typically be transferred to aftermarket beadlock wheels. Verify the TPMS sensor mounting style (band-mount vs. valve-stem mount) matches your new wheel&#x27;s mounting provision. A tire shop can handle the sensor transfer during the tire mounting process.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Confirm your wheel&#x27;s bolt pattern (6x135mm, 87.1mm center bore on all Gen 2/3 Raptors)</li><li>Choose factory ring kit (for factory wheels) or aftermarket beadlock wheels</li><li>Have tires professionally dismounted and remounted with beadlock ring installation</li><li>Torque beadlock ring bolts to specification in a star pattern</li><li>Check for vibration in the first 50 miles — ring bolts settling is normal, retorque if vibration develops</li><li>Retorque ring bolts at 100 miles, then every 3,000–5,000 miles</li><li>Transfer TPMS sensors to new wheels before mounting</li></ol>
 <h2>Why it works</h2>
 <ul><li>True tire security at low pressures in sand and rock terrain</li><li>Factory forged wheels are convertible without buying new wheels</li><li>Method and SOTA offer strong aftermarket options at reasonable prices</li></ul>
@@ -358,7 +369,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.methodracewheels.com" target="_blank" rel="noopener">Method Race Wheels Raptor fitment guide</a></li><li><a href="https://media.ford.com" target="_blank" rel="noopener">Ford F-150 Raptor Gen 3 37 Package beadlock wheel specs</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-tire-fitment-37/">37-Inch Tires — The Signature Raptor Upgrade</a></li><li><a href="/db/raptor/raptor-air-down-and-tpms/">Airing Down a Raptor — Pressures That Work, TPMS Behavior, and Reinflation That Doesn&#x27;t Ruin the Day</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Converting%20to%20Beadlock-Capable%20Wheels%20on%20the%20Gen%202%20and%20Gen%203%20Raptor">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

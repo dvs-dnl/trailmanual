@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/power-wagon/">Ram Power Wagon</a> / <a href="/db/#/power-wagon/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>Wheel Upgrade for the Power Wagon — 17&quot;, 18&quot; and 20&quot; Options</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1 hrs</span><span class="tm-fact">$620–1440</span><span class="tm-fact">2016-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1 hrs</span><span class="tm-fact">$620–1440</span><span class="tm-fact">2016-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Power Wagon&#x27;s 8x165.1 (8x6.5&quot;) bolt pattern is shared with most 3/4-ton and 1-ton RAM trucks, giving you a wide selection — but <a href="https://www.discounttire.com/learn/wheel-load-rating" target="_blank" rel="noopener">load rating is the specification that matters most here</a>, and many aftermarket wheels skip the engineering that a truck with an 8,510 lb GVWR demands.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires.webp" alt="Large knobby off-road tires on polished eight-hole wheels on a parked 4x4" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@egorkomarov?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Egor Komarov</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Load rating is the non-negotiable spec for the Power Wagon. GVWR of 8,510 lbs divided by four wheels = 2,127 lbs per wheel minimum. The industry standard recommendation for a margin of safety puts the target at 3,000–3,500 lbs per wheel minimum for a truck in this weight class, especially under payload or towing. Many wheels marketed for trucks carry load ratings of 2,500 lbs that are technically sufficient but leave no margin for dynamic loads (trail impacts, towing with tongue weight, etc.). Before finalizing any wheel purchase, look up the load rating in the manufacturer&#x27;s spec sheet — if it isn&#x27;t published, that&#x27;s a reason to look elsewhere.</p>
@@ -246,7 +257,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>What you give up moving from 17 to 20: roughly two inches of sidewall per side at the same overall tire diameter. That&#x27;s two inches less air cushion between rim and rock, less bulge when aired down, and a harsher ride on washboard. For a truck that wheels hard enough to air down regularly, that trade runs the wrong direction — which is also the case for going further into <a href="/db/power-wagon/pw-beadlock-wheels/">beadlock territory</a> at 17&quot;.</p>
 <h3>Weight: unsprung mass on a 6,800 lb truck</h3>
 <p>A cast 20&quot; wheel in this class runs 38–45 lbs bare versus roughly 30–34 lbs for the factory 17 — add a 37&quot; tire and you can put 15+ lbs of unsprung, rotating mass at each corner over stock. On a truck this heavy the shocks pay the bill: more unsprung mass means more heat in the dampers on washboard and faster fade on long corrugated roads. It also lengthens braking distance slightly and dulls throttle response, which stacks with the effects covered in the <a href="/db/power-wagon/pw-tires-mt/">tire guide</a>. Check the published wheel weight next to the load rating; among wheels with equal ratings, buy the lighter one.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Break lug nuts loose before jacking (Ram 2500 lug torque is high — a breaker bar works, or an impact gun).</li><li>Raise the truck and support on jack stands.</li><li>Remove factory wheels and inspect hub face and hub bore on the new wheels for correct fitment.</li><li>Clean the hub mounting surface with a wire brush to remove any corrosion — proper hub centering prevents vibration.</li><li>Mount new wheels and hand-thread all eight lug nuts before torquing any.</li><li>Torque lug nuts in a star pattern to the Ram 2500 spec for your year (check the owner&#x27;s manual — spec varies by year and stud size).</li><li>Re-torque after the first 50–100 miles of driving.</li></ol>
 <h2>Why it works</h2>
 <ul><li>8x165.1 bolt pattern has wide selection across quality off-road wheel brands</li><li>17&quot; options preserve the sidewall depth the truck was engineered around</li><li>Method and Fuel publish clear load ratings — verifiable before purchase</li><li>Wheel upgrade pairs naturally with a tire upsizing for a single combined fitment decision</li></ul>
@@ -261,7 +272,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.methodracewheels.com/collections/8-lug-truck" target="_blank" rel="noopener">Method Race Wheels 308 NV Product Page</a></li><li><a href="https://www.discounttire.com/learn/wheel-load-rating" target="_blank" rel="noopener">Wheel Load Rating Guide for 3/4-Ton Trucks</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/power-wagon/pw-budget-lift/">Budget Lift Kit for the Power Wagon — 2&quot;-2.5&quot; Front Leveling on a Solid Axle</a></li><li><a href="/db/power-wagon/pw-beadlock-wheels/">Beadlock-Capable Wheels for Low-Pressure Traction</a></li><li><a href="/power-wagon/">All Ram Power Wagon guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Wheel%20Upgrade%20for%20the%20Power%20Wagon%20%E2%80%94%2017%22%2C%2018%22%20and%2020%22%20Options">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

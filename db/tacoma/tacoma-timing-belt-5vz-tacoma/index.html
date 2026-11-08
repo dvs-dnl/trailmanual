@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/engine">Engine</a></nav>
   <h1>3.4L V6 Timing Belt and Water Pump — The 90K Service (5VZ-FE)</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">4–8 hrs</span><span class="tm-fact">$250–700</span><span class="tm-fact">1995-2004</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">4–8 hrs</span><span class="tm-fact">$250–700</span><span class="tm-fact">1995-2004</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The 3.4L V6 (5VZ-FE) in 1st-gen Tacomas <a href="https://techinfo.toyota.com" target="_blank" rel="noopener">needs its timing belt replaced every 90,000 miles</a>, and you do the water pump at the same time because it is driven by the belt and you are already in there. Good news: <a href="https://www.yotatech.com" target="_blank" rel="noopener">the 5VZ-FE is a non-interference engine</a>, so a snapped belt strands you but does not bend valves — it is not the catastrophe it is on interference engines. <a href="https://www.aisinaftermarket.com" target="_blank" rel="noopener">Use a complete Aisin kit (~$230)</a> since Aisin is the OE supplier. A shop charges $600–900; doing it yourself runs $250–700 in parts depending on how much you replace while you are in there. Budget a full day your first time.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-engine.webp" alt="Water pump, pulley and wiring connectors on the side of an engine block" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@thebakemonoprojects?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Keiht Martinez</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>This is the defining maintenance job on a 1st-gen Tacoma&#x27;s 3.4L V6, and the single best thing you can do for one with unknown history. If you bought a 5VZ-FE Tacoma and have no record of the belt, assume it is due and do it. A failed belt won&#x27;t destroy the engine on this motor, but it will leave you stranded, and the water pump that lives behind the belt is a known wear item — replacing both together is the only sensible plan.</p>
@@ -244,7 +255,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Buy the kit from the OE supplier.</strong> Aisin supplies Toyota&#x27;s water pumps and timing components. An Aisin complete kit (belt, tensioner, idler pulley, water pump, gaskets, and seals) is the right part at the right price — around $230. Avoid the cheapest no-name kits; a water pump or tensioner that fails early forces the whole job over again.</p>
 <p><strong>Timing marks are the make-or-break.</strong> Set the engine to top dead center on cylinder 1 and confirm every timing mark before the old belt comes off. Mark the belt direction and the cam/crank positions. The 5VZ-FE has clear factory marks — line them up exactly on reassembly. Getting a tooth off causes a rough-running engine and codes; double-check before you button it up.</p>
 <p><strong>Safety — support and cooling.</strong> This job involves draining coolant and working at the front of the engine with the radiator and fan area open. Let the engine cool fully before draining coolant. If you raise the truck, use jack stands rated for the weight — never trust a jack alone while reaching into the engine bay. Refill with Toyota pink SLLC and burp the cooling system afterward.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Engine cold. Disconnect the battery. Drain the coolant.</li><li>Remove the fan shroud, fan/clutch, and accessory drive belts.</li><li>Remove the upper timing covers, then the crankshaft pulley/harmonic balancer (hold it with a balancer tool or breaker bar on the crank bolt).</li><li>Remove the lower timing covers to expose the belt, tensioner, idler, and water pump.</li><li>Rotate the crank to TDC on cylinder 1. Confirm all cam and crank timing marks align. Mark belt direction.</li><li>Relieve the tensioner and remove the old belt. Remove the tensioner, idler, and water pump.</li><li>Install the new water pump with a fresh gasket. Install the new idler and tensioner.</li><li>Replace the front cam and crank seals while access is open — cheap insurance against an oil leak behind the new belt.</li><li>Route the new belt with marks aligned and the correct direction. Set tensioner tension per spec.</li><li>Rotate the engine by hand two full turns and re-verify the timing marks line up. Correct any tooth that is off before reassembly.</li><li>Reinstall covers, balancer (torque the crank bolt to spec), fan, and belts.</li><li>Refill coolant with pink SLLC, run to temp, and burp the air out. Check for leaks.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Non-interference engine — a broken belt strands you but won&#x27;t bend valves</li><li>Doing belt + water pump + tensioner together avoids a repeat teardown</li><li>Aisin OE-supplier kit is the right part for ~$230</li><li>Restores a known-good baseline on a truck with unknown history</li></ul>
@@ -259,7 +270,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://techinfo.toyota.com" target="_blank" rel="noopener">Toyota Tacoma 3.4L 5VZ-FE timing belt interval — 90,000 miles</a></li><li><a href="https://www.aisinaftermarket.com" target="_blank" rel="noopener">Aisin TKT-021 complete kit — OE-supplier belt, tensioner, water pump</a></li><li><a href="https://www.yotatech.com" target="_blank" rel="noopener">YotaTech: 5VZ-FE non-interference confirmation and timing mark guide</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-radiator-coolant-service-tacoma/">Radiator and Coolant Service — Flush, Fill, and Replacement</a></li><li><a href="/db/tacoma/tacoma-fan-clutch-tacoma/">Fan Clutch Diagnosis and Replacement — Roaring, Overheating, or Both</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%203.4L%20V6%20Timing%20Belt%20and%20Water%20Pump%20%E2%80%94%20The%2090K%20Service%20%285VZ-FE%29">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

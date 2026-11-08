@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/maintenance">Maintenance</a></nav>
   <h1>What Hard Desert and Whoop Running Does to an EcoBoost — Oil, Cooling, and Maintenance Intervals</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1.0–2.0 hrs</span><span class="tm-fact">$80–200</span><span class="tm-fact">2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1.0–2.0 hrs</span><span class="tm-fact">$80–200</span><span class="tm-fact">2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Hard desert running generates thermal loads the Raptor&#x27;s standard maintenance schedule wasn&#x27;t built around. Oil temps spike in whoops, the intercooler heat-soaks after extended runs, and coolant condition degrades faster at continuous high load. Adjust intervals to match how you actually use the truck.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Ford Intelligent Oil-Life Monitor (IOLM) calculates oil change intervals based on engine load, RPM, and temperature. In highway use it&#x27;s accurate. In hard desert running — Baja-style whoops at speed, sustained off-road throttle, extended Baja mode operation — the thermal and mechanical load on the oil is higher than the IOLM&#x27;s typical model assumes. The result is that the indicator may read &quot;30% remaining&quot; when the oil has been through conditions that justify a change.</p>
@@ -257,7 +268,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The 10R80 automatic transmission is a sealed unit with no conventional dipstick. Ford specifies Motorcraft MERCON ULP fluid. The OEM change interval for normal use is &quot;lifetime.&quot; For hard off-road use — particularly extended Baja mode operation where the transmission is managing high heat — many Raptor owners change transmission fluid at 60,000–80,000 miles. The cost of the fluid is trivial compared to a transmission rebuild.</p>
 <h3>Differential and Transfer Case Fluid</h3>
 <p>Front and rear differentials use 75W-140 full synthetic gear oil. The transfer case uses Motorcraft MERCON LV ATF. Both should be changed at 60,000-mile intervals in normal use, and more frequently if you&#x27;ve run through water deep enough to reach the differential vents. Water intrusion in differential fluid turns it milky — inspect immediately after any significant water crossing.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>After any hard desert day: inspect oil color on the dipstick — dark brown or black is a change indicator</li><li>Track miles since last oil change separately from the IOLM reading if you do hard trail use</li><li>Change oil within 1,000–1,500 miles following any extended hard desert day</li><li>Check coolant level and color before any major trip</li><li>After extended hard running: idle 2–3 minutes before shutdown to cool turbos</li><li>Inspect differential fluid at each oil change — look for milky discoloration</li><li>Budget a transmission fluid change at 60,000–80,000 miles if using the truck hard</li></ol>
 <h2>Why it works</h2>
 <ul><li>Full synthetic oil handles Raptor operating temps well when intervals are adjusted appropriately</li><li>The 3.5 EcoBoost responds well to proactive maintenance — neglected examples have more issues</li><li>Intercooler upgrades reduce heat soak if it becomes a consistent issue</li></ul>
@@ -272,7 +283,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.ford.com/support/how-tos/owner-manuals/" target="_blank" rel="noopener">Ford F-150 Raptor owner&#x27;s manual — maintenance schedule</a></li><li><a href="https://www.ecoboostforum.com" target="_blank" rel="noopener">EcoBoost heat soak and intercooler technical overview</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-air-filter-dust-management/">Dust Management on a Desert-Driven Raptor — Engine Air Filter, Cabin Filter, and What Fine Silt Actually Gets Into</a></li><li><a href="/db/raptor/raptor-radiator-fans-and-degas-service/">Radiator, Fans, and Degas Bottle — Servicing the Cooling Stack That Keeps the EcoBoost Alive</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20What%20Hard%20Desert%20and%20Whoop%20Running%20Does%20to%20an%20EcoBoost%20%E2%80%94%20Oil%2C%20Cooling%2C%20and%20Maintenance%20Intervals">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

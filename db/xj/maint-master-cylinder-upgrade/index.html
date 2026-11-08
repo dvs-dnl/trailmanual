@@ -139,6 +139,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -271,6 +282,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Master Cylinder Replacement and Upgrade</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$50–150</span><span class="tm-fact">1991-1995, 1996, 1997-2001</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>XJ stock master cylinder bore is 15/16 in (pre-disc-conversion). ZJ 1 inch bore master is the common upgrade after rear disc conversion or with larger calipers.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Brake work decides whether the vehicle stops. Bleed the system, check for leaks, and test at walking speed before you drive it in traffic. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-brakes.webp" alt="Worn brake caliper and rotor on a wheel hub with the wheel removed" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@ben_brunner?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Benjamin Brunner</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Stock XJ master cylinder has a 15/16 inch bore designed for the OE disc/drum combo. After upgrading to rear disc brakes or installing larger front calipers (4-piston upgrades), the stock master cylinder lacks volume and produces a long, soft pedal. The 1993-1998 ZJ Grand Cherokee master cylinder has a 1 inch bore and bolts directly to the XJ booster - this is the standard upgrade path. Source: junkyard ZJ ($30-50) or new Cardone 13-2210 ($60). Replacement: bench-bleed the new master before installing (clamp in a vise with the front facing up, fill with fluid, push the piston gently with a screwdriver through several strokes until no bubbles emerge from the ports). Install with new gaskets, connect lines, and bleed the system normally. For race or trail builds with 4-piston front calipers, look at a 1-1/8 in bore master (Wilwood). Beyond a 1-1/8 in master you need to size the booster up too or pedal effort becomes excessive.</p>
 <h2>Why it works</h2>
@@ -284,7 +296,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>ZJ master cylinder (1 inch)</td><td>RockAuto</td><td>~$65</td></tr></tbody></table>
 <h2>Related</h2>
 <ul><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Master%20Cylinder%20Replacement%20and%20Upgrade">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

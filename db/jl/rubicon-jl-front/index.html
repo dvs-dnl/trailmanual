@@ -201,6 +201,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -331,7 +342,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jl/">Jeep Wrangler JL</a> / <a href="/db/#/jl/category/axles">Axles</a></nav>
   <h1>JL Rubicon Dana 44 — What Transfers Across</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">8–16 hrs</span><span class="tm-fact">$1800–4500</span><span class="tm-fact">2018-2026</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">8–16 hrs</span><span class="tm-fact">$1800–4500</span><span class="tm-fact">2018-2026</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://revolutiongear.com/blog/identifying-wranglers-and-their-different-axles/" target="_blank" rel="noopener">A JL Rubicon front Dana 44 (M210)</a> bolts into a Sport or Sahara JL with the right gear ratio match, but it&#x27;s 1.5&quot; wider per side, comes with a 4.10 final drive, and requires a recalibration before it&#x27;ll behave on the road.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-axles.webp" alt="Low view under a 4x4 of a solid axle housing and muddy knobby tires on wet rocks" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JL Rubicon front axle is technically a Dana M210HD — Dana&#x27;s modern designation for the wide-knuckle, electric-locker variant Jeep ships under Rubicon trims. <a href="https://www.quadratec.com/c/blog/which-jeep-wrangler-axles-do-i-have" target="_blank" rel="noopener">Non-Rubicon JLs get the narrower M186</a> (often called Dana 30 internally). The two share suspension mounting points and brake hardware, which is what makes the swap appealing — bolt-pattern compatibility means you&#x27;re not fabricating brackets.</p>
@@ -339,7 +350,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The electric locker is the real prize. It engages through the Rubicon-only switch panel, which non-Rubicon JLs don&#x27;t have. Wiring the locker requires either a salvaged Rubicon dash harness or a standalone controller (sPOD, Switch Pros). AEV&#x27;s ProCal Snap will tell the BCM about the new axle, gear ratio, and locker so the dashboard and ABS behave normally — without it, expect persistent dash warnings and incorrect speedometer readings.</p>
 <p>Driveshaft length is the other gotcha. Rubicon front driveshafts are slightly shorter to match the wider axle pinion offset. Trying to re-use a Sport driveshaft will cause vibration and premature U-joint wear. Source the matching Rubicon driveshaft from the same donor.</p>
 <p>Cross-generation note: JL Rubicon axles are NOT interchangeable with JK Rubicon axles. The JL uses a redesigned knuckle, different ball joints, and an updated electronic locker controller. Don&#x27;t try to mix generations.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Source a complete JL Rubicon front axle assembly with knuckles, hubs, calipers, ABS sensors, and pinion yoke intact.</li><li>Confirm gear ratio on the donor matches your rear axle (or plan to re-gear the rear).</li><li>Support the JL on jack stands, remove front tires, disconnect ABS, brake lines, sway bar links, and track bar.</li><li>Unbolt control arms at the axle and lower the stock axle out.</li><li>Position the Rubicon axle, reattach control arms, track bar, and sway bar links.</li><li>Reconnect brake lines (use new banjo washers), bleed the system.</li><li>Reconnect ABS sensors and the electric locker harness — splice into a Rubicon donor harness or wire to an aftermarket controller.</li><li>Use AEV ProCal Snap to write the new axle code and gear ratio to the BCM.</li><li>Test on a flat lot in 2WD before hitting trails. Verify ABS, locker engagement, and steering centering.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Factory locker with proper integration</li><li>Wider stance improves stability</li><li>Stronger axle shafts and ring gear than M186</li><li>Mostly bolt-in if donor is complete</li></ul>
@@ -354,7 +365,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://revolutiongear.com/blog/identifying-wranglers-and-their-different-axles/" target="_blank" rel="noopener">Identifying Wranglers and Their Different Axles — Revolution Gear &amp; Axle</a></li><li><a href="https://www.quadratec.com/c/blog/which-jeep-wrangler-axles-do-i-have" target="_blank" rel="noopener">Which Jeep Wrangler Axles Do I Have? — Quadratec</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20JL%20Rubicon%20Dana%2044%20%E2%80%94%20What%20Transfers%20Across">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/xj/">Jeep Cherokee XJ</a> / <a href="/db/#/xj/category/axles">Axles</a></nav>
   <h1>Dana 44 Rear Axle Swap Overview</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">16–40 hrs</span><span class="tm-fact">$800–5000</span><span class="tm-fact">1984-1990, 1991-1995, 1996, 1997-2001</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">16–40 hrs</span><span class="tm-fact">$800–5000</span><span class="tm-fact">1984-1990, 1991-1995, 1996, 1997-2001</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Whether you actually need a Dana 44 rear under your XJ — and which donor to chase — instead of the cheaper, more common Ford 8.8. Most builds don&#x27;t need it. The ones that do should know what they&#x27;re buying.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-axles.webp" alt="Low view under a 4x4 of a solid axle housing and muddy knobby tires on wet rocks" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The stock Dana 35 rear is the weakest link on a built XJ. Its center casting and axle tubes are smaller than a Dana 44&#x27;s, so the whole assembly flexes under load — that flex is what snaps shafts, gears, and carriers, not only the thin 27-spline shafts. Once you&#x27;re on 33s with a locker, or 35s at all, the D35 is living on borrowed time. The question is what replaces it. For most people the answer is a Ford 8.8 (see that guide). The Dana 44 is the next step up, and it earns its place on a narrower set of builds than the forums imply.</p>
@@ -245,7 +256,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>ZJ Grand Cherokee Dana 44 (1998 5.9 Limited, some V8 HD) sits closer to XJ width and often carries a factory limited-slip and discs, around $900 salvage. The trap: many ZJ and all WJ rears are the Dana 44a aluminum-center axle. It&#x27;s fine on the street, but the aluminum casting is a dead end for serious gearing and locker upgrades. Verify cast iron before you buy.</p>
 <p>Factory XJ Dana 44 — some 1987-1989 Cherokees with the tow package <a href="https://jeep.fandom.com/wiki/List_of_Jeep_axles" target="_blank" rel="noopener">left the factory with a real Dana 44 rear</a>. They&#x27;re nearly impossible to find now because they&#x27;ve all been pulled for swaps. If you stumble on one, it bolts in with only a driveshaft tweak, since the D44 pinion sits about an inch longer than the D35&#x27;s.</p>
 <p>Aftermarket crate (Currie, Dynatrac, Ten Factory) is built to your spec — 35-spline shafts, 1-ton bearings, your gear ratio, your locker, your width. $2,500-5,000. The right call if you want it done once and done right and you&#x27;re past worrying about budget.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Decide honestly whether you&#x27;re past the 8.8&#x27;s limits — 37s, big-torque swap, or competition. If not, build the 8.8 instead and keep the cash.</li><li>Pick a donor and verify the center is cast iron, not the Dana 44a aluminum housing. Confirm the gear ratio stamped on the tag matches your front Dana 30 exactly.</li><li>Measure the donor&#x27;s wheel-mounting-surface width and compare to your XJ. Plan backspacing or fender work before the axle is under the truck, not after.</li><li>Cut the donor&#x27;s factory spring perches and shock mounts off the tubes with a cutoff wheel.</li><li>Set perch-to-perch width to the XJ spec of 43.5625 inches using a swap kit&#x27;s jig, then MIG weld the new perches and lower shock mounts. Full-penetration welds — this is a load-bearing structure.</li><li>Sort the brakes: adapt the donor&#x27;s hard line to the XJ master cylinder flare, and adapt or relocate the e-brake cable ends.</li><li>Shorten or replace the rear driveshaft for the longer pinion and any pinion-angle change — a CV shaft paired with an SYE is the durable answer.</li><li>Set pinion angle, torque the U-bolts, bleed the brakes, and check ring-and-pinion backlash if you re-geared.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Strongest realistic rear for 37s and high-torque engine swaps</li><li>Factory locker and disc brakes on Rubicon and some ZJ donors</li><li>Deep aftermarket support for 33/35-spline shaft and gear upgrades</li><li>Heavier casting and tubes resist the flex that kills a Dana 35</li></ul>
@@ -260,7 +271,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="http://www.4x4wire.com/jeep/tech/axle/xj_dana44_02/" target="_blank" rel="noopener">Cherokee XJ — Dana 44 Axle Upgrade (4x4Wire)</a></li><li><a href="https://jeep.fandom.com/wiki/List_of_Jeep_axles" target="_blank" rel="noopener">List of Jeep axles — Jeep Wiki</a></li><li><a href="https://www.ironrockoffroad.com/" target="_blank" rel="noopener">Mountain Off-Road / IRO XJ rear axle swap kits</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/xj/axle-d44-rear/">Dana 44 Rear Swap (TJ Rubicon, Aftermarket)</a></li><li><a href="/db/xj/axle-88-swap/">Ford 8.8 Explorer Rear Axle Swap (Full Guide)</a></li><li><a href="/db/xj/axle-currie-crate/">Currie / Ten Factory Crate Axles</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Dana%2044%20Rear%20Axle%20Swap%20Overview">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

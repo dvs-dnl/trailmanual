@@ -171,6 +171,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -303,6 +314,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Hydraulic Assist Steering: Is It Worth It on a JK?</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">6–16 hrs</span><span class="tm-fact">$1400–3500</span><span class="tm-fact">2007-2011, 2012-2018</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Hydraulic assist is a heavy-tire fix, not a general upgrade. On a JK running 37s and larger — especially one that crawls slowly against rock, where the steering box works hardest and cools least — hydro-assist takes the load off the sector shaft and gives you steering authority the factory box cannot supply. On 35s and smaller, you do not need it, and installing it to cure wandering or wobble will mask a worn front end rather than repair it. Budget $1,400-3,500 for a complete system done correctly, and understand that a partial install is worse than no install.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JK&#x27;s steering box is a recirculating-ball unit with a sector shaft that is undersized for what owners ask of it. Bolt on 37s and sticky rubber, then turn the wheel against a rock at 2 mph, and the load path runs from the tire through the drag link into that shaft and into a section of frame that flexes. Two failure modes follow: the sector shaft bends or breaks, and the box mounting area of the frame cracks. Both are well documented across the platform, and both are load problems rather than wear problems.</p>
 <p>Hydro-assist adds a hydraulic ram, mounted to the axle and tied to the tie rod, fed by a ported steering box or a dedicated second pump. The ram pushes the linkage directly, so the box becomes a control valve rather than the muscle. The mechanical load that was breaking sector shafts gets redirected into the axle-mounted ram and its mount.</p>
@@ -330,7 +342,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.northridge4x4.com/part/sector-shaft/8069-02-synergy-manufacturing-sector-shaft-brace" target="_blank" rel="noopener">Synergy Manufacturing JK sector shaft brace 8069-02 — Northridge4x4</a></li><li><a href="https://www.northridge4x4.com/part/8069-04-synergy-manufacturing-front-track-bar-and-sector-shaft-brace" target="_blank" rel="noopener">Synergy front track bar and sector shaft brace 8069-04 — Northridge4x4</a></li><li><a href="https://www.quadratec.com/c/reference/2017-jeep-wrangler-jk-specs" target="_blank" rel="noopener">JK steering reference — Quadratec</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-tie-rods-jk/">Tie Rod Replacement — Heavy Duty Upgrade Options</a></li><li><a href="/db/jk/jk-track-bar/">Front Track Bar Upgrade — Lifted JK Wrangler</a></li><li><a href="/db/jk/jk-death-wobble-deep/">Death Wobble — Root Causes and Systematic Fix</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/jk-death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Hydraulic%20Assist%20Steering%3A%20Is%20It%20Worth%20It%20on%20a%20JK%3F">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

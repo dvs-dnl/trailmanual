@@ -159,6 +159,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -291,6 +302,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Winch Install — Sizing, Mounting, and Wiring</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–6 hrs</span><span class="tm-fact">$400–1400</span><span class="tm-fact">1966-1977</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://www.warn.com/" target="_blank" rel="noopener">Size the winch to at least 1.5x your truck&#x27;s loaded weight</a> — for an early Bronco that lands at 8,000–9,500 lb pull, and bigger if you run heavy. Mount it only to a frame-tied bumper, wire it with proper 2/0 cable, and treat every pull as a serious load. A winch is a recovery tool and a hazard at the same time: under tension, a failed line or shackle becomes a projectile that can kill.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Recovery gear carries loads far past the vehicle&#x27;s weight. Use rated hardware, read the working load limit, and keep everyone out of the line of pull. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-recovery.webp" alt="Black D-ring shackle and red recovery strap hooked to a hitch-mounted shackle block" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@lgnwvr?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">LOGAN WEAVER | @LGNWVR</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>A winch turns a stuck truck into a self-recovery instead of a long wait or a tow strap from a buddy you didn&#x27;t bring. For an early Bronco — light but high and prone to getting a tire in the wrong place — a winch earns its keep on technical trails and solo trips. The two things that make a winch install right are mounting (frame-tied, never sheet metal) and wiring (heavy cable, clean grounds), and the thing that keeps you alive is technique.</p>
 <p>Synthetic line over steel cable is the choice most people land on now: it&#x27;s lighter, safer when it fails (it drops instead of whipping with stored energy), and easier to handle. It does need a fairlead and care around heat and abrasion.</p>
@@ -316,7 +328,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.warn.com/" target="_blank" rel="noopener">Winch sizing by vehicle weight</a></li><li><a href="https://www.classicbroncos.com/forums/" target="_blank" rel="noopener">Early Bronco winch mounting</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/bronco/bronco-armor-front-bumper/">Front Winch Bumper — Buying and Installing</a></li><li><a href="/db/bronco/bronco-recovery-points/">Recovery Points — Rated Shackle Mounts Front and Rear</a></li><li><a href="/db/bronco/bronco-electrical-alternator-upgrade/">Charging System Upgrade — Higher-Output Alternator</a></li><li><a href="/bronco/">All Ford Bronco guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Winch%20Install%20%E2%80%94%20Sizing%2C%20Mounting%2C%20and%20Wiring">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

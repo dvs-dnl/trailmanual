@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/interior">Interior</a></nav>
   <h1>Sound Deadening — Quieting a Tacoma Cab That Drones on the Highway</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">3–8 hrs</span><span class="tm-fact">$120–400</span><span class="tm-fact">1995-2004, 2005-2015</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">3–8 hrs</span><span class="tm-fact">$120–400</span><span class="tm-fact">1995-2004, 2005-2015</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Tacomas are loud on the highway — thin sheet metal, a boxy cab, and aggressive tires add up to drone and road roar. You can cut that meaningfully with a layered sound-deadening job, but understand what each layer does before you buy: damping mat kills resonance, closed-cell foam decouples panels, and mass-loaded vinyl blocks airborne noise. Most people get the best return doing the floor and doors with damping mat plus a foam layer for $120–400. This is a comfort upgrade, not a performance one — worth it if you spend hours on the highway, skippable if you don&#x27;t mind the noise.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-interior.webp" alt="Close-up of a five-speed manual shift knob" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@hariperisetla?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Hari Perisetla</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Cab noise comes from a few sources, and the materials that fight them are different. Throwing one product at everything wastes money. Match the layer to the problem and you get real, measurable quiet for reasonable cost.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Closed-cell foam — decouples and seals.</strong> A thin closed-cell foam (CCF) layer over the damping mat decouples the panel from the trim above it and seals small gaps, cutting buzzes and squeaks. It&#x27;s cheap (~$45 a roll) and goes on fast. Pairing CLD plus CCF is the sweet spot for most Tacoma owners — noticeably quieter without a teardown of the entire interior.</p>
 <p><strong>Mass-loaded vinyl — blocks the roar.</strong> If road and tire roar coming up through the floor is your main complaint, mass-loaded vinyl (MLV) is the heavy barrier that blocks airborne sound. It&#x27;s the most expensive layer (~$90 for a usable amount) and the most labor, because it has to be cut to fit and laid without gaps under the carpet. Do MLV when CLD and CCF alone haven&#x27;t quieted the floor enough.</p>
 <p><strong>Set expectations.</strong> This won&#x27;t make a Tacoma silent. Done well on the floor and doors, it takes the edge off the drone, makes the stereo sound better, and reduces fatigue on long drives. Done poorly — covering everything with mat and skipping the decoupler — it adds weight without much benefit. <a href="https://www.soundeadening.com" target="_blank" rel="noopener">The order that matters is CLD first, then CCF, then MLV</a> only if you still want more.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Plan the scope: floor and doors give the best return. Add firewall, rear wall, and roof only if you want maximum quiet.</li><li>Remove the relevant trim — seats, sill plates, carpet, door cards — saving the clips.</li><li>Clean bare metal with isopropyl alcohol so the damping mat adheres.</li><li>Apply CLD damping mat to 25–35% of each large panel and roll it firmly to bond.</li><li>Lay closed-cell foam over the damped panels to decouple and seal gaps.</li><li>For floors with heavy road roar, cut and fit mass-loaded vinyl with no gaps, then replace carpet.</li><li>Reassemble trim carefully, replacing any broken clips.</li><li>Test drive at highway speed and compare — the drone and ring should be noticeably reduced.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Meaningful highway noise reduction for $120–400</li><li>Makes the stereo sound better and cuts long-drive fatigue</li><li>CLD + CCF is a high-value combination most owners are happy with</li><li>Can be done in stages — floor first, doors later</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.tacomaworld.com" target="_blank" rel="noopener">TacomaWorld: sound deadening write-ups — floor, doors, firewall</a></li><li><a href="https://www.soundeadening.com" target="_blank" rel="noopener">Sound deadening layers explained — CLD, CCF, MLV</a></li><li><a href="https://www.secondskinaudio.com" target="_blank" rel="noopener">Damplifier / Dynamat application coverage guidance</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-storage-seat-upgrades-tacoma/">Interior Storage and Seat Upgrades — What&#x27;s Worth It</a></li><li><a href="/db/tacoma/tacoma-cabin-filter-tacoma/">Cabin Air Filter Replacement</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Sound%20Deadening%20%E2%80%94%20Quieting%20a%20Tacoma%20Cab%20That%20Drones%20on%20the%20Highway">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/drivetrain">Drivetrain</a></nav>
   <h1>AX-15 Manual Transmission Service</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1 hrs</span><span class="tm-fact">$40–80</span><span class="tm-fact">1997-2002</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1 hrs</span><span class="tm-fact">$40–80</span><span class="tm-fact">1997-2002</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://jeepspecs.com/tj-generation/ax-15-transmission-fluid-change/" target="_blank" rel="noopener">Drain and refill the AX-15 with 3.3 quarts of 75W-90 GL-4</a> (not GL-5) every 30,000 miles — 60-minute job, magnetic drain plug, no special tools. This guide covers the AX-15 only (1997–2002); if your TJ is a 2003 or later 5-speed, you almost certainly have an NV3550 and need ATF+4, not gear oil — see the identification note below before you buy fluid.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The AX-15 is a 5-speed Aisin manual that came in TJs paired with the 4.0L (and some early 2.5L four-cylinder trucks). It&#x27;s the strongest manual Jeep ever bolted behind the 4.0 and it shifts cleanly for decades when the fluid is fresh. What kills an AX-15 early is the wrong fluid — and there is a persistent forum debate about what &quot;the right fluid&quot; actually is. The factory service manual specifies GL-3, but GL-3 is essentially extinct in the consumer market. The Mopar PN for the original fluid (75W-90 GL-3) has been superseded.</p>
@@ -245,7 +256,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Crack the fill plug FIRST before opening the drain. The fill plug is on the driver&#x27;s side of the case (square 3/8&quot; or 1/2&quot; drive). If the fill plug is seized and you&#x27;ve already drained, you have no way to refill without removing the transmission.</p>
 <p>While you&#x27;re under there: feel the shift rail boot at the top of the transmission for cracks (a torn boot lets water into the case), inspect the rear yoke seal for weeping, and check the slave cylinder line for swelling if you have a hydraulic clutch. A weeping rear seal often gets misdiagnosed as a transfer case leak because the two units bolt together and fluid runs downhill to the same low point — wipe both seals dry, drive a short loop, and recheck to see which one is actually wet before ordering parts.</p>
 <p>Shift feel is a useful diagnostic on its own. A notchy 1-2 shift that&#x27;s worse cold and improves once the fluid warms up is normal wear, not a fault — synchros work harder when the oil is thick. A grind on any specific gear that doesn&#x27;t improve with warm fluid points to a worn synchro ring on that gear, and a fluid change won&#x27;t fix it, though it also won&#x27;t make it worse, so there&#x27;s no harm in doing the service anyway while you plan the larger repair.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Drive the Jeep 10–15 miles to warm the gear oil. Park on level ground.</li><li>Locate the fill plug on the driver&#x27;s side of the case. Break it loose first — do not skip this step.</li><li>Position drain pan under the passenger-side drain plug. Remove the drain plug with a 15/16&quot; or 24mm socket.</li><li>Let it drain fully — 15 to 20 minutes for warm fluid.</li><li>Wipe the magnetic drain plug clean. Inspect the magnet for chunks or large shavings. Reinstall and torque to 14–20 ft-lbs.</li><li>Use a fluid pump to refill through the fill hole until fluid drips back out — about 3.3 quarts.</li><li>Reinstall the fill plug and torque to 25 ft-lbs.</li><li>Drive a few miles, run through all five gears plus reverse, and recheck for leaks at the drain and fill plugs.</li></ol>
 <h2>Why it works</h2>
 <ul><li>One-hour job with a $40 fluid bill</li><li>Catches early bearing or synchro failure via drain plug debris</li><li>Restores notchy-cold shifts that the original fluid no longer handles</li></ul>
@@ -260,7 +271,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://jeepspecs.com/tj-generation/ax-15-transmission-fluid-change/" target="_blank" rel="noopener">AX-15 Manual Transmission Service — JeepSpecs</a></li><li><a href="https://wranglertjforum.com/threads/wrangler-tj-fluid-capacities.195/" target="_blank" rel="noopener">Wrangler TJ Fluid Capacities</a></li><li><a href="https://www.billswebspace.com/TJTrans.htm" target="_blank" rel="noopener">TJ Transmission and Transfer Case Fluid Change</a></li><li><a href="https://wranglertjforum.com/threads/ax15-vs-nv3550-how-to-tell-which-one-you-have.9042/" target="_blank" rel="noopener">AX-15 vs NV3550 identification — TJ manual transmission swap notes</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-np231-tj/">NP231 Transfer Case — Service and Weak Points</a></li><li><a href="/db/tj/tj-transfer-case-fluid-tj/">Transfer Case Fluid — NP231 and NV231</a></li><li><a href="/db/tj/tj-differential-fluid/">Differential Fluid Change — Dana 30/35/44</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20AX-15%20Manual%20Transmission%20Service">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

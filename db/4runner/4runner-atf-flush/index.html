@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,14 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/maintenance">Maintenance</a></nav>
   <h1>ATF Flush — A750F 5-Speed Automatic</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$90–180</span><span class="tm-fact">2003-2009, 2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$90–180</span><span class="tm-fact">2003-2009, 2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://trail4runner.com/2023/05/07/transmission-fluid-change-5th-gen-4runner/" target="_blank" rel="noopener">A drain-and-fill on the A750F pulls about 4 quarts</a> of Toyota WS ATF; a full system flush takes 11–12 quarts because the torque converter holds half the fluid you can&#x27;t drain in one pass.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 4th-gen (2003–2009) and 5th-gen (2010–2024) 4Runner V6 share the A750F 5-speed automatic, an Aisin-built sealed transmission with no dipstick. Toyota markets it as &quot;lifetime&quot; fluid, which is marketing — the fluid darkens and shears down between 60k and 90k miles, and 4Runners that see trailer towing, sustained Phoenix heat, or low-range crawling on washboard show ATF degradation well before that. A 60k-mile drain-and-fill is realistic preventive maintenance. A full flush (3 drain-and-fills with drives in between) at 90k–100k miles is appropriate if the fluid has never been changed.</p>
 <p>Fluid choice is non-negotiable: Toyota Genuine ATF WS (P/N 00289-ATFWS) or a verified equivalent (Idemitsu TLS-LV, Aisin AFW+). Toyota&#x27;s own service manual warns that wrong-spec fluid will harm shift quality and damage the valve body. The cheaper &quot;universal&quot; Dexron/Mercon blends are not interchangeable here — they will shift harshly and shorten the transmission&#x27;s life. Budget 12 quarts of WS to do a full flush.</p>
 <p>A drain-and-fill removes about 4 quarts, leaving roughly 7–8 quarts of old fluid in the torque converter, valve body, and cooler lines. To dilute old fluid effectively, <a href="https://bobistheoilguy.com/forums/threads/toyota-a750e-f-do-it-yourself-transmission-flush.283617/" target="_blank" rel="noopener">do three drain-and-fills with 100-mile drives in between</a>. After the third, you&#x27;ve cycled the new fluid through every chamber and the system reads about 90% fresh. Skipping the multi-pass cycle leaves you with 60–70% fresh fluid — better than nothing, but not a true service.</p>
 <p>The level-check procedure is the trickiest part. There is no dipstick. Fluid level is verified by draining the overflow tube while the transmission is at exactly 104–113°F (40–45°C). Too cold and you&#x27;ll overfill; too hot and you&#x27;ll underfill. Use an OBD-II scanner that reads transmission temperature (a basic Bluetooth ELM327 + Torque app works) or an infrared thermometer aimed at the pan. Loosen the 5mm hex check plug at temperature and let excess drip until flow reduces to a slow dribble, then torque to 15 ft-lbs.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Drive the vehicle 15 minutes to warm the transmission to operating temperature, then park level.</li><li>Remove the 24mm refill plug FIRST on top of the transmission (under a heat shield on some trims). If you can&#x27;t get it loose, stop — you can&#x27;t refill what you drain.</li><li>Position a drain pan under the transmission. Remove the 14mm drain plug and let fluid drain fully (10 minutes).</li><li>Measure the drained fluid — you&#x27;ll typically capture 3.7–4.0 quarts. Inspect for burnt smell, metal flakes, or discoloration.</li><li>Reinstall and torque the drain plug to 21 ft-lbs.</li><li>Pump in the same quantity of fresh Toyota WS through the refill plug using a transfer pump.</li><li>Reinstall and torque the refill plug to 29 ft-lbs.</li><li>Start the engine. With your foot on the brake, cycle the shifter through P-R-N-D-3-2-L and back to P, pausing 3 seconds in each gear.</li><li>Drive 100 miles of mixed driving to circulate the new fluid through the torque converter and valve body.</li><li>Repeat steps 1–9 twice more for a true flush (three drain-and-fills total).</li><li>After the final fill: with engine idling and transmission at 104–113°F, loosen the 5mm hex check plug.</li><li>Let excess fluid dribble out. When flow slows to drops, torque the check plug to 15 ft-lbs and shut off the engine.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Catches metal debris and fluid breakdown before they damage the valve body</li><li>$100 in fluid vs. $4,000+ for a rebuilt transmission</li><li>A750F responds well to fresh WS — shift quality noticeably improves</li><li>Multi-pass drain-and-fill is safer than a machine flush on high-mileage units</li></ul>
@@ -257,7 +268,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://trail4runner.com/2023/05/07/transmission-fluid-change-5th-gen-4runner/" target="_blank" rel="noopener">Trail4Runner — Drain and Fill 5th Gen</a></li><li><a href="https://bobistheoilguy.com/forums/threads/toyota-a750e-f-do-it-yourself-transmission-flush.283617/" target="_blank" rel="noopener">BobIsTheOilGuy — Toyota A750E/F DIY Flush Procedure</a></li><li><a href="https://thetrackahead.com/projects/4th-gen-toyota-4runner/transmission-fluid-flush-and-fill-4th-gen-toyota-4runner/" target="_blank" rel="noopener">TheTrackAhead — Transmission Fluid Flush 4th Gen 4Runner</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-transfer-case-fluid-4runner/">Transfer Case Fluid Change</a></li><li><a href="/db/4runner/4runner-front-diff-fluid-4runner/">Front Differential Fluid Change</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20ATF%20Flush%20%E2%80%94%20A750F%205-Speed%20Automatic">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

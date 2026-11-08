@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/maintenance">Maintenance</a></nav>
   <h1>Spark Plug Replacement — 4.0L</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$18–45</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$18–45</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The 4.0L takes six plugs, <a href="https://www.jeep.com" target="_blank" rel="noopener">gapped at 0.035&quot;, torqued to 27 ft-lb</a>. Copper plugs (Champion RC12LYC or NGK ZFR5N) are the OEM choice and run cleaner than premium platinums on this old engine. Job takes 30–60 minutes with a 5/8&quot; plug socket.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 4.0L straight-six uses a straightforward distributor-and-coil ignition through 1997, then coil-on-distributor with cap-and-rotor through 2006. Either way, the plugs sit in a row down the passenger side of the engine, fully exposed, no intake to remove. This is the most straightforward spark plug job on any modern engine.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Why not premium plugs?</strong> The 4.0L was designed for copper. Iridium plugs sometimes cause cold-start hesitation on this engine because the precious metal tip has a slightly higher firing voltage requirement and the older ignition coil isn&#x27;t always up to it. If your TJ runs perfectly on copper and you switch to iridium and get rough idle, that&#x27;s why.</p>
 <p><strong>Gap matters.</strong> Pre-gapped doesn&#x27;t mean correctly gapped. Always verify with a wire gauge — 0.035&quot; should slide through with light drag. If you can shove a 0.040&quot; gauge through too, the plug is no good (don&#x27;t try to close the gap on iridium; the tip chips).</p>
 <p><strong>Anti-seize warning.</strong> Most modern plugs ship with a nickel-coated thread that does not need anti-seize. Adding anti-seize will cause you to overtorque (the lubricant reduces friction, so your torque wrench reads correct but the actual clamp load is too high). If you must use it, a tiny dab on the threads only.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Engine cold (or at least cool to the touch). Hot heads can pull threads out when you remove plugs.</li><li>Pop the plug wire boots off one at a time. Twist before pulling to break the seal — don&#x27;t yank straight up.</li><li>Blow compressed air around the plug well to remove any dirt before unscrewing.</li><li>Use the 5/8&quot; plug socket with extension. Back the plug out a half turn, then turn by hand the rest of the way to feel for cross-threading.</li><li>Inspect the old plug: tan/brown = correct mixture. White/glazed = lean. Black/sooty = rich. Oily = valve seal or piston ring issue.</li><li>Check the new plug&#x27;s gap with a wire gauge. Should be 0.035&quot;. Bend the side electrode only, never the center.</li><li>Apply a small dab of dielectric grease inside the plug wire boot (helps prevent moisture-related misfires).</li><li>Thread the new plug in by hand until snug. If it doesn&#x27;t go in by hand, stop — you&#x27;re cross-threading.</li><li>Torque to 27 ft-lb with a torque wrench. On an aluminum head this is non-negotiable; the 4.0L iron head is more forgiving but a wrench is still smart.</li><li>Reattach the plug wire. Repeat for all six.</li><li>Start, listen for misfire. If you have a code reader, scan for P0301–P0306.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Cleanest plug job on any modern engine</li><li>All six plugs exposed, no intake removal</li><li>Copper plugs cost $18 for the set</li><li>Old plug condition tells you a lot about engine health</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.jeep.com" target="_blank" rel="noopener">Chrysler TJ 4.0L service info — 0.035&quot; gap, 27 ft-lb plug torque</a></li><li><a href="https://www.championautoparts.com" target="_blank" rel="noopener">Champion RC12LYC OEM application data for 4.0L Jeep</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-oil-change-tj/">Oil Change — 4.0L and 2.5L</a></li><li><a href="/db/tj/tj-brake-fluid-tj/">Brake Fluid Flush</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Spark%20Plug%20Replacement%20%E2%80%94%204.0L">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -213,6 +213,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -343,7 +354,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>Running 33&quot; Tires on the Tacoma — 285/75R16 and 295/70R17 Fitment</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$900–1800</span><span class="tm-fact">2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$900–1800</span><span class="tm-fact">2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>285/75R16 (about 32.8&quot; by the arithmetic) is the size that works on a lifted Tacoma — it clears on 2&quot; of lift <a href="https://www.tacomaworld.com" target="_blank" rel="noopener">after trimming the front mud flap bracket</a>, clears untouched on 2.5&quot;+, and it is the last size you can run before upper control arms and re-gearing stop being optional.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires-tacoma.webp" alt="All-terrain tire and black wheel on a black third-generation Toyota Tacoma" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@isaactmitchell?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Isaac Mitchell</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 285/75R16 works out to about 32.8&quot; (285mm x 0.75 x 2, plus the 16&quot; wheel), a hair under the &quot;33&quot; the size gets called. Measured height varies by brand. On a 2&quot; lifted Tacoma it will contact the front mud flap bracket at full compression and full lock. Trimming that plastic bracket — ten minutes with a razor knife — ends the rub. At 2.5&quot;+ of lift the size runs clean with no cutting. The 295/70R17 (33.5&quot;) is the 17&quot; equivalent: it wants 2.5&quot; minimum, and 3&quot; on a 2nd gen because that generation&#x27;s front fender opening is narrower where the tire swings into it.</p>
@@ -357,7 +368,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>When 33s force a re-gear</h3>
 <p>Stock 2nd gen 4.0L V6 trucks came with 3.73 or 4.10 final drive depending on trans and package; 3rd gen automatics are commonly 3.909. A 32.8&quot; tire on 3.73s behaves like 3.59s did on the factory 31.6&quot; tire — the truck will hunt between gears on grades and hold torque converter lockout longer, and the transmission runs hotter for it. Most owners live with it. The point where it stops being livable is a loaded truck, a roof tent, or towing: at that combination, 4.56 or 4.88 gears restore the effective ratio, and that is a separate project worth reading before committing — start with the <a href="/db/tacoma/tacoma-regear/">re-gear guide</a> and the <a href="/db/tacoma/tacoma-wheels/">wheel selection guide</a> since backspacing and gearing are usually decided together.</p>
 <p>One more practical constraint: a 285/75R16 will not stow in the factory under-bed spare carrier on most 2nd gen trucks without a fight, and on many it won&#x27;t go at all. Owners either run a smaller matched spare (a compromise on a locked or 4WD truck), relocate the spare into the bed, or fit an aftermarket carrier. Decide before the tires arrive, not on the shoulder.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Measure current lift height and photograph clearance at the mud flap bracket and inner liner before ordering.</li><li>Verify wheel backspacing against lift: 4.75&quot;–5&quot; for 2.5&quot;+ lift; confirm 6x139.7 bolt pattern and 106.1mm hub bore or plan hub-centric rings.</li><li>Order tires and wheels; order four TPMS sensors if the factory sensors will not transfer.</li><li>Mount and balance at a shop, requesting road-force balance for assemblies over about 50 lb.</li><li>Install wheels with the truck on jack stands and torque lug nuts to 83 ft-lb in a star pattern.</li><li>Turn the wheel lock to lock at a walking pace in a lot and listen; check for polished contact points.</li><li>Trim the front mud flap bracket with a razor knife if 285/75R16 contacts on 2&quot; of lift.</li><li>Pull the inner fender liner inward on 2nd gen if the leading edge shows contact; re-clip and re-drive.</li><li>Load the bed to normal trail weight and repeat the lock-to-lock check at full compression over a driveway lip.</li><li>Confirm the spare arrangement — under-bed carrier fit, bed relocation, or aftermarket carrier.</li><li>Recheck lug torque at 50 miles and again at 200.</li></ol>
 <h2>Why it works</h2>
 <ul><li>285/75R16 is the widest common size that clears on 2&quot; of lift with one plastic trim cut.</li><li>Substantially more trail traction than factory 265s, with a taller sidewall that absorbs chop.</li><li>Every major brand builds this size, so AT, hybrid, and MT options all exist at real prices.</li><li>Load range C and D options in this size resist sidewall cuts far better than a P-metric tire.</li><li>No re-gear required for street and light trail use on 3.73 or higher.</li></ul>
@@ -372,7 +383,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.tacomaworld.com" target="_blank" rel="noopener">Tacoma World Tire Fitment Guide</a></li><li><a href="https://www.bfgoodrichtires.com" target="_blank" rel="noopener">BFGoodrich KO2 Product Specifications</a></li><li><a href="https://www.tiretrack.com" target="_blank" rel="noopener">Tire Rack — Tire Size Comparison Data</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-wheels/">Wheel Selection for the Tacoma — 17&quot; Steel, Alloy, and Beadlock</a></li><li><a href="/db/tacoma/tacoma-mid-lift/">Mid-Tier Lift with Upper Control Arms ($600–$2,000)</a></li><li><a href="/db/tacoma/tacoma-budget-lift/">Budget Lift Kit — Coilovers and Add-a-Leaf (≤$600)</a></li><li><a href="/db/tacoma/tacoma-regear/">Regearing the Tacoma for Larger Tires — 4.88 / 5.29 (3rd Gen)</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Running%2033%22%20Tires%20on%20the%20Tacoma%20%E2%80%94%20285/75R16%20and%20295/70R17%20Fitment">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

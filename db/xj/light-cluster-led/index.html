@@ -139,6 +139,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -271,6 +282,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Gauge Cluster Illumination LED Swap</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$30–80</span><span class="tm-fact">1991-1995, 1996, 1997-2001</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://www.cherokeeforum.com/f2/cluster-led-swap.html" target="_blank" rel="noopener">Replace the cluster&#x27;s 194-style bulbs with LEDs to brighten dim gauges</a>. 1991-2001 cluster uses T5/T10 wedge sockets that accept LED 74 or 194 polarity-correct bulbs.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Disconnect the battery before you start. Fuse every new circuit at the source and size the wire for the load and the run. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-electrical.webp" alt="Hands working at an open under-hood fuse and relay box" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@sincerelymedia?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Sincerely Media</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>After 25+ years, the XJ gauge cluster looks like it&#x27;s powered by a candle. The cluster uses small wedge bulbs (74 or 194 depending on year) in twist-lock sockets. Replacing them with LEDs gets you a bright, modern look but requires care:</p>
 <ol><li>Remove the cluster bezel (4-6 screws) and pull the cluster (4 screws + a connector).</li><li>Identify each socket — there are typically 4-6 illumination bulbs and several indicator bulbs (the indicators should usually stay incandescent because their factory colored caps are tuned for filament color; LEDs through a colored cap can look wrong).</li><li>Use LED 74 wedges from Superbright LEDs or Diode Dynamics — these are polarity-sensitive. Test, and rotate 180 degrees if it doesn&#x27;t light.</li><li>Choose color: factory was greenish-blue (~3000K incandescent through teal cap); white LEDs look harsh. Many builders match by using natural white (4000K) and replacing the factory cap, or by using a teal LED.</li></ol>
@@ -289,7 +301,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.cherokeeforum.com/f2/cluster-led-swap.html" target="_blank" rel="noopener">Cherokee Forum - Cluster LED Conversion</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/xj/light-interior-led-swap/">Interior Dome / Map LED Swap</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/wire-gauge-calculator.html">Wire Gauge Calculator</a> — wire size for the amps and the run length</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Gauge%20Cluster%20Illumination%20LED%20Swap">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

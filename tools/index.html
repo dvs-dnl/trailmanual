@@ -72,6 +72,17 @@
   line-height: 1.65;
   margin: 0;
 }
+
+/* Direction B template 05: filter chips, category label, input/output line */
+.tm-tools-h2{font-family:var(--tm-serif);font-size:1.5rem;margin:0 0 12px;color:var(--text)}
+.tm-tool-filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.tm-filter{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--border);background:var(--panel);color:var(--text);font:600 14px/1 var(--font-sans);cursor:pointer}
+.tm-filter:hover{border-color:var(--accent)}
+.tm-filter[aria-pressed="true"]{background:var(--tm-olive,#475C3A);border-color:var(--tm-olive,#475C3A);color:#fff}
+[data-theme="dark"] .tm-filter[aria-pressed="true"]{background:var(--clay);border-color:var(--clay);color:#1B221E}
+.tm-tool-card[hidden]{display:none}
+.tm-tool-card .tm-io{font-size:13.5px;line-height:1.5;color:var(--text-dim);margin:0 0 12px;padding-top:10px;border-top:1px dashed var(--border)}
+.tm-filter-empty{color:var(--text-dim);margin:0 0 16px}
 </style>
 <script>
 (function(){
@@ -215,7 +226,7 @@
     <div class="page-hero-inner">
       <div class="page-hero-eyebrow">Interactive</div>
       <h1>Interactive Tools</h1>
-      <p>Interactive guides, built for the driveway. Free, no signup. Use them with greasy hands. Each tool is a single page — open it on your phone and work through it while the truck's on jack stands.</p>
+      <p>Calculators, diagnostics, builders, planners and comparisons. Free, no signup, and each one is a single page you can work through on your phone with the truck on jack stands.</p>
     </div>
   </div>
 
@@ -224,10 +235,19 @@
        Or single-column on mobile. Each = an <a> wrapping a Group block.
        ==================================================================== -->
   <section class="tm-section" style="margin-top:20px">
-    <h2 style="font-size:20px;margin:0 0 16px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.4px;font-weight:600">Open now</h2>
-    <div class="tm-grid-2">
-      <a class="tm-tool-card" href="/db/">
-        <span class="tag">XJ Database</span>
+    <h2 class="tm-tools-h2">Every tool</h2>
+    <div class="tm-tool-filters" role="group" aria-label="Filter tools by kind">
+      <button type="button" class="tm-filter" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="tm-filter" data-filter="Calculators" aria-pressed="false">Calculators</button>
+      <button type="button" class="tm-filter" data-filter="Diagnostics" aria-pressed="false">Diagnostics</button>
+      <button type="button" class="tm-filter" data-filter="Builders" aria-pressed="false">Builders</button>
+      <button type="button" class="tm-filter" data-filter="Planners" aria-pressed="false">Planners</button>
+      <button type="button" class="tm-filter" data-filter="Comparisons" aria-pressed="false">Comparisons</button>
+    </div>
+    <p class="tm-filter-empty" hidden>No tools of that kind yet.</p>
+    <div class="tm-grid-2" id="tm-tool-grid">
+      <a class="tm-tool-card" href="/db/" data-cat="Builders">
+        <span class="tag">Builder</span>
         <h3>XJ DIY Database &amp; Rig Builder</h3>
         <p>
           307 entries covering maintenance, suspension, axles, drivetrain, armor, recovery,
@@ -235,16 +255,17 @@
           Browse by category, search across everything, or run the Rig Builder to get a phased build
           plan for your goal and budget.
         </p>
+        <p class="tm-io">You pick a goal and a budget; you get a phased build plan, with 307 XJ guides to browse and search.</p>
         <div class="meta">
           <span>Browse</span>
           <span>Search</span>
           <span>Rig Builder</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Build &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/jl/buying-decision/">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/jl/buying-decision/" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>JL Buying Decision Tool</h3>
         <p>
           Should you buy a JL, which years, or stay on a JK? Checks your trailer weight, rear-row curtain
@@ -252,16 +273,17 @@
           a 4xe and a Gladiator on cost to a finished rig at your tire size. Counts every dollar once, shows
           what would change the answer, and lists every fact it used with its source.
         </p>
+        <p class="tm-io">You enter trailer weight, airbag need, payment ceiling, cash and tire size; you get five options scored on cost to a finished rig.</p>
         <div class="meta">
           <span>5 options</span>
           <span>Hard requirements first</span>
           <span>Sourced facts</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/model-year-matrix.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/model-year-matrix.html" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>Model Year Buyer&rsquo;s Guide</h3>
         <p>
           Year-by-year comparison of what actually changed between model years &mdash; drivetrain, off-road
@@ -270,127 +292,136 @@
           are owner-reported and unconfirmed. Compare up to three years side by side, check recall campaign
           numbers by year, and work a used-inspection checklist. Jeep Wrangler JL 2018&ndash;2026 is live.
         </p>
+        <p class="tm-io">You pick the model years; you get what changed in drivetrain, hardware, safety equipment and recalls, with a source tag on every claim.</p>
         <div class="meta">
           <span>9 model years</span>
           <span>Recall lookup</span>
           <span>Inspection checklist</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/trail-reading/">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/trail-reading/" data-cat="Planners">
+        <span class="tag">Planner</span>
         <h3>Trail Reading Lab</h3>
         <p>
           Read the trail before you drive it. Spot the ledge, loose rock, washout and blind exit in a trail
           scene, sort what the image shows from what you have to check on foot, then choose your next move.
           Scored on first attempts, and it leads into Line Picker.
         </p>
+        <p class="tm-io">You study a trail scene and mark the hazards; you get a score on your first read and a hand-off to Line Picker.</p>
         <div class="meta">
           <span>4 hazards</span>
           <span>3 scored stages</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Practice &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/line-picker.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/line-picker.html" data-cat="Planners">
+        <span class="tag">Planner</span>
         <h3>Line Picker</h3>
         <p>
           Learn to pick a line on a trail obstacle. Find the hazards on a V-notch ledge, place your own line,
           drive it in three decisions, then swap the vehicle and see what changes. Every score reads the same
           height map that draws the rock, with a sourcing tag on every claim.
         </p>
+        <p class="tm-io">You find the hazards on a ledge and place a line; you get a scored drive in three decisions, then the same obstacle in a second vehicle.</p>
         <div class="meta">
           <span>2 vehicle archetypes</span>
           <span>4 stages</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Practice &rarr;</span>
         </div>
       </a>
 
 
-      <a class="tm-tool-card" href="/budget-ladder.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/budget-ladder.html" data-cat="Planners">
+        <span class="tag">Planner</span>
         <h3>Budget Ladder</h3>
         <p>
           What to buy next on your rig, and the best build at any budget. Rungs climb in the order that
           matters most per dollar, each linked to its guide. An upgrade replaces what it supersedes, so the
           dollar mark is always what the whole build costs at that point. Live for the Cherokee XJ, JL, JK, TJ, Gladiator, 4Runner and Tacoma.
         </p>
+        <p class="tm-io">You pick your rig and a dollar figure; you get the upgrades in order and the best whole build at that budget.</p>
         <div class="meta">
           <span>7 rigs</span>
-          <span>Best build under $X</span>
-          <span class="arrow">Open &rarr;</span>
+          <span>Best build at any budget</span>
+          <span class="arrow">Plan &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/jl-lift-kit-comparison.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/jl-lift-kit-comparison.html" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>Lift Kit Comparison: JL</h3>
         <p>
           Every JL kit we could verify, with price, named fitment, what owners report after the install and
           what went wrong. Each finding shows its source and how far to trust it.
         </p>
+        <p class="tm-io">You filter by lift height, trim and price; you get every verified JL kit side by side with owner reports and sources.</p>
         <div class="meta">
           <span>Filter by height, trim, price</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/jk-lift-kit-comparison.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/jk-lift-kit-comparison.html" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>Lift Kit Comparison: JK</h3>
         <p>
           JK and JKU kits side by side, with price, 2-door or 4-door fitment, owner reports and issues. Each
           finding shows its source and how far to trust it.
         </p>
+        <p class="tm-io">You filter by lift height, door count and price; you get every verified JK kit side by side with owner reports and sources.</p>
         <div class="meta">
           <span>Filter by height, doors, price</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/tj-lift-kit-comparison.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/tj-lift-kit-comparison.html" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>Lift Kit Comparison: TJ and LJ</h3>
         <p>
           TJ and LJ kits side by side, with price, named fitment, owner reports and issues. Each finding shows
           its source and how far to trust it.
         </p>
+        <p class="tm-io">You filter by lift height, model and price; you get every verified TJ and LJ kit side by side with owner reports and sources.</p>
         <div class="meta">
           <span>Filter by height, model, price</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/gladiator-lift-kit-comparison.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/gladiator-lift-kit-comparison.html" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>Lift Kit Comparison: Gladiator</h3>
         <p>
           JT kits side by side, with price, Rubicon, Mojave and diesel fitment, owner reports and issues. Each
           finding shows its source and how far to trust it.
         </p>
+        <p class="tm-io">You filter by lift height, trim and price; you get every verified JT kit side by side with owner reports and sources.</p>
         <div class="meta">
           <span>Filter by height, trim, price</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/bronco6g-lift-kit-comparison.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/bronco6g-lift-kit-comparison.html" data-cat="Comparisons">
+        <span class="tag">Comparison</span>
         <h3>Lift Kit Comparison: 6th Gen Bronco</h3>
         <p>
           Leveling kits, lifts and coilovers side by side, with door count and Sasquatch fitment, owner reports
           and CV findings. Each finding shows its source and how far to trust it.
         </p>
+        <p class="tm-io">You filter by lift height, trim and price; you get every verified Bronco kit side by side with owner reports and CV findings.</p>
         <div class="meta">
           <span>Filter by height, trim, price</span>
-          <span class="arrow">Open &rarr;</span>
+          <span class="arrow">Compare &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/gear-ratio-calculator.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/gear-ratio-calculator.html" data-cat="Calculators">
+        <span class="tag">Calculator</span>
         <h3>Gear Ratio Calculator</h3>
         <p>
           Select your vehicle and trim — factory axle ratio, transfer case low, and stock tire load automatically.
@@ -398,51 +429,53 @@
           (before and after), and crawl ratio. Covers 14 vehicles including XJ, TJ, JK, JL, 4Runner,
           Tacoma, Bronco, and more.
         </p>
+        <p class="tm-io">You pick vehicle, trim and target tire size; you get the gear ratio to run, highway RPM before and after, and crawl ratio.</p>
         <div class="meta">
           <span>14 vehicles</span>
           <span>RPM comparison</span>
           <span>Crawl ratio</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Calculate &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/db/death-wobble-guide.html">
-        <span class="tag danger">For the panicked owner</span>
+      <a class="tm-tool-card" href="/db/death-wobble-guide.html" data-cat="Diagnostics">
+        <span class="tag">Diagnostic</span>
         <h3>Death Wobble Survival Guide</h3>
         <p>
-          You just had it happen at 60 mph. Take a breath. The guide walks you through emergency
+          It happened at 60 mph. Take a breath. The guide walks you through emergency
           response (don't slam the brakes, here's what to do), a plain-English explainer, a
           6-question symptom quiz, a guided driveway inspection (saves your progress in your
           browser), and a prioritized fix plan that adapts to what you find.
         </p>
+        <p class="tm-io">You answer six symptom questions and work through a driveway inspection; you get a prioritized fix plan for what you find.</p>
         <div class="meta">
           <span>Emergency response</span>
           <span>Symptom quiz</span>
           <span>Inspection checklist</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Diagnose &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/v8-swap-parts-checklist.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/v8-swap-parts-checklist.html" data-cat="Builders">
+        <span class="tag">Builder</span>
         <h3>Engine Swap Parts Checklist</h3>
         <p>
-          Pick your engine path and get the full parts list, auto-filtered to your build. V8 swap
-          paths are live for the JK Wrangler today — AEV-style 5.7L Hemi, 6.4L Hemi, DIY LS, MoTech
-          LT, Bruiser LX3 — with more engines (Pentastar, stroker) and more platforms coming.
+          Pick your engine path and get the full parts list, auto-filtered to your build. Five JK Wrangler
+          V8 paths: AEV-style 5.7L Hemi, 6.4L Hemi, DIY LS, MoTech LT and Bruiser LX3.
           Check parts off as you buy them and again as you install. Costs total live; expandable
           instructions and pro tips on every part. Progress saves to this device.
         </p>
+        <p class="tm-io">You pick an engine path; you get the full parts list to check off as you buy and install, with live cost totals.</p>
         <div class="meta">
           <span>50–80 parts per path</span>
           <span>Buy + install tracking</span>
           <span>Live cost totals</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Build &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/my-garage.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/my-garage.html" data-cat="Planners">
+        <span class="tag">Planner</span>
         <h3>My Garage — Maintenance Log</h3>
         <p>
           Add every rig you own. Log every service as you do it — date, mileage, parts used,
@@ -450,15 +483,16 @@
           intervals. Lifetime and YTD spend per vehicle. Export your garage as JSON for backup or
           to move to a new device. No account required — your data stays on this device.
         </p>
+        <p class="tm-io">You log each service with date, mileage and cost; you get what is overdue and what is due next, saved on this device.</p>
         <div class="meta">
           <span>Multi-vehicle</span>
           <span>Service intervals</span>
           <span>Local-first storage</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Log &rarr;</span>
         </div>
       </a>
-      <a class="tm-tool-card" href="/db/wire-gauge-calculator.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/db/wire-gauge-calculator.html" data-cat="Calculators">
+        <span class="tag">Calculator</span>
         <h3>Wire Gauge Calculator</h3>
         <p>
           Pick amp draw, one-way run length, voltage, and drop tolerance — get the minimum AWG
@@ -466,16 +500,17 @@
           table with voltage drop per gauge, ampacity, and the formula shown. Covers winches,
           light bars, dual battery, and aux fuse blocks.
         </p>
+        <p class="tm-io">You enter amps, one-way run length, voltage and drop tolerance; you get the minimum AWG and whether it is fuse-safe.</p>
         <div class="meta">
           <span>AWG selector</span>
           <span>Drop table</span>
           <span>12V / 24V</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Calculate &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/db/fuel-range-planner.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/db/fuel-range-planner.html" data-cat="Planners">
+        <span class="tag">Planner</span>
         <h3>Fuel &amp; Range Planner</h3>
         <p>
           Enter tank size, loaded MPG, terrain type, and aux storage. The planner outputs a safe
@@ -483,32 +518,34 @@
           breakdown of how your fuel is allocated. Terrain factors cover pavement, dirt, sand,
           rock crawl, and mud.
         </p>
+        <p class="tm-io">You enter tank size, loaded MPG, terrain and aux fuel; you get a planning range with a reserve buffer and effective MPG by terrain.</p>
         <div class="meta">
           <span>5 terrain types</span>
           <span>Reserve buffer</span>
           <span>Fuel breakdown</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Plan &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/db/tire-pressure-airdown.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/db/tire-pressure-airdown.html" data-cat="Calculators">
+        <span class="tag">Calculator</span>
         <h3>Tire Pressure / Airdown</h3>
         <p>
           Recommended starting pressures for airing down by terrain — sand, rock crawl, mud, snow,
           and dirt — adjusted for tire diameter and vehicle weight. Includes highway air-back-up
           targets and a full terrain reference table. Framed as starting points, not guarantees.
         </p>
+        <p class="tm-io">You enter tire diameter, vehicle weight and surface; you get a starting pressure for airing down and the highway air-back-up target.</p>
         <div class="meta">
           <span>5 surfaces</span>
           <span>Weight adjusted</span>
           <span>↑ Air-back-up guide</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Calculate &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/db/trail-tool-kit-builder.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/db/trail-tool-kit-builder.html" data-cat="Builders">
+        <span class="tag">Builder</span>
         <h3>Trail Tool Kit Builder</h3>
         <p>
           Pick your build complexity (stock / mild / built) and trail distance (day / overnight /
@@ -516,43 +553,46 @@
           to-have, and the list notes what most people can skip. Includes a suggested packing
           layout by zone.
         </p>
+        <p class="tm-io">You pick build level and trail distance; you get a prioritized tool and spares list with a packing layout.</p>
         <div class="meta">
           <span>3 build levels</span>
           <span>3 distance tiers</span>
           <span>Pack layout</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Build &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/db/build-cost-tracker.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/db/build-cost-tracker.html" data-cat="Planners">
+        <span class="tag">Planner</span>
         <h3>Build Cost Tracker</h3>
         <p>
           Log purchases, tag each to a build phase, and track total invested, estimated resale
           impact, and remaining budget. Phase-by-phase breakdown chart, CSV export, and delete
           per entry. Data saves in your browser — no account needed.
         </p>
+        <p class="tm-io">You log purchases by build phase; you get total invested, estimated resale impact and remaining budget, with CSV export.</p>
         <div class="meta">
           <span>Phase breakdown</span>
           <span>Resale estimates</span>
           <span>Browser storage</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Plan &rarr;</span>
         </div>
       </a>
 
-      <a class="tm-tool-card" href="/db/wheel-offset-visualizer.html">
-        <span class="tag">New</span>
+      <a class="tm-tool-card" href="/db/wheel-offset-visualizer.html" data-cat="Calculators">
+        <span class="tag">Calculator</span>
         <h3>Wheel Offset &amp; Backspacing Visualizer</h3>
         <p>
           Convert between offset (mm) and backspacing (in) and see a to-scale SVG cross-section
           of how the wheel sits relative to the hub — outboard poke, inboard clearance, and
           rub-risk flags. Compare two setups side-by-side to see how much a wheel moves in or out.
         </p>
+        <p class="tm-io">You enter offset or backspacing and wheel width; you get the other value, a to-scale cross-section and rub-risk flags.</p>
         <div class="meta">
           <span>SVG cross-section</span>
           <span>↔ Offset ↔ backspacing</span>
           <span>Rub risk flags</span>
-          <span class="arrow">Open →</span>
+          <span class="arrow">Calculate &rarr;</span>
         </div>
       </a>
     </div>
@@ -651,5 +691,25 @@
 })();
 </script>
 <script>(function(){var b=document.getElementById('tm-theme-btn');if(b)b.addEventListener('click',function(){var c=document.documentElement.getAttribute('data-theme')||'light';var n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);try{localStorage.setItem('tm-theme',n);}catch(e){}});})();</script>
+
+<script>
+(function(){
+  var grid=document.getElementById('tm-tool-grid'); if(!grid) return;
+  var btns=[].slice.call(document.querySelectorAll('.tm-filter'));
+  var cards=[].slice.call(grid.querySelectorAll('.tm-tool-card'));
+  var empty=document.querySelector('.tm-filter-empty');
+  function apply(f){
+    var shown=0;
+    cards.forEach(function(c){var on=(f==='all'||c.getAttribute('data-cat')===f); c.hidden=!on; if(on) shown++;});
+    btns.forEach(function(b){b.setAttribute('aria-pressed', b.getAttribute('data-filter')===f?'true':'false');});
+    if(empty) empty.hidden=shown>0;
+    try{ if(f==='all') history.replaceState(null,'',location.pathname); else history.replaceState(null,'','#'+f.toLowerCase()); }catch(e){}
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-filter'));});});
+  var h=(location.hash||'').replace('#','').toLowerCase();
+  var start=btns.filter(function(b){return b.getAttribute('data-filter').toLowerCase()===h;})[0];
+  if(start) apply(start.getAttribute('data-filter'));
+})();
+</script>
 </body>
 </html>

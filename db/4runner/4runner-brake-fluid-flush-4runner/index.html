@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,14 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/maintenance">Maintenance</a></nav>
   <h1>Brake Fluid Flush</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$25–70</span><span class="tm-fact">2003-2009, 2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$25–70</span><span class="tm-fact">2003-2009, 2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Flush your 4Runner&#x27;s brake fluid every 30,000 miles or 3 years; you need about 1 quart of DOT 3, a 10mm wrench, and clear tubing to do it right.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Brake fluid is hygroscopic — it absorbs moisture from the air. After three years, even sealed brake systems pick up enough water to drop the boiling point by 30°C or more. On a stock 4Runner that&#x27;s a slow-degradation issue. On a heavy 4Runner running 33s or doing long downhill grades in 4Lo, that water turns to vapor under sustained braking and your pedal goes to the floor. This is the failure mode behind most &quot;my brakes disappeared&quot; complaints on Tacoma World, IH8MUD, and the 4Runner forums.</p>
 <p>Toyota specifies DOT 3 from the factory and the fill cap says so. DOT 4 is compatible and has a higher dry boiling point, which makes it the right choice for a rig that does long descents or runs big tires. DOT 5.1 is also glycol-based and compatible with DOT 3/4. The only fluid you must never use is DOT 5 — that&#x27;s silicone-based, will not mix with DOT 3/4, and will destroy the ABS unit. The bottles look similar; read the label.</p>
 <p><a href="https://www.toyotanation.com/threads/whats-the-brake-fluid-capacity.1185666/" target="_blank" rel="noopener">Capacity for a full flush is 1 quart on a 4th gen</a> (2003–2009) and 1–1.5 quarts on a 5th gen (2010–2024) because the longer brake lines hold more fluid. Buy two quarts. You&#x27;ll use about 1.2 quarts for the flush and keep the second for top-offs over the next year. Always use a fresh, sealed container — opened brake fluid begins absorbing water immediately and is suspect after 12 months on a shelf.</p>
 <p><a href="https://trail4runner.com/2021/10/21/bleeding-brakes-fluid-5th-gen-4runner/" target="_blank" rel="noopener">Order of bleeding is farthest from master cylinder to nearest</a>: right rear, left rear, right front, left front. The 5th gen&#x27;s ABS/VSC system holds fluid in the modulator and won&#x27;t fully flush from a bench bleed — for a complete flush, Toyota Techstream or a service tool that cycles the ABS pump is recommended, but for a routine fluid swap the standard four-corner bleed is sufficient. Watch the reservoir level constantly — if it runs dry you&#x27;ve sucked air into the master cylinder and the job doubled in length.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground, engine off, parking brake set.</li><li>Pop the hood, locate the brake fluid reservoir on the driver-side firewall.</li><li>Use a turkey baster or fluid pump to remove old fluid from the reservoir, leaving 1/4&quot; in the bottom.</li><li>Refill the reservoir to MAX with fresh DOT 3 or DOT 4.</li><li>Start at the right rear caliper. Place a box wrench on the bleeder valve (10mm).</li><li>Attach clear vinyl tubing to the bleeder, route the free end into a catch bottle.</li><li>Helper pumps brake pedal 3 times, holds on the third pump.</li><li>Crack the bleeder 1/4 turn — fluid and any air come out. Helper holds pedal to floor.</li><li>Close the bleeder before helper releases the pedal.</li><li>Repeat until clear new fluid runs out — about 4–6 cycles per corner.</li><li>Check reservoir level after every two bleeds; never let it drop below MIN.</li><li>Move to left rear, then right front, then left front. Same procedure.</li><li>Top up reservoir to MAX with fresh fluid.</li><li>Pump pedal to verify firm feel before moving the vehicle.</li><li>Test brakes at low speed before normal driving.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores brake pedal feel</li><li>Prevents brake fade on long descents</li><li>Cheap insurance against a vapor-lock incident</li><li>1–2 hour job at home with $25 in fluid</li></ul>
@@ -257,7 +268,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.top4runners.com/ja/2007/brakeflush.html" target="_blank" rel="noopener">Toyota 4Runner Brake Fluid Flush — Top4Runners</a></li><li><a href="https://trail4runner.com/2021/10/21/bleeding-brakes-fluid-5th-gen-4runner/" target="_blank" rel="noopener">Bleeding Brakes on a 5th Gen 4Runner — Trail4Runner</a></li><li><a href="https://www.toyotanation.com/threads/whats-the-brake-fluid-capacity.1185666/" target="_blank" rel="noopener">Toyota 4Runner Brake Fluid Capacity Discussion</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-front-pads-rotors/">Front Brake Pads and Rotors</a></li><li><a href="/db/4runner/4runner-brake-upgrade-trail-tow/">Brake Upgrades for Trail and Towing (5th Gen 4Runner)</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Brake%20Fluid%20Flush">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

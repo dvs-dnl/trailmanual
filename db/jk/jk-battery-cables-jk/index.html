@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/maintenance">Maintenance</a></nav>
   <h1>Battery Cable Inspection and Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$25–250</span><span class="tm-fact">2007-2011, 2012-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$25–250</span><span class="tm-fact">2007-2011, 2012-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Corroded or undersized battery cables are the most common cause of slow cranking, intermittent no-starts, and phantom electrical gremlins on the JK — and the fix is under an hour with hand tools.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JK&#x27;s factory battery cables are adequate when new but age poorly. The negative cable in particular runs to a body ground that sees moisture and road salt; the positive cable&#x27;s stamped lug at the starter solenoid corrodes under heat. By 100,000 miles, voltage drop across one or both cables can climb high enough to confuse the PCM and produce slow starts, dim headlights at idle, and stored codes that point everywhere except the actual cable.</p>
@@ -249,7 +260,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Replacement paths</h3>
 <p>If you&#x27;re replacing, you have three options. Mopar OEM cables are direct fits and run about $95 positive / $65 negative; they work and look stock, but their lugs are crimped to the same standard that failed the first time. The second path is a military-style terminal upgrade: cut the corroded terminal off your existing cable, crimp on a bolt-on military terminal, done — under $25 in parts, and it fixes the most common failure point without touching the rest of the cable. The third is the full custom kit: heavier gauge, military terminals, fused alternator lead, proper chassis grounds, about $230 — worth it on a built JK with real accessory load.</p>
 <p>Disconnect order matters. <a href="https://www.quadratec.com/c/howto/how-to-replace-your-jeep-wrangler-battery" target="_blank" rel="noopener">Pull negative first, always</a>. Reverse on reinstall — positive on first, negative last. This prevents shorting a wrench from positive to chassis ground. Torque the terminal bolts to 70 in-lb (Mopar spec). Hand-tight plus a snug turn works if you don&#x27;t have an in-lb wrench — overtightening crushes the soft lead post. After install, smear dielectric grease over the terminals, re-cover the boots, and crank it. If the start is noticeably faster than before, the cables were the problem.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Disconnect the negative battery cable first (10mm). Move it well clear of the post.</li><li>Disconnect the positive cable (10mm).</li><li>Trace each cable to its other end — starter solenoid for positive, body ground for negative. Inspect for corrosion, chafe, or burnt insulation.</li><li>Run the voltage-drop test before buying parts: under 0.3V positive path, under 0.2V grounds, cranking in clear-flood mode (throttle floored).</li><li>If replacing the positive cable, the lug at the starter is 13mm. Access is from below on most JKs.</li><li>If replacing the negative cable, pull the body ground bolt and clean the pad to bare metal.</li><li>Install new cables in reverse order. Apply dielectric grease at every connection.</li><li>Torque battery terminal bolts to 70 in-lb. Reinstall positive first, then negative.</li><li>Start the engine and verify crank speed and voltage at idle (target: 13.8–14.4V).</li></ol>
 <h2>Why it works</h2>
 <ul><li>Fixes slow cranking, no-starts, and voltage-drop electrical gremlins</li><li>Cheap if you re-terminate; modest cost if you replace whole cables</li><li>The voltage-drop test isolates the bad leg before you spend anything on parts</li><li>Often resolves codes the cables themselves never throw — including phantom TIPM symptoms</li></ul>
@@ -264,7 +275,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://custombatterycables.com/jeep-wrangler/" target="_blank" rel="noopener">Custom Battery Cables — JK Pentastar Military Kit #7240M</a></li><li><a href="https://www.quadratec.com/c/howto/how-to-replace-your-jeep-wrangler-battery" target="_blank" rel="noopener">Quadratec — How to Replace Your Jeep Wrangler Battery and Upgrade Terminals</a></li><li><a href="https://www.wranglerforum.com/threads/battery-terminal-corrosion.2457921/" target="_blank" rel="noopener">Wrangler Forum — Battery Terminal Corrosion</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-serpentine-belt/">Serpentine Belt Replacement — 3.6L</a></li><li><a href="/db/jk/jk-transfer-case-fluid-jk/">Transfer Case Fluid Change — NV241 / NV241OR</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Battery%20Cable%20Inspection%20and%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

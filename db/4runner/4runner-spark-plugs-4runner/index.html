@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/maintenance">Maintenance</a></nav>
   <h1>Spark Plug Replacement — 1GR-FE 4.0L</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$80–160</span><span class="tm-fact">2003-2009, 2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$80–160</span><span class="tm-fact">2003-2009, 2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The 1GR-FE V6 calls for nickel plugs at 30,000 miles. You can run Denso iridium long-life plugs to push the interval out, but <a href="https://www.toyota-4runner.org/maintenance-detailing/57478-4-0-v6-1gr-fe-spark-plug-change-instructions.html" target="_blank" rel="noopener">plan on pulling the intake plenum to reach the rear three plugs</a> on either choice.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 1GR-FE 4.0L V6 in the 4th and 5th gen 4Runner has been one of Toyota&#x27;s most reliable engines, but Toyota specced it with nickel-copper plugs and a short 30,000-mile interval. That short interval is the price you pay for getting at the rear three plugs — they sit underneath the upper intake plenum, and reaching them means removing six plenum bolts, the throttle body harness, and the PCV hose. Many owners buy iridium long-life plugs once and skip the chore for the next 100,000 miles.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The front three plugs are manageable: pop the coil pack cover, unbolt each coil with a 10mm, lift it out, and pull the plug with a 5/8&quot; deep socket on a long extension. Twenty minutes total. The rear three are the actual job. Sequence matters: disconnect the throttle body connectors, the EVAP line, the PCV hose, the brake booster vacuum hose, and unbolt the upper plenum (six 12mm bolts). Lift the plenum off, set it aside on a clean shop rag, and inspect the gasket — if it is the original rubberized gasket, replace it now (Toyota 17171-31040, about $35).</p>
 <p>Torque the plugs to 13 ft-lb (17.5 N·m). The 1GR-FE uses 14mm plugs, but the same caution applies as any aluminum head — go past 18 ft-lb and you risk pulling threads. No anti-seize on the plug threads (Denso and NGK both say not to). A dab of dielectric grease in each coil boot keeps the boot from sticking the next time.</p>
 <p>Reinstall the plenum with a fresh gasket if you pulled the old one. Hit each bolt in a crisscross pattern at 18 ft-lb. Reconnect every harness, hose, and clip you removed. Disconnect the battery for 5 minutes before reconnecting to force the ECU to relearn idle on first start.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Cold engine. Disconnect negative battery cable.</li><li>Remove the engine cover (pulls up off rubber grommets).</li><li>Front three plugs first: unbolt each coil pack (10mm), lift coil, pull plug with 5/8&quot; socket on a long extension.</li><li>Verify gap (0.043&quot;), install new plug hand-tight, torque to 13 ft-lb.</li><li>Reinstall coil with dielectric grease in the boot.</li><li>Rear three: disconnect throttle body connectors, EVAP line, PCV hose, brake booster line.</li><li>Unbolt the upper plenum (six 12mm bolts). Lift off. Cover the lower intake openings with rags.</li><li>Repeat coil-and-plug procedure on cylinders 2, 4, 6.</li><li>Reinstall plenum with fresh gasket if needed. Torque bolts in a crisscross pattern to 18 ft-lb.</li><li>Reconnect all hoses, sensors, and harnesses. Reconnect battery. Start, listen for vacuum leaks at the plenum gasket.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Iridium upgrade pushes the next service to 100,000 miles</li><li>Restores smooth idle and fuel economy on a high-mileage 1GR-FE</li><li>Catches a leaking plenum gasket while you have the intake apart</li><li>Skill builds your confidence for bigger intake jobs later</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://thetrackahead.com/projects/4th-gen-toyota-4runner/spark-plug-replacement-1gre-fe-40l-v6-4th-gen-toyota-4runner/" target="_blank" rel="noopener">TheTrackAhead — 4th gen 4Runner spark plug guide</a></li><li><a href="https://www.toyota-4runner.org/maintenance-detailing/57478-4-0-v6-1gr-fe-spark-plug-change-instructions.html" target="_blank" rel="noopener">Toyota-4runner.org — 1GR-FE plug change instructions</a></li><li><a href="https://www.toyotanation.com/threads/changing-the-spark-plugs-on-the-1gr-fe-4-0-v6.378215/" target="_blank" rel="noopener">ToyotaNation — Changing plugs on the 1GR-FE</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-oil-change-4runner/">Oil Change — 1GR-FE 4.0L V6</a></li><li><a href="/db/4runner/4runner-1gr-fe-known-issues/">1GR-FE 4.0L V6 — Known Issues and Preventive Maintenance</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Spark%20Plug%20Replacement%20%E2%80%94%201GR-FE%204.0L">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

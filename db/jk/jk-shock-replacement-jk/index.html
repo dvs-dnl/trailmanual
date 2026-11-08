@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/suspension">Suspension</a></nav>
   <h1>Shock Absorber Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$220–700</span><span class="tm-fact">2007-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$220–700</span><span class="tm-fact">2007-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Worn shocks let the JK porpoise on freeway expansion joints, wallow in corners, and bounce after bumps; replacing all four is a two-hour driveway job that completely changes how the truck feels.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-suspension-jk.webp" alt="Lifted Jeep Wrangler JK Rubicon on a lift, showing the coilover, coil spring and long-arm front suspension" width="1600" height="1067" loading="lazy"></figure>
 <p>Shocks wear out by 60,000-80,000 miles even on stock JKs, and lifted JKs eat them faster because the stock shock travel is wrong for the new ride height. Symptoms of dead shocks: bounce more than one cycle after a speed bump, front-end dive under braking, tail squat under acceleration, and a &quot;floaty&quot; feel on the highway. Pull a shock and shake it — if there&#x27;s any free play in either direction without resistance, it&#x27;s done.</p>
@@ -247,7 +258,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Torque specs after install: <a href="https://www.extremeterrain.com/wrangler-jk-suspension-torque-specs.html" target="_blank" rel="noopener">front upper 20 ft-lb, front lower 56 ft-lb</a>, rear upper 37 ft-lb, rear lower 56 ft-lb (<a href="https://metalcloak.com/blog/jeep-wrangler-jk-suspension-torque-specs-the-complete-guide" target="_blank" rel="noopener">MetalCloak</a> and Project-JK list the same four numbers). Bounce-test each corner before lowering — a properly seated shock returns to ride height with one cycle, not two.</p>
 <h3>Matching shock length to lift height</h3>
 <p>Shock length is the detail that gets people into trouble. A shock too short for the lift will top out at full droop — the internal bump stop inside the shock hits before the coil spring runs out of travel, and repeated topping-out will blow the shock&#x27;s internal seals within a season. A shock too long bottoms out early, transferring impact straight into the frame mounts. Bilstein and Fox both publish specific part numbers keyed to lift height ranges (the 24-146708/24-146715 pair above is specifically for 1.5-3&quot; of lift) — buy by your actual measured lift height, not by kit name, since a &quot;2.5-inch lift kit&quot; from one brand doesn&#x27;t always land at the same ride height as another&#x27;s.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground, chock the wheels you aren&#x27;t lifting, and break loose the lug nuts before jacking.</li><li>Jack one corner and set on a stand. Remove the wheel for working clearance.</li><li>Front: remove the upper nut (hold the shaft with an Allen key), then the lower bolt at the axle bracket. Compress the old shock and pull down/out.</li><li>Compare new and old shock length — they should match when fully extended.</li><li>Install upper end first, then lower. Hand-thread both before torquing.</li><li>Torque: front upper 20 ft-lb, front lower 56 ft-lb, rear upper 37 ft-lb, rear lower 56 ft-lb.</li><li>Repeat at remaining three corners.</li><li>Lower the vehicle, re-torque lug nuts to 95 ft-lb, and bounce-test each corner.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores ride quality and handling</li><li>Bolt-in, no alignment needed</li><li>Bilstein 5100 set is under $500 for all four</li><li>Improves towing and load stability</li><li>Remote-reservoir upgrade solves fade for high-speed or sustained trail running</li></ul>
@@ -262,7 +273,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.extremeterrain.com/bilstein-5100-re-shock-2-35-jk-24146715-cust-install.html" target="_blank" rel="noopener">JK Bilstein 5100 install (ExtremeTerrain)</a></li><li><a href="https://www.extremeterrain.com/wrangler-jk-suspension-torque-specs.html" target="_blank" rel="noopener">JK Suspension Torque Specs</a></li><li><a href="https://www.shocksurplus.com/products/bilstein-5100-monotube-shocks-set-for-2007-2018-jeep-wrangler-jk-4wd" target="_blank" rel="noopener">Bilstein 5100 Shock Set 2007-2018 JK</a></li><li><a href="https://metalcloak.com/blog/jeep-wrangler-jk-suspension-torque-specs-the-complete-guide" target="_blank" rel="noopener">JK Suspension Torque Specs — MetalCloak</a></li><li><a href="https://www.project-jk.com/jeep-jk-write-ups/jeep-jk-wrangler-torque-settings" target="_blank" rel="noopener">Jeep JK Wrangler Torque Settings — Project-JK</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-lift-kit-overview/">JK Lift Kit Types — Spacers vs. Short Arm vs. Long Arm</a></li><li><a href="/db/jk/jk-coil-spring-replacement/">Coil Spring Replacement</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/jk-lift-kit-comparison.html">Lift kit comparison</a> — every kit we could verify, side by side</li><li><a href="/budget-ladder.html#jk">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Shock%20Absorber%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

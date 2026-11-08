@@ -193,6 +193,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -323,7 +334,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>37s on a Gladiator: what it really takes</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">8.0–20.0 hrs</span><span class="tm-fact">$3500–8000</span><span class="tm-fact">2020-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 4/5</span><span class="tm-fact">8.0–20.0 hrs</span><span class="tm-fact">$3500–8000</span><span class="tm-fact">2020-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A Rubicon leaves the factory on 33-inch tires with 4.10 gears. You can bolt 35s on with a 2.5-inch lift. 37s require gearing, fender modification, possibly brake upgrades, and a hard look at the payload math — the Rubicon&#x27;s already tight at 1,200 lb. Do this upgrade with your eyes open.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires-gladiator.webp" alt="Front wheel and all-terrain tire on a gray Jeep Gladiator JT Mojave" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@philip_blank?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Philip Blank</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <h3>The Starting Point: What the Factory Gives You</h3>
@@ -348,7 +359,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The Dana 44s (technically the AdvanTEK M210 front / M220 rear) carry 37s fine at the housing and shaft level. The wear moves to the perimeter parts:</p>
 <ul><li><strong>Unit bearings (front hubs):</strong> The extra rotating mass and scrub radius load the front unit bearings hardest. Expect shortened life — a humming front end at 40,000-60,000 miles instead of 100,000+. Replacement runs ~$120-180 per side for quality Timken/SKF units, and it is a bolt-on job.</li><li><strong>Ball joints:</strong> Same leverage problem. If you are re-gearing anyway, adding HD ball joints (Dynatrac, ~$400/set) while the axle is apart saves a second labor bill later.</li><li><strong>Steering:</strong> The factory aluminum tie rod flexes visibly on 37s in rocks. An HD tie rod and drag link (Steer Smarts, Synergy — $400-700) is the difference between crisp steering and wander. Watch for the early symptoms in the death wobble guide before assuming it is alignment.</li><li><strong>Front driveshaft:</strong> At 3.5+ inches of lift the front shaft operating angle approaches its limit. A cheap lift with no geometry correction accelerates CV/boot wear at the transfer case end.</li></ul>
 <p>None of this is a reason to skip 37s — it is the maintenance reality that separates a planned build from a string of surprise repair bills.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Confirm current axle ratio (door sticker or manual)</li><li>Price a re-gear: 4.56 for 35s, 4.88 for 37s — get quotes from two shops</li><li>Select a JT-specific lift kit for the height required (not a JL kit)</li><li>Mount one tire test-fitment before buying the full set — verify clearance at full lock and full articulation</li><li>Trim fender liner/flare as needed — minimum cuts first, test fitment after each cut</li><li>After re-gear: run break-in procedure per the gear oil manufacturer&#x27;s instructions (typically avoid extended load for first 500 miles)</li><li>Get an alignment after lift installation</li></ol>
 <h2>Why it works</h2>
 <ul><li>37s dramatically increase trail capability on the JT&#x27;s already-solid platform</li><li>The Dana 44s handle 37s without heroic axle upgrades (unlike XJ 8.25 builds)</li><li>The aftermarket has well-developed JT-specific 37-inch fitment solutions</li></ul>
@@ -363,7 +374,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.media.stellantis.com" target="_blank" rel="noopener">Gladiator JT Rubicon factory spec — Jeep Media</a></li><li><a href="https://www.prnewswire.com/news-releases/all-new-2020-jeep-gladiator-the-most-capable-midsize-truck-ever-300756849.html" target="_blank" rel="noopener">All-New 2020 Jeep Gladiator press release (rear suspension description) — FCA via PR Newswire</a></li><li><a href="https://limitlesstire.com/vehicles/jeep/gladiator/2025/" target="_blank" rel="noopener">2025 Jeep Gladiator wheel and tire sizes — Limitless Tire</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/jt-35-inch-tire-fitment/">35&quot; Tire Fitment Guide — Jeep Gladiator JT</a></li><li><a href="/db/gladiator/jt-regear/">Re-Gearing the Gladiator JT — 4.56 and 4.88 Ratios</a></li><li><a href="/db/gladiator/jt-mid-lift/">Mid-Tier Lift for the Gladiator — 2.5&quot;-3.5&quot; with Geometry Correction ($700–$2,000)</a></li><li><a href="/db/gladiator/jt-shock-upgrade/">Shock Absorber Upgrade — Jeep Gladiator JT</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%2037s%20on%20a%20Gladiator%3A%20what%20it%20really%20takes">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

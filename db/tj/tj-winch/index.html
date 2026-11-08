@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,15 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/recovery">Recovery</a></nav>
   <h1>Winch Selection for the TJ Wrangler</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$299–799</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$299–799</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://www.jeepforum.com/forum/f9/winch-selection-tj-wrangler/" target="_blank" rel="noopener">An 8,000–9,500 lb winch is the right size for a TJ</a> — <a href="https://www.kbb.com/jeep/wrangler/2005/" target="_blank" rel="noopener">a 2005 TJ&#x27;s GVWR is 4,450 lbs</a>, and <a href="https://www.quadratec.com/c/reference/what-size-winch-do-i-need-for-my-jeep" target="_blank" rel="noopener">the GVWR-times-1.5 sizing rule</a> puts the minimum at about 6,700 lbs.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Recovery gear carries loads far past the vehicle&#x27;s weight. Use rated hardware, read the working load limit, and keep everyone out of the line of pull. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-recovery-tj.webp" alt="Gray Jeep Wrangler TJ on red beadlock wheels with a winch on its tube front bumper" width="1600" height="1067" loading="lazy"></figure>
 <p>The TJ&#x27;s curb weight is approximately 3,200–3,500 lbs depending on spec, and Kelley Blue Book lists a 4,450-lb GVWR for the 2005 model. The standard calculation is GVWR times 1.5, read from the label in the driver&#x27;s door opening, which puts the floor near 6,700 lbs; an 8,000-lb winch clears it and 9,500 is a sensible ceiling. A 12,000 lb winch will technically work on a TJ, but it adds weight and wiring requirements without providing any practical benefit — the pull capacity you&#x27;d use in a real recovery scenario tops out well below what an 8,000 lb unit handles.</p>
 <p>Warn remains the benchmark for built-in-the-USA winch quality. The M8000 ($499) has been a trail standard for over a decade — known for consistent performance, a robust motor, and Warn&#x27;s parts/warranty support. <a href="https://warn.com/vr-evo-8" target="_blank" rel="noopener">The VR EVO 8</a> ($399) is the current-generation value tier from Warn: it gives you Warn reliability and a 3-stage planetary gear system at a lower price point by using a different motor spec and a more straightforward remote. For most TJ owners, the VR EVO 8 is the right choice.</p>
 <p>Smittybilt&#x27;s X20 Gen2 ($329) comes with a synthetic rope from the factory, which is a meaningful safety advantage over steel cable. <a href="https://overlandjournal.com/gear/synthetic-vs-steel-winch-line/" target="_blank" rel="noopener">Synthetic rope doesn&#x27;t store kinetic energy the way steel cable does</a> — when steel cable snaps under load, it recoils with force proportional to the stored tension. A synthetic rope failure is dramatic but far less dangerous. If the budget dictates a Smittybilt over a Warn, the X20 Gen2 is the pick. Expect the motor and solenoid to work harder than a Warn under heavy repeated use — it&#x27;s a trail winch, not an arborist winch.</p>
 <p>A winch is useless without a winch-capable bumper. Verify your front bumper has a proper winch mount plate tied into the frame rails before purchasing. A fairlead (hawse for synthetic rope, roller fairlead for steel cable) is required and typically not included with the winch.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Verify front bumper has a winch-compatible mounting plate with frame tie-in.</li><li>Slide winch into bumper mounting channel; start all four mounting bolts hand-tight.</li><li>Torque winch mounting bolts to 55–65 ft-lbs.</li><li>Route power cables to the battery: positive to battery positive terminal, negative to battery negative or chassis ground. Route cables away from heat sources and sharp edges; use loom or split conduit.</li><li>Install solenoid box per manufacturer instructions (typically mounts to the winch or bumper with included hardware).</li><li>Verify power connections are tight and sealed with dielectric grease.</li><li>Install hawse fairlead (for synthetic rope) or roller fairlead (for steel cable) to bumper fairlead opening. Torque to 15–20 ft-lbs.</li><li>Spool the winch line through the fairlead and confirm correct drum direction — winch should pull from the bottom of the drum.</li><li>Test-fire the winch under no load in both directions with the remote. Verify solenoid actuation.</li><li>Apply winch line to a stationary point and test under light load before trail use.</li></ol>
 <h2>Why it works</h2>
 <ul><li>8,000–9,500 lb capacity is correctly sized for the TJ&#x27;s weight — neither under- nor over-spec</li><li>Warn VR EVO 8 delivers brand-name reliability at a meaningful discount vs. the M8000</li><li>Synthetic rope (Smittybilt X20) is safer than steel cable in a snap scenario</li><li>Self-recovery capability removes dependence on trail partners for getting unstuck</li><li>Doubles as an anchor for vehicle-assisted tree pulls and recovery assistance for others</li></ul>
@@ -257,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.jeepforum.com/forum/f9/winch-selection-tj-wrangler/" target="_blank" rel="noopener">JeepForum — TJ Winch Selection and Install Guide</a></li><li><a href="https://warn.com/vr-evo-8" target="_blank" rel="noopener">Warn VR EVO 8 Product Page and Specs</a></li><li><a href="https://overlandjournal.com/gear/synthetic-vs-steel-winch-line/" target="_blank" rel="noopener">Overland Journal — Synthetic vs. Steel Winch Line Comparison</a></li><li><a href="https://www.quadratec.com/c/reference/what-size-winch-do-i-need-for-my-jeep" target="_blank" rel="noopener">What size winch do I need for my Jeep — Quadratec</a></li><li><a href="https://www.kbb.com/jeep/wrangler/2005/" target="_blank" rel="noopener">2005 Jeep Wrangler specs (GVWR 4,450 lb) — Kelley Blue Book</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-recovery-gear-kit/">Recovery Gear Starter Kit for the TJ</a></li><li><a href="/db/tj/tj-front-bumper-guide/">TJ Steel Front Bumper — Which Style to Buy and Why</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Winch%20Selection%20for%20the%20TJ%20Wrangler">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

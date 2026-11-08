@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,8 +246,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/steering">Steering</a></nav>
   <h1>Drag Link Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$90–350</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$90–350</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A worn drag link is the most common cause of TJ steering wander and a leading contributor to death wobble. Replacement is a one-evening job with hand tools that restores precise steering feel — but measure the old link before you remove it, check the thread direction at the pitman end, and get an alignment afterward, because a drag link set to the wrong length puts the steering wheel off-center and the front tires out of toe.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Every 1997–2006 TJ uses Y-link steering. The drag link runs from the pitman arm on the steering box down to the passenger-side knuckle, and the tie rod attaches to a tapered hole partway along the drag link rather than directly to the other knuckle. That layout means the drag link carries steering load for both front wheels, which is why play there shows up as wander across the whole front end instead of a single loose wheel.</p>
 <h3>How it wears and what it feels like</h3>
@@ -254,7 +266,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <p>Moog DS1448 assembly $90–120. Synergy heavy-duty chromoly link around $325. Y-link kit covering drag link and tie rod from roughly $280. Add a rented tie rod separator at no cost, two cotter pins, and $80–120 for an alignment. A shop charges $200–350 in labor on top of parts.</p>
 <p>If the truck is past 100,000 miles and the front end has never been touched, price the <a href="/db/tj/tj-tie-rods-tj/">tie rod</a> and <a href="/db/tj/tj-track-bar-tj/">track bar</a> at the same time. Doing all three in one evening costs one alignment instead of three and eliminates the guesswork about which worn joint was actually causing the wander.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park level, chock the rear wheels, jack the front axle and set it on stands.</li><li>Measure the existing drag link center-to-center between the two tie-rod-end centers and record it.</li><li>Note the thread direction and orientation at each end before loosening any adjuster or clamp.</li><li>Remove the cotter pins and castle nuts from both ends.</li><li>Use a tie rod separator to pop the ball studs free of the pitman arm and the knuckle. A pickle fork will destroy the boot — fine on a part you are discarding, not on one you are reusing.</li><li>Thread the new drag link to the recorded length, leaving clamp bolts lightly snug.</li><li>Install the new drag link, start both castle nuts by hand, and confirm the studs are seated fully in their tapers.</li><li>Torque the tie-rod-end nuts to 55 ft-lb and the tie-rod-to-drag-link connection to 65 ft-lb, then continue tightening only as far as needed to align the cotter pin slot. Never back a castle nut off to reach the slot.</li><li>Install fresh cotter pins. Torque the drag link clamp to 36 ft-lb and the tie rod clamp to 20 ft-lb, and position the clamps so they clear the track bar and sway-bar link at full lock.</li><li>Grease the new ends if they have zerk fittings, until fresh grease shows at the boot without splitting it.</li><li>Lower the truck, turn lock-to-lock and check for interference, then road test at low speed before highway speed.</li><li>Get an alignment. Set toe first, then confirm the steering wheel sits centered driving straight; correct centering at the drag link adjuster, not by re-clocking the wheel.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Resolves wander, bump steer, and one of the two leading death-wobble contributors</li><li>Greasable upgrades outlast the sealed factory assembly by a wide margin</li><li>One evening, hand tools, and one rented separator</li></ul>
@@ -269,7 +281,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.extremeterrain.com/tj-wrangler-torque-specs.html" target="_blank" rel="noopener">TJ Wrangler Torque Specs</a></li><li><a href="https://wranglertjforum.com/threads/torque-specs-for-tie-rod-ends.72235/" target="_blank" rel="noopener">Wrangler TJ Forum — Tie Rod End Torque</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-track-bar-tj/">Track Bar Replacement — TJ Specifics</a></li><li><a href="/db/tj/tj-steering-stabilizer-tj/">Steering Stabilizer — When It Helps and When It Masks</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/tj-yj-death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Drag%20Link%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

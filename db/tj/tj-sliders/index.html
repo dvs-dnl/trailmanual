@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,13 +246,13 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/armor">Armor &amp; Skids</a></nav>
   <h1>Rock Sliders and Rocker Guards for the TJ</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–6 hrs</span><span class="tm-fact">$299–699</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–6 hrs</span><span class="tm-fact">$299–699</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The TJ&#x27;s rockers are the lowest structural point of the body — sliders protect them from side-rock contact that would otherwise cave in sheet metal and damage the tub&#x27;s rocker sill.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-armor-tj.webp" alt="Tube front bumper and winch on a gray Jeep Wrangler TJ" width="1600" height="1067" loading="lazy"></figure>
 <p>The TJ is body-on-frame: <a href="https://www.extremeterrain.com/wrangler-jeep-tj-bushings-body-mounts.html" target="_blank" rel="noopener">its tub rides on body mounts that keep it aligned with a separate frame</a>. That distinction matters for slider selection: a frame-mounted slider puts the hit into the frame rails, while a slider that&#x27;s poorly designed or bolted to marginal mounting points can transmit rock impact into the body mounts and the rocker sill and cause more damage than it prevents. This is why cheap universal sliders on TJs are a gamble — the mounting geometry has to match the TJ&#x27;s specific frame rail geometry to transfer loads correctly.</p>
 <p><a href="https://www.ironrockoffroad.com/tj-rockers" target="_blank" rel="noopener">Weld-on sliders (Iron Rock Offroad)</a> provide the most positive connection to the frame and allow a fabricator to optimize gusset placement and tube angles. They&#x27;re the choice for dedicated rock crawlers where protecting the rocker panel at all costs matters more than reversibility. The weld-on joint can be ground smooth and painted to be nearly invisible. Bolt-on sliders (Rock Hard 4x4, GenRight) use the existing frame rail holes and tie into structural mounting points without welding. They&#x27;re fully removable, which is relevant for anyone who street-drives the TJ regularly and wants the option to swap them out.</p>
 <p>The TJ&#x27;s narrow 64.5&quot; track width means sliders need to extend far enough outboard to cover the entire rocker panel — a shallow slider that doesn&#x27;t reach the door sill edge will miss the contact point on a side-rock scrape. <a href="https://www.rockhard4x4.com/instructions" target="_blank" rel="noopener">Rock Hard 4x4&#x27;s tube design</a> extends well past the sill and uses 1.75&quot; DOM tubing that can support the full weight of the vehicle for high-centering recovery. GenRight&#x27;s approach is a plate-style guard rather than tube, which provides broader contact area across the sill at the expense of weight. Both are appropriate for serious trail use; tube sliders are lighter and shed mud better.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Clean the frame rail mounting surfaces with a wire brush and degreaser.</li><li>Position slider against the frame rails to check fitment before drilling or welding — mark mounting hole locations with a center punch.</li><li>For bolt-on kits: drill frame holes to kit specification (typically 1/2&quot; or 7/16&quot;). Install mounting hardware through frame rails. Start all fasteners hand-tight before torquing any.</li><li>For weld-on kits: tack weld the slider in place and verify fitment (parallel to the rocker panel, correct height) before running full welds. Grind and treat weld surfaces against rust.</li><li>Torque bolt-on fasteners to kit specification — typically 45–55 ft-lbs on 1/2&quot; grade-8 hardware.</li><li>Verify the slider can support vehicle weight: place a jack under the slider near the midpoint and raise the vehicle slightly to confirm it holds without deforming.</li><li>Confirm clearance to fuel lines, brake lines, and any OEM plastic cladding that needs trimming.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Protects the TJ&#x27;s tub rockers from side-rock damage that would otherwise be expensive to repair</li><li>Tube-style sliders double as a high-centering recovery point and step for entry/exit</li><li>Bolt-on designs are fully reversible for street use or future sale</li><li>Rock Hard 4x4 and Iron Rock Offroad are TJ-specific fitments — no modification required for correct geometry</li></ul>
@@ -256,7 +267,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.pirate4x4.com/forum/jeep-wrangler-tj/tj-rock-sliders-comparison/" target="_blank" rel="noopener">Pirate4x4 — TJ Slider Comparison and Install Thread</a></li><li><a href="https://www.rockhard4x4.com/instructions" target="_blank" rel="noopener">Rock Hard 4x4 TJ Slider Installation Instructions</a></li><li><a href="https://www.ironrockoffroad.com/tj-rockers" target="_blank" rel="noopener">Iron Rock Offroad TJ Rocker Guard Overview</a></li><li><a href="https://www.extremeterrain.com/wrangler-jeep-tj-bushings-body-mounts.html" target="_blank" rel="noopener">Wrangler TJ bushings and body mounts — ExtremeTerrain</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-skid-plates/">TJ Skid Plates — What the Factory Already Covers, What It Doesn&#x27;t, and the Tummy Tuck</a></li><li><a href="/db/tj/tj-front-bumper-guide/">TJ Steel Front Bumper — Which Style to Buy and Why</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li><li><a href="/budget-ladder.html#tj">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Rock%20Sliders%20and%20Rocker%20Guards%20for%20the%20TJ">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

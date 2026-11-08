@@ -176,6 +176,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -306,7 +317,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/cooling">Cooling</a></nav>
   <h1>Keeping the EcoBoost Cool: Raptor Intercooler and Charge-Air Heat Soak</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">2.0–4.0 hrs</span><span class="tm-fact">$0–1500</span><span class="tm-fact">2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">2.0–4.0 hrs</span><span class="tm-fact">$0–1500</span><span class="tm-fact">2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Raptor&#x27;s twin-turbo 3.5 EcoBoost makes power by stuffing compressed, heated air into the engine — and that air has to be cooled before it gets there. In Phoenix-grade heat at sustained desert speed, <a href="https://www.fordraptorforum.com" target="_blank" rel="noopener">the factory intercooler heat-soaks and the truck pulls timing to protect itself</a>. For most owners the fix is free: clean the cooling stack and stop tailgating dust. For hard-run trucks, an upgraded intercooler is the real answer.</p></div>
 <p>Forced induction generates heat. The turbos compress intake air, compression raises its temperature, and hot air is both less dense (less power) and more prone to detonation (which the ECU prevents by pulling ignition timing). The intercooler — a heat exchanger mounted in the front of the truck — cools that charge air before it enters the engine. When the intercooler can&#x27;t keep up, charge-air temperatures climb, the ECU retards timing, and you feel the Raptor go flat. That&#x27;s heat soak.</p>
 <h3>When Heat Soak Actually Matters</h3>
@@ -323,7 +334,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The biggest mistake is bending intercooler and radiator fins with a pressure washer — clean gently and from the inside out. The second is chasing an intercooler upgrade before cleaning the stack; a clogged factory cooler can mimic an undersized one. The third is ignoring boost leaks after a charge-pipe install — a leaking clamp dumps boost and triggers codes that look like cooling problems.</p>
 <h3>Costs and Sources</h3>
 <p>Cleaning the stack: free to $20 for a fin comb. An auxiliary transmission cooler: $200–$350 plus an afternoon. A quality upgraded intercooler: $700–$1,200 for the core, $0–$400 if you pay a shop to install. For a daily-driven, weekend-trail Raptor, the free maintenance is usually all you need — spend the money only if your own datalogs say the factory cooler is the bottleneck.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Log charge-air/intake temps under load with an OBD2 scanner before changing anything</li><li>Inspect and clean the radiator/condenser/intercooler stack — most heat-soak complaints are a dirty stack</li><li>Re-log temps to confirm whether cleaning solved it</li><li>If still heat-soaking under sustained load, install an upgraded front-mount intercooler per the maker&#x27;s instructions (front fascia and grille come off)</li><li>Torque charge-pipe clamps to spec and verify no boost leaks after install</li><li>Re-log to confirm lower, more stable charge temps under the same load</li><li>For deep-sand or towing use, add an auxiliary transmission cooler</li></ol>
 <h2>Why it works</h2>
 <ul><li>Cleaning the cooling stack recovers most factory capacity for free</li><li>An upgraded intercooler holds power on long, hot pulls and supports future tuning</li><li>Datalogging removes the guesswork — you fix what&#x27;s actually wrong</li></ul>
@@ -338,7 +349,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.fordraptorforum.com" target="_blank" rel="noopener">EcoBoost charge-air temperature and heat soak behavior</a></li><li><a href="https://www.mishimoto.com" target="_blank" rel="noopener">Mishimoto Raptor intercooler test data</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-radiator-fans-and-degas-service/">Radiator, Fans, and Degas Bottle — Servicing the Cooling Stack That Keeps the EcoBoost Alive</a></li><li><a href="/db/raptor/raptor-ecoboost-turbo-and-bov-care/">Raptor EcoBoost Turbos: Cooldown, Boost Leaks, and Honest Upgrade Talk</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Keeping%20the%20EcoBoost%20Cool%3A%20Raptor%20Intercooler%20and%20Charge-Air%20Heat%20Soak">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

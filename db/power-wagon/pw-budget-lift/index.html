@@ -197,6 +197,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -327,7 +338,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/power-wagon/">Ram Power Wagon</a> / <a href="/db/#/power-wagon/category/suspension">Suspension</a></nav>
   <h1>Budget Lift Kit for the Power Wagon — 2&quot;-2.5&quot; Front Leveling on a Solid Axle</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">3–5 hrs</span><span class="tm-fact">$130–900</span><span class="tm-fact">2016-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">3–5 hrs</span><span class="tm-fact">$130–900</span><span class="tm-fact">2016-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A budget lift on the Power Wagon means front leveling coils or coil spacers on the solid front axle — $130 to $900, no cutting, no geometry kit required at this height. The rear five-link coil suspension stays stock: the factory nose-low rake is the whole problem, and 2&quot;–2.5&quot; up front cures it.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-suspension.webp" alt="Red coil spring over an aftermarket shock behind a mud-terrain tire" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@blueimaging?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Joshua Vialdores</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Power Wagon runs a coil-sprung solid front axle — an AAM 9.25 beam located by upper and lower control arms and a track bar, with separate coil springs and shocks. There are no struts and no CV half-shafts up front, which is exactly why a budget lift is mechanically honest on this truck: you are swapping or spacing a coil spring on an axle that does not care much about 2&quot; of extra height. The rear is a five-link coil setup, and it stays untouched — Ram builds the truck with the nose lower than the tail so it levels out under payload. Unloaded, that rake costs you visual stance and, more importantly, approach angle.</p>
@@ -338,7 +349,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Coils plus matched shocks ($600–900+).</strong> <a href="https://carlisuspension.com/" target="_blank" rel="noopener">Carli&#x27;s leveling packages bundle their coils with tuned 2.0 shocks</a>. This is the top of &quot;budget&quot; and the bottom of their real systems — buy it if the plan stops here, skip it if a full mid-lift is coming later.</p>
 <h3>What changes at 2&quot; — and what to watch</h3>
 <p>The track bar and drag link now sit at a slightly steeper angle. At 2&quot;–2.5&quot; this is within what the factory geometry tolerates, but it is why the axle shifts a few millimeters toward the driver side and why the alignment matters. Caster stays close enough to spec that no correction parts are needed at this height — that changes above 3&quot;, which is one reason the <a href="/db/power-wagon/pw-mid-lift/">mid-lift</a> costs what it does. If the front end develops a shimmy after the lift, stop and inspect the track bar and its fasteners first; the <a href="/db/power-wagon/articulink-front-end-explained/">Articulink front-end explainer</a> covers how this axle is located and why the track bar carries the load. And before sizing tires around the new height, read the <a href="/db/power-wagon/hd-3-4-ton-weight-reality/">weight-reality guide</a> — a 3/4-ton on 35s asks more of brakes and axles than the same tires on a half-ton.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Break front lug nuts loose, raise the front, and support the frame on rated stands ahead of the front spring perches.</li><li>Remove the front wheels. Support the axle with the floor jack.</li><li>Unbolt the front sway-bar end links and the lower shock bolts so the axle can droop.</li><li>Lower the axle slowly until the front coils unload. On this suspension the coils lift out at full droop — no spring compressor is involved. If a coil binds, loosening the axle-side track bar bolt buys the last bit of droop.</li><li>Install the spacer on top of the factory coil (spacer kit) or seat the new coil (coil kit), making sure the spring end indexes into the perch pocket.</li><li>Raise the axle back into position, then reinstall shocks and sway-bar end links. Torque control-arm and track bar fasteners at ride height, not at droop — bushings torqued at droop bind and wear out early.</li><li>Reinstall wheels, torque lug nuts to Ram 2500 spec, and lower the truck.</li><li>Get a front-end alignment and have the shop check steering-wheel center — the track bar will pull the axle slightly off-center at the new height.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Corrects factory nose-low rake and improves approach angle</li><li>2&quot;–2.5&quot; front lift clears 35&quot; tires with minor or no trimming</li><li>Coil spacers and coils are both reversible; no spring compressor or cutting involved</li><li>No caster or track bar correction parts required at this lift height</li></ul>
@@ -353,7 +364,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://bds-suspension.com/products/2-inch-leveling-kit-ram-2500-w-rear-air-ride-14-24-4wd" target="_blank" rel="noopener">BDS Suspension — 2&quot; Leveling Kit, Ram 2500 4WD</a></li><li><a href="https://carlisuspension.com/" target="_blank" rel="noopener">Carli Suspension — Ram 2500 leveling and suspension systems</a></li><li><a href="https://thuren.net/" target="_blank" rel="noopener">Thuren Fabrication — Ram HD coils and suspension</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/power-wagon/pw-mid-lift/">Mid-Tier Lift for the Power Wagon — 4&quot;-6&quot; Full Kit ($1,500–$4,000)</a></li><li><a href="/db/power-wagon/pw-lift-leveling-kit/">Leveling Kit — Power Wagon (Booster Lite L1)</a></li><li><a href="/power-wagon/">All Ram Power Wagon guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Budget%20Lift%20Kit%20for%20the%20Power%20Wagon%20%E2%80%94%202%22-2.5%22%20Front%20Leveling%20on%20a%20Solid%20Axle">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

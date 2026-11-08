@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -237,6 +248,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Steering Damper and Stabilizer — What It Does, When It&#x27;s Worn, and Why It&#x27;s Not a Cure</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1.5 hrs</span><span class="tm-fact">$60–350</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><strong>Safety critical.</strong> The steering damper (stabilizer) is a shock absorber for your steering — it damps side-to-side road inputs so the wheel doesn&#x27;t kick in your hands over washboard and impacts. It is not a fix for wander, shimmy, or loose steering. If your Raptor wanders or shakes, the cause is almost always a worn tie-rod end, ball joint, or alignment — and a new damper that masks it is dangerous. Diagnose the joints first; replace the damper only when it&#x27;s actually leaking or blown.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>A steering damper does one honest job: it absorbs the rapid back-and-forth forces that big tires and rough terrain feed into the steering linkage, keeping that energy out of the steering wheel. On a Raptor running 35s or 37s, a healthy damper is the difference between a wheel that stays planted over a rocky two-track and one that snaps at your thumbs. But because it sits right in the steering, people blame it — or hope to cure with it — problems it has nothing to do with.</p>
 <h3>What a damper does and what it cannot do</h3>
@@ -259,7 +271,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.motorcraftservice.com" target="_blank" rel="noopener">Ford F-150/Raptor workshop manual — steering damper service and torque</a></li><li><a href="https://www.ridefox.com" target="_blank" rel="noopener">Fox Factory — steering stabilizer service and bypass damper notes</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Steering%20Damper%20and%20Stabilizer%20%E2%80%94%20What%20It%20Does%2C%20When%20It%27s%20Worn%2C%20and%20Why%20It%27s%20Not%20a%20Cure">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

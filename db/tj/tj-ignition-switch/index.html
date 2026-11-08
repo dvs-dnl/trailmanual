@@ -147,6 +147,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -279,6 +290,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Ignition Switch Replacement — A Common TJ Fault</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2.5 hrs</span><span class="tm-fact">$40–150</span><span class="tm-fact">1997-2002, 2003-2006</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A TJ that cranks intermittently, dies at random, or won&#x27;t power up when you turn the key often has a failing ignition switch, not a deeper problem. It is one of the platform&#x27;s known faults, and the electrical switch behind the lock cylinder is a cheap, hour-long fix — far cheaper than the parts cannon people aim at a no-start. Diagnose it with a multimeter first, because two other TJ faults mimic it closely.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Disconnect the battery before you start. Fuse every new circuit at the source and size the wire for the load and the run. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-electrical.webp" alt="Hands working at an open under-hood fuse and relay box" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@sincerelymedia?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Sincerely Media</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The TJ ignition assembly has two parts: the mechanical lock cylinder (the key tumbler) and the electrical switch behind it that actually sends power to the run and start circuits. The electrical switch wears and develops intermittent contact, which shows up as a Jeep that sometimes won&#x27;t crank, cuts out over bumps, or loses accessories momentarily. Heavy key rings speed the wear — the weight hangs on the cylinder and rocks the switch actuator every time the Jeep hits a bump.</p>
 <h3>Three faults that look alike</h3>
@@ -301,7 +313,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://wranglertjforum.com/threads/wrangler-tj-factory-specifications.71/" target="_blank" rel="noopener">TJ factory specs</a></li><li><a href="https://myjeeptj.com/wrangler-write-ups/jeep-tj-general-drivetrain-specifications/" target="_blank" rel="noopener">TJ electrical reference — My Jeep TJ</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-obd2-diagnostics/">TJ OBD-II Diagnostics — Reading Codes, Common Faults, and What They Mean</a></li><li><a href="/db/tj/tj-vacuum-leak-diagnosis/">TJ Vacuum Leak Diagnosis — Finding and Fixing Intake Leaks</a></li><li><a href="/db/tj/tj-battery-upgrade/">TJ Battery Replacement and Upgrade Guide</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/wire-gauge-calculator.html">Wire Gauge Calculator</a> — wire size for the amps and the run length</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Ignition%20Switch%20Replacement%20%E2%80%94%20A%20Common%20TJ%20Fault">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

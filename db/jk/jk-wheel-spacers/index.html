@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>Wheel Spacers — 1.25&quot; and 1.75&quot; Bolt-On</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1 hrs</span><span class="tm-fact">$89–185</span><span class="tm-fact">2007-2011, 2012-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1 hrs</span><span class="tm-fact">$89–185</span><span class="tm-fact">2007-2011, 2012-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Wheel spacers move the tire outward to improve clearance or widen track width — hub-centric bolt-on spacers from Spidertrax or Teraflex are the safe choice; lug-centric spacers without proper hub registration are not.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires-jk.webp" alt="Mud-terrain tire and front coilover on a lifted Jeep Wrangler JK Rubicon" width="1600" height="1067" loading="lazy"></figure>
 <p>Wheel spacers solve a specific problem: existing wheels with insufficient backspacing for a new lift height. If your wheels came spec&#x27;d for a 1.5&quot; lift and you&#x27;ve added 3&quot;, the backspacing may now cause the tire to contact the upper control arm bracket at full compression. A 1.25&quot; spacer moves the wheel outboard enough to provide clearance without buying a new set of wheels. They&#x27;re also used intentionally to widen track width for stability — on a tall JK with a heavy overland setup, slightly wider track reduces body roll. <a href="https://www.spidertrax.com/wheel-spacers/" target="_blank" rel="noopener">Spidertrax&#x27;s WHS007 at $135/pair</a> is the most trusted spacer option for the JK — hub-centric design, 6061 aluminum billet, and they use the correct bore to sit fully on the hub face before the lug nuts load.</p>
@@ -248,7 +259,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Moving the wheel centerline outboard increases scrub radius — the lever arm between the steering axis and the tire&#x27;s contact patch. Practical effects on a JK with 1.5–1.75&quot; spacers: heavier steering effort at parking speeds, more feedback (kick) through the wheel when one front tire hits a bump or brakes on split traction, and measurably higher loads on the unit bearings, ball joints, and outer tie rod ends. None of this is dangerous on a maintained front end; all of it accelerates wear on marginal parts. If the front end has play — rock the tire at 12 and 6 with the Jeep on stands — fix the <a href="/db/jk/jk-tie-rods-jk/">tie rods and ends</a> before adding track width, because spacers amplify existing looseness into wander.</p>
 <h3>Living with spacers: the re-torque discipline</h3>
 <p>The spacer interface is a second lug joint, and it&#x27;s hidden behind the wheel where you can&#x27;t see it loosen. The maintenance rhythm that makes spacers boring (in the good way): re-torque spacer-to-hub at 50 miles after install, again at 500, then check at every tire rotation. Use no thread locker on lug hardware — correct torque on clean, dry threads is the spec; red thread locker makes future removal a torch job and can give a false torque reading on install. Mark each spacer nut with a paint pen after the 500-mile check so a loosening nut shows itself at a glance. When a tire shop touches the Jeep, tell them the spacers are there — impact guns hammering the wheel nuts to 140 ft-lb while the spacer-to-hub nuts sit at 95 is how mixed-torque vibrations start.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Lift the vehicle and place on jack stands; remove the wheel.</li><li>Clean the hub face and wheel mounting surface — debris under the spacer causes runout.</li><li>Slide the spacer onto the hub, ensuring the center bore fully seats over the hub register.</li><li>Thread the spacer-to-hub lug nuts by hand before torquing.</li><li>Torque the spacer to the hub at 95–100 ft-lbs in a star pattern.</li><li>Mount the wheel to the spacer studs and torque to 95–100 ft-lbs.</li><li>Reinstall and repeat for all four corners.</li><li>Re-torque all spacer lug nuts after 50 miles.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Solves backspacing fitment problems without purchasing new wheels</li><li>Hub-centric design eliminates vibration issues associated with lug-centric budget spacers</li><li>1.25&quot; spacer typically costs less than replacing all four wheels with different backspacing</li><li>Wider track width slightly improves stability on tall builds with heavy gear</li></ul>
@@ -263,7 +274,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.spidertrax.com/wheel-spacers/" target="_blank" rel="noopener">Spidertrax Wheel Spacer Product Guide</a></li><li><a href="https://www.quadratec.com/c/article/jeep-wheel-spacers-guide" target="_blank" rel="noopener">JK Wheel Spacer Safety Guide — Quadratec</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-wheels/">Wheel Selection — Steel, Alloy, and Beadlock Options</a></li><li><a href="/db/jk/jk-tire-fitment-37s/">Running 37&quot; Tires on the JK — Lift Requirements and Fitment Notes</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Wheel%20Spacers%20%E2%80%94%201.25%22%20and%201.75%22%20Bolt-On">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

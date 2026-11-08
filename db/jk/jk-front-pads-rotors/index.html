@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,15 +246,16 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/brakes">Brakes</a></nav>
   <h1>Front Brake Pad and Rotor Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$100–280</span><span class="tm-fact">2007-2010, 2011-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$100–280</span><span class="tm-fact">2007-2010, 2011-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>JK front pads run 35,000–50,000 miles stock and noticeably less on lifted 35&quot;-tire builds. <a href="https://wranglerjkforum.net/threads/jk-brake-torque-specs.28635/" target="_blank" rel="noopener">Caliper slider bolts torque to 11 ft-lb</a> (delicate — strip easily), caliper bracket bolts to 100 ft-lb (2011+) or 120 ft-lb (2007–2010).</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Brake work decides whether the vehicle stops. Bleed the system, check for leaks, and test at walking speed before you drive it in traffic. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-brakes.webp" alt="Worn brake caliper and rotor on a wheel hub with the wheel removed" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@ben_brunner?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Benjamin Brunner</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JK brake setup is straightforward American-iron sliding caliper. Two slider bolts, two bracket bolts, single piston per side, vented front rotors. Where the JK differs from later JLs is in the slider bolt torque — Chrysler spec is only 11 ft-lb on the 13mm slider bolts. Crank these to &quot;feels tight&quot; with a regular ratchet and you&#x27;ll either strip the caliper bracket threads or snap the bolt. Use the torque wrench.</p>
 <p>JK brakes have a reputation for being undersized for the truck, especially once you lift it and add weight. Stock pads and rotors will get you through daily driving without complaint. Add 35&quot; tires, an aftermarket bumper, and a winch and you&#x27;ll start feeling the front end push through the brakes on long descents. The fix isn&#x27;t necessarily aftermarket &quot;performance&quot; rotors — it&#x27;s a heavier pad compound (Powerstop Z36 or EBC Yellowstuff) and disciplined downshifting on grade.</p>
 <p>Rotor warp shows up early on JKs that see water crossings. The factory rotors are mid-grade castings and they don&#x27;t tolerate thermal shock well. Replace when warped — resurfacing rarely lasts a full pad set. Powerstop&#x27;s plain-faced rotor kits cost less than OEM Mopar and last as long for street and mild trail use.</p>
 <p>The procedure is almost identical to any sliding-caliper brake job, but JK-specific note: you can swing the caliper up off one slider bolt to swap pads without fully removing it. Only do this if you&#x27;re not replacing rotors. If the rotor is staying, removing one bolt and swinging the caliper up out of the way speeds the pad swap to 30 minutes per side.</p>
 <p>Bracket bolt torque is the one to get right. <a href="https://www.project-jk.com/jeep-jk-write-ups/jeep-jk-wrangler-torque-settings" target="_blank" rel="noopener">The 2007–2010 JK uses 120 ft-lb on the front bracket bolts</a> (18mm); the 2011 and later specs dropped to 100 ft-lb. Use a torque wrench and verify against your year — the 2011+ spec being lower is because Mopar revised the bracket bolt grade. Over-torquing a 2011+ bracket bolt can stretch it.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Crack the lug nuts (19mm or 21mm depending on year/wheel), lift the front of the Jeep, support on stands at the frame rails behind the front axle.</li><li>Remove front wheels.</li><li>Open the brake fluid reservoir cap on the master cylinder. Drape a rag.</li><li>Remove the two 13mm caliper slider bolts on the back of the caliper. Slide caliper off, support with a wire hanger.</li><li>Compress the caliper piston with a C-clamp using an old pad as a buffer. Move slowly.</li><li>Pull old pads from bracket. Note shim orientation.</li><li>If replacing rotors: remove the two bracket bolts (18mm — 100 ft-lb on 2011+, 120 ft-lb on 2007–2010). Lift bracket off. Pull old rotor.</li><li>Wire-brush the hub face clean. Any rust ridges here cause runout.</li><li>Install new rotor (light anti-seize on hub mating face, not on the friction surface). Reinstall bracket and torque bolts to year-specific spec.</li><li>Install new pads with new anti-rattle clips. Light brake grease on pad backs and slider pins.</li><li>Slide caliper over pads onto the bracket. Reinstall slider bolts and torque to 11 ft-lb — do not exceed.</li><li>Reinstall wheels, torque lugs to 95 ft-lb.</li><li>Pump brake pedal until firm. Top off reservoir.</li><li>Bed in: 8–10 moderate stops from 35 mph, then 2–3 hard stops from 50 mph, then cool down without dragging.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Pad swap without removing caliper bracket (swing-up method) is under an hour</li><li>Mopar OEM parts cheap and available; aftermarket options well-supported</li><li>Standard sliding caliper — common tools, well-documented</li><li>35K–50K pad life on stock setups</li></ul>
@@ -258,7 +270,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://wranglerjkforum.net/threads/jk-brake-torque-specs.28635/" target="_blank" rel="noopener">JK Brake Torque Specs Reference Thread</a></li><li><a href="https://www.project-jk.com/jeep-jk-write-ups/jeep-jk-wrangler-torque-settings" target="_blank" rel="noopener">Jeep JK Wrangler Torque Settings Master List</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-rear-disc-brakes-jk/">Rear Disc Brake Service</a></li><li><a href="/db/jk/jk-brake-line-inspection/">Brake Line and Hose Inspection</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Front%20Brake%20Pad%20and%20Rotor%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

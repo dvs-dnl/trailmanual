@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,14 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jl/">Jeep Wrangler JL</a> / <a href="/db/#/jl/category/drivetrain">Drivetrain</a></nav>
   <h1>Front Driveshaft Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$180–750</span><span class="tm-fact">2018-2026</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$180–750</span><span class="tm-fact">2018-2026</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A clunk on throttle tip-in or a vibration that starts after a lift is <a href="https://www.jk-forum.com/forums/stock-jk-tech-12/front-driveshaft-cv-replacement-245861/" target="_blank" rel="noopener">almost always the front Rzeppa CV joint</a> — the stock shaft is the weak point on every JL, and lifting more than 2.5 inches will kill it faster.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JL front driveshaft uses a Rzeppa CV joint at the transfer case end and a single u-joint at the axle pinion. The Rzeppa design lets the shaft articulate without the harmonic vibration you get from a u-joint at a steep angle. Stock-height JLs run them for the life of the truck. Lifted JLs eat them, and the failure mode is consistent: a torn boot, grease slung across the underbody, and a clunk every time torque transfers through the joint.</p>
 <p>The failure progression is predictable. The Rzeppa boot tears or weeps — sometimes from age, more often from articulation past the joint&#x27;s design limit. Grease escapes. Dirt and water enter. The bearings inside the joint dry out and start to score. You hear a clunk on acceleration or deceleration, then a vibration that worsens as speed climbs. Catch it at the torn-boot stage and you can clean, regrease, and reboot the joint with a Mopar repair kit around $180. Wait until the clunk shows up and the bearings are already damaged — replace the joint or the whole shaft.</p>
 <p>Three replacement paths exist. The OEM Mopar shaft (68272525AC for non-Rubicon JL) at roughly $450 is a direct fit, but it is the same Rzeppa design that failed. If the Jeep is stock and stays stock, OEM is fine. If you lifted it, replace the failure with something better. A heavy-duty 1310 shaft from Adams Driveshaft or <a href="https://4xshaft.com/products/jk-jeep" target="_blank" rel="noopener">Tom Wood&#x27;s at $575–$595 uses a double-cardan front joint</a>, which tolerates the steeper operating angle a lifted JL imposes. Heavier-walled tubing means it survives rock hits and torque from larger tires.</p>
 <p>Diagnose before you order. Drop the front shaft, hold the CV end, and try to articulate it through its range. A healthy joint moves smoothly and silently. A failed joint clicks, binds, or rolls roughly. Inspect the boot for tears and the centering yoke for play — non-greasable yokes (211544X) and greasable yokes (211355X) both wear. Check the rear u-joint at the pinion end while the shaft is down; replacing one joint without inspecting the other is leaving a job half done.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground, chock the rear wheels, and raise the front. Support on jack stands.</li><li>Mark the front shaft flange and the pinion yoke with a paint pen so you can reinstall in the same orientation. Phasing matters.</li><li>Remove the four 15mm bolts holding the shaft to the front axle pinion yoke.</li><li>Remove the four bolts at the transfer case flange (typically 15mm).</li><li>Lower the shaft, supporting the weight — it is not heavy but the CV end is fragile if dropped on concrete.</li><li>Inspect both joints. If only the CV is bad and the rest of the shaft is sound, install a Mopar repair kit per its instructions. Otherwise install the new shaft.</li><li>Bolt the new shaft up with the alignment marks aligned. Torque flange bolts to 22 ft-lbs at the pinion and 22 ft-lbs at the transfer case. Verify clearance from exhaust and skids before lowering the Jeep.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Eliminates the clunk and vibration immediately</li><li>Repair kit option keeps the shaft if the bearings are still good</li><li>Heavy-duty aftermarket shafts handle lift, 35s, and trail use</li><li>Job is 1–2 hours with hand tools</li></ul>
@@ -257,7 +268,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.jk-forum.com/forums/stock-jk-tech-12/front-driveshaft-cv-replacement-245861/" target="_blank" rel="noopener">JK/JL front driveshaft CV failure — JK-Forum</a></li><li><a href="https://4xshaft.com/products/jk-jeep" target="_blank" rel="noopener">Tom Wood&#x27;s JL 1310 front shaft</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Front%20Driveshaft%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

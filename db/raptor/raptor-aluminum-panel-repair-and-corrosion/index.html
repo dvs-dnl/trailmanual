@@ -185,6 +185,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -315,7 +326,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/body">Body &amp; Rust</a></nav>
   <h1>Raptor Aluminum Body Panels: Dent Repair, Corrosion, and Why It Matters</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–8.0 hrs</span><span class="tm-fact">$30–1500</span><span class="tm-fact">2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–8.0 hrs</span><span class="tm-fact">$30–1500</span><span class="tm-fact">2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>From 2017 on, the Raptor&#x27;s body is aluminum-intensive like the rest of the F-150 line — and aluminum changes how you treat a dent, a scratch, or a corrosion spot. Aluminum doesn&#x27;t rust the way steel does, but it corrodes badly through galvanic reaction wherever steel hardware touches bare metal. The honest rule: treat any paint breach promptly, never mount steel accessories against bare aluminum, and know that real dent repair on these panels is a body-shop job, not a driveway pull.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-body-raptor.webp" alt="Tailgate with FORD lettering and RAPTOR badge on a black third-generation Ford F-150 Raptor" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@ceorana?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Rana Singh</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 2017-and-later Raptor shares the F-150&#x27;s high-strength aluminum-alloy body. That saved weight is part of why the truck moves the way it does, but it has consequences for how you maintain and repair the body. Trail rash, rock chips, and the occasional brush with a desert ironwood are part of owning a Raptor. How you handle them differs from a steel truck.</p>
@@ -331,7 +342,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The classic mistake is treating an aluminum panel like steel — using steel-contaminated tools, steel wool, or a steel wire brush, all of which embed steel particles that corrode the aluminum from within. Use only aluminum-dedicated abrasives. The second mistake is bolting steel accessories or armor brackets directly to bare body aluminum without isolation; that contact point will corrode within a season in a salt climate. The third is leaving rock chips unpainted — on steel you have time, on aluminum a breached coating next to dissimilar metal starts corroding faster than owners expect.</p>
 <h3>Costs and Sources</h3>
 <p>A touch-up kit with primer and color-matched paint runs $40–$70 and handles a season of trail chips. Anti-galvanic isolation hardware is $15–$25. Professional aluminum dent repair starts around $300 and climbs fast for creased or stretched panels — aluminum bodywork carries a labor premium over steel because of the specialized tools and isolated work area required. A full panel replacement is four figures.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Assess honestly — a chip or scratch is DIY; a crease, stretch, or structural dent goes to an aluminum-certified shop</li><li>For a chip: clean the area, lightly scuff the exposed aluminum, and apply self-etching aluminum primer</li><li>Build color with thin coats of color-matched touch-up paint, letting each flash off</li><li>Clear-coat if the panel has clear, then polish the edge after full cure</li><li>For accessory mounting: never clamp steel against bare aluminum — use nylon isolators and anti-galvanic compound at every contact point</li><li>After any salt-road or playa run, rinse the body and underbody thoroughly, paying attention to panel seams</li></ol>
 <h2>Why it works</h2>
 <ul><li>Aluminum doesn&#x27;t develop the spreading rust that condemns steel panels</li><li>Chip and scratch touch-up is a genuine DIY job that prevents the expensive failure</li><li>Proper isolation at accessory mounts eliminates galvanic corrosion entirely</li></ul>
@@ -346,7 +357,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.fordservicecontent.com" target="_blank" rel="noopener">Ford F-150 aluminum body repair guidelines</a></li><li><a href="https://www.i-car.com" target="_blank" rel="noopener">Aluminum vs steel collision repair (I-CAR)</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-rock-chips-and-fender-flares/">Protecting Raptor Body Panels: Rock Chips, Flares, and Trail Rash</a></li><li><a href="/db/raptor/raptor-front-bumper/">Aftermarket Front Bumper for the Gen 1 Raptor</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Raptor%20Aluminum%20Body%20Panels%3A%20Dent%20Repair%2C%20Corrosion%2C%20and%20Why%20It%20Matters">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

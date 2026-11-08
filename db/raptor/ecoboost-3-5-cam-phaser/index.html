@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/engine">Engine</a></nav>
   <h1>Gen 2 Raptor 3.5L EcoBoost Cam Phaser Rattle — What It Is and What to Ask a Seller</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.25–0.5 hrs</span><span class="tm-fact">$0–4500</span><span class="tm-fact">2017-2020</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.25–0.5 hrs</span><span class="tm-fact">$0–4500</span><span class="tm-fact">2017-2020</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The 3.5L EcoBoost cam phaser rattle <a href="https://www.nhtsa.gov/vehicle/2017/FORD/F-150/PU/4WD" target="_blank" rel="noopener">is a real issue on early Gen 2 Raptors</a> (2017–2018). On a cold start, a grinding or rattling noise from the top of the engine that disappears within 30 seconds is the tell. If a seller won&#x27;t let you cold-start the truck, walk away.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-engine.webp" alt="Water pump, pulley and wiring connectors on the side of an engine block" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@thebakemonoprojects?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Keiht Martinez</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The variable cam timing phasers on the 3.5L EcoBoost work by varying oil pressure to advance or retard camshaft timing. The design is sound, but early production Gen 2 Raptors (and F-150s with the same engine) had phaser wear issues — specifically, the phasers developed slop that caused a mechanical rattle on cold starts before oil pressure built fully.</p>
@@ -254,7 +265,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Inspection Protocol</h3>
 <p>Cold-start the engine. Stand near the driver&#x27;s side of the engine bay. Listen for 45–60 seconds. If there&#x27;s a rattle that sounds mechanical and comes from the top of the engine, you&#x27;ve found your answer. If it&#x27;s clean and quiet from startup, you can proceed with more confidence.</p>
 <p>A mechanic&#x27;s inspection can go further — they can pull an OBD2 history and look for timing-related codes that may have been cleared before the sale.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Arrange to inspect the truck cold — not warmed up</li><li>Open the hood before starting</li><li>Start the engine and stand next to the engine bay, driver&#x27;s side</li><li>Listen for 45–60 seconds for any grinding, clattering, or ticking from the top of the engine</li><li>If noise is present: ask for service history and walk away if none exists</li><li>If noise is absent: verify with an OBD2 scan for any cleared timing-related codes</li><li>Factor any needed repair into your offer — dealer cam phaser work is $2,500–$4,500</li></ol>
 <h2>Why it works</h2>
 <ul><li>Early detection is low-cost — a cold start and your ears</li><li>Revised phasers from Ford&#x27;s TSB are better than the originals</li><li>2019+ production trucks benefited from running changes and are lower risk</li></ul>
@@ -269,7 +280,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://static.nhtsa.gov/odi/tsbs/2019/MC-10163804-9999.pdf" target="_blank" rel="noopener">Ford TSB 19-2345 — 3.5L EcoBoost cam phaser</a></li><li><a href="https://www.nhtsa.gov/vehicle/2017/FORD/F-150/PU/4WD" target="_blank" rel="noopener">NHTSA complaints — 2017-2019 F-150 Raptor timing</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-ecoboost-spark-plug-service/">Spark Plugs on the 3.5 EcoBoost HO — Why Boosted Raptors Eat Plugs Early, and How to Do All Six Without Breaking Anything</a></li><li><a href="/db/raptor/raptor-ecoboost-turbo-and-bov-care/">Raptor EcoBoost Turbos: Cooldown, Boost Leaks, and Honest Upgrade Talk</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Gen%202%20Raptor%203.5L%20EcoBoost%20Cam%20Phaser%20Rattle%20%E2%80%94%20What%20It%20Is%20and%20What%20to%20Ask%20a%20Seller">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

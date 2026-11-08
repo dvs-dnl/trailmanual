@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>What Tires Actually Fit on a Raptor Without a Lift</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1.0 hrs</span><span class="tm-fact">$1400–2400</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1.0 hrs</span><span class="tm-fact">$1400–2400</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Factory Gen 2 and Gen 3 base Raptors <a href="https://media.ford.com" target="_blank" rel="noopener">run 315/70R17 (equivalent to 35x12.5) BFGoodrich KO2s on 17x8.5 wheels</a>. 37s on a Gen 3 require the factory 37 Package or a leveling kit plus minor clearance work.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires.webp" alt="Large knobby off-road tires on polished eight-hole wheels on a parked 4x4" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@egorkomarov?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Egor Komarov</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Raptor was designed around large tires from day one. Gen 1 SVT ran 315/70R17 BFG All-Terrain T/A KO. Gen 2 moved to the KO2 in the same size. Gen 3 base continues with 315/70R17, and the optional 37 Package steps up to 37x12.5R17.</p>
@@ -254,7 +265,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>What Full Stuff Looks Like</h3>
 <p>At full suspension compression (both wheels droop), the Raptor&#x27;s long-travel suspension moves the tire significantly upward relative to the body. Factory 315/70R17 clears in all four corners without issue. The concern zone is the front at full compression combined with full steering lock. On stock suspension with stock 315/70R17, clearance is designed in. Adding width (wider tire brand) or height (37s without a leveling kit) changes this.</p>
 <p>A practical test: with the truck on flat ground, turn the wheel to full lock in both directions and bounce the front of the truck manually. If it rubs, you need more clearance before going off-road where actual full-compression events will happen.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Confirm your generation and whether Gen 3 has the 37 Package (window sticker or door jamb)</li><li>For same-size replacements (315/70R17): any quality AT or MT tire in that size bolts on without modification</li><li>For 35x12.5 on Gen 1 or Gen 2: check the specific brand&#x27;s measured section width before ordering — test for rub at full lock before trail use</li><li>For 37s on Gen 2 or non-37-Package Gen 3: plan for regearing to 4.10 or 4.56 and minor fender liner trimming</li><li>Torque lug nuts to factory spec (150 ft-lb on Gen 2, 150 ft-lb on Gen 3)</li><li>Reset TPMS after any wheel/tire change</li></ol>
 <h2>Why it works</h2>
 <ul><li>315/70R17 is widely available from multiple quality manufacturers</li><li>37s on a factory 37-Package Gen 3 are properly integrated — no compromises</li><li>The 17-inch wheel size keeps tire costs lower than 20-inch equivalents</li></ul>
@@ -269,7 +280,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://tfltruck.com/?p=69056" target="_blank" rel="noopener">TFL — 2021 vs 2020 Raptor spec comparison (4.10 rear ratio)</a></li><li><a href="https://media.ford.com" target="_blank" rel="noopener">Ford F-150 Raptor Gen 2 factory spec — 315/70R17 BFG KO2</a></li><li><a href="https://media.ford.com" target="_blank" rel="noopener">Gen 3 Raptor 37 Package specs</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-tire-fitment-37/">37-Inch Tires — The Signature Raptor Upgrade</a></li><li><a href="/db/raptor/raptor-spare-tire-and-jack-on-37s/">The Spare Tire and Jack Problem on 35s and 37s — What Fits Under the Bed, and Why the Factory Jack Is No Longer Enough</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20What%20Tires%20Actually%20Fit%20on%20a%20Raptor%20Without%20a%20Lift">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

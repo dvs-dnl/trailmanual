@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/drivetrain">Drivetrain</a></nav>
   <h1>3rd Gen Transmission Shudder — Causes and Fix</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–6 hrs</span><span class="tm-fact">$60–1800</span><span class="tm-fact">2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–6 hrs</span><span class="tm-fact">$60–1800</span><span class="tm-fact">2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The shudder you feel between 30 and 50 mph on a 3rd gen Tacoma is <a href="https://www.transmissionrepaircostguide.com/toyota-tacoma-torque-converter-shudder/" target="_blank" rel="noopener">the torque converter clutch slipping under flex-lock</a> — start with a fluid level check and a drain-and-fill of Toyota WS, and escalate to torque converter replacement under warranty only if the shudder persists.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Aisin A750F six-speed automatic in the 3rd gen Tacoma (2016–2023) <a href="https://www.tacomaworld.com/threads/3rd-gen-torque-converter-shudder.707505/" target="_blank" rel="noopener">has a known shudder under light-throttle cruising</a>, typically between 30 and 50 mph in 5th or 6th gear. The cause is torque converter clutch slip — Toyota calls the partial lockup strategy &quot;flex lock,&quot; and when the fluid is old, low, or contaminated, the clutch can chatter as it tries to maintain partial engagement. It feels like driving over rumble strips at low speed, or like a manual transmission slipping the clutch.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The fix sequence starts cheap and escalates. Check the fluid level first using the correct procedure: warm the trans to 100–115°F (Techstream or any OBD-II app with Toyota PIDs reads ATF temp), engine running, shifter cycled through every gear, then pull the overflow plug at the bottom of the pan. A trickle means correctly filled. Nothing means low. A gush means overfilled. Add WS through the fill port until you get a trickle out the overflow.</p>
 <p>If level is correct and the shudder persists, do a drain-and-fill with fresh Toyota WS (00289-ATFWS). The transmission holds about 11 quarts total but a single drain only removes 3–4 quarts. Three sequential drain-and-fills over a few weeks of driving will exchange most of the fluid without the cost of a power flush. Toyota&#x27;s official position has been that a power flush is not required, and a series of drain-and-fills is the safer approach.</p>
 <p>If the shudder still will not quit, schedule the Toyota TSB repair while the truck is still under powertrain warranty. The TSB process generally includes a fluid exchange, a software reflash that retunes the flex-lock strategy, and torque converter replacement if the clutch lining is damaged. Out of warranty, torque converter replacement at a dealer runs $1,500–$1,800. The aftermarket flat-rate is similar because the transmission has to come out either way.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Verify the symptom: light-throttle shudder at 30–50 mph that goes away when you brush the throttle or shift down. That pattern is flex-lock related.</li><li>Check fluid level with the truck warm (100–115°F ATF temp), engine running, on a level surface. Pull the overflow plug — expect a trickle.</li><li>If low, top off through the fill port with Toyota WS until a trickle returns at the overflow plug. Replace the gaskets on both plugs.</li><li>If level is correct, drain the pan (24mm drain plug), measure the volume drained, and refill the exact same volume of fresh WS through the fill port.</li><li>Drive 200–500 miles and reassess. Repeat the drain-and-fill 2 more times over a few weeks if the shudder is improving but not gone.</li><li>If the shudder persists after three drain-and-fills, schedule a service visit while under powertrain warranty. Reference the Toyota TSB for transmission shudder.</li><li>Replace gaskets on every drain and overflow plug — both are torque-to-yield style copper crush washers and should not be reused.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Many shudders resolve from a level correction alone</li><li>Drain-and-fill is $60 in fluid and an hour of work</li><li>TSB repair is covered under powertrain warranty (60k miles standard)</li><li>Catching it early prevents torque converter damage</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.transmissionrepaircostguide.com/toyota-tacoma-torque-converter-shudder/" target="_blank" rel="noopener">Toyota Tacoma torque converter shudder — TRCG</a></li><li><a href="https://www.tacomaworld.com/threads/3rd-gen-torque-converter-shudder.707505/" target="_blank" rel="noopener">3rd gen torque converter shudder — Tacoma World</a></li><li><a href="https://tacoma3g.com/threads/psa-check-your-trans-fluid-level.14131/" target="_blank" rel="noopener">PSA Check Your Trans Fluid Level — Tacoma3G</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-atf-flush-tacoma/">ATF Flush — 5-Speed and 6-Speed Automatics</a></li><li><a href="/db/tacoma/tacoma-transfer-case-fluid/">Transfer Case Fluid Change</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%203rd%20Gen%20Transmission%20Shudder%20%E2%80%94%20Causes%20and%20Fix">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -189,6 +189,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -319,8 +330,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/brakes">Brakes</a></nav>
   <h1>Raptor Brakes: Managing Fade on a Heavy, Fast Truck</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3.0 hrs</span><span class="tm-fact">$150–700</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3.0 hrs</span><span class="tm-fact">$150–700</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><strong>Safety-critical.</strong> <a href="https://www.ford.com/trucks/raptor" target="_blank" rel="noopener">The Raptor weighs around 5,500 lbs</a>, runs big tires, and gets driven fast — that&#x27;s a lot of energy for the brakes to turn into heat. The factory brakes are adequate for stock use, but heavy loads, big tire upgrades, and long mountain descents can fade them. The fixes, in order of value: fresh high-temperature brake fluid, severe-duty pads, then rotors only if they&#x27;re warped or worn. Spongy pedal or a burning smell on a descent means stop and let them cool — fade is a warning, not a quirk.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Brake work decides whether the vehicle stops. Bleed the system, check for leaks, and test at walking speed before you drive it in traffic. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-brakes.webp" alt="Worn brake caliper and rotor on a wheel hub with the wheel removed" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@ben_brunner?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Benjamin Brunner</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Braking is energy conversion: the brakes turn the truck&#x27;s motion into heat through friction. A heavy, fast truck on big tires generates a lot of it. When the brakes get hotter than the pads and fluid can handle, you get fade — the pedal goes long and soft, and stopping distance grows. On a Raptor, fade shows up in three situations: long downhill grades, towing or heavy loads, and after you&#x27;ve gone up in tire size without addressing the brakes.</p>
 <h3>Why Bigger Tires Make It Worse</h3>
@@ -334,7 +346,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>This is safety-critical work — get it right or have a shop do it. Never reuse contaminated brake fluid or let air sit in the lines; an improperly bled system gives a dangerous soft pedal. Always torque caliper hardware to spec. And treat fade as a warning: a soft pedal or burning smell on a descent means the brakes are at their limit — stop and cool them, don&#x27;t push through.</p>
 <h3>Costs and Sources</h3>
 <p>High-temp brake fluid and a flush: $20–$40 in fluid, an afternoon DIY or $120–$180 at a shop. Severe-duty front pads: $80–$150. Quality rotors: $150–$300 a pair. A full front pad-and-rotor refresh with fluid is roughly $300–$500 DIY. Big-brake kits start around $1,500 and are rarely necessary for non-competition use.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>If you&#x27;ve added big tires or you tow, address the brakes proactively — don&#x27;t wait for fade</li><li>Flush old brake fluid and refill with fresh high-temperature DOT 4 — the cheapest anti-fade upgrade</li><li>Bleed thoroughly until clean fluid runs at every corner and the pedal is firm</li><li>If fade persists, install severe-duty pads (front first — fronts do most of the work)</li><li>Replace rotors only if warped, below minimum thickness, or heat-checked</li><li>Torque caliper and bracket bolts to Ford spec and bed in new pads per the maker&#x27;s procedure</li><li>On grades, use engine braking and lower gears instead of riding the brakes</li></ol>
 <h2>Why it works</h2>
 <ul><li>Fresh high-temp fluid is a cheap, large improvement in fade resistance</li><li>Severe-duty pads handle heat far better than factory pads</li><li>Good downhill technique prevents most fade for free</li></ul>
@@ -349,7 +361,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.brembo.com" target="_blank" rel="noopener">Brake fade causes and high-temperature fluid</a></li><li><a href="https://www.ford.com/trucks/raptor" target="_blank" rel="noopener">Raptor weight, towing, and brake load</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-brake-pad-rotor-replacement/">Raptor Brake Pad and Rotor Replacement — The Full Procedure on a 6,000-Pound Truck</a></li><li><a href="/db/raptor/raptor-tire-fitment/">What Tires Actually Fit on a Raptor Without a Lift</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Raptor%20Brakes%3A%20Managing%20Fade%20on%20a%20Heavy%2C%20Fast%20Truck">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

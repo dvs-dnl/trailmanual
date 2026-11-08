@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/maintenance">Maintenance</a></nav>
   <h1>Transfer Case Fluid — NP231 and NV231</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$20–40</span><span class="tm-fact">1997-2002, 2003-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$20–40</span><span class="tm-fact">1997-2002, 2003-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Drain and refill the TJ&#x27;s NP231 or NV231 transfer case every 30,000 miles, and sooner after deep water, with ATF+4 pumped in until it begins to weep from the fill hole. Budget two to three quarts, about 45 minutes, and one rule you cannot skip: break the fill plug loose before you drain anything.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Every TJ except the Rubicon carries the NP231 (relabeled NV231 after New Venture Gear took over the design). It is <a href="https://www.novak-adapt.com/knowledge/transfer-cases/np231.html" target="_blank" rel="noopener">a chain-driven, part-time transfer case with a 2.72:1 planetary low range</a> and an aluminum housing. The Rubicon uses the NV241OR with a 4:1 low range, so if your Jeep has the Rubicon badge, the fill procedure is similar but the case is a different part. The 231&#x27;s chain and planetary are durable, but they live on the fluid film in the case, and the case has no filter and no cooler. Fluid that has cooked, picked up water, or collected fine metal is the main thing that shortens its life.</p>
@@ -246,7 +257,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Vent and seals.</strong> The case breathes through a vent with a hose routed upward. A pinched, plugged, or low-routed vent builds pressure on a hot case and pushes fluid past the output seals. Check that the hose is intact and routed high, particularly after a lift or exhaust work moved things around. A weeping rear output seal usually points to a worn tail-housing bushing rather than the seal alone; the <a href="/db/tj/tj-np231-tj/">NP231 service guide</a> covers that failure and the slip-yoke-eliminator decision.</p>
 <p><strong>Magnetic plug.</strong> Some magnetic replacement plugs exist for the 231 and cost $10 to $20. Confirm the thread size and drive style match before you buy, and do not over-tighten, since the housing is aluminum and the threads strip.</p>
 <p><strong>Costs and sources.</strong> ATF+4: $7 to $11 per quart; plan on three. Hand fluid pump: $10 to $15. Optional magnetic plug: $10 to $20. Shop labor if you skip DIY: $60 to $120 plus fluid. Do it alongside the <a href="/db/tj/tj-differential-fluid/">differential fluid service</a> so both gear-case services and the transfer case share the same interval, and see the <a href="/db/tj/tj-front-driveshaft/">front driveshaft guide</a> if you find the front output seal weeping.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Drive a short distance to warm the fluid, then park on the most level ground you can find. Set the parking brake and chock the wheels.</li><li>Slide a wide drain pan under the transfer case. If a skid plate is bolted over it, remove the skid plate first.</li><li>Break the fill plug loose with a 1/2-inch ratchet and then snug it back by hand. If it does not move, stop here.</li><li>Remove the drain plug and let the case empty for 15 to 20 minutes. Catch a sample in a clean jar and look at color, smell, and any particles.</li><li>If the plug has a washer or sealing ring, replace it. Clean the plug, then reinstall it and tighten to about 20 to 25 ft-lbs. The housing is aluminum, so use a torque wrench rather than a long breaker bar.</li><li>Attach a hand pump or squeeze bottle with a hose to the new ATF+4 and feed it into the fill hole until fluid reaches the lower edge of the hole and begins to seep out.</li><li>Reinstall the fill plug to the same torque and wipe the case clean so a leak will be visible later.</li><li>Check that the vent hose is intact and routed upward and clear of the exhaust.</li><li>Drive 10 miles, shifting into 4-Hi and 4-Lo once on dirt (never on dry pavement), then re-inspect for weeping at both plugs and the output seals.</li><li>Write the date and mileage on a strip of masking tape or in your maintenance log. The interval is 30,000 miles, or 15,000 if you wheel in mud and water.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Cheap and quick: about $20 to $40 in fluid and a morning of work, with a diagnostic payoff that no other 30-minute job offers.</li><li>A drain sample tells you about the chain, bearings, and seals before a failure leaves you stranded.</li><li>Fixing a clogged vent during the service prevents the seal leaks that otherwise get blamed on the case.</li></ul>
@@ -261,7 +272,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.novak-adapt.com/knowledge/transfer-cases/np231.html" target="_blank" rel="noopener">Novak — Guide to the New Process / New Venture Gear 231 Transfer Case</a></li><li><a href="https://wranglertjforum.com/threads/hit-1-5-quarts-on-231-transfer-case-should-i-keep-going.52014/" target="_blank" rel="noopener">TJ Forum — Hit 1.5 quarts on 231 transfer case, should I keep going?</a></li><li><a href="https://wranglertjforum.com/threads/atf-or-atf-4-for-transfer-case-fluid.4818/" target="_blank" rel="noopener">TJ Forum — ATF or ATF+4 for transfer case fluid?</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-oil-change-tj/">Oil Change — 4.0L and 2.5L</a></li><li><a href="/db/tj/tj-spark-plugs-tj/">Spark Plug Replacement — 4.0L</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Transfer%20Case%20Fluid%20%E2%80%94%20NP231%20and%20NV231">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

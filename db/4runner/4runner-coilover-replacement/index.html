@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/suspension">Suspension</a></nav>
   <h1>Coilover Replacement — Bilstein 6112 / Icon / Old Man Emu</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–6 hrs</span><span class="tm-fact">$700–2200</span><span class="tm-fact">2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–6 hrs</span><span class="tm-fact">$700–2200</span><span class="tm-fact">2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://exitoffroad.com/product/bilstein-47-310025-front-6112-series-kit/" target="_blank" rel="noopener">Bilstein 6112 coilovers give the 5th gen 4Runner a 1.5&quot;–3.2&quot; front lift</a> with better damping than stock and bolt-in installation — pair with 5160 rear shocks for the most common build path.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-suspension-4runner.webp" alt="Silver fifth-generation Toyota 4Runner climbing rocks in a canyon" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@robsonhmorgan?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Robson Hatsukami Morgan</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 5th gen 4Runner (2010-2024) ships with soft front coilover struts tuned for highway ride. They sag noticeably under bumper, winch, and skid plate weight, and they fade hard on washboard. The two most common upgrade paths are Bilstein 6112 (best value, ~$850 front) and Icon Stage 2 (better damping, ~$1850 for the matched kit). Old Man Emu BP-51 and Dobinsons IMS sit in between.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Pair with Bilstein 5160 remote-reservoir shocks at the rear (about $425/pair) for a matched-tune ride. 5160s help with brake fade and heat dissipation on long descents and have rebuildable internals. If you&#x27;re going further than 2&quot; of rear lift, you need new rear coils too (not longer shocks) — Bilstein doesn&#x27;t make them, so source from Icon or OME.</p>
 <p>Install requires breaking the upper ball joint (or removing the upper control arm), separating the tie rod end, and dropping the lower strut bolt. <a href="https://trail4runner.com/2018/07/03/bilstein-6112-5100-install-5th-gen-4runner/" target="_blank" rel="noopener">The struts come pre-assembled — no spring compressor needed</a>. Key torque values: <a href="https://trail4runner.com/2020/06/17/5th-gen-4runner-torque-specs/" target="_blank" rel="noopener">Trail4Runner&#x27;s list gives upper strut nuts 47 ft-lb and the lower shock bolt 70 ft-lb</a>, while <a href="https://toyota-specs.com/cars/2020/4runner4.0/torque-specs_front.php" target="_blank" rel="noopener">toyota-specs.com gives 47 ft-lb and 101 ft-lbf</a>. The lower bolt figures conflict, so take that one from the factory service manual. Both list the tie rod castle nut at 67 ft-lb; the upper ball joint nut is 80 to 82 ft-lb depending on the chart. Alignment is mandatory after — caster and toe both change.</p>
 <p>If you&#x27;re doing the upper control arms at the same time (recommended for any lift above 2&quot;), order those first so they&#x27;re ready to install alongside.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground; loosen front lug nuts.</li><li>Lift the front; support the frame on jack stands; remove front wheels.</li><li>Disconnect the sway bar end links from the lower control arms.</li><li>Separate the tie rod end from the steering knuckle (penetrant, tie rod separator).</li><li>Remove the upper ball joint nut; pop the upper control arm free from the knuckle (or remove the UCA entirely).</li><li>Support the lower control arm with a floor jack.</li><li>Remove the three upper strut nuts from the strut tower.</li><li>Remove the lower strut bolt at the lower control arm.</li><li>Drop the old strut down and out.</li><li>Install the new 6112 with the spring perch at your chosen lift height (factory-set or your choice).</li><li>Snug the upper nuts; install the lower bolt with the suspension at ride height (load the LCA with the floor jack before final torque).</li><li>Reconnect tie rod (67 ft-lb), upper ball joint (80 ft-lb), sway bar end links.</li><li>Repeat the other side.</li><li>Torque upper strut nuts to 47 ft-lb; torque the lower strut bolt at ride height to the service-manual figure (charts list 70 and 101 ft-lb; see above).</li><li>Reinstall wheels; torque lug nuts to 83 ft-lb.</li><li>Drive immediately to alignment shop — do not skip this step.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Bilstein 6112 is the best damper-per-dollar in the 4Runner aftermarket</li><li>Spring perch adjustability lets you tune lift height after install</li><li>Pre-assembled — no spring compressor</li><li>Rear 5160 reservoirs add real cooling capacity for trail use</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://trail4runner.com/2018/07/03/bilstein-6112-5100-install-5th-gen-4runner/" target="_blank" rel="noopener">Bilstein 6112 Install on 5th Gen 4Runner (Trail4Runner)</a></li><li><a href="https://trail4runner.com/2020/06/17/5th-gen-4runner-torque-specs/" target="_blank" rel="noopener">Full List of Suspension Torque Specs For the 5th Gen 4Runner</a></li><li><a href="https://toyota-specs.com/cars/2020/4runner4.0/torque-specs_front.php" target="_blank" rel="noopener">toyota-specs.com — 2020 4Runner front end torque specs</a></li><li><a href="https://exitoffroad.com/product/bilstein-47-310025-front-6112-series-kit/" target="_blank" rel="noopener">Bilstein 47-310025 Front 6112 Kit (Exit Offroad)</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-lower-ball-joint-4runner/">Lower Ball Joint Replacement — 4th and 5th Gen</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/budget-ladder.html#4runner">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Coilover%20Replacement%20%E2%80%94%20Bilstein%206112%20/%20Icon%20/%20Old%20Man%20Emu">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

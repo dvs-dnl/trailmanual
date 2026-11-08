@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/suspension">Suspension</a></nav>
   <h1>Electric Sway Bar Disconnect — Troubleshooting</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–4 hrs</span><span class="tm-fact">$0–650</span><span class="tm-fact">2007-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–4 hrs</span><span class="tm-fact">$0–650</span><span class="tm-fact">2007-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Most JK Rubicon sway bar disconnect failures trace to <a href="https://jeeptourscolorado.com/jeep-blog/sway-bar/" target="_blank" rel="noopener">water in the harness connector</a> and grease washed out of the actuator gearbox. Clean it, re-grease it, and seal the connector before you spend $320 on a new motor — that repair fixes the majority of e-disco complaints for the cost of an afternoon and a tube of grease.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-suspension-jk.webp" alt="Lifted Jeep Wrangler JK Rubicon on a lift, showing the coilover, coil spring and long-arm front suspension" width="1600" height="1067" loading="lazy"></figure>
 <p>The American Axle SmartBar that came standard on every JK Rubicon is genuinely clever hardware in a genuinely poor location. An electric actuator drives a shift fork across a set of splines to lock or release the two halves of the front sway bar. The mechanical side is robust and rarely the problem. The electrical side — a CAN-bus-connected actuator mounted under the front axle, directly in the path of every water crossing and mud spray the Jeep has ever seen — is where it comes apart.</p>
@@ -255,7 +266,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Path</th><th>Cost</th><th>Tradeoff</th></tr></thead><tbody><tr><td>Clean, re-grease, reseal</td><td>$18 in grease</td><td>Fixes most failures; recurs if sealing is skipped</td></tr><tr><td>Mopar actuator 68210857AB</td><td>$320</td><td>Restores stock function, same failure mode returns</td></tr><tr><td>EVO No Limits manual disconnect</td><td>~$350</td><td>Bulletproof, no electronics — you get out and pull a pin</td></tr><tr><td>EVO No-Limits On Demand (air)</td><td>~$650</td><td>Cab-operated, no CAN bus, needs onboard air</td></tr></tbody></table></div>
 <p>At the $320 replacement-actuator price point, most owners stop and reconsider. <a href="https://www.jk-forum.com/articles/rubicon-manual-sway-bar-disconnects/" target="_blank" rel="noopener">The manual EVO conversion</a> costs about the same and removes the failure mode permanently at the price of getting out at the trailhead. The air-actuated version keeps the from-the-seat convenience and adds a compressor requirement — worth it if you already run onboard air for tires and lockers, hard to justify if you do not.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground with the suspension unloaded. Chock the rear wheels.</li><li>Unplug the harness connector at the actuator. Inspect for moisture, corrosion, and bent or pushed-back pins.</li><li>Flush the connector with electrical contact cleaner, dry fully, pack with dielectric grease, and reseat.</li><li>Trace the harness along the axle looking for chafe damage. Repair with adhesive-lined heat shrink.</li><li>Reconnect and cycle the disconnect button several times. If the fault clears here, you are finished — reseal and move on.</li><li>If the fault persists, remove the four T20 screws from the actuator motor cover and inspect the gearset for water, rust, and remaining grease.</li><li>Wire-brush rust from the gear teeth, clean out old grease, repack with marine-grade grease, and reassemble. Snug the plastic-threaded cover screws by hand feel, not by torque.</li><li>Cycle again and confirm the dash light goes solid when disconnected and off when connected, with no rapid flashing.</li><li>Still faulty: back-probe the connector with a multimeter and confirm the motor sees battery voltage on command. Voltage present with no motor movement condemns the actuator.</li><li>Replace the actuator, or convert to a manual or air disconnect.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores stock disconnect function for the cost of grease in the majority of cases</li><li>Explains and resolves the unrelated-seeming CAN-bus symptoms (dead locker buttons, dead steering wheel controls)</li><li>Annual ten-minute inspection prevents nearly all recurrences</li><li>Manual or air conversion eliminates the failure mode outright</li></ul>
@@ -270,7 +281,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://jeeptourscolorado.com/jeep-blog/sway-bar/" target="_blank" rel="noopener">Native Jeeps — JK Rubicon sway bar disconnect failure patterns</a></li><li><a href="https://www.jk-forum.com/articles/rubicon-manual-sway-bar-disconnects/" target="_blank" rel="noopener">JK-Forum — Rubicon manual sway bar disconnect conversion</a></li><li><a href="https://www.wayalife.com/threads/jk-sway-bar-disconnect-actuator-repair.6412/" target="_blank" rel="noopener">WAYALIFE — SmartBar actuator teardown and re-grease write-up</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-shocks-upgrade/">Shock Absorber Upgrade — Bilstein, Fox, and King Options</a></li><li><a href="/db/jk/jk-track-bar/">Front Track Bar Upgrade — Lifted JK Wrangler</a></li><li><a href="/db/jk/jk-control-arm-replacement/">Control Arm Replacement and Upgrade</a></li><li><a href="/db/jk/jk-obd2-diagnostics/">OBD2 Diagnostics and Code Reading (JK Wrangler)</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/jk-lift-kit-comparison.html">Lift kit comparison</a> — every kit we could verify, side by side</li><li><a href="/budget-ladder.html#jk">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Electric%20Sway%20Bar%20Disconnect%20%E2%80%94%20Troubleshooting">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

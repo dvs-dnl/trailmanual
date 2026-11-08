@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/armor">Armor &amp; Skids</a></nav>
   <h1>Rock Sliders and Rocker Guards</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–5 hrs</span><span class="tm-fact">$350–900</span><span class="tm-fact">2007-2011, 2012-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">3–5 hrs</span><span class="tm-fact">$350–900</span><span class="tm-fact">2007-2011, 2012-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Rock sliders protect the most vulnerable section of the JK&#x27;s body from rock strikes that would otherwise crumple the rocker panels — on a JK that sees real trails, they&#x27;re as important as a front bumper.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-armor-jk.webp" alt="Stinger front bumper with a winch and red D-ring shackles on a gray Jeep Wrangler JK Unlimited" width="1600" height="1067" loading="lazy"></figure>
 <p>The JK&#x27;s rocker panels are the lowest point of the body tub and the first thing to contact rocks on shelf trails or ledges. Factory rockers are thin sheet metal — one solid hit at trail speed will dent, tear, or fold them. Rock sliders bolt to the body and frame, extending outward to intercept rock contact before it reaches the rocker. A quality slider transfers the impact energy to structure rather than sheet metal, keeping your body straight and your sill intact. The Smittybilt SRC is the volume seller at this price point — it&#x27;s bolt-on, fits the 4-door Unlimited cleanly, and at $449 it&#x27;s the right call if you&#x27;re building a trail rig on a budget. Rock Hard 4x4&#x27;s tube sliders at $379 are the lowest-cost option that still uses proper 1.75&quot; DOM tube construction and mounts with the right number of contact points.</p>
@@ -247,7 +258,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>The spec sheet that matters</h3>
 <p>For tube sliders, the floor is 1.75&quot; x 0.120-wall DOM tubing — HREW tube shows up in bargain listings and dents where DOM deflects. For plated designs, 3/16&quot; steel is the working minimum. Powder coat chips wherever the slider touches rock; plan on an annual touch-up with rust converter and paint, and check that tube designs have weep holes so the tube interior doesn&#x27;t rust from trapped condensation. Weight is real: 35–65 lbs per side for plated steel, and it rides on the springs, so factor it into spring-rate decisions on a build that&#x27;s already carrying bumpers and a winch.</p>
 <p>Installation is bolt-on for all options listed, but the term &quot;bolt-on&quot; covers a range of difficulty. Rock Hard and Smittybilt sliders use factory holes and are genuinely straightforward. Poison Spyder and LOD sliders often require drilling into the rocker seam or lower body — follow the template precisely and use the included hardware. Coat all cut or drilled edges with rust inhibitor before final assembly, especially in climates that see salt or mud. On 2007–2011 JKs, inspect the factory rocker mounting seam for rust before slider installation — installing sliders over corroded sheet metal creates a hidden moisture trap.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Inspect factory rocker panels for rust or damage before proceeding.</li><li>Clean the mounting area on the lower rocker and frame rail with a wire brush.</li><li>Dry-fit the slider to confirm alignment and identify any drilling locations.</li><li>Drill any required new mounting holes per the template supplied with the kit.</li><li>Coat all raw metal edges (drilled holes, cut surfaces) with rust-inhibiting primer.</li><li>Install the slider with all supplied hardware — do not fully torque until all bolts are started.</li><li>Torque all bolts to spec once slider is fully aligned.</li><li>Verify clearance between slider and tire at full suspension droop and full stuff.</li><li>On 4-door (Unlimited) JKs, confirm the slider clears the rear door threshold when opening.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Prevents costly rocker panel damage on shelf trails and ledge crossings</li><li>Bolt-on installation does not require frame welding on any listed option</li><li>Frame-tied designs double as rated jack and pivot points</li><li>Heavy-gauge options (Poison Spyder, LOD) add meaningful structural rigidity to the lower body</li></ul>
@@ -262,7 +273,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.poisonspyder.com/jeep-wrangler-jk-rock-sliders" target="_blank" rel="noopener">Poison Spyder JK Rock Sliders</a></li><li><a href="https://lodoffroad.com/jeep-jk-sliders" target="_blank" rel="noopener">LOD Offroad JK Destroyer Rock Sliders</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-skid-plates/">Skid Plate Kit — Engine, Transfer Case, and Fuel Tank Protection</a></li><li><a href="/db/jk/jk-front-bumper-budget/">Budget Steel Front Bumper (≤$600)</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li><li><a href="/budget-ladder.html#jk">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Rock%20Sliders%20and%20Rocker%20Guards">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

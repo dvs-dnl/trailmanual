@@ -233,6 +233,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -363,7 +374,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jl/">Jeep Wrangler JL</a> / <a href="/db/#/jl/category/drivetrain">Drivetrain</a></nav>
   <h1>Re-Gearing the JL — 4.56 and 4.88 Ratio Selection</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 5/5</span><span class="tm-fact">6–12 hrs</span><span class="tm-fact">$900–2400</span><span class="tm-fact">2018-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 5/5</span><span class="tm-fact">6–12 hrs</span><span class="tm-fact">$900–2400</span><span class="tm-fact">2018-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The stock gear ratios on most JL trims were sized for street-biased tires — if you&#x27;ve moved to 35s or 37s and haven&#x27;t regeared, you&#x27;re working the drivetrain harder than it was designed for and leaving significant trail capability on the table.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The math behind regearing is straightforward. Your engine makes peak torque in a specific RPM range. Larger tires rotate more slowly per mile, which effectively changes your final drive ratio and moves your RPM operating point down out of that optimal range. The result: sluggish acceleration, transmission hunting on grades, and a crawl ratio that feels inadequate on steep technical terrain. Regearing restores the RPM relationship to a range the drivetrain was designed to operate in.</p>
@@ -373,7 +384,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Front and rear must be regeared together.</strong> Running mismatched ratios front to rear on a part-time 4WD system causes severe binding and drivetrain damage when 4WD is engaged. This is not optional.</p>
 <p><a href="https://www.yukongear.com/jeep/wrangler-jl/ring-and-pinions.html" target="_blank" rel="noopener">Yukon Gear is the benchmark brand for JL ring and pinion sets</a>. Their steel quality is consistent, the manufacturing tolerances are tight (which streamlines setup), and they support both Dana 30/35 (Sport/Sahara) and Dana 44 (Rubicon) fitments. The master overhaul kit ($249) includes all bearings, races, seals, shims, and hardware needed to complete the job — don&#x27;t attempt to reuse factory bearings on a regear.</p>
 <p><strong>Labor consideration:</strong> Setting up ring and pinion gears correctly is one of the most skill-dependent jobs in the drivetrain world. Incorrect backlash or bearing preload will cause gear noise, premature wear, or catastrophic failure within 10,000 miles. If you haven&#x27;t done it before, the first regear should be done at a reputable 4WD shop — watch, learn, then DIY the second axle.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Drain differential fluid from both axles before disassembly.</li><li>Front axle: support axle, remove wheels, disconnect front driveshaft, remove axle shafts.</li><li>Remove front diff cover, mark bearing cap positions before removal.</li><li>Extract carrier/ring gear assembly, remove pinion.</li><li>Press old pinion and carrier bearings off using a bearing puller or press.</li><li>Install new pinion bearings on new pinion. Set pinion depth using shim stack (this requires a dial indicator and pattern checking — follow Yukon&#x27;s instructions precisely).</li><li>Install pinion, set pinion bearing preload to manufacturer spec using an inch-pound torque wrench.</li><li>Transfer ring gear to carrier (or install new carrier if upgrading). Install new ring gear bolts — do not reuse old bolts.</li><li>Set carrier bearing preload and ring gear backlash to spec. Check gear mesh contact pattern with gear marking compound — the pattern must be centered before final assembly.</li><li>Install diff cover with new gasket, torque to spec.</li><li>Repeat procedure for rear axle (Dana 35 or Dana 44 depending on trim).</li><li>Fill both differentials with correct gear oil per manufacturer spec (some ring and pinion installs require specific break-in fluid — follow Yukon&#x27;s recommendation).</li><li>Drive gently for the first 500 miles. Avoid sustained high-speed runs during break-in. Change break-in fluid at 500 miles.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Restores factory RPM operating range after tire size increase — the single most important drivetrain step for builds running 35s or 37s</li><li>Dramatically improves trail crawl ratio, low-speed control, and pull-away performance</li><li>4.88 gears on a Sahara with 37s transforms a sluggish street-and-parking-lot Jeep into a capable trail rig</li><li>Yukon Gear&#x27;s quality and documentation are the best in the class for JL fitments</li><li>Regear done alongside a locker install saves a second teardown — plan both jobs together when possible</li></ul>
@@ -388,7 +399,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.yukongear.com/jeep/wrangler-jl/ring-and-pinions.html" target="_blank" rel="noopener">Yukon Gear JL Wrangler Ring and Pinion Sets</a></li><li><a href="https://www.quadratec.com/c/article/jeep-wrangler-ring-pinion-gear-ratio-guide" target="_blank" rel="noopener">Ring and Pinion Ratio Selection Guide — Quadratec</a></li><li><a href="https://offroad.com/jeep/dana-35-vs-44" target="_blank" rel="noopener">Dana 35 vs Dana 44 Comparison Guide</a></li><li><a href="https://sklepjeep.redcart.pl/p/20989/2481298/specyfikacja-jeep-wrangler-2020-dane-techniczne-wrangler-jeep.html" target="_blank" rel="noopener">2020 Jeep Wrangler JL specifications (axle ratios) — Sklep Jeep</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jl/jl-locker-rear/">Rear Locker Options — Dana 35 and Dana 44</a></li><li><a href="/db/jl/jl-tire-fitment-37s/">Running 37&quot; Tires on the JL — Rubicon vs Non-Rubicon Fitment</a></li><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Re-Gearing%20the%20JL%20%E2%80%94%204.56%20and%204.88%20Ratio%20Selection">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

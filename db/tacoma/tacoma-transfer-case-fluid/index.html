@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/maintenance">Maintenance</a></nav>
   <h1>Transfer Case Fluid Change</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$25–60</span><span class="tm-fact">2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$25–60</span><span class="tm-fact">2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>2nd gen Tacoma (2005–2015) takes 75W-90 GL-5 in the transfer case; 3rd gen (2016–2023) takes Toyota&#x27;s specific 75W transfer case fluid; <a href="https://www.blauparts.com/blog/toyota-tacoma-transfer-case-fluid-change-2009-2023-diy.html" target="_blank" rel="noopener">capacity is about 1.05 quarts for both</a>. Both plugs are 24mm and torque to 27 ft-lb with fresh crush gaskets. Budget $25–60 in parts and about an hour.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Tacoma transfer case is a chain-driven part-time 4WD unit — the RF1A family on most years — sitting behind the transmission. It&#x27;s a low-stress component until you cross water or drive thousands of miles on sealed pavement, both of which eventually contaminate or thermally degrade the fluid. Toyota&#x27;s maintenance schedule lists &quot;inspect&quot; rather than a specific change interval, which is too vague for a rig that sees dirt. Plan to drain and refill every 30,000 miles under trail or towing use, 60,000 on a pavement-only truck, and immediately after any water crossing deep enough to reach the case.</p>
@@ -253,7 +264,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <p>DIY runs $25–60 in parts: one to two quarts of fluid ($13–25 each depending on generation), two crush gaskets ($4), and a hand pump ($12–20) that you&#x27;ll reuse for every gear-oil job on the truck. A shop charges $90–160 for the same work, and most of that is labor on a 30-minute task.</p>
 <p>The tool set is small and it pays for itself the first time: a 24mm six-point socket, a breaker bar, a torque wrench that reads 27 ft-lb accurately, and a pump with a hose small enough to snake to the fill port. If you&#x27;re already under the truck, this is the natural moment to also service the <a href="/db/tacoma/tacoma-front-diff-fluid/">front differential</a> and check the <a href="/db/tacoma/tacoma-front-diff-add-actuator-tacoma/">ADD actuator</a> for leaks — the same jack stands and the same afternoon cover all of it.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Drive 10 minutes to warm the fluid so it flows and carries suspended material out with it.</li><li>Park level on jack stands and chock the front wheels. Level matters — the fill port doubles as the level check.</li><li>Position a drain pan under the transfer case.</li><li>Remove the fill plug FIRST with a 24mm six-point socket. Confirm it spins freely before going any further.</li><li>Remove the drain plug and let it drain a full 5–10 minutes.</li><li>Inspect the drained fluid under a light for water (milky), metal chunks, or a scorched smell.</li><li>Wipe the plug magnets clean if your case has them; a fine grey paste is normal, flakes are not.</li><li>Install a fresh crush gasket on the drain plug. Torque to 27 ft-lb.</li><li>Pump fresh fluid — 75W for 3rd gen, 75W-90 GL-5 for 2nd gen — into the fill hole until it overflows steadily at the port edge. That overflow is the level; there is no dipstick.</li><li>Install a fresh gasket on the fill plug. Torque to 27 ft-lb.</li><li>Wipe the case down so any future seep is obvious against clean metal.</li><li>Drive the truck, cycle 4H and 4L on dirt, and recheck both plugs for seepage after a day or two.</li></ol>
 <h2>Why it works</h2>
 <ul><li>30–60 minutes of actual work including drain time</li><li>One socket, a pump, and a torque wrench cover the whole job</li><li>Catches water intrusion months before it takes out a bearing</li><li>$25–60 in parts against $900–1,500 for a chain-and-bearing rebuild</li><li>Same jack-stand session services both differentials</li></ul>
@@ -268,7 +279,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.blauparts.com/blog/toyota-tacoma-transfer-case-fluid-change-2009-2023-diy.html" target="_blank" rel="noopener">Blauparts — Toyota Tacoma transfer case fluid change 2009–2023</a></li><li><a href="https://www.blauparts.com/blog/what-type-of-transfer-case-fluid-does-my-toyota-tacoma-take.html" target="_blank" rel="noopener">Blauparts — Tacoma transfer case fluid types</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-front-diff-fluid/">Front Differential Fluid Change</a></li><li><a href="/db/tacoma/tacoma-rear-diff-fluid-tacoma/">Rear Differential Fluid Change</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Transfer%20Case%20Fluid%20Change">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

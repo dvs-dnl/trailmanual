@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/maintenance">Maintenance</a></nav>
   <h1>Rear Differential Fluid Change (4th and 5th Gen 4Runner)</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1.5 hrs</span><span class="tm-fact">$35–90</span><span class="tm-fact">2003-2009, 2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1.5 hrs</span><span class="tm-fact">$35–90</span><span class="tm-fact">2003-2009, 2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Toyota specifies <strong>75W-85 GL-5</strong> gear oil for the rear differential on every 4th and 5th gen 4Runner. Capacity is whatever the housing holds to the fill port — plan on roughly 3 quarts and buy 4. There is no drain interval published for normal driving; <a href="https://trail4runner.com/2018/12/24/4runner-driveline-fluids-how-and-when-to-change-them/" target="_blank" rel="noopener">the practical answer is 30,000 miles</a>, or 15,000 if you tow, carry roof weight, or wheel hard. It is a 30-45 minute job with one socket and a hand pump. And the single most important warning on this page: <strong>the transfer case takes a completely different oil.</strong> Do not fill it with what you put in the diffs.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <h3>The fluid question, settled</h3>
@@ -258,7 +269,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody><tr><td>Toyota 08885-02506 75W-85, 3-4 quarts</td><td>$54-72</td></tr><tr><td>Aftermarket synthetic 75W-90, 3-4 quarts</td><td>$39-56</td></tr><tr><td>Crush gaskets (drain + fill)</td><td>$4</td></tr><tr><td>Fluid transfer hand pump (one-time)</td><td>$12-20</td></tr><tr><td>Shop labor, rear diff service</td><td>$90-150</td></tr></tbody></table></div>
 <p>Doing all three driveline fluids at once — front diff, rear diff, transfer case — is the efficient move since the truck is already up and warm. Budget around $120-160 in fluid for the set if you use the Toyota transfer case oil, less with the Red Line substitute. Related: <a href="/db/4runner/4runner-front-diff-fluid-4runner/">4runner-front-diff-fluid-4runner</a>.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li><strong>Drive the truck 10-15 minutes</strong> to warm the gear oil. Warm oil drains far more completely, and it carries the suspended debris out with it.</li><li><strong>Park level.</strong> This matters more than people expect — the fill port is the capacity gauge, and a truck on a slope fills wrong. Chock the front wheels and set the parking brake.</li><li><strong>Raise and support the truck on jack stands</strong> if you need the clearance. Never work under a truck supported only by a jack. Pulling the spare tire gives you noticeably more room to work.</li><li><strong>Position a drain pan</strong> under the differential.</li><li><strong>Remove the FILL plug first</strong>, with a 24mm socket and a breaker bar. This is the step people skip and regret. If the fill plug is seized and you have already drained the housing, you now have an undrivable truck. Confirm it comes loose before anything else happens.</li><li><strong>Remove the drain plug</strong> and let it drain fully. Give it 10 minutes.</li><li><strong>Inspect the drain plug magnet.</strong> A fine gray metallic paste is normal and expected. What is not normal: shiny flakes, chunks, or anything you can feel between your fingers. Milky or coffee-colored oil means water intrusion. Either finding changes the job from maintenance to diagnosis.</li><li><strong>Clean the magnet and the plug threads.</strong></li><li><strong>Install a fresh crush gasket on the drain plug</strong> and torque to 36 ft-lb. Verify against the service manual for your year.</li><li><strong>Pump fresh gear oil into the fill port</strong> until it reaches the threshold and begins to weep back out. Give it two extra pumps, pull the tube, and let the excess run out until it stops dripping. That is the correct level — there is no dipstick and no measured quantity.</li><li><strong>Install a fresh crush gasket on the fill plug</strong> and torque to 36 ft-lb.</li><li><strong>Wipe the housing clean</strong> with degreaser. A clean housing makes any future seep visible immediately.</li><li><strong>Check the axle breather hose</strong> while you are under there — see below.</li><li><strong>Lower the truck</strong>, drive it, and check for drips the next morning.</li></ol>
 <h2>Why it works</h2>
 <ul><li>30-45 minutes with one socket and a hand pump</li><li>No cover to pull, no gasket to scrape, no RTV cure time</li><li>The drain plug magnet is a free early-warning system for bearing and gear wear</li><li>Cheap insurance on an axle that costs $2,000+ to rebuild</li></ul>
@@ -273,7 +284,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://trail4runner.com/2018/12/24/4runner-driveline-fluids-how-and-when-to-change-them/" target="_blank" rel="noopener">Trail4R — 4Runner driveline fluids: how and when to change them</a></li><li><a href="https://thetrackahead.com/projects/4th-gen-toyota-4runner/front-and-rear-differential-fluid-replacement-4th-gen-toyota-4runner/" target="_blank" rel="noopener">The Track Ahead — front and rear differential fluid replacement, 4th gen 4Runner</a></li><li><a href="https://www.blauparts.com/blog/what-type-of-differential-fluid-does-my-toyota-4runner-take.html" target="_blank" rel="noopener">Blauparts — Toyota 4Runner differential gear oil type guide</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-front-diff-fluid-4runner/">Front Differential Fluid Change</a></li><li><a href="/db/4runner/4runner-transfer-case-fluid-4runner/">Transfer Case Fluid Change</a></li><li><a href="/db/4runner/4runner-locker-rear/">Rear Locker for the 5th Gen 4Runner — ARB, Eaton, and the Factory Locker</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Rear%20Differential%20Fluid%20Change%20%284th%20and%205th%20Gen%204Runner%29">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

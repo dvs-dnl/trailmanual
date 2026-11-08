@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jk/">Jeep Wrangler JK</a> / <a href="/db/#/jk/category/maintenance">Maintenance</a></nav>
   <h1>Coolant Flush — 3.8L and 3.6L Pentastar</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$40–90</span><span class="tm-fact">2007-2011, 2012-2018</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$40–90</span><span class="tm-fact">2007-2011, 2012-2018</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Drain the radiator, flush with distilled water until it runs clear, then refill with the correct Mopar coolant for your model year — HOAT for 2007–2012, OAT for 2013 and up. The two chemistries are not interchangeable, and mixing them is the most expensive mistake available in this job.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The JK cooling system <a href="https://www.simivalleychryslerdodgejeepram.com/blogs/5737/the-coolant-capacity-of-the-2017-jeep-wrangler-jk" target="_blank" rel="noopener">holds about 11.4 quarts when completely dry</a>, but a drain-and-fill through the radiator petcock only exchanges roughly 8 of those. The remaining 3-plus quarts sit in the block, heater core, and hoses. That 70 percent exchange is adequate to refresh chemistry on a healthy system every 5 years or 60,000 miles. If you are chasing contamination — sludge, rust color, an oil sheen on the surface — <a href="https://www.wranglerforum.com/threads/flushing-your-jks-cooling-system.2356387/" target="_blank" rel="noopener">you need a real flush with distilled water</a>, not a drain-and-fill.</p>
@@ -252,7 +263,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Item</th><th>Part number</th><th>Cost</th></tr></thead><tbody><tr><td>Mopar HOAT premix, 1 gal (2007–2012)</td><td>68163848AB</td><td>$22</td></tr><tr><td>Mopar OAT premix, 1 gal (2013+)</td><td>68163850AB</td><td>$24</td></tr><tr><td>Distilled water, 2 gal</td><td>—</td><td>$4</td></tr><tr><td>Petcock (recommended spare)</td><td>55056633AA</td><td>$12</td></tr><tr><td>Pressure cap (100k+ miles)</td><td>55111015AB</td><td>$18</td></tr></tbody></table></div>
 <p>Budget two gallons of premix for a drain-and-fill, three for a full flush. Total DIY cost lands at $45–$90. An independent shop charges $150–$250 for the same work, and a dealer machine flush runs $200–$300 — the machine does exchange more of the block volume than a gravity drain, which is the one honest argument in its favor.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground with the engine fully cold. Remove the pressure cap from the coolant bottle to break vacuum.</li><li>Place a 12-quart drain pan under the radiator. Open the lower petcock on the passenger side — plastic, so turn it gently.</li><li>Drain fully. About 8 quarts will come out over 10–15 minutes. Close the petcock.</li><li><strong>Full flush only:</strong> disconnect the lower radiator hose at the radiator, run distilled water into the upper hose port with a garden hose until the water running out the bottom is clear. This typically takes 5–10 gallons and several minutes.</li><li><strong>Full flush only:</strong> reconnect the lower hose, torque the clamp, and drain the residual rinse water out the petcock so you are not diluting the new premix.</li><li>Refill the coolant bottle with the correct Mopar 50/50 premix to the MAX line. Do not use concentrate at full strength.</li><li>Start the engine with the cap off and the heater set to full hot, fan on high.</li><li>Run to operating temperature — roughly 15 minutes, until the upper radiator hose is hot and the electric fan has cycled at least once.</li><li>Top off the bottle as the level drops and air burps out. Keep adding until the level holds steady at MAX with the engine running.</li><li>Install the cap, drive a full heat cycle, let the Jeep cool completely, and recheck the level the next morning. Top off cold to the MIN–MAX band.</li><li>Check the petcock, both radiator hose clamps, and the ground under the Jeep for drips after the first two drives.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Driveway job with $50 of fluid and no specialty tools</li><li>Removes the silicate sludge that clogs heater cores and radiator tubes</li><li>Surfaces failing petcocks, hoses, and pressure caps before they strand you on a trail</li><li>Correct chemistry protects the aluminum water pump housing and radiator end tanks</li></ul>
@@ -267,7 +278,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.jk-forum.com/how-tos/a/jeep-wrangler-jk-how-to-change-coolant-407878" target="_blank" rel="noopener">JK-Forum: How to change coolant on a Jeep Wrangler JK</a></li><li><a href="https://www.simivalleychryslerdodgejeepram.com/blogs/5737/the-coolant-capacity-of-the-2017-jeep-wrangler-jk" target="_blank" rel="noopener">Simi Valley CDJR — 2017 JK cooling system capacity</a></li><li><a href="https://www.wranglerforum.com/threads/flushing-your-jks-cooling-system.2356387/" target="_blank" rel="noopener">WranglerForum — flushing the JK cooling system</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-serpentine-belt/">Serpentine Belt Replacement — 3.6L</a></li><li><a href="/db/jk/jk-transfer-case-fluid-jk/">Transfer Case Fluid Change — NV241 / NV241OR</a></li><li><a href="/db/jk/jk-radiator-upgrade/">Radiator Replacement and Cooling Upgrade (JK Wrangler)</a></li><li><a href="/db/jk/jk-oil-change-jk/">Oil Change — Pentastar 3.6L Full Procedure</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Coolant%20Flush%20%E2%80%94%203.8L%20and%203.6L%20Pentastar">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

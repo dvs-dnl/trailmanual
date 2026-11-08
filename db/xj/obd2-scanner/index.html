@@ -143,6 +143,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -306,7 +317,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.cherokeeforum.com/how-tos/a/jeep-cherokee-1984-2001-how-to-read-obd-trouble-codes-399060" target="_blank" rel="noopener">Cherokee Forum — How to Read OBD Trouble Codes (1984–2001)</a></li><li><a href="https://www.scantool.net/blog/which-obd-ii-protocol-is-supported-by-my-vehicle/" target="_blank" rel="noopener">ScanTool.net — Which OBD-II Protocol Is Supported By My Vehicle?</a></li><li><a href="https://www.autocodes.com/p1391_jeep.html" target="_blank" rel="noopener">AutoCodes — P1391 Jeep: CMP or CKP Signal Intermittent Condition</a></li><li><a href="https://naxja.org/threads/1996-xj-is-it-obd-i-or-odb-ii.1079114/" target="_blank" rel="noopener">NAXJA Forums — 1996 XJ: is it OBD-I or OBD-II?</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/xj/obd1-codes/">Reading OBD-I Codes on the XJ (Renix and OBD-I)</a></li><li><a href="/db/xj/compression-test/">Compression Test and Leak-Down Test on the XJ 4.0L</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20OBD-II%20Scanner%20Basics%20for%20XJ%20%281996%2B%29">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

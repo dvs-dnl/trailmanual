@@ -1276,3 +1276,10 @@ header#tm-topbar.tm-topbar .tm-dd-label--gap{margin-top:14px}
   .tmb-section{margin:36px auto}
 }
 @media(max-width:359px){.tmb-pillars{grid-template-columns:1fr}}
+
+/* Direction B per-template pass (2026-11-08): editorial serif on the headings every template owns,
+   and room under the sticky header for in-page anchors (Jump to steps, Related tools, TOC links). */
+.tm-article h1,.tm-article h2,.hero h1,.section-title,.page-hero h1,.tm-hero h1,.tm-section-head h2{font-family:var(--tm-serif);letter-spacing:-.01em}
+.tm-article h2{font-weight:600}
+.tm-article [id],.tm-section[id],h2[id],h3[id]{scroll-margin-top:84px}
+@media(max-width:899px){.tm-article [id],.tm-section[id],h2[id],h3[id]{scroll-margin-top:76px}}

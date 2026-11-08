@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,11 +246,11 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/xj/">Jeep Cherokee XJ</a> / <a href="/db/#/xj/category/drivetrain">Drivetrain</a></nav>
   <h1>Front Driveshaft Replacement and Upgrade</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$25–550</span><span class="tm-fact">1984-1993, 1994-2001</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$25–550</span><span class="tm-fact">1984-1993, 1994-2001</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The front driveshaft ties the transfer case to the Dana 30 pinion. Worn u-joints and a dry double-cardan (CV) joint cause vibration and clunking — <a href="https://www.myjeepxj.com/cherokee-repairs/front-drive-shaft-rebuild" target="_blank" rel="noopener">rebuild the shaft</a> or upgrade to a heavy-duty 1310 CV unit.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Front driveshaft trouble shows up as a vibration that builds with speed, a clunk when shifting into gear or on throttle transitions, or a grinding rumble on turns. The usual cause is worn u-joints or a dry centering ball inside the double-cardan (CV) joint at the transfer case end. Ignore it and the joint eventually seizes, which loads the transfer case front output and pinion. <a href="https://www.dennysdriveshaft.com/p3388_dana_spicer_211544x_fits_1994_to_2001_jeep_xj_cherokee_compa.html" target="_blank" rel="noopener">Most XJs from 1994-2001 run a 1310-series double-cardan front shaft</a>; earlier trucks often used a conventional shaft with a single u-joint at each end. Lift changes pinion angle, so a lifted rig runs the CV joint at a steeper angle and wears it faster.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Chock the rear wheels and set the parking brake. Get the front axle safely on stands with the driveshaft accessible.</li><li>Mark the shaft-to-pinion flange and shaft-to-transfer-case relationship with a paint marker. The shaft is balanced — it goes back in the same clock position or the vibration returns.</li><li>At the Dana 30 pinion, remove the u-joint strap bolts (or flange bolts). Strap bolts torque to 16 ft-lb on reassembly; keep the bearing caps from falling off with tape.</li><li>At the transfer case, remove the CV-end flange bolts. These torque to 35 ft-lb on reassembly. Support the shaft as it comes free — expect a little gear oil.</li><li>Lower the shaft out. Inspect: grab each yoke and check for radial play in the u-joints; spin the double-cardan and feel for notchiness or a dry, gritty centering ball.</li><li>To rebuild: remove the snap rings, press out the old u-joints (press or vise with sockets — never hammer the caps, it brings the needle bearings), and press in fresh greasable Spicer joints. Rebuild the CV joint with a centering-yoke kit if the ball is worn.</li><li>To replace: install the new shaft in the marked orientation. For a lifted rig or a shaft that&#x27;s been rebuilt twice, a heavy-duty 1310 CV unit from Adams or Tom Wood&#x27;s built to your length is the durable fix.</li><li>Reinstall in the marked clock position. Apply threadlocker to the flange bolts. Torque strap bolts to 16 ft-lb, flange bolts to 35 ft-lb.</li><li>Grease the new u-joints and the CV centering ball through the zerk. Road test — a residual vibration usually means the shaft went back off-mark or pinion angle needs correction.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Rebuild with Spicer joints runs under $60 in parts and kills the vibration</li><li>Greasable joints let you maintain the shaft instead of replacing it</li><li>A heavy-duty 1310 CV shaft handles lift and trail abuse that eats stock joints</li></ul>
@@ -254,7 +265,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.dennysdriveshaft.com/p3388_dana_spicer_211544x_fits_1994_to_2001_jeep_xj_cherokee_compa.html" target="_blank" rel="noopener">Dana Spicer 211544X front CV centering yoke (94-01 XJ)</a></li><li><a href="https://www.naxja.org/forum/showthread.php?t=1113018" target="_blank" rel="noopener">Front driveshaft torque specs — NAXJA</a></li><li><a href="https://www.myjeepxj.com/cherokee-repairs/front-drive-shaft-rebuild" target="_blank" rel="noopener">Jeep Cherokee front drive shaft rebuild — myjeepxj</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/xj/drive-front-ujoint/">Front Axle U-Joints (Spicer 297X vs 760X)</a></li><li><a href="/db/xj/tcase-cv-driveshaft/">CV Driveshaft Upgrade (Post-SYE)</a></li><li><a href="/db/xj/drive-driveshaft-phasing/">Rear Driveshaft Phasing</a></li><li><a href="/xj/">All Jeep Cherokee XJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Front%20Driveshaft%20Replacement%20and%20Upgrade">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

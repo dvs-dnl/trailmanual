@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,8 +246,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/steering">Steering</a></nav>
   <h1>Track Bar Replacement — TJ Specifics</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$150–400</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–3 hrs</span><span class="tm-fact">$150–400</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The TJ front track bar locates your axle side-to-side; if you&#x27;ve added a lift over 2&quot; or you feel highway wander, replace it with an adjustable HD bar to re-center the axle and stop death wobble.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The TJ front track bar uses a tapered-stud mount on the frame side and a bolt-through bracket on the axle side. The factory bar is fine at stock height, but when you lift the front the axle shifts toward the driver side because the bar pulls it that way through the lift arc. After a 2&quot;–4&quot; lift, an adjustable bar is required if you want the steering to feel right.</p>
 <p>The TJ has one quirk worth knowing: the factory frame-side mount uses a tapered hole. Some aftermarket bars (Synergy, RockJock) keep the tapered fitment; others (cheaper bars) convert it to a straight through-bolt and require drilling the axle bracket to 9/16&quot;. The drilled-out conversion is permanent. If you want to keep the option of reverting to a stock bar, choose a bar that preserves the taper.</p>
@@ -247,7 +259,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Final torque happens at ride height. Published factory figures disagree by year: <a href="https://www.extremeterrain.com/tj-wrangler-torque-specs.html" target="_blank" rel="noopener">ExtremeTerrain&#x27;s FSM-based chart lists 65 ft-lbs at the frame-side ball stud and 55 ft-lbs at the axle-bracket bolt, dropping to 60 and 40 ft-lbs for 2004-on</a>, while <a href="http://www.wanderingtrail.com/Mechanical/TJLJ/2003_Jeep_Torques.htm" target="_blank" rel="noopener">Wandering Trail&#x27;s 2003 table lists 60 and 40</a>. Use the factory service manual for your year rather than picking one; the 74 ft-lb figure that circulates belongs to the TJ&#x27;s rear track bar. These are lower than JK numbers because the TJ uses smaller hardware. Aftermarket bars with larger bolts will specify their own torque, often 100–125 ft-lbs. Always follow the bar manufacturer&#x27;s torque spec for the supplied hardware.</p>
 <p>Length adjustment on an adjustable bar happens through a threaded sleeve at the center of the tube, locked with a jam nut on each side. Set the starting length to match the old bar (or, on a fresh lift, to your measured centering numbers below) before you torque anything, then fine-tune once the Jeep is back on the ground. Don&#x27;t skip the jam nuts — a track bar that backs out of adjustment under load is a steering failure waiting to happen, not a minor annoyance.</p>
 <p>A track bar alone will not cure death wobble if other steering components are also worn. Before condemning the track bar, rule out the tie rod ends, drag link ends, steering stabilizer, and ball joints — a worn part in any of those will reintroduce the wobble even with a brand-new track bar installed.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground, set parking brake, chock rear wheels.</li><li>Loosen front lug nuts, lift front, set on jack stands under frame, remove wheels.</li><li>Measure frame rail to inner tire edge on both sides — record.</li><li>Support front axle on floor jack to take tension off the track bar.</li><li>Remove the axle-side bolt first (typically 18mm head).</li><li>Remove the frame-side bolt (21mm) — note tapered stud fitment if applicable.</li><li>Compare new bar to old at equal length as starting point.</li><li>Install frame side first, then axle side, finger-tight.</li><li>Reinstall wheels, lower to ride height.</li><li>Torque to manufacturer spec at ride height.</li><li>Re-measure axle centering — adjust bar length if off by more than 1/8&quot;.</li><li>Tighten the jam nuts against the adjustment sleeve once centering is correct.</li><li>Drive 50 miles, re-check all torque.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Cures TJ death wobble from worn factory bar</li><li>Adjustable bar re-centers axle after lift</li><li>HD bars resist bending on rocks</li><li>Bolt-in install if you choose a bar that keeps the tapered mount</li></ul>
@@ -262,7 +274,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.synergymfg.com/synergy-jeep-tjlj-xj-zj-mj-adjustable-front-track-bar.html" target="_blank" rel="noopener">Synergy TJ Adjustable Front Track Bar</a></li><li><a href="https://www.rockjock4x4.com/products/shop-by-vehicle/jeep-tj/jeep-tj-trac-bars" target="_blank" rel="noopener">RockJock TJ Trac Bars</a></li><li><a href="https://wranglertjforum.com/threads/front-track-bar-torque-specs.12653/" target="_blank" rel="noopener">TJ Front Track Bar Torque</a></li><li><a href="https://www.jksmfg.com/collections/tj-wrangler/products/jks950" target="_blank" rel="noopener">JKS Track Bar Relocation Bracket — TJ</a></li><li><a href="https://www.extremeterrain.com/tj-wrangler-torque-specs.html" target="_blank" rel="noopener">TJ Wrangler torque specs (FSM values by year) — ExtremeTerrain</a></li><li><a href="http://www.wanderingtrail.com/Mechanical/TJLJ/2003_Jeep_Torques.htm" target="_blank" rel="noopener">2003 Jeep TJ Torque Specifications — Wandering Trail</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-tie-rods-tj/">Tie Rod Replacement — Stock and HD Options</a></li><li><a href="/db/tj/tj-hydro-assist/">Hydraulic Assist Steering: Is It Worth It on a TJ?</a></li><li><a href="/db/tj/dana30-tj/">TJ Dana 30 — Stock Rating and Upgrade Options</a></li><li><a href="/db/tj/tj-front-coil-spring/">TJ Front Coil Spring Replacement</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/tj-yj-death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Track%20Bar%20Replacement%20%E2%80%94%20TJ%20Specifics">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,14 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/drivetrain">Drivetrain</a></nav>
   <h1>Front CV Axle Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$110–380</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$110–380</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A clicking sound on tight turns is a torn outer CV boot that&#x27;s lost grease and chewed the joint; replace the whole shaft, not the boot, once the joint has been running dry — the boot fails first, but the damage is already done by the time you hear noise.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Tacoma CV axles are the IFS front-half-shafts that connect the front diff to each front hub. Two main generations to know: <a href="https://parts.toyotadm.com/oem-parts/toyota-cv-axle-left-right-front-4343004020" target="_blank" rel="noopener">1995-2004 (1st gen) uses 43430-04020</a>, <a href="https://toyota.oempartsonline.com/oem-parts/toyota-cv-axle-left-right-front-4343004071" target="_blank" rel="noopener">2005-2023 (2nd and 3rd gen) uses 43430-04071</a>. Both are 4WD-specific — RWD-only trucks don&#x27;t have front CV axles. The outer joint (at the hub) takes the most abuse because of steering angle; the inner joint (at the diff) plunges in and out and rarely fails on a stock truck.</p>
 <p>Diagnosis is fast. A click or pop on tight slow turns (parking lot) is a worn outer joint. A vibration at speed under load is a worn inner joint or, more commonly on lifted trucks, an over-angled inner joint without enough plunge room. If the boots are intact and the joints feel tight by hand, it&#x27;s not the CV axle — look at wheel bearings or lower ball joints next. On lifted Tacomas at 3&quot;+ lift, the front CV operating angle gets steep enough that the inner joint binds at full droop. Aftermarket upper control arms or a diff drop kit pull the inner angle back to a safe range.</p>
 <p>Replacement options divide cleanly. OEM Toyota at ~$380 each is the longest-lasting choice — Toyota CVs typically run 200k+ miles. Quality aftermarket reman from SurTrack ($130) or new from GSP ($150) is the budget choice and works fine for a daily driver. If you&#x27;re running 33s+ on a 3&quot;-lifted truck and you wheel hard, look at the <a href="https://www.yotashop.com/cv-axle-toyota-4runner-tacoma-4wd-front-extreme-angle-cv-axle-shaft-1995-2004-ncv69142xdp/" target="_blank" rel="noopener">YotaShop NCV69142XDP extreme-angle shaft</a> for 1st-gen trucks — it tolerates more articulation than stock at a price between OEM and budget aftermarket.</p>
 <p>Install is straightforward but requires breaking the axle nut and separating the lower ball joint or tie rod. The big axle nut (30mm or 36mm depending on year) is torqued to 174 ft-lbs and may need a breaker bar with a cheater. Don&#x27;t reuse the axle nut — it&#x27;s a single-use stake nut. Get a fresh one. Final torque on the nut is critical — too loose and the hub wobbles, too tight and the wheel bearing overheats.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Loosen the lug nuts and the axle hub nut (30mm/36mm) with the wheel on the ground. The nut is staked — chisel the stake out first.</li><li>Lift the front, support on stands, remove the wheel.</li><li>Remove the brake caliper and rotor. Hang the caliper from a frame member — do not let it hang by the hose.</li><li>Separate the lower ball joint or outer tie rod end to swing the knuckle outward. Use a separator tool, not a pickle fork (pickle fork tears boots).</li><li>Pull the CV shaft out of the hub by tapping the threaded end with a dead-blow hammer.</li><li>Pry the inner joint out of the front differential with a pry bar — there&#x27;s a circlip that snaps out with firm even pressure.</li><li>Compare new shaft to old — same length, same spline counts, boot orientation matching.</li><li>Install the new shaft into the diff first (push until the circlip snaps in — confirm by pulling on the shaft).</li><li>Guide the outer splines into the hub. Reattach lower ball joint or tie rod. Torque ball joint to 80 ft-lbs, tie rod to 67 ft-lbs.</li><li>Reinstall rotor and caliper. Caliper bracket bolts to 90 ft-lbs.</li><li>Install a NEW axle nut. Torque to 174 ft-lbs with the wheel on the ground. Stake the nut into the keyway with a punch.</li></ol>
 <h2>Why it works</h2>
 <ul><li>OEM Toyota lasts 200k+ miles</li><li>Budget reman is $130 and works fine for daily use</li><li>Two-hour job once you&#x27;ve done one</li><li>Visible symptom (click on turn) is unambiguous</li></ul>
@@ -257,7 +268,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://toyota.oempartsonline.com/oem-parts/toyota-cv-axle-left-right-front-4343004071" target="_blank" rel="noopener">Toyota OEM CV Axle 43430-04071 (2005-2023 Tacoma)</a></li><li><a href="https://parts.toyotadm.com/oem-parts/toyota-cv-axle-left-right-front-4343004020" target="_blank" rel="noopener">Toyota OEM CV Axle 43430-04020 (1995-2004 Tacoma)</a></li><li><a href="https://www.tacomaworld.com/threads/oem-cv-axle-replacement-part-s.689292/" target="_blank" rel="noopener">Tacoma World — OEM CV Axle Replacement Part #s thread</a></li><li><a href="https://www.yotashop.com/cv-axle-toyota-4runner-tacoma-4wd-front-extreme-angle-cv-axle-shaft-1995-2004-ncv69142xdp/" target="_blank" rel="noopener">YotaShop NCV69142XDP Extreme Angle CV (1st gen)</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-upper-control-arms/">Upper Control Arm Upgrade After Lift — 3rd Gen Tacoma</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Front%20CV%20Axle%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

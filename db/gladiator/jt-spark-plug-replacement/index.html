@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/maintenance">Maintenance</a></nav>
   <h1>Spark Plug Replacement — Jeep Gladiator JT 3.6L Pentastar</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$35–90</span><span class="tm-fact">2020-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–3 hrs</span><span class="tm-fact">$35–90</span><span class="tm-fact">2020-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Gladiator&#x27;s 3.6L Pentastar has six cylinders arranged in a V configuration — three on each bank. <a href="https://www.mopar.com" target="_blank" rel="noopener">Stellantis recommends spark plug replacement at 60,000 miles</a>. In practice, iridium plugs often go longer; copper plugs need replacement closer to 30,000 miles if the JT does significant idling or towing.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 3.6L Pentastar is a well-proven engine but the V6 layout means the rear bank (cylinders 4, 5, 6) is significantly harder to access than the front bank. Budget extra time for the rear plugs — they require working over the top of the engine near the firewall, and a ratchet with a universal joint or swivel extension makes the job manageable without skinning knuckles. A spark plug socket with a rubber insert (to grip the plug during extraction) is mandatory — dropping a plug down into the cylinder head on the rear bank is a very bad day.</p>
@@ -255,7 +266,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Denso Iridium TT set of 6: ~$58. Slightly better electrode design than standard iridium — minimal real-world difference from NGK Iridium on a naturally aspirated street/trail JT.</p>
 <p>Mopar OEM set of 6: ~$65. Factory-spec iridium, carries a Mopar warranty. No performance benefit over NGK or Denso iridium — the premium is the brand.</p>
 <p>Shop labor for spark plug replacement on a V6 (accessible bank + rear bank): ~$200–300. The rear bank access is what shops charge for — it&#x27;s legitimate labor time. If you&#x27;re comfortable with the task, the DIY save is real.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Allow the engine to cool completely before starting. Hot aluminum threads strip more easily than cold ones, and pulling plugs from a warm engine risks galling the threads.</li><li>Remove the engine cover (held by friction or plastic push pins depending on trim/year). Set aside.</li><li><strong>Front bank (cylinders 1, 2, 3):</strong> Access is from the top front of the engine bay. Use a spark plug socket on a 6&quot; extension to reach straight down into each cylinder well. Blow compressed air into the well before removing the plug — debris falls into the combustion chamber if you skip this step.</li><li>Disconnect the ignition coil connector, then remove the coil bolt (8mm). Lift the coil straight up out of the well. Label each coil if you plan to reinstall the same ones (some builders replace coils at this service interval — $35–50 each for aftermarket, $60–75 OEM).</li><li>Remove the old plug. Inspect the gap and the electrode condition:</li><li>Normal wear: rounded center electrode, slight gap growth</li><li>Oil fouling (black, oily): oil consumption issue — investigate before reinstalling</li><li>Carbon fouling (dry, black soot): rich mixture or excessive idling</li><li>Excessive gap (over 0.055&quot;): plug past service life — replace now</li><li>Gap new plugs to 0.042&quot; before installing. Even pre-gapped plugs can shift during shipping.</li><li>Apply a thin coat of anti-seize to the threads (first two threads only — not the full thread length). Do not get anti-seize on the electrode or ground strap.</li><li>Thread each plug in by hand until seated, then torque to 13 ft-lbs. Do not exceed — over-torquing strips the aluminum head threads, which is a $500+ repair.</li><li>Apply dielectric grease to the inside of each ignition coil boot before reinstalling. It prevents the boot from bonding to the ceramic plug insulator and makes future coil removal possible without tearing the boot.</li><li><strong>Rear bank (cylinders 4, 5, 6):</strong> Same procedure, but access requires leaning over the engine from the passenger side, or working from below on a lifted vehicle. A 3/8&quot; ratchet with a universal joint and 6&quot; extension is the right combination. Take your time — rushing the rear bank is where mistakes happen.</li><li>Reconnect all coil connectors. Reinstall the engine cover.</li><li>Start the engine. It may run rough for the first 30 seconds as the new plugs and fresh gaps adjust. A smooth idle should follow quickly.</li></ol>
 <h2>Tools required</h2>
 <ul><li>5/8&quot; spark plug socket</li><li>3/8&quot; or 1/2&quot; ratchet with 6&quot; extension</li><li>torque wrench</li><li>spark plug gap tool</li><li>compressed air (for blowing out wells)</li><li>dielectric grease</li><li>anti-seize compound</li></ul>
@@ -266,7 +277,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.mopar.com" target="_blank" rel="noopener">Jeep Gladiator JT Scheduled Maintenance — FCA Owner&#x27;s Manual</a></li><li><a href="https://www.ngksparkplugs.com" target="_blank" rel="noopener">NGK Spark Plug Application Guide — 3.6L Pentastar</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/jt-differential-fluid-change/">Differential Fluid Change — Jeep Gladiator JT Front and Rear Dana 44</a></li><li><a href="/db/gladiator/jt-service-intervals/">Jeep Gladiator JT Service Intervals — What to Do and When</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Spark%20Plug%20Replacement%20%E2%80%94%20Jeep%20Gladiator%20JT%203.6L%20Pentastar">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

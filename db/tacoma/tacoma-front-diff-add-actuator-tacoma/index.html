@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/drivetrain">Drivetrain</a></nav>
   <h1>4WD Won&#x27;t Engage Up Front — The ADD Actuator (Automatic Disconnecting Differential)</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–4 hrs</span><span class="tm-fact">$0–350</span><span class="tm-fact">1995-2004, 2005-2015</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1–4 hrs</span><span class="tm-fact">$0–350</span><span class="tm-fact">1995-2004, 2005-2015</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>If you shift into 4WD and hear the transfer case engage but the front wheels still aren&#x27;t pulling, <a href="https://www.tacomaworld.com" target="_blank" rel="noopener">the problem is usually the ADD</a> — the Automatic Disconnecting Differential actuator that couples the front axle. The transfer case and the ADD are two separate engagements, and the ADD is the one that commonly fails. <a href="https://www.yotatech.com" target="_blank" rel="noopener">On 1st-gen trucks it&#x27;s vacuum-operated</a> (suspect the vacuum lines and switching valve first); on later trucks it&#x27;s an electric actuator. Diagnosis is often free — a cracked vacuum line or a stuck actuator — but a failed actuator runs $70–230. Don&#x27;t assume your transfer case is broken when the front axle won&#x27;t pull; the ADD is the far more likely culprit.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-drivetrain.webp" alt="Driveshaft U-joint at the transmission output, seen from underneath between tube crossmembers" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@wesleyphotography?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wesley Tingey</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Tacoma front-drive system has a feature that trips up a lot of owners: even with the transfer case in 4WD, the front differential has its own clutch that has to engage before the front wheels do anything. That&#x27;s the ADD. It lets the front axle shafts spin free in 2WD for efficiency and couples them when you call for 4WD. Two separate engagements means two separate things to fail, and people often blame the wrong one.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>1st gen is vacuum — check lines first.</strong> On 1st-generation Tacomas, the ADD is actuated by engine vacuum routed through a switching valve. The most common failure is a cracked, brittle, or disconnected vacuum line, or a stuck switching valve — both cheap or free to fix. Use a hand vacuum pump to test whether the actuator moves the fork when vacuum is applied. If the actuator holds vacuum and shifts, the fault is in the lines or valve; if it won&#x27;t move or hold, the actuator itself is bad (~$70).</p>
 <p><strong>Later trucks are electric.</strong> Later Tacomas use <a href="https://parts.toyota.com" target="_blank" rel="noopener">an electric ADD actuator</a> that gets a signal from the 4WD control. Test for the control signal at the connector with a multimeter when you select 4WD; if the signal is present but the actuator doesn&#x27;t engage, the actuator (~$230) has failed. If there&#x27;s no signal, chase the switch, relay, or wiring instead of replacing the actuator.</p>
 <p><strong>Don&#x27;t overlook the basics.</strong> Worn front differential oil, a bent shift fork, or debris can also keep the ADD from coupling cleanly. While you&#x27;re in there, check the front diff oil level and condition. And remember these systems engage best when the truck is rolling slowly straight, not stationary under bind — sometimes &quot;it won&#x27;t engage&quot; is really &quot;it needs to roll a few feet to mesh.&quot;</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Safely support the truck on rated stands so the wheels can be observed turning.</li><li>Shift into 4WD and identify whether the failure is at the transfer case or the front ADD.</li><li>For 1st gen: inspect the vacuum lines and switching valve; test the actuator with a hand vacuum pump.</li><li>For later trucks: check for the electric control signal at the actuator connector with a multimeter.</li><li>Repair cracked vacuum lines or a stuck valve, or restore the missing electrical signal as found.</li><li>If the actuator won&#x27;t move with correct vacuum or signal, replace it (~$70 vacuum / ~$230 electric).</li><li>Check and top off the front differential oil while access is open.</li><li>Test 4WD engagement rolling slowly in a straight line and confirm the front wheels pull.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Often a free fix — a cracked vacuum line or stuck valve</li><li>Saves you from wrongly blaming the transfer case</li><li>Clear diagnostic split tells you which half of the system to chase</li><li>Restores real front-axle drive for trail use</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://parts.toyota.com" target="_blank" rel="noopener">Toyota Tacoma ADD (Automatic Disconnecting Differential) actuator — application</a></li><li><a href="https://www.tacomaworld.com" target="_blank" rel="noopener">TacomaWorld: 4WD engages at transfer case but not front axle — ADD diagnosis</a></li><li><a href="https://www.yotatech.com" target="_blank" rel="noopener">1st-gen vacuum-actuated ADD vs later electric — engagement differences</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-cv-axle-replacement/">Front CV Axle Replacement</a></li><li><a href="/db/tacoma/tacoma-front-diff-fluid/">Front Differential Fluid Change</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%204WD%20Won%27t%20Engage%20Up%20Front%20%E2%80%94%20The%20ADD%20Actuator%20%28Automatic%20Disconnecting%20Differential%29">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

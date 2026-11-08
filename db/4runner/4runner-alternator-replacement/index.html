@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,15 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/electrical">Electrical</a></nav>
   <h1>Alternator Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–3 hrs</span><span class="tm-fact">$220–750</span><span class="tm-fact">2003-2009, 2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–3 hrs</span><span class="tm-fact">$220–750</span><span class="tm-fact">2003-2009, 2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A 4Runner alternator that&#x27;s failing usually shows a dim battery light or AC ripple on the bus before it quits; <a href="https://parts.americantoyota.com/oem-parts/toyota-alternator-2706031190" target="_blank" rel="noopener">OEM replacement is a Denso 130A unit</a>, and if you&#x27;re running a winch or fridge, <a href="https://www.dcpowerinc.com/products/11517-270-xp-toyota-4runner-2011-4" target="_blank" rel="noopener">the DC Power 270A XP</a> is the high-output upgrade that fits the same bracket.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Disconnect the battery before you start. Fuse every new circuit at the source and size the wire for the load and the run. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-electrical.webp" alt="Hands working at an open under-hood fuse and relay box" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@sincerelymedia?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Sincerely Media</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 1GR-FE 4.0L V6 in 4th gen (2003–2009) and 5th gen (2010–2024) 4Runners uses a 130-amp Denso alternator with an SD7 7-groove decoupler pulley. OEM part number is 27060-31190. The decoupler pulley is important — it lets the alternator overrun briefly during shift changes, which smooths belt behavior and reduces shock load on the bearings. Cheap aftermarket alternators sometimes ship with a solid pulley; that&#x27;s a no for 1GR-FE. Get the decoupler version.</p>
 <p>Symptoms of a failing alternator: battery light flickering at idle, dim headlights that brighten with rev, a whining noise that scales with engine RPM, accessories cycling on and off, or a multimeter reading at the battery below 13.8V with the engine running (a healthy charge is 13.8–14.4V). Don&#x27;t replace based on the dash light alone — a load-test at a parts store (free at AutoZone, O&#x27;Reilly, Advance) confirms it before you spend the money. The other failure that looks like an alternator is a corroded ground strap from engine to chassis; check both before condemning the alternator.</p>
 <p>Access on the 1GR-FE is from above. Unlike some V6s, you don&#x27;t have to drop the front skid or pull the radiator fan. The alternator sits high on the passenger side, behind the serpentine pulley path. Belt comes off with a long ratcheting wrench on the tensioner pulley. Hardware is two main bolts plus the back-of-alternator B+ terminal (10mm nut) and the field plug. Total tool list is short. The fight, when it happens, is wiggling the alternator out past the AC line and coolant hose — patience and a hand at the right angle gets it out.</p>
 <p>If you&#x27;re a stock daily driver, the 130A OEM (or reman Denso) is right-sized. If you&#x27;ve added a winch, a fridge, off-road lights, or a dual-battery system, look at high-output. The DC Power Inc. 270A XP is a popular direct-fit upgrade for the 5th gen — same bracket, same harness, more than double the output at idle. Note that you may need a heavier B+ cable to handle the added current; the stock 6-gauge is sized for 130A.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Disconnect the negative battery terminal.</li><li>Loosen the serpentine belt with a ratcheting wrench on the tensioner pulley. Slip the belt off the alternator pulley.</li><li>Remove the rubber boot from the alternator B+ terminal. Loosen the 10mm nut and pull the cable off.</li><li>Unplug the field connector (squeeze tab and pull).</li><li>Remove the upper and lower alternator bolts (typically 14mm).</li><li>Wiggle the alternator out of its bracket. AC line and coolant hose are in the way — work slowly.</li><li>Compare old to new for pulley type, mounting points, and connector orientation.</li><li>Install new alternator in reverse order. Torque mounting bolts to 30 ft-lbs (lower) and 18 ft-lbs (upper) per shop manual. Torque B+ nut to 10 ft-lbs.</li><li>Route belt per under-hood diagram. Tensioner snaps back into place.</li><li>Reconnect negative battery, start engine, verify 13.8–14.4V at the battery.</li></ol>
 <h2>Why it works</h2>
 <ul><li>OEM Denso reman is reliable and uses the right decoupler pulley</li><li>Bolt-in upgrade to 270A for winch and accessories</li><li>Tool list is short</li><li>Access on 1GR-FE is from above — no skid pan removal</li></ul>
@@ -257,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://parts.americantoyota.com/oem-parts/toyota-alternator-2706031190" target="_blank" rel="noopener">Toyota OEM 27060-31190 Alternator — American Toyota Parts</a></li><li><a href="https://www.rareelectrical.com/i-26933570-130a-alternator-compatible-with-2010-2021-toyota-4runner-v6-4-0l-1gr-fe-dohc-sr5-limited-trail-trd.html" target="_blank" rel="noopener">Rareelectrical 130A Alternator 1GR-FE Specs</a></li><li><a href="https://www.dcpowerinc.com/products/11517-270-xp-toyota-4runner-2011-4" target="_blank" rel="noopener">DC Power 270A XP High-Output Alternator — 5th Gen 4Runner</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/wire-gauge-calculator.html">Wire Gauge Calculator</a> — wire size for the amps and the run length</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Alternator%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

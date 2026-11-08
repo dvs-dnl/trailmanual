@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/maintenance">Maintenance</a></nav>
   <h1>Front Differential Fluid Change</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$25–50</span><span class="tm-fact">2003-2009, 2010-2024, 2025-2026</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$25–50</span><span class="tm-fact">2003-2009, 2010-2024, 2025-2026</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The 4Runner front differential takes about 1.3 quarts of <a href="https://www.blauparts.com/blog/what-type-of-differential-fluid-does-my-toyota-4runner-take.html" target="_blank" rel="noopener">75W-85 GL-5 gear oil</a> and <a href="https://trail4runner.com/2018/12/24/4runner-driveline-fluids-how-and-when-to-change-them/" target="_blank" rel="noopener">Toyota&#x27;s recommended interval is 30,000 miles for severe service</a> — the 1GR-FE platform has run reliably for two decades because owners actually do this.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 1GR-FE 4.0L V6 4Runner uses a conventional open or limited-slip front differential. It&#x27;s not part-time disconnect like a Wrangler — even in 2WD the front ring and pinion are turning, not driving. That means the fluid sees thermal cycling even when you&#x27;re not in 4HI, and on a 4Runner that lives in Arizona heat or pulls a trailer, the front diff fluid breaks down faster than most owners assume.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Capacity is 1.2 to 1.3 liters (1.3 to 1.4 quarts). The right approach is the same as every other diff: pump until it runs out the fill hole, then stop. Don&#x27;t try to hit a specific number — vehicle level matters more than the spec sheet.</p>
 <p>Both plugs are 24mm hex on most years (some 4th-gen use a 10mm internal hex). They&#x27;re located on the front cover of the diff. The fill plug is the higher one; the drain plug is below it. Always crack the fill plug FIRST. A stuck fill plug after you&#x27;ve drained means a tow.</p>
 <p>Service interval is the part most owners get wrong. Toyota&#x27;s normal-service interval reads as &quot;inspect&quot; rather than &quot;replace,&quot; which gets read as &quot;do nothing.&quot; The severe service schedule — which applies to anyone who tows, wheels in dust, or drives in stop-and-go — calls for 30,000 miles. If you wheel in water at all, change it after every deep crossing; water in a differential is fast destruction.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground. Drive a few miles to warm the fluid for cleaner drainage.</li><li>Slide drain pan under the front diff.</li><li>Crack the FILL plug first (24mm hex, upper plug on front cover). If it won&#x27;t break loose, stop.</li><li>Remove the drain plug (lower plug). Let it drain 15–20 minutes.</li><li>Inspect drained fluid. Dark brown is normal aging. Milky means water — investigate seals and the breather tube. Metal flakes mean ring-and-pinion wear.</li><li>Install new crush gasket on drain plug. Torque to 36 ft-lb.</li><li>Use a fluid pump to add 75W-85 GL-5 through the fill hole. Stop when it dribbles out steady.</li><li>Install fill plug with new crush gasket. Torque to 36 ft-lb.</li><li>Wipe down, check for leaks after a short drive.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Cheap maintenance that prevents expensive ring-and-pinion damage</li><li>Fluid condition gives early warning of pinion bearing wear or water intrusion</li><li>OEM fluid is available at any Toyota dealer for under $20/quart</li><li>Same 75W-85 spec covers front and rear — buy 3 quarts, do both diffs</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.blauparts.com/blog/what-type-of-differential-fluid-does-my-toyota-4runner-take.html" target="_blank" rel="noopener">BlauParts — Toyota 4Runner Differential Fluid Gear Oil Type Guide</a></li><li><a href="https://trail4runner.com/2018/12/24/4runner-driveline-fluids-how-and-when-to-change-them/" target="_blank" rel="noopener">Trail4R — 4Runner Driveline Fluids: How and When to Change Them</a></li><li><a href="https://thetrackahead.com/projects/4th-gen-toyota-4runner/front-and-rear-differential-fluid-replacement-4th-gen-toyota-4runner/" target="_blank" rel="noopener">The Track Ahead — Front and Rear Differential Fluid Replacement: 4th Gen Toyota 4Runner</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-rear-diff-fluid/">Rear Differential Fluid Change (4th and 5th Gen 4Runner)</a></li><li><a href="/db/4runner/4runner-transfer-case-fluid-4runner/">Transfer Case Fluid Change</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Front%20Differential%20Fluid%20Change">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -55,11 +55,6 @@
 /* Tools grid */
 .grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
 .grid-tools.six{grid-template-columns:repeat(3,1fr)}
-.plan-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}
-.plan-row a{display:block;padding:12px 14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);color:inherit;text-decoration:none}
-.plan-row a:hover{border-color:var(--accent)}
-.plan-row strong{display:block;font-weight:500;font-size:15px;color:var(--text)}
-.plan-row span{display:block;font-size:13px;line-height:1.45;color:var(--text-dim);margin-top:2px}
 @media(max-width:900px){.grid-tools.six{grid-template-columns:1fr 1fr}}
 .tool-card{background:var(--panel);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative;color:var(--text)}
 .tool-card:hover{background:var(--bg-2);color:var(--text)}
@@ -91,6 +86,11 @@
 .learn-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.22;margin:0}
 .learn-desc{font-size:13.5px;color:var(--text-dim);line-height:1.5;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .learn-card .arrow{margin-top:auto}
+.plan-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}
+.plan-row a{display:block;padding:12px 14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);color:inherit;text-decoration:none}
+.plan-row a:hover{border-color:var(--accent)}
+.plan-row strong{display:block;font-weight:500;font-size:15px;color:var(--text)}
+.plan-row span{display:block;font-size:13px;line-height:1.45;color:var(--text-dim);margin-top:2px}
 .early-note{margin:18px 0 0;padding:12px 16px;border:1px solid var(--border);border-left:3px solid var(--clay);border-radius:var(--radius);background:var(--bg-2);font-size:14px;line-height:1.6}
 
 @media (max-width:900px){
@@ -300,28 +300,28 @@
     </div>
     <div class="grid-learn">
       <a class="learn-card" href="/db/xj/rear-axle-shaft/">
-        <p class="learn-eye">Axles</p>
+        <p class="learn-eye">Axles · Difficulty 3/5</p>
         <h3 class="learn-title">Rear Axle Shaft Replacement — XJ Cherokee C-Clip Axles (Dana 35 and Chrysler 8.25)</h3>
         <p class="learn-desc">Most XJ rear axles hold their shafts with a C-clip, so replacing one means going in through the differential to release the clip. The exception is the Dana 35 on 1984–1989 trucks, which uses a retainer plate bolted behind the axle flange instead. The steps below are for C-clip axles only, so check which one you have before you take anything apart.</p>
         <span class="arrow">Read</span>
       </a>
 
       <a class="learn-card" href="/db/xj/rec-snatch-strap/">
-        <p class="learn-eye">Recovery</p>
+        <p class="learn-eye">Recovery · Difficulty 2/5</p>
         <h3 class="learn-title">Kinetic Recovery Strap vs. Static Tow Strap</h3>
         <p class="learn-desc">Two straps that look nearly identical do opposite jobs: one is built to stretch and fling a stuck rig free, the other is built to refuse to stretch so you can tow. Grabbing the wrong one is how recovery points get torn out of a unibody and how people get hurt.</p>
         <span class="arrow">Read</span>
       </a>
 
       <a class="learn-card" href="/db/xj/proportioning-valve/">
-        <p class="learn-eye">Brakes</p>
+        <p class="learn-eye">Brakes · Difficulty 3/5</p>
         <h3 class="learn-title">Brake Proportioning Valve — XJ Cherokee</h3>
         <p class="learn-desc">The valve everyone blames and almost nobody understands — what the XJ&#x27;s combination valve actually does, how to reset it when the brake light won&#x27;t go out, and when to replace or re-proportion it after a rear disc conversion.</p>
         <span class="arrow">Read</span>
       </a>
 
       <a class="learn-card" href="/db/xj/fuel-pump-replacement/">
-        <p class="learn-eye">Fuel</p>
+        <p class="learn-eye">Fuel · Difficulty 3/5</p>
         <h3 class="learn-title">Fuel Pump Replacement</h3>
         <p class="learn-desc">The XJ&#x27;s electric fuel pump lives inside the tank. When it dies you get a no-start; when it&#x27;s dying you get hot-restart problems and stalling under load. Confirm with a fuel pressure test, then drop the tank to replace it. Plan a Saturday — a quarter of that is fighting rusted tank straps.</p>
         <span class="arrow">Read</span>

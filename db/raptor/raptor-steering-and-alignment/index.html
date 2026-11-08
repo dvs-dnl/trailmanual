@@ -185,6 +185,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -315,8 +326,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/steering">Steering</a></nav>
   <h1>Raptor Steering: IFS Tie Rods, Alignment, and Why There&#x27;s No Death Wobble</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–3.0 hrs</span><span class="tm-fact">$100–800</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–3.0 hrs</span><span class="tm-fact">$100–800</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Good news for Raptor owners worried about the death wobble that plagues solid-axle Jeeps and Broncos: the Raptor&#x27;s independent front suspension is structurally immune to it. There&#x27;s no track bar and no single steering link to set up a self-reinforcing oscillation. What the Raptor does have is tie rod ends that wear, an alignment that drifts with hard use and lift, and electric power steering with its own failure signature. Steering wander on a Raptor is a worn-component or alignment problem — find it and fix it, don&#x27;t accept it.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Steering and front-end work decides whether the vehicle tracks straight. Torque every joint to the factory spec and check toe before highway speed. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-steering.webp" alt="Underside of a solid front axle on a rocky trail, with the tie rod, coil spring and shock" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Death wobble — the violent, self-sustaining shimmy of the front steering — is a solid-axle phenomenon. It needs a track bar and the specific geometry of a beam axle to feed on itself. The Raptor&#x27;s independent front suspension has neither, so a properly maintained Raptor simply cannot death-wobble. If your Raptor wanders, darts, or shimmies, that&#x27;s a diagnosable fault in a specific part, not an inherent design demon. That distinction matters because it tells you to go looking for the bad component instead of throwing parts at a phantom.</p>
 <h3>What Actually Causes Raptor Steering Complaints</h3>
@@ -330,7 +342,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The biggest mistake is treating Raptor wander like Jeep death wobble and chasing a track bar or steering stabilizer that doesn&#x27;t exist on this platform. Find the worn part. The second is running factory tie rods on a long-travel truck until one bends at speed — a steering failure off-road is a safety event. The third is skipping alignment after a lift; the truck will feel fine for a while and then you&#x27;ll wonder why the front tires are feathered.</p>
 <h3>Costs and Sources</h3>
 <p>Outer tie rod ends: $70–$120 each, replaced in pairs, an afternoon DIY with a separator. Upgraded long-travel tie rods: $400–$700 a set. Four-wheel alignment: $100–$160. EPS diagnosis: scan-tool time, and any repair depends on the specific fault — get a real diagnosis before buying parts.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Diagnose wander before replacing anything — shake the tire at 3/9 o&#x27;clock for tie rod/bearing play; check tire wear patterns</li><li>Inspect outer and inner tie rod ends for play and torn boots</li><li>Replace worn tie rod ends in pairs and torque the castle nut/cotter pin or crimp nut to Ford spec</li><li>On long-travel builds, upgrade to heavy-duty tie rods rated for the added travel</li><li>Get a four-wheel alignment after any steering or suspension work, lift change, or hard impact</li><li>For intermittent assist loss or steering warning lights, scan for EPS codes — this is an electronic fault, not a fluid issue</li><li>Re-check toe and on-center feel after the alignment and a short test drive</li></ol>
 <h2>Why it works</h2>
 <ul><li>IFS means no death wobble — steering faults are findable, specific, and fixable</li><li>Tie rod replacement is an accessible DIY job</li><li>Regular alignment protects tires and keeps the truck composed at speed</li></ul>
@@ -345,7 +357,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.fordraptorforum.com" target="_blank" rel="noopener">Raptor IFS steering geometry and alignment specs</a></li><li><a href="https://www.ford.com/trucks/raptor" target="_blank" rel="noopener">Electric power steering behavior on F-150/Raptor</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-tie-rod-upgrade/">Raptor Tie Rod Upgrades — The Front End&#x27;s Designed Fuse, and When to Replace It With Billet</a></li><li><a href="/db/raptor/raptor-steering-damper-and-stabilizer/">Steering Damper and Stabilizer — What It Does, When It&#x27;s Worn, and Why It&#x27;s Not a Cure</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a> — find the cause in eight questions</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Raptor%20Steering%3A%20IFS%20Tie%20Rods%2C%20Alignment%2C%20and%20Why%20There%27s%20No%20Death%20Wobble">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

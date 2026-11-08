@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/maintenance">Maintenance</a></nav>
   <h1>Rear Differential Fluid Change</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$35–70</span><span class="tm-fact">2005-2015, 2016-2023, 2024-2026</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$35–70</span><span class="tm-fact">2005-2015, 2016-2023, 2024-2026</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Tacoma rear differential <a href="https://www.blauparts.com/blog/how-to-change-toyota-tacoma-rear-differential-gear-oil-2009-2023.html" target="_blank" rel="noopener">takes 3 to 4 quarts of 75W-85 GL-5 gear oil</a> depending on whether you have the electric locker (TRD Off-Road and Pro) — and unlike older Tacomas, modern A-Trac and e-locker trims do NOT need LSD-specific fluid.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Tacoma rear axle has gone through a quiet revision that catches owners out. Pre-2009 Tacomas with mechanical limited-slip differentials called for 80W-90 LSD gear oil with friction modifier built in. From 2009 onward, <a href="https://www.blauparts.com/blog/what-type-of-differential-fluid-does-my-toyota-tacoma-take.html" target="_blank" rel="noopener">the rear axle specification moved to 75W-85 GL-5 conventional gear oil</a> — Toyota part number 08885-02506, the same fluid used in the front diff. The change reflects the move from mechanical LSDs to the electric locker (e-locker) on TRD trims and A-Trac brake-based traction control on the rest of the lineup. Neither system needs LSD-spec fluid.</p>
@@ -244,7 +255,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Like every Toyota differential, the right approach is to pump until fluid runs out the fill hole, then stop. Park as level as you can manage; tilt changes apparent fill level.</p>
 <p>The plugs are 24mm hex on most 2nd and 3rd gen trucks (some early 2nd gen used a 10mm internal hex). They are torque-spec&#x27;d — overtightening crushes the soft aluminum drain plug bosses and creates a leak that&#x27;s expensive to fix. Spec is 36 ft-lb for fill and drain plugs, and you should use new crush washers each service.</p>
 <p>Service interval is 30,000 miles for severe use (tow, off-road, dusty conditions) and 60,000 miles for normal use. If you wheel where water gets above the axle tubes, change immediately after — water destroys ring-and-pinion gears within a few hundred miles.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground. Drive a few miles to warm fluid for cleaner drainage.</li><li>Slide drain pan under rear diff.</li><li>Crack the FILL plug FIRST (24mm hex, upper plug on rear cover). If stuck, stop — do not drain.</li><li>Remove drain plug (lower). Let drain fully — 15-20 minutes.</li><li>Inspect fluid. Dark brown is normal aging. Milky means water intrusion. Metal chunks mean internal failure — investigate before refilling.</li><li>Install new crush gasket on drain plug. Torque to 36 ft-lb.</li><li>Pump 75W-85 GL-5 through fill hole until it runs out steady. Standard axles: ~3 quarts. E-locker axles: ~4 quarts.</li><li>Install fill plug with new crush gasket. Torque to 36 ft-lb.</li><li>Drive a few miles and recheck for leaks.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Same fluid as the front diff on 2009+ trucks — more straightforward shopping</li><li>60,000-mile interval for normal use is realistic; severe service 30,000 is genuinely needed for off-road owners</li><li>E-locker does not need LSD fluid — saves the cost of friction-modifier oil</li><li>Catches early signs of pinion bearing wear</li></ul>
@@ -259,7 +270,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.blauparts.com/blog/how-to-change-toyota-tacoma-rear-differential-gear-oil-2009-2023.html" target="_blank" rel="noopener">BlauParts — How to Change Toyota Tacoma Rear Differential Fluid (2009-2023)</a></li><li><a href="https://www.blauparts.com/blog/what-type-of-differential-fluid-does-my-toyota-tacoma-take.html" target="_blank" rel="noopener">BlauParts — Toyota Tacoma Differential Gear Oil Types Guide</a></li><li><a href="https://www.tacomaforum.com/threads/rear-diff-fluid.6859/" target="_blank" rel="noopener">Tacoma Forum — Rear Diff Fluid</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-front-diff-fluid/">Front Differential Fluid Change</a></li><li><a href="/db/tacoma/tacoma-transfer-case-fluid/">Transfer Case Fluid Change</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Rear%20Differential%20Fluid%20Change">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

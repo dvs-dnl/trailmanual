@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/suspension">Suspension</a></nav>
   <h1>JT vs JL mod compatibility: what carries over, what doesn&#x27;t</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1.0 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2020-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1.0 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2020-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Gladiator shares its front end with the JL Wrangler, and its rear is coil-sprung too, but that rear is its own design. <a href="https://www.prnewswire.com/news-releases/all-new-2020-jeep-gladiator-the-most-capable-midsize-truck-ever-300756849.html" target="_blank" rel="noopener">Stellantis calls it a five-link coil setup exclusive to the Gladiator</a>, and the truck is far longer than a JL. There are no leaf springs on a JT. Rear suspension work needs parts listed for the JT, so check before you assume a JL part carries over.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-suspension.webp" alt="Red coil spring over an aftermarket shock behind a mud-terrain tire" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@blueimaging?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Joshua Vialdores</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <h3>The Front End: Shared with JL</h3>
@@ -261,7 +272,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Axle hop under power:</strong> Advice written for leaf-sprung trucks doesn&#x27;t apply here. Traction bars and add-a-leafs have no place on a JT, whose control arms locate the axle. See the <a href="/db/gladiator/factory-leaf-spring-axle-wrap/">rear axle hop guide</a> for what to check instead.</p>
 <h3>What to watch for</h3>
 <ul><li><strong>&quot;Fits JL/JT&quot; listings with one photo:</strong> If the product page only pictures a Wrangler, don&#x27;t assume the rear hardware suits the JT. Confirm the JT rear parts are listed by part number.</li><li><strong>Wheelbase-sensitive parts:</strong> Long control arms, adjustable track bars, and driveshafts are cut to length. A JL-length part will bind or run out of adjustment on the 137-inch JT wheelbase.</li><li><strong>Bump stops:</strong> Rear coil choice sets the bump stop spacing. Synergy requires at least 2 inches with its JT rear coils and warns against less, so match spacers to the spring you actually bought.</li><li><strong>Return-shipping cost:</strong> The most common way this error costs money is a &quot;close enough&quot; JL rear part that has to be shipped back. Verify before you buy, not after.</li></ul>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Identify whether the modification is front-only, rear-only, or a full suspension system</li><li>For front-only work, search for JL parts and verify JT cross-compatibility with the manufacturer</li><li>For rear work, search exclusively for JT-specific parts — do not assume JL rear parts cross over</li><li>For complete lift kits, confirm the kit explicitly covers the JT application (not listed as &quot;compatible&quot;)</li><li>Call the manufacturer&#x27;s tech line if you&#x27;re unsure — they know their fitment better than any catalog</li></ol>
 <h2>Why it works</h2>
 <ul><li>The JL front end community is huge; JT owners benefit from that parts pool</li><li>JT-specific kits are well-developed from established manufacturers</li><li>JT rear coil makers design around bed load and towing, which is useful for overland builds</li></ul>
@@ -273,7 +284,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.prnewswire.com/news-releases/all-new-2020-jeep-gladiator-the-most-capable-midsize-truck-ever-300756849.html" target="_blank" rel="noopener">All-New 2020 Jeep Gladiator press release (rear suspension description) — FCA via PR Newswire</a></li><li><a href="https://teraflex.com/jt-3-5-lift-coil-spring-kit-rear.html" target="_blank" rel="noopener">JT 3.5 inch lift coil spring kit, rear — TeraFlex</a></li><li><a href="https://www.quadratec.com/p/skyjacker/3.5-inch-component-box-front-dual-rate-long-travel-coils-with-rear-coil-spring-spacers-gladiator-jt/non-rubicon-with-gas-engine-g350lt" target="_blank" rel="noopener">Skyjacker 3.5 inch JT component box listing — Quadratec</a></li><li><a href="https://www.quadratec.com/p/quadratec/maximum-duty-3.5-inch-suspension-lift-kit-gladiator-jt/sport-sahara-no-shocks" target="_blank" rel="noopener">Quadratec Maximum Duty 3.5 inch JT lift kit listing — Quadratec</a></li><li><a href="https://ratchetsoffroad.com/product/jt-gladiator-rear-lift-coil-springs" target="_blank" rel="noopener">Synergy JT rear lift coil springs listing — Ratchets Off-Road</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/jt-budget-lift/">Budget Lift Kit for the Gladiator (≤$600)</a></li><li><a href="/db/gladiator/factory-leaf-spring-axle-wrap/">Rear axle hop and shudder on the Gladiator: the five-link coil rear and what to check</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/gladiator-lift-kit-comparison.html">Lift kit comparison</a> — every kit we could verify, side by side</li><li><a href="/budget-ladder.html#gladiator">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20JT%20vs%20JL%20mod%20compatibility%3A%20what%20carries%20over%2C%20what%20doesn%27t">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

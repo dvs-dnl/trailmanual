@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/power-wagon/">Ram Power Wagon</a> / <a href="/db/#/power-wagon/category/axles">Axles</a></nav>
   <h1>Power Wagon Front E-Locker Won&#x27;t Engage: Diagnosing the Electronic Locking Differentials</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–4.0 hrs</span><span class="tm-fact">$20–350</span><span class="tm-fact">2005-2009, 2010-2018, 2019-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–4.0 hrs</span><span class="tm-fact">$20–350</span><span class="tm-fact">2005-2009, 2010-2018, 2019-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is almost always one of four things: the speed interlock, a blown fuse, a failed solenoid, or a wiring issue. Work through them in order.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-axles.webp" alt="Low view under a 4x4 of a solid axle housing and muddy knobby tires on wet rocks" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Power Wagon runs electronic lockers on both the front and rear Dana axles. Both use the same basic engagement mechanism: an electrically actuated solenoid moves a mechanical locking collar inside the differential. The control system reads vehicle speed and 4WD mode before allowing engagement — this interlock is intentional and not a failure.</p>
@@ -258,7 +269,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>If neither locker engages, suspect the main locker control module output or a 4WD engagement issue. Verify 4WD is actually engaging (transfer case indicator on, front driveshaft spinning). If 4WD is confirmed and neither locker works, pull codes — this pattern typically shows a control module fault or a bad switch cluster signal.</p>
 <h3>Field Note on Wiring</h3>
 <p>The locker wiring on Power Wagons that have been through water crossings regularly can develop internal corrosion at the solenoid connectors. The connector looks intact from the outside but the terminals inside are green. Use electrical contact cleaner and a small wire brush to clean the terminals, then apply dielectric grease before reconnecting.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Confirm vehicle is in 4WD and below 8 mph during engagement attempt</li><li>Check and replace locker solenoid fuse if blown</li><li>Scan for DTC codes with Ram-capable scan tool</li><li>Test for 12V at solenoid connector with switch pressed</li><li>Replace solenoid if voltage present but no engagement</li><li>Trace wiring to TIPM if no voltage present at connector</li></ol>
 <h2>Why it works</h2>
 <ul><li>Most failures are straightforward: fuse or solenoid — straightforward fixes</li><li>Solenoid replacement is accessible without removing the axle</li><li>OEM Mopar solenoid is readily available and inexpensive</li></ul>
@@ -273,7 +284,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.mopar.com/en-us/care/service-records.html" target="_blank" rel="noopener">Ram Power Wagon 2500 service manual — 4WD system</a></li><li><a href="https://www.ramtruckforum.com" target="_blank" rel="noopener">Ram Truck Forum — locker troubleshooting thread</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/power-wagon/pw-locker-upgrade/">Locker Upgrade Path for Power Wagon (Factory + Tru-Lok or ARB Bulletproofing)</a></li><li><a href="/db/power-wagon/pw-regear-456/">Re-gear from 4.10 to 4.56 for 37s on Power Wagon</a></li><li><a href="/power-wagon/">All Ram Power Wagon guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a> — effective ratio and RPM after a tire or gear change</li><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Power%20Wagon%20Front%20E-Locker%20Won%27t%20Engage%3A%20Diagnosing%20the%20Electronic%20Locking%20Differentials">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

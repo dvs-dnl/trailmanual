@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/armor">Armor &amp; Skids</a></nav>
   <h1>Rear Bumper and Trailer Hitch Integration for the Tacoma</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$900–2400</span><span class="tm-fact">2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$900–2400</span><span class="tm-fact">2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>A high-clearance steel rear bumper buys back roughly 3–5 degrees of departure angle and gives you real load-rated recovery tabs, at a cost of 40–90 lb over stock and $900–1,400 bare or $1,600–2,400 with a swing-out carrier. The Tacoma&#x27;s backup camera lives in the tailgate handle, not the bumper — what you actually have to transfer is the trailer wiring, the plate lights, and on equipped trims the rear sonar and blind-spot radar.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-armor.webp" alt="Winch and fairlead mounted in a steel off-road bumper" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@joey_joel116?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Joel Frank</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The factory Tacoma rear bumper is a stamped chrome-tipped step unit with a receiver hitch behind it. It hangs low and wide, and the lower valance is the first thing to drag when you climb out of a wash. Aftermarket high-clearance steel bumpers tuck the profile up and in against the frame horns, which is where the departure-angle gain comes from. Stock 3rd gen departure sits in the mid-20s in degrees depending on trim and tire; a good high-clearance rear typically returns 3–5 degrees. That is not a marketing number — it is the difference between exiting a ledge and dragging your hitch across it.</p>
@@ -252,7 +263,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <p>Bare high-clearance steel rears from the recognized Tacoma shops — CBI, <a href="https://c4fabrication.com" target="_blank" rel="noopener">C4 Fabrication</a>, Relentless, ADD, Expedition One, Mobtown — land at roughly $900–1,400 depending on generation and options. Add $400–900 for a swing-out carrier, $200–350 for powder coat over bare steel, and $150–300 in freight because these ship on a pallet. Shackles are another $40 for a decent pair. All-in for bumper plus carrier plus coating plus shipping, plan $1,600–2,400. Lead times from the small shops routinely run 4–10 weeks; the ones with stock usually charge for it.</p>
 <p>Two things to do while the old bumper is off, because you will not have this access again for years. First, wire-brush and inspect the rear frame horns and the leaf-spring shackle hangers — that rear frame section is a documented Tacoma corrosion zone, and bolting armor to compromised steel is worse than no armor. Run the <a href="/db/tacoma/frame-rust-inspection-tacoma/">frame rust inspection</a> properly while the area is exposed. Second, prime and cavity-wax the mating faces before you torque the new brackets down; a bare faying surface between two steel parts in road salt is where rust starts.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Measure bed width and compare against the manufacturer&#x27;s published swing arc if you&#x27;re adding a carrier (2nd gen especially).</li><li>Disconnect the battery negative terminal before touching trailer wiring, plate lights, or sensors.</li><li>Support the bumper with a floor jack or a helper — a steel rear is awkward and heavy enough to hurt someone.</li><li>Unplug the trailer connector, plate light harness, and any sonar or BSM connectors. Photograph every connector before unplugging it.</li><li>Soak the bumper bracket bolts in penetrating oil, then remove them — typically 4–6 per side into the frame rails.</li><li>Remove the OEM bumper. Wire-brush and inspect the exposed frame horns and shackle hangers for rust perforation.</li><li>Prime any bare metal and cavity-wax inside the frame horns through the factory access holes.</li><li>Assemble the swing-out carrier to the new bumper on the ground, before lifting it into place. It is far harder afterward.</li><li>Test-fit the bumper dry, with hardware finger-tight, and check panel gaps and hitch alignment before torquing anything.</li><li>Torque all frame bolts to the manufacturer&#x27;s spec in a criss-cross pattern.</li><li>Route and connect trailer wiring, plate lights, and any sensor relocations. Weather-seal every splice.</li><li>Reconnect the battery and test: trailer lights on all functions, plate lights, reverse camera, sonar chime, BSM indicator.</li><li>Load the spare on the carrier, swing to full open, and verify clearance at the bed corner and tailgate.</li><li>Re-torque all bumper and carrier hardware after 500 miles.</li></ol>
 <h2>Why it works</h2>
 <ul><li>3–5 degrees of departure angle recovered on a high-clearance design</li><li>Two properly load-rated D-ring tabs welded into frame-mounted structure</li><li>Receiver hitch retained or integrated on most designs, so towing survives the swap</li><li>Swing-out option gets a 33-inch spare out of the bed and off the failing factory underbed hoist</li><li>Forces a rear-frame corrosion inspection you would otherwise never do</li></ul>
@@ -267,7 +278,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.cbioffroad.com" target="_blank" rel="noopener">CBI Offroad Tacoma Rear Bumper Product Page</a></li><li><a href="https://www.addictivedesertdesigns.com" target="_blank" rel="noopener">Addictive Desert Designs Tacoma Products</a></li><li><a href="https://c4fabrication.com" target="_blank" rel="noopener">C4 Fabrication Tacoma Rear Bumpers</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-recovery-gear-kit/">Recovery Gear Starter Kit for the Tacoma</a></li><li><a href="/db/tacoma/tacoma-sliders/">Rock Sliders and Frame Rails for the Tacoma</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li><li><a href="/budget-ladder.html#tacoma">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Rear%20Bumper%20and%20Trailer%20Hitch%20Integration%20for%20the%20Tacoma">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

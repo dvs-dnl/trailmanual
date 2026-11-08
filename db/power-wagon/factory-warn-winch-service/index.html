@@ -189,6 +189,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -319,8 +330,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/power-wagon/">Ram Power Wagon</a> / <a href="/db/#/power-wagon/category/recovery">Recovery</a></nav>
   <h1>Servicing the Factory Warn 12,000 lb Winch on the Ram Power Wagon</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2.0–5.0 hrs</span><span class="tm-fact">$80–450</span><span class="tm-fact">2008-2009, 2010-2018, 2019-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2.0–5.0 hrs</span><span class="tm-fact">$80–450</span><span class="tm-fact">2008-2009, 2010-2018, 2019-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The factory Warn winch is genuinely good equipment, but wire rope, motor brushes, and the wiring harness routing on early trucks all need periodic attention. Don&#x27;t assume it works because it worked last time.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Recovery gear carries loads far past the vehicle&#x27;s weight. Use rated hardware, read the working load limit, and keep everyone out of the line of pull. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-recovery.webp" alt="Black D-ring shackle and red recovery strap hooked to a hitch-mounted shackle block" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@lgnwvr?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">LOGAN WEAVER | @LGNWVR</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Power Wagon&#x27;s factory winch is a Warn-built 12,000 lb unit, <a href="https://www.warn.com/blogs/articles/the-ram-power-wagons-warn-winch" target="_blank" rel="noopener">similar to a Warn M12000 but with the drum turning the opposite direction and a different control box, and Warn has built it since the truck&#x27;s 2005 introduction</a>. Warn&#x27;s description lists 90 ft of 7/16-inch wire rope and a low-voltage interrupt that stops the winch if system voltage drops. It&#x27;s a capable unit that doesn&#x27;t need replacement for most owners — but it does need service, and the service points differ between the factory installation and a typical aftermarket winch mount. The biggest issues: wire rope vs. synthetic, the wire bundle routing on 2008–2013 units, and contactor corrosion.</p>
 <h3>The Wire Rope Problem</h3>
@@ -340,7 +352,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The winch gear assembly is lubricated with a heavy grease (not oil). Warn sells a service kit for the gear housing. Under heavy trail use, a gear grease refresh at 3–4 years is good practice — the gear grease can thin under heat and develop moisture contamination in trucks that cross water regularly.</p>
 <h3>When to Replace vs. Rebuild</h3>
 <p>Rebuild is worth it if the motor brushes are worn and the gear grease looks clean. A new brush set costs $40–$60 and restores motor performance. If the winch motor itself shows signs of armature damage (burning smell, heavy draw with no load), replacement is the right call — motor rebuilds on factory winch units rarely save enough money to justify the labor.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Spool out all rope/wire completely and inspect full length for damage</li><li>Swap wire rope to synthetic if not already done — replace roller fairlead with hawse</li><li>Inspect and clean contactors; check wire bundle routing for chafe</li><li>Lubricate gear housing per Warn service procedure</li><li>Test under light load (5–10% rated capacity) before relying on it in the field</li><li>Check remote control wiring and plug connection for corrosion</li></ol>
 <h2>Why it works</h2>
 <ul><li>The factory Warn winch is rebuildable with widely available parts</li><li>Synthetic rope upgrade is straightforward and significantly safer than wire rope</li><li>Contactor service is accessible without removing the winch from the truck</li></ul>
@@ -355,7 +367,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.warn.com/service-manuals" target="_blank" rel="noopener">Warn winch service manuals</a></li><li><a href="https://www.warn.com/blogs/articles/the-ram-power-wagons-warn-winch" target="_blank" rel="noopener">Warn — The Ram Power Wagon&#x27;s WARN winch</a></li><li><a href="https://www.warn.com/synthetic-rope" target="_blank" rel="noopener">Warn synthetic rope installation guide</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/power-wagon/pw-winch-upgrade/">Winch Line and Capacity Upgrade for Power Wagon (Synthetic Rope + Warn ZEON)</a></li><li><a href="/db/power-wagon/pw-recovery-points-install/">Recovery Points Install for Power Wagon (Front Frame Mount + Rear D-Rings)</a></li><li><a href="/power-wagon/">All Ram Power Wagon guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Servicing%20the%20Factory%20Warn%2012%2C000%20lb%20Winch%20on%20the%20Ram%20Power%20Wagon">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

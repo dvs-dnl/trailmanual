@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/maintenance">Maintenance</a></nav>
   <h1>ATF Flush — 5-Speed and 6-Speed Automatics</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$90–220</span><span class="tm-fact">2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$90–220</span><span class="tm-fact">2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Use Toyota WS ATF only. <a href="https://www.toyotanation.com/threads/the-official-how-to-atf-drain-and-fill.323590/" target="_blank" rel="noopener">A drain-and-fill swaps about 4 quarts (40% of total)</a>, so do it three times spaced a few hundred miles apart to refresh the full system. <a href="https://www.blauparts.com/blog/how-to-change-3rd-gen-toyota-tacoma-automatic-transmission-fluid.html" target="_blank" rel="noopener">Final fill level must be set at 95–115°F transmission temp</a> — that part is non-negotiable.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Toyota calls the WS transmission &quot;lifetime fill&quot; and gives no service interval. The trucks that go 250,000 miles got serviced anyway, and the ones that don&#x27;t go that far usually have an owner who believed the manual. Plan on a drain-and-fill every 60,000 miles to keep the fluid healthy, more often if you tow.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Total system capacity is about 10 quarts. A pan drain only releases about 4 quarts because the torque converter and cooler lines hold the rest. The accepted way to fully refresh the fluid without a flush machine is <a href="https://www.tacomaworld.com/threads/how-to-drain-refill-automatic-transmission.63851/" target="_blank" rel="noopener">three drain-and-fills spaced 300–500 miles apart</a>. Each round dilutes the old fluid, and after three you are at ~80% fresh fluid — comparable to a full machine flush at half the cost.</p>
 <p>Use Toyota Genuine WS only, or a real WS-spec equivalent like Aisin AFW+ (Aisin actually builds the transmission for Toyota). Do not use Dexron VI, Mercon V, or universal &quot;multi-vehicle&quot; ATFs — the WS fluid is engineered for low viscosity and the wrong fluid causes shift slippage and overheating within 50 miles.</p>
 <p>The fill plug is on the side of the trans housing, accessed with a 24mm socket. The drain plug is on the bottom of the pan, 14mm hex (Allen) bit. There is an inner overflow tube inside the fill plug threads — a 5mm hex (Allen) — that you only touch if you are setting the final level. Open the outer fill plug first to confirm you have a way to refill before you drain.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Drive 10 minutes to warm fluid to operating temp. Park level. Engine off.</li><li>Remove the 24mm fill plug on the side of the transmission first. If it is seized, stop — do not drain.</li><li>Place pan under transmission. Remove 14mm hex drain plug. Capture fluid (about 4 qt).</li><li>Measure what came out. Reinstall drain plug with new gasket, torque to 20 ft-lb.</li><li>Using a pump or long-neck funnel, fill through the side plug with the same volume you drained.</li><li>With engine running and foot on brake, cycle through all gears (P-R-N-D, hold each 3 seconds), return to Park.</li><li>Monitor ATF temp via OBD2 scanner. Wait for 95–115°F window.</li><li>With engine still running, remove the inner overflow plug (5mm hex). Fluid will drip out the tube.</li><li>When the drip slows to a few drops every 5 seconds, reinstall the inner plug, then the outer 24mm plug. Both get new gaskets.</li><li>Drive 300–500 miles, then repeat the full procedure. Repeat once more for the third pass.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Refreshed fluid extends transmission life well past the &quot;lifetime&quot; claim</li><li>Catches a leaking pan gasket or weeping cooler line early</li><li>$40–$60 in fluid per round vs. $250 dealer service</li><li>Builds the skill set for any other Toyota WS transmission</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.blauparts.com/blog/how-to-change-3rd-gen-toyota-tacoma-automatic-transmission-fluid.html" target="_blank" rel="noopener">BlauParts — 3rd gen Tacoma ATF change guide</a></li><li><a href="https://www.toyotanation.com/threads/the-official-how-to-atf-drain-and-fill.323590/" target="_blank" rel="noopener">ToyotaNation — Official ATF drain-and-fill how-to</a></li><li><a href="https://www.tacomaworld.com/threads/how-to-drain-refill-automatic-transmission.63851/" target="_blank" rel="noopener">TacomaWorld — Drain/refill thread</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-trans-shudder-3rd-gen/">3rd Gen Transmission Shudder — Causes and Fix</a></li><li><a href="/db/tacoma/tacoma-transfer-case-fluid/">Transfer Case Fluid Change</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20ATF%20Flush%20%E2%80%94%205-Speed%20and%206-Speed%20Automatics">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

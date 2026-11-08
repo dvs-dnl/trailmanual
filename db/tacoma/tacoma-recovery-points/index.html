@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -237,6 +248,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Recovery Points for the Tacoma — Rated Hooks, Not the Tow Loop</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$60–350</span><span class="tm-fact">2005-2015, 2016-2023</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Use a rated recovery point bolted to the frame — never the factory body tie-down loops, and never a tow-ball hitch — for any kinetic or winch recovery. A recovery point under load can fail and turn steel into a projectile, so this is safety-critical: the goal is a clearly rated, frame-mounted attachment at both ends of the truck and a closed-system shackle that can&#x27;t fly off.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Recovery gear carries loads far past the vehicle&#x27;s weight. Use rated hardware, read the working load limit, and keep everyone out of the line of pull. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-recovery.webp" alt="Black D-ring shackle and red recovery strap hooked to a hitch-mounted shackle block" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@lgnwvr?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">LOGAN WEAVER | @LGNWVR</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The single most dangerous habit in Tacoma recovery is hooking a strap to whatever loop is closest. The small painted loops on the underside of many Tacomas are transport tie-downs rated only to hold the truck on a ship or trailer — they are not recovery-rated and they bend or tear under a snatch load. The factory front tow hook (present on many TRD and Off-Road trims) is a genuine rated recovery point and is fine for straight-line pulls; the issue is that not every Tacoma has one, and almost none have a rated point at the rear.</p>
 <p><strong>Safety-critical warning:</strong> recovery loads are enormous and stored energy is the real hazard. A kinetic (snatch) strap can put several times the vehicle&#x27;s weight into the attachment point in a fraction of a second. If a hook, shackle, or mount lets go, it launches back at the people and vehicles nearby with lethal force. Two rules keep you alive: every attachment point must be frame-mounted and clearly rated for recovery, and <a href="https://www.factor55.com" target="_blank" rel="noopener">every connection should use a closed-system device</a> — a soft shackle or a Factor 55-style closed link — so there is no open hook or pin that can unload and fly. Lay a recovery damper (or a heavy jacket) over the strap as a final precaution. Never use a trailer hitch ball as a recovery point; ripped-off tow balls have killed people.</p>
@@ -262,7 +274,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.cbioffroad.com" target="_blank" rel="noopener">CBI Offroad Tacoma Recovery Products</a></li><li><a href="https://www.allprooffroad.com" target="_blank" rel="noopener">All-Pro Off Road Tacoma Recovery Points</a></li><li><a href="https://www.factor55.com" target="_blank" rel="noopener">Factor 55 Closed-System Recovery</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-winch/">Winch for the Tacoma — 9,500 to 12,000 lb Options</a></li><li><a href="/db/tacoma/tacoma-recovery-gear-kit/">Recovery Gear Starter Kit for the Tacoma</a></li><li><a href="/db/tacoma/tacoma-front-bumper/">Steel Front Bumper for the Tacoma</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Recovery%20Points%20for%20the%20Tacoma%20%E2%80%94%20Rated%20Hooks%2C%20Not%20the%20Tow%20Loop">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

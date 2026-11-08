@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/maintenance">Maintenance</a></nav>
   <h1>Engine Air Filter Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.1–0.25 hrs</span><span class="tm-fact">$15–60</span><span class="tm-fact">2003-2009, 2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.1–0.25 hrs</span><span class="tm-fact">$15–60</span><span class="tm-fact">2003-2009, 2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The 4Runner engine air filter is a five-minute swap with no tools required on any year — flip the clips, lift the airbox lid, drop the new element in. The part you want is <a href="https://parts.nucartoyotanorthattleboro.com/oem-parts/toyota-oem-new-replacement-engine-air-filter-cleaner-element-2010-2019-4runner-2010-2014-fj-cruiser-1780138051" target="_blank" rel="noopener">17801-38051 on a 2010-2024 truck</a> and <a href="https://parts.frontiertoyota.com/oem-parts/toyota-genuine-toyota-engine-air-filter-element-4-0l-v6-4runner-fj-cruiser-tacoma-tundra-178010p010" target="_blank" rel="noopener">17801-0P010 on a 2003-2009</a>. Buy paper, not oiled cotton, and change it at 30,000 miles on pavement or 15,000 if you spend real time on dirt.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>A clogged air filter rarely throws a code. It quietly costs you throttle response and a percent or two of fuel economy, and on a dusty truck it eventually starts passing what it can no longer hold. That last part is the one that matters — a filter loaded past its capacity does not block dirt, it leaks it, and the 1GR-FE&#x27;s mass airflow sensor sits directly downstream. Filter maintenance on this platform is less about horsepower and more about keeping abrasive silica out of an engine that will otherwise run 300,000 miles without complaint.</p>
@@ -263,7 +274,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Item</th><th>Cost</th></tr></thead><tbody><tr><td>Toyota 17801-38051 (5th gen OEM)</td><td>$22-28</td></tr><tr><td>Toyota 17801-0P010 (4th gen OEM)</td><td>$20-26</td></tr><tr><td>Denso 143-3058</td><td>$18-22</td></tr><tr><td>Wix 49143 / FRAM CA10171</td><td>$14-18</td></tr><tr><td>Dry synthetic reusable (AEM/S&amp;B)</td><td>$60-75</td></tr><tr><td>Shop labor to do it for you</td><td>$20-40 on top of the part</td></tr></tbody></table></div>
 <p>OEM elements are available from any Toyota parts counter and the online dealer sites; Denso and Wix are stocked at RockAuto and most local stores. Buying two at a time and keeping the spare in the cargo area is worth doing if you travel dirt — it turns a trip-ending dust event into a ten-minute stop.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Open the hood and locate the black plastic airbox on the passenger side, against the firewall.</li><li>Release the metal spring clips on the airbox lid. They flip up with finger pressure, or with a small flathead if corroded.</li><li>Lift the lid — the intake hose acts as a hinge, so nothing needs disconnecting. Do not force it past its natural travel or you will strain the hose clamp at the throttle body end.</li><li>Pull the old filter straight up and out. Note the orientation: pleats face down into the body of the box.</li><li>Vacuum or wipe out debris in the lower housing. Do not blow it out with compressed air while the intake tube is connected — you will push the debris downstream.</li><li>Drop the new filter in, pleats down. The rubber sealing lip should sit flat all the way around with no gap or pinch.</li><li>Lower the lid and reseat every clip. Confirm each one clicks fully home.</li><li>Close the hood. Drive it — no reset, no relearn, no drive cycle required.</li></ol>
 <h2>Why it works</h2>
 <ul><li>No tools, no jack, no fluids, and no way to get it dangerously wrong</li><li>The cheapest maintenance item on the truck with a measurable effect on how it drives</li><li>Doubles as a five-minute inspection of the airbox for rodent damage</li></ul>
@@ -278,7 +289,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://parts.nucartoyotanorthattleboro.com/oem-parts/toyota-oem-new-replacement-engine-air-filter-cleaner-element-2010-2019-4runner-2010-2014-fj-cruiser-1780138051" target="_blank" rel="noopener">Toyota OEM 17801-38051 Air Filter Element (2010-2024 4Runner / FJ Cruiser)</a></li><li><a href="https://parts.frontiertoyota.com/oem-parts/toyota-genuine-toyota-engine-air-filter-element-4-0l-v6-4runner-fj-cruiser-tacoma-tundra-178010p010" target="_blank" rel="noopener">Genuine Toyota 17801-0P010 Air Filter (4.0L V6 4Runner / FJ Cruiser / Tacoma)</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-cabin-filter-4runner/">Cabin Air Filter Replacement</a></li><li><a href="/db/4runner/4runner-1gr-fe-known-issues/">1GR-FE 4.0L V6 — Known Issues and Preventive Maintenance</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Engine%20Air%20Filter%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,14 +246,14 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/suspension">Suspension</a></nav>
   <h1>Rear Lift Options — Spacers vs. New Coils</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">2–5 hrs</span><span class="tm-fact">$80–700</span><span class="tm-fact">2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">2–5 hrs</span><span class="tm-fact">$80–700</span><span class="tm-fact">2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>If you only drive on pavement and want the truck level, a $100 rear spacer is fine. If you carry a roof rack, drawer system, or bumper, swap to new rear coils — spacers preload the stock spring, accelerate sag, and ride worse on every surface.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-suspension-4runner.webp" alt="Silver fifth-generation Toyota 4Runner climbing rocks in a canyon" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@robsonhmorgan?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Robson Hatsukami Morgan</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 5th-gen 4Runner sags in the rear from the day you drive it home, and any added weight makes it worse. Stock rear coils were specced for a near-empty cargo area; bolt on a roof tent, sliders, a rear bumper with a tire carrier, and a Trasharoo full of recovery gear and you&#x27;ll measure two-plus inches of rear droop within a few months. There are two ways to get the rear back up: a spacer that sits on top of the stock coil, or replacement coils sized for your real load.</p>
 <p>Spacers are cheaper. A Daystar 1.5-inch rear coil spacer kit runs about $90 and installs in two hours. The catch is that a spacer doesn&#x27;t fix anything — it pre-compresses the stock spring, which means the truck rides on a stiffer portion of the spring curve and the spring is closer to coil bind under articulation. Forum consensus on 4Runners.com and Trail4Runner is consistent: <a href="https://trail4runner.com/2017/06/14/5th-gen-4runner-mods-lift-kits/comment-page-1/" target="_blank" rel="noopener">spacers ride harshly compared to new coils</a>, both on and off-road. They&#x27;re acceptable on a stock-weight, mall-crawler 4Runner that needs to look level. They&#x27;re a bad answer on a built truck.</p>
 <p>New coils are the right answer for any 4Runner carrying real weight. <a href="https://www.4runners.com/threads/eibach-vs-dobinson-vs-ome.6417/" target="_blank" rel="noopener">The three brands that come up over and over</a>: Old Man Emu (OME 2890 medium-load coils at about $320 give 2 to 2.5 inches with up to 250 lb constant load), Dobinsons (variable-rate C59 series, around $360, broad load ratings), and Eibach Pro-Truck (around $280, slightly firmer ride). Pair them with appropriate shocks — Bilstein 5100s at $80 each for a budget setup, Bilstein 5160 remote reservoirs for heat dissipation on long trails, or Icon 2.0/2.5 series for a high-end build. Spring rate matters more than brand: get a constant-load coil rated for the weight you actually carry. OME&#x27;s &quot;medium&quot; is right for a roof rack and some recovery gear. &quot;Heavy&quot; is right for a rear bumper and tire carrier. Going too heavy ride harshly; too light squats under load.</p>
 <p>A common mistake: installing rear lift coils without addressing the upper control arms or sub-frame contact points. Once the rear is up 2+ inches, the rear shock may run out of droop travel — check shock length and consider extended-travel rear shocks if you&#x27;ve gone above 2.5 inches.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Weigh the truck loaded with everything you usually carry (CAT scale or estimate by adding component weights).</li><li>Pick a coil rated for that real-world weight — not stock weight.</li><li>Remove the rear wheels; support the axle with a floor jack.</li><li>Disconnect the rear sway bar end links and the rear shock lower bolts to let the axle drop further.</li><li>Disconnect the rear track bar at the axle (leave the frame side).</li><li>Lower the axle until the stock coils are loose; pull them out by hand.</li><li>Install new coils with the isolator pads. Use a coil retainer if articulation is unrestricted.</li><li>Reconnect shocks, end links, and track bar. Torque to spec.</li><li>Drive 10 miles and re-measure ride height. Allow 100 miles for coils to settle.</li></ol>
 <h2>Why it works</h2>
 <ul><li>New coils restore actual spring capacity, not height</li><li>Better ride on every surface compared to spacers</li><li>Wide load-rating selection from OME, Dobinsons, Eibach</li><li>Two-hour install with hand tools</li></ul>
@@ -257,7 +268,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://trail4runner.com/2017/06/14/5th-gen-4runner-mods-lift-kits/comment-page-1/" target="_blank" rel="noopener">5th Gen 4Runner Lift &amp; Leveling Kits: Beginners Guide</a></li><li><a href="https://trail4runner.com/2020/12/18/top-10-5th-gen-4runner-suspension-lift-kits/" target="_blank" rel="noopener">Top 10 5th Gen 4Runner Suspension Lift Kits</a></li><li><a href="https://www.4runners.com/threads/eibach-vs-dobinson-vs-ome.6417/" target="_blank" rel="noopener">Eibach vs Dobinson vs OME (4Runners.com)</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-shocks/">Best Shocks for the 4Runner — Bilstein 5100, Fox 2.0, and OME Nitrocharger</a></li><li><a href="/db/4runner/4runner-upper-control-arms/">Upper Control Arm Upgrade After Lift — 5th Gen 4Runner</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/budget-ladder.html#4runner">Budget Ladder</a> — what to buy first, in order, at any budget</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Rear%20Lift%20Options%20%E2%80%94%20Spacers%20vs.%20New%20Coils">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

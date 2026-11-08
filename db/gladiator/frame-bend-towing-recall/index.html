@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/body">Body &amp; Rust</a></nav>
   <h1>Gladiator frame bend reports and tongue weight</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.0–2.0 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2020-2022</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1.0–2.0 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2020-2022</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>There is no Gladiator frame recall. <a href="https://api.nhtsa.gov/recalls/recallsByVehicle?make=JEEP&amp;model=GLADIATOR&amp;modelYear=2020" target="_blank" rel="noopener">NHTSA&#x27;s recall list for the 2020 Gladiator</a> has none, and neither do the lists for 2021 to 2023. The bent-frame photos that circulated in 2020 showed <a href="https://www.thedrive.com/news/32511/this-is-what-couldve-gone-wrong-with-this-jeep-gladiators-bent-frame" target="_blank" rel="noopener">a modified 2020 Gladiator towing a loaded camping trailer on the Mojave Trail</a>, with no statement from Jeep and no recall or investigation. The lesson still holds: load the trailer correctly, stay inside your truck&#x27;s numbers, and inspect the frame after any overload.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-body-gladiator.webp" alt="Jeep GLADIATOR badge with orange trim on a gray body panel" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@philip_blank?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Philip Blank</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <h3>What Was Found</h3>
@@ -258,7 +269,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>A WD hitch does not raise your tongue weight limit or your tow rating. It manages how the rated load is distributed. Match the spring bar rating to your actual measured tongue weight — bars rated far above your load over-correct and ride harshly; bars rated below won&#x27;t distribute properly. If you&#x27;re towing anything past ~3,500 lb regularly, price a WD hitch alongside the trailer. The <a href="/db/gladiator/payload-towing-reality/">payload and towing reality guide</a> works through how quickly passengers, gear, and tongue weight eat into the JT&#x27;s real-world payload before you ever hit the tow number.</p>
 <h3>After a Suspected Overload</h3>
 <p>If you towed over spec — even once, even briefly — inspect before you assume the frame is fine. Overload damage is cumulative and doesn&#x27;t always show as a dramatic bend. Look for paint cracking or flaking along the frame rail flanges behind the cab, elongated or egg-shaped holes at the hitch mounting bolts, and any daylight or gap change at the rear crossmember-to-rail joints. A frame that has yielded will often show a subtle waviness in the rail that a straightedge laid along the flange will reveal. Any of these findings means a qualified frame shop, not a wait-and-see. A compromised frame also changes how the truck behaves under recovery loads — review <a href="/db/gladiator/jt-recovery-gear-essentials/">recovery gear essentials</a> before you rig to a truck whose structure you&#x27;re unsure of.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Go to nhtsa.gov/recalls, enter your VIN, and deal with any open campaigns</li><li>Inspect the rear frame rails with a flashlight</li><li>If you currently tow, weigh your tongue weight and compare it to 10 to 15 percent of the trailer&#x27;s weight and to the limit in your owner&#x27;s manual</li><li>Adjust trailer loading if it falls outside that range, and check that tongue weight plus cargo stays under your payload</li></ol>
 <h2>Why it works</h2>
 <ul><li>No frame recall means no frame campaign to chase on a used JT</li><li>A frame inspection takes a flashlight and an hour</li><li>Correct trailer loading lowers sway risk and rear-frame load at the same time</li></ul>
@@ -270,7 +281,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://api.nhtsa.gov/recalls/recallsByVehicle?make=JEEP&amp;model=GLADIATOR&amp;modelYear=2020" target="_blank" rel="noopener">NHTSA recalls by vehicle — 2020 Jeep Gladiator</a></li><li><a href="https://www.thedrive.com/news/32511/this-is-what-couldve-gone-wrong-with-this-jeep-gladiators-bent-frame" target="_blank" rel="noopener">This Is What Could&#x27;ve Gone Wrong With This Jeep Gladiator&#x27;s Bent Frame — The Drive</a></li><li><a href="https://theautopian.com/heres-the-physics-behind-tongue-weight-and-why-some-trailers-sway-out-of-control" target="_blank" rel="noopener">Here&#x27;s the physics behind tongue weight — The Autopian</a></li><li><a href="https://www.nhtsa.gov/recalls" target="_blank" rel="noopener">NHTSA recall lookup by VIN</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/payload-towing-reality/">Gladiator payload and towing: the honest numbers</a></li><li><a href="/db/gladiator/jt-steering-shaft-recall/">Gladiator steering recalls: what NHTSA lists</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Gladiator%20frame%20bend%20reports%20and%20tongue%20weight">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -237,6 +248,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>TJ Rear Drum Brake Service — Shoes, Hardware, and Adjustment</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2–4 hrs</span><span class="tm-fact">$40–120</span><span class="tm-fact">1997-2006</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>TJ rear drums are underappreciated and often neglected — most owners replace front pads and ignore the rears. Glazed shoes and a misadjusted star wheel are responsible for more TJ brake fade than worn pads.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Brake work decides whether the vehicle stops. Bleed the system, check for leaks, and test at walking speed before you drive it in traffic. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-brakes.webp" alt="Worn brake caliper and rotor on a wheel hub with the wheel removed" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@ben_brunner?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Benjamin Brunner</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The TJ runs rear drum brakes on all trims (base and Rubicon). They&#x27;re a fully mechanical system: two curved brake shoes press against the inside of a cast drum when the wheel cylinder extends. The parking brake integrates here too — a cable pulls the rear shoes directly. Drum brakes <a href="https://www.autoserviceworld.com/how-drum-brakes-work/" target="_blank" rel="noopener">self-adjust through a star wheel adjuster</a> when the vehicle is driven in reverse and the brakes are applied, but that adjuster gets lazy over time and the shoes drift away from the drum, extending pedal travel.</p>
 <p>Service life on rear shoes is typically 40,000 to 60,000 miles in normal use, but varies widely — high-mileage off-road use shortens it, mostly because grit gets past the drum and acts as an abrasive. Glazed shoes (shiny, hardened contact surface) can happen earlier if the Jeep sat for a long time without use, which locks the shoes against the drum and bakes them.</p>
@@ -268,7 +280,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.autoserviceworld.com/how-drum-brakes-work/" target="_blank" rel="noopener">How Drum Brakes Work — Auto Service World</a></li><li><a href="https://www.wranglertjforum.com/forum/" target="_blank" rel="noopener">TJ rear drum brake DIY</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-front-pads/">Front Brake Pad and Rotor Replacement</a></li><li><a href="/db/tj/tj-battery-upgrade/">TJ Battery Replacement and Upgrade Guide</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20TJ%20Rear%20Drum%20Brake%20Service%20%E2%80%94%20Shoes%2C%20Hardware%2C%20and%20Adjustment">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

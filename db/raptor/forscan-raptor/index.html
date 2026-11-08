@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/raptor/">Ford F-150 Raptor</a> / <a href="/db/#/raptor/category/tools_diagnostic">Tools &amp; Diag</a></nav>
   <h1>FORScan on the Raptor: Read Codes, Enable Features, Avoid Trouble</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–2.0 hrs</span><span class="tm-fact">$15–70</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–2.0 hrs</span><span class="tm-fact">$15–70</span><span class="tm-fact">2010-2014, 2017-2020, 2021-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>FORScan is the tool that turns a generic OBD2 port into real access to a Raptor&#x27;s Ford-specific modules — it reads manufacturer codes a $30 code reader can&#x27;t see, datalogs Live Valve and EcoBoost parameters, and can enable factory features Ford left switched off (auto-lock, lighting tweaks, gauge options). It&#x27;s free for personal use, but it needs the right adapter and a careful hand. Change one setting at a time and record the original value, because module programming can brick functions if you guess.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-tools-diagnostic.webp" alt="Hands using a rugged diagnostic scan tablet resting over an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@edoardo_cuoghi_98?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Edoardo Cuoghi</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>A basic OBD2 scanner reads generic powertrain codes — enough to know the engine has a problem, rarely enough to know which one on a modern Ford. FORScan is software (Windows, Android, iOS) that talks to Ford&#x27;s proprietary module network. With the right adapter it reads and clears manufacturer-specific codes from every module — engine, transmission, ABS, body, the Live Valve suspension controller — and lets you log live data the generic tools can&#x27;t reach.</p>
@@ -251,7 +262,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>The big three mistakes: using a single-bus cheap adapter and wondering why half the modules are invisible; programming with a weak battery and corrupting a module; and changing multiple As-Built values at once so you can&#x27;t isolate a problem. Respect all three and FORScan is one of the most useful tools a Raptor owner can have for under $30.</p>
 <h3>Costs and Sources</h3>
 <p>Adapter: $25–$60 depending on USB vs. switchable Bluetooth. FORScan software: free for personal use, with an inexpensive extended license for deeper programming. Total entry cost is roughly $30 — the cheapest serious diagnostic capability you can add to the truck, and it pays for itself the first time it saves a dealer diagnostic fee.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Buy a FORScan-supported, bus-switchable adapter (OBDLink EX for Windows is the safe default)</li><li>Install FORScan and register the free personal license (an extended license unlocks more programming functions if you need them)</li><li>Connect with the ignition on, let FORScan identify the modules</li><li>For diagnostics: read codes across all modules, note the Ford-specific codes, clear only after you&#x27;ve recorded them</li><li>For datalogging: select the PIDs you care about (charge temp, fuel pressure, trans temp, Live Valve), log during a representative drive, review afterward</li><li>For feature enabling: connect a battery maintainer, open the As-Built section, record the current value, change one setting using a vetted community value, save, and test</li><li>If anything misbehaves, restore the original value you recorded</li></ol>
 <h2>Why it works</h2>
 <ul><li>Reads Ford-specific codes and datalogs parameters generic scanners can&#x27;t touch</li><li>Free software; the only real cost is a $30 adapter</li><li>Enables factory features the hardware already supports</li></ul>
@@ -266,7 +277,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://forscan.org" target="_blank" rel="noopener">FORScan official documentation and supported adapters</a></li><li><a href="https://www.fordraptorforum.com" target="_blank" rel="noopener">Raptor FORScan feature-enable community spreadsheets</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/raptor/raptor-obd2-scan-tools-and-tpms-relearn/">Raptor Diagnostics: OBD2 Scanners, TPMS Relearn, and What FORScan Can&#x27;t Do</a></li><li><a href="/db/raptor/raptor-multimeter-electrical-diagnosis/">Multimeter Electrical Diagnosis — Find the Fault Before You Throw Parts at It</a></li><li><a href="/raptor/">All Ford F-150 Raptor guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20FORScan%20on%20the%20Raptor%3A%20Read%20Codes%2C%20Enable%20Features%2C%20Avoid%20Trouble">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

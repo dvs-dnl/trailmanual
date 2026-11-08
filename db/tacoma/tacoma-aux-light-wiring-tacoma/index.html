@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,8 +246,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/electrical">Electrical</a></nav>
   <h1>Wiring Auxiliary Lights — Relays, Fuses, and a Clean Install</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–4 hrs</span><span class="tm-fact">$25–120</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–4 hrs</span><span class="tm-fact">$25–120</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Wire auxiliary lights through a relay, always — never run light-bar current straight through a dash switch. A relay lets a small switch trigger a heavy power circuit pulled directly from the battery, protected by an inline fuse sized to the light&#x27;s draw. A pre-made 40A relay harness with switch and fuse runs about $22 and covers most LED bars and pods. Plan 2–3 hours for a clean, weatherproof install with the wires loomed and the switch mounted properly. The two things that separate a good install from a fire hazard: a correctly sized fuse and weatherproof connections.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Disconnect the battery before you start. Fuse every new circuit at the source and size the wire for the load and the run. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-electrical.webp" alt="Hands working at an open under-hood fuse and relay box" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@sincerelymedia?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Sincerely Media</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Adding lights to a Tacoma is one of the most common first electrical projects, and a relay harness makes it a defined, repeatable job. The reason you use a relay comes down to current: a 30-watt light bar can pull 15+ amps, and a 50-watt bar more. Pushing that through a dash switch and thin signal wire overheats the switch and the wiring. A relay solves it — your switch <a href="https://www.the12volt.com" target="_blank" rel="noopener">only carries the tiny current needed to energize the relay coil</a>, while the relay&#x27;s heavy contacts pass full battery current to the lights through a properly fused wire.</p>
 <p><strong>Buy the harness, not the headache.</strong> A pre-made relay harness (Nilight, Auxbeam, and similar) includes the relay, an inline fuse, a backlit switch, and color-coded leads already crimped. For about $22 it removes the guesswork. Building your own from a bare Bosch-style relay is a fine learning project, but the pre-made harness is what most owners should run.</p>
@@ -244,7 +256,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Switched vs. always-on trigger.</strong> The relay trigger wire (and switch backlight) should come from a switched 12V source — a circuit that is live only with the key on — so you cannot leave the lights on and kill the battery, and so they shut off when you do. An add-a-circuit fuse tap in the interior fuse box is the cleanest source. On 2nd/3rd-gen trucks the upfitter/accessory fuse slots or a known ignition-switched slot work well. Verify with a test light that the slot is dead with the key off.</p>
 <p><strong>The firewall pass-through.</strong> Run the power wire from the battery to the lights, and the trigger wire from the cab to the relay. Use an existing rubber firewall grommet rather than drilling a new hole — 2nd and 3rd-gen Tacomas <a href="https://www.tacomaworld.com" target="_blank" rel="noopener">have a large grommet on the driver side behind the dash</a>. Seal any pass-through with silicone so water and dust stay out.</p>
 <p><strong>Safety — work on the power side last.</strong> Disconnect the battery negative before you start. Connect the relay&#x27;s battery feed (the fused power lead) to the battery only when everything else is wired and routed. A loose, hot power lead arcing against the body is how you damage the truck or start a fire.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Disconnect the battery negative terminal.</li><li>Mount the light(s) and route the power output leads back toward the engine bay relay location.</li><li>Mount the relay near the battery on solid metal, away from heat and the exhaust.</li><li>Run the relay trigger wire and switch backlight wire through a firewall grommet into the cab.</li><li>Tap a switched 12V source with an add-a-circuit fuse tap (verify it is dead key-off with a test light).</li><li>Mount the rocker switch in a blank dash panel or A-pillar pod. Connect switch to trigger and to the switched source.</li><li>Connect the relay output to the light power leads; connect lights and relay to a clean chassis ground (bare metal, not paint).</li><li>Set the inline fuse to ~125% of the light&#x27;s actual draw — not the harness max rating.</li><li>Loom and zip-tie all wiring away from heat, moving parts, and pinch points. Heat-shrink every connection.</li><li>Reconnect the battery negative last. Test: lights on with switch, off with switch, and off with the key removed.</li></ol>
 <h2>Why it works</h2>
 <ul><li>A relay keeps heavy current off the dash switch — the correct, safe way to wire lights</li><li>Pre-made harnesses make it a defined 2–3 hour job for ~$22</li><li>Switched-source trigger means you can&#x27;t drain the battery</li><li>Reusing a firewall grommet keeps the cab watertight</li></ul>
@@ -259,7 +271,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.tacomaworld.com" target="_blank" rel="noopener">Tacoma World: 2nd/3rd-gen firewall grommet pass-through locations</a></li><li><a href="https://www.the12volt.com" target="_blank" rel="noopener">Relay wiring 101 — pins 30/85/86/87 explained</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-aux-lighting-pods/">Auxiliary Light Pods and Bar</a></li><li><a href="/db/tacoma/tacoma-dual-battery-tacoma/">Dual Battery Setup — Power for the Trail Without Killing Your Start Battery</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/wire-gauge-calculator.html">Wire Gauge Calculator</a> — wire size for the amps and the run length</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Wiring%20Auxiliary%20Lights%20%E2%80%94%20Relays%2C%20Fuses%2C%20and%20a%20Clean%20Install">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jl/">Jeep Wrangler JL</a> / <a href="/db/#/jl/category/wheels_tires">Wheels &amp; Tires</a></nav>
   <h1>Wheel Selection for the JL — Steel, Alloy, and Beadlock</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$380–1480</span><span class="tm-fact">2018-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$380–1480</span><span class="tm-fact">2018-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The JL uses a 5x127 (5x5&quot;) bolt pattern and needs 4.5&quot;–5&quot; of backspacing on most lifted builds — get those two numbers right and the wheel selection becomes straightforward.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires-jl.webp" alt="All-terrain tire and fender flare on a red Jeep Wrangler JL Rubicon" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@kingtographer?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Derrick Brooks</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Wheel selection for the JL is primarily a function of bolt pattern, backspacing, and use case. The bolt pattern is fixed: 5x127mm (often called 5x5&quot;). Backspacing determines how far the wheel face sits inside the fender relative to the wheel centerline — too much backspace and the tire tucks too far under the fender, creating clearance issues on a lifted rig; too little and the tire pokes out beyond the fender flares, requiring flare extensions or risking legality issues in some states. For a lifted JL running 35&quot;–37&quot; tires, 4.5&quot;–5&quot; backspacing puts the tire face at the fender edge on most builds.</p>
@@ -244,7 +255,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><a href="https://fuelmfg.com/wheels/d533-boost.html" target="_blank" rel="noopener">The Fuel Boost D533 at $185 per wheel</a> is the value alloy option with a more aggressive aesthetic. The offset (-12mm) provides slightly more tire clearance than the Method on non-Rubicon fenders. Fuel&#x27;s construction quality is solid for the price point, and the D533 is widely available.</p>
 <p><a href="https://www.kmcwheels.com/products/machete-crawl-beadlock" target="_blank" rel="noopener">The KMC Machete Crawl Beadlock at $320 per wheel</a> is the choice for builds that run reduced tire pressure on technical terrain. Beadlock wheels clamp the tire bead mechanically, preventing tire de-beading at low pressures (12–20 psi range). The KMC unit is a two-piece design with an inner ring that can be retorqued periodically — correct maintenance is required. DOT-approved beadlocks don&#x27;t exist in the traditional sense; the Machete Crawl is labeled for off-road use only, which has legal implications for street use in some states.</p>
 <p><strong>TPMS:</strong> The JL uses a direct TPMS system. When changing to aftermarket wheels, your factory TPMS sensors must be transferred by a tire shop (requires proper tools) or replaced with aftermarket sensors verified for JL compatibility. Budget $15–$20 per sensor for new ones if not reusing factory sensors.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Transfer or install TPMS sensors onto new wheels before mounting tires. This is done at a tire shop with a sensor programming tool.</li><li>Mount tires onto new wheels at the tire shop, specifying the correct mounting torque for bead seating.</li><li>For beadlock wheels (KMC Machete Crawl): the outer ring must be installed with the tire, with ring bolt torque set to spec and re-checked at first install — consult the KMC installation instructions for bolt pattern and torque spec.</li><li>Lift the vehicle on jack stands, remove factory wheels.</li><li>Install new wheel/tire assemblies. Torque lug nuts to the wheel maker&#x27;s number in a star pattern (factory lugs on factory wheels are 130 ft-lb).</li><li>Lower vehicle and re-torque lug nuts after 50 miles.</li><li>Confirm backspacing clearance at full steering lock and full flex — look for rubbing at the inner fender liner, upper control arm, and spring perch.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Method 305 NV&#x27;s no-void design is the most impact-resistant alloy option in this price range</li><li>Steel wheels (Pro Comp) are the practical choice for builds that regularly contact rocks — cheaper to replace than alloys</li><li>KMC Machete Crawl beadlocks enable low-pressure trail operation that dramatically improves rock-crawl traction</li><li>Correct backspacing on all listed options for lifted JL builds — no wheel spacers required</li><li>All options listed cover the full 5x127 bolt pattern JL requirement</li></ul>
@@ -259,7 +270,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.methodracewheels.com/collections/jeep-wrangler-jl-wheels" target="_blank" rel="noopener">Method Race Wheels 305 NV Fitment Guide</a></li><li><a href="https://fuelmfg.com/wheels/d533-boost.html" target="_blank" rel="noopener">Fuel Off-Road D533 Boost Wheel Specs</a></li><li><a href="https://www.kmcwheels.com/products/machete-crawl-beadlock" target="_blank" rel="noopener">KMC Machete Crawl Beadlock Overview</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jl/jl-tire-fitment-37s/">Running 37&quot; Tires on the JL — Rubicon vs Non-Rubicon Fitment</a></li><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/lift-tire-fitment.html">Lift &amp; Tire Matrix</a> — what tire fits at each lift height, with rubbing notes and gearing</li><li><a href="/db/wheel-offset-visualizer.html">Wheel Offset &amp; Backspacing Visualizer</a> — see where a wheel sits before you buy it</li><li><a href="/db/tire-pressure-airdown.html">Tire Pressure / Airdown</a> — trail pressure for your tire size and terrain</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Wheel%20Selection%20for%20the%20JL%20%E2%80%94%20Steel%2C%20Alloy%2C%20and%20Beadlock">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

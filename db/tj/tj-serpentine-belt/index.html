@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tj/">Jeep Wrangler TJ</a> / <a href="/db/#/tj/category/maintenance">Maintenance</a></nav>
   <h1>Serpentine Belt Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$30–60</span><span class="tm-fact">1997-2006</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">0.5–1 hrs</span><span class="tm-fact">$30–60</span><span class="tm-fact">1997-2006</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>If your TJ&#x27;s serpentine belt is older than five years, or shows cracks across the ribs when you flex it backward, replace it before it strands you. The whole job is under an hour with one breaker bar. On the 4.0L the same belt drives the water pump, alternator, and power steering, so a failure is an overheat, a dead charging system, and heavy steering all at once.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The TJ uses a single six-rib serpentine belt around the crank, water pump, alternator, power-steering pump, A/C compressor if equipped, and a spring-loaded automatic tensioner. Belts fail on age more than mileage — the rubber hardens and the ribs crack whether the truck is driven or parked, so a garage-kept TJ with 30,000 miles and a ten-year-old belt is as likely to throw one as a daily driver at 120,000.</p>
@@ -252,7 +263,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Costs and sources</h3>
 <p>Belt: $24–40 (Gates K060910 around $24, Mopar 5281668AA around $38). Tensioner assembly if needed: $45–90. Idler pulley: $20–35. A shop charges roughly $120–180 for the belt alone, which is most of the reason to do it yourself.</p>
 <p>Carry the old belt as a trail spare once it is off, provided it is not cracked through — a used belt in the back is what gets you off a forest road. Pair this with the rest of the under-hood maintenance set: the <a href="/db/tj/tj-alternator-replacement/">alternator</a> and <a href="/db/tj/tj-radiator-replacement/">radiator</a> guides cover the two accessories most likely to be the reason you are looking at the belt in the first place.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park the TJ, key off, hood up, engine cool. Cold matters — the belt path runs next to the exhaust manifold.</li><li>Photograph the existing belt routing from two angles, or note the diagram on the radiator support.</li><li>Position a 1/2-inch breaker bar or a dedicated serpentine tool on the tensioner pulley center bolt.</li><li>Rotate the tensioner counterclockwise to relieve tension and hold it there.</li><li>Slide the belt off the alternator pulley first, then release the tensioner slowly and remove the belt.</li><li>Spin each pulley by hand and swing the tensioner through its travel — alternator, idler, tensioner, water pump, power steering, A/C.</li><li>Compare the new belt to the old one on the bench for length and rib count.</li><li>Route the new belt per your photo, seating it on every pulley except the alternator.</li><li>Pull the tensioner counterclockwise again and slip the belt onto the alternator pulley.</li><li>Release the tensioner slowly against the new belt and confirm every rib is seated in every groove — a belt riding one rib off will destroy itself in minutes.</li><li>Start the engine and watch the belt track for 30 seconds. No squeal, no walking side to side on the pulleys, tensioner arm steady rather than oscillating.</li></ol>
 <h2>Why it works</h2>
 <ul><li>The cheapest preventive job in the engine bay</li><li>30 to 60 minutes start to finish</li><li>No special tools beyond a breaker bar</li><li>Forces an inspection of every accessory pulley bearing while access is open</li></ul>
@@ -267,7 +278,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.justforjeeps.com/sebefor4tjwj.html" target="_blank" rel="noopener">Mopar Serpentine Belt 5281668AA listing</a></li><li><a href="https://wranglertjforum.com/threads/serpentine-belt-part-number.2613/" target="_blank" rel="noopener">Wrangler TJ Forum — belt part number discussion</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tj/tj-oil-change-tj/">Oil Change — 4.0L and 2.5L</a></li><li><a href="/db/tj/tj-spark-plugs-tj/">Spark Plug Replacement — 4.0L</a></li><li><a href="/tj/">All Jeep Wrangler TJ guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Serpentine%20Belt%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

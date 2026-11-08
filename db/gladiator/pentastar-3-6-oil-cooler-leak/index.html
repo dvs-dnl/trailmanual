@@ -213,6 +213,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -343,7 +354,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/engine">Engine</a></nav>
   <h1>Pentastar 3.6L oil cooler / filter housing leak (TSB fix)</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2.0–4.0 hrs</span><span class="tm-fact">$80–180</span><span class="tm-fact">2020-present</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">2.0–4.0 hrs</span><span class="tm-fact">$80–180</span><span class="tm-fact">2020-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The Pentastar 3.6L&#x27;s <a href="https://www.nhtsa.gov/vehicle/2020/JEEP/GLADIATOR/PU/AWD" target="_blank" rel="noopener">plastic oil filter housing develops cracks</a> around 60,000–100,000 miles. When it fails, you get oil in the coolant, coolant in the oil, or both. The fix is replacing the factory plastic housing with a metal aftermarket unit. This isn&#x27;t a difficult job — it&#x27;s a medium-complexity engine bay task.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-engine.webp" alt="Water pump, pulley and wiring connectors on the side of an engine block" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@thebakemonoprojects?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Keiht Martinez</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <h3>What&#x27;s Happening</h3>
@@ -364,7 +375,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <h3>Preventing the next failure</h3>
 <p>The plastic-to-metal swap is the prevention — a metal Dorman housing removes the material failure mode entirely, so once it&#x27;s on, this specific leak does not come back. Beyond that:</p>
 <ul><li><strong>Watch the coolant reservoir at every oil change.</strong> A faint brown tint or an oily ring at the cap fill line is the earliest warning, usually months before external dripping. Catching it here means a planned repair instead of a roadside one.</li><li><strong>Don&#x27;t over-torque the housing bolts.</strong> The most common way people re-introduce a leak on the metal unit is crushing the gasket by exceeding the ~18 ft-lb spec. Use a torque wrench, not feel.</li><li><strong>Keep coolant fresh.</strong> Degraded, acidic coolant accelerates gasket and seal wear at every joint in the system, including a freshly installed housing. Stay on the coolant interval rather than running the factory fill indefinitely.</li></ul>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Allow the engine to cool completely — at least 2 hours after last operation. Do not work on a hot cooling system.</li><li>Drain the coolant from the lower radiator drain petcock into a catch pan. Mark the container — used coolant is toxic and needs proper disposal.</li><li>Drain the engine oil — place a drain pan under the oil drain plug, remove the plug, remove the oil filter cap from the housing to help the oil drain faster.</li><li>Disconnect the coolant hoses from the oil cooler housing (two hoses, clamps). Have rags ready — residual coolant will drain.</li><li>Remove the oil filter housing mounting bolts (typically 10mm). Note the number and location.</li><li>Lift the housing assembly free of the block. Inspect the block sealing surface — clean it with a rag if there&#x27;s residue.</li><li>Install the new metal housing with a fresh gasket/O-ring kit. Apply no sealant unless the kit instructions specify it. Torque mounting bolts to spec (check the Dorman instructions — typically 18 ft-lb for the housing bolts).</li><li>Reconnect coolant hoses. Reinstall drain plug and new oil filter.</li><li>Fill engine oil: 0W-20 full synthetic, the JT spec in this site&#x27;s <a href="/db/gladiator/jt-oil-change-pentastar/">oil change guide</a>. <a href="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/specs/2024_JP_Gladiator_SPqsblublp94vcjnfthqnmb0dt0q.pdf" target="_blank" rel="noopener">Jeep&#x27;s 2024 spec sheet</a> lists 5.7 quarts with filter, so have 6 on hand.</li><li>Refill cooling system with fresh coolant. Burp the system: leave the reservoir cap loose, run the engine to temp, watch for air bubbles, then seal.</li><li>Check for leaks after first full heat cycle. Recheck coolant level when cold.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Metal housing eliminates the material failure mode that caused the original crack</li><li>Direct-fit replacement — no modifications required</li><li>Resolves oil-coolant mixing before it causes downstream engine damage</li></ul>
@@ -379,7 +390,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/specs/2024_JP_Gladiator_SPqsblublp94vcjnfthqnmb0dt0q.pdf" target="_blank" rel="noopener">2024 Jeep Gladiator specifications — Stellantis</a></li><li><a href="https://www.nhtsa.gov/vehicle/2020/JEEP/GLADIATOR/PU/AWD" target="_blank" rel="noopener">NHTSA TSB database — Pentastar 3.6L oil cooler housing failures</a></li><li><a href="https://www.dormanproducts.com" target="_blank" rel="noopener">Dorman 926-959 product page</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/jt-oil-change-pentastar/">Oil Change — Jeep Gladiator JT 3.6L Pentastar V6</a></li><li><a href="/db/gladiator/jt-coolant-flush/">Coolant Flush — Jeep Gladiator JT</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Pentastar%203.6L%20oil%20cooler%20/%20filter%20housing%20leak%20%28TSB%20fix%29">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/4runner/">Toyota 4Runner</a> / <a href="/db/#/4runner/category/tools_diagnostic">Tools &amp; Diag</a></nav>
   <h1>CRAWL Control vs. A-TRAC — When to Use Each</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0–1 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2010-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0–1 hrs</span><span class="tm-fact">$0</span><span class="tm-fact">2010-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p><a href="https://www.toyota-4runner.org/5th-gen-t4rs/156373-what-difference-between-atrac-crawl-control.html" target="_blank" rel="noopener">Use A-TRAC when you need brake-based traction at any low speed</a> and want to stay on the throttle yourself; use CRAWL Control when terrain is steep or technical enough that you&#x27;d rather hand off throttle and brakes to the truck and focus only on steering.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-tools-diagnostic.webp" alt="Hands using a rugged diagnostic scan tablet resting over an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@edoardo_cuoghi_98?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Edoardo Cuoghi</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Both systems live on 5th-gen 4Runner TRD Off-Road, TRD Pro, and Trail trims, and both require 4LO to engage. That&#x27;s where the similarity ends. Mixing them up — or not knowing which one is doing the work — leaves drivers either fighting the truck or missing the more manageable line through an obstacle.</p>
@@ -244,7 +255,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Toyota&#x27;s own guidance is to use speeds 1–2 for descents, 3–5 for ascents, and any speed on flat technical terrain. Lower settings give the system more time to react. Setting 5 in deep sand keeps you from bogging down.</p>
 <p>Where drivers go wrong: leaving CRAWL Control engaged in terrain that doesn&#x27;t need it. The system constantly cycles the ABS, which wears the pump and is unnecessary on moderate dirt roads where A-TRAC alone (or no electronics at all) would handle the conditions. Treat CRAWL Control like a tool you reach for in genuinely difficult spots, not a default setting.</p>
 <p>Multi-Terrain Select (MTS) is a separate adjustment that modifies throttle response and traction sensitivity for surface type. It works alongside both A-TRAC and CRAWL — it doesn&#x27;t replace either. Mud &amp; Sand allows more wheel spin before A-TRAC intervenes; Rock allows the least.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Shift transfer case to 4LO with the truck stopped and in neutral.</li><li>For A-TRAC: press the A-TRAC button on the overhead console. Drive normally — system intervenes automatically when wheel slip is detected.</li><li>For CRAWL: press the CRAWL button on the overhead console. Use the dial to select speed 1–5.</li><li>Release throttle and brake. Steer only.</li><li>To disengage CRAWL: press the button again, or tap brake/throttle.</li><li>To disengage A-TRAC: press button again or shift out of 4LO.</li></ol>
 <h2>Why it works</h2>
 <ul><li>A-TRAC: driver retains full control, less wear on brakes</li><li>A-TRAC: excellent for momentum-based obstacles</li><li>CRAWL: hands-off speed control on technical terrain</li><li>CRAWL: superior for steep, slow descents</li></ul>
@@ -256,7 +267,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://trail4runner.com/2018/01/30/5th-gen-4runner-off-road-features/" target="_blank" rel="noopener">5th Gen 4Runner Off-Road Features — Trail4Runner</a></li><li><a href="https://www.toyota-4runner.org/5th-gen-t4rs/156373-what-difference-between-atrac-crawl-control.html" target="_blank" rel="noopener">What is the difference between ATRAC and Crawl control? — Toyota 4Runner Forum</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/4runner/4runner-common-trouble-codes/">Common 4Runner Trouble Codes Decoded (4th and 5th Gen)</a></li><li><a href="/4runner/">All Toyota 4Runner guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20CRAWL%20Control%20vs.%20A-TRAC%20%E2%80%94%20When%20to%20Use%20Each">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

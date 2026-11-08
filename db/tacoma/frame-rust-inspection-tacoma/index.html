@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/body">Body &amp; Rust</a></nav>
   <h1>Frame Rust Inspection — What to Look For</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$0–30</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$0–30</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Toyota&#x27;s own inspection standard <a href="https://www.autosafety.org/wp-content/uploads/import/phpp6bVyg_TacomaCustomerSupportProgram.pdf" target="_blank" rel="noopener">treated a 10mm-or-larger perforation through the frame as disqualifying</a> — but by the time a hole that size exists, the rot has been working from the inside for years. Check the passenger-side rail beside the catalytic converter, the frame seams, and the rear leaf-spring hangers first, and do it with a pick and a hammer rather than your eyes. This inspection is free, takes an hour, and is the single most important thing you can do before buying a used Tacoma or bolting armor to one.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-body.webp" alt="Rust bleeding through blue paint on a steel panel" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@julianhochgesang?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Julian Hochgesang</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Frame rust is the defining known issue with these trucks. <a href="https://www.motorverso.com/tacoma-frame-rust/" target="_blank" rel="noopener">Toyota ran Customer Support Programs and settled a class action</a> covering the 1995–2004 and 2005–2010 model years because frames were rusting from the inside out — the result of insufficient e-coat coverage inside seams and boxed sections where salt and moisture collect and never dry. The 2011–2015 trucks fared meaningfully better. The 3rd gen (2016+) moved to a galvanized frame with far better corrosion resistance. No Tacoma is immune if it lives where roads get salted.</p>
@@ -257,7 +268,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Treatment on a scaled frame.</strong> Wire wheel to bare metal where you can reach, then a converter and encapsulator system (POR-15 or similar, $60–120 for a kit). Understand what this does: it slows further loss. Coating never restores structural metal that is already gone.</p>
 <p><strong>Perforated frame.</strong> A frame replacement runs $8,000–15,000 in the aftermarket, which is beyond the value of nearly every truck this applies to. Welding plates over a rotten section is not a repair — the surrounding metal is compromised too, and in many jurisdictions a plated frame will not pass safety inspection. If the frame is perforated in a load-bearing area, the truck&#x27;s honest remaining role is parts.</p>
 <p>The stakes here are why this inspection is the first item on any Tacoma pre-purchase checklist, and why it belongs in your calendar every fall if you live where roads get salted. It is also non-negotiable before you bolt anything structural to the frame — <a href="/db/tacoma/tacoma-sliders/">rock sliders</a> or a <a href="/db/tacoma/tacoma-rear-bumper/">rear bumper</a> welded or bolted to compromised steel is armor mounted to nothing, and welding on a rusty frame burns off what coating remains on the inside wall where you cannot see it.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Park on level ground, set the parking brake, and chock the wheels.</li><li>Get underneath with a bright flashlight, a pick, and a small hammer. Wear eye protection — rust scale falls.</li><li>Probe the passenger-side rail beside the catalytic converter first. This is Toyota&#x27;s documented failure spot.</li><li>Tap along both frame rails end to end, listening for the change from a ring to a dull thud.</li><li>Inspect every frame seam and crossmember weld for bubbling paint, brown weeping stains, or sheet flaking.</li><li>Probe the rear leaf-spring shackle hangers and their mounting areas from both sides.</li><li>Check the cab mount pockets for rot and look at door and bed gaps from outside for signs the cab has settled.</li><li>Borescope the inside of the rails through the drain holes if you have access to one.</li><li>Classify what you found: surface rust, scale, or perforation.</li><li>Photograph anything questionable with a tape measure in frame for scale.</li><li>Run the VIN through Toyota&#x27;s recall lookup and call a dealer if you find perforation, even though coverage has likely lapsed.</li><li>Repeat the whole inspection every fall in a salt-belt climate, and always before a suspension or armor install.</li></ol>
 <h2>Why it works</h2>
 <ul><li>Costs nothing but an hour and catches problems while they are still treatable</li><li>The single highest-value item on a used Tacoma pre-purchase inspection</li><li>Distinguishes cosmetic surface rust from an actual structural problem</li><li>Required due diligence before mounting sliders, bumpers, or a new suspension</li><li>Photo documentation gives you real leverage in a purchase negotiation</li></ul>
@@ -269,7 +280,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.autosafety.org/wp-content/uploads/import/phpp6bVyg_TacomaCustomerSupportProgram.pdf" target="_blank" rel="noopener">1995-2000 Toyota Tacoma Frame Rust — Customer Support Program PDF</a></li><li><a href="https://www.motorverso.com/tacoma-frame-rust/" target="_blank" rel="noopener">Toyota Tacoma Frame Rust: Did Toyota Ever Offer A Recall For This? — Motorverso</a></li><li><a href="https://www.cherishyourcar.com/toyota-tacoma-frame-recall/" target="_blank" rel="noopener">Toyota Tacoma Frame Recall — Cherish Your Car</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/build-cost-tracker.html">Build Cost Tracker</a> — price the build and track what is spent</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Frame%20Rust%20Inspection%20%E2%80%94%20What%20to%20Look%20For">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

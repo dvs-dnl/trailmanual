@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/fuel">Fuel</a></nav>
   <h1>Fuel Pump and Filter Service — Diagnosis and Replacement</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–4 hrs</span><span class="tm-fact">$60–350</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.5–4 hrs</span><span class="tm-fact">$60–350</span><span class="tm-fact">1995-2004, 2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Most Tacomas do not have a serviceable external fuel filter — <a href="https://techinfo.toyota.com" target="_blank" rel="noopener">the filter is an in-tank strainer integrated with the pump module</a>, designed to last the life of the pump. So &quot;changing the fuel filter&quot; usually means dropping the tank or accessing the pump through the in-bed access panel (where equipped) and replacing the whole module. Symptoms of a failing pump: <a href="https://www.tacomaworld.com" target="_blank" rel="noopener">long cranks, hot-restart no-starts, stumbling under load</a>, and whining from the tank. A Denso pump module runs about $180; the job is 2–4 hours and the real hazard is fuel, not difficulty. Have a fire extinguisher in reach and relieve fuel pressure first.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-fuel.webp" alt="Mechanical diesel injection pump with steel fuel lines on an old engine" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@quadratmedia?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Wolfgang Rottmann</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The Tacoma fuel system is reliable, and a healthy pump can go well past 150,000 miles. When people search for a &quot;fuel filter change&quot; on a Tacoma, they are usually surprised to learn there is no separate spin-on or inline filter to swap on most years. Toyota integrated the filter as a strainer/sock inside the in-tank pump module. That changes the job from a quick filter swap into a pump-module service.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Confirm with a pressure test.</strong> The honest diagnostic is a fuel pressure gauge. Compare actual rail pressure against spec for your year. Low or dropping pressure points to the pump or strainer; pressure that bleeds off after shutoff points to a leaking injector, regulator, or check valve. Guessing and throwing a $180 pump at an intermittent no-start is how people spend money without fixing anything.</p>
 <p><strong>Access — tank drop vs. access panel.</strong> Some Tacomas (notably certain 2nd-gen configurations) have an access panel under the rear seat or in the bed that reaches the pump without dropping the tank. Many do not, and the tank must be lowered. A lower tank means draining fuel down first (run it near empty before the job), disconnecting filler and vent hoses, supporting the tank on a jack, and unbolting the straps. Work with the tank as empty as you can manage — a full tank is heavy and awkward and adds spill risk.</p>
 <p><strong>Safety — fuel is the real danger here.</strong> This is the most fire-sensitive job a DIYer commonly does. Before opening anything: relieve fuel pressure (pull the fuel pump fuse or relay and run the engine until it stalls), then disconnect the battery negative. Work outdoors or in a well-ventilated space, never near an open flame, water heater pilot, or anything that sparks. Keep a class-B fire extinguisher within arm&#x27;s reach. Catch fuel in an approved container, and clean up spills immediately. Replace the tank-to-module O-ring/seal whenever you open it — a reused seal is a leak waiting to happen.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Run the tank low on fuel before the job to reduce weight and spill risk.</li><li>Relieve fuel pressure: pull the fuel pump fuse/relay, start the engine, and let it stall. Crank briefly to bleed residual pressure.</li><li>Disconnect the battery negative terminal.</li><li>Access the pump: open the in-bed/under-seat access panel if equipped, or lower the tank (support on a jack, disconnect lines, vent, and straps).</li><li>Disconnect the electrical connector and fuel lines from the pump module. Catch any fuel.</li><li>Remove the lock ring or retaining bolts and lift the module out carefully — the float arm and strainer are fragile.</li><li>Replace the full module (or the strainer/filter sock if you are only servicing the filter and the pump tests good).</li><li>Install a new tank seal/O-ring. Seat the module and lock ring in the correct orientation.</li><li>Reconnect lines and the electrical connector. Reinstall the tank or access panel.</li><li>Reinstall the fuse/relay, reconnect the battery, and cycle the key on/off a few times to prime before cranking.</li><li>Start, check for leaks at every connection, and confirm normal pressure and a clean start.</li></ol>
 <h2>Why it works</h2>
 <ul><li>A healthy pump lasts well past 150K — this is not a frequent job</li><li>The in-tank strainer design means no recurring external filter changes</li><li>A Denso module is about $180 and restores OE delivery</li><li>Pressure testing makes the diagnosis definitive before you spend</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://techinfo.toyota.com" target="_blank" rel="noopener">Toyota Tacoma fuel system — in-tank pump module, lifetime filter design</a></li><li><a href="https://www.tacomaworld.com" target="_blank" rel="noopener">Tacoma World: long-crank and hot-restart no-start traced to failing pump</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-evap-canister-p0440-tacoma/">EVAP Codes P0440/P0441/P0446 — Gas Cap, Charcoal Canister, or VSV</a></li><li><a href="/db/tacoma/tacoma-obd2-common-codes-tacoma/">OBD-II Diagnostics — Reading Codes and the Common Tacoma Ones</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/fuel-range-planner.html">Fuel &amp; Range Planner</a> — range at trail speeds and where to carry fuel</li><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Fuel%20Pump%20and%20Filter%20Service%20%E2%80%94%20Diagnosis%20and%20Replacement">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/jl/">Jeep Wrangler JL</a> / <a href="/db/#/jl/category/maintenance">Maintenance</a></nav>
   <h1>Spark Plug Replacement — 3.6L Pentastar</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$50–90</span><span class="tm-fact">2018-2026</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$50–90</span><span class="tm-fact">2018-2026</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Replace all six iridium plugs every 100,000 miles. <a href="https://www.wayalife.com/threads/torque-specs-jl-wrangler-reference-guide.52799/" target="_blank" rel="noopener">Torque to 13 ft-lb (17.5 N·m)</a> — the 12mm Pentastar plugs strip if you over-tighten. Plan on an hour in the driveway.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-maintenance.webp" alt="Person pouring motor oil through a funnel into an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@timmossholder?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Tim Mossholder</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The 3.6L Pentastar in the JL uses 12mm spark plugs — smaller than the 14mm plugs in older Jeep engines. That matters for two reasons. First, the spark plug socket is 5/8&quot; (16mm), not the 13/16&quot; that fits the 4.0L. Second, the thinner shell strips its threads at much lower torque, so a regular click-type torque wrench set to &quot;feel&quot; is not good enough. Use a wrench that reads in inch-pounds or one that goes down to single-digit foot-pounds.</p>
@@ -243,7 +254,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Access on the JL is straightforward. The coil packs sit on top of each cylinder, held by a single 10mm bolt. Remove the bolt, twist the coil to break the rubber boot seal, lift it off, and you are looking at the plug well. Use a 6-inch extension and the 5/8&quot; plug socket. The plug well is deep — a magnetic or rubber-insert socket keeps the old plug from dropping into the head when you back it out.</p>
 <p>Reinstall each new plug by hand first to confirm thread engagement — never start a plug with a ratchet. Torque to 13 ft-lb (17.5 N·m). A dab of dielectric grease inside the coil boot helps it pull off cleanly the next time. Reinstall the coil with the 10mm bolt, repeat for the remaining five cylinders. Total job time is about an hour the first time, 30 minutes after that.</p>
 <p>Symptoms that mean it is time: rough idle at startup, misfire code (P0301–P0306), or a noticeable loss of low-end response. Most JLs make it to the 100,000-mile interval cleanly. Track-driven or extreme cold-climate Jeeps benefit from inspecting at 75,000.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Cold engine. Disconnect the negative battery cable (10mm).</li><li>Remove the engine cover (pulls straight up off four rubber grommets).</li><li>Pick a coil pack. Remove the 10mm coil hold-down bolt.</li><li>Unclip the coil electrical connector. Twist and lift the coil out.</li><li>Drop the 5/8&quot; plug socket on a 6-inch extension into the well. Back the plug out counterclockwise.</li><li>Verify the gap on the new plug (factory pre-gap is correct — do not regap iridium).</li><li>Hand-thread the new plug. Then torque to 13 ft-lb.</li><li>Apply dielectric grease inside the coil boot. Reinstall coil, bolt, and connector.</li><li>Repeat for the remaining five cylinders.</li><li>Reinstall engine cover, reconnect battery, start, listen for smooth idle.</li></ol>
 <h2>Why it works</h2>
 <ul><li>100,000-mile interval — set-and-forget maintenance</li><li>Job runs about $60 in parts vs. $200+ at a shop</li><li>Restores throttle response and cold-start smoothness</li><li>Direct access — no manifold removal needed</li></ul>
@@ -258,7 +269,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.ifixit.com/Guide/How+To+Replace+the+Spark+Plugs+In+Your+2018%E2%80%932024+Jeep+Wrangler+JL+(3.6L)/185982" target="_blank" rel="noopener">iFixit — Spark plug replacement, 2018-2024 JL 3.6L</a></li><li><a href="https://www.wayalife.com/threads/torque-specs-jl-wrangler-reference-guide.52799/" target="_blank" rel="noopener">WAYALIFE JL torque specs reference</a></li><li><a href="https://www.jlwranglerforums.com/forum/threads/spark-plug-change-on-3-6-penstar.122868/" target="_blank" rel="noopener">JLwranglerforums — spark plug change on 3.6 Pentastar</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/jl/">All Jeep Wrangler JL guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Spark%20Plug%20Replacement%20%E2%80%94%203.6L%20Pentastar">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -237,6 +248,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <h1>Brake Line and Hose Inspection</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$0–220</span><span class="tm-fact">2007-2018</span></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Inspect brake lines and hoses at every oil change. Cracked rubber, bulges under pressure, hoses stretched taut after a lift, and corroded hardlines all destroy braking capacity and can fail with no warning at all. A lifted JK on stock-length front hoses is on borrowed time.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Brake work decides whether the vehicle stops. Bleed the system, check for leaks, and test at walking speed before you drive it in traffic. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-brakes.webp" alt="Worn brake caliper and rotor on a wheel hub with the wheel removed" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@ben_brunner?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Benjamin Brunner</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p><strong>Safety warning:</strong> brake hydraulics are life-safety hardware. If you find a hose that is cracked through, bulging, or weeping, the Jeep is not roadworthy until it is replaced and the system is bled. If you are not confident bleeding brakes, have a shop do the replacement — the inspection itself is something anyone can and should do.</p>
 <h3>How JK brake lines actually fail</h3>
@@ -269,7 +281,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.roughcountry.com/jeep-brake-lines-89716.html" target="_blank" rel="noopener">Rough Country 89716 stainless brake line kit — application data for 2007-2018 JK</a></li><li><a href="https://metalcloak.com/jk-wrangler-replacement-brake-lines-pair.html" target="_blank" rel="noopener">MetalCloak JK replacement brake lines, 24.5&quot; pair</a></li><li><a href="https://www.synergymfg.com/synergy-jeep-jk-extended-brake-line-kit.html" target="_blank" rel="noopener">Synergy Manufacturing JK extended brake line kit</a></li><li><a href="https://www.ecfr.gov/current/title-49/subtitle-B/chapter-V/part-571/subject-group-ECFR96f2c4cb2b2cbdb/section-571.106" target="_blank" rel="noopener">FMVSS 106 — federal motor vehicle safety standard for brake hoses</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/jk/jk-front-pads-rotors/">Front Brake Pad and Rotor Replacement</a></li><li><a href="/db/jk/jk-rear-disc-brakes-jk/">Rear Disc Brake Service</a></li><li><a href="/db/jk/jk-lift-kit-overview/">JK Lift Kit Types — Spacers vs. Short Arm vs. Long Arm</a></li><li><a href="/db/jk/jk-control-arm-replacement/">Control Arm Replacement and Upgrade</a></li><li><a href="/jk/">All Jeep Wrangler JK guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/parts-compatibility-tool.html">Parts Compatibility</a> — what swaps onto your platform from another vehicle</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Brake%20Line%20and%20Hose%20Inspection">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

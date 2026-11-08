@@ -100,6 +100,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -230,7 +241,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/cooling">Cooling</a></nav>
   <h1>Coolant Flush — Jeep Gladiator JT</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$25–60</span><span class="tm-fact">2020-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$25–60</span><span class="tm-fact">2020-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The JT Gladiator&#x27;s 3.6L Pentastar V6 <a href="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2022/owner-manuals/2022-jeep-gladiator-owners-manual.pdf" target="_blank" rel="noopener">calls for OAT (Organic Acid Technology) coolant</a>, and using the wrong type — or letting it go past service life — is how you get corrosion deposits building up inside an aluminum cylinder head.</p></div>
 <p>Jeep specs the Gladiator&#x27;s 3.6L for HOAT or OAT coolant, specifically a silicate-free formula compatible with the aluminum coolant passages throughout the Pentastar engine. Mopar&#x27;s factory fill is a 5-year/150,000-mile OAT formulation. The factory interval holds up under normal use — if the Gladiator sees regular off-road water crossings, dusty desert runs, or extended periods of high coolant temp, inspect it at 60,000 miles rather than waiting for the 5-year mark.</p>
 <p>The telltale sign that coolant needs replacement: it should be bright orange-yellow (Mopar OAT) or green (some aftermarket fills). Dark brown or rust-tinted coolant is carrying iron oxide and aluminum corrosion — the system needs a flush, not a drain-and-fill.</p>
@@ -249,7 +260,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Zerex G-05 antifreeze (1 gallon): ~$18–22. OAT-compatible, widely available at auto parts stores, confirmed safe for Pentastar aluminum. This is a common substitute.</p>
 <p>Prestone Extended Life: ~$16–20. Verify it&#x27;s the OAT or HOAT orange/yellow formulation — Prestone sells multiple types and the labels look similar.</p>
 <p>Coolant flush is a 60–90 minute job. Shop rate for a cooling system flush typically runs $80–150. The DIY cost is under $30 if you already have a drain pan and funnel.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Let the engine cool completely — at least two hours after the last run. The cooling system is pressurized when hot; opening the cap on a warm engine causes dangerous steam and coolant spray.</li><li>Locate the radiator drain petcock on the lower passenger-side corner of the radiator. It&#x27;s a plastic valve — turn counterclockwise to open. Position your drain pan under it. The JT cooling system holds approximately 11–12 quarts.</li><li>Open the coolant reservoir cap to allow the system to drain freely. The cap is on the translucent overflow reservoir on the driver&#x27;s side of the engine bay — not the radiator directly.</li><li>If the outgoing fluid looks rusty or has debris, do a flush: close the petcock, fill the system with distilled water, run the engine to operating temp with the heater on full (to flush the heater core), let it cool, and drain again. Repeat until the outgoing water runs clear.</li><li>Close the petcock and refill with a 50/50 mix of Mopar OAT coolant (or Zerex G-05 compatible) and distilled water. Use distilled water — not tap water. Tap water contains minerals that accelerate scale buildup inside aluminum passages.</li><li>Fill to the MAX line on the overflow reservoir. The system will draw coolant from the reservoir as it comes to temperature.</li><li>With the reservoir cap off, start the engine and let it idle until the thermostat opens (coolant temp gauge reaches normal operating range). You&#x27;ll see the coolant level drop as hot coolant circulates and air purges from the system. Add coolant to maintain the level.</li><li>Once the thermostat opens and the upper radiator hose feels hot to the touch, reinstall the reservoir cap.</li><li>Check for leaks at the petcock, hose connections, and reservoir cap. Let the engine cool and verify the reservoir level is between MIN and MAX.</li></ol>
 <h2>Tools required</h2>
 <ul><li>drain pan</li><li>funnel</li><li>pliers</li><li>socket set</li><li>flush kit (optional)</li></ul>
@@ -260,7 +271,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.jeep.com/content/dam/fca-brands/na/jeep/en_us/2022/owner-manuals/2022-jeep-gladiator-owners-manual.pdf" target="_blank" rel="noopener">Jeep Gladiator JT Owner&#x27;s Manual — Cooling System Specifications</a></li><li><a href="https://www.mopar.com" target="_blank" rel="noopener">FCA Coolant Specifications for 3.6L Pentastar</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/pentastar-3-6-oil-cooler-leak/">Pentastar 3.6L oil cooler / filter housing leak (TSB fix)</a></li><li><a href="/db/gladiator/jt-oil-change-pentastar/">Oil Change — Jeep Gladiator JT 3.6L Pentastar V6</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Coolant%20Flush%20%E2%80%94%20Jeep%20Gladiator%20JT">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

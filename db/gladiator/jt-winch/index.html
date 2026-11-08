@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,8 +246,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/gladiator/">Jeep Gladiator JT</a> / <a href="/db/#/gladiator/category/recovery">Recovery</a></nav>
   <h1>Winch for the Gladiator JT — 10,000 lb Minimum</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$349–1200</span><span class="tm-fact">2020-2024</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 2/5</span><span class="tm-fact">1–2 hrs</span><span class="tm-fact">$349–1200</span><span class="tm-fact">2020-2024</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>The JT Gladiator&#x27;s GVWR works out to about 5,750 to 6,450 lbs depending on trim, from base weight plus payload in <a href="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/specs/2024_JP_Gladiator_SPqsblublp94vcjnfthqnmb0dt0q.pdf" target="_blank" rel="noopener">Jeep&#x27;s 2024 spec sheet</a> — a 10,000 lb winch is the correct minimum, and 10K is where most of the best-value hardware lives.</p></div>
+<div class="tm-safety" role="note"><strong>Safety-critical system.</strong> Recovery gear carries loads far past the vehicle&#x27;s weight. Use rated hardware, read the working load limit, and keep everyone out of the line of pull. Torque values and sequences come from the factory service manual for your year.</div>
 <figure class="tm-figure"><img src="/images/photo-cat-recovery-gladiator.webp" alt="Winch and red D-ring shackles on the steel front bumper of a white Jeep Gladiator JT" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@petepxl?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Peter Muniz</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p><a href="https://www.warn.com/learn/winch-size-guide" target="_blank" rel="noopener">The standard winch sizing formula is 1.5x GVWR</a>. For a Rubicon at about 6,230 lbs loaded, that puts you at about 9,350 lbs, and a Sport with Max Tow at about 6,460 lbs needs about 9,700. A 10,000 lb winch covers both, with only modest margin for difficult pulls at steep angles or through mud where load multiplies. Going under-rated on a truck this heavy is a false economy. The 10K class is also where the market concentrates: best selection, most competitive pricing, most accessory ecosystem support.</p>
 <p>Synthetic rope over steel cable is the right call for any JT going on real trails. Synthetic rope is lighter, safer when it breaks (it drops rather than whipping), and won&#x27;t develop the wire burrs that shred gloves. Steel cable has a cost and abrasion advantage in very high-frequency use environments like commercial recovery work, but for trail use, synthetic is safer for everyone nearby. Every winch in this tier is available with synthetic rope — don&#x27;t settle for a steel cable version unless you&#x27;re specifically replacing a winch that already has a drum-worn rope.</p>
@@ -251,7 +263,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p>Inspect synthetic rope before every trip for a flat, glazed, or fuzzy section — those are the failure points. Retire rope with any cut strand or heat-glazed section; it will let go under load, and a winch line failure under tension is dangerous to everyone nearby. Always use a line dampener during a pull.</p>
 <h3>Related builds</h3>
 <p>A winch is only as useful as its mount, so a <a href="/db/gladiator/jt-front-bumper/">front bumper</a> with a winch plate comes first. Round out the kit with <a href="/db/gladiator/jt-recovery-gear-essentials/">recovery gear essentials</a> — a snatch block, rated shackles, and a dampener turn the winch into a complete recovery system.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Confirm the front bumper&#x27;s winch mounting plate dimensions and fairlead type before ordering.</li><li>Mount the winch to the bumper plate using the supplied hardware. Torque to spec.</li><li>Thread the synthetic rope through the hawse fairlead and attach the hook.</li><li>Route the winch motor leads to the battery. Most installs use ring terminals bolted to the battery — positive to positive, negative to chassis ground.</li><li>Route the control cable to the cab or leave the wireless remote receiver in an accessible location behind the bumper.</li><li>Test the winch both in and out under no-load conditions before the first trail day.</li><li>Spool the rope evenly under tension — do this by attaching to a tree and pulling the JT forward slowly until the drum is full.</li></ol>
 <h2>Why it works</h2>
 <ul><li>10K rating covers the JT&#x27;s GVWR with recovery margin</li><li>Synthetic rope is safer and lighter than steel cable</li><li>Bumper-mounted integration is clean and doesn&#x27;t sacrifice hitch access</li><li>Wide accessory ecosystem: snatch blocks, dampeners, straps are universal across brands</li></ul>
@@ -266,7 +278,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://s3.amazonaws.com/chryslermedia.iconicweb.com/mediasite/specs/2024_JP_Gladiator_SPqsblublp94vcjnfthqnmb0dt0q.pdf" target="_blank" rel="noopener">2024 Jeep Gladiator specifications — Stellantis</a></li><li><a href="https://www.warn.com/warn-vr-evo-10-s-winch" target="_blank" rel="noopener">Warn VR EVO 10-S Product Page</a></li><li><a href="https://www.warn.com/learn/winch-size-guide" target="_blank" rel="noopener">Winch Sizing Guide — Off-Road Basics</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/gladiator/jt-front-bumper/">Aftermarket Front Bumper for the Jeep Gladiator JT</a></li><li><a href="/db/gladiator/jt-recovery-gear-essentials/">Recovery Gear Essentials for the Jeep Gladiator JT</a></li><li><a href="/gladiator/">All Jeep Gladiator JT guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20Winch%20for%20the%20Gladiator%20JT%20%E2%80%94%2010%2C000%20lb%20Minimum">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

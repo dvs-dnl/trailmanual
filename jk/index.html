@@ -55,11 +55,6 @@
 /* Tools grid */
 .grid-tools{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border)}
 .grid-tools.six{grid-template-columns:repeat(3,1fr)}
-.plan-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}
-.plan-row a{display:block;padding:12px 14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);color:inherit;text-decoration:none}
-.plan-row a:hover{border-color:var(--accent)}
-.plan-row strong{display:block;font-weight:500;font-size:15px;color:var(--text)}
-.plan-row span{display:block;font-size:13px;line-height:1.45;color:var(--text-dim);margin-top:2px}
 @media(max-width:900px){.grid-tools.six{grid-template-columns:1fr 1fr}}
 .tool-card{background:var(--panel);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:200px;transition:background .15s;position:relative;color:var(--text)}
 .tool-card:hover{background:var(--bg-2);color:var(--text)}
@@ -91,6 +86,11 @@
 .learn-title{font-size:17px;font-weight:600;letter-spacing:-0.01em;line-height:1.22;margin:0}
 .learn-desc{font-size:13.5px;color:var(--text-dim);line-height:1.5;margin:0;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
 .learn-card .arrow{margin-top:auto}
+.plan-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px}
+.plan-row a{display:block;padding:12px 14px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);color:inherit;text-decoration:none}
+.plan-row a:hover{border-color:var(--accent)}
+.plan-row strong{display:block;font-weight:500;font-size:15px;color:var(--text)}
+.plan-row span{display:block;font-size:13px;line-height:1.45;color:var(--text-dim);margin-top:2px}
 .early-note{margin:18px 0 0;padding:12px 16px;border:1px solid var(--border);border-left:3px solid var(--clay);border-radius:var(--radius);background:var(--bg-2);font-size:14px;line-height:1.6}
 
 @media (max-width:900px){
@@ -263,7 +263,7 @@
         <div class="tool-icon good"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 9h16M9 5v14"/></svg></div>
         <div class="tool-title">Database</div>
         <div class="tool-desc">The reference library. Every DIY procedure for the JK and JKU, filtered to your trim, year, and engine.</div>
-        <div class="tool-foot"><span class="tag new">63 guides</span><span class="arrow">Browse</span></div>
+        <div class="tool-foot"><span class="tag new">64 guides</span><span class="arrow">Browse</span></div>
       </a>
 
       <a class="tool-card" href="/my-garage.html">
@@ -310,34 +310,34 @@
         <span class="section-label">02 / Learn</span>
         <h2 class="section-title">Start here</h2>
       </div>
-      <span class="section-sub"><a href="/db/#/jk/browse">All 63 guides</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/workshop/">Workshop</a></span>
+      <span class="section-sub"><a href="/db/#/jk/browse">All 64 guides</a> &middot; <a href="/blog/">Blog</a> &middot; <a href="/workshop/">Workshop</a></span>
     </div>
     <div class="grid-learn">
       <a class="learn-card" href="/db/jk/jk-death-wobble-deep/">
-        <p class="learn-eye">Steering</p>
+        <p class="learn-eye">Steering · Difficulty 3/5</p>
         <h3 class="learn-title">Death Wobble — Root Causes and Systematic Fix</h3>
         <p class="learn-desc">Death wobble on a JK is almost always loose or worn front-end components — most often the track bar — triggered by a bump or tire imbalance. The fix is to inspect every front-end joint, replace what is worn, and torque everything to spec. A steering stabilizer hides the symptom; it does not cure the cause.</p>
         <span class="arrow">Read</span>
       </a>
 
       <a class="learn-card" href="/db/jk/jk-brake-line-inspection/">
-        <p class="learn-eye">Brakes</p>
+        <p class="learn-eye">Brakes · Difficulty 2/5</p>
         <h3 class="learn-title">Brake Line and Hose Inspection</h3>
         <p class="learn-desc">Inspect brake lines and hoses at every oil change. Cracked rubber, bulges under pressure, hoses stretched taut after a lift, and corroded hardlines all destroy braking capacity and can fail with no warning at all. A lifted JK on stock-length front hoses is on borrowed time.</p>
         <span class="arrow">Read</span>
       </a>
 
-      <a class="learn-card" href="/db/jk/jk-tire-fitment-33s-35s/">
-        <p class="learn-eye">Wheels &amp; Tires</p>
-        <h3 class="learn-title">33s and 35s on the JK: Lift, Backspacing, and Gears for 2-Door and JKU</h3>
-        <p class="learn-desc">A JK fits 33s at stock height for street use, but expect rubbing once it flexes. For 35s, plan on at least 2 to 2.5 inches of lift and wheels with about 4.5 inches of backspacing, and budget for gears if the Jeep left the factory on 3.21s. Fender trimming is the common wild card.</p>
+      <a class="learn-card" href="/db/jk/jk-flex-vs-jl-control-arms/">
+        <p class="learn-eye">Suspension · Difficulty 3/5</p>
+        <h3 class="learn-title">JK vs JL Flex: What the Measured Numbers Say About Control Arms, Lift, and Articulation</h3>
+        <p class="learn-desc">Stock for stock, a JL Rubicon flexes about 100 points more than a JK Rubicon on MetalCloak&#x27;s CTI trailer — 640 to 540, roughly ten inches of total wheel travel. Put the same 3.5-inch kit under both and the gap closes to nothing: a JKU and a JLU on the Game-Changer 3.5 with 37s both score 770. The JL&#x27;s advantage is its factory shocks and arm geometry, and it lasts exactly as long as those parts are the limiter. Nobody has published a controlled, same-kit test at 2.5 or 4.5 inches; this guide lays out every number that does exist, what it measures, and what it means for a JK owner choosing a lift.</p>
         <span class="arrow">Read</span>
       </a>
 
-      <a class="learn-card" href="/db/jk/jk-dana30-upgrade/">
-        <p class="learn-eye">Axles</p>
-        <h3 class="learn-title">JK Dana 30 Upgrade Options: Gussets, Sleeves, Chromoly Shafts, or a Dana 44 Swap</h3>
-        <p class="learn-desc">Behind 35s, buy C-gussets and chromoly shafts with full-circle clips, then stop and save. Owners on WAYALIFE mostly rate sleeves and trusses poorly because they do not stop the housing from bending, and a factory Rubicon Dana 44 shares the same tubes. If you are heading to 37s or hard rock, spend the money on a stronger aftermarket housing instead of stacking repairs on this one.</p>
+      <a class="learn-card" href="/db/jk/jk-tire-fitment-33s-35s/">
+        <p class="learn-eye">Wheels &amp; Tires · Difficulty 2/5</p>
+        <h3 class="learn-title">33s and 35s on the JK: Lift, Backspacing, and Gears for 2-Door and JKU</h3>
+        <p class="learn-desc">A JK fits 33s at stock height for street use, but expect rubbing once it flexes. For 35s, plan on at least 2 to 2.5 inches of lift and wheels with about 4.5 inches of backspacing, and budget for gears if the Jeep left the factory on 3.21s. Fender trimming is the common wild card.</p>
         <span class="arrow">Read</span>
       </a>
     </div>

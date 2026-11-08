@@ -105,6 +105,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 .tm-steps li{margin:8px 0}
 .tm-sources{font-size:14px}
 .tm-guide-note{font-size:13px;color:var(--text-dim);margin-top:40px;padding-top:16px;border-top:1px solid var(--border)}
+.tm-jump{color:var(--tm-rust-hover,var(--clay-deep));border-color:var(--tm-rust,var(--clay));text-decoration:none;font-weight:600}
+.tm-jump:hover{text-decoration:underline}
+.tm-safety{border-left:4px solid var(--tm-safety,#9A3B2C);background:var(--tm-warning-bg,#FFF1D9);color:var(--text);padding:12px 16px;border-radius:0 10px 10px 0;margin:0 0 22px;font-size:15px;line-height:1.55}
+.tm-safety strong{color:var(--tm-safety,#9A3B2C)}
+[data-theme="dark"] .tm-safety{background:var(--bg-2);border-left-color:#E39A8A}
+[data-theme="dark"] .tm-safety strong{color:#E39A8A}
+.tm-tools{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tm-tools li{margin:0;padding:12px 14px;border:1px solid var(--border);border-radius:12px;font-size:14px;line-height:1.5;background:var(--panel)}
+.tm-tools li a{font-weight:600;text-decoration:none;color:var(--text)}
+.tm-tools li a:hover{color:var(--tm-rust-hover,var(--clay-deep));text-decoration:underline}
+@media(max-width:600px){.tm-tools{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -235,7 +246,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <article class="tm-article">
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/tacoma/">Toyota Tacoma</a> / <a href="/db/#/tacoma/category/tools_diagnostic">Tools &amp; Diag</a></nav>
   <h1>OBD-II Diagnostics — Reading Codes and the Common Tacoma Ones</h1>
-  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.25–1 hrs</span><span class="tm-fact">$0–100</span><span class="tm-fact">1996-2004, 2005-2015, 2016-2023</span></div>
+  <div class="tm-facts"><span class="tm-fact">Difficulty 1/5</span><span class="tm-fact">0.25–1 hrs</span><span class="tm-fact">$0–100</span><span class="tm-fact">1996-2004, 2005-2015, 2016-2023</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Every Tacoma from 1996 on has an OBD-II port under the dash on the driver side — plug in a $30 Bluetooth dongle or a $70 handheld reader and you can pull the code behind any check-engine light in under a minute. The code is a starting point, not a diagnosis: P0420 means &quot;catalyst below threshold,&quot; which is usually an O2 sensor, not always a dead cat. Always read freeze-frame data and verify before buying parts. <a href="https://www.tacomaworld.com" target="_blank" rel="noopener">The most common Tacoma codes you&#x27;ll meet</a>: P0420/P0430 (catalyst/O2), P2440-P2443 (secondary air injection on the 4.0L), P0125/P0128 (thermostat/coolant temp), and various O2 sensor heater codes.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-tools-diagnostic.webp" alt="Hands using a rugged diagnostic scan tablet resting over an open engine bay" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@edoardo_cuoghi_98?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Edoardo Cuoghi</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>Owning a scan tool is the cheapest skill upgrade you can make as a Tacoma DIYer. A check-engine light is the truck telling you something specific, and reading the code turns a mystery into a defined problem. The trap most people fall into is treating the code as the answer — it points at a system, and your job is to narrow it to the actual failed part before spending money.</p>
@@ -244,7 +255,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <p><strong>Generic vs. Tacoma-specific codes.</strong> <a href="https://www.obd-codes.com" target="_blank" rel="noopener">Codes starting P0xxx are generic</a> and mean the same across all OBD-II vehicles. P1xxx and some P2xxx are manufacturer-specific — Toyota&#x27;s definitions. A basic reader shows generic codes; make sure your tool reads manufacturer-specific codes too, or you&#x27;ll miss Toyota-only faults.</p>
 <p><strong>The Tacoma codes you&#x27;ll actually see.</strong> P0420 (bank 1) and P0430 (bank 2) — &quot;catalyst efficiency below threshold.&quot; Usually a tired downstream O2 sensor, sometimes an exhaust leak, occasionally a genuinely worn cat. Replace the O2 sensor and confirm before condemning a $600 catalytic converter. P2440/P2441/P2442/P2443 — secondary air injection faults on the 4.0L V6, a very common and expensive system (covered in its own engine guide). P0125 and P0128 — engine not reaching operating temperature, almost always a stuck-open thermostat. P0171/P0174 — lean codes, often a vacuum leak or dirty MAF. Various P013x/P015x — O2 sensor heater circuit, a sensor or its wiring.</p>
 <p><strong>Clearing codes is not fixing them.</strong> You can clear a code with the scanner, but if the fault is still present it returns. Worse, clearing codes resets the readiness monitors, and an emissions test will fail until those monitors re-run over several drive cycles. Don&#x27;t clear codes right before a smog check hoping the light stays off — repair the fault, then clear, then drive enough to re-set the monitors.</p>
-<h2>Steps</h2>
+<h2 id="steps">Steps</h2>
 <ol class="tm-steps"><li>Locate the OBD-II port under the dash on the driver&#x27;s side (16-pin connector).</li><li>Plug in the dongle or reader with the key on, engine off (or running for live data).</li><li>Pull stored and pending trouble codes. Write down every code, not only the first.</li><li>Pull freeze-frame data for each code — note temperature, RPM, load, and speed at the time of the fault.</li><li>Look up each code&#x27;s Toyota-specific meaning, not only the generic description.</li><li>Narrow to the likely component using freeze-frame context (cold start? under load? at idle?).</li><li>Confirm with a targeted test (multimeter at the sensor, vacuum check, exhaust-leak inspection) before buying parts.</li><li>Repair the actual fault.</li><li>Clear the codes, then drive several full cycles to let readiness monitors re-set before any emissions test.</li></ol>
 <h2>Why it works</h2>
 <ul><li>A $30 dongle turns every check-engine light into a specific starting point</li><li>Freeze-frame data makes the difference between diagnosing and guessing</li><li>Saves money by confirming the real fault before buying parts</li><li>The port and procedure are the same across all 1996+ Tacomas</li></ul>
@@ -259,7 +270,9 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <ul class="tm-sources"><li><a href="https://www.tacomaworld.com" target="_blank" rel="noopener">Tacoma World: most common 1GR-FE and 2GR-FKS trouble codes</a></li><li><a href="https://www.obd-codes.com" target="_blank" rel="noopener">OBD-II standard — generic vs. manufacturer-specific code ranges</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/tacoma/tacoma-abs-vsc-light-diagnosis-tacoma/">ABS, VSC, and TRAC Lights — What They Mean and How to Diagnose</a></li><li><a href="/db/tacoma/tacoma-secondary-air-injection-tacoma/">Secondary Air Injection Failure — P2440, P2441, P2442 (4.0L V6)</a></li><li><a href="/tacoma/">All Toyota Tacoma guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
-  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk.</p>
+<h2 id="tools">Related tools</h2>
+<ul class="tm-tools"><li><a href="/db/trail-tool-kit-builder.html">Trail Tool Kit Builder</a> — the tools and spares to carry for the repairs you can do on the trail</li><li><a href="/my-garage.html">My Garage</a> — log the service and see what is due next</li></ul>
+  <p class="tm-guide-note">Written and maintained by an AZ wheeler and driveway wrencher. <a href="/about/#sources">How we source guides</a>. Always cross-reference your factory service manual — modifications affect vehicle safety and warranty. Work at your own risk. Spot an error? <a href="mailto:corrections.commonladder@gmail.com?subject=Correction%3A%20OBD-II%20Diagnostics%20%E2%80%94%20Reading%20Codes%20and%20the%20Common%20Tacoma%20Ones">Send a correction</a> and it gets fixed at the source.</p>
 </article>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
