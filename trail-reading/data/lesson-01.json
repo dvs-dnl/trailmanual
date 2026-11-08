@@ -1,0 +1,123 @@
+{
+  "id": "terrain-reading-01",
+  "version": "0.1.0",
+  "title": "Read the Trail Before You Drive",
+  "subtitle": "Learn to distinguish visible terrain hazards from what you still need to verify.",
+  "durationMinutes": 8,
+  "asset": "assets/desert-trail-scan.webp",
+  "assetAlt": "Illustrated desert trail with a sandstone shelf on the left, scattered rocks in the center, and an eroded rut at the right edge. The distant track curves out of view.",
+  "assetStatus": "AI-generated instructional illustration; not a photograph of a real route. Obstacles are qualitative and have no measured dimensions.",
+  "hazards": [
+    {
+      "id": "left-shelf",
+      "name": "Sandstone shelf",
+      "zone": "Left edge",
+      "x": 23,
+      "y": 53,
+      "radius": 13,
+      "explanation": "A defined rock lip is visible on the left. Its actual height and the clearance available beneath the vehicle cannot be determined from the image.",
+      "check": "Walk the ledge and inspect the front approach, rear departure, and underbody path."
+    },
+    {
+      "id": "loose-rocks",
+      "name": "Loose rock field",
+      "zone": "Center track",
+      "x": 52,
+      "y": 36,
+      "radius": 15,
+      "explanation": "A concentration of displaced rocks is visible. How tightly they are embedded, and whether they will roll under a tire, is unknown.",
+      "check": "Inspect tire-sized stones and loose material on foot before choosing tire placement."
+    },
+    {
+      "id": "right-rut",
+      "name": "Eroded washout",
+      "zone": "Right edge",
+      "x": 76,
+      "y": 57,
+      "radius": 14,
+      "explanation": "A deep-looking eroded channel runs beside the track. A photo cannot establish edge stability or whether the bank can support a tire.",
+      "check": "Verify the edge, depth and available vehicle width; do not assume the shoulder is load-bearing."
+    },
+    {
+      "id": "blind-exit",
+      "name": "Unseen exit",
+      "zone": "Far trail",
+      "x": 62,
+      "y": 14,
+      "radius": 12,
+      "explanation": "The track bends out of view. From this viewpoint, you cannot confirm what lies beyond the visible section or where the full vehicle will exit.",
+      "check": "Continue scouting until the exit and any subsequent hazards are visible."
+    }
+  ],
+  "evidenceQuestions": [
+    {
+      "id": "q1",
+      "prompt": "There is a rocky concentration in the middle of the visible track.",
+      "answer": "visible",
+      "explanation": "Yes. You can see the rocks; you cannot tell how firmly each is seated."
+    },
+    {
+      "id": "q2",
+      "prompt": "The right-hand bank will safely support the full weight of the vehicle.",
+      "answer": "unknown",
+      "explanation": "Unknown. Surface texture and apparent shape do not reveal the bank's load-bearing capacity."
+    },
+    {
+      "id": "q3",
+      "prompt": "The left ledge is lower than the vehicle's approach and breakover clearance.",
+      "answer": "unknown",
+      "explanation": "Unknown. The image contains no reliable scale or measurements, and the user's vehicle geometry is not supplied."
+    },
+    {
+      "id": "q4",
+      "prompt": "The exit of the visible trail is partially hidden by the bend.",
+      "answer": "visible",
+      "explanation": "Yes. The sight line ends before the full trail ahead can be evaluated."
+    }
+  ],
+  "decision": {
+    "prompt": "You are stopped in a safe place before the rocky section. What is the most defensible next action?",
+    "options": [
+      {
+        "id": "scout",
+        "title": "Park safely and scout the full obstacle on foot",
+        "description": "Check the shelf, loose rocks, rut edge and exit; verify your vehicle clearance and that the route is open before attempting it.",
+        "correct": true,
+        "feedback": "Best answer. The scene presents multiple unknowns. A deliberate scout produces information needed for a safe plan without extending the trail."
+      },
+      {
+        "id": "hug-shoulder",
+        "title": "Drive around the rocks using the right shoulder",
+        "description": "The edge looks smoother than the center.",
+        "correct": false,
+        "feedback": "A smooth-looking edge may be unstable, and leaving the designated route may be prohibited or damage terrain. It also places a tire near the eroded channel."
+      },
+      {
+        "id": "power-through",
+        "title": "Carry momentum through the center",
+        "description": "The suspension and tire size should absorb the rough section.",
+        "correct": false,
+        "feedback": "Vehicle capability does not establish what is beneath the rocks or beyond the blind exit. Momentum can reduce your ability to stop and reassess."
+      }
+    ]
+  },
+  "debrief": [
+    "Confirm the route is legally open and identify the full exit path.",
+    "Identify tire paths as well as axle, differential and underbody paths.",
+    "Check the stability of edges and loose material rather than guessing from appearance.",
+    "Know what would make you stop, use a spotter or turn around.",
+    "Stay on the designated trail; never create a bypass by widening the route."
+  ],
+  "sources": [
+    {
+      "label": "Tread Lightly! — Responsible Four Wheeling",
+      "url": "https://treadlightly.org/tips/4x4/",
+      "note": "Stay on designated routes; scout on foot; avoid trail widening."
+    },
+    {
+      "label": "BLM — Off-Highway Vehicles",
+      "url": "https://www.blm.gov/programs/recreation/OHV",
+      "note": "Respect route designations and local restrictions."
+    }
+  ]
+}
