@@ -109,39 +109,28 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 </head>
 <body>
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<a class="tm-skip" href="#tm-content">Skip to content</a>
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
-    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
-    <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" href="/trails/">Trails</a>
-      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" data-tm-pillar="interactive" aria-expanded="false" aria-controls="tm-dd-build" onclick="tmDrop('build')">Interactive <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/" data-tm-pillar="trails">Trails</a>
+      <button class="tm-nav-btn" type="button" id="tm-btn-learn" data-tm-pillar="learn" aria-expanded="false" aria-controls="tm-dd-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-buying" data-tm-pillar="buying" aria-expanded="false" aria-controls="tm-dd-buying" onclick="tmDrop('buying')">Buying Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" data-tm-pillar="garage" aria-expanded="false" aria-controls="tm-dd-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
       <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-    </div>
+    </nav>
   </div>
-  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+  <div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Vehicle guides</div>
+      <a class="tm-dd-link tm-dd-hub" href="/db/"><strong>All vehicle guides</strong><span>Pick a platform</span></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/guides/"><strong>Repair guides</strong></a>
+      <button class="tm-dd-link tm-dd-link--sm tm-dd-explore" type="button" onclick="tmExplore()"><strong>Surprise me</strong></button>
     </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
-      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
-      <a class="tm-dd-link" href="/budget-ladder.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg></div><div><strong>Budget Ladder</strong><span>What to buy next</span></div></a>
-      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
-      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
-    </div>
-  </div></div>
-<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
     <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
@@ -166,8 +155,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       -->
       <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <div class="tm-dd-label tm-dd-label--gap">Ram</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
@@ -180,23 +168,67 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
     </div>
     -->
   </div></div>
-  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
-      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Interactive tools</div>
+      <a class="tm-dd-link tm-dd-hub" href="/tools/"><strong>All interactive tools</strong><span>Calculators, planners, diagnostics</span></a>
+      <a class="tm-dd-link" href="/build/"><strong>Rig Builder</strong><span>Lift · tires · armor</span></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><strong>Engine Swap</strong><span>V8 parts list</span></a>
     </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    <div class="tm-dd-col"><div class="tm-dd-label">Calculate &amp; plan</div>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><strong>Gear Ratio Calc</strong><span>Tires × axle</span></a>
+      <a class="tm-dd-link" href="/budget-ladder.html"><strong>Budget Ladder</strong><span>What to buy next</span></a>
+      <a class="tm-dd-link" href="/line-picker.html"><strong>Line Picker</strong><span>Plan a ledge climb</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Diagnose</div>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><strong>Death Wobble</strong><span>Step-by-step diagnostic</span></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><strong>Parts Compatibility</strong><span>Cross-vehicle</span></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Learn</div>
+      <a class="tm-dd-link tm-dd-hub" href="/learn/"><strong>Learn hub</strong><span>Off-road school and workshop skills</span></a>
+      <a class="tm-dd-link" href="/trail-reading/"><strong>Trail Reading Lab</strong><span>Spot the hazards before you drive</span></a>
+      <a class="tm-dd-link" href="/workshop/"><strong>Workshop</strong><span>Torque, technique, safety</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><strong>DIY Database</strong><span>Guides for every vehicle</span></a>
+      <a class="tm-dd-link" href="/blog/"><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></a>
+      <a class="tm-dd-link" href="/about/"><strong>About</strong><span>What Trail Manual is</span></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-buying"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Buying guides</div>
+      <a class="tm-dd-link tm-dd-hub" href="/buying/"><strong>All buying guides</strong><span>Which rig, which year, which kit</span></a>
+      <a class="tm-dd-link" href="/model-year-matrix.html"><strong>Model Year Buyer’s Guide</strong><span>Which year to buy</span></a>
+      <a class="tm-dd-link" href="/jl/buying-decision/"><strong>JL Buying Decision</strong><span>Buy a JL or keep building?</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Compare kits</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl-lift-kit-comparison.html"><strong>JL lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk-lift-kit-comparison.html"><strong>JK lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj-lift-kit-comparison.html"><strong>TJ and LJ lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator-lift-kit-comparison.html"><strong>Gladiator lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g-lift-kit-comparison.html"><strong>6th Gen Bronco lift kits</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Shop smart</div>
+      <a class="tm-dd-link" href="/vehicle-research-tool.html"><strong>Used rig field guide</strong><span>Search listings by budget</span></a>
+      <a class="tm-dd-link" href="/db/otd-pricing-calculator.html"><strong>Out-the-door price</strong><span>Tax, fees, total</span></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
-      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
+      <a class="tm-dd-link tm-dd-hub" href="/my-garage.html"><strong>Maintenance log</strong><span>Service history · intervals</span></a>
+      <a class="tm-dd-link" href="/my-garage.html"><strong>My builds</strong><span>Saved configurations</span></a>
+      <a class="tm-dd-link" href="/trails/#find"><strong>Find trails</strong><span>What your rig can do</span></a>
     </div>
   </div></div>
 </header>
+<nav class="tm-bottom-nav" aria-label="Quick navigation">
+  <a href="/db/" data-tm-pillar="guides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg><span>Guides</span></a>
+  <a href="/tools/" data-tm-pillar="interactive"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg><span>Interactive</span></a>
+  <a href="/trails/" data-tm-pillar="trails"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg><span>Trails</span></a>
+  <a href="/learn/" data-tm-pillar="learn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10.5V16c3 2.5 9 2.5 12 0v-5.5"/></svg><span>Learn</span></a>
+  <a href="/my-garage.html" data-tm-pillar="garage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-7h10v7M7 17h10"/></svg><span>Garage</span></a>
+</nav>
 <script src="/_nav.js"></script>
 <!-- TM:HEADER:END -->
 <main>
@@ -208,13 +240,17 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 <figure class="tm-figure"><img src="/images/photo-cat-armor.webp" alt="Winch and fairlead mounted in a steel off-road bumper" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@joey_joel116?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Joel Frank</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
 <p>The factory Power Wagon front end is genuinely capable. It includes tow hooks intended for recovery use, and the WARN 12,000 lb winch sits behind the fascia on a dedicated frame-mounted plate rather than hanging off the bumper itself. That distinction matters: on this truck the winch mount is not what you are upgrading. What you are buying is steel where the factory used composite, a push surface for brush, and shackle mounts positioned where a strap can actually reach them.</p>
 <p>Where the upgrade earns its money: welded push-bar protection for driving through vegetation without marking the fascia, heavy steel in place of the factory&#x27;s lower composite sections that crack on contact, and D-ring or shackle integration that beats reaching under the truck for a factory tow hook. Where it does not: if you stay on forest roads and established trails, the factory bumper handles that assignment and the $900 is better spent on tires or recovery gear.</p>
+<h3>Picking the bumper to the job</h3>
 <p><a href="https://www.ranchhand.com/ram-2500-power-wagon-bumpers" target="_blank" rel="noopener">Ranch Hand&#x27;s Summit ($899)</a> is a proven full-replacement steel unit with an integrated grille guard — the choice for brush country and deer-strike territory, and the heaviest option in this group. <a href="https://www.fab-four.com/ram-2500" target="_blank" rel="noopener">Fab Four&#x27;s full-width unit ($1,299)</a> suits a trail-focused build where approach angle and shackle placement matter more than a grille guard. Go Rhino Traverse ($799) and ICI Magnum ($699) are clean, lower-priced installs without full guards: the right call if you want the steel presence and the shackle mounts without the guard silhouette or the extra 60 pounds.</p>
 <p>Two questions decide it faster than the spec sheets. First, does the design cut up into the fascia to improve approach angle, or does it hang flat and full-width? Full-width looks right on a truck this size but is the first thing to catch on a steep entry. Second, are the shackle mounts welded into the frame-tie structure or bolted to the outer skin? Only the former is a recovery point. See the <a href="/db/power-wagon/pw-recovery-points-install/">recovery points install guide</a> for the distinction that matters when a strap is under load.</p>
+<h3>Keeping the factory winch working</h3>
 <p>This is the step people get wrong, and it is specific to this truck.</p>
 <p>The Power Wagon&#x27;s WARN unit is built to OE spec and is <a href="https://www.warn.com/blogs/articles/the-ram-power-wagons-warn-winch" target="_blank" rel="noopener">closely related to the M12000</a>, but it is not a drop-in copy of a retail winch. The drum rotates in the opposite direction from a standard aftermarket unit, and the control box carries a low-voltage interrupt that stops the winch if system voltage falls too far. Trucks from roughly 2017 onward ship with synthetic line and a hawse fairlead; earlier trucks carried about 90 feet of 7/16-inch wire rope with a roller fairlead. A bumper designed around a roller fairlead opening will look wrong and fit worse with a hawse plate, and vice versa — confirm which line and fairlead your truck has before ordering, not after.</p>
 <p>Most aftermarket bumpers for this platform are cut to accept the factory winch&#x27;s footprint and the factory frame plate. Confirm three things with the vendor in writing: fairlead type and bolt pattern, whether the factory control box relocates or stays, and whether the clutch (free-spool) lever remains reachable with the bumper installed. A bumper that buries the free-spool lever turns a 20-second line pull into a knuckle-scraping exercise every single time.</p>
+<h3>What 150 pounds on the nose actually changes</h3>
 <p>A steel bumper adds roughly 100-200 pounds ahead of the front axle, and on a coil-sprung solid front axle that weight lands almost entirely on the front coils. Expect the front to settle a half inch to an inch, which quietly undoes part of a leveling kit and changes headlight aim — re-aim the lights after install, because a nose-down truck with a steel bumper puts the beam in oncoming drivers&#x27; eyes.</p>
 <p>The rest of the effects are smaller but real. Front coil rate that was matched to the factory bumper is now slightly under-sprung, so if you are also planning suspension work, tell the vendor the bumper weight and buy the heavier front coil option rather than adding a spacer later. Parking sensor and adaptive cruise behavior can change if the sensor faces are recessed behind steel — verify function before you rely on it. And the payload arithmetic applies: on a truck rated for roughly 1,400-1,630 pounds of payload, a bumper, winch line upgrade, and skid plates spend a visible chunk of it. The <a href="/db/power-wagon/hd-3-4-ton-weight-reality/">weight and payload guide</a> has the full accounting.</p>
+<h3>Costs and sources</h3>
 <ul><li>ICI Magnum — $699-$799, roughly 110 lb added. Lowest-cost steel, no grille guard.</li><li>Go Rhino Traverse — $799-$949, roughly 120 lb. Clean look with shackle mounts, no guard.</li><li>Ranch Hand Summit — $899-$1,099, roughly 180 lb. The pick for brush and animal-strike country.</li><li>Fab Four full-width — $1,299-$1,499, roughly 150 lb. Trail-focused geometry with heavy shackle tabs.</li><li>Aluminum or low-profile — $1,100-$2,600, roughly 60-90 lb. For weight-critical overland builds.</li></ul>
 <p>Add $150-$400 in shop labor if you are not doing the install, more if the harness needs extending. Budget for touch-up paint on the frame horns — the factory bumper hides a lot of bare metal that is about to be exposed to weather.</p>
 <h2>Steps</h2>
@@ -251,12 +287,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       </p>
     </div>
     <div>
-      <h4>Tools</h4>
+      <h4>Interactive</h4>
       <a href="/build/">Rig Builder</a>
       <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
       <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
       <a href="/db/">DIY Database</a>
-      <a href="/tools/">All tools &rarr;</a>
+      <a href="/tools/">All interactive tools &rarr;</a>
     </div>
     <div>
       <h4>Learn</h4>
@@ -265,6 +301,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       <a href="/workshop/">Workshop</a>
       <a href="/guides/">Repair Guides</a>
       <a href="/blog/">Blog</a>
+      <a href="/learn/">Learn hub</a>
+      <a href="/buying/">Buying guides</a>
     </div>
     <div>
       <h4>About</h4>

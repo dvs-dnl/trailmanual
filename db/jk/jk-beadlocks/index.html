@@ -167,39 +167,28 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
 </head>
 <body>
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<a class="tm-skip" href="#tm-content">Skip to content</a>
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
-    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
-    <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" href="/trails/">Trails</a>
-      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" data-tm-pillar="interactive" aria-expanded="false" aria-controls="tm-dd-build" onclick="tmDrop('build')">Interactive <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/" data-tm-pillar="trails">Trails</a>
+      <button class="tm-nav-btn" type="button" id="tm-btn-learn" data-tm-pillar="learn" aria-expanded="false" aria-controls="tm-dd-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-buying" data-tm-pillar="buying" aria-expanded="false" aria-controls="tm-dd-buying" onclick="tmDrop('buying')">Buying Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" data-tm-pillar="garage" aria-expanded="false" aria-controls="tm-dd-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
       <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-    </div>
+    </nav>
   </div>
-  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+  <div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Vehicle guides</div>
+      <a class="tm-dd-link tm-dd-hub" href="/db/"><strong>All vehicle guides</strong><span>Pick a platform</span></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/guides/"><strong>Repair guides</strong></a>
+      <button class="tm-dd-link tm-dd-link--sm tm-dd-explore" type="button" onclick="tmExplore()"><strong>Surprise me</strong></button>
     </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
-      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
-      <a class="tm-dd-link" href="/budget-ladder.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg></div><div><strong>Budget Ladder</strong><span>What to buy next</span></div></a>
-      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
-      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
-    </div>
-  </div></div>
-<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
     <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
@@ -224,8 +213,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       -->
       <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <div class="tm-dd-label tm-dd-label--gap">Ram</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
@@ -238,23 +226,67 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
     </div>
     -->
   </div></div>
-  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
-      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Interactive tools</div>
+      <a class="tm-dd-link tm-dd-hub" href="/tools/"><strong>All interactive tools</strong><span>Calculators, planners, diagnostics</span></a>
+      <a class="tm-dd-link" href="/build/"><strong>Rig Builder</strong><span>Lift · tires · armor</span></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><strong>Engine Swap</strong><span>V8 parts list</span></a>
     </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    <div class="tm-dd-col"><div class="tm-dd-label">Calculate &amp; plan</div>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><strong>Gear Ratio Calc</strong><span>Tires × axle</span></a>
+      <a class="tm-dd-link" href="/budget-ladder.html"><strong>Budget Ladder</strong><span>What to buy next</span></a>
+      <a class="tm-dd-link" href="/line-picker.html"><strong>Line Picker</strong><span>Plan a ledge climb</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Diagnose</div>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><strong>Death Wobble</strong><span>Step-by-step diagnostic</span></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><strong>Parts Compatibility</strong><span>Cross-vehicle</span></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Learn</div>
+      <a class="tm-dd-link tm-dd-hub" href="/learn/"><strong>Learn hub</strong><span>Off-road school and workshop skills</span></a>
+      <a class="tm-dd-link" href="/trail-reading/"><strong>Trail Reading Lab</strong><span>Spot the hazards before you drive</span></a>
+      <a class="tm-dd-link" href="/workshop/"><strong>Workshop</strong><span>Torque, technique, safety</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><strong>DIY Database</strong><span>Guides for every vehicle</span></a>
+      <a class="tm-dd-link" href="/blog/"><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></a>
+      <a class="tm-dd-link" href="/about/"><strong>About</strong><span>What Trail Manual is</span></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-buying"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Buying guides</div>
+      <a class="tm-dd-link tm-dd-hub" href="/buying/"><strong>All buying guides</strong><span>Which rig, which year, which kit</span></a>
+      <a class="tm-dd-link" href="/model-year-matrix.html"><strong>Model Year Buyer’s Guide</strong><span>Which year to buy</span></a>
+      <a class="tm-dd-link" href="/jl/buying-decision/"><strong>JL Buying Decision</strong><span>Buy a JL or keep building?</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Compare kits</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl-lift-kit-comparison.html"><strong>JL lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk-lift-kit-comparison.html"><strong>JK lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj-lift-kit-comparison.html"><strong>TJ and LJ lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator-lift-kit-comparison.html"><strong>Gladiator lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g-lift-kit-comparison.html"><strong>6th Gen Bronco lift kits</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Shop smart</div>
+      <a class="tm-dd-link" href="/vehicle-research-tool.html"><strong>Used rig field guide</strong><span>Search listings by budget</span></a>
+      <a class="tm-dd-link" href="/db/otd-pricing-calculator.html"><strong>Out-the-door price</strong><span>Tax, fees, total</span></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
-      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
+      <a class="tm-dd-link tm-dd-hub" href="/my-garage.html"><strong>Maintenance log</strong><span>Service history · intervals</span></a>
+      <a class="tm-dd-link" href="/my-garage.html"><strong>My builds</strong><span>Saved configurations</span></a>
+      <a class="tm-dd-link" href="/trails/#find"><strong>Find trails</strong><span>What your rig can do</span></a>
     </div>
   </div></div>
 </header>
+<nav class="tm-bottom-nav" aria-label="Quick navigation">
+  <a href="/db/" data-tm-pillar="guides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg><span>Guides</span></a>
+  <a href="/tools/" data-tm-pillar="interactive"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg><span>Interactive</span></a>
+  <a href="/trails/" data-tm-pillar="trails"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg><span>Trails</span></a>
+  <a href="/learn/" data-tm-pillar="learn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10.5V16c3 2.5 9 2.5 12 0v-5.5"/></svg><span>Learn</span></a>
+  <a href="/my-garage.html" data-tm-pillar="garage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-7h10v7M7 17h10"/></svg><span>Garage</span></a>
+</nav>
 <script src="/_nav.js"></script>
 <!-- TM:HEADER:END -->
 <main>
@@ -265,19 +297,25 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <div class="tm-verdict"><div class="tag">Short answer</div><p>Beadlocks earn their place when you air down into the single digits to crawl — they clamp the tire bead to the wheel mechanically so it cannot unseat at pressures where a standard wheel gives up. For a JK that mostly sees moderate trails at 15-20 psi, they are an expensive maintenance item you do not need. Match the wheel to how low you actually air down, not to how the rig looks in the driveway.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-wheels-tires-jk.webp" alt="Mud-terrain tire and front coilover on a lifted Jeep Wrangler JK Rubicon" width="1600" height="1067" loading="lazy"></figure>
 <p>A standard wheel holds the tire on by air pressure alone: the bead is squeezed against the wheel&#x27;s bead seat, and the friction of that clamp is what keeps the tire from rotating on the rim or rolling off it. Drop the pressure far enough and that clamp goes away. A true beadlock replaces the outer bead seat with a bolt-on ring that sandwiches the outer bead between two machined surfaces, so the tire stays put at 5-8 psi where a stock wheel would burp the bead and go flat. That low-pressure capability is the entire point — a bigger, softer footprint and dramatically more grip on rock.</p>
+<h3>The pressure line where beadlocks start mattering</h3>
 <p>The honest threshold is around 10-12 psi. Above it, a modern factory-style JK wheel with a healthy bead seat holds a 35 or a 37 reliably, and the failures you hear about are usually side-loading a tire in an off-camber ledge, not the pressure itself.</p>
 <div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Trail pressure</th><th>What holds the bead</th><th>Beadlock verdict</th></tr></thead><tbody><tr><td>20-28 psi (street, forest road)</td><td>Air pressure, comfortably</td><td>No benefit at all</td></tr><tr><td>15-20 psi (moderate trail, most JKs)</td><td>Air pressure, with margin</td><td>Not needed</td></tr><tr><td>12-15 psi (rocky trail, 35s and 37s)</td><td>Air pressure, thinner margin</td><td>Optional; good tires matter more</td></tr><tr><td>8-12 psi (hard rock, ledges)</td><td>Marginal — side loads can unseat</td><td>Real benefit</td></tr><tr><td>Below 8 psi (competition crawling)</td><td>Nothing but the ring</td><td>Required in practice</td></tr></tbody></table></div>
 <p>If you have never actually run a tire gauge on the trail, do that before spending money here. Most people who believe they run 8 psi are running 16. Airing down properly is the cheaper half of this upgrade, and it pairs with the sizing work in <a href="/db/jk/jk-tire-fitment-37s/">tire fitment for 37s</a>.</p>
+<h3>Fitment on a JK</h3>
 <p><a href="https://www.quadratec.com/c/reference/jeep-wheel-bolt-patterns-and-lug-nut-torque-specs" target="_blank" rel="noopener">The JK uses a 5x5 (5x127) bolt pattern</a> with a 71.5 mm hub bore and 1/2-20 studs across the entire 2007-2018 run, 2-door and 4-door alike, so the bolt pattern side of the decision is settled. What varies is width and backspacing. Most JK beadlocks land at 17x8.5 or 17x9 with roughly 3.75-4.5 inches of backspacing, which pushes the tire outward relative to a factory wheel and buys clearance for a 37 at full lock.</p>
 <p>That extra width is not free. It moves the tire&#x27;s contact patch outboard of the wheel bearing centerline, which increases the leverage on the unit bearing and accelerates its wear — the same tradeoff covered in <a href="/db/jk/jk-wheel-spacers/">wheel spacers and adapters</a>. Pulling backspacing much below about 4 inches on a heavy JK is a bearing-life decision, not a styling one. Get the manufacturer&#x27;s fitment chart, and give it your actual lift height and tire size rather than what you plan to run someday.</p>
+<h3>What a set actually costs</h3>
 <p>Buy five, not four. A beadlock spare that cannot be aired up on the trail is a decoration.</p>
 <div class="tm-table-wrap"><table class="tm-md-table"><thead><tr><th>Wheel</th><th>Type</th><th>Per wheel</th><th>Set of 5</th></tr></thead><tbody><tr><td>Raceline Monster</td><td>Single beadlock, cast</td><td>$300-400</td><td>$1,500-2,000</td></tr><tr><td>Method 105 Beadlock</td><td>Single beadlock, cast</td><td>$430-500</td><td>$2,150-2,500</td></tr><tr><td>Walker Evans 501</td><td>Single beadlock, forged/cast</td><td>$400-550</td><td>$2,000-2,750</td></tr><tr><td>Trail-Ready HD series</td><td>Double beadlock, fabricated</td><td>$550-700</td><td>$2,750-3,500</td></tr><tr><td>&quot;Simulated&quot; / faux beadlock</td><td>Decorative ring, no clamp</td><td>$180-300</td><td>$900-1,500</td></tr></tbody></table></div>
 <p>The simulated wheels deserve a direct warning: the ring is bolted to the wheel face and clamps nothing. It is a styling part. Some of them are perfectly good wheels underneath, but if you buy one believing it will hold a bead at 7 psi, you will find out otherwise in the worst place.</p>
 <p>Add mounting to the budget. Many tire shops will not touch a beadlock because of liability, so either find a shop that will or plan to mount them yourself with spoons and patience.</p>
+<h3>Installation and the torque discipline they demand</h3>
 <p>This is where beadlock ownership actually lives. The ring bolts are the whole safety story.</p>
 <ol><li><strong>Clean and inspect both surfaces.</strong> Wire-brush the wheel&#x27;s bead seat and the inner face of the ring. Grit or old sealant here causes a slow leak that you will chase for weeks.</li><li><strong>Set the tire and seat the inner bead</strong> on the wheel with the ring off, using a bead breaker and a ratchet strap if needed.</li><li><strong>Lay the ring on and start every bolt by hand.</strong> Anti-seize on the threads, sparingly. A cross-threaded bolt into an aluminum wheel is a wheel-replacement mistake.</li><li><strong>Snug in a star pattern in at least three passes</strong> — finger tight, then roughly half spec, then full spec. Most manufacturers call for something in the 12-20 ft-lb range across 24-32 grade-8 bolts; use the number on your wheel&#x27;s instruction sheet and nothing else, because over-torquing crushes the bead and causes the leak you are trying to prevent.</li><li><strong>Air up and check for leaks</strong> with soapy water all the way around the ring.</li><li><strong>Re-torque after the first heat cycle</strong> and again after the first hard trail day. Then check them before every trip. Treat a missing or backed-out bolt as a trail-ending problem, which is why the spare-bolt kit is on the parts list.</li><li><strong>Torque the lug nuts to roughly 95-100 ft-lb</strong> and re-check after 50 miles. The JK factory range is commonly cited at 95-100 ft-lb; confirm against your service manual, and note that many beadlock wheels need open-end lug nuts because the studs sit proud of the wheel face.</li></ol>
+<h3>Legality, weight, and the case against</h3>
 <p>True beadlocks are generally not DOT-approved and are not street-legal in every state. Enforcement is inconsistent, but the exposure is real, and an insurance adjuster after an accident is a different audience than a trail buddy. Check your state&#x27;s equipment rules before you buy.</p>
 <p>They also add weight — a fabricated double beadlock can run several pounds heavier per corner than a comparable cast wheel — which is unsprung mass working against your shocks and your gearing. If you are already at the edge of what your axle ratio supports, read <a href="/db/jk/jk-regear/">regearing</a> before adding rotating weight.</p>
+<h3>Bottom line</h3>
 <p>If you regularly air down below 10 psi to crawl, buy a reputable single or double beadlock in a set of five, torque the rings to the manufacturer&#x27;s spec in a star pattern, and check them religiously. That is a genuine capability upgrade and there is no substitute for it.</p>
 <p>If you run 15-20 psi on moderate trails — which describes most JKs honestly assessed — put the money into better tires and a quality non-beadlock wheel from the <a href="/db/jk/jk-wheels/">JK wheel guide</a> instead. You will be faster, lighter, quieter, legal everywhere, and you will spend your Saturday wheeling rather than torquing 128 bolts.</p>
 <h2>Tools required</h2>
@@ -308,12 +346,12 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       </p>
     </div>
     <div>
-      <h4>Tools</h4>
+      <h4>Interactive</h4>
       <a href="/build/">Rig Builder</a>
       <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
       <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
       <a href="/db/">DIY Database</a>
-      <a href="/tools/">All tools &rarr;</a>
+      <a href="/tools/">All interactive tools &rarr;</a>
     </div>
     <div>
       <h4>Learn</h4>
@@ -322,6 +360,8 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
       <a href="/workshop/">Workshop</a>
       <a href="/guides/">Repair Guides</a>
       <a href="/blog/">Blog</a>
+      <a href="/learn/">Learn hub</a>
+      <a href="/buying/">Buying guides</a>
     </div>
     <div>
       <h4>About</h4>

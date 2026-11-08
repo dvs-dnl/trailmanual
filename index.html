@@ -106,39 +106,28 @@
 </head>
 <body>
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
+<a class="tm-skip" href="#tm-content">Skip to content</a>
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
-    <button class="tm-hamburger" aria-label="Open menu" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
-    <div class="tm-nav-menu" id="tm-nav-menu">
-      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" onclick="tmDrop('vehicles')">Vehicles <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" type="button" id="tm-btn-build" onclick="tmDrop('build')">Build <span class="tm-chev">▾</span></button>
-      <button class="tm-nav-btn" id="tm-btn-learn" type="button" onclick="tmDrop('learn')">Learn <span class="tm-chev">▾</span></button>
-      <a class="tm-nav-btn" href="/trails/">Trails</a>
-      <button class="tm-nav-btn tm-explore-btn" type="button" onclick="tmExplore()">Explore</button>
-      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
+    <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
+    <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
+      <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-build" data-tm-pillar="interactive" aria-expanded="false" aria-controls="tm-dd-build" onclick="tmDrop('build')">Interactive <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <a class="tm-nav-btn" href="/trails/" data-tm-pillar="trails">Trails</a>
+      <button class="tm-nav-btn" type="button" id="tm-btn-learn" data-tm-pillar="learn" aria-expanded="false" aria-controls="tm-dd-learn" onclick="tmDrop('learn')">Learn <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn" type="button" id="tm-btn-buying" data-tm-pillar="buying" aria-expanded="false" aria-controls="tm-dd-buying" onclick="tmDrop('buying')">Buying Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
+      <button class="tm-nav-btn tm-garage-btn" type="button" id="tm-btn-garage" data-tm-pillar="garage" aria-expanded="false" aria-controls="tm-dd-garage" onclick="tmDrop('garage')"><div class="tm-garage-icon" id="tm-garage-icon">MG</div><span>My Garage</span></button>
       <button class="tm-theme-btn" id="tm-theme-btn" type="button" data-tm-theme aria-label="Switch between light and dark theme"><svg class="tm-theme-icon tm-theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg><svg class="tm-theme-icon tm-theme-icon-moon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-    </div>
+    </nav>
   </div>
-  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Your rig</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 3h7v7H3z M14 3h7v7h-7z M14 14h7v7h-7z M3 14h7v7H3z"/></svg></div><div><strong>Pick a vehicle</strong><span>All platforms</span></div></a>
+  <div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
+    <div class="tm-dd-col"><div class="tm-dd-label">Vehicle guides</div>
+      <a class="tm-dd-link tm-dd-hub" href="/db/"><strong>All vehicle guides</strong><span>Pick a platform</span></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/guides/"><strong>Repair guides</strong></a>
+      <button class="tm-dd-link tm-dd-link--sm tm-dd-explore" type="button" onclick="tmExplore()"><strong>Surprise me</strong></button>
     </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Build tools</div>
-      <a class="tm-dd-link" href="/build/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div><div><strong>Rig Builder</strong><span>Lift · tires · armor</span></div></a>
-      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><div><strong>Engine Swap</strong><span>V8 parts list</span></div></a>
-      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M19.622 10.395l-1.097-2.65L20 6l-2-2-1.735 1.483-2.707-1.113L12.935 2h-1.954l-.632 2.401-2.645 1.115L6 4 4 6l1.453 1.778-1.08 2.615L2 11v2l2.401.655L5.516 16.3 4 18l2 2 1.791-1.46 2.606 1.072L11 22h2l.604-2.387 2.651-1.098C16.697 19.555 18 21 18 21l2-2-1.478-1.754 1.099-2.648L22 14v-2z"/></svg></div><div><strong>Gear Ratio Calc</strong><span>Tires × axle</span></div></a>
-      <a class="tm-dd-link" href="/budget-ladder.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21h5v-5h5v-5h5V6h3"/></svg></div><div><strong>Budget Ladder</strong><span>What to buy next</span></div></a>
-      <a class="tm-dd-link" href="/line-picker.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M6 21c0-5 4-5 6-9s0-6 6-9"/></svg></div><div><strong>Line Picker</strong><span>Plan a ledge climb</span></div></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Repair &amp; diagnose</div>
-      <a class="tm-dd-link" href="/guides/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2 M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2 M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/></svg></div><div><strong>Repair Guides</strong><span>Step-by-step</span></div></a>
-      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><div class="tm-dd-icon danger"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z M12 9v4 M12 17h.01"/></svg></div><div><strong>Death Wobble</strong><span>6-question diagnostic</span></div></a>
-      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71 M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div><div><strong>Parts Compatibility</strong><span>Cross-vehicle</span></div></a>
-    </div>
-  </div></div>
-<div class="tm-dd-panel" id="tm-dd-vehicles"><div class="tm-dd-inner tm-dd-vehicles">
     <div class="tm-dd-col"><div class="tm-dd-label">Jeep</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/xj/"><strong>Cherokee XJ</strong></a>
       <a class="tm-dd-link tm-dd-link--sm" href="/cj7/"><strong>CJ-7</strong></a>
@@ -163,8 +152,7 @@
       <a class="tm-dd-link tm-dd-link--sm" href="/full-size-bronco/"><strong>Full-Size Bronco</strong></a>
       -->
       <a class="tm-dd-link tm-dd-link--sm" href="/raptor/"><strong>F-150 Raptor</strong></a>
-    </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Ram</div>
+      <div class="tm-dd-label tm-dd-label--gap">Ram</div>
       <a class="tm-dd-link tm-dd-link--sm" href="/power-wagon/"><strong>Power Wagon</strong></a>
     </div>
     <div class="tm-dd-col"><div class="tm-dd-label">Toyota</div>
@@ -177,32 +165,92 @@
     </div>
     -->
   </div></div>
-  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
-    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
-      <a class="tm-dd-link" href="/db/"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20 M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><strong>DIY Database</strong><span>Guides for every vehicle</span></div></a>
-      <a class="tm-dd-link" href="/workshop/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M3 21l9-9 M12.5 7.5l4-4 4 4-4 4-4-4z M3 8.5l4-4 4 4-4 4-4-4z"/></svg></div><div><strong>Workshop</strong><span>Torque, technique, safety</span></div></a>
+  <div class="tm-dd-panel" id="tm-dd-build"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Interactive tools</div>
+      <a class="tm-dd-link tm-dd-hub" href="/tools/"><strong>All interactive tools</strong><span>Calculators, planners, diagnostics</span></a>
+      <a class="tm-dd-link" href="/build/"><strong>Rig Builder</strong><span>Lift · tires · armor</span></a>
+      <a class="tm-dd-link" href="/v8-swap-parts-checklist.html"><strong>Engine Swap</strong><span>V8 parts list</span></a>
     </div>
-    <div class="tm-dd-col"><div class="tm-dd-label">Discover</div>
-      <a class="tm-dd-link" href="/blog/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7 M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div><div><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></div></a>      <a class="tm-dd-link" href="/about/"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg></div><div><strong>About</strong><span>What Trail Manual is</span></div></a>
+    <div class="tm-dd-col"><div class="tm-dd-label">Calculate &amp; plan</div>
+      <a class="tm-dd-link" href="/gear-ratio-calculator.html"><strong>Gear Ratio Calc</strong><span>Tires × axle</span></a>
+      <a class="tm-dd-link" href="/budget-ladder.html"><strong>Budget Ladder</strong><span>What to buy next</span></a>
+      <a class="tm-dd-link" href="/line-picker.html"><strong>Line Picker</strong><span>Plan a ledge climb</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Diagnose</div>
+      <a class="tm-dd-link" href="/db/death-wobble-guide.html"><strong>Death Wobble</strong><span>Step-by-step diagnostic</span></a>
+      <a class="tm-dd-link" href="/db/parts-compatibility-tool.html"><strong>Parts Compatibility</strong><span>Cross-vehicle</span></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-learn"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Learn</div>
+      <a class="tm-dd-link tm-dd-hub" href="/learn/"><strong>Learn hub</strong><span>Off-road school and workshop skills</span></a>
+      <a class="tm-dd-link" href="/trail-reading/"><strong>Trail Reading Lab</strong><span>Spot the hazards before you drive</span></a>
+      <a class="tm-dd-link" href="/workshop/"><strong>Workshop</strong><span>Torque, technique, safety</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Reference</div>
+      <a class="tm-dd-link" href="/db/"><strong>DIY Database</strong><span>Guides for every vehicle</span></a>
+      <a class="tm-dd-link" href="/blog/"><strong>Blog</strong><span>Fixes, buyer’s guides, deep dives</span></a>
+      <a class="tm-dd-link" href="/about/"><strong>About</strong><span>What Trail Manual is</span></a>
+    </div>
+  </div></div>
+  <div class="tm-dd-panel" id="tm-dd-buying"><div class="tm-dd-inner">
+    <div class="tm-dd-col"><div class="tm-dd-label">Buying guides</div>
+      <a class="tm-dd-link tm-dd-hub" href="/buying/"><strong>All buying guides</strong><span>Which rig, which year, which kit</span></a>
+      <a class="tm-dd-link" href="/model-year-matrix.html"><strong>Model Year Buyer’s Guide</strong><span>Which year to buy</span></a>
+      <a class="tm-dd-link" href="/jl/buying-decision/"><strong>JL Buying Decision</strong><span>Buy a JL or keep building?</span></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Compare kits</div>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jl-lift-kit-comparison.html"><strong>JL lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/jk-lift-kit-comparison.html"><strong>JK lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/tj-lift-kit-comparison.html"><strong>TJ and LJ lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/gladiator-lift-kit-comparison.html"><strong>Gladiator lift kits</strong></a>
+      <a class="tm-dd-link tm-dd-link--sm" href="/bronco6g-lift-kit-comparison.html"><strong>6th Gen Bronco lift kits</strong></a>
+    </div>
+    <div class="tm-dd-col"><div class="tm-dd-label">Shop smart</div>
+      <a class="tm-dd-link" href="/vehicle-research-tool.html"><strong>Used rig field guide</strong><span>Search listings by budget</span></a>
+      <a class="tm-dd-link" href="/db/otd-pricing-calculator.html"><strong>Out-the-door price</strong><span>Tax, fees, total</span></a>
     </div>
   </div></div>
   <div class="tm-dd-panel" id="tm-dd-garage"><div class="tm-dd-inner">
     <div class="tm-dd-col"><div class="tm-dd-label">My Garage</div>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v9a2 2 0 0 1-2 2h-2 M14 17H9 M17 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M7 21a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></div><div><strong>Maintenance log</strong><span>Service history · intervals</span></div></a>
-      <a class="tm-dd-link" href="/my-garage.html"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg></div><div><strong>My builds</strong><span>Saved configurations</span></div></a>
-      <a class="tm-dd-link" href="/trails/#find"><div class="tm-dd-icon slate"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;display:inline-block;vertical-align:middle;flex-shrink:0" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg></div><div><strong>Find trails</strong><span>What your rig can do</span></div></a>
+      <a class="tm-dd-link tm-dd-hub" href="/my-garage.html"><strong>Maintenance log</strong><span>Service history · intervals</span></a>
+      <a class="tm-dd-link" href="/my-garage.html"><strong>My builds</strong><span>Saved configurations</span></a>
+      <a class="tm-dd-link" href="/trails/#find"><strong>Find trails</strong><span>What your rig can do</span></a>
     </div>
   </div></div>
 </header>
+<nav class="tm-bottom-nav" aria-label="Quick navigation">
+  <a href="/db/" data-tm-pillar="guides"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg><span>Guides</span></a>
+  <a href="/tools/" data-tm-pillar="interactive"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg><span>Interactive</span></a>
+  <a href="/trails/" data-tm-pillar="trails"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 20 6-10 4 6 3-4 5 8z"/></svg><span>Trails</span></a>
+  <a href="/learn/" data-tm-pillar="learn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8l10-5 10 5-10 5z"/><path d="M6 10.5V16c3 2.5 9 2.5 12 0v-5.5"/></svg><span>Learn</span></a>
+  <a href="/my-garage.html" data-tm-pillar="garage"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V9l9-6 9 6v12"/><path d="M7 21v-7h10v7M7 17h10"/></svg><span>Garage</span></a>
+</nav>
 <script src="/_nav.js"></script>
 <!-- TM:HEADER:END -->
 <main class="hp">
+
+  <!-- tmb:rig (Direction B rig-aware state; filled client-side from My Garage storage tm.garage.v1 — nothing is written to it) -->
+  <section class="tmb-rig tmb-wrap" id="tmb-rig" aria-labelledby="tmb-rig-title" hidden>
+    <div class="tmb-rig-head">
+      <div><p class="tmb-eyebrow">Your rig</p><h2 id="tmb-rig-title">Your saved rig</h2></div>
+      <div><a class="tmb-linkbtn" href="/my-garage.html">Change rig</a> · <button class="tmb-linkbtn" type="button" id="tmb-explore">Explore all</button></div>
+    </div>
+    <div class="tmb-rig-actions">
+      <a id="tmb-rig-guides" href="/db/">Guides for your rig<span id="tmb-rig-guides-sub">Repairs, upgrades and known issues</span></a>
+      <a href="/tools/">Interactive tools<span>Gearing, tire pressure, wiring, fuel range</span></a>
+      <a href="/trails/#find">Trails your rig can do<span>Check fit against your setup</span></a>
+      <a href="/my-garage.html">Maintenance log<span>Service history and what’s due</span></a>
+    </div>
+  </section>
+  <p class="tmb-restore tmb-wrap" id="tmb-restore" hidden><button class="tmb-linkbtn" type="button" id="tmb-restore-btn">Show my rig</button></p>
+  <!-- /tmb:rig -->
 
   <section class="hp-hero" aria-labelledby="hp-title">
     <div class="hp-hero-photo"><img src="/images/adventure-xj-sedona-slickrock.webp" alt="Lifted red Jeep Cherokee XJ parked on slickrock below the red cliffs of Sedona, Arizona" width="1600" height="1200" fetchpriority="high"></div>
     <div class="hp-hero-card">
       <h1 id="hp-title">DIY repair and build guides for Jeeps and other off-road rigs.</h1>
-      <p><span data-tm-count="entries">1,146</span> guides with part numbers, torque specs, price ranges and the sources behind them. Free, honest, and built on real owner feedback.</p>
+      <p><span data-tm-count="entries">1,147</span> guides with part numbers, torque specs, price ranges and the sources behind them. Free, honest, and built on real owner feedback.</p>
       <form class="hp-search" action="/db/" method="get" role="search">
         <label for="hp-v">Vehicle</label>
         <select id="hp-v" name="v"><option value="xj">Cherokee XJ</option><option value="tj">Wrangler TJ</option><option value="jk">Wrangler JK</option><option value="jl">Wrangler JL</option><option value="gladiator">Gladiator JT</option><option value="yj">Wrangler YJ</option><option value="zj">Grand Cherokee ZJ</option><option value="cj7">CJ-7</option><option value="cj5">CJ-5</option><option value="wj">Grand Cherokee WJ</option><option value="lj">Wrangler LJ</option><option value="wk">Grand Cherokee WK</option><option value="raptor">F-150 Raptor</option><option value="bronco">Early Bronco</option><option value="tacoma">Tacoma</option><option value="4runner">4Runner</option><option value="power-wagon">Power Wagon</option></select>
@@ -213,10 +261,26 @@
     </div>
   </section>
 
+  <!-- tmb:pillars (Direction B six destinations) -->
+  <section class="tmb-section tmb-wrap" aria-labelledby="tmb-pillars-h">
+    <p class="tmb-eyebrow">Explore Trail Manual</p>
+    <h2 id="tmb-pillars-h">Six ways in</h2>
+    <p class="tmb-lede">Work on your rig, plan a trip, learn a skill or decide what to buy. Every guide stays where it has always been.</p>
+    <div class="tmb-pillars">
+      <a class="tmb-pillar" href="/db/"><span class="tmb-media"><img src="/images/editorial/vehicle-guide-overlook-card.webp" alt="Off-road vehicle overlooking forested mountains" width="720" height="480" loading="lazy" decoding="async"><span class="tmb-illus">Illustration</span></span><span class="tmb-pillar-body"><strong>Vehicle Guides</strong><span>Repairs, upgrades and known issues for each platform.</span></span></a>
+      <a class="tmb-pillar" href="/tools/"><span class="tmb-media"><svg viewBox="0 0 360 240" role="img" aria-label="Gauge and calculator schematic" style="width:100%;height:100%;display:block"><rect width="360" height="240" fill="#E3E8DE"/><circle cx="130" cy="128" r="62" fill="none" stroke="#475C3A" stroke-width="6"/><path d="M130 128 L168 96" stroke="#A94F30" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="128" r="8" fill="#475C3A"/><path d="M84 160h92" stroke="#475C3A" stroke-width="4" stroke-linecap="round" opacity=".5"/><rect x="214" y="62" width="90" height="120" rx="12" fill="#fff" stroke="#475C3A" stroke-width="5"/><path d="M232 88h54M232 118h14M262 118h14M232 146h14M262 146h14" stroke="#475C3A" stroke-width="6" stroke-linecap="round"/></svg></span><span class="tmb-pillar-body"><strong>Interactive</strong><span>Calculators, planners and diagnostics that run in your browser.</span></span></a>
+      <a class="tmb-pillar" href="/trails/"><span class="tmb-media"><img src="/images/editorial/trail-journey-two-vehicles-card.webp" alt="Two off-road vehicles at a forested mountain trailhead" width="720" height="480" loading="lazy" decoding="async"><span class="tmb-illus">Illustration</span></span><span class="tmb-pillar-body"><strong>Trails</strong><span>Rated routes, what they need from your rig, and when to go.</span></span></a>
+      <a class="tmb-pillar" href="/learn/"><span class="tmb-media"><img src="/images/editorial/spotter-rock-obstacle-card.webp" alt="Person on foot scouting a rocky obstacle near an off-road vehicle" width="720" height="480" loading="lazy" decoding="async"><span class="tmb-illus">Illustration</span></span><span class="tmb-pillar-body"><strong>Learn</strong><span>Off-road school, Trail Reading Lab and workshop skills.</span></span></a>
+      <a class="tmb-pillar tmb-pillar--buying" href="/buying/"><span class="tmb-media"><img src="/images/editorial/all-terrain-tires-card.webp" alt="Three aggressive off-road tires in a workshop" width="720" height="480" loading="lazy" decoding="async"><span class="tmb-illus">Illustration</span></span><span class="tmb-pillar-body"><strong>Buying Guides</strong><span>Which rig, which year, which lift kit, and what to inspect first.</span></span></a>
+      <a class="tmb-pillar" href="/my-garage.html"><span class="tmb-media"><img src="/images/editorial/rig-hero-sunrise-card.webp" alt="Rugged off-road vehicle parked above a mountain valley" width="720" height="480" loading="lazy" decoding="async"><span class="tmb-illus">Illustration</span></span><span class="tmb-pillar-body"><strong>My Garage</strong><span>Your rigs and service log, saved on this device. No account.</span></span></a>
+    </div>
+  </section>
+  <!-- /tmb:pillars -->
+
   <section class="hp-section" aria-labelledby="hp-rigs">
     <h2 id="hp-rigs">Start with your rig</h2>
     <p class="hp-lede">Every guide is written for a specific platform: its axles, its engine, its known failures. Pick yours to see its guides, tools and build paths. Jeeps first, then Ford, Ram and Toyota.</p>
-    <div class="hp-rigs"><a class="hp-rig hp-rig--big" href="/xj/"><img src="/images/photo-xj-sway-bar-disconnects.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Cherokee XJ</span><span class="hp-rig-meta">1984–2001 · <span data-tm-count="xj">386</span> guides</span></span></a><a class="hp-rig" href="/cj7/"><img src="/images/cj7-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">CJ-7</span><span class="hp-rig-meta">1976–1986 · <span data-tm-count="cj7">27</span> guides</span></span></a><a class="hp-rig" href="/cj5/"><img src="/images/cj5-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">CJ-5</span><span class="hp-rig-meta">1954–1983 · <span data-tm-count="cj5">26</span> guides</span></span></a><a class="hp-rig" href="/gladiator/"><img src="/images/gladiator-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Gladiator JT</span><span class="hp-rig-meta">2020–now · <span data-tm-count="gladiator">54</span> guides</span></span></a><a class="hp-rig" href="/wk/"><img src="/images/wk-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Grand Cherokee WK</span><span class="hp-rig-meta">2005–2010 · <span data-tm-count="wk">20</span> guides</span></span></a><a class="hp-rig" href="/wj/"><img src="/images/wj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Grand Cherokee WJ</span><span class="hp-rig-meta">1999–2004 · <span data-tm-count="wj">26</span> guides</span></span></a><a class="hp-rig" href="/zj/"><img src="/images/zj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Grand Cherokee ZJ</span><span class="hp-rig-meta">1993–1998 · <span data-tm-count="zj">33</span> guides</span></span></a><a class="hp-rig" href="/jl/"><img src="/images/jl-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler JL</span><span class="hp-rig-meta">2018–now · <span data-tm-count="jl">60</span> guides</span></span></a><a class="hp-rig" href="/jk/"><img src="/images/jk-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler JK</span><span class="hp-rig-meta">2007–2018 · <span data-tm-count="jk">63</span> guides</span></span></a><a class="hp-rig" href="/tj/"><img src="/images/tj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler TJ</span><span class="hp-rig-meta">1997–2006 · <span data-tm-count="tj">64</span> guides</span></span></a><a class="hp-rig" href="/lj/"><img src="/images/lj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler LJ</span><span class="hp-rig-meta">2004–2006 · <span data-tm-count="lj">21</span> guides</span></span></a><a class="hp-rig" href="/yj/"><img src="/images/yj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler YJ</span><span class="hp-rig-meta">1987–1995 · <span data-tm-count="yj">38</span> guides</span></span></a><a class="hp-rig" href="/bronco/"><img src="/images/bronco-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Early Bronco</span><span class="hp-rig-meta">1966–1977 · <span data-tm-count="bronco">58</span> guides</span></span></a><a class="hp-rig" href="/raptor/"><img src="/images/raptor-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">F-150 Raptor</span><span class="hp-rig-meta">2010–now · <span data-tm-count="raptor">65</span> guides</span></span></a><a class="hp-rig" href="/power-wagon/"><img src="/images/power-wagon-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Power Wagon</span><span class="hp-rig-meta">2005–now · <span data-tm-count="power-wagon">54</span> guides</span></span></a><a class="hp-rig" href="/4runner/"><img src="/images/4runner-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">4Runner</span><span class="hp-rig-meta">1984–now · <span data-tm-count="4runner">57</span> guides</span></span></a><a class="hp-rig" href="/tacoma/"><img src="/images/tacoma-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Tacoma</span><span class="hp-rig-meta">1995–now · <span data-tm-count="tacoma">59</span> guides</span></span></a></div>
+    <div class="hp-rigs"><a class="hp-rig hp-rig--big" href="/xj/"><img src="/images/photo-xj-sway-bar-disconnects.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Cherokee XJ</span><span class="hp-rig-meta">1984–2001 · <span data-tm-count="xj">386</span> guides</span></span></a><a class="hp-rig" href="/cj7/"><img src="/images/cj7-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">CJ-7</span><span class="hp-rig-meta">1976–1986 · <span data-tm-count="cj7">27</span> guides</span></span></a><a class="hp-rig" href="/cj5/"><img src="/images/cj5-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">CJ-5</span><span class="hp-rig-meta">1954–1983 · <span data-tm-count="cj5">26</span> guides</span></span></a><a class="hp-rig" href="/gladiator/"><img src="/images/gladiator-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Gladiator JT</span><span class="hp-rig-meta">2020–now · <span data-tm-count="gladiator">54</span> guides</span></span></a><a class="hp-rig" href="/wk/"><img src="/images/wk-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Grand Cherokee WK</span><span class="hp-rig-meta">2005–2010 · <span data-tm-count="wk">20</span> guides</span></span></a><a class="hp-rig" href="/wj/"><img src="/images/wj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Grand Cherokee WJ</span><span class="hp-rig-meta">1999–2004 · <span data-tm-count="wj">26</span> guides</span></span></a><a class="hp-rig" href="/zj/"><img src="/images/zj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Grand Cherokee ZJ</span><span class="hp-rig-meta">1993–1998 · <span data-tm-count="zj">33</span> guides</span></span></a><a class="hp-rig" href="/jl/"><img src="/images/jl-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler JL</span><span class="hp-rig-meta">2018–now · <span data-tm-count="jl">60</span> guides</span></span></a><a class="hp-rig" href="/jk/"><img src="/images/jk-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler JK</span><span class="hp-rig-meta">2007–2018 · <span data-tm-count="jk">64</span> guides</span></span></a><a class="hp-rig" href="/tj/"><img src="/images/tj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler TJ</span><span class="hp-rig-meta">1997–2006 · <span data-tm-count="tj">64</span> guides</span></span></a><a class="hp-rig" href="/lj/"><img src="/images/lj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler LJ</span><span class="hp-rig-meta">2004–2006 · <span data-tm-count="lj">21</span> guides</span></span></a><a class="hp-rig" href="/yj/"><img src="/images/yj-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Wrangler YJ</span><span class="hp-rig-meta">1987–1995 · <span data-tm-count="yj">38</span> guides</span></span></a><a class="hp-rig" href="/bronco/"><img src="/images/bronco-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Early Bronco</span><span class="hp-rig-meta">1966–1977 · <span data-tm-count="bronco">58</span> guides</span></span></a><a class="hp-rig" href="/raptor/"><img src="/images/raptor-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">F-150 Raptor</span><span class="hp-rig-meta">2010–now · <span data-tm-count="raptor">65</span> guides</span></span></a><a class="hp-rig" href="/power-wagon/"><img src="/images/power-wagon-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Power Wagon</span><span class="hp-rig-meta">2005–now · <span data-tm-count="power-wagon">54</span> guides</span></span></a><a class="hp-rig" href="/4runner/"><img src="/images/4runner-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">4Runner</span><span class="hp-rig-meta">1984–now · <span data-tm-count="4runner">57</span> guides</span></span></a><a class="hp-rig" href="/tacoma/"><img src="/images/tacoma-hero.webp" alt="" loading="lazy" decoding="async"><span class="hp-rig-text"><span class="hp-rig-name">Tacoma</span><span class="hp-rig-meta">1995–now · <span data-tm-count="tacoma">59</span> guides</span></span></a></div>
   </section>
 
   <section class="hp-section" aria-labelledby="hp-trend-h" id="hp-trending" hidden>
@@ -243,7 +307,7 @@
       <a class="hp-tool" href="/build/"><strong>Rig Builder</strong><span>Parts, costs and install order for the build you’re planning.</span></a>
       <a class="hp-tool" href="/v8-swap-parts-checklist.html"><strong>V8 Swap Parts Checklist</strong><span>Every part a JK Wrangler V8 swap needs, with prices.</span></a>
     </div>
-    <a class="hp-more" href="/tools/">All tools</a>
+    <a class="hp-more" href="/tools/">All interactive tools</a>
   </section>
 
   <section class="hp-section" aria-labelledby="hp-blog-h">
@@ -269,6 +333,77 @@
     <a class="hp-more" href="/workshop/">Open the Workshop</a>
   </section>
 
+<script>
+/* tmb:rig-state — Direction B home, rig-aware state. Reads My Garage (tm.garage.v1) read-only:
+   shows the active rig's shortcuts; "Explore all" hides them for this tab (sessionStorage) without
+   touching the saved rig. Platform mapping is the same as /trails/ (tfPlatformFor). */
+(function(){
+  var HUBS={xj:'Cherokee XJ',tj:'Wrangler TJ',jl:'Wrangler JL',jk:'Wrangler JK',gladiator:'Gladiator JT','4runner':'4Runner',tacoma:'Tacoma',bronco:'Early Bronco',raptor:'F-150 Raptor','power-wagon':'Power Wagon',zj:'Grand Cherokee ZJ',yj:'Wrangler YJ',wk:'Grand Cherokee WK',wj:'Grand Cherokee WJ',lj:'Wrangler LJ',cj5:'CJ-5',cj7:'CJ-7',bronco6g:'Bronco (6th Gen)','bronco-ii':'Bronco II','full-size-bronco':'Full-Size Bronco'};
+  function tfPlatformFor(v){
+    var t=[v.make,v.model,v.trim,v.nickname].filter(Boolean).join(' ').toLowerCase();
+    var model=[v.make,v.model,v.trim].filter(Boolean).join(' ').toLowerCase();
+    var y=parseInt(v.year,10)||0;
+    var code=function(c){return new RegExp('\\b'+c+'\\b').test(t);};
+    if(/gladiator/.test(model))return 'gladiator';
+    if(/grand cherokee/.test(model)){
+      if(code('zj'))return 'zj';if(code('wj'))return 'wj';if(code('wk'))return 'wk';
+      if(y>=1993&&y<=1998)return 'zj';if(y>=1999&&y<=2004)return 'wj';if(y>=2005&&y<=2010)return 'wk';
+      return null;
+    }
+    if(/cherokee/.test(model))return (code('xj')||(y>=1984&&y<=2001))?'xj':null;
+    if(/cj-?\s?7/.test(model))return 'cj7';
+    if(/cj-?\s?5/.test(model))return 'cj5';
+    if(/wrangler/.test(model)||/\b(jl|jk|tj|lj|yj)\b/.test(model)){
+      var codes=['jl','jk','lj','tj','yj'];
+      for(var i=0;i<codes.length;i++)if(code(codes[i]))return codes[i];
+      if(y>=2019)return 'jl';if(y>=2007&&y<=2017)return 'jk';
+      if(y>=2004&&y<=2006&&/unlimited/.test(model))return 'lj';
+      if(y>=1997&&y<=2006)return 'tj';if(y>=1987&&y<=1995)return 'yj';
+      return null;
+    }
+    if(/bronco ?ii|bronco 2\b/.test(model))return 'bronco-ii';
+    if(/bronco/.test(model)){
+      if(y>=2021)return 'bronco6g';if(y>=1978&&y<=1996)return 'full-size-bronco';if(y>=1966&&y<=1977)return 'bronco';
+      return null;
+    }
+    if(/raptor/.test(model))return 'raptor';
+    if(/power ?wagon/.test(model))return 'power-wagon';
+    if(/4 ?runner/.test(model))return '4runner';
+    if(/tacoma/.test(model))return 'tacoma';
+    return null;
+  }
+  var g,v;
+  try{g=JSON.parse(localStorage.getItem('tm.garage.v1')||'null');}catch(e){g=null;}
+  if(!g||!Array.isArray(g.vehicles)||!g.vehicles.length)return;
+  v=g.vehicles.filter(function(x){return x&&x.id===g.activeVehicleId;})[0];
+  if(!v)return;
+  var panel=document.getElementById('tmb-rig'),restore=document.getElementById('tmb-restore');
+  if(!panel)return;
+  var name=v.nickname||[v.year,v.make,v.model,v.trim].filter(Boolean).join(' ')||'Your rig';
+  var desc=[v.year,v.make,v.model,v.trim].filter(Boolean).join(' ');
+  document.getElementById('tmb-rig-title').textContent=name+(v.nickname&&desc?' · '+desc:'');
+  var p=tfPlatformFor(v);
+  if(p&&HUBS[p]){
+    var a=document.getElementById('tmb-rig-guides');
+    a.setAttribute('href','/'+p+'/');
+    a.firstChild.nodeValue=HUBS[p]+' guides';
+  }
+  document.getElementById('tmb-restore-btn').textContent='Show '+name;
+  function apply(){
+    var all=false;try{all=sessionStorage.getItem('tm.home.exploreAll')==='1';}catch(e){}
+    panel.hidden=all;restore.hidden=!all;
+  }
+  document.getElementById('tmb-explore').addEventListener('click',function(){
+    try{sessionStorage.setItem('tm.home.exploreAll','1');}catch(e){}
+    apply();document.getElementById('tmb-restore-btn').focus();
+  });
+  document.getElementById('tmb-restore-btn').addEventListener('click',function(){
+    try{sessionStorage.removeItem('tm.home.exploreAll');}catch(e){}
+    apply();document.getElementById('tmb-explore').focus();
+  });
+  apply();
+})();
+</script>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
 <footer class="tm-footer">
@@ -286,12 +421,12 @@
       </p>
     </div>
     <div>
-      <h4>Tools</h4>
+      <h4>Interactive</h4>
       <a href="/build/">Rig Builder</a>
       <a href="/db/death-wobble-guide.html">Death Wobble Diagnostic</a>
       <a href="/gear-ratio-calculator.html">Gear Ratio Calculator</a>
       <a href="/db/">DIY Database</a>
-      <a href="/tools/">All tools &rarr;</a>
+      <a href="/tools/">All interactive tools &rarr;</a>
     </div>
     <div>
       <h4>Learn</h4>
@@ -300,6 +435,8 @@
       <a href="/workshop/">Workshop</a>
       <a href="/guides/">Repair Guides</a>
       <a href="/blog/">Blog</a>
+      <a href="/learn/">Learn hub</a>
+      <a href="/buying/">Buying guides</a>
     </div>
     <div>
       <h4>About</h4>
