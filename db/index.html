@@ -341,6 +341,17 @@
   
   /* ── Brand/family vehicle picker ─────────────────────────────────────── */
   .picker-hero{padding:32px 0 20px}
+  .picker-photo{margin:0 0 22px;border-radius:var(--radius-lg,14px);overflow:hidden;position:relative;background:var(--panel)}
+  .picker-photo img{display:block;width:100%;height:clamp(180px,32vw,340px);object-fit:cover;object-position:50% 62%}
+  .picker-photo figcaption{position:absolute;right:10px;bottom:8px;font-size:12px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.6)}
+  .picker-search{margin:18px 0 6px;max-width:520px}
+  .picker-search label{display:block;font-weight:600;margin:0 0 6px}
+  .picker-search input{width:100%;padding:12px 14px;font:inherit;font-size:16px;border:1px solid var(--border);border-radius:var(--radius,10px);background:var(--panel);color:var(--text)}
+  .picker-count{margin:6px 0 0;font-size:13px;color:var(--text-dim)}
+  .picker-empty{margin:18px 0;padding:16px;border:1px dashed var(--border);border-radius:var(--radius,10px)}
+  .picker-empty p{margin:0 0 10px}
+  .vp-card[hidden],.family-block[hidden],.brand-block[hidden],.picker-empty[hidden]{display:none}
+  .picker-clear{font:inherit;padding:8px 14px;border:1px solid var(--border);border-radius:var(--radius,10px);background:var(--panel);color:var(--text);cursor:pointer}
   .picker-hero h1{font-size:clamp(28px,4vw,42px);font-weight:500;letter-spacing:-.02em;margin:0 0 10px}
   .picker-hero p{color:var(--text-dim);max-width:600px;font-size:15px;margin:0 0 18px}
   .picker-stats{display:flex;gap:24px;flex-wrap:wrap}
@@ -1303,6 +1314,13 @@
 
     // Hero
     var hero = el('div', {class:'picker-hero'});
+    var heroFig = el('figure', {class:'picker-photo'});
+    var heroImg = document.createElement('img');
+    heroImg.src = '/images/adventure-sedona-jeep-lineup.webp'; heroImg.width = 1800; heroImg.height = 1350;
+    heroImg.alt = 'Lifted Cherokee XJs and a Wrangler JK Rubicon parked together in Sedona, Arizona';
+    heroFig.appendChild(heroImg);
+    heroFig.appendChild(el('figcaption', {}, 'Photo: Trail Manual'));
+    hero.appendChild(heroFig);
     hero.appendChild(el('h1', {}, 'Pick your platform'));
     hero.appendChild(el('p', {}, 'Trail Manual goes deep on Jeep first \u2014 the Cherokee XJ, the Wrangler family, and the Gladiator. Ford, Ram and Toyota platforms are covered too. Pick a vehicle to browse guides, build paths, and diagnostic tools.'));
     var stats = el('div', {class:'picker-stats'});
@@ -1327,6 +1345,17 @@
       jumpNav.appendChild(a);
     });
     app.appendChild(jumpNav);
+
+    var search = el('div', {class:'picker-search', role:'search'});
+    search.appendChild(el('label', {'for':'picker-q'}, 'Search vehicles'));
+    var q = document.createElement('input');
+    q.type = 'search'; q.id = 'picker-q'; q.autocomplete = 'off'; q.placeholder = 'Try Wrangler JK, Bronco, Tacoma';
+    search.appendChild(q);
+    var qCount = el('p', {class:'picker-count', 'aria-live':'polite'});
+    search.appendChild(qCount);
+    app.appendChild(search);
+    var qEmpty = el('div', {class:'picker-empty', hidden:''});
+    app.appendChild(qEmpty);
 
     BRANDS.forEach(function(brand) {
       var brandTotal = brand.families.reduce(function(s,f){return s + f.ids.filter(function(id){return vmap[id];}).length;}, 0);
@@ -1356,6 +1385,7 @@
           var active = v.active;
 
           var card = el(active ? 'a' : 'div', active ? { class:'vp-card', href:'#/'+id+'/home' } : { class:'vp-card inactive' });
+          card.setAttribute('data-q', [brand.name, family.label, v.label||'', id, v.years||''].join(' ').toLowerCase());
           if (vis.hero) {
             var ph = document.createElement('img');
             ph.className = 'vp-photo'; ph.src = vis.hero; ph.alt = ''; ph.loading = 'lazy';
@@ -1386,6 +1416,30 @@
 
       app.appendChild(brandEl);
     });
+
+    var cards = Array.prototype.slice.call(app.querySelectorAll('.vp-card[data-q]'));
+    function applySearch() {
+      var terms = q.value.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean);
+      var shown = 0;
+      cards.forEach(function(c){
+        var hay = c.getAttribute('data-q').replace(/[^a-z0-9 ]+/g, ' ');
+        var ok = terms.every(function(t){ return hay.indexOf(t) >= 0; });
+        c.hidden = !ok; if (ok) shown++;
+      });
+      Array.prototype.forEach.call(app.querySelectorAll('.family-block'), function(f){ f.hidden = !f.querySelector('.vp-card[data-q]:not([hidden])'); });
+      Array.prototype.forEach.call(app.querySelectorAll('.brand-block'), function(b){ b.hidden = !b.querySelector('.vp-card[data-q]:not([hidden])'); });
+      qCount.textContent = terms.length ? (shown + ' of ' + cards.length + ' vehicles') : (cards.length + ' vehicles');
+      qEmpty.innerHTML = '';
+      qEmpty.hidden = shown > 0;
+      if (!shown) {
+        qEmpty.appendChild(el('p', {}, 'No vehicle matches \u201c' + q.value.trim() + '\u201d.'));
+        var clr = el('button', {type:'button', class:'picker-clear'}, 'Clear search');
+        clr.addEventListener('click', function(){ q.value = ''; applySearch(); q.focus(); });
+        qEmpty.appendChild(clr);
+      }
+    }
+    q.addEventListener('input', applySearch);
+    applySearch();
   }
 
   // ---- VEHICLE HOME (Twin Grids §11.1 — full) ----

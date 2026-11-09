@@ -1,0 +1,50 @@
+{
+  "id": "trail-reading-02",
+  "version": "0.1.0",
+  "title": "Pick the Whole-Vehicle Line",
+  "description": "Compare three schematic lines, anticipate rear-axle placement, and explain what information a scout must establish before driving.",
+  "durationMinutes": 9,
+  "media": {
+    "path": "assets/rocky-corridor-editorial.webp",
+    "alt": "Illustrative rocky red-earth off-road path with a sandstone shelf on the left and an eroded channel on the right.",
+    "provenance": "AI-generated editorial illustration. Not a photograph of a real route, and not evidence of obstacle dimensions, stability or drivability."
+  },
+  "scenario": {
+    "name": "The rock shelf and washout",
+    "context": "The vehicle is parked safely before a designated trail section. You have an overhead *schematic*, not a surveyed route map. Three apparent routes are marked. None is safe to drive until unknown conditions are verified on foot.",
+    "scoutFindings": [
+      "The left shelf exceeds the fictional example vehicle's verified underbody clearance.",
+      "The designated trail corridor includes the middle route and excludes the outer right shoulder.",
+      "The washout shoulder is unsupported and must not be used.",
+      "After clearing loose stones on foot, the center route has a visible exit and sufficient measured clearance for the fictional example vehicle."
+    ]
+  },
+  "checks": [
+    {"id":"shelf","text":"Measure the rock shelf and check front, belly and rear clearance","correct":true,"why":"The first tire clearing the shelf does not establish differential, belly or rear-axle clearance."},
+    {"id":"rut","text":"Inspect the eroded rut edge for stability and legal trail boundary","correct":true,"why":"A smooth shoulder may be unsupported or beyond the designated route."},
+    {"id":"exit","text":"Walk far enough to see all four tire paths and the exit","correct":true,"why":"A line should be evaluated across the complete obstacle and exit, not only its entrance."},
+    {"id":"paint","text":"Choose the line based on vehicle body color","correct":false,"why":"Exterior color has no bearing on clearance or trail suitability."},
+    {"id":"momentum","text":"Assume extra momentum will compensate for missing measurements","correct":false,"why":"Momentum cannot make unknown geometry or ground stability safe."}
+  ],
+  "lines": [
+    {"id":"a","title":"A · Climb the shelf","summary":"Uses the left rock shelf to avoid loose center stones.","correct":false,"why":"The fictional scout findings establish that this shelf exceeds the example vehicle's clearance. Avoid a known underbody contact risk."},
+    {"id":"b","title":"B · Stay within the verified center","summary":"Takes the inspected center route with a confirmed exit and clearance.","correct":true,"why":"For this fictional scenario only, the center is the sole candidate with verified clearance, corridor legality and a visible exit. Reassess continuously."},
+    {"id":"c","title":"C · Use the outer shoulder","summary":"Avoids the shelf and rocks by hugging the right edge.","correct":false,"why":"The shoulder is unstable and outside the defined trail boundary. Do not widen the trail to avoid an obstacle."}
+  ],
+  "rearQuestion": {
+    "prompt":"Your front tires have cleared the obstacle. What must you assess before proceeding?",
+    "options":[
+      {"id":"rear","label":"Rear-tire paths, differential and belly clearance, vehicle attitude, and the exit","correct":true,"why":"A successful front-wheel approach is not proof the remaining vehicle will clear."},
+      {"id":"front","label":"Nothing else—the front tires demonstrate the vehicle will clear","correct":false,"why":"Rear tires may follow a different path, and the underbody can contact after the front axle passes."},
+      {"id":"throttle","label":"Add throttle to clear the rear without reassessing","correct":false,"why":"Unnecessary momentum reduces control and cannot solve unknown rear or underbody clearance."}
+    ]
+  },
+  "debrief":[
+    "Scout the legal route, unstable shoulders and unseen exit before choosing a line.",
+    "Evaluate front tires, belly and differential, rear axle and departure—not only the first contact point.",
+    "Use vehicle-specific measured clearance rather than estimates from a photograph.",
+    "Use a spotter when needed, establish stop signals and a safe escape plan.",
+    "Do not widen the trail, bypass closures or drive an unsupported edge. Turning around is a valid choice."
+  ],
+  "notice":"Training schematic only. The overhead line and moving vehicle symbol are conceptual illustrations, not a wheel-path calculation, stability analysis or real-world clearance prediction. Never use this module to authorize an actual obstacle attempt."
+}
