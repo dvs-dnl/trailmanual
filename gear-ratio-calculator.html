@@ -227,7 +227,7 @@
 @media(max-width:720px){.tnav-center{display:none}.tnav-right{display:none}.tnav-hamburger{display:flex}.tnav-inner{padding:0 16px}}
   </style>
 </head>
-<body>
+<body class="tm-tool">
 
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <a class="tm-skip" href="#tm-content">Skip to content</a>
@@ -235,6 +235,7 @@
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
+    <a class="tm-search-btn" href="/search/" aria-label="Search Trail Manual"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></a>
     <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
       <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
@@ -357,7 +358,9 @@
 <div class="calc-page">
 
   <div class="calc-hero">
-    <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--accent);margin-bottom:10px">Trail Manual · Gear Ratio Calculator</div>
+    <nav class="tm-tool-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/tools/">Interactive</a> › <span aria-current="page">Gear ratio calculator</span></nav>
+<p class="tm-tool-cat">Calculator</p>
+
     <h1>Axle Gear Ratio Calculator</h1>
     <p>Select your vehicle and trim to load factory specs as defaults. Set your target tire size. The calculator gives you a recommended gear ratio, shows the RPM impact at highway speed, and computes your crawl ratio — before and after.</p>
   </div>
@@ -580,6 +583,12 @@
 
   </div><!-- /calc-layout -->
 </div><!-- /calc-page -->
+
+<section class="tm-tool-related" aria-labelledby="tm-tool-related-h">
+<h2 id="tm-tool-related-h">Related</h2>
+<ul class="tmb-list"><li><a href="/db/wheel-offset-visualizer.html"><span class="tmb-tag">Calculator</span><strong>Wheel Offset Visualizer</strong><span>Convert offset and backspacing and see where the wheel sits against the hub.</span></a></li><li><a href="/budget-ladder.html"><span class="tmb-tag">Planner</span><strong>Budget Ladder</strong><span>What to buy next on your rig, in the order that matters most per dollar.</span></a></li><li><a href="/db/tire-pressure-airdown.html"><span class="tmb-tag">Calculator</span><strong>Tire Pressure / Airdown</strong><span>Starting pressures for sand, rock, mud, snow and dirt, adjusted for tire size and weight.</span></a></li></ul>
+<p class="tm-tool-all"><a href="/tools/">All interactive tools</a></p>
+</section>
 </main>
 
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

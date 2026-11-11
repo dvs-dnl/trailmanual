@@ -85,13 +85,14 @@
 }
 </style>
 </head>
-<body>
+<body class="tm-tool">
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <a class="tm-skip" href="#tm-content">Skip to content</a>
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
+    <a class="tm-search-btn" href="/search/" aria-label="Search Trail Manual"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></a>
     <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
       <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
@@ -210,7 +211,9 @@
 <script src="/_nav.js"></script>
 <!-- TM:HEADER:END -->
 <main class="lk-main">
-  <p class="lk-eyebrow">Trail Manual · TJ · 1997-2006</p>
+  <nav class="tm-tool-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/tools/">Interactive</a> › <span aria-current="page">TJ and LJ lift kits</span></nav>
+<p class="tm-tool-cat">Comparison · 1997–2006</p>
+
   <h1>Jeep Wrangler TJ and LJ Lift Kits Compared</h1>
   <p class="lk-lede">39 kits from 18 brands, with price, the fitment each seller names, what owners report after the install and what went wrong. Listed alphabetically, not ranked. Most of this log is what sellers claim, and we found no independent before-and-after test of a lifted TJ, so check each label before you trust a number.</p>
   <p class="lk-byline">Written and maintained by an AZ wheeler and driveway wrencher · Log checked Oct 30, 2026</p>
@@ -290,6 +293,12 @@
   </section>
   
   <section class="lk-sec"><h2>Findings for any TJ lift</h2><ul class="lk-list"><li class="lk-f">TeraFlex&#x27;s TJ/LJ guide gives max tire by kit: 2in spacer or coil 31in; 3in coil base 33in; 4in coil base 35in; Enduro LCG 3in/4in 33/35in; Pro LCG 4in/5in 35/37in. Base 3in and 4in kits require adjustable control arms and/or adjustable front track bar. <span class="lk-val">3in -&gt; 33in; 4in -&gt; 35in</span> <span class="lk-c lk-c-maker">Manufacturer claim</span> <a href="https://teraflex.com/blog/2017/07/31/tj-wrangler-and-lj-wrangler-unlimited-suspension-lift-guide/" rel="noopener">TeraFlex blog (Jason Udy)</a>, 2017-07-31</li><li class="lk-f">Same guide lists a 1in transfer case lowering kit in its 3in, 4in suspension and LCG kits, a rear lower track bar bracket in coil and suspension kits, brake line relocation brackets in 3in+ base kits (brake lines included in 4in kits), and strongly recommends high-steer for 4in or higher. <span class="lk-val">1in transfer case drop included</span> <span class="lk-c lk-c-maker">Manufacturer claim</span> <a href="https://teraflex.com/blog/2017/07/31/tj-wrangler-and-lj-wrangler-unlimited-suspension-lift-guide/" rel="noopener">TeraFlex blog (Jason Udy)</a>, 2017-07-31</li><li class="lk-f">LJ (Unlimited) gets separate part numbers from several makers: TeraFlex Enduro/Pro LCG use 1x49382, 1x49484 and 1x49585 for LJ; Rough Country lists 63830 and 63122 for LJ; Superlift&#x27;s K843 listing shows no LJ fitment. <span class="lk-val">Separate LJ SKUs</span> <span class="lk-c lk-c-retailer">Retailer claim</span> <a href="https://www.quadratec.com/vehicle/1997-2006-wrangler-tj/lift-kits-and-suspension/lift-kits?page=2" rel="noopener">Quadratec TJ lift kit listing</a>, 2026-10-30</li></ul></section>
+
+<section class="tm-tool-related" aria-labelledby="tm-tool-related-h">
+<h2 id="tm-tool-related-h">Related</h2>
+<ul class="tmb-list"><li><a href="/gear-ratio-calculator.html"><span class="tmb-tag">Calculator</span><strong>Gear Ratio Calculator</strong><span>Pick a vehicle and tire size and get a gear ratio, highway RPM and crawl ratio.</span></a></li><li><a href="/db/wheel-offset-visualizer.html"><span class="tmb-tag">Calculator</span><strong>Wheel Offset Visualizer</strong><span>Convert offset and backspacing and see where the wheel sits against the hub.</span></a></li><li><a href="/budget-ladder.html"><span class="tmb-tag">Planner</span><strong>Budget Ladder</strong><span>What to buy next on your rig, in the order that matters most per dollar.</span></a></li></ul>
+<p class="tm-tool-all"><a href="/tools/">All interactive tools</a></p>
+</section>
 </main>
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
 <footer class="tm-footer">

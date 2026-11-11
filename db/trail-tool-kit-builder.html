@@ -16,9 +16,6 @@
 <title>Trail Tool Kit Builder — Off-Road Recovery &amp; Repair | Trail Manual</title>
 <link rel="canonical" href="https://trailmanual.com/db/trail-tool-kit-builder.html">
 <meta name="description" content="Build a sized, prioritized trail tool kit based on your build complexity and how far you're going. Honest list — essential vs. nice-to-have, with what most people can skip.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/_shared.css">
 <style>
 .topbar{position:sticky;top:0;z-index:50;background:var(--bg);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid var(--border)}
@@ -103,7 +100,7 @@ main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
 .site-footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
-<body>
+<body class="tm-tool">
 
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <a class="tm-skip" href="#tm-content">Skip to content</a>
@@ -111,6 +108,7 @@ main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
+    <a class="tm-search-btn" href="/search/" aria-label="Search Trail Manual"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></a>
     <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
       <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
@@ -231,6 +229,9 @@ main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
 
 <main>
   <div class="hero">
+<nav class="tm-tool-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/tools/">Interactive</a> › <span aria-current="page">Trail tool kit builder</span></nav>
+<p class="tm-tool-cat">Builder</p>
+
     <h1>Trail Tool Kit Builder</h1>
     <p class="lede">Pick your build complexity and how far you're going. The list that comes back is sized honestly — what's essential for your scenario, what's a genuine upgrade, and what most people don't actually need.</p>
   </div>
@@ -288,6 +289,12 @@ main{max-width:900px;margin:0 auto;padding:28px 20px 80px}
     <p>This list assumes you might be trailing solo or with a group that doesn't have a support vehicle. In a group of 3+ rigs, you can spread the recovery gear across vehicles — one rig doesn't need to carry it all. The further you are from help, the more self-sufficient each rig should be.</p>
     <p>The most important recovery item is a communication plan — satellite communicator or a pre-arranged check-in schedule with someone who knows where you are. Tools and gear don't replace a way to call for help if something goes seriously wrong.</p>
   </div>
+
+<section class="tm-tool-related" aria-labelledby="tm-tool-related-h">
+<h2 id="tm-tool-related-h">Related</h2>
+<ul class="tmb-list"><li><a href="/db/tire-pressure-airdown.html"><span class="tmb-tag">Calculator</span><strong>Tire Pressure / Airdown</strong><span>Starting pressures for sand, rock, mud, snow and dirt, adjusted for tire size and weight.</span></a></li><li><a href="/db/fuel-range-planner.html"><span class="tmb-tag">Planner</span><strong>Fuel &amp; Range Planner</strong><span>A safe planning range from tank size, loaded MPG, terrain and spare fuel.</span></a></li><li><a href="/line-picker.html"><span class="tmb-tag">Planner</span><strong>Line Picker</strong><span>Find the hazards on a ledge, place your line and drive it in three decisions.</span></a></li></ul>
+<p class="tm-tool-all"><a href="/tools/">All interactive tools</a></p>
+</section>
 </main>
 
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->

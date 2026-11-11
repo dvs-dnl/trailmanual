@@ -92,7 +92,7 @@ document.addEventListener('click',function(e){
     if(p.indexOf('/buying/')===0||p.indexOf('/jl/buying-decision/')===0||/-lift-kit-comparison\.html$/.test(p)||BUYING.indexOf(p)>=0)return 'buying';
     if(p.indexOf('/trails/')===0)return 'trails';
     if(p.indexOf('/learn/')===0||p.indexOf('/workshop/')===0||p.indexOf('/trail-reading/')===0||p.indexOf('/blog/')===0)return 'learn';
-    if(p==='/'||p==='/index.html'||p.indexOf('/about')===0||p.indexOf('/privacy')===0||p.indexOf('/terms')===0)return null;
+    if(p==='/'||p==='/index.html'||p.indexOf('/about')===0||p.indexOf('/privacy')===0||p.indexOf('/terms')===0||p.indexOf('/search/')===0)return null;
     return 'guides';
   }
   function setExpanded(){

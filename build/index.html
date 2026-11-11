@@ -190,13 +190,14 @@
 }
 </style>
 </head>
-<body>
+<body class="tm-tool">
 <!-- TM:HEADER:START (canonical — source: nav-snippet.html; restamp with: python3 scripts/gate-check.py --fix) -->
 <a class="tm-skip" href="#tm-content">Skip to content</a>
 <header class="tm-topbar" id="tm-topbar">
   <div class="tm-topbar-inner">
     <a class="tm-brand" href="/" aria-label="Trail Manual home"><div class="tm-brand-mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="10" stroke="currentColor" stroke-width="2.5"/><polyline points="10,48 22,32 30,40 44,22 54,32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="10,54 24,38 32,46 46,28 54,38" stroke="#C97E50" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="tm-brand-text">TRAIL<span class="tm-brand-dot"></span>MANUAL</div></div></a>
     <!--TM:CHIP-->
+    <a class="tm-search-btn" href="/search/" aria-label="Search Trail Manual"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></a>
     <button class="tm-hamburger" type="button" aria-label="Open menu" aria-controls="tm-nav-menu" aria-expanded="false" onclick="document.getElementById('tm-nav-menu').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg></button>
     <nav class="tm-nav-menu" id="tm-nav-menu" aria-label="Main">
       <button class="tm-nav-btn" type="button" id="tm-btn-vehicles" data-tm-pillar="guides" aria-expanded="false" aria-controls="tm-dd-vehicles" onclick="tmDrop('vehicles')">Vehicle Guides <span class="tm-chev" aria-hidden="true">▾</span></button>
@@ -317,7 +318,9 @@
 
 <main class="tm-main" style="padding-top:0">
   <section class="tool-landing-hero">
-    <div class="tool-landing-eyebrow">Tool</div>
+    <nav class="tm-tool-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/tools/">Interactive</a> › <span aria-current="page">Plan your build</span></nav>
+<p class="tm-tool-cat">Planner</p>
+
     <h1>Plan your build.</h1>
     <p>Pick a build goal — daily driver, mild trail, moderate trail, or rock crawler — and the Rig Builder sequences the right parts in the right order. Add overland gear as a toggle when you want camping, awnings, water, fridge layered on top. Free, no account required.</p>
   </section>
@@ -404,6 +407,12 @@
         </a>
       </div>
   </section>
+
+<section class="tm-tool-related" aria-labelledby="tm-tool-related-h">
+<h2 id="tm-tool-related-h">Related</h2>
+<ul class="tmb-list"><li><a href="/budget-ladder.html"><span class="tmb-tag">Planner</span><strong>Budget Ladder</strong><span>What to buy next on your rig, in the order that matters most per dollar.</span></a></li><li><a href="/db/build-cost-tracker.html"><span class="tmb-tag">Planner</span><strong>Build Cost Tracker</strong><span>Log purchases by build phase and track spending against your budget.</span></a></li><li><a href="/gear-ratio-calculator.html"><span class="tmb-tag">Calculator</span><strong>Gear Ratio Calculator</strong><span>Pick a vehicle and tire size and get a gear ratio, highway RPM and crawl ratio.</span></a></li></ul>
+<p class="tm-tool-all"><a href="/tools/">All interactive tools</a></p>
+</section>
 </main>
 
 <!-- TM:FOOTER:START (canonical — source: nav-snippet.html) -->
