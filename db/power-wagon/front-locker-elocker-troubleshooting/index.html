@@ -5,10 +5,10 @@
 <meta charset="utf-8">
 <title>Power Wagon Front E-Locker Won&#x27;t Engage: Diagnosing the Electronic Locking Differentials</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is almost always one of four things: the…">
+<meta name="description" content="Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is usually one of five things: the…">
 <link rel="canonical" href="https://trailmanual.com/db/power-wagon/front-locker-elocker-troubleshooting/">
 <meta property="og:title" content="Power Wagon Front E-Locker Won&#x27;t Engage: Diagnosing the Electronic Locking Differentials — Ram Power Wagon">
-<meta property="og:description" content="Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is almost always one of four things: the…">
+<meta property="og:description" content="Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is usually one of five things: the…">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://trailmanual.com/db/power-wagon/front-locker-elocker-troubleshooting/">
 <meta property="og:image" content="https://trailmanual.com/images/photo-cat-axles.webp">
@@ -33,7 +33,7 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Power Wagon Front E-Locker Won't Engage: Diagnosing the Electronic Locking Differentials",
-  "description": "Both differentials on the Power Wagon are factory electronic lockers. When one won't engage, the diagnosis is almost always one of four things: the\u2026",
+  "description": "Both differentials on the Power Wagon are factory electronic lockers. When one won't engage, the diagnosis is usually one of five things: the\u2026",
   "author": {
     "@type": "Organization",
     "name": "Trail Manual",
@@ -245,41 +245,41 @@ if(a)gtag('event','affiliate_click',{link_url:a.href,page_path:location.pathname
   <nav class="tm-crumbs" aria-label="Breadcrumb"><a href="/power-wagon/">Ram Power Wagon</a> / <a href="/db/#/power-wagon/category/axles">Axles</a></nav>
   <h1>Power Wagon Front E-Locker Won&#x27;t Engage: Diagnosing the Electronic Locking Differentials</h1>
   <div class="tm-facts"><span class="tm-fact">Difficulty 3/5</span><span class="tm-fact">1.0–4.0 hrs</span><span class="tm-fact">$20–350</span><span class="tm-fact">2005-2009, 2010-2018, 2019-present</span><a class="tm-fact tm-jump" href="#steps">Jump to steps</a></div>
-  <div class="tm-verdict"><div class="tag">Short answer</div><p>Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is almost always one of four things: the speed interlock, a blown fuse, a failed solenoid, or a wiring issue. Work through them in order.</p></div>
+  <div class="tm-verdict"><div class="tag">Short answer</div><p>Both differentials on the Power Wagon are factory electronic lockers. When one won&#x27;t engage, the diagnosis is usually one of five things: the engagement conditions (gear range, speed, rear-first order), a torque-loaded axle that needs wheel movement to finish locking, a blown fuse, a wiring or connector fault, or the actuator itself. Work through them in that order.</p></div>
 <figure class="tm-figure"><img src="/images/photo-cat-axles.webp" alt="Low view under a 4x4 of a solid axle housing and muddy knobby tires on wet rocks" width="1600" height="1067" loading="lazy"><figcaption>Photo: <a href="https://unsplash.com/@greg_rosenke?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Greg Rosenke</a> on <a href="https://unsplash.com/?utm_source=trailmanual&amp;utm_medium=referral" rel="noopener">Unsplash</a></figcaption></figure>
-<p>The Power Wagon runs electronic lockers on both the front and rear Dana axles. Both use the same basic engagement mechanism: an electrically actuated solenoid moves a mechanical locking collar inside the differential. The control system reads vehicle speed and 4WD mode before allowing engagement — this interlock is intentional and not a failure.</p>
-<h3>Before You Diagnose: Speed and Mode Requirements</h3>
-<p><a href="https://www.mopar.com/en-us/care/service-records.html" target="_blank" rel="noopener">The lockers will not engage above approximately 8 mph</a>. If you&#x27;re trying to lock a diff at speed, the system is working correctly. The sequence for engagement is:</p>
-<ol><li>Vehicle must be in 4WD (either 4H or 4L — lockers don&#x27;t engage in 2WD)</li><li>Vehicle must be at or below ~8 mph</li><li>Press the locker switch and hold for 2–3 seconds</li></ol>
-<p>The in-cab indicator will flash while the locker is engaging (the mechanical collar is moving) and go solid when locked. If the indicator flashes and never goes solid, the solenoid is receiving a signal but the mechanical collar isn&#x27;t completing engagement. If nothing happens at all, you have an electrical problem upstream of the solenoid.</p>
+<p><a href="https://www.autoblog.com/2014/04/09/2014-ram-power-wagon-truck-new-york-official/" target="_blank" rel="noopener">The Power Wagon&#x27;s axles are AAM units — a 9.25&quot; front and an 11.5&quot; rear on the 2014-and-later truck — and both lockers are driven by electro-magnetic actuators</a>. The control system checks gear range and speed before it will lock, and that interlock is intentional, not a failure.</p>
+<h3>Before You Diagnose: Conditions From the Owner&#x27;s Manual</h3>
+<p>Ram&#x27;s owner&#x27;s manual sets these rules (<a href="https://vehicleinfo.mopar.com/assets/publications/en-us/Ram/2022/2500_3500/om_html/GUID-BEEA74BE-E9BC-4D90-A7E4-52C906F704F1.html" target="_blank" rel="noopener">Axle Locker System section</a>):</p>
+<ol><li><strong>Rear locker:</strong> the transfer case can be in 4WD LOW, 4WD HIGH or two-wheel drive; push REAR LOCK while traveling <strong>under 10 mph (16 km/h)</strong>.</li><li><strong>Front locker:</strong> push FRONT/REAR LOCK under 10 mph <strong>in 4WD LOW only</strong>, and <strong>the rear axle must already be locked</strong> before the front will lock.</li><li><strong>Indicator:</strong> the light flashes while the lock command is in progress and stays solid once the axle is locked.</li><li><strong>If it keeps flashing:</strong> a left-to-right wheel speed difference may be needed to finish locking. Ram&#x27;s advice is to drive in a turn or on loose gravel to speed up the locking action.</li><li><strong>If it won&#x27;t unlock:</strong> the lockers can be torque locked by side loads. Drive slowly while turning the wheel from left to right, or back up a short distance.</li></ol>
+<p>Most &quot;my front locker is broken&quot; reports are a truck in 4WD HIGH, a front lock request without the rear locked first, or a request above 10 mph. The manual also notes that with the axles unlocked, the rear axle&#x27;s limited slip still provides some torque biasing.</p>
 <h3>Diagnostic Sequence</h3>
-<p><strong>Step 1: Check the fuse</strong></p>
-<p>The locker solenoids have dedicated fuses in the Power Distribution Center under the hood. Locate the fuse diagram on the PDC cover or in the owner&#x27;s manual. Pull the front locker solenoid fuse and inspect it. A blown fuse is the single fastest fix on this list. Replace with the same rated fuse; if it blows again, you have a short downstream.</p>
-<p><strong>Step 2: Check for DTC codes</strong></p>
-<p>An OBD-II scanner with Ram-specific PID support will show AXLE-related codes if the locker control module has flagged a fault. Generic OBD scanners often can&#x27;t read these codes — you need a scan tool that supports Ram TIPM/body electronics, not powertrain codes. A dealer scan or a shop-level bidirectional scanner (such as the Autel MaxiSys or similar) will give you the specific fault.</p>
-<p><strong>Step 3: Verify signal at the solenoid connector</strong></p>
-<p>Locate the solenoid connector at the front differential — it&#x27;s a sealed waterproof connector on the passenger side of the front diff housing. With the switch pressed in the cab, use a multimeter to check for 12V at the connector (back-probe the terminals or use the appropriate test leads). If you have 12V at the connector and the solenoid doesn&#x27;t engage, the solenoid has failed. If you have no voltage at the connector, the problem is upstream — wiring, control module, or fuse.</p>
-<p><strong>Step 4: Solenoid replacement</strong></p>
-<p>The solenoid is a straight replacement — unplug the harness, remove two mounting bolts, pull the old solenoid, install the new one. Torque the mounting bolts to spec (typically 15–20 ft-lb). Do not overtighten — the solenoid housing is aluminum and the mounting boss strips. Reconnect the harness, clear any stored codes, and test engagement.</p>
-<p><strong>Step 5: Wiring inspection</strong></p>
-<p>If voltage is absent at the solenoid connector and the fuse is good, trace the harness back to the TIPM. Look for abrasion at frame crossmember transitions — this is the most common wiring failure point. Also inspect the connector at the TIPM for corrosion.</p>
+<p><strong>Step 1: Re-run the request by the book.</strong></p>
+<p>4WD LOW, under 10 mph, rear locked first, then front, with a little steering input or loose ground so the wheels can turn relative to each other.</p>
+<p><strong>Step 2: Check the fuse.</strong></p>
+<p>Find the locker circuit on the fuse box diagram for your year (owner&#x27;s manual or the box cover) and inspect it. Replace with the same rating; if it blows again, there is a short downstream.</p>
+<p><strong>Step 3: Check for codes.</strong></p>
+<p>A scan tool with Ram body and chassis coverage will show axle-related faults if the system has flagged one. Generic OBD readers often can&#x27;t see them. A dealer scan or a shop-level bidirectional scanner will give you the specific fault and may be able to command the actuator.</p>
+<p><strong>Step 4: Inspect the connector and harness at the axle.</strong></p>
+<p>Find the locker connector on the differential with the factory service information for your year. Look for a broken lock tab, water or green corrosion inside the connector, and harness abrasion where it runs along the axle and frame. With the request active, a multimeter at the connector tells you whether the command is reaching the axle.</p>
+<p><strong>Step 5: Actuator or internal fault.</strong></p>
+<p>If the command reaches the axle and the locker still won&#x27;t engage on a correctly run request, the fault is at the actuator or inside the differential. Follow the factory service information for your year for testing and repair; on some axles that means opening the differential.</p>
 <h3>Both Lockers Won&#x27;t Engage</h3>
-<p>If neither locker engages, suspect the main locker control module output or a 4WD engagement issue. Verify 4WD is actually engaging (transfer case indicator on, front driveshaft spinning). If 4WD is confirmed and neither locker works, pull codes — this pattern typically shows a control module fault or a bad switch cluster signal.</p>
+<p>If neither locker engages, confirm 4WD is actually engaging (transfer case indicator on, front driveshaft turning) and that you are under 10 mph, then pull codes. A pattern of both failing together points at the switch, a shared circuit or the control side rather than two failed actuators.</p>
 <h3>Field Note on Wiring</h3>
-<p>The locker wiring on Power Wagons that have been through water crossings regularly can develop internal corrosion at the solenoid connectors. The connector looks intact from the outside but the terminals inside are green. Use electrical contact cleaner and a small wire brush to clean the terminals, then apply dielectric grease before reconnecting.</p>
+<p>Power Wagons that see regular water crossings can develop corrosion inside the locker connectors even when the outside looks intact. Use electrical contact cleaner and a small brush on the terminals, then apply dielectric grease before reconnecting.</p>
 <h2 id="steps">Steps</h2>
-<ol class="tm-steps"><li>Confirm vehicle is in 4WD and below 8 mph during engagement attempt</li><li>Check and replace locker solenoid fuse if blown</li><li>Scan for DTC codes with Ram-capable scan tool</li><li>Test for 12V at solenoid connector with switch pressed</li><li>Replace solenoid if voltage present but no engagement</li><li>Trace wiring to TIPM if no voltage present at connector</li></ol>
+<ol class="tm-steps"><li>Confirm 4WD LOW and under 10 mph for the front locker (rear locker: 2WD, 4H or 4L, under 10 mph)</li><li>Lock the rear first, then the front; give the wheels some turning or loose ground to finish engagement</li><li>Check the locker fuse</li><li>Scan for codes with a Ram-capable scan tool</li><li>Inspect the connector and harness at the axle; check that the command reaches the axle</li><li>Diagnose the actuator or differential per the factory service information</li></ol>
 <h2>Why it works</h2>
-<ul><li>Most failures are straightforward: fuse or solenoid — straightforward fixes</li><li>Solenoid replacement is accessible without removing the axle</li><li>OEM Mopar solenoid is readily available and inexpensive</li></ul>
+<ul><li>Most &quot;failures&quot; are engagement conditions or a torque-loaded axle, not broken parts</li><li>The conditions are documented in the owner&#x27;s manual</li><li>Fuses and connectors are the common hardware faults and are inexpensive</li></ul>
 <h2>Trade-offs</h2>
-<ul><li>Speed interlock at 8 mph is misunderstood by many owners — know it before you diagnose</li><li>Ram-specific scan codes require a capable scan tool, not a generic OBD reader</li><li>Wiring failures from water exposure can be time-consuming to trace</li></ul>
+<ul><li>The front locker works only in 4WD LOW and only after the rear is locked, which owners often misread as a failure</li><li>Ram-specific codes require a capable scan tool, not a generic OBD reader</li><li>Wiring failures from water exposure can be time-consuming to trace</li></ul>
 <h2>Tools required</h2>
 <ul><li>multimeter</li><li>OBD-II scanner with Ram-specific PID support</li><li>basic socket set</li><li>electrical contact cleaner</li></ul>
 <h2>Parts</h2>
 
-<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Locker solenoid</td><td>Mopar</td><td>~$95</td></tr><tr><td>Locker solenoid fuse (check fuse box diagram for rating)</td><td>Mopar</td><td>~$5</td></tr></tbody></table>
+<table class="tm-parts"><thead><tr><th>Part</th><th>Vendor</th><th>Est. price</th></tr></thead><tbody><tr><td>Locker actuator or differential parts (by VIN, only after diagnosis points there)</td><td>Mopar</td><td>~$95</td></tr><tr><td>Fuse per the fuse box diagram for your year</td><td>Mopar</td><td>~$5</td></tr></tbody></table>
 <h2>Sources</h2>
-<ul class="tm-sources"><li><a href="https://www.mopar.com/en-us/care/service-records.html" target="_blank" rel="noopener">Ram Power Wagon 2500 service manual — 4WD system</a></li><li><a href="https://www.ramtruckforum.com" target="_blank" rel="noopener">Ram Truck Forum — locker troubleshooting thread</a></li></ul>
+<ul class="tm-sources"><li><a href="https://vehicleinfo.mopar.com/assets/publications/en-us/Ram/2022/2500_3500/om_html/GUID-BEEA74BE-E9BC-4D90-A7E4-52C906F704F1.html" target="_blank" rel="noopener">Ram 2022 2500/3500 Owner&#x27;s Manual — Axle Locker System (engagement conditions)</a></li><li><a href="https://www.autoblog.com/2014/04/09/2014-ram-power-wagon-truck-new-york-official/" target="_blank" rel="noopener">Autoblog — 2014 Ram Power Wagon release (AAM 9.25 front / 11.5 rear, electronic lockers with electro-magnetic actuators)</a></li></ul>
 <h2>Related</h2>
 <ul><li><a href="/db/power-wagon/pw-locker-upgrade/">Locker Upgrade Path for Power Wagon (Factory + Tru-Lok or ARB Bulletproofing)</a></li><li><a href="/db/power-wagon/pw-regear-456/">Re-gear from 4.10 to 4.56 for 37s on Power Wagon</a></li><li><a href="/power-wagon/">All Ram Power Wagon guides &amp; tools</a></li><li><a href="/db/">Browse the full DIY database</a></li></ul>
 <h2 id="tools">Related tools</h2>

@@ -1,7 +1,8 @@
 /* ============================================================
    Trail Manual — Canonical design system
-   Source of truth: TrailManual-Design-System.md
-   Direction B: system font stacks (no web-font download), Georgia for headings
+   Source of truth: TrailManual-Design-System.md (Direction B, 2026-11-08)
+   Georgia for H1/H2, a system sans for body and UI, a system mono for
+   technical text. No web fonts. Pages use these tokens, never a typeface name.
    Light is default. Dark is opt-in via [data-theme="dark"] on <html>.
    ============================================================ */
 
@@ -141,7 +142,7 @@ img{max-width:100%;display:block}
 }
 .tm-brand-mark svg{width:100%;height:100%;display:block}
 
-/* Wordmark — DM Sans Medium, all caps, +180 tracking, clay dot */
+/* Wordmark — UI sans at 500, all caps, +180 tracking, clay dot */
 .tm-brand-text{
   font-family:var(--font-sans);
   font-weight:500;
@@ -735,7 +736,8 @@ img{max-width:100%;display:block}
 .tm-pill.info{background:rgba(79,119,149,.1);color:var(--info);border-color:rgba(79,119,149,.3)}
 
 /* Default headings */
-h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
+h1,h2{font-family:var(--tm-serif);color:var(--text)}
+h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
 
 /* ============================================================
    NEW TOP NAV — Build · Learn · Explore · My Garage
@@ -870,7 +872,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
 }
 .tm-blog-tag{
   display:inline-block;
-  font-family:var(--font-mono,"JetBrains Mono",ui-monospace,monospace);
+  font-family:var(--font-mono);
   font-size:10px;
   font-weight:600;
   letter-spacing:.1em;
@@ -903,7 +905,7 @@ h1,h2,h3,h4,h5,h6{font-family:var(--font-sans);color:var(--text)}
   border-top:1px solid var(--border,rgba(0,0,0,.08));
   font-size:12px;
   color:var(--text-mute,#8A9BAE);
-  font-family:var(--font-mono,"JetBrains Mono",ui-monospace,monospace);
+  font-family:var(--font-mono);
 }
 .read-more{
   color:var(--accent,#C97E50);
@@ -1110,8 +1112,8 @@ header#tm-topbar.tm-topbar .tm-hamburger svg{width:18px;height:18px;display:bloc
 /* ============================================================
    Direction B — Refined Outdoor Editorial (2026-11-08)
    Source: Direction B v2.0 design package (DESIGN_SYSTEM.md).
-   Incremental token migration: light theme only; the dark theme
-   ([data-theme="dark"]) and every page's own rules are untouched.
+   Light-theme token remap; the dark theme ([data-theme="dark"]) keeps
+   its own values.
    Six-pillar header + five-shortcut bottom bar below 900px.
    ============================================================ */
 :root{
@@ -1133,7 +1135,6 @@ header#tm-topbar.tm-topbar .tm-hamburger svg{width:18px;height:18px;display:bloc
 }
 /* photo heroes keep the original clay accent: their small eyebrow text sits on dark overlays, where clay reads better than rust */
 :root:not([data-theme="dark"]) [class*="hero"]:not([class*="tmb-"]){--accent:var(--clay)}
-:where(h1,h2){font-family:var(--tm-serif);letter-spacing:-.01em}
 /* links inside running text need more than colour to stand out from near-black body text (WCAG 1.4.1) */
 :root:not([data-theme="dark"]) main :where(p,.tm-status) a:not([class]){text-decoration:underline;text-underline-offset:.15em}
 /* footer text on bone: muted tones raised to >=4.5:1 (was 4.2:1 and 2.8:1) */
@@ -1349,3 +1350,27 @@ html[data-theme="dark"] .st.st-closed{color:#E8908A}
 html[data-theme="dark"] .st.st-restricted,html[data-theme="dark"] .st.st-seasonal-closure{color:var(--clay-light)}
 /* Light-mode stragglers from the same pass: small clay labels on light panels were 2.9:1 */
 html:not([data-theme="dark"]) .tm-verdict .tag,html:not([data-theme="dark"]) .picker-stat .n{color:var(--tm-rust-hover)}
+
+/* ============================================================
+   Direction B typography (2026-11-11)
+   Georgia for H1 and H2, a system sans for body and UI, a system
+   monospace for part numbers, measurements and source IDs.
+   Pages that define their own --sans, --mono, --body or --display
+   tokens carry these same stacks; html:root outranks those page
+   blocks so a page that drifts still renders in Direction B. The
+   H1/H2 rule is !important because page rules such as .section-title
+   or .tm-article h2 restate a heading face at class specificity.
+   ============================================================ */
+html:root{
+  --font-sans:Inter,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+  --tm-serif:Georgia,"Iowan Old Style",serif;
+  --sans:var(--font-sans);
+  --mono:var(--font-mono);
+  --body:var(--font-sans);
+  --display:var(--font-sans);
+}
+h1,h2{font-family:var(--tm-serif)!important;letter-spacing:-.01em}
+/* Form controls take the page's face instead of the browser's Arial, and map widgets match the site. */
+:where(button,input,select,textarea){font-family:inherit}
+html .leaflet-container{font-family:var(--font-sans)}

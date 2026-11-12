@@ -29,7 +29,7 @@
 
 /* ── Hero ───────────────────────────────────────────── */
 .myx-hero{margin-bottom:30px;padding-bottom:26px;border-bottom:var(--myx-border)}
-.myx-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.myx-eyebrow{font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:1.1px;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
 .myx-hero h1{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.6px;margin:0 0 12px;color:var(--text);font-weight:600}
 .myx-hero p{font-size:16px;color:var(--text-dim);max-width:680px;line-height:1.65;margin:0}
 
@@ -41,14 +41,14 @@
 .myx-veh:hover{border-color:var(--accent)}
 .myx-veh[aria-pressed=true]{border-color:var(--accent);background:var(--bg-2);box-shadow:inset 3px 0 0 var(--accent)}
 .myx-veh-name{display:block;font-weight:600}
-.myx-veh-sub{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:.3px;margin-top:3px}
+.myx-veh-sub{display:block;font-family:var(--font-mono);font-size:10px;color:var(--text-mute);letter-spacing:.3px;margin-top:3px}
 .myx-veh[disabled]{opacity:.5;cursor:not-allowed}
 .myx-veh[disabled]:hover{border-color:var(--border)}
 
 /* ── Verdict strip ──────────────────────────────────── */
 .myx-verdicts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:12px;margin:0 0 30px}
 .myx-verdict{border:var(--myx-border);border-radius:var(--myx-radius);padding:16px 18px;background:var(--panel)}
-.myx-verdict-k{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.9px;font-weight:500;margin:0 0 7px}
+.myx-verdict-k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.9px;font-weight:500;margin:0 0 7px}
 .myx-verdict-v{font-size:19px;font-weight:600;letter-spacing:-.3px;margin:0 0 6px;color:var(--text)}
 .myx-verdict-w{font-size:13px;color:var(--text-dim);line-height:1.55;margin:0}
 .myx-v-good{border-left:3px solid var(--good)}   .myx-v-good .myx-verdict-k{color:var(--good)}
@@ -68,7 +68,7 @@
 .myx-table-wrap{overflow-x:auto;border:var(--myx-border);border-radius:var(--myx-radius);background:var(--panel);margin:0 0 14px}
 table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
 .myx-table th,.myx-table td{text-align:left;vertical-align:top;padding:13px 15px;border-bottom:1px solid var(--border)}
-.myx-table thead th{position:sticky;top:0;z-index:2;background:var(--bg-2);font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:500;color:var(--text-dim);white-space:nowrap}
+.myx-table thead th{position:sticky;top:0;z-index:2;background:var(--bg-2);font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.8px;font-weight:500;color:var(--text-dim);white-space:nowrap}
 .myx-table tbody tr:last-child td{border-bottom:none}
 .myx-table tbody tr:hover{background:var(--bg-2)}
 .myx-table tbody tr.myx-sel{background:var(--bg-2);box-shadow:inset 3px 0 0 var(--accent)}
@@ -80,14 +80,14 @@ table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13
 .myx-cell strong{font-weight:600}
 
 /* Grade badge */
-.myx-grade{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.7px;padding:3px 7px;border-radius:3px;border:1px solid;margin-top:6px;white-space:nowrap}
+.myx-grade{display:inline-block;font-family:var(--font-mono);font-size:9.5px;font-weight:500;text-transform:uppercase;letter-spacing:.7px;padding:3px 7px;border-radius:3px;border:1px solid;margin-top:6px;white-space:nowrap}
 .myx-g-best{color:var(--good);border-color:var(--good);background:rgba(94,140,90,.09)}
 .myx-g-good{color:var(--info);border-color:var(--info);background:rgba(79,119,149,.09)}
 .myx-g-split{color:var(--warn);border-color:var(--warn);background:rgba(216,144,53,.1)}
 .myx-g-caution{color:var(--safety);border-color:var(--safety);background:rgba(178,59,47,.08)}
 
 /* Confidence tag */
-.myx-c{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:1px;white-space:nowrap;border:1px solid}
+.myx-c{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;padding:1px 5px;border-radius:2px;margin-left:5px;vertical-align:1px;white-space:nowrap;border:1px solid}
 .myx-c-oem{color:var(--info);border-color:rgba(79,119,149,.4)}
 .myx-c-nhtsa{color:var(--accent-3);border-color:rgba(138,78,44,.4)}
 .myx-c-iihs{color:var(--accent-2);border-color:rgba(61,91,71,.4)}
@@ -106,26 +106,26 @@ table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13
 .myx-cmp-col{border:var(--myx-border);border-radius:8px;padding:16px;background:var(--bg)}
 .myx-cmp-col h3{font-size:17px;font-weight:600;margin:0 0 3px;color:var(--text)}
 .myx-cmp-sec{margin:14px 0 0}
-.myx-cmp-sec h4{font-family:'JetBrains Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:0 0 6px;font-weight:500}
+.myx-cmp-sec h4{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:0 0 6px;font-weight:500}
 .myx-cmp-sec ul{margin:0;padding:0;list-style:none;font-size:12.5px;line-height:1.5}
 .myx-cmp-sec li{margin-bottom:6px}
 
 /* ── Section blocks ─────────────────────────────────── */
 .myx-sec{margin:0 0 34px}
 .myx-sec-head{display:flex;align-items:baseline;gap:12px;margin:0 0 16px;padding-bottom:9px;border-bottom:1px solid var(--bg-3)}
-.myx-sec-num{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:.8px;white-space:nowrap}
+.myx-sec-num{font-family:var(--font-mono);font-size:10px;color:var(--text-mute);letter-spacing:.8px;white-space:nowrap}
 .myx-sec-head h2{font-size:23px;font-weight:600;letter-spacing:-.4px;margin:0;color:var(--text)}
 
 /* Recall list */
 .myx-recalls{display:grid;gap:9px}
 .myx-recall{border:var(--myx-border);border-left:3px solid var(--accent-3);border-radius:7px;padding:13px 16px;background:var(--panel)}
 .myx-recall-top{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;margin-bottom:5px}
-.myx-recall-id{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:var(--text)}
-.myx-recall-yrs{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-mute);letter-spacing:.4px}
+.myx-recall-id{font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--text)}
+.myx-recall-yrs{font-family:var(--font-mono);font-size:10px;color:var(--text-mute);letter-spacing:.4px}
 .myx-recall-t{font-size:13.5px;color:var(--text);font-weight:600;margin:0 0 4px;line-height:1.45}
 .myx-recall-d{font-size:13px;color:var(--text-dim);line-height:1.55;margin:0}
 .myx-recall.myx-fire{border-left-color:var(--safety)}
-.myx-flag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:var(--safety);color:var(--paper)}
+.myx-flag{display:inline-block;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:2px 6px;border-radius:2px;background:var(--safety);color:var(--paper)}
 
 /* Checklist */
 .myx-check{display:grid;gap:2px;border:var(--myx-border);border-radius:var(--myx-radius);background:var(--panel);padding:8px}
@@ -139,7 +139,7 @@ table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13
 .myx-note{border-left:3px solid var(--warn);background:rgba(216,144,53,.07);padding:15px 18px;border-radius:0 7px 7px 0;margin:0 0 20px}
 .myx-note p{margin:0;font-size:13.5px;line-height:1.6;color:var(--text)}
 .myx-note p + p{margin-top:9px}
-.myx-note-k{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:var(--warn);font-weight:500;display:block;margin-bottom:6px}
+.myx-note-k{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:var(--warn);font-weight:500;display:block;margin-bottom:6px}
 
 /* Myth list */
 .myx-myths{display:grid;gap:11px}
@@ -156,10 +156,10 @@ table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13
 
 /* ── Blog post ──────────────────────────────────────── */
 .myx-article{max-width:740px;margin:0 auto;padding-top:14px;border-top:3px solid var(--bg-3)}
-.myx-article-kicker{font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent);margin:26px 0 12px}
+.myx-article-kicker{font-family:var(--font-mono);font-size:10px;text-transform:uppercase;letter-spacing:1.1px;color:var(--accent);margin:26px 0 12px}
 .myx-article h2.myx-art-title{font-size:clamp(24px,3.2vw,32px);font-weight:600;letter-spacing:-.6px;line-height:1.25;margin:0 0 14px;color:var(--text)}
 .myx-article .myx-lede{font-size:17px;line-height:1.65;color:var(--text-dim);margin:0 0 8px}
-.myx-byline{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--text-mute);letter-spacing:.4px;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.myx-byline{font-family:var(--font-mono);font-size:10.5px;color:var(--text-mute);letter-spacing:.4px;margin:0 0 30px;padding-bottom:20px;border-bottom:1px solid var(--border)}
 .myx-article h3{font-size:20px;font-weight:600;letter-spacing:-.3px;margin:34px 0 12px;color:var(--text)}
 .myx-article h4{font-size:16px;font-weight:600;margin:24px 0 9px;color:var(--text)}
 .myx-article p{font-size:15.5px;line-height:1.7;color:var(--text);margin:0 0 15px}
@@ -178,7 +178,7 @@ table.myx-table{border-collapse:collapse;width:100%;min-width:760px;font-size:13
 .myx-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--bg-3);border-radius:var(--myx-radius);overflow:hidden;margin:34px 0 0}
 .myx-related a{display:block;background:var(--panel);padding:19px;text-decoration:none;transition:background .15s}
 .myx-related a:hover{background:var(--bg-2)}
-.myx-related-k{font-family:'JetBrains Mono',monospace;font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:0 0 6px}
+.myx-related-k{font-family:var(--font-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:.8px;color:var(--accent);margin:0 0 6px}
 .myx-related-t{font-size:15px;font-weight:600;color:var(--text);margin:0 0 4px}
 .myx-related-d{font-size:12.5px;color:var(--text-dim);line-height:1.5;margin:0}
 
